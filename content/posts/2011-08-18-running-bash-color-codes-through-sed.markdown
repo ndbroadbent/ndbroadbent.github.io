@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-08-18T04:48:59Z
-tags: bash scripts
+tags: ["bash", "scripts"]
 title: Running bash color codes through sed
 url: /2011/08/18/running-bash-color-codes-through-sed/
 wordpress_id: 569

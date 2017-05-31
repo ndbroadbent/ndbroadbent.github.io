@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-02-25T17:00:27Z
-tags: linux bash administration server
+tags: ["linux", "bash", "administration", "server"]
 title: Scheduling one-off tasks with 'at'
 url: /2012/02/25/scheduling-one-off-tasks-with-at-/
 ---

@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-20T13:19:42Z
-tags: [compaq-evo-t20, lcd4linux, linux, shell-fm]
+tags: ["compaq-evo-t20", "lcd4linux", "linux", "shell-fm"]
 title: Pertelian X2040, lcd4linux, shell-fm
 url: /2010/04/20/pertelian-x2040-lcd4linux-shell-fm/
 wordpress_id: 25

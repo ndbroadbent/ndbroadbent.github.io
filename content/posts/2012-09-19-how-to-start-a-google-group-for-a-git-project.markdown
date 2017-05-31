@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-09-19T12:05:39Z
-tags: administration GitHub git google-groups mailing-list bash zsh
+tags: ["administration", "GitHub", "git", "google-groups", "mailing-list", "bash", "zsh"]
 title: How to start a Google Group for a git project
 url: /2012/09/19/how-to-start-a-google-group-for-a-git-project/
 ---

@@ -2,7 +2,7 @@
 comments: true
 date: 2011-12-13T23:12:50Z
 excerpt: Testing Multiple Databases for a Rails app on Travis CI
-tags: ruby rails
+tags: ["ruby", "rails"]
 title: Testing Multiple Databases for a Rails app on Travis CI
 url: /2011/12/13/testing-multiple-databases-for-a-rails-app-on-travis-ci/
 ---

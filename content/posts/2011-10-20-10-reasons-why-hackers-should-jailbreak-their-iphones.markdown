@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-10-20T18:55:18Z
-tags: iphone jailbreak thoughts
+tags: ["iphone", "jailbreak", "thoughts"]
 title: 10 Reasons why Hackers should Jailbreak their iPhones
 url: /2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/
 ---

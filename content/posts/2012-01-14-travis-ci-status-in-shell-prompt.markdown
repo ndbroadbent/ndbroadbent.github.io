@@ -2,7 +2,7 @@
 comments: true
 date: 2012-01-14T01:21:13Z
 excerpt: Travis CI Status in Shell Prompt
-tags: ruby github travis-ci bash prompt
+tags: ["ruby", "github", "travis-ci", "bash", "prompt"]
 title: Travis CI Status in Shell Prompt
 url: /2012/01/14/travis-ci-status-in-shell-prompt/
 ---

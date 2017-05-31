@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-29T10:39:42Z
-tags: bluetooth guides linux ubuntu-9.10
+tags: ["bluetooth", "guides", "linux", "ubuntu-9.10"]
 title: How to use a bluetooth headset on Ubuntu 9.10 +
 url: /2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/
 wordpress_id: 40

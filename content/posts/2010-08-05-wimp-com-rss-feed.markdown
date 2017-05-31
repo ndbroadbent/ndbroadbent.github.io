@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-08-05T21:12:40Z
-tags: rss feed videos
+tags: ["rss", "feed", "videos"]
 title: wimp.com rss feed
 url: /2010/08/05/wimp-com-rss-feed/
 wordpress_id: 115

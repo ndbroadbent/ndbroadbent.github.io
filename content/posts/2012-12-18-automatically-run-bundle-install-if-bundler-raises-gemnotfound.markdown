@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-12-18T19:56:01Z
-tags: ruby rails bash bundler rubygems
+tags: ["ruby", "rails", "bash", "bundler", "rubygems"]
 title: Automatically run 'bundle install' when Bundler can't find a gem
 url: /2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/
 ---

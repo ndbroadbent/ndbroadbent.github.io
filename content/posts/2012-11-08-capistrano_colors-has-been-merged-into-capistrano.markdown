@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-11-08T12:55:17Z
-tags: rails ruby linux capistrano server administration
+tags: ["rails", "ruby", "linux", "capistrano", "server", "administration"]
 title: capistrano_colors has been merged into capistrano
 url: /2012/11/08/capistrano_colors-has-been-merged-into-capistrano/
 ---

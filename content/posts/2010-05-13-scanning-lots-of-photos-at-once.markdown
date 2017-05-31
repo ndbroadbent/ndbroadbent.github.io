@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-05-13T22:13:09Z
-tags: gimp guides photography
+tags: ["gimp", "guides", "photography"]
 title: Scanning lots of photos at once with GIMP on Ubuntu Linux
 url: /2010/05/13/scanning-lots-of-photos-at-once/
 wordpress_id: 74

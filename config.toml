@@ -28,7 +28,7 @@ theme = "hugo-sustain"
 
 ## Main Menu
 [[menu.main]]
-  name = "Blog"
+  name = "Posts"
   weight = 100
   identifier = "post"
   url = "/posts/"

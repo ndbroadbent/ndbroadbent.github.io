@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-04-28T05:23:44Z
-tags: guides rails bundler rails-3 rvm gedit
+tags: ["guides", "rails", "bundler", "rails-3", "rvm", "gedit"]
 title: Really handy RVM hook to symlink current gem directory
 url: /2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/
 wordpress_id: 446

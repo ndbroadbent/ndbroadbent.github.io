@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-05-13T17:46:25Z
-tags: ruby videos youtube
+tags: ["ruby", "videos", "youtube"]
 title: YoutubeJukebox
 url: /2010/05/13/youtubejukebox/
 wordpress_id: 71

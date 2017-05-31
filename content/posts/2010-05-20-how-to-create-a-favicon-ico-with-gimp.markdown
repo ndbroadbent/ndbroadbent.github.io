@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-05-20T13:19:13Z
-tags: gimp guides web-design
+tags: ["gimp", "guides", "web-design"]
 title: How to create a favicon.ico with GIMP
 url: /2010/05/20/how-to-create-a-favicon-ico-with-gimp/
 wordpress_id: 85

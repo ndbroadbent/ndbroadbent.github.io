@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-08-04T23:28:02Z
-tags: git guides
+tags: ["git", "guides"]
 title: How to upgrade git on legacy Ubuntu
 url: /2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/
 wordpress_id: 113

@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-25T13:55:31Z
-tags: lcd4linux ruby
+tags: ["lcd4linux", "ruby"]
 title: Hacking DSP-420 LCD displays
 url: /2010/04/25/my-job-is-sweet/
 wordpress_id: 30

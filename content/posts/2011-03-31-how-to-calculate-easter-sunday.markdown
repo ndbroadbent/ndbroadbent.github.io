@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-03-31T17:41:27Z
-tags: guides ruby home-automation
+tags: ["guides", "ruby", "home-automation"]
 title: How to calculate Easter Sunday
 url: /2011/03/31/how-to-calculate-easter-sunday/
 wordpress_id: 420

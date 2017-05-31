@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2013-03-29T23:44:58Z
-tags: ruby rails bash linux ubuntu
+tags: ["ruby", "rails", "bash", "linux", "ubuntu"]
 title: 'Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2'
 url: /2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/
 ---

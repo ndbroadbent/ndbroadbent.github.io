@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-03-02T05:43:35Z
-tags: guides rails rails-3 capistrano
+tags: ["guides", "rails", "rails-3", "capistrano"]
 title: Capistrano task - show deployed revisions & diffs
 url: /2011/03/02/capistrano-task-show-deployed-revisions-diffs/
 wordpress_id: 380

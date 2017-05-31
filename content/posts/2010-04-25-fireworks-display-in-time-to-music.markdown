@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-25T14:06:56Z
-tags: [reaper, music, fireworks, pyro, show]
+tags: ["reaper", "music", "fireworks", "pyro", "show"]
 title: fireworks display in time to music.
 url: /2010/04/25/fireworks-display-in-time-to-music/
 wordpress_id: 33

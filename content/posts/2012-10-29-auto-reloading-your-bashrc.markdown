@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-10-29T20:31:21Z
-tags: bash linux scripts
+tags: ["bash", "linux", "scripts"]
 title: Auto-reloading your .bashrc (or .zshrc)
 url: /2012/10/29/auto-reloading-your-bashrc/
 ---

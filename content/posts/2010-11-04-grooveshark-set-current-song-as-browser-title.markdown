@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-11-04T19:07:51Z
-tags: greasemonkey javascript music grooveshark
+tags: ["greasemonkey", "javascript", "music", "grooveshark"]
 title: Grooveshark - Set Current Song as Browser Title
 url: /2010/11/04/grooveshark-set-current-song-as-browser-title/
 wordpress_id: 136

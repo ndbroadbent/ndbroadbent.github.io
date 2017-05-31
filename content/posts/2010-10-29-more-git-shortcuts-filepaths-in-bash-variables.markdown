@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-10-29T22:31:35Z
-tags: git guides
+tags: ["git", "guides"]
 title: Make 'git status' put filepaths into numbered variables
 url: /2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/
 wordpress_id: 192

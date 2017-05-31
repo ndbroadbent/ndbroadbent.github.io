@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-10-19T20:37:16Z
-tags: guides rails bundler plugins
+tags: ["guides", "rails", "bundler", "plugins"]
 title: How to use bundler with multiple Gemfiles in plugins / extensions
 url: /2010/10/19/how-to-use-bundler-with-plugins-extensions/
 wordpress_id: 139

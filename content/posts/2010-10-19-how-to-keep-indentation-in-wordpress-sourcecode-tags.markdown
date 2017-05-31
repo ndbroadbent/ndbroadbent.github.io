@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-10-19T20:58:38Z
-tags: guides wordpress
+tags: ["guides", "wordpress"]
 title: How to preserve indentation in wordpress [sourcecode] tags
 url: /2010/10/19/how-to-keep-indentation-in-wordpress-sourcecode-tags/
 wordpress_id: 150

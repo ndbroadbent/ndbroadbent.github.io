@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-08-16T08:47:38Z
-tags: bash scripts
+tags: ["bash", "scripts"]
 title: Bash Color Index
 url: /2011/08/16/bash-color-index/
 wordpress_id: 552

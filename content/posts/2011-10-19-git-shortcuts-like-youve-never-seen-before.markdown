@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-10-19T01:14:01Z
-tags: git bash zsh scripts projects
+tags: ["git", "bash", "zsh", "scripts", "projects"]
 title: Git Shortcuts Like You've Never Seen Before
 url: /2011/10/19/git-shortcuts-like-youve-never-seen-before/
 ---

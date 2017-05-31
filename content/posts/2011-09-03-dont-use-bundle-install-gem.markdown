@@ -3,7 +3,7 @@ comments: true
 date: 2011-09-03T04:39:22Z
 excerpt: You keep using 'bundle install {gem}'. I do not think it means what you think
   it means.
-tags: bundler ruby ruby-gems
+tags: ["bundler", "ruby", "ruby-gems"]
 title: Don't use 'bundle install {gem}'.
 url: /2011/09/03/dont-use-bundle-install-gem/
 wordpress_id: 571

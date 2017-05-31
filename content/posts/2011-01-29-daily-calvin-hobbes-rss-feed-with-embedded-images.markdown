@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-01-29T08:26:41Z
-tags: rss feed comics
+tags: ["rss", "feed", "comics"]
 title: Daily Calvin & Hobbes RSS feed (with embedded images)
 url: /2011/01/29/daily-calvin-hobbes-rss-feed-with-embedded-images/
 wordpress_id: 342

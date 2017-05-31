@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-05-28T14:55:05Z
-tags: bugfixes rails
+tags: ["bugfixes", "rails"]
 title: Don&#039;t override core Rails methods
 url: /2010/05/28/dont-override-core-rails-methods/
 wordpress_id: 90

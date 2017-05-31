@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-03-19T15:37:32Z
-tags: compaq-evo-t20 linux projects home-automation electronics
+tags: ["compaq-evo-t20", "linux", "projects", "home-automation", "electronics"]
 title: Weather Notifier
 url: /2011/03/19/weather-notifier/
 wordpress_id: 404

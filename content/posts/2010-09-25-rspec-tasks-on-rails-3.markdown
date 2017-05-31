@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-09-25T19:51:35Z
-tags: rspec rails-3 bugfixes rails
+tags: ["rspec", "rails-3", "bugfixes", "rails"]
 title: RSpec tasks on Rails 3
 url: /2010/09/25/rspec-tasks-on-rails-3/
 wordpress_id: 125

@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-10-07T18:23:30Z
-tags: bugfixes wordpress
+tags: ["bugfixes", "wordpress"]
 title: 'Configure SMTP - SMTP Error: Could not connect to SMTP host.'
 url: /2010/10/07/configure-wordpress-smtp-error-could-not-connect-to-smtp-host/
 wordpress_id: 249

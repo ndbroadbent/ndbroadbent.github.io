@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-01-07T07:23:48Z
-tags: guides bash iphone jailbreak
+tags: ["guides", "bash", "iphone", "jailbreak"]
 title: Add .bashrc to iPhone for SSH or MobileTerminal
 url: /2011/01/07/add-bashrc-to-iphone/
 wordpress_id: 325

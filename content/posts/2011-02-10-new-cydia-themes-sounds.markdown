@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-02-10T01:28:28Z
-tags: iphone ios jailbreak
+tags: ["iphone", "ios", "jailbreak"]
 title: New Cydia Themes (Sounds)
 url: /2011/02/10/new-cydia-themes-sounds/
 wordpress_id: 350

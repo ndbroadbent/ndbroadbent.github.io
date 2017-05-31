@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-05-06T15:33:06Z
-tags: javascript rails web-design jqgrid
+tags: ["javascript", "rails", "web-design", "jqgrid"]
 title: obscure jqGrid API notes
 url: /2010/05/06/obscure-jqgrid-api-notes/
 wordpress_id: 61

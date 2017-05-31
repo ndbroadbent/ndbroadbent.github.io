@@ -2,7 +2,7 @@
 comments: true
 date: 2011-10-21T23:25:47Z
 excerpt: How to use Dropbox to sync the files you don't want to check in
-tags: git bash scripts guides ubuntu
+tags: ["git", "bash", "scripts", "guides", "ubuntu"]
 title: 'Managing Project Design Assets For Git Repositories: A Simple Solution'
 url: /2011/10/21/managing-project-design-assets-for-git-repositories/
 ---

@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-08T13:51:23Z
-tags: [c, compaq-evo-t20, damn-small-linux, linux]
+tags: ["c", "compaq-evo-t20", "damn-small-linux", "linux"]
 title: Compaq Evo T20 projects
 url: /2010/04/08/compaq-evo-t20-projects/
 wordpress_id: 8

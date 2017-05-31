@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-12-31T07:02:38Z
-tags: thoughts
+tags: ["thoughts"]
 title: Wikipedia is great, help keep it free!
 url: /2010/12/31/wikipedia-is-great/
 wordpress_id: 321

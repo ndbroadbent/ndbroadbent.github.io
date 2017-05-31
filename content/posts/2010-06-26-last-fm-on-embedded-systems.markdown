@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-06-26T00:30:15Z
-tags: compaq-evo-t20 lcd4linux linux music ruby shell-fm web-design
+tags: ["compaq-evo-t20", "lcd4linux", "linux", "music", "ruby", "shell-fm", "web-design"]
 title: Last.fm on embedded systems
 url: /2010/06/26/last-fm-on-embedded-systems/
 wordpress_id: 96

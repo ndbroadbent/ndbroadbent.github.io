@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-10-14T22:28:47Z
-tags: linux bash ruby scripts
+tags: ["linux", "bash", "ruby", "scripts"]
 title: Saving space in the terminal with symbols
 url: /2012/10/14/saving-space-in-the-terminal-with-symbols/
 ---
