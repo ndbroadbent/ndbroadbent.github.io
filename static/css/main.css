@@ -54,7 +54,7 @@ section#recent-posts {
 
 #about .avatar {
   padding-top: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 #about .social-links {
@@ -63,7 +63,8 @@ section#recent-posts {
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
   -webkit-padding-start: 0;
-  margin-bottom: 40px;
+  margin-top: 35px;
+  /*margin-bottom: 10px;*/
 }
 
 /*h4 {
