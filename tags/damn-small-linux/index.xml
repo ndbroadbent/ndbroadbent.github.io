@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Damn Small Linux on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/damn-small-linux/</link>
+    <link>https://madebynathan.com/tags/damn-small-linux/</link>
     <description>Recent content in Damn Small Linux on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 08 Apr 2010 13:51:23 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/damn-small-linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/damn-small-linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Compaq Evo T20 projects</title>
-      <link>http://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</link>
+      <link>https://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</link>
       <pubDate>Thu, 08 Apr 2010 13:51:23 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</guid>
+      <guid>https://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</guid>
       <description>Compaq Evo T20s are fun. I have a few that I&amp;rsquo;m using for various projects. I plan to set one up as a RFID controlled alarm/door lock system. Its running Damn Small Linux using ruby, rubygems and sinatra packages that I compiled myself.
 Karl Mowatt-Wilson&amp;rsquo;s tutorials have been a huge help with flashing the T20s with linux images, as well as the open-evot20 site.
 I wrote a K8055 USB Ruby C wrapper for the K8055 USB interface experiment board (bought from here).</description>

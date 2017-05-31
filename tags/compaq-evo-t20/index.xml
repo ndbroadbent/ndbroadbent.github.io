@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Compaq Evo T20 on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/compaq-evo-t20/</link>
+    <link>https://madebynathan.com/tags/compaq-evo-t20/</link>
     <description>Recent content in Compaq Evo T20 on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 19 Mar 2011 15:37:32 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/compaq-evo-t20/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/compaq-evo-t20/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Weather Notifier</title>
-      <link>http://madebynathan.com/2011/03/19/weather-notifier/</link>
+      <link>https://madebynathan.com/2011/03/19/weather-notifier/</link>
       <pubDate>Sat, 19 Mar 2011 15:37:32 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/03/19/weather-notifier/</guid>
+      <guid>https://madebynathan.com/2011/03/19/weather-notifier/</guid>
       <description>This is just a little idea I had on the bus.
 Outside my apartment, I have a bucket for umbrellas.
 A program checks the local weather on weather.com from time to time. If there&#39;s any chance of rain, it switches on the lights installed in the bucket.
@@ -26,10 +26,10 @@ So when I walk out the door, I know whether or not I should take an umbrella to 
     
     <item>
       <title>More home automation..</title>
-      <link>http://madebynathan.com/2010/12/27/more-home-automation/</link>
+      <link>https://madebynathan.com/2010/12/27/more-home-automation/</link>
       <pubDate>Mon, 27 Dec 2010 16:29:12 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/12/27/more-home-automation/</guid>
+      <guid>https://madebynathan.com/2010/12/27/more-home-automation/</guid>
       <description>My hall light turns on for 15 minutes if it&amp;rsquo;s past 10pm and I unlock my door with an octopus card or iPhone.
 
 Its just a 12v relay (rated at 240V/30A), and some cat-5 to the thin client PC. All happens to fit perfectly inside the light switch.
@@ -38,20 +38,20 @@ Next up, automatic plant watering &amp;hellip;</description>
     
     <item>
       <title>RFID apartment lock (&amp; iPhone app)</title>
-      <link>http://madebynathan.com/2010/11/05/octopus-card-door-lock/</link>
+      <link>https://madebynathan.com/2010/11/05/octopus-card-door-lock/</link>
       <pubDate>Fri, 05 Nov 2010 20:10:37 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/11/05/octopus-card-door-lock/</guid>
+      <guid>https://madebynathan.com/2010/11/05/octopus-card-door-lock/</guid>
       <description>Octopus cards in Hong Kong can be used to purchase almost anything, such as groceries, McDonalds, and public transport. Since everyone has one, a lot of apartments are using them for access control.
 One of my first projects after moving back to Hong Kong was installing an electronic lock on my apartment door. My door can be now be unlocked with an Octopus RFID card, iPhone app, or over the web.</description>
     </item>
     
     <item>
       <title>Last.fm on embedded systems</title>
-      <link>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</link>
+      <link>https://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</link>
       <pubDate>Sat, 26 Jun 2010 00:30:15 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</guid>
+      <guid>https://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</guid>
       <description>I&amp;rsquo;ve finished most of the work I&amp;rsquo;m going to do on my shell.fm ruby server. Its written on sinatra + jquery + jquery-ui (so, a lot of ajax calls). It also requires my custom shell.fm fork if you want the volume control to work.
 You can find my shell.fm fork here: http://github.com/ndbroadbent/shell-fm
 and the shell.fm sinatra server is here: http://github.com/ndbroadbent/shell-fm_sinatra
@@ -60,10 +60,10 @@ By the way, this post is about an embedded linux system that plays last.</descri
     
     <item>
       <title>Pertelian X2040, lcd4linux, shell-fm</title>
-      <link>http://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</link>
+      <link>https://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</link>
       <pubDate>Tue, 20 Apr 2010 13:19:42 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</guid>
+      <guid>https://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</guid>
       <description>I received my Pertelian X2040, and had a bit of trouble getting it work on my 64bit Ubuntu machine. The characters were getting all mixed up. I gave up on my 64bit machine and decided to focus my efforts on the T20 running tinycore.
 To get lcd4linux running on tinycore with any lcd screen, you need the dbus, usbutils and usb-serial packages installed.
 At first, lcd4linux was asking me for mysql, and then sqlite, and those are pretty hefty packages for a little thin client.</description>
@@ -71,20 +71,20 @@ At first, lcd4linux was asking me for mysql, and then sqlite, and those are pret
     
     <item>
       <title>The Compaq Evo T20 works</title>
-      <link>http://madebynathan.com/2010/04/15/it-works/</link>
+      <link>https://madebynathan.com/2010/04/15/it-works/</link>
       <pubDate>Thu, 15 Apr 2010 22:22:32 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/15/it-works/</guid>
+      <guid>https://madebynathan.com/2010/04/15/it-works/</guid>
       <description>I&amp;rsquo;ve finished the software research stage of my Compaq Evo T20 experiments. I have settled on the Tinycore 2.7 distribution. So I now have a 300MHz thin client that:
  can connect to a wired or wireless network. can play audio through its onboard sound device. has the required libraries to run MPD (music player daemon) and shell.fm (minimal console application for streaming last.fm stations.) can run Ruby 1.8.7, rubygems, rails, sinatra, etc (Ruby 1.</description>
     </item>
     
     <item>
       <title>Compaq Evo T20 projects</title>
-      <link>http://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</link>
+      <link>https://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</link>
       <pubDate>Thu, 08 Apr 2010 13:51:23 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</guid>
+      <guid>https://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</guid>
       <description>Compaq Evo T20s are fun. I have a few that I&amp;rsquo;m using for various projects. I plan to set one up as a RFID controlled alarm/door lock system. Its running Damn Small Linux using ruby, rubygems and sinatra packages that I compiled myself.
 Karl Mowatt-Wilson&amp;rsquo;s tutorials have been a huge help with flashing the T20s with linux images, as well as the open-evot20 site.
 I wrote a K8055 USB Ruby C wrapper for the K8055 USB interface experiment board (bought from here).</description>

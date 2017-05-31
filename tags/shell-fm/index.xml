@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell Fm on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/shell-fm/</link>
+    <link>https://madebynathan.com/tags/shell-fm/</link>
     <description>Recent content in Shell Fm on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 26 Jun 2010 00:30:15 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/shell-fm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/shell-fm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Last.fm on embedded systems</title>
-      <link>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</link>
+      <link>https://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</link>
       <pubDate>Sat, 26 Jun 2010 00:30:15 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</guid>
+      <guid>https://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</guid>
       <description>I&amp;rsquo;ve finished most of the work I&amp;rsquo;m going to do on my shell.fm ruby server. Its written on sinatra + jquery + jquery-ui (so, a lot of ajax calls). It also requires my custom shell.fm fork if you want the volume control to work.
 You can find my shell.fm fork here: http://github.com/ndbroadbent/shell-fm
 and the shell.fm sinatra server is here: http://github.com/ndbroadbent/shell-fm_sinatra
@@ -25,10 +25,10 @@ By the way, this post is about an embedded linux system that plays last.</descri
     
     <item>
       <title>Pertelian X2040, lcd4linux, shell-fm</title>
-      <link>http://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</link>
+      <link>https://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</link>
       <pubDate>Tue, 20 Apr 2010 13:19:42 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</guid>
+      <guid>https://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</guid>
       <description>I received my Pertelian X2040, and had a bit of trouble getting it work on my 64bit Ubuntu machine. The characters were getting all mixed up. I gave up on my 64bit machine and decided to focus my efforts on the T20 running tinycore.
 To get lcd4linux running on tinycore with any lcd screen, you need the dbus, usbutils and usb-serial packages installed.
 At first, lcd4linux was asking me for mysql, and then sqlite, and those are pretty hefty packages for a little thin client.</description>
@@ -36,20 +36,20 @@ At first, lcd4linux was asking me for mysql, and then sqlite, and those are pret
     
     <item>
       <title>Next project!</title>
-      <link>http://madebynathan.com/2010/04/15/next-project/</link>
+      <link>https://madebynathan.com/2010/04/15/next-project/</link>
       <pubDate>Thu, 15 Apr 2010 23:15:57 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/15/next-project/</guid>
+      <guid>https://madebynathan.com/2010/04/15/next-project/</guid>
       <description>So I have practically finished the last.fm player. Its running as I type this, and the sinatra server running on the machine is keeping me up to date with the tracks that are playing. But I&amp;rsquo;m not quite finished with this little project yet.
 At work, I found an Advatel TCD226C LED Wallboard. It is a single line, 26 character LED display, that can communicate over RS232. The only problem is that the protocol is proprietary and the manufacturer isnt going to budge.</description>
     </item>
     
     <item>
       <title>The Compaq Evo T20 works</title>
-      <link>http://madebynathan.com/2010/04/15/it-works/</link>
+      <link>https://madebynathan.com/2010/04/15/it-works/</link>
       <pubDate>Thu, 15 Apr 2010 22:22:32 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/15/it-works/</guid>
+      <guid>https://madebynathan.com/2010/04/15/it-works/</guid>
       <description>I&amp;rsquo;ve finished the software research stage of my Compaq Evo T20 experiments. I have settled on the Tinycore 2.7 distribution. So I now have a 300MHz thin client that:
  can connect to a wired or wireless network. can play audio through its onboard sound device. has the required libraries to run MPD (music player daemon) and shell.fm (minimal console application for streaming last.fm stations.) can run Ruby 1.8.7, rubygems, rails, sinatra, etc (Ruby 1.</description>
     </item>

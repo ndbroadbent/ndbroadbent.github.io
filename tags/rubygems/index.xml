@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rubygems on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/rubygems/</link>
+    <link>https://madebynathan.com/tags/rubygems/</link>
     <description>Recent content in Rubygems on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 18 Dec 2012 19:56:01 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/rubygems/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/rubygems/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Automatically run &#39;bundle install&#39; when Bundler can&#39;t find a gem</title>
-      <link>http://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</link>
+      <link>https://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</link>
       <pubDate>Tue, 18 Dec 2012 19:56:01 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</guid>
+      <guid>https://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</guid>
       <description>Every Rails developer has probably experienced the following error:
 Could not find &amp;lt;gem&amp;gt; in any of the sources Run `bundle install` to install missing gems.   This happens if you or someone else adds a gem to your Gemfile, or if a gem version is updated in Gemfile.lock, and you forget to run bundle install before running a Rails command.
 Here&amp;rsquo;s a simple function that handles this automatically, called bundle_install_wrapper().</description>
@@ -24,10 +24,10 @@ Here&amp;rsquo;s a simple function that handles this automatically, called bundl
     
     <item>
       <title>Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</title>
-      <link>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
+      <link>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
       <pubDate>Thu, 11 Oct 2012 14:56:54 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
+      <guid>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
       <description>A day in the life of a Rails developer will usually involve a few git pulls, bundle installs, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&amp;rsquo;t have to spend too much time updating code or installing new gems.
 I&amp;rsquo;m using the whenever gem to create cron tasks that:
  Update all my git repos from their remotes Satisfy all of my Gemfile&amp;rsquo;s dependencies Cache rake and capistrano commands for tab completion Fetch Travis CI build statuses to show in my terminal Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized  For all of these tasks, I&amp;rsquo;m using the git_index function provided by my SCM Breeze project.</description>

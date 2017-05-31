@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gedit on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/gedit/</link>
+    <link>https://madebynathan.com/tags/gedit/</link>
     <description>Recent content in Gedit on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 28 Apr 2011 05:23:44 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/gedit/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/gedit/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Really handy RVM hook to symlink current gem directory</title>
-      <link>http://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</link>
+      <link>https://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</link>
       <pubDate>Thu, 28 Apr 2011 05:23:44 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</guid>
+      <guid>https://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</guid>
       <description>I use gedit to write code. I keep a filebrowser tab open at the left side of my screen, and sometimes I need to look at gem&amp;rsquo;s source code. RVM is awesome, and it keeps my 1.8.7 gems, 1.9.2 gems and all my gemsets separated, but this makes it tricky to find the gem you need to look at.
 Enter RVM hooks! If you want a symlink to the current gem directory to be updated each time you switch ruby versions, save something like the following code to ~/.</description>
     </item>
     
     <item>
       <title>Gedit plugin I18n Helper for Rails</title>
-      <link>http://madebynathan.com/2010/12/03/gedit-plugin-i18n-helper-for-rails/</link>
+      <link>https://madebynathan.com/2010/12/03/gedit-plugin-i18n-helper-for-rails/</link>
       <pubDate>Fri, 03 Dec 2010 04:34:48 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/12/03/gedit-plugin-i18n-helper-for-rails/</guid>
+      <guid>https://madebynathan.com/2010/12/03/gedit-plugin-i18n-helper-for-rails/</guid>
       <description>Gedit plugin - I18n Helper for Rails Menu and keyboard shortcut for internationalizing strings in Rails templates.
 Simple at the moment, but useful to anyone who might want to learn how to write a gedit plugin to manipulate selected strings.
 https://github.com/ndbroadbent/gedit_i18n_helper</description>

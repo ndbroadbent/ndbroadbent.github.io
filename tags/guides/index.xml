@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guides on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/guides/</link>
+    <link>https://madebynathan.com/tags/guides/</link>
     <description>Recent content in Guides on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 11 Oct 2012 14:56:54 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/guides/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/guides/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</title>
-      <link>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
+      <link>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
       <pubDate>Thu, 11 Oct 2012 14:56:54 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
+      <guid>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
       <description>A day in the life of a Rails developer will usually involve a few git pulls, bundle installs, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&amp;rsquo;t have to spend too much time updating code or installing new gems.
 I&amp;rsquo;m using the whenever gem to create cron tasks that:
  Update all my git repos from their remotes Satisfy all of my Gemfile&amp;rsquo;s dependencies Cache rake and capistrano commands for tab completion Fetch Travis CI build statuses to show in my terminal Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized  For all of these tasks, I&amp;rsquo;m using the git_index function provided by my SCM Breeze project.</description>
@@ -24,10 +24,10 @@ I&amp;rsquo;m using the whenever gem to create cron tasks that:
     
     <item>
       <title>Skype notifications using libnotify on Linux</title>
-      <link>http://madebynathan.com/2012/03/24/skype-notifications-using-libnotify-on-linux/</link>
+      <link>https://madebynathan.com/2012/03/24/skype-notifications-using-libnotify-on-linux/</link>
       <pubDate>Sat, 24 Mar 2012 18:55:18 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/03/24/skype-notifications-using-libnotify-on-linux/</guid>
+      <guid>https://madebynathan.com/2012/03/24/skype-notifications-using-libnotify-on-linux/</guid>
       <description>Skype on Linux comes with it&amp;rsquo;s own notification system. It&amp;rsquo;s not that bad, but it&amp;rsquo;s not consistent, either. If you want to configure Skype to use libnotify instead, run the following script in your terminal:
 (NOTE: You must have installed Skype, and logged in at least once.)
 bash &amp;lt; &amp;lt;(curl -s https://raw.github.com/gist/2181122/skype-libnotify.sh)  This downloads and executes the script from this gist: https://gist.github.com/2181122
@@ -36,88 +36,88 @@ It fetches the skype configuration from here, which is part of my dotfiles repo.
     
     <item>
       <title>Managing Project Design Assets For Git Repositories: A Simple Solution</title>
-      <link>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</link>
+      <link>https://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</link>
       <pubDate>Fri, 21 Oct 2011 23:25:47 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</guid>
+      <guid>https://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</guid>
       <description>When you&amp;rsquo;re creating logos or icons for a project that uses git, have you ever wondered where you should store those .psd or .xcf files? Do you commit all of your raw design files, or does it put you off that any changes to those files will bloat your repository?
 The following post describes a part of my SCM Breeze project. If you haven&amp;rsquo;t seen it already, take a look at my blog post that describes what it can do.</description>
     </item>
     
     <item>
       <title>A better way to use xclip (clipboard from the command line)</title>
-      <link>http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</link>
+      <link>https://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</link>
       <pubDate>Tue, 04 Oct 2011 16:45:42 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</guid>
+      <guid>https://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</guid>
       <description>Sometimes you just want to copy something from your terminal and paste it somewhere else. You might have heard of a Linux program called xclip, which provides a command line interface to X selections. However, xclip&amp;rsquo;s default selection isn&amp;rsquo;t the clipboard, and typing xclip -selection c -i ~/.ssh/id_rsa.pub is just a bit tedious.
 So here&amp;rsquo;s a wrapper function that makes it less of a hassle to integrate the clipboard with the command line.</description>
     </item>
     
     <item>
       <title>Really handy RVM hook to symlink current gem directory</title>
-      <link>http://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</link>
+      <link>https://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</link>
       <pubDate>Thu, 28 Apr 2011 05:23:44 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</guid>
+      <guid>https://madebynathan.com/2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/</guid>
       <description>I use gedit to write code. I keep a filebrowser tab open at the left side of my screen, and sometimes I need to look at gem&amp;rsquo;s source code. RVM is awesome, and it keeps my 1.8.7 gems, 1.9.2 gems and all my gemsets separated, but this makes it tricky to find the gem you need to look at.
 Enter RVM hooks! If you want a symlink to the current gem directory to be updated each time you switch ruby versions, save something like the following code to ~/.</description>
     </item>
     
     <item>
       <title>How to calculate Easter Sunday</title>
-      <link>http://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</link>
+      <link>https://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</link>
       <pubDate>Thu, 31 Mar 2011 17:41:27 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</guid>
+      <guid>https://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</guid>
       <description>I wanted the LCD screen on my apartment door to display a message on certain days, such as birthdays, Christmas, and Easter. I didn&amp;rsquo;t realize how hard it was to calculate which day Easter Sunday is&amp;hellip;
 def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)*(29/(i+1))*((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
     </item>
     
     <item>
       <title>Capistrano task - show deployed revisions &amp; diffs</title>
-      <link>http://madebynathan.com/2011/03/02/capistrano-task-show-deployed-revisions-diffs/</link>
+      <link>https://madebynathan.com/2011/03/02/capistrano-task-show-deployed-revisions-diffs/</link>
       <pubDate>Wed, 02 Mar 2011 05:43:35 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/03/02/capistrano-task-show-deployed-revisions-diffs/</guid>
+      <guid>https://madebynathan.com/2011/03/02/capistrano-task-show-deployed-revisions-diffs/</guid>
       <description>Capistrano is a great tool, and I couldn&amp;rsquo;t imagine running a project without it. I always wanted a quick way to know exactly what was running on each of our servers, and needed to know what would would change when I ran &amp;lsquo;cap deploy&amp;rsquo;.
 &amp;ldquo;cap deploy:pending&amp;rdquo; and &amp;ldquo;cap deploy:pending:diff&amp;rdquo; already solve this problem a little bit, but I found them to be too verbose. Also, they don&amp;rsquo;t work so well as part of an automated deploy process since they can require user interaction.</description>
     </item>
     
     <item>
       <title>Rails 3 Rake tasks can take too long to load</title>
-      <link>http://madebynathan.com/2011/02/24/rails-3-rake-tasks-are-so-slow/</link>
+      <link>https://madebynathan.com/2011/02/24/rails-3-rake-tasks-are-so-slow/</link>
       <pubDate>Thu, 24 Feb 2011 05:02:15 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/02/24/rails-3-rake-tasks-are-so-slow/</guid>
+      <guid>https://madebynathan.com/2011/02/24/rails-3-rake-tasks-are-so-slow/</guid>
       <description>When you run a rake task for a Rails 3 project, it has to load the entire environment since gems can include their own rake tasks. I started to get annoyed by this, because every capistrano deployment would load up rails on my environment just to notify hoptoad.
 If you have a very simple rake task that is called very often, you might want to add some work-around code to check for it in the very beginning of your Rakefile.</description>
     </item>
     
     <item>
       <title>Rails 3 caching views in development mode</title>
-      <link>http://madebynathan.com/2011/02/10/rails3-is-caching-views-in-development-mode-but-i-told-it-not-to/</link>
+      <link>https://madebynathan.com/2011/02/10/rails3-is-caching-views-in-development-mode-but-i-told-it-not-to/</link>
       <pubDate>Thu, 10 Feb 2011 03:40:52 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/02/10/rails3-is-caching-views-in-development-mode-but-i-told-it-not-to/</guid>
+      <guid>https://madebynathan.com/2011/02/10/rails3-is-caching-views-in-development-mode-but-i-told-it-not-to/</guid>
       <description>We are working with a Rails 3 port of Fat Free CRM. We have so many plugins modifying classes that we have to set config.cache_classes to true. But all our view templates seemed to stay cached as well, and I had to restart the server each time I made a change to a template. I couldn&amp;rsquo;t really explain why this was happening, and after a lot of searching I came across this Rails LightHouse ticket.</description>
     </item>
     
     <item>
       <title>Build a ruby gem and host it on rubygems.org in 4 easy steps</title>
-      <link>http://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</link>
+      <link>https://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</link>
       <pubDate>Sat, 22 Jan 2011 06:39:39 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</guid>
+      <guid>https://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</guid>
       <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.  Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
     </item>
     
     <item>
       <title>Add .bashrc to iPhone for SSH or MobileTerminal</title>
-      <link>http://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</link>
+      <link>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</link>
       <pubDate>Fri, 07 Jan 2011 07:23:48 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
+      <guid>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
       <description>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&amp;rsquo;re used to.
 To do this:  Create and edit your &amp;ldquo;.bashrc&amp;rdquo; file at &amp;ldquo;/var/root/.bashrc&amp;rdquo; Add the following line to &amp;ldquo;/etc/profile&amp;rdquo;: 
 source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
@@ -127,10 +127,10 @@ This is the bashrc that I use on my iPhone.</description>
     
     <item>
       <title>Trying to use l1merain but it doesn&#39;t work?</title>
-      <link>http://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</link>
+      <link>https://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</link>
       <pubDate>Mon, 01 Nov 2010 14:26:55 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</guid>
+      <guid>https://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</guid>
       <description>You are trying to use l1merain to jailbreak on windows xp, but your iPhone doesn&amp;rsquo;t take it.. You should see a green rain drop if the jailbreaking process is successful, but you just see the apple icon.
 What you need to do is press CTRL+SHIFT+ESC. Sort by &amp;lsquo;Image Name&amp;rsquo;. Then end these processes: &amp;lsquo;iPodService&amp;rsquo; and &amp;lsquo;iTunes&amp;rsquo;.
 Your jailbreak should now work fine.</description>
@@ -138,29 +138,29 @@ Your jailbreak should now work fine.</description>
     
     <item>
       <title>Make &#39;git status&#39; put filepaths into numbered variables</title>
-      <link>http://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</link>
+      <link>https://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</link>
       <pubDate>Fri, 29 Oct 2010 22:31:35 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</guid>
+      <guid>https://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</guid>
       <description>I like my shortcuts for git (ie. &amp;lsquo;gst&amp;rsquo; for &amp;lsquo;git status&amp;rsquo;, &amp;lsquo;gca&amp;rsquo; for &amp;lsquo;git commit -a -m&amp;rsquo;, etc.) But I wanted more, so I thought it would be nice if I could somehow create &amp;lsquo;shortcuts&amp;rsquo; to the filepaths of modified files whenever I run &amp;lsquo;git status&amp;rsquo;. I created a function to export the paths of each modified file into numbered environment variables, and it has really sped up my workflow.</description>
     </item>
     
     <item>
       <title>Search and replace in multiple files on linux with bash, egrep, sed function</title>
-      <link>http://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</link>
+      <link>https://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</link>
       <pubDate>Tue, 26 Oct 2010 18:05:53 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</guid>
+      <guid>https://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</guid>
       <description>Heres a simple function to add to your shell if you ever want to replace a string in multiple files at once. It ignores everything in .git, otherwise you get &amp;lsquo;bad index file sha1 signature&amp;rsquo; errors.
 function gsed () { if [ -z &amp;quot;$3&amp;quot; ] then echo &amp;quot;== Usage: gsed search_string replace_string [path]&amp;quot; else egrep --exclude-dir=.git -lRZ &amp;quot;$1&amp;quot; $3 | xargs -0 -l sed -i -e &amp;quot;s/$1/$2/g&amp;quot; fi }  Add it to the bottom of ~/.</description>
     </item>
     
     <item>
       <title>How to preserve indentation in wordpress [sourcecode] tags</title>
-      <link>http://madebynathan.com/2010/10/19/how-to-keep-indentation-in-wordpress-sourcecode-tags/</link>
+      <link>https://madebynathan.com/2010/10/19/how-to-keep-indentation-in-wordpress-sourcecode-tags/</link>
       <pubDate>Tue, 19 Oct 2010 20:58:38 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/10/19/how-to-keep-indentation-in-wordpress-sourcecode-tags/</guid>
+      <guid>https://madebynathan.com/2010/10/19/how-to-keep-indentation-in-wordpress-sourcecode-tags/</guid>
       <description>Dont use the visual editor. Copy the code into your &amp;lsquo;HTML&amp;rsquo; view and it will preserve indentation. Copy it into &amp;lsquo;Visual&amp;rsquo; view and your code will be all left-aligned&amp;hellip;
 Examples:
 Code pasted in &amp;lsquo;Visual&amp;rsquo; View
@@ -170,10 +170,10 @@ Code pasted in &amp;lsquo;Visual&amp;rsquo; View
     
     <item>
       <title>How to use bundler with multiple Gemfiles in plugins / extensions</title>
-      <link>http://madebynathan.com/2010/10/19/how-to-use-bundler-with-plugins-extensions/</link>
+      <link>https://madebynathan.com/2010/10/19/how-to-use-bundler-with-plugins-extensions/</link>
       <pubDate>Tue, 19 Oct 2010 20:37:16 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/10/19/how-to-use-bundler-with-plugins-extensions/</guid>
+      <guid>https://madebynathan.com/2010/10/19/how-to-use-bundler-with-plugins-extensions/</guid>
       <description>Bundler makes it very easy to point to a gem folder on your system, and I definitely recommend this approach a lot more. The plugin can be a gem that we can just require, and it can specify its own dependencies in its .gemspec file.
 But if you really don&amp;rsquo;t want your plugin to be a gem, for whatever reason, then read on&amp;hellip;
 If we are developing a Spree extension, or a Retrospectiva extension, or a Fat Free CRM plugin, we might sometimes need a way to require the gems in multiple Gemfiles, but Bundler doesn&amp;rsquo;t cater for this.</description>
@@ -181,30 +181,30 @@ If we are developing a Spree extension, or a Retrospectiva extension, or a Fat F
     
     <item>
       <title>How to upgrade git on legacy Ubuntu</title>
-      <link>http://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</link>
+      <link>https://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</link>
       <pubDate>Wed, 04 Aug 2010 23:28:02 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</guid>
+      <guid>https://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</guid>
       <description>Follow these steps to get git 1.7 + on ubuntu 9.10 or less. (10.04 comes with the latest version)
 sudo apt-get install libcurl4-dev # (for new http[s] support) cd /tmp wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz tar -xf git-1.7.2.1.tar.gz cd git-1.7.2.1/ ./configure make sudo make install ln -nfs /usr/bin/git /usr/local/bin/git  </description>
     </item>
     
     <item>
       <title>git shortcuts</title>
-      <link>http://madebynathan.com/2010/05/21/git-shortcuts/</link>
+      <link>https://madebynathan.com/2010/05/21/git-shortcuts/</link>
       <pubDate>Fri, 21 May 2010 13:40:27 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/05/21/git-shortcuts/</guid>
+      <guid>https://madebynathan.com/2010/05/21/git-shortcuts/</guid>
       <description>It seems that for every single git repository I create, I just want to be able to run &amp;ldquo;git push&amp;rdquo; and &amp;ldquo;git pull&amp;rdquo;. &amp;ldquo;git pull origin master&amp;rdquo; just gets annoying after a while. In case I forget how to do this again, this is all it takes (provided you already have an &amp;lsquo;origin&amp;rsquo; remote configured):
 git config branch.master.remote origin git config branch.master.merge refs/heads/master  Other useful git shortcut that I literally use everyday (add them to the bottom of ~/.</description>
     </item>
     
     <item>
       <title>How to create a favicon.ico with GIMP</title>
-      <link>http://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/</link>
+      <link>https://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/</link>
       <pubDate>Thu, 20 May 2010 13:19:13 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/</guid>
+      <guid>https://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/</guid>
       <description>UPDATE: Theres an easier way to do this here: http://www.htmlcenter.com/blog/creating-a-favicon-for-your-website/.
 http://linuxproblem.org/art_19.html
 By Mathias Kettner :
@@ -214,10 +214,10 @@ You need an image file that GIMP can open (PNG, GIF, etc.). And you need the com
     
     <item>
       <title>Scanning lots of photos at once with GIMP on Ubuntu Linux</title>
-      <link>http://madebynathan.com/2010/05/13/scanning-lots-of-photos-at-once/</link>
+      <link>https://madebynathan.com/2010/05/13/scanning-lots-of-photos-at-once/</link>
       <pubDate>Thu, 13 May 2010 22:13:09 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/05/13/scanning-lots-of-photos-at-once/</guid>
+      <guid>https://madebynathan.com/2010/05/13/scanning-lots-of-photos-at-once/</guid>
       <description>I needed a way to scan a lot of photos at once. I was going to write a GIMP plugin to extract out multiple images from a single scanned image of 3 or 4 photos, and then rotate them automatically. But as always, someone had already beat me to it :)
 See this forum on GimpTalk for the original script.
 (The only problem I had is that the Deskew plugin for GIMP is located on a website whose server seems to be permanently offline.</description>
@@ -225,10 +225,10 @@ See this forum on GimpTalk for the original script.
     
     <item>
       <title>jqgrid on Spree</title>
-      <link>http://madebynathan.com/2010/04/30/jqgrid-on-spree/</link>
+      <link>https://madebynathan.com/2010/04/30/jqgrid-on-spree/</link>
       <pubDate>Fri, 30 Apr 2010 17:22:57 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/30/jqgrid-on-spree/</guid>
+      <guid>https://madebynathan.com/2010/04/30/jqgrid-on-spree/</guid>
       <description>Been a fan of jqgrid for quite some time, but wasn&amp;rsquo;t looking forward to the struggle of getting it to work with Rails.
 Thankfully, someones already done it for me: http://www.2dconcept.com/jquery-grid-rails-plugin
 It did take a little while to debug some things that were going wrong, though. Firebug was giving me the error: $.jgrid.formatter is undefined. After some digging around, I realized that no jqgrid locale files were being loaded.
@@ -237,10 +237,10 @@ By default, Spree has its i18n locale set to &amp;ldquo;en-US&amp;rdquo;.</descr
     
     <item>
       <title>How to use a bluetooth headset on Ubuntu 9.10 &#43;</title>
-      <link>http://madebynathan.com/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/</link>
+      <link>https://madebynathan.com/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/</link>
       <pubDate>Thu, 29 Apr 2010 10:39:42 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/</guid>
+      <guid>https://madebynathan.com/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/</guid>
       <description>I found a little bluetooth headset at work, and wanted to play audio through it from my laptop. It turns out that nowadays, Ubuntu actually makes this really easy.
 I found a guide written for Ubuntu 9.04 on this forum post, but Ubuntu 9.10 now does most of the work for you. (Steps 15 through 27 are still used in this guide, so credit to HyRax1 from forums.overclockers.com.au for the original tutorial)</description>
     </item>

@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thoughts on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/thoughts/</link>
+    <link>https://madebynathan.com/tags/thoughts/</link>
     <description>Recent content in Thoughts on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 20 Oct 2011 18:55:18 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>10 Reasons why Hackers should Jailbreak their iPhones</title>
-      <link>http://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</link>
+      <link>https://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</link>
       <pubDate>Thu, 20 Oct 2011 18:55:18 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</guid>
+      <guid>https://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</guid>
       <description>There was a post on the front page of Hacker News recently, titled &amp;ldquo;Making Chrome better on iOS&amp;rdquo;. Google&amp;rsquo;s Chrome browser is now available on iOS, and the author of the article was talking about how app developers could be persuaded to add some code to their apps which would allow Chrome to open links.
 Restrictions like this (not being able to change your default browser) are one of the many reasons why I wouldn&amp;rsquo;t buy another iPhone if it couldn&amp;rsquo;t be jailbroken.</description>
     </item>
     
     <item>
       <title>Wikipedia is great, help keep it free!</title>
-      <link>http://madebynathan.com/2010/12/31/wikipedia-is-great/</link>
+      <link>https://madebynathan.com/2010/12/31/wikipedia-is-great/</link>
       <pubDate>Fri, 31 Dec 2010 07:02:38 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/12/31/wikipedia-is-great/</guid>
+      <guid>https://madebynathan.com/2010/12/31/wikipedia-is-great/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://wikimediafoundation.org/wiki/Support_Wikipedia/en&#34;&gt;&lt;img border=&#34;0&#34; alt=&#34;Support Wikipedia&#34; src=&#34;http://upload.wikimedia.org/wikipedia/commons/4/41/Fundraising_2009-horizontal-thanks-en.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>This blog should have been started a long time ago</title>
-      <link>http://madebynathan.com/2010/04/07/this-blog-should-have-been-started-a-long-time-ago/</link>
+      <link>https://madebynathan.com/2010/04/07/this-blog-should-have-been-started-a-long-time-ago/</link>
       <pubDate>Wed, 07 Apr 2010 13:30:37 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/07/this-blog-should-have-been-started-a-long-time-ago/</guid>
+      <guid>https://madebynathan.com/2010/04/07/this-blog-should-have-been-started-a-long-time-ago/</guid>
       <description>I am indebted to the collective Internet. My workflow mostly consists of &amp;ldquo;problem -&amp;gt; google -&amp;gt; forum/blog -&amp;gt; solution&amp;rdquo;.
 After years of stealing answers from other peoples forum posts and blogs, I finally have my own place to share and hopefully help other people out. This will be a scrapbook of errors, headaches, solutions, and whatever other random stuff I feel like sharing with you.</description>
     </item>

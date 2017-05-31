@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Server on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/server/</link>
+    <link>https://madebynathan.com/tags/server/</link>
     <description>Recent content in Server on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 08 Nov 2012 12:55:17 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/server/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/server/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>capistrano_colors has been merged into capistrano</title>
-      <link>http://madebynathan.com/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/</link>
+      <link>https://madebynathan.com/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/</link>
       <pubDate>Thu, 08 Nov 2012 12:55:17 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/</guid>
+      <guid>https://madebynathan.com/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/</guid>
       <description>capistrano_colors has been merged into capistrano. If you update capistrano to version 2.13.5, you will no longer need to include capistrano_colors in your Gemfile.Don&amp;rsquo;t forget to also remove require &#39;capistrano_colors&#39; from config/deploy.rb.
 If you&amp;rsquo;ve been using capistrano without the capistrano_colors gem, well, you&amp;rsquo;ve been missing out! Your logs will now be nicely formatted and colored by default, like this:
 However, if you happen to be a big fan of black &amp;amp; white logs, you can just add disable_log_formatters to config/deploy.</description>
@@ -24,10 +24,10 @@ However, if you happen to be a big fan of black &amp;amp; white logs, you can ju
     
     <item>
       <title>Scheduling one-off tasks with &#39;at&#39;</title>
-      <link>http://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</link>
+      <link>https://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</link>
       <pubDate>Sat, 25 Feb 2012 17:00:27 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</guid>
+      <guid>https://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</guid>
       <description>You might be familiar with the cron job scheduler, which is great for repeating tasks. But when you want to schedule a command to only run once in the future, the at command is what you are looking for.
 In my case, I was updating a plugin for our Thoughtworks Mingle instance, but the update wasn&amp;rsquo;t hugely important. Many of our staff rely on Mingle for their work, and restarting it takes it offline for a few minutes.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/git/</link>
+    <link>https://madebynathan.com/tags/git/</link>
     <description>Recent content in Git on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 11 Oct 2012 14:56:54 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</title>
-      <link>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
+      <link>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
       <pubDate>Thu, 11 Oct 2012 14:56:54 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
+      <guid>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
       <description>A day in the life of a Rails developer will usually involve a few git pulls, bundle installs, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&amp;rsquo;t have to spend too much time updating code or installing new gems.
 I&amp;rsquo;m using the whenever gem to create cron tasks that:
  Update all my git repos from their remotes Satisfy all of my Gemfile&amp;rsquo;s dependencies Cache rake and capistrano commands for tab completion Fetch Travis CI build statuses to show in my terminal Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized  For all of these tasks, I&amp;rsquo;m using the git_index function provided by my SCM Breeze project.</description>
@@ -24,58 +24,58 @@ I&amp;rsquo;m using the whenever gem to create cron tasks that:
     
     <item>
       <title>How to start a Google Group for a git project</title>
-      <link>http://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</link>
+      <link>https://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</link>
       <pubDate>Wed, 19 Sep 2012 12:05:39 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</guid>
+      <guid>https://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</guid>
       <description>GitHub is a great way to manage code for an open source project, but it doesn&amp;rsquo;t provide any way to send a message to all of your watchers. This can be necessary whenever you make certain changes to your application. For example, I recently merged a pull request in Errbit that requires users to run a Rake task next time they update the code. I had no way of notifying our users, so I decided to create a Google Group mailing list for these kinds of notifications.</description>
     </item>
     
     <item>
       <title>Managing Project Design Assets For Git Repositories: A Simple Solution</title>
-      <link>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</link>
+      <link>https://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</link>
       <pubDate>Fri, 21 Oct 2011 23:25:47 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</guid>
+      <guid>https://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</guid>
       <description>When you&amp;rsquo;re creating logos or icons for a project that uses git, have you ever wondered where you should store those .psd or .xcf files? Do you commit all of your raw design files, or does it put you off that any changes to those files will bloat your repository?
 The following post describes a part of my SCM Breeze project. If you haven&amp;rsquo;t seen it already, take a look at my blog post that describes what it can do.</description>
     </item>
     
     <item>
       <title>Git Shortcuts Like You&#39;ve Never Seen Before</title>
-      <link>http://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</link>
+      <link>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</link>
       <pubDate>Wed, 19 Oct 2011 01:14:01 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</guid>
+      <guid>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</guid>
       <description>Introducing &amp;lsquo;SCM Breeze&amp;rsquo; SCM Breeze is a set of shell scripts (for bash and zsh) that enhance your interaction with tools such as git. It integrates with your shell to give you numbered file shortcuts, a repository index with tab completion, and a community driven collection of useful SCM functions.
 Disclaimer: git is currently the only supported SCM. I&amp;rsquo;ve kept the project&amp;rsquo;s name open because it won&amp;rsquo;t be difficult to port it for other SCMs.</description>
     </item>
     
     <item>
       <title>Make &#39;git status&#39; put filepaths into numbered variables</title>
-      <link>http://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</link>
+      <link>https://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</link>
       <pubDate>Fri, 29 Oct 2010 22:31:35 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</guid>
+      <guid>https://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/</guid>
       <description>I like my shortcuts for git (ie. &amp;lsquo;gst&amp;rsquo; for &amp;lsquo;git status&amp;rsquo;, &amp;lsquo;gca&amp;rsquo; for &amp;lsquo;git commit -a -m&amp;rsquo;, etc.) But I wanted more, so I thought it would be nice if I could somehow create &amp;lsquo;shortcuts&amp;rsquo; to the filepaths of modified files whenever I run &amp;lsquo;git status&amp;rsquo;. I created a function to export the paths of each modified file into numbered environment variables, and it has really sped up my workflow.</description>
     </item>
     
     <item>
       <title>How to upgrade git on legacy Ubuntu</title>
-      <link>http://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</link>
+      <link>https://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</link>
       <pubDate>Wed, 04 Aug 2010 23:28:02 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</guid>
+      <guid>https://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</guid>
       <description>Follow these steps to get git 1.7 + on ubuntu 9.10 or less. (10.04 comes with the latest version)
 sudo apt-get install libcurl4-dev # (for new http[s] support) cd /tmp wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz tar -xf git-1.7.2.1.tar.gz cd git-1.7.2.1/ ./configure make sudo make install ln -nfs /usr/bin/git /usr/local/bin/git  </description>
     </item>
     
     <item>
       <title>git shortcuts</title>
-      <link>http://madebynathan.com/2010/05/21/git-shortcuts/</link>
+      <link>https://madebynathan.com/2010/05/21/git-shortcuts/</link>
       <pubDate>Fri, 21 May 2010 13:40:27 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/05/21/git-shortcuts/</guid>
+      <guid>https://madebynathan.com/2010/05/21/git-shortcuts/</guid>
       <description>It seems that for every single git repository I create, I just want to be able to run &amp;ldquo;git push&amp;rdquo; and &amp;ldquo;git pull&amp;rdquo;. &amp;ldquo;git pull origin master&amp;rdquo; just gets annoying after a while. In case I forget how to do this again, this is all it takes (provided you already have an &amp;lsquo;origin&amp;rsquo; remote configured):
 git config branch.master.remote origin git config branch.master.merge refs/heads/master  Other useful git shortcut that I literally use everyday (add them to the bottom of ~/.</description>
     </item>

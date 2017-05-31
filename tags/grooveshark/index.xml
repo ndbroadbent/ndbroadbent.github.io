@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Grooveshark on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/grooveshark/</link>
+    <link>https://madebynathan.com/tags/grooveshark/</link>
     <description>Recent content in Grooveshark on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 04 Nov 2010 19:07:51 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/grooveshark/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/grooveshark/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Grooveshark - Set Current Song as Browser Title</title>
-      <link>http://madebynathan.com/2010/11/04/grooveshark-set-current-song-as-browser-title/</link>
+      <link>https://madebynathan.com/2010/11/04/grooveshark-set-current-song-as-browser-title/</link>
       <pubDate>Thu, 04 Nov 2010 19:07:51 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/11/04/grooveshark-set-current-song-as-browser-title/</guid>
+      <guid>https://madebynathan.com/2010/11/04/grooveshark-set-current-song-as-browser-title/</guid>
       <description>I like Grooveshark. Its like last.fm, but you can choose the songs &amp;amp; albums you want to play. I would like to get a subscription one day, but I&amp;rsquo;m not sure when the RIAA is planning their attack, so maybe I&amp;rsquo;ll hold off for now :)
 In the meantime, I was dissapointed that I couldn&amp;rsquo;t see which song was currently playing in the browser title. So heres a greasemonkey script to do just that:</description>
     </item>

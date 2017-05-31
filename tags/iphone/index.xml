@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Iphone on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/iphone/</link>
+    <link>https://madebynathan.com/tags/iphone/</link>
     <description>Recent content in Iphone on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 20 Oct 2011 18:55:18 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>10 Reasons why Hackers should Jailbreak their iPhones</title>
-      <link>http://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</link>
+      <link>https://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</link>
       <pubDate>Thu, 20 Oct 2011 18:55:18 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</guid>
+      <guid>https://madebynathan.com/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/</guid>
       <description>There was a post on the front page of Hacker News recently, titled &amp;ldquo;Making Chrome better on iOS&amp;rdquo;. Google&amp;rsquo;s Chrome browser is now available on iOS, and the author of the article was talking about how app developers could be persuaded to add some code to their apps which would allow Chrome to open links.
 Restrictions like this (not being able to change your default browser) are one of the many reasons why I wouldn&amp;rsquo;t buy another iPhone if it couldn&amp;rsquo;t be jailbroken.</description>
     </item>
     
     <item>
       <title>Automatically change iPhone wallpaper every 30 minutes</title>
-      <link>http://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</link>
+      <link>https://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</link>
       <pubDate>Wed, 20 Jul 2011 16:27:10 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</guid>
+      <guid>https://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</guid>
       <description>NOTE: This is only for jailbroken iPhones.
 I love finding awesome wallpapers on reddit. My Ubuntu desktop cycles through my wallpaper collection with a program called Cortina, and I wanted my iPhone to do the same.
 So I wrote a very simple script and a launchd plist that runs the script every 30 minutes. If you want to set this up for your jailbroken iPhone, all you need is SSH and a collection of images.</description>
@@ -34,20 +34,20 @@ So I wrote a very simple script and a launchd plist that runs the script every 3
     
     <item>
       <title>New Cydia Themes (Sounds)</title>
-      <link>http://madebynathan.com/2011/02/10/new-cydia-themes-sounds/</link>
+      <link>https://madebynathan.com/2011/02/10/new-cydia-themes-sounds/</link>
       <pubDate>Thu, 10 Feb 2011 01:28:28 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/02/10/new-cydia-themes-sounds/</guid>
+      <guid>https://madebynathan.com/2011/02/10/new-cydia-themes-sounds/</guid>
       <description>Custom sounds for iPhone mail tone and keypad I&amp;rsquo;ve released a few small packages to the modmyi cydia repo. You can find them by searching for them by name: 
 Message For Me – IT Crowd Mail Tone Replaces the &amp;lsquo;new email&amp;rsquo; sound with a clip of Moss saying &amp;ldquo;Message for me!&amp;rdquo; Overall Downloads:  Piano DTMF Tones Replaces the keypad sounds in the &amp;lsquo;phone&amp;rsquo; app with piano notes. Overall Downloads:  Plants Vs Zombies - Coin SMS Tone Plants Vs Zombies Coin SMS Tone Overall Downloads:  Crash Bandicoot Sounds Replaces iPhone sounds with sounds from the game &amp;ldquo;Crash Bandicoot&amp;rdquo; on Playstation 1  SMS Tone - &amp;lsquo;Ka-ching&amp;rsquo; New Mail Tone - &amp;lsquo;Ooogabooga&amp;rsquo; Sent mail - &amp;lsquo;Spinning noise&amp;rsquo; Plug in to power source - &amp;lsquo;Wumpa fruit&amp;rsquo; Error/low power - &amp;lsquo;TNT&amp;rsquo;  Overall Downloads:</description>
     </item>
     
     <item>
       <title>Add .bashrc to iPhone for SSH or MobileTerminal</title>
-      <link>http://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</link>
+      <link>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</link>
       <pubDate>Fri, 07 Jan 2011 07:23:48 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
+      <guid>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
       <description>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&amp;rsquo;re used to.
 To do this:  Create and edit your &amp;ldquo;.bashrc&amp;rdquo; file at &amp;ldquo;/var/root/.bashrc&amp;rdquo; Add the following line to &amp;ldquo;/etc/profile&amp;rdquo;: 
 source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
@@ -57,10 +57,10 @@ This is the bashrc that I use on my iPhone.</description>
     
     <item>
       <title>Demo iPhone app - Apartment automation</title>
-      <link>http://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</link>
+      <link>https://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</link>
       <pubDate>Tue, 28 Dec 2010 18:21:50 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</guid>
+      <guid>https://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</guid>
       <description>https://github.com/ndbroadbent/ios_flat_10c
 This is the little app I wrote to control my apartment. Its not going to be much use to anyone by itself, but as it says on the github page:
 You could use this as a demo app to help you learn about:  InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
@@ -68,10 +68,10 @@ You could use this as a demo app to help you learn about:  InAppSettingsKit  Con
     
     <item>
       <title>iOS JB tweak - Replace operator with current prepaid balance</title>
-      <link>http://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/</link>
+      <link>https://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/</link>
       <pubDate>Sun, 26 Dec 2010 16:42:16 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/</guid>
+      <guid>https://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/</guid>
       <description>https://github.com/ndbroadbent/ios_replace_operator_with_balance
 Replace Operator on jailbroken iOS 4.x with current prepaid balance. Specifically written for PCCW in Hong Kong, with an AT+CUSD command of “##122#”.
 An extension to Fake-Operator
@@ -84,10 +84,10 @@ Package contains an executable binary that sends an AT USSD command to the carri
     
     <item>
       <title>Trying to use l1merain but it doesn&#39;t work?</title>
-      <link>http://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</link>
+      <link>https://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</link>
       <pubDate>Mon, 01 Nov 2010 14:26:55 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</guid>
+      <guid>https://madebynathan.com/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/</guid>
       <description>You are trying to use l1merain to jailbreak on windows xp, but your iPhone doesn&amp;rsquo;t take it.. You should see a green rain drop if the jailbreaking process is successful, but you just see the apple icon.
 What you need to do is press CTRL+SHIFT+ESC. Sort by &amp;lsquo;Image Name&amp;rsquo;. Then end these processes: &amp;lsquo;iPodService&amp;rsquo; and &amp;lsquo;iTunes&amp;rsquo;.
 Your jailbreak should now work fine.</description>

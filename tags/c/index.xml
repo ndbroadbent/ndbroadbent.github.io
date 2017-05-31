@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/c/</link>
+    <link>https://madebynathan.com/tags/c/</link>
     <description>Recent content in C on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 10 Jul 2013 23:51:47 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Raspberry Pi Microwave</title>
-      <link>http://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/</link>
+      <link>https://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/</link>
       <pubDate>Wed, 10 Jul 2013 23:51:47 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/</guid>
+      <guid>https://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/</guid>
       <description>A few months ago, I was inspired by this post on Reddit, titled: Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes..
 I thought this was a pretty cool idea, and that it would be a fun project for a Raspberry Pi. I agreed with the people who thought using UPC barcodes would be better, since products already have them, so I went with a barcode scanner + online product database.</description>
     </item>
     
     <item>
       <title>Compaq Evo T20 projects</title>
-      <link>http://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</link>
+      <link>https://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</link>
       <pubDate>Thu, 08 Apr 2010 13:51:23 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</guid>
+      <guid>https://madebynathan.com/2010/04/08/compaq-evo-t20-projects/</guid>
       <description>Compaq Evo T20s are fun. I have a few that I&amp;rsquo;m using for various projects. I plan to set one up as a RFID controlled alarm/door lock system. Its running Damn Small Linux using ruby, rubygems and sinatra packages that I compiled myself.
 Karl Mowatt-Wilson&amp;rsquo;s tutorials have been a huge help with flashing the T20s with linux images, as well as the open-evot20 site.
 I wrote a K8055 USB Ruby C wrapper for the K8055 USB interface experiment board (bought from here).</description>

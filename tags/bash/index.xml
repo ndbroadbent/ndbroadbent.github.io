@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/bash/</link>
+    <link>https://madebynathan.com/tags/bash/</link>
     <description>Recent content in Bash on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 29 Mar 2013 23:44:58 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</title>
-      <link>http://madebynathan.com/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/</link>
+      <link>https://madebynathan.com/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/</link>
       <pubDate>Fri, 29 Mar 2013 23:44:58 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/</guid>
+      <guid>https://madebynathan.com/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/</guid>
       <description>Whenever I&amp;rsquo;m looking at backtraces, logs, or failing tests in the terminal, I often need to open one of those files in my text editor. It was previously a semi-arduous process that involved highlighting, copying, pasting and the return key. Now, all I need to do is double-click or highlight a line, and then press a keyboard shortcut to open that file &amp;amp; line in my text editor (currently Sublime Text 2.</description>
     </item>
     
     <item>
       <title>Automatically run &#39;bundle install&#39; when Bundler can&#39;t find a gem</title>
-      <link>http://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</link>
+      <link>https://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</link>
       <pubDate>Tue, 18 Dec 2012 19:56:01 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</guid>
+      <guid>https://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</guid>
       <description>Every Rails developer has probably experienced the following error:
 Could not find &amp;lt;gem&amp;gt; in any of the sources Run `bundle install` to install missing gems.   This happens if you or someone else adds a gem to your Gemfile, or if a gem version is updated in Gemfile.lock, and you forget to run bundle install before running a Rails command.
 Here&amp;rsquo;s a simple function that handles this automatically, called bundle_install_wrapper().</description>
@@ -33,20 +33,20 @@ Here&amp;rsquo;s a simple function that handles this automatically, called bundl
     
     <item>
       <title>Auto-reloading your .bashrc (or .zshrc)</title>
-      <link>http://madebynathan.com/2012/10/29/auto-reloading-your-bashrc/</link>
+      <link>https://madebynathan.com/2012/10/29/auto-reloading-your-bashrc/</link>
       <pubDate>Mon, 29 Oct 2012 20:31:21 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/10/29/auto-reloading-your-bashrc/</guid>
+      <guid>https://madebynathan.com/2012/10/29/auto-reloading-your-bashrc/</guid>
       <description>If you often make changes to your ~/.bashrc, you might be sick of typing source ~/.bashrc after every change. It can also be annoying when you switch to a different tab in your terminal, but your new aliases or functions aren&amp;rsquo;t available until you type source ~/.bashrc.
 While I was working on scm_breeze and my dotfiles repo, I grew tired of having to type this command, so I aliased it to sbrc.</description>
     </item>
     
     <item>
       <title>Saving space in the terminal with symbols</title>
-      <link>http://madebynathan.com/2012/10/14/saving-space-in-the-terminal-with-symbols/</link>
+      <link>https://madebynathan.com/2012/10/14/saving-space-in-the-terminal-with-symbols/</link>
       <pubDate>Sun, 14 Oct 2012 22:28:47 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/10/14/saving-space-in-the-terminal-with-symbols/</guid>
+      <guid>https://madebynathan.com/2012/10/14/saving-space-in-the-terminal-with-symbols/</guid>
       <description>I&amp;rsquo;m saving a little space in my terminal by replacing my username and group (ndbroadbent) with a single symbol. I&amp;rsquo;m doing this in my prompt, as well as in the output of ls commands:
 (My laptop&amp;rsquo;s hostname is also represented by a symbol.)
 For the ls output, it was a bit tricky to re-justify the username and group columns after substituting my username. I decided to do it in ruby, and then played some ruby golf:</description>
@@ -54,10 +54,10 @@ For the ls output, it was a bit tricky to re-justify the username and group colu
     
     <item>
       <title>Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</title>
-      <link>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
+      <link>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link>
       <pubDate>Thu, 11 Oct 2012 14:56:54 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
+      <guid>https://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</guid>
       <description>A day in the life of a Rails developer will usually involve a few git pulls, bundle installs, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&amp;rsquo;t have to spend too much time updating code or installing new gems.
 I&amp;rsquo;m using the whenever gem to create cron tasks that:
  Update all my git repos from their remotes Satisfy all of my Gemfile&amp;rsquo;s dependencies Cache rake and capistrano commands for tab completion Fetch Travis CI build statuses to show in my terminal Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized  For all of these tasks, I&amp;rsquo;m using the git_index function provided by my SCM Breeze project.</description>
@@ -65,79 +65,79 @@ I&amp;rsquo;m using the whenever gem to create cron tasks that:
     
     <item>
       <title>How to start a Google Group for a git project</title>
-      <link>http://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</link>
+      <link>https://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</link>
       <pubDate>Wed, 19 Sep 2012 12:05:39 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</guid>
+      <guid>https://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</guid>
       <description>GitHub is a great way to manage code for an open source project, but it doesn&amp;rsquo;t provide any way to send a message to all of your watchers. This can be necessary whenever you make certain changes to your application. For example, I recently merged a pull request in Errbit that requires users to run a Rake task next time they update the code. I had no way of notifying our users, so I decided to create a Google Group mailing list for these kinds of notifications.</description>
     </item>
     
     <item>
       <title>Scheduling one-off tasks with &#39;at&#39;</title>
-      <link>http://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</link>
+      <link>https://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</link>
       <pubDate>Sat, 25 Feb 2012 17:00:27 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</guid>
+      <guid>https://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/</guid>
       <description>You might be familiar with the cron job scheduler, which is great for repeating tasks. But when you want to schedule a command to only run once in the future, the at command is what you are looking for.
 In my case, I was updating a plugin for our Thoughtworks Mingle instance, but the update wasn&amp;rsquo;t hugely important. Many of our staff rely on Mingle for their work, and restarting it takes it offline for a few minutes.</description>
     </item>
     
     <item>
       <title>Travis CI Status in Shell Prompt</title>
-      <link>http://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</link>
+      <link>https://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</link>
       <pubDate>Sat, 14 Jan 2012 01:21:13 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</guid>
+      <guid>https://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</guid>
       <description>Update: I&amp;rsquo;ve updated the build status checking script, because updating all branches was taking too long (over 20 minutes.) Now it performs frequent updates for the current branch, and only periodic updates for all branches.
 Travis CI is a distributed continuous integration service for the open source community, and it can be used with any of your public projects on GitHub. You&amp;rsquo;ve probably seen some &amp;lsquo;build status&amp;rsquo; badges like this:</description>
     </item>
     
     <item>
       <title>Managing Project Design Assets For Git Repositories: A Simple Solution</title>
-      <link>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</link>
+      <link>https://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</link>
       <pubDate>Fri, 21 Oct 2011 23:25:47 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</guid>
+      <guid>https://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</guid>
       <description>When you&amp;rsquo;re creating logos or icons for a project that uses git, have you ever wondered where you should store those .psd or .xcf files? Do you commit all of your raw design files, or does it put you off that any changes to those files will bloat your repository?
 The following post describes a part of my SCM Breeze project. If you haven&amp;rsquo;t seen it already, take a look at my blog post that describes what it can do.</description>
     </item>
     
     <item>
       <title>Git Shortcuts Like You&#39;ve Never Seen Before</title>
-      <link>http://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</link>
+      <link>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</link>
       <pubDate>Wed, 19 Oct 2011 01:14:01 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</guid>
+      <guid>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</guid>
       <description>Introducing &amp;lsquo;SCM Breeze&amp;rsquo; SCM Breeze is a set of shell scripts (for bash and zsh) that enhance your interaction with tools such as git. It integrates with your shell to give you numbered file shortcuts, a repository index with tab completion, and a community driven collection of useful SCM functions.
 Disclaimer: git is currently the only supported SCM. I&amp;rsquo;ve kept the project&amp;rsquo;s name open because it won&amp;rsquo;t be difficult to port it for other SCMs.</description>
     </item>
     
     <item>
       <title>A better way to use xclip (clipboard from the command line)</title>
-      <link>http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</link>
+      <link>https://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</link>
       <pubDate>Tue, 04 Oct 2011 16:45:42 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</guid>
+      <guid>https://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</guid>
       <description>Sometimes you just want to copy something from your terminal and paste it somewhere else. You might have heard of a Linux program called xclip, which provides a command line interface to X selections. However, xclip&amp;rsquo;s default selection isn&amp;rsquo;t the clipboard, and typing xclip -selection c -i ~/.ssh/id_rsa.pub is just a bit tedious.
 So here&amp;rsquo;s a wrapper function that makes it less of a hassle to integrate the clipboard with the command line.</description>
     </item>
     
     <item>
       <title>Running bash color codes through sed</title>
-      <link>http://madebynathan.com/2011/08/18/running-bash-color-codes-through-sed/</link>
+      <link>https://madebynathan.com/2011/08/18/running-bash-color-codes-through-sed/</link>
       <pubDate>Thu, 18 Aug 2011 04:48:59 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/08/18/running-bash-color-codes-through-sed/</guid>
+      <guid>https://madebynathan.com/2011/08/18/running-bash-color-codes-through-sed/</guid>
       <description>I have a script that runs a search and replace on a git status. I recently found out how to do &#39;git config color.status always&#39;, so that git status gives color codes to my functions. However, this broke the substitution, and it took me a while to figure it out.
 At the end of every line, there was an invisible &#39;reset&#39; color code, and this meant that &#39;sed &#34;s/string$/$replace&#34;&#39; was no longer finding &#39;string$&#39;.</description>
     </item>
     
     <item>
       <title>Bash Color Index</title>
-      <link>http://madebynathan.com/2011/08/16/bash-color-index/</link>
+      <link>https://madebynathan.com/2011/08/16/bash-color-index/</link>
       <pubDate>Tue, 16 Aug 2011 08:47:38 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/08/16/bash-color-index/</guid>
+      <guid>https://madebynathan.com/2011/08/16/bash-color-index/</guid>
       <description>Sometimes it&amp;rsquo;s nice to add color output to your bash scripts. Here&amp;rsquo;s a small &amp;lsquo;color index&amp;rsquo; reference script for your .bashrc, for when you want to add a bit of color to your scripts.
 Save the following script somewhere in your PATH (e.g. /bin/color_index), and make it executable. (chmod +x /bin/color_index)
 #!/bin/bash # Bash Colors Index # Shows an index of all available bash colors # ------------------------------------------------ echo -e &amp;quot;\n Usage: \\\e[*;**(;**)m&amp;quot; echo -e &amp;quot; Default: \\\e[0m&amp;quot; blank_line=&amp;quot;\e[0m\n \e[0;30;40m$(printf &amp;quot;%41s&amp;quot;)\e[0m&amp;quot; echo -e &amp;quot;$blank_line&amp;quot; # Top border for style in 2 0 1 4 9; do echo -en &amp;quot; \e[0;30;40m &amp;quot; # Display black fg on white bg echo -en &amp;quot;\e[${style};30;47m${style};30\e[0;30;40m &amp;quot; for foreground in $(seq 31 37); do ctrl=&amp;quot;\e[${style};${foreground};40m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;${style};${foreground}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; # Separators done echo -en &amp;quot; \e[0;30;40m &amp;quot; # Background colors echo -en &amp;quot;\e[0;37;40m*;40\e[0;30;40m \e[0m&amp;quot; # Display white fg on black bg for background in $(seq 41 47); do ctrl=&amp;quot;\e[0;30;${background}m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;*;${background}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; &amp;quot;\n&amp;quot; # Bottom border  Running &amp;lsquo;color_index&amp;rsquo; will display something like this:</description>
@@ -145,10 +145,10 @@ Save the following script somewhere in your PATH (e.g. /bin/color_index), and ma
     
     <item>
       <title>Automatically change iPhone wallpaper every 30 minutes</title>
-      <link>http://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</link>
+      <link>https://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</link>
       <pubDate>Wed, 20 Jul 2011 16:27:10 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</guid>
+      <guid>https://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/</guid>
       <description>NOTE: This is only for jailbroken iPhones.
 I love finding awesome wallpapers on reddit. My Ubuntu desktop cycles through my wallpaper collection with a program called Cortina, and I wanted my iPhone to do the same.
 So I wrote a very simple script and a launchd plist that runs the script every 30 minutes. If you want to set this up for your jailbroken iPhone, all you need is SSH and a collection of images.</description>
@@ -156,10 +156,10 @@ So I wrote a very simple script and a launchd plist that runs the script every 3
     
     <item>
       <title>Add .bashrc to iPhone for SSH or MobileTerminal</title>
-      <link>http://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</link>
+      <link>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</link>
       <pubDate>Fri, 07 Jan 2011 07:23:48 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
+      <guid>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
       <description>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&amp;rsquo;re used to.
 To do this:  Create and edit your &amp;ldquo;.bashrc&amp;rdquo; file at &amp;ldquo;/var/root/.bashrc&amp;rdquo; Add the following line to &amp;ldquo;/etc/profile&amp;rdquo;: 
 source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
@@ -169,10 +169,10 @@ This is the bashrc that I use on my iPhone.</description>
     
     <item>
       <title>Search and replace in multiple files on linux with bash, egrep, sed function</title>
-      <link>http://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</link>
+      <link>https://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</link>
       <pubDate>Tue, 26 Oct 2010 18:05:53 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</guid>
+      <guid>https://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</guid>
       <description>Heres a simple function to add to your shell if you ever want to replace a string in multiple files at once. It ignores everything in .git, otherwise you get &amp;lsquo;bad index file sha1 signature&amp;rsquo; errors.
 function gsed () { if [ -z &amp;quot;$3&amp;quot; ] then echo &amp;quot;== Usage: gsed search_string replace_string [path]&amp;quot; else egrep --exclude-dir=.git -lRZ &amp;quot;$1&amp;quot; $3 | xargs -0 -l sed -i -e &amp;quot;s/$1/$2/g&amp;quot; fi }  Add it to the bottom of ~/.</description>
     </item>

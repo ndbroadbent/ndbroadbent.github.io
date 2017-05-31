@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fireworks on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/fireworks/</link>
+    <link>https://madebynathan.com/tags/fireworks/</link>
     <description>Recent content in Fireworks on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 25 Apr 2010 14:06:56 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/fireworks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/fireworks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>fireworks display in time to music.</title>
-      <link>http://madebynathan.com/2010/04/25/fireworks-display-in-time-to-music/</link>
+      <link>https://madebynathan.com/2010/04/25/fireworks-display-in-time-to-music/</link>
       <pubDate>Sun, 25 Apr 2010 14:06:56 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2010/04/25/fireworks-display-in-time-to-music/</guid>
+      <guid>https://madebynathan.com/2010/04/25/fireworks-display-in-time-to-music/</guid>
       <description>I&amp;rsquo;ve had a REAPER license for a year or 2 now. Get rid of Logic Pro and Protools, REAPER is the most awesome music creation software I have ever used. I love the unparalleled flexibility to make it do whatever you can imagine.
 I just followed this extremely helpful tutorial by Dave Hayes  to get REAPER running on Ubuntu with wineasio. And now, I am in the middle of researching midi plugins that can trigger shell or network events.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prompt on Made by Nathan</title>
-    <link>http://madebynathan.com/tags/prompt/</link>
+    <link>https://madebynathan.com/tags/prompt/</link>
     <description>Recent content in Prompt on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 14 Jan 2012 01:21:13 +0000</lastBuildDate>
     
-	<atom:link href="http://madebynathan.com/tags/prompt/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madebynathan.com/tags/prompt/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Travis CI Status in Shell Prompt</title>
-      <link>http://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</link>
+      <link>https://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</link>
       <pubDate>Sat, 14 Jan 2012 01:21:13 +0000</pubDate>
       
-      <guid>http://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</guid>
+      <guid>https://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/</guid>
       <description>Update: I&amp;rsquo;ve updated the build status checking script, because updating all branches was taking too long (over 20 minutes.) Now it performs frequent updates for the current branch, and only periodic updates for all branches.
 Travis CI is a distributed continuous integration service for the open source community, and it can be used with any of your public projects on GitHub. You&amp;rsquo;ve probably seen some &amp;lsquo;build status&amp;rsquo; badges like this:</description>
     </item>
