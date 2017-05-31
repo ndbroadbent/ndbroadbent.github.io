@@ -551,6 +551,12 @@
   </url>
   
   <url>
+    <loc>http://madebynathan.com/</loc>
+    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://madebynathan.com/tags/mailing-list/</loc>
     <lastmod>2012-09-19T12:05:39+00:00</lastmod>
     <priority>0</priority>
@@ -565,12 +571,6 @@
   <url>
     <loc>http://madebynathan.com/tags/music/</loc>
     <lastmod>2010-11-04T19:07:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://madebynathan.com/</loc>
-    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
