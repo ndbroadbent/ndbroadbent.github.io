@@ -1,0 +1,59 @@
+---
+comments: true
+date: 2010-04-15T22:22:32Z
+tags: compaq-evo-t20 linux ruby shell-fm
+title: The Compaq Evo T20 works
+url: /2010/04/15/it-works/
+wordpress_id: 21
+wordpress_url: http://nathanf77.wordpress.com/?p=21
+---
+
+I've finished the software research stage of my Compaq Evo T20 experiments.
+I have settled on the Tinycore 2.7 distribution.
+So I now have a 300MHz thin client that:
+
+<ul>
+	<li>can connect to a wired or wireless network.</li>
+	<li>can play audio through its onboard sound device.</li>
+	<li>has the required libraries to run MPD (music player daemon) 
+	    and shell.fm (minimal console application for streaming last.fm stations.)</li>
+	<li>can run Ruby 1.8.7, rubygems, rails, sinatra, etc (Ruby 1.9.x isn't compiling properly just yet.)</li>
+	<li>can load and use my k8055 linux drivers to control up to 8 digital outputs, 2 PWM outputs,
+	    5 digital inputs and 2 analog inputs.</li>
+</ul>
+
+The possibilities for this are endless! It's easy to see the potential of a tiny, stable, fanless computer
+that can be put anywhere, control anything, and be controlled from anywhere.
+
+Some of my ideas:
+
+<ul>
+	<li>Online remote control car server via webcam</li>
+	<li>Networked 8-stage fireworks display</li>
+	<li>Timelapse camera controller with pan and tilt</li>
+	<li>RFID tag access control system (swipe an authorized RFID card and unlock a door)</li>
+	<li>Last.fm radio player attached to home sterio system, controllable via network.</li>
+</ul>
+I have actually implemented the last idea.
+It took a lot of help from other people before I solved all of the problems I was having. A few hints would be:
+
+<ul>
+	<li>Never use ndiswrapper with rt73 wireless devices. It made my T20s freeze randomly.
+	    Get rt73.bin from the driver packages on
+	    <a href="http://www.ralinktech.com/support.php?s=2">the manufactures website</a>.
+	    Copy it to /usr/lib/firmware, and start wpa_supplicant with the wext driver option.</li>
+	<li>To get sound working on a Compaq Evo T20 running tinycore linux,
+	    all you have to do is place the following lines in <code>/opt/bootlocal.sh:</code></li>
+</ul>
+
+{{< highlight bash >}}
+echo "# KMW: hacked sound setup - BEGIN" >> /etc/modprobe.conf
+echo "alias snd-card-0 snd-sb16"         >> /etc/modprobe.conf
+echo "alias sound-slot-0 snd-sb16"       >> /etc/modprobe.conf
+echo "options snd-sb16 isapnp=0"         >> /etc/modprobe.conf
+echo "# KMW: hacked sound setup - END"   >> /etc/modprobe.conf
+/usr/local/etc/init.d/alsasound start
+{{< / highlight >}}
+
+(Thanks to Karl Mowatt-Wilson for this)
+
