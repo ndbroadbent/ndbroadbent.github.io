@@ -8,11 +8,24 @@ html, body {
 }
 
 .h3, h3 {
-  font-size: 22px;
+  font-size: 23px;
 }
 
 .post-date {
   color: #aaa;
+}
+
+a.image {
+  text-decoration: none;
+}
+
+pre {
+  background-color: #272822;
+  color: white;
+}
+
+.highlight {
+  margin: 20px 0;
 }
 
 section#recent-posts {
@@ -31,16 +44,17 @@ section#recent-posts {
   display: block;
   opacity: 0.7;
   font-size: 18px;
-  margin-top: 15px;
+  margin-top: 40px;
 }
 
 #about h3 {
   font-size: 19px;
-  margin-top: 12px;
+  margin-top: 18px;
 }
 
 #about .avatar {
-  margin-bottom: 20px;
+  padding-top: 16px;
+  margin-bottom: 24px;
 }
 
 #about .social-links {
@@ -49,12 +63,20 @@ section#recent-posts {
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
   -webkit-padding-start: 0;
-  margin-bottom: 26px;
+  margin-bottom: 40px;
 }
+
+/*h4 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+}*/
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  padding-bottom: 50px;
+  /*padding-bottom: 50px;*/
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
@@ -63,17 +85,28 @@ section#recent-posts {
   /*padding: 0 0 60px;*/
 }
 
+.navbar-default {
+  margin-bottom: 0;
+}
+
 /* Navbar */
 .navbar-static-top {
   margin-bottom: 10px;
 }
+.navbar-default a.active, .navbar-default .navbar-nav > li > a.active {
+  color: black;
+}
+.navbar-default a.active:hover, .navbar-default .navbar-nav > li > a:hover {
+  color: #777;
+}
+
 .navbar-default {
   margin-top: 16px;
   background-color: #ffffff;
   border-color: #ffffff;
 }
 .navbar-default .navbar-brand {
-  color: #6b6b6b;
+  color: #999;
 }
 
 .navbar-default .navbar-right {
@@ -88,10 +121,10 @@ section#recent-posts {
   color: #111;
 }
 .navbar-default .navbar-text {
-  color: #6b6b6b;
+  color: #999;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #6b6b6b;
+  color: #999;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #111;
@@ -163,7 +196,7 @@ section#recent-posts {
 }
 .panel-default h5 {
   text-align: left;
-  line-height: 30px;
+  line-height: 27px;
   font-size: 18px;
 }
 .panel-default h6 {
@@ -181,6 +214,8 @@ section#recent-posts {
   -webkit-box-shadow: none;
 }
 .panel-body {
+  padding-left: 0;
+  padding-right: 0;
   padding-top: -10px;
   /*padding-bottom: 34px;*/
   text-align: left;
@@ -208,24 +243,31 @@ section#recent-posts {
 .social-links li a:hover {
   color: #555;
 }
-.avatar {
-  padding-top: 0px;
-}
-.blog-post{
-  padding-top: 15px;
+.blog-post {
+  text-align: left;
+  padding-top: 30px;
 }
 .blog-title {
+  text-align: left;
   padding-top: 2px;
   max-width: 600px;
-  margin: auto;
+  /*margin: auto;*/
+  margin-left: 0;
+  margin-bottom: 40px;
 }
 .blog-title h4 {
+  margin-top: 3px;
   color: #aaa;
 }
 .blog-title .tag {
   line-height: 30px;
   font-size: 12px;
   color: #bbb;
+}
+
+.related-posts {
+  margin-top: 70px;
+  margin-bottom: 30px;
 }
 
 .related-posts h4 {

@@ -7,6 +7,9 @@ disqusShortname = "madebynathan"
 googleAnalytics = "UA-19054098-3"
 theme = "hugo-sustain"
 
+pygmentsuseclasses = false
+pygmentsstyle = "monokai"
+
 [permalinks]
   post = "/:year/:month/:day/:slug"
 

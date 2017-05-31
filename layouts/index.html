@@ -10,9 +10,8 @@
 
           {{ partial "social.html" . }}
 
-          <h3>I'm {{ .Site.Params.author }}. I'm a software developer who likes making things.</h3>
-          <h3>This blog is where I write about some of my personal projects.</h3>
-          <h3>Contact me at <a href="http://twitter.com/{{ .Site.Params.Social.Twitter }}">@{{ .Site.Params.Social.Twitter }}</a> or by <a href="mailto:{{ .Site.Params.Social.Email }}">email</a>.</h3>
+          <h3>Hi, I'm {{ .Site.Params.author }}. I enjoy making things.</h3>
+          <h3>This blog is where I write about some of my projects.</h3>
         </div>
       </section>
 
@@ -30,7 +29,9 @@
                   </div>
                   <div class="col-sm-8 col-md-8 col-lg-8">
                     <h5 style="text-align: left">
-                    <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+                    <strong>
+                      <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+                    </strong>
                   </h5>
                 </div>
               </div>

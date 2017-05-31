@@ -1,13 +1,18 @@
+{{ $currentPage := . }}
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ .Site.BaseURL }}">Made by Nathan</i></a>
+      <a class="navbar-brand{{ if .IsHome }} active{{end}}" href="{{ .Site.BaseURL }}">
+        Made by Nathan
+      </a>
     </div>
     <div id="navbar">
       <ul class="nav navbar-nav navbar-right">
       {{ if .Site.Menus.main }}
         {{ range sort .Site.Menus.main }}
-        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        <li><a {{if $currentPage.IsMenuCurrent "main" . }}class="active" {{end}}href="{{ .URL }}">
+          {{ .Name }}</a>
+        </li>
         {{ end }}
       {{ end }}
       </ul>
