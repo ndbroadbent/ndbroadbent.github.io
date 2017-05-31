@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Setting up public/ directory..."
+REMOTE="$(git remote get-url origin)"
+rm -rf public/
+hugo
+cd public
+git init
+git add -A
+git commit -m "Initial commit: $(date)"
+git remote add origin "${REMOTE}"
+echo "Pushing build..."
+git push -f
