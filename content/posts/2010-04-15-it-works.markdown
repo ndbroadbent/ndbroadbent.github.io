@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-15T22:22:32Z
-tags: compaq-evo-t20 linux ruby shell-fm
+tags: [compaq-evo-t20, linux, ruby, shell-fm]
 title: The Compaq Evo T20 works
 url: /2010/04/15/it-works/
 wordpress_id: 21

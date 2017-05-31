@@ -1,0 +1,39 @@
+baseurl = "http://madebynathan.com"
+languageCode = "en-US"
+title = "Nathan Broadbent"
+# Enable comments by entering your Disqus shortname
+disqusShortname = "madebynathan"
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = "UA-19054098-3"
+theme = "hugo-sustain"
+
+[permalinks]
+  post = "/:year/:month/:day/:slug"
+
+[params]
+  avatar = "avatar.jpg"
+  author = "Nathan Broadbent"
+  description = "Web, mobile, electronics, music"
+
+  # Custom assets can be linked with their paths relative to static/
+  custom_css = []
+  custom_js  = []
+
+[params.social]
+  Github        = "ndbroadbent"
+  Email         = "hello@ndbroadbent.com"
+  Twitter       = "ndbroadbent"
+  LinkedIn      = "ndbroadbent"
+  Stackoverflow = "users/304706/ndbroadbent"
+
+## Main Menu
+[[menu.main]]
+  name = "Blog"
+  weight = 100
+  identifier = "post"
+  url = "/posts/"
+[[menu.main]]
+  name = "Consulting"
+  identifier = "consulting"
+  weight = 300
+  url = "https://ndbroadbent.com"

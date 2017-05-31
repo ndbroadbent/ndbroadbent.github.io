@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-15T23:15:57Z
-tags: shell-fm ruby
+tags: [shell-fm, ruby]
 title: Next project!
 url: /2010/04/15/next-project/
 wordpress_id: 23

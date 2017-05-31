@@ -1,0 +1,45 @@
+{{ partial "head" . }}
+  <body>
+    <div id="wrap">
+      {{ partial "header" . }}
+      <section id="about">
+        <div class="container">
+          <div class="avatar">
+            <img class="img-circle" src="{{ .Site.BaseURL }}img/{{ .Site.Params.avatar }}" alt="Responsive image">
+          </div>
+
+          {{ partial "social.html" . }}
+
+          <h3>I'm {{ .Site.Params.author }}. I'm a software developer who likes making things.</h3>
+          <h3>This blog is where I write about some of my personal projects.</h3>
+          <h3>Contact me at <a href="http://twitter.com/{{ .Site.Params.Social.Twitter }}">@{{ .Site.Params.Social.Twitter }}</a> or by <a href="mailto:{{ .Site.Params.Social.Email }}">email</a>.</h3>
+        </div>
+      </section>
+
+      <section id="recent-posts">
+        <div class="container">
+          <!--<h3>Latest Posts</h3>-->
+          <div class="panel panel-default">
+            <div class="panel-body">
+            {{ range first 4 .Data.Pages.ByPublishDate }}
+              <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                  <h5 class="post-date" style="text-align: right">
+                    {{ .Date.Format "January 2, 2006" }}
+                  </h5>
+                  </div>
+                  <div class="col-sm-8 col-md-8 col-lg-8">
+                    <h5 style="text-align: left">
+                    <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+                  </h5>
+                </div>
+              </div>
+            {{ end }}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!--{{ partial "footer" . }}-->
+  </body>
+</html>

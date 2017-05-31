@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-07T13:30:37Z
-tags: thoughts
+tags: [thoughts]
 title: This blog should have been started a long time ago
 url: /2010/04/07/this-blog-should-have-been-started-a-long-time-ago/
 wordpress_id: 189

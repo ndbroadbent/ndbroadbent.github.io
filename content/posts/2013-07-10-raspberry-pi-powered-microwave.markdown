@@ -1,8 +1,8 @@
 ---
 comments: true
 date: 2013-07-10T23:51:47Z
-tags: raspberry-pi microwave kitchen appliances projects ruby rails sinatra linux
-  videos electronics home-automation c
+tags: [raspberry-pi, microwave, kitchen, appliances, projects, ruby, rails, sinatra, linux
+  videos, electronics, home-automation, c]
 title: Raspberry Pi Microwave
 url: /2013/07/10/raspberry-pi-powered-microwave/
 ---

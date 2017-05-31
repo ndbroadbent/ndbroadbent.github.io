@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-20T13:19:42Z
-tags: compaq-evo-t20 lcd4linux linux shell-fm
+tags: [compaq-evo-t20, lcd4linux, linux, shell-fm]
 title: Pertelian X2040, lcd4linux, shell-fm
 url: /2010/04/20/pertelian-x2040-lcd4linux-shell-fm/
 wordpress_id: 25
@@ -31,7 +31,7 @@ Will post some pics or video once I get it all working nicely.
 I'm also really keen to build a nice varnished pine box to house my shell.fm player
 (like the following guy from germany did..), with the LCD screen embedded.
 
-<img class="lightbox" alt="T20 Thin Client pine box made by Dominik Huber" src="/images/posts/2010/04/thinclient.jpg" />
+<img style="width: 600px;" class="lightbox" alt="T20 Thin Client pine box made by Dominik Huber" src="/images/posts/2010/04/thinclient.jpg" />
 
 P.S. I bought one of these <a href="http://usb.brando.com/prod_detail.php?prod_id=00666">super-tiny keyboards</a>
 for my T20 projects. So fun.

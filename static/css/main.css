@@ -1,0 +1,264 @@
+/* Main page with stikky-footer */
+html, body {
+  /*height: 100%;*/
+  background-color: #fff;
+  font-family: 'Merriweather', serif;
+  /* The html and body elements cannot have any padding or margin. */
+  /*border-top: 3px solid #27A822;*/
+}
+
+.h3, h3 {
+  font-size: 22px;
+}
+
+.post-date {
+  color: #aaa;
+}
+
+section#recent-posts {
+  margin-top: 30px;
+}
+
+#recent-posts h3 {
+  color: #aaa;
+}
+
+#recent-posts .panel {
+  margin-bottom: 0;
+}
+
+#about h3 {
+  font-size: 19px;
+  margin-top: 12px;
+}
+
+#about .avatar {
+  margin-bottom: 20px;
+}
+
+#about .social-links {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+  margin-bottom: 26px;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  padding-bottom: 50px;
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -65px;
+  /* Pad bottom by footer height */
+  /*padding: 0 0 60px;*/
+}
+
+/* Navbar */
+.navbar-static-top {
+  margin-bottom: 10px;
+}
+.navbar-default {
+  margin-top: 16px;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.navbar-default .navbar-brand {
+  color: #6b6b6b;
+}
+
+.navbar-default .navbar-right {
+  font-size: 18px;
+  line-height: 20px;
+}
+.navbar-default .navbar-right li {
+  margin-left: 20px;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #111;
+}
+.navbar-default .navbar-text {
+  color: #6b6b6b;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #6b6b6b;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #111;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #6b6b6b;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #6b6b6b;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #6b6b6b;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #6b6b6b;
+}
+.navbar-default .navbar-link {
+  color: #6b6b6b;
+}
+.navbar-default .navbar-link:hover {
+  color: #6b6b6b;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #6b6b6b;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #6b6b6b;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #6b6b6b;
+    background-color: #ffffff;
+  }
+}
+
+/* Custom page CSS */
+.container {
+  width: auto;
+  max-width: 800px;
+  text-align: center;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+.container a {
+  color: #27A822;
+}
+.container a:hover {
+  color: #267723;
+}
+.img-responsive {
+ display: block;
+ height: auto;
+ max-width: 100%;
+}
+.panel-default h4 {
+  text-align: left;
+  line-height: 24px;
+  font-size: 22px;
+}
+.panel-default h5 {
+  text-align: left;
+  line-height: 30px;
+  font-size: 18px;
+}
+.panel-default h6 {
+  font-size: 15px;
+}
+.panel-default h4 a, h5 a {
+  color: #27A822;
+}
+.panel-default h4 a:hover, h5 a:hover {
+  color: #267723;
+}
+.panel {
+  border-style: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.panel-body {
+  padding-top: -10px;
+  /*padding-bottom: 34px;*/
+  text-align: left;
+}
+.social-links {
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+  animation: fade 1s ease 1s both;
+}
+.social-links li {
+  display: inline-block;
+  padding: 5px;
+  padding-top: 0;
+  text-align: center;
+}
+.social-links li a {
+  font-size: 28px;
+  color: #aaa;
+  padding: 10px;
+  padding-bottom: 4px;
+}
+.social-links li a:hover {
+  color: #555;
+}
+.avatar {
+  padding-top: 0px;
+}
+.blog-post{
+  padding-top: 15px;
+}
+.blog-title {
+  padding-top: 2px;
+  max-width: 600px;
+  margin: auto;
+}
+.blog-title h4 {
+  color: #aaa;
+}
+.blog-title .tag {
+  line-height: 30px;
+  font-size: 12px;
+  color: #bbb;
+}
+
+.related-posts h4 {
+  text-align: center;
+}
+.page-not-found {
+  padding-top: 20%;
+}
+.disqus {
+  padding-bottom: 15px;
+}
+.blogpost{
+  text-align: left;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+.blogpost h3, .blogpost h2 {
+  margin-top: 36px;
+  margin-bottom: 14px;
+}
+
+/* Footer  */
+.footer {
+  text-decoration: none !important;
+}
+.text-muted {
+	color: #6b6b6b;
+}
+div.footer{
+  /*border-bottom: 5px solid #27A822;*/
+}
+/* Set the fixed height of the footer here */
+/*.footer {
+  height: 50px;
+  padding-bottom: 15px;
+
+}*/
+
+
+img.lightbox.thumb {
+  margin: 14px;
+}
