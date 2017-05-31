@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Add .bashrc to iPhone for SSH or MobileTerminal</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2011/01/07/add-bashrc-to-iphone/">Add .bashrc to iPhone for SSH or MobileTerminal</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          January 7, 2011
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&rsquo;re used to.</p>
+
+<p>To do this:
+<ol>
+    <li>Create and edit your &ldquo;.bashrc&rdquo; file at &ldquo;/var/root/.bashrc&rdquo;</li>
+    <li>Add the following line to &ldquo;/etc/profile&rdquo;:</li>
+</ol></p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">source</span> /var/root/.bashrc
+</pre></div>
+
+
+<p>An example alias would be: alias respring=&ldquo;killall SpringBoard&rdquo;</p>
+
+<p>Colored prompts look great in MobileTerminal too.</p>
+
+<p><a href="https://github.com/ndbroadbent/ubuntu_config/blob/master/assets/iphone_bashrc.sh">This is the bashrc that I use on my iPhone.</a></p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 18, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">Automatically run &lsquo;bundle install&rsquo; when Bundler can&rsquo;t find a gem</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        October 29, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/10/29/auto-reloading-your-bashrc/">Auto-reloading your .bashrc (or .zshrc)</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

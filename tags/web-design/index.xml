@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Design on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/web-design/</link>
+    <description>Recent content in Web Design on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 25 Apr 2011 17:32:50 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/web-design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Avatar Harmony - Sync your profile pics</title>
+      <link>http://madebynathan.com/2011/04/25/avatar-harmony-sync-your-profile-pics/</link>
+      <pubDate>Mon, 25 Apr 2011 17:32:50 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2011/04/25/avatar-harmony-sync-your-profile-pics/</guid>
+      <description>I&amp;rsquo;ve written a tiny web application called &amp;lsquo;Avatar Harmony&amp;rsquo;.
+You can sign in with twitter or facebook, add your Gravatar login details, and the app will automatically sync your profile pics across each of your accounts.
+It can sync avatars in the following directions:
+ Facebook =&amp;gt; Twitter Facebook =&amp;gt; Gravatar Twitter =&amp;gt; Gravatar Gravatar =&amp;gt; Twitter  Unfortunately, the Facebook Graph API doesn&#39;t let us update profile pics at the moment, but I&#39;ll keep looking around for a solution.</description>
+    </item>
+    
+    <item>
+      <title>Last.fm on embedded systems</title>
+      <link>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</link>
+      <pubDate>Sat, 26 Jun 2010 00:30:15 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</guid>
+      <description>I&amp;rsquo;ve finished most of the work I&amp;rsquo;m going to do on my shell.fm ruby server. Its written on sinatra + jquery + jquery-ui (so, a lot of ajax calls). It also requires my custom shell.fm fork if you want the volume control to work.
+You can find my shell.fm fork here: http://github.com/ndbroadbent/shell-fm
+and the shell.fm sinatra server is here: http://github.com/ndbroadbent/shell-fm_sinatra
+By the way, this post is about an embedded linux system that plays last.</description>
+    </item>
+    
+    <item>
+      <title>How to create a favicon.ico with GIMP</title>
+      <link>http://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/</link>
+      <pubDate>Thu, 20 May 2010 13:19:13 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/</guid>
+      <description>UPDATE: Theres an easier way to do this here: http://www.htmlcenter.com/blog/creating-a-favicon-for-your-website/.
+http://linuxproblem.org/art_19.html
+By Mathias Kettner :
+You need an image file that GIMP can open (PNG, GIF, etc.). And you need the command line tool ppmtowinicon from the netpbm-tools (on SuSE you have to have installed the package netpbm). Now perform the following actions:
+ Open your image with GIMP. If your image is not a square then resize the canvas with GIMP.</description>
+    </item>
+    
+    <item>
+      <title>obscure jqGrid API notes</title>
+      <link>http://madebynathan.com/2010/05/06/obscure-jqgrid-api-notes/</link>
+      <pubDate>Thu, 06 May 2010 15:33:06 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/05/06/obscure-jqgrid-api-notes/</guid>
+      <description>If you are using an older version of jqGrid because it comes nicely wrapped up in the jquery-grid-rails-plugin, keep in mind that all the demo code is written with the new API introduced in version 3.6. Fortunately, most of the demo code can still be reused with our version of jqGrid (3.5). Just get rid of any &amp;ldquo;jqGrid(&amp;rsquo; ****** &amp;lsquo;)&amp;rdquo; function wrappers, and everything should work fine. (I find this easier to do than rewriting the rails plugin for the new version)</description>
+    </item>
+    
+  </channel>
+</rss>

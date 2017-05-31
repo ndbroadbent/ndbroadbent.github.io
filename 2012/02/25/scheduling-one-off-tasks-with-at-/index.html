@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Scheduling one-off tasks with &#39;at&#39;</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2012/02/25/scheduling-one-off-tasks-with-at-/">Scheduling one-off tasks with &#39;at&#39;</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          February 25, 2012
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>You might be familiar with the <a href="http://en.wikipedia.org/wiki/Cron">cron</a> job scheduler,
+which is great for repeating tasks.
+But when you want to schedule a command to only run once in the future,
+the <a href="http://linux.die.net/man/1/at">at</a> command is what you are looking for.</p>
+
+<p>In my case, I was updating a plugin for our
+<a href="http://www.thoughtworks-studios.com/mingle-agile-project-management">Thoughtworks Mingle</a> instance,
+but the update wasn&rsquo;t hugely important. Many of our staff rely on Mingle for their work,
+and restarting it takes it offline for a few minutes.</p>
+
+<p>So I used the <code>at</code> command to schedule the restart to happen at midnight, after everyone had gone home:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;/etc/init.d/mingle restart&quot;</span> <span style="color: #f8f8f2">|</span> at -m <span style="color: #ae81ff">00</span>:00
+job <span style="color: #ae81ff">6</span> at <span style="color: #ae81ff">2012</span>-02-26 <span style="color: #ae81ff">00</span>:00
+</pre></div>
+
+
+<p>Use <code>atq</code> or <code>at -l</code> to see the list of pending jobs:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ atq
+<span style="color: #ae81ff">6</span>	<span style="color: #ae81ff">2012</span>-02-26 <span style="color: #ae81ff">00</span>:00 a root
+</pre></div>
+
+
+<p>Use <code>at -c &lt;job id&gt;</code> to view the script that will be run:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ at -c <span style="color: #ae81ff">6</span>
+
+<span style="color: #75715e">#!/bin/sh</span>
+<span style="color: #75715e"># atrun uid=0 gid=0</span>
+<span style="color: #75715e"># mail     root 1</span>
+<span style="color: #f8f8f2">umask</span> <span style="color: #ae81ff">22</span>
+<span style="color: #f8f8f2">HOSTNAME</span><span style="color: #f92672">=</span>...
+&lt;lots of environment variables <span style="color: #f8f8f2">set</span> here&gt;
+
+/etc/init.d/mingle restart
+</pre></div>
+
+
+<p>To delete a scheduled task, run <code>at -d &lt;job id&gt;</code>:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ at -d <span style="color: #ae81ff">6</span>
+$ atq
+<span style="color: #f92672">(</span>no output<span style="color: #f92672">)</span>
+</pre></div>
+
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 18, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">Automatically run &lsquo;bundle install&rsquo; when Bundler can&rsquo;t find a gem</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        November 8, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/">capistrano_colors has been merged into capistrano</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

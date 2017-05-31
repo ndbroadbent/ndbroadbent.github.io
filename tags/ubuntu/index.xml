@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 29 Mar 2013 23:44:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</title>
+      <link>http://madebynathan.com/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/</link>
+      <pubDate>Fri, 29 Mar 2013 23:44:58 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/</guid>
+      <description>Whenever I&amp;rsquo;m looking at backtraces, logs, or failing tests in the terminal, I often need to open one of those files in my text editor. It was previously a semi-arduous process that involved highlighting, copying, pasting and the return key. Now, all I need to do is double-click or highlight a line, and then press a keyboard shortcut to open that file &amp;amp; line in my text editor (currently Sublime Text 2.</description>
+    </item>
+    
+    <item>
+      <title>Managing Project Design Assets For Git Repositories: A Simple Solution</title>
+      <link>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</link>
+      <pubDate>Fri, 21 Oct 2011 23:25:47 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2011/10/21/managing-project-design-assets-for-git-repositories/</guid>
+      <description>When you&amp;rsquo;re creating logos or icons for a project that uses git, have you ever wondered where you should store those .psd or .xcf files? Do you commit all of your raw design files, or does it put you off that any changes to those files will bloat your repository?
+The following post describes a part of my SCM Breeze project. If you haven&amp;rsquo;t seen it already, take a look at my blog post that describes what it can do.</description>
+    </item>
+    
+    <item>
+      <title>A better way to use xclip (clipboard from the command line)</title>
+      <link>http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</link>
+      <pubDate>Tue, 04 Oct 2011 16:45:42 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</guid>
+      <description>Sometimes you just want to copy something from your terminal and paste it somewhere else. You might have heard of a Linux program called xclip, which provides a command line interface to X selections. However, xclip&amp;rsquo;s default selection isn&amp;rsquo;t the clipboard, and typing xclip -selection c -i ~/.ssh/id_rsa.pub is just a bit tedious.
+So here&amp;rsquo;s a wrapper function that makes it less of a hassle to integrate the clipboard with the command line.</description>
+    </item>
+    
+  </channel>
+</rss>

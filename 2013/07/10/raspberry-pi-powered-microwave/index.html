@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Raspberry Pi Microwave</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          July 10, 2013
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<p>A few months ago, I was inspired by <a href="http://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/">this post</a> on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.</p>
+
+<p>I thought this was a pretty cool idea, and that it would be a fun project for a Raspberry Pi. I agreed with the people who thought using UPC barcodes would be better, since products already have them, so I went with a barcode scanner + online product database.</p>
+
+<p>Here&rsquo;s a summary of the features that I&rsquo;ve added to my microwave:</p>
+
+<ul>
+<li>Re-designed touchpad</li>
+<li>Nicer sounds</li>
+<li>Clock is automatically updated from the internet</li>
+<li>Can be controlled with voice commands</li>
+<li>Can use a barcode scanner to look up cooking instructions from an online database</li>
+<li>There weren&rsquo;t any online microwave cooking databases around, so I made one: <a href="http://microwavecookingdb.com">http://microwavecookingdb.com</a></li>
+<li>The microwave has a web page so you can control it from your phone (why not), and set up cooking instructions for products</li>
+<li>Tweets after it&rsquo;s finished cooking something (See <a href="https://twitter.com/rbmicrowave">https://twitter.com/rbmicrowave</a>)</li>
+</ul>
+
+<h2 id="demo-video">Demo Video</h2>
+
+<iframe width="100%" height="400" src="//www.youtube.com/embed/e2YtARzJTys" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="using-a-raspberry-pi-to-cook-a-raspberry-pie">Using a Raspberry Pi to cook a Raspberry Pie</h2>
+
+<p><a href="http://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html">Here&rsquo;s the recipe</a>.</p>
+
+<p><a class="image" href="/images/posts/2013/07/ingredients.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/ingredients-resized-thumb.jpg" alt="Raspberry Pie Ingredients" />
+</a>
+<a class="image" href="/images/posts/2013/07/mixing.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/mixing-resized-thumb.jpg" alt="Raspberry Pie Mixing" />
+</a>
+<a class="image" href="/images/posts/2013/07/cooking_pie_filling.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/cooking_pie_filling-resized-thumb.jpg" alt="Raspberry Pie Cooking" />
+</a>
+<a class="image" href="/images/posts/2013/07/raspberry_pi_raspberry_pie.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_pi_raspberry_pie-resized-thumb.jpg" alt="Raspberry Pi - Raspberry Pie" />
+</a>
+<a class="image" href="/images/posts/2013/07/a_slice_of_pi.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/a_slice_of_pi-resized-thumb.jpg" alt="A slice of Pi" />
+</a></p>
+
+<hr/>
+
+<h3 id="keep-reading-below-if-you-re-interested-in-electronics-or-software">Keep reading below if you&rsquo;re interested in electronics or software:</h3>
+
+<h2 id="hardware">Hardware</h2>
+
+<p>I used a microwave with a touchpad, and discovered that the touchpad was a button matrix. I took photos of the touchpad and traced the wires, so that I could tell which pins corresponded to which buttons.</p>
+
+<p><a class="image" href="/images/posts/2013/07/touchpad_no_traces.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/touchpad_no_traces-resized-thumb.jpg" alt="Touchpad" />
+</a>
+<a class="image" href="/images/posts/2013/07/touchpad_traces.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/touchpad_traces-resized-thumb.jpg" alt="Touchpad Traces" />
+</a>
+<a class="image" href="/images/posts/2013/07/original_touchpad.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/original_touchpad-resized-thumb.jpg" alt="Original Touchpad UI" />
+</a></p>
+
+<p>I initially wanted to put everything in a case outside the microwave, but I decided that it would be more challenging and fun to try and fit everything inside. Here&rsquo;s all the PCB revisions, before I settled on a design that would fit neatly on top of the microwave&rsquo;s original PCB.</p>
+
+<p><a class="image" href="/images/posts/2013/07/pcb_1.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_1-resized-thumb.jpg" alt="PCB revision 1" />
+</a>
+<a class="image" href="/images/posts/2013/07/pcb_2.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_2-resized-thumb.jpg" alt="PCB revision 2" />
+</a>
+<a class="image" href="/images/posts/2013/07/pcb_3.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_3-resized-thumb.jpg" alt="PCB revision 3" />
+</a></p>
+
+<p>I used shift registers and optocouplers to control the touchpad pins. To listen for touchpad presses, an output shift register scans one line at a time on the first touchpad layer, and an input shift register listens for connections to the second layer.</p>
+
+<p>I unsoldered the touchpad connector from the original circuit board, and replaced it with a row of pin headers. I then used the original touchpad connector on my PCB, so that my circuit acts as a kind of proxy for button presses.</p>
+
+<p>Here&rsquo;s the final product after transferring toner, etching, drilling, and soldering. (I had to use the ribbon cables to save space.)</p>
+
+<p><a class="image" href="/images/posts/2013/07/ready_to_etch.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/ready_to_etch-resized-thumb.jpg" alt="Ready to Etch" />
+</a>
+<a class="image" href="/images/posts/2013/07/soldered.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/soldered-resized-thumb.jpg" alt="Everything Soldered" />
+</a>
+<a class="image" href="/images/posts/2013/07/pcb_bottom.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_bottom-resized-thumb.jpg" alt="PCB Bottom" />
+</a></p>
+
+<p>And here&rsquo;s how it fits on top of the microwave controller:</p>
+
+<p><a class="image" href="/images/posts/2013/07/plugged_in1.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/plugged_in1-resized-thumb.jpg" alt="Plugged In" />
+</a>
+<a class="image" href="/images/posts/2013/07/plugged_in2.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/plugged_in2-resized-thumb.jpg" alt="Plugged In" />
+</a></p>
+
+<p>When I peeled off the old touchpad overlay, it became wrinkled and ugly, so I thought I may as well have a go at redesigning the interface. My goal was to get rid of the features I don&rsquo;t really use, and make the basic functions more convenient. The top two rows of buttons are now dedicated to &ldquo;one touch&rdquo; cooking times, for either &ldquo;high&rdquo; or &ldquo;medium&rdquo; power. You can also set the time and power manually.</p>
+
+<p><a class="image" href="/images/posts/2013/07/touchpad.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox" width="145" src="/images/posts/2013/07/touchpad-resized-thumb.jpg" alt="Touchpad" />
+</a></p>
+
+<p>You might have noticed that I started the project with the intention of using an <a href="http://arduino.cc/en/Main/ArduinoBoardNano">Arduino Nano</a> plugged into a Raspberry Pi USB port. This was because I was a) familiar with the Arduino, b) not familiar with the Raspberry Pi GPIO, and c) thought it would make testing and debugging a bit easier, since I could just plug the Arduino into my laptop.</p>
+
+<p>However, it turns out that my Raspberry Pi had some issues with the arduino&rsquo;s FTDI chip if the Raspberry Pi was turned on while the Arduino was plugged in. It wouldn&rsquo;t recognize the Arduino until I unplugged it, and then plugged it back in again.</p>
+
+<p>So I decided to make an Arduino Nano =&gt; Raspberry Pi GPIO adapter, and port my Arduino code to the Raspberry Pi GPIO using the <a href="http://wiringpi.com/">WiringPi</a> library.</p>
+
+<p><a class="image" href="/images/posts/2013/07/arduino_raspberry_adapter.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/arduino_raspberry_adapter-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+</a>
+<a class="image" href="/images/posts/2013/07/raspberry_adapter_top.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_adapter_top-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+</a>
+<a class="image" href="/images/posts/2013/07/raspberry_adapter_bottom.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_adapter_bottom-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+</a>
+<a class="image" href="/images/posts/2013/07/raspberry_adapter_connected.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_adapter_connected-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+</a></p>
+
+<p>The Raspberry Pi is powered by a USB hub, which is also plugged into the Raspberry Pi&rsquo;s USB port. To power the hub, I wired up a power adapter to the microwave&rsquo;s power source. There&rsquo;s also a USB powered speaker, USB microphone, wifi adapter, and barcode scanner.</p>
+
+<p><a class="image" href="/images/posts/2013/07/power_adapter.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/power_adapter-resized-thumb.jpg" alt="Power adapter" />
+</a>
+<a class="image" href="/images/posts/2013/07/usb_hub.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/usb_hub-resized-thumb.jpg" alt="USB Hub" />
+</a>
+<a class="image" href="/images/posts/2013/07/microphone_wifi.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/images/posts/2013/07/microphone_wifi-resized-thumb.jpg" alt="Microphone + Wifi" />
+</a></p>
+
+<h2 id="microwave-software">Microwave Software</h2>
+
+<p>All the software running on the Raspberry Pi is hosted at: <a href="https://github.com/ndbroadbent/raspberry_picrowave">https://github.com/ndbroadbent/raspberry_picrowave</a>.</p>
+
+<p>There are 4 main components:</p>
+
+<h3 id="microwave-daemon">Microwave Daemon</h3>
+
+<p>This runs the code that listens for touchpad button presses, and controls the microwave. It also accepts TCP connections so that other programs can send commands or request information about the microwave&rsquo;s status.</p>
+
+<h3 id="barcode-instructions">Barcode Instructions</h3>
+
+<p>This program listens to the barcode scanner, and requests product information from the Microwave Cooking Database. It also runs the cooking programs.</p>
+
+<h3 id="voice-control">Voice Control</h3>
+
+<p>I used <a href="http://cmusphinx.sourceforge.net/">PocketSphinx</a> for voice recognition, which worked very well with my small <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt">corpus</a>. I embedded Ruby in the <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c">pocketsphinx_contiunous</a> C program, so that it would be easier to <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb">script voice commands</a> and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won&rsquo;t be used very often.</p>
+
+<h3 id="sinatra-app">Sinatra App</h3>
+
+<p>There&rsquo;s a simple <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/microwave_webapp.rb">sinatra web application</a> that lets you control the microwave from your phone or computer. This may not be a big selling point. It uses a <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/public/application.js">JavaScript EventSource</a> to push updates to the browser, so you could have hundreds of users connected to your microwave at once.</p>
+
+<p>If any barcodes are scanned that can&rsquo;t be found on the Microwave Cooking Database, this webpage will display the unknown barcodes and provide a link to add the new product.</p>
+
+<h2 id="microwave-cooking-database">Microwave Cooking Database</h2>
+
+<p>I couldn&rsquo;t find any existing websites with a database of microwave cooking instructions, so I made one.</p>
+
+<p><a class="image" href="/images/posts/2013/07/mwcdb.png" target="_blank" rel="noopener noreferrer">
+  <img src="/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database" />
+</a></p>
+
+<p>(UPDATE: It used to be live at <a href="http://www.microwavecookingdb.com/">http://www.microwavecookingdb.com/</a>, but I let the domain expire. Sorry!)</p>
+
+<p>If cooking instructions are posted for a 1000W microwave, you can request the instructions for a 700W microwave, and the cooking times will be automatically adjusted.</p>
+
+<p>So if you&rsquo;re also planning on making an internet connected microwave with a barcode scanner, please feel free to sign up and add some products.</p>
+
+<h2 id="patents">Patents?</h2>
+
+<p>Nope, this is just a fun project. <a href="http://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top">Microwaves with barcode scanners already exist</a>, and <a href="http://www.google.com/patents/US4323773">most</a> of these <a href="http://www.google.com/patents/US6124583">features</a> are <a href="http://www.google.com/patents/US6444965">already</a> <a href="http://www.google.com/patents/EP1117275A2?cl=en">patented</a>.</p>
+
+<h2 id="thanks-for-reading">Thanks for reading!</h2>
+
+<p>I&rsquo;d be interested to hear if you do something similar, or make use of <a href="http://www.microwavecookingdb.com">http://www.microwavecookingdb.com</a>.</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 18, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">Automatically run &lsquo;bundle install&rsquo; when Bundler can&rsquo;t find a gem</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

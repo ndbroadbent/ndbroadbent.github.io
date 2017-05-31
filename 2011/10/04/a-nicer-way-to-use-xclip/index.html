@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>A better way to use xclip (clipboard from the command line)</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/">A better way to use xclip (clipboard from the command line)</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          October 4, 2011
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<p>Sometimes you just want to copy something from your terminal and paste it somewhere else.
+You might have heard of a Linux program called <code>xclip</code>, which provides a command line
+interface to X selections.
+However, <code>xclip</code>&rsquo;s default selection isn&rsquo;t the clipboard,
+and typing <code>xclip -selection c -i ~/.ssh/id_rsa.pub<file></code> is just a bit tedious.</p>
+
+<p>So here&rsquo;s a wrapper function that makes it less of a hassle
+to integrate the clipboard with the command line.</p>
+
+<ul>
+<li>It handles input via pipe or parameters.</li>
+<li>It automatically uses the contents of a file if you pass it a valid filename.</li>
+<li>It prints an excerpt of what has been copied, truncated to 80 characters.</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<ul>
+<li>Pipe anything to the clipboard</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ tail -n <span style="color: #ae81ff">100</span> /var/log/apache2/error.log <span style="color: #f8f8f2">|</span> cb
+<span style="color: #75715e"># =&gt; Copied to clipboard: [Sun Oct 02 08:02:08 2011] [notice] Apache/2.2.17 (Ubuntu) configured -- resumin...</span>
+</pre></div>
+
+
+<ul>
+<li>Copy the contents of a file to the clipboard</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ cbf ~/.ssh/id_rsa.pub
+<span style="color: #75715e"># =&gt; Copied to clipboard: ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnwaNIuOhZzUeR6/xEEudXt3zEh91dawhkkKx8p/+4Bw9...</span>
+</pre></div>
+
+
+<ul>
+<li>Type straight into the clipboard</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ cb This is some unquoted text.
+<span style="color: #75715e"># =&gt; Copied to clipboard: This is some unquoted text.</span>
+</pre></div>
+
+
+<p>No options, no <code>man</code> pages.</p>
+
+<p>It also comes with a handy <code>cb_ssh</code> alias that copies your SSH public key to the clipboard,
+for when you are setting up your new <a href="https://bitbucket.org">BitBucket account</a>
+with <a href="http://blog.bitbucket.org/2011/10/03/bitbucket-now-rocks-git/">unlimited, free private git repositories</a>!
+I&rsquo;m not affiliated with Atlassian, I just think they&rsquo;re awesome.</p>
+
+<p>So if you think this looks handy, you can add the following to your <code>~/.bashrc</code>:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># A shortcut function that simplifies usage of xclip.</span>
+<span style="color: #75715e"># - Accepts input from either stdin (pipe), or params.</span>
+<span style="color: #75715e"># ------------------------------------------------</span>
+cb<span style="color: #f92672">()</span> <span style="color: #f92672">{</span>
+  <span style="color: #f8f8f2">local</span> <span style="color: #f8f8f2">_scs_col</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;\e[0;32m&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">local</span> <span style="color: #f8f8f2">_wrn_col</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;\e[1;31m&#39;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">local</span> <span style="color: #f8f8f2">_trn_col</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;\e[0;33m&#39;</span>
+  <span style="color: #75715e"># Check that xclip is installed.</span>
+  <span style="color: #66d9ef">if</span> ! <span style="color: #f8f8f2">type</span> xclip &gt; /dev/null <span style="color: #ae81ff">2</span>&gt;<span style="color: #f8f8f2">&amp;</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+    <span style="color: #f8f8f2">echo</span> -e <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$_wrn_col</span><span style="color: #e6db74">&quot;&quot;You must have the &#39;xclip&#39; program installed.\e[0m&quot;</span>
+  <span style="color: #75715e"># Check user is not root (root doesn&#39;t have access to user xorg server)</span>
+  <span style="color: #66d9ef">elif</span> <span style="color: #f92672">[[</span> <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$USER</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;root&quot;</span> <span style="color: #f92672">]]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+    <span style="color: #f8f8f2">echo</span> -e <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$_wrn_col</span><span style="color: #e6db74">&quot;&quot;Must be regular user (not root) to copy a file to the clipboard.\e[0m&quot;</span>
+  <span style="color: #66d9ef">else</span>
+    <span style="color: #75715e"># If no tty, data should be available on stdin</span>
+    <span style="color: #66d9ef">if</span> ! <span style="color: #f92672">[[</span> <span style="color: #e6db74">&quot;</span><span style="color: #66d9ef">$(</span> tty <span style="color: #66d9ef">)</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">==</span> /dev/* <span style="color: #f92672">]]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+      <span style="color: #f8f8f2">input</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;</span><span style="color: #66d9ef">$(</span>&lt; /dev/stdin<span style="color: #66d9ef">)</span><span style="color: #e6db74">&quot;</span>
+    <span style="color: #75715e"># Else, fetch input from params</span>
+    <span style="color: #66d9ef">else</span>
+      <span style="color: #f8f8f2">input</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$*</span><span style="color: #e6db74">&quot;</span>
+    <span style="color: #66d9ef">fi</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> -z <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$input</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>  <span style="color: #75715e"># If no input, print usage message.</span>
+      <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;Copies a string to the clipboard.&quot;</span>
+      <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;Usage: cb &lt;string&gt;&quot;</span>
+      <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;       echo &lt;string&gt; | cb&quot;</span>
+    <span style="color: #66d9ef">else</span>
+      <span style="color: #75715e"># Copy input to clipboard</span>
+      <span style="color: #f8f8f2">echo</span> -n <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$input</span><span style="color: #e6db74">&quot;</span> <span style="color: #f8f8f2">|</span> xclip -selection c
+      <span style="color: #75715e"># Truncate text for status</span>
+      <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #e6db74">${#</span><span style="color: #f8f8f2">input</span><span style="color: #e6db74">}</span> -gt <span style="color: #ae81ff">80</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span> <span style="color: #f8f8f2">input</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;</span><span style="color: #66d9ef">$(</span><span style="color: #f8f8f2">echo</span> <span style="color: #f8f8f2">$input</span> <span style="color: #f8f8f2">|</span> cut -c1-80<span style="color: #66d9ef">)</span><span style="color: #f8f8f2">$_trn_col</span><span style="color: #e6db74">...\e[0m&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">fi</span>
+      <span style="color: #75715e"># Print status.</span>
+      <span style="color: #f8f8f2">echo</span> -e <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$_scs_col</span><span style="color: #e6db74">&quot;&quot;Copied to clipboard:\e[0m </span><span style="color: #f8f8f2">$input</span><span style="color: #e6db74">&quot;</span>
+    <span style="color: #66d9ef">fi</span>
+  <span style="color: #66d9ef">fi</span>
+<span style="color: #f92672">}</span>
+<span style="color: #75715e"># Aliases / functions leveraging the cb() function</span>
+<span style="color: #75715e"># ------------------------------------------------</span>
+<span style="color: #75715e"># Copy contents of a file</span>
+<span style="color: #66d9ef">function</span> cbf<span style="color: #f92672">()</span> <span style="color: #f92672">{</span> cat <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$1</span><span style="color: #e6db74">&quot;</span> <span style="color: #f8f8f2">|</span> cb<span style="color: #f8f8f2">;</span> <span style="color: #f92672">}</span>  
+<span style="color: #75715e"># Copy SSH public key</span>
+<span style="color: #f8f8f2">alias</span> <span style="color: #f8f8f2">cbssh</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;cbf ~/.ssh/id_rsa.pub&quot;</span>  
+<span style="color: #75715e"># Copy current working directory</span>
+<span style="color: #f8f8f2">alias</span> <span style="color: #f8f8f2">cbwd</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;pwd | cb&quot;</span>  
+<span style="color: #75715e"># Copy most recent command in bash history</span>
+<span style="color: #f8f8f2">alias</span> <span style="color: #f8f8f2">cbhs</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;cat </span><span style="color: #f8f8f2">$HISTFILE</span><span style="color: #e6db74"> | tail -n 1 | cb&quot;</span>  
+</pre></div>
+
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 18, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">Automatically run &lsquo;bundle install&rsquo; when Bundler can&rsquo;t find a gem</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        November 8, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/">capistrano_colors has been merged into capistrano</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

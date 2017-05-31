@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bluetooth on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/bluetooth/</link>
+    <description>Recent content in Bluetooth on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 29 Apr 2010 10:39:42 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to use a bluetooth headset on Ubuntu 9.10 &#43;</title>
+      <link>http://madebynathan.com/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/</link>
+      <pubDate>Thu, 29 Apr 2010 10:39:42 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/</guid>
+      <description>I found a little bluetooth headset at work, and wanted to play audio through it from my laptop. It turns out that nowadays, Ubuntu actually makes this really easy.
+I found a guide written for Ubuntu 9.04 on this forum post, but Ubuntu 9.10 now does most of the work for you. (Steps 15 through 27 are still used in this guide, so credit to HyRax1 from forums.overclockers.com.au for the original tutorial)</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plugins on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/plugins/</link>
+    <description>Recent content in Plugins on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 03 Dec 2010 04:34:48 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gedit plugin I18n Helper for Rails</title>
+      <link>http://madebynathan.com/2010/12/03/gedit-plugin-i18n-helper-for-rails/</link>
+      <pubDate>Fri, 03 Dec 2010 04:34:48 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/12/03/gedit-plugin-i18n-helper-for-rails/</guid>
+      <description>Gedit plugin - I18n Helper for Rails Menu and keyboard shortcut for internationalizing strings in Rails templates.
+Simple at the moment, but useful to anyone who might want to learn how to write a gedit plugin to manipulate selected strings.
+https://github.com/ndbroadbent/gedit_i18n_helper</description>
+    </item>
+    
+    <item>
+      <title>How to use bundler with multiple Gemfiles in plugins / extensions</title>
+      <link>http://madebynathan.com/2010/10/19/how-to-use-bundler-with-plugins-extensions/</link>
+      <pubDate>Tue, 19 Oct 2010 20:37:16 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/10/19/how-to-use-bundler-with-plugins-extensions/</guid>
+      <description>Bundler makes it very easy to point to a gem folder on your system, and I definitely recommend this approach a lot more. The plugin can be a gem that we can just require, and it can specify its own dependencies in its .gemspec file.
+But if you really don&amp;rsquo;t want your plugin to be a gem, for whatever reason, then read on&amp;hellip;
+If we are developing a Spree extension, or a Retrospectiva extension, or a Fat Free CRM plugin, we might sometimes need a way to require the gems in multiple Gemfiles, but Bundler doesn&amp;rsquo;t cater for this.</description>
+    </item>
+    
+  </channel>
+</rss>

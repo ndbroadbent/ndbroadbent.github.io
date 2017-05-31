@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/">Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          October 11, 2012
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<p>A day in the life of a Rails developer will usually involve a few <code>git pull</code>s, <code>bundle install</code>s, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&rsquo;t have to spend too much time updating code or installing new gems.</p>
+
+<p>I&rsquo;m using the <code>whenever</code> gem to create cron tasks that:</p>
+
+<ul>
+<li>Update all my git repos from their remotes</li>
+<li>Satisfy all of my Gemfile&rsquo;s dependencies</li>
+<li>Cache rake and capistrano commands for tab completion</li>
+<li>Fetch Travis CI build statuses to show in my terminal</li>
+<li>Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized</li>
+</ul>
+
+<p>For all of these tasks, I&rsquo;m using the <code>git_index</code> function provided by my <a href="https://github.com/ndbroadbent/scm_breeze">SCM Breeze</a> project. It creates an index of all your git projects by recursively scanning your code directory, and then lets you quickly jump to projects, or run batch commands for each of your repos. See my <a href="http://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/#repository-index">SCM Breeze blog post for more info about the repository index</a>.</p>
+
+<h3 id="updating-git-repos">Updating Git Repos</h3>
+
+<p>Every 30 minutes I run a task that updates all of the local branches on all of my git repos. It does this as safely as possible:</p>
+
+<ul>
+<li>Doesn&rsquo;t do anything if there are any changed files in the working directory</li>
+<li>Doesn&rsquo;t do anything unless remote and merge branches are explicitly configured for that branch</li>
+<li>Doesn&rsquo;t do anything if it cannot &lsquo;fast-forward&rsquo; merge a branch (i.e. the current commit is not a parent of the latest commit in the remote repo)</li>
+</ul>
+
+<p>Basically, this means that it will leave you alone if you are working on a feature, or if you&rsquo;ve committed something that you haven&rsquo;t pushed yet.</p>
+
+<p>Otherwise, it will bring your branches up-to-date and send a desktop notification:</p>
+
+<p><img src="/images/posts/2012/10/git_update_notify.jpg" alt="Git update notification" /></p>
+
+<h3 id="installing-gem-dependencies">Installing Gem dependencies</h3>
+
+<p>I have a task that runs every hour to ensure that all of my gem dependencies are installed. If someone adds a new gem dependency to your project, it&rsquo;s great to have that automatically installed when the repo is automatically updated.</p>
+
+<p>I&rsquo;m using the <code>git_index</code> function to run a script called <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/bundle_check_or_install">bundle_check_or_install</a> for each of my git repos. It also sends desktop notifications on update or failure, and doesn&rsquo;t do anything if the gems are already up-to-date.</p>
+
+<p>If <code>bundle install</code> fails for any reason, it will touch a file at <code>'.skip_bundle_auto_install~</code> (and exclude that file from git by adding it to <code>.git/info/exclude</code>). Any future attempts to auto-update your gems will abort with the notification that &ldquo;Previous bundle install failed&rdquo;. This notification can be disabled if <code>.skip_bundle_auto_install~</code> contains the string &ldquo;SILENT&rdquo;. I do this when I stop caring about old projects, but don&rsquo;t want to delete or archive them.</p>
+
+<h3 id="caching-rake-and-capistrano-commands-for-tab-completion">Caching Rake and Capistrano commands for tab completion</h3>
+
+<p><code>rake -T</code> and <code>cap -T</code> can take a long time to run, so I run a task every hour to cache the available tasks for all of my projects, and I use these cached tasks to provide tab completion. The tasks in saved to files like <code>.cached_rake_tasks~</code> and <code>.cached_cap_tasks~</code>. <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh#L99">Here&rsquo;s how I set up the Bash tab completion</a>.</p>
+
+<h3 id="fetching-travis-ci-build-status">Fetching Travis CI Build Status</h3>
+
+<p>I&rsquo;ve written about this before in my <a href="http://madebynathan.com/2012/01/30/travis-ci-status-in-shell-prompt/">Travis CI Status in Shell Prompt</a> post. Every 30 minutes I run a task to fetch build statuses for all the repos that contain a <code>.travis.yml</code> file. The status is saved in a hidden file called <code>.travis_status~</code>, and displayed in my prompt like this:</p>
+
+<p><img src="/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt" /></p>
+
+<h3 id="updating-git-repo-index">Updating Git Repo Index</h3>
+
+<p>All of the previous tasks depend on the git repo index being up-to-date. It only takes a few seconds to scan through my code directories, so I run this task every minute.</p>
+
+<p>This index lets me keep my code organized in different folders, while also letting me jump to different projects by name:</p>
+
+<p><img src="/images/posts/2011/10/source_list-resized-post.png" alt="Git Status With Shortcuts" /></p>
+
+<hr/>
+
+<p>If you want to set this up for yourself, you&rsquo;ll need to check out my <a href="https://github.com/ndbroadbent/scm_breeze">SCM Breeze</a> project. The <code>schedule.rb</code> that defines these tasks <a href="https://github.com/ndbroadbent/dotfiles/blob/master/schedule.rb">lives in my dotfiles repo</a>, and you can find the scripts I use in the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/">/bin</a> directory.</p>
+
+<p>Post a comment if you have any automation ideas to share!</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        July 10, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

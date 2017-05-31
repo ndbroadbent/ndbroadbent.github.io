@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Make &#39;git status&#39; put filepaths into numbered variables</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/">Make &#39;git status&#39; put filepaths into numbered variables</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          October 29, 2010
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>I like my shortcuts for git (ie. &lsquo;gst&rsquo; for &lsquo;git status&rsquo;, &lsquo;gca&rsquo; for &lsquo;git commit -a -m&rsquo;, etc.)
+But I wanted more, so I thought it would be nice if I could somehow create &lsquo;shortcuts&rsquo; to the filepaths of modified files whenever I run &lsquo;git status&rsquo;.
+I created a function to export the paths of each modified file into numbered environment variables, and it has really sped up my workflow.</p>
+
+<p>You will need to configure git if you want to have colorized output:
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>git config --global color.status always
+</pre></div>
+</p>
+
+<p>Paste the following script at the bottom of your ~/.bashrc file, and use it by typing &lsquo;gs&rsquo;. (Change the shortcut to whatever you like.)</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Processes your git status output, exporting bash variables</span>
+<span style="color: #75715e"># for the filepaths of each modified file.</span>
+<span style="color: #75715e"># To ensure colored output, please run: $ git config --global color.status always</span>
+<span style="color: #75715e"># Written by Nathan D. Broadbent (www.madebynathan.com)</span>
+<span style="color: #75715e"># -----------------------------------------------------------</span>
+gs<span style="color: #f92672">()</span> <span style="color: #f92672">{</span>
+  <span style="color: #f8f8f2">pfix</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;e&quot;</span> <span style="color: #75715e"># Set your preferred shortcut letter here</span>
+  <span style="color: #f8f8f2">max_changes</span><span style="color: #f92672">=</span><span style="color: #ae81ff">20</span>  <span style="color: #75715e"># Max changes before reverting to standard &#39;git status&#39; (can be very slow otherwise)</span>
+  <span style="color: #f8f8f2">IFS</span><span style="color: #f92672">=</span><span style="color: #e6db74">$&#39;\n&#39;</span>
+
+  <span style="color: #75715e"># Only export variables for less than $max_changes</span>
+  <span style="color: #f8f8f2">status</span><span style="color: #f92672">=</span><span style="color: #e6db74">`</span>git status --porcelain<span style="color: #e6db74">`</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #e6db74">`</span><span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$status</span><span style="color: #e6db74">&quot;</span> <span style="color: #f8f8f2">|</span> wc -l<span style="color: #e6db74">`</span> -lt <span style="color: #f8f8f2">$max_changes</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+    <span style="color: #f8f8f2">f</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span>  <span style="color: #75715e"># Counter for the number of files</span>
+    <span style="color: #66d9ef">for</span> line in <span style="color: #f8f8f2">$status;</span> <span style="color: #66d9ef">do</span>
+      <span style="color: #f8f8f2">file</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span><span style="color: #f8f8f2">echo</span> <span style="color: #f8f8f2">$line</span> <span style="color: #f8f8f2">|</span> sed <span style="color: #e6db74">&quot;s/^...//g&quot;</span><span style="color: #66d9ef">)</span>
+      <span style="color: #f8f8f2">let</span> f++
+      files<span style="color: #f92672">[</span><span style="color: #f8f8f2">$f</span><span style="color: #f92672">]=</span><span style="color: #f8f8f2">$file</span>         <span style="color: #75715e"># Array for formatting the output</span>
+      <span style="color: #f8f8f2">export</span> <span style="color: #f8f8f2">$pfix$f</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">$file</span>   <span style="color: #75715e"># Exporting variable for use.</span>
+    <span style="color: #66d9ef">done</span>
+
+    <span style="color: #f8f8f2">status</span><span style="color: #f92672">=</span><span style="color: #e6db74">`</span>git status<span style="color: #e6db74">`</span>    <span style="color: #75715e"># Fetch full status</span>
+
+    <span style="color: #75715e"># Search and replace each line, showing the exported variable name next to files.</span>
+    <span style="color: #66d9ef">for</span> line in <span style="color: #f8f8f2">$status;</span> <span style="color: #66d9ef">do</span>
+      <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span>
+      <span style="color: #66d9ef">while</span> <span style="color: #f92672">[</span> <span style="color: #f8f8f2">$i</span> -le <span style="color: #f8f8f2">$f</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span>
+        <span style="color: #f8f8f2">search</span><span style="color: #f92672">=</span><span style="color: #e6db74">${</span><span style="color: #f8f8f2">files[$i]</span><span style="color: #e6db74">}</span>
+        <span style="color: #f8f8f2">replace</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;\033[2;37m[\033[1m\$</span><span style="color: #f8f8f2">$pfix$i</span><span style="color: #e6db74">\033[2;37m]\033[0m </span><span style="color: #f8f8f2">$search</span><span style="color: #e6db74"> &quot;</span>
+        <span style="color: #75715e">#echo $replace</span>
+        <span style="color: #75715e"># (fixes a case when a file contains another file as a substring)</span>
+        <span style="color: #f8f8f2">line</span><span style="color: #f92672">=</span><span style="color: #e6db74">${</span><span style="color: #f8f8f2">line/$search/$replace </span><span style="color: #e6db74">}</span>   <span style="color: #75715e"># Substitution for files with a space suffix.</span>
+        <span style="color: #f8f8f2">line</span><span style="color: #f92672">=</span><span style="color: #e6db74">${</span><span style="color: #f8f8f2">line/%$search/$replace</span><span style="color: #e6db74">}</span>    <span style="color: #75715e"># Substitution for files with a newline suffix.</span>
+        <span style="color: #f8f8f2">let</span> i++
+      <span style="color: #66d9ef">done</span>
+      <span style="color: #f8f8f2">echo</span> -e <span style="color: #f8f8f2">$line</span>                        <span style="color: #75715e"># Print the final transformed line.</span>
+    <span style="color: #66d9ef">done</span>
+  <span style="color: #66d9ef">else</span>
+    <span style="color: #75715e"># If there are too many changed files, this &#39;gs&#39; function will slow down.</span>
+    <span style="color: #75715e"># In this case, fall back to plain &#39;git status&#39;</span>
+    git status
+  <span style="color: #66d9ef">fi</span>
+  <span style="color: #75715e"># Reset IFS separator to default.</span>
+  <span style="color: #f8f8f2">unset</span> IFS
+<span style="color: #f92672">}</span>
+</pre></div>
+
+
+<p>Now you can just type &lsquo;gs&rsquo;, and use the exported variables for commands. You can also customise the shortcut letter by changing the &lsquo;pfix&rsquo; variable in the function. I chose &lsquo;e&rsquo; because it&rsquo;s easy to slide your finger to it from the &lsquo;$&rsquo; key.</p>
+
+<p>Example:</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ gs
+<span style="color: #75715e"># On branch master</span>
+<span style="color: #75715e"># Your branch is ahead of &#39;origin/master&#39; by 4 commits.</span>
+<span style="color: #75715e">#</span>
+<span style="color: #75715e"># Changed but not updated:</span>
+<span style="color: #75715e">#   (use &quot;git add &lt;file&gt;...&quot;; to update what will be committed)</span>
+<span style="color: #75715e">#   (use &quot;git checkout -- &lt;file&gt;...&quot;; to discard changes in working directory)</span>
+<span style="color: #75715e">#   (commit or discard the untracked or modified content in submodules)</span>
+<span style="color: #75715e">#</span>
+<span style="color: #75715e">#	modified:   [$e1] vendor/plugins/crm_merge (modified content)</span>
+<span style="color: #75715e">#	modified:   [$e2] vendor/plugins/crm_search (new commits, modified content)</span>
+<span style="color: #75715e">#	modified:   [$e3] vendor/plugins/crm_super_tags (modified content)</span>
+<span style="color: #75715e">#</span>
+no changes added to commit <span style="color: #f92672">(</span>use <span style="color: #e6db74">&quot;git add&quot;</span><span style="color: #f8f8f2">;</span> and/or <span style="color: #e6db74">&quot;git commit -a&quot;</span><span style="color: #f92672">)</span>
+
+$ <span style="color: #f8f8f2">cd</span> <span style="color: #f8f8f2">$e2</span>
+or
+$ git rm -r <span style="color: #f8f8f2">$e3</span>
+</pre></div>
+</p>
+
+<p>&nbsp;</p>
+
+<p>I use git version 1.7.1.1, GNU bash version 4.1.5(1), and Ubuntu 10.04.</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        October 11, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/">Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        September 19, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/09/19/how-to-start-a-google-group-for-a-git-project/">How to start a Google Group for a git project</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 24, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/03/24/skype-notifications-using-libnotify-on-linux/">Skype notifications using libnotify on Linux</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

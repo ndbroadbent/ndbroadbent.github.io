@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Git Shortcuts Like You&#39;ve Never Seen Before</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/">Git Shortcuts Like You&#39;ve Never Seen Before</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          October 19, 2011
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<h2 id="introducing-scm-breeze">Introducing &lsquo;SCM Breeze&rsquo;</h2>
+
+<p><strong>SCM Breeze</strong> is a set of shell scripts (for <code>bash</code> and <code>zsh</code>) that enhance your interaction with tools
+such as git. It integrates with your shell to give you numbered file shortcuts,
+a repository index with tab completion, and a community driven collection of useful SCM functions.</p>
+
+<p>Disclaimer: <strong>git</strong> is currently the only supported SCM.
+I&rsquo;ve kept the project&rsquo;s name open because it won&rsquo;t be difficult to port it for other SCMs.</p>
+
+<h2 id="file-shortcuts">File Shortcuts</h2>
+
+<p>SCM Breeze makes it really easy to work with changed files, and groups of changed files.
+Whenever you view your SCM status, each modified path is stored in a numbered environment variable.
+You can configure the variable prefix, which is &lsquo;e&rsquo; by default.</p>
+
+<h3 id="git-status-shortcuts"><code>git_status_shortcuts</code>:</h3>
+
+<p><div class="centered">
+<img src="/images/posts/2011/10/status_with_shortcuts-resized-post.png" width="590" alt="Git Status With Shortcuts" />
+</div>
+<br/><br/></p>
+
+<p>These numbers (or ranges of numbers) can be used with any SCM or system command.</p>
+
+<p>For example, if <code>ga</code> was your alias for <code>git add</code>, instead of typing something like:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ ga assets/git_breeze/config* assets/git_breeze/install.sh
+</pre></div>
+
+
+<p>You can type this instead:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ ga <span style="color: #f8f8f2">$e2</span> <span style="color: #f8f8f2">$e3</span> <span style="color: #f8f8f2">$e11</span>
+</pre></div>
+
+
+<p>But SCM Breeze aliases <code>ga</code> to the <code>git_add_shorcuts</code> function,
+which is smart enough to expand integers and ranges, so all you need to type is:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ ga <span style="color: #ae81ff">2</span> <span style="color: #ae81ff">3</span> <span style="color: #ae81ff">11</span>
+</pre></div>
+
+
+<p>And if you want to add all unstaged changes (files 1 to 10):</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ ga <span style="color: #ae81ff">1</span>-10
+</pre></div>
+
+
+<p>(Note that <code>ga</code> will also remove deleted files, unlike the standard <code>git add</code> command.
+This behaviour can be turned off if you don&rsquo;t like it.)</p>
+
+<p>You can also diff, reset or checkout a file by typing:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ gd <span style="color: #ae81ff">3</span>
+$ grs <span style="color: #ae81ff">4</span>
+$ gco <span style="color: #ae81ff">5</span>
+</pre></div>
+
+
+<p>You can use these shortcuts with system commands by passing your command through <code>exec_git_expand_args</code>
+(default alias is &lsquo;ge&rsquo;):</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ <span style="color: #f8f8f2">echo</span> <span style="color: #f8f8f2">$e4</span>
+<span style="color: #75715e"># =&gt; assets/git_breeze/git_breeze.sh</span>
+$ ge <span style="color: #f8f8f2">echo</span> <span style="color: #ae81ff">4</span>
+<span style="color: #75715e"># =&gt; assets/git_breeze/git_breeze.sh</span>
+$ ge <span style="color: #f8f8f2">echo</span> <span style="color: #ae81ff">1</span>-3
+<span style="color: #75715e"># expands to echo $e1 $e2 $e3</span>
+<span style="color: #75715e"># =&gt; _shared.sh assets/git_breeze/config.example.sh assets/git_breeze/config.sh</span>
+</pre></div>
+
+
+<h2 id="keyboard-bindings-disabled-by-default">Keyboard bindings (disabled by default)</h2>
+
+<p>My most common git commands are <code>git status</code>, <code>git add</code> and <code>git commit</code>, so I wanted these
+to be as streamlined as possible. One way of speeding up commonly used commands is by binding them to
+keyboard shortcuts.</p>
+
+<p>Keyboard shortcuts are turned off by default,
+but here are the default key bindings if you enable them:</p>
+
+<ul>
+<li><code>CTRL</code>+<code>SPACE</code> =&gt; <code>git_status_shortcuts</code> - show git status with file shortcuts</li>
+<li><code>CTRL</code>+<code>x</code> <code>c</code> =&gt; <code>git_add_and_commit</code> - add given files (if any), then commit staged changes</li>
+<li><code>CTRL</code>+<code>x</code> <code>SPACE</code> =&gt; <code>git_commit_all</code> - commit everything</li>
+</ul>
+
+<p>The commit shortcuts use the <code>git_commit_prompt</code> function, which gives a simple prompt like this:</p>
+
+<p><div class="centered">
+<img src="/images/posts/2011/10/git_commit_all-resized-post.png" alt="Git Commit All" />
+</div>
+<br/>
+(When using bash, this commit prompt gives you access to your bash history via the arrow keys.)
+<br/></p>
+
+<p>And if you really want to speed up your workflow, you can type this:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ <span style="color: #ae81ff">2</span> <span style="color: #ae81ff">3</span> &lt;CTRL+x c&gt;
+</pre></div>
+
+
+<p>This sends the <code>HOME</code> key, followed by <code>git_add_and_commit</code>:</p>
+
+<p><div class="centered">
+<img src="/images/posts/2011/10/git_add_and_commit_params-resized-post.png" alt="Git Add And Commit" />
+</div>
+<br/></p>
+
+<h2 id="repository-index">Repository Index</h2>
+
+<p>The second feature is a repository index for all of your projects and submodules.
+This gives you super-fast switching between your project directories, with tab completion,
+and it can even tab-complete down to project subdirectories.
+This means that you can keep your projects organized in subfolders,
+but switch between them as easily as if they were all in one folder.</p>
+
+<p>It&rsquo;s similar to <a href="https://github.com/joelthelion/autojump">autojump</a>, but it doesn&rsquo;t need to &lsquo;learn&rsquo; anything,
+and it can do SCM-specific stuff like:</p>
+
+<ul>
+<li>Running a command for all of your repos (useful if you ever need to update a lot of remote URLs)</li>
+<li>Auto-updating a repo when you switch to it and it hasn&rsquo;t been updated for at least 5 hours.</li>
+</ul>
+
+<p>The default alias for <code>git_index</code> is &rsquo;s&rsquo;, which could stand for &lsquo;source&rsquo; or &lsquo;switch&rsquo; :)</p>
+
+<p>You will first need to configure your repository directory, and then build the index:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ s --rebuild
+<span style="color: #75715e"># =&gt; == Scanning /home/ndbroadbent/src for git repos &amp; submodules...</span>
+<span style="color: #75715e"># =&gt; ===== Indexed 64 repos in /home/ndbroadbent/src/.git_index</span>
+</pre></div>
+
+
+<p>Then you&rsquo;ll be able to switch between your projects, or show the list of indexed repos:</p>
+
+<p><div class="centered">
+<img src="/images/posts/2011/10/source_list-resized-post.png" alt="Git Status With Shortcuts" />
+</div>
+<br/><br/></p>
+
+<p>To switch to a project directory, you don&rsquo;t need to type the full project name. For example,
+to switch to the <code>errbit</code> project, you could type any of the following:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ s errbit
+$ s err
+$ s rbit
+</pre></div>
+
+
+<p>Or if you wanted to go straight to a subdirectory within <code>errbit</code>:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ s err&lt;TAB&gt;
+$ s errbit/&lt;TAB&gt;
+<span style="color: #75715e"># =&gt; app/       autotest/  config/    db/    ...</span>
+$ s errbit/conf&lt;TAB&gt;
+$ s errbit/config/
+<span style="color: #75715e"># =&gt; cd ~/src/rails/errbit/config</span>
+</pre></div>
+
+
+<h2 id="anything-else">Anything else?</h2>
+
+<p>If you have any awesome SCM scripts lurking in your <code>.bashrc</code> or <code>.zshrc</code>,
+please feel free to send me a pull request.
+It would be cool to make this project into an <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> for SCMs.</p>
+
+<h1 id="installation">Installation</h1>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
+~/.scm_breeze/install.sh
+<span style="color: #f8f8f2">source</span> ~/.bashrc   <span style="color: #75715e"># or source ~/.zshrc</span>
+</pre></div>
+
+
+<p>(The install script simply appends the following line to your <code>.bashrc</code> or <code>.zshrc</code>):</p>
+
+<p><code>[ -s &quot;$HOME/.scm_breeze/scm_breeze.sh&quot; ] &amp;&amp; . &quot;$HOME/.scm_breeze/scm_breeze.sh&quot;</code></p>
+
+<h1 id="configuration">Configuration</h1>
+
+<p>SCM Breeze is configured via automatically installed <code>~/.*.scmbrc</code> files.
+To change git configuration, edit <code>~/.git.scmbrc</code>.</p>
+
+<p><strong>Note:</strong> After changing any settings, you will need to run <code>source ~/.bashrc</code> (or <code>source ~/.zshrc</code>)</p>
+
+<p>I know we grow attached to the aliases we use every day, so I&rsquo;ve made them completely customizable.
+Just change any aliases in <code>~/.git.scmbrc</code>. You can also change or remove any keyboard shortcuts.</p>
+
+<p>Each feature is modular, so you are free to ignore the parts you don&rsquo;t want to use.
+Just comment out the relevant line in <code>~/.scm_breeze/scm_breeze.sh</code>.</p>
+
+<h1 id="updating">Updating</h1>
+
+<p>Run <code>update_scm_breeze</code>. This will update SCM Breeze from Github,
+and will create or patch your <code>~/.*.scmbrc</code> files if any new settings are added.</p>
+
+<h1 id="contributing">Contributing</h1>
+
+<p>SCM Breeze lives on Github at <a href="https://github.com/ndbroadbent/scm_breeze">https://github.com/ndbroadbent/scm_breeze</a></p>
+
+<p>Please feel free to fork and send pull requests, especially if you would like to build these features
+for Mercurial, SVN, etc.</p>
+
+<h2 id="enjoy">Enjoy!</h2>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        July 10, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

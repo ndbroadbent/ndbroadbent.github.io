@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby Gems on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/ruby-gems/</link>
+    <description>Recent content in Ruby Gems on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 03 Sep 2011 04:39:22 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/ruby-gems/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Don&#39;t use &#39;bundle install {gem}&#39;.</title>
+      <link>http://madebynathan.com/2011/09/03/dont-use-bundle-install-gem/</link>
+      <pubDate>Sat, 03 Sep 2011 04:39:22 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2011/09/03/dont-use-bundle-install-gem/</guid>
+      <description>Maybe you want to update haml to the latest version. You tried to run bundle install haml, but now some really weird stuff is happening. Bundler decided to install all of your gems from scratch into a ./haml folder. Even when you try bundle update haml, the gems are still going into the ./haml folder! What&amp;rsquo;s going on?
+bundle install haml is totally different from bundle update haml.
+What bundle install haml does:  Installs all of your gems into a &amp;lsquo;haml&amp;rsquo; folder.</description>
+    </item>
+    
+    <item>
+      <title>Build a ruby gem and host it on rubygems.org in 4 easy steps</title>
+      <link>http://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</link>
+      <pubDate>Sat, 22 Jan 2011 06:39:39 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</guid>
+      <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.  Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
+    </item>
+    
+  </channel>
+</rss>

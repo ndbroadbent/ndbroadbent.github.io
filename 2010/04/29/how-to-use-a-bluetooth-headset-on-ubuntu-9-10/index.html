@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>How to use a bluetooth headset on Ubuntu 9.10 &#43;</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/">How to use a bluetooth headset on Ubuntu 9.10 &#43;</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          April 29, 2010
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>I found a little bluetooth headset at work, and wanted to play audio through it from my laptop. It turns out that nowadays, Ubuntu actually makes this really easy.</p>
+
+<p>I found a guide written for Ubuntu 9.04 on <a href="http://forums.overclockers.com.au/showthread.php?t=780054">this forum post</a>, but Ubuntu 9.10 now does most of the work for you. (Steps 15 through 27 are still used in this guide, so credit to <a href="http://forums.overclockers.com.au/member.php?s=3b3d3beb07f6dadf978042eec4a64034&amp;u=1635">HyRax1</a> from <a href="http://forums.overclockers.com.au">forums.overclockers.com.au</a> for the original tutorial)</p>
+
+<p>Bluetooth must already be configured, and your headset must be paired with your machine first. The headset must also be turned on and connected while you follow these steps. Ubuntu should automatically create bluez audio devices for you in PulseAudio.</p>
+
+<p>These are the steps that worked for me. YMMV with other headset brands/models.
+<ol>
+    <li>Install PulseAudio utils :  $ sudo apt-get install paprefs paman padevchooser</li>
+    <li>Once installed, go to Applications-&gt;Sound &amp; Video-&gt;PulseAudio Device Chooser. This will add a black microphone jack icon to your system tray.</li>
+    <li>Do a left-click on the jack icon and a menu appears. In this menu, choose &ldquo;Manager&rdquo;. A new window appears.</li>
+    <li>If it&rsquo;s not already connected, click on the &ldquo;Connect&rdquo; button to connect to your local PulseAudio server. When connected, you will see details about it listed.</li>
+    <li>Click on the Devices tab. Under &ldquo;Sinks&rdquo; you should see an entry for &ldquo;bluez_sink.XX_XX_XX_XX_XX_XX&rdquo;.</li>
+    <li>Click &lsquo;properties&rsquo; for the &lsquo;bluez_sink&rsquo; device. Highlight the &ldquo;Name:&rdquo; of the device (you can do this with a triple-leftclick of your mouse), and press Ctrl+C.</li>
+    <li>Now go to the Sample Cache tab. You are shown a list of sounds. Choose an OGG file from this list. At the bottom is a &ldquo;Playback on&rdquo; drop-down. Choose &ldquo;bluez_sink.XX_XX_XX_XX_XX_XX&rdquo; from this list and click on the Play button. You should hear a Ubuntu system sound through your speakers. This proves to us that PulseAudio can play through your Bluetooth headset (but this is NOT the redirection - this is just a test).</li>
+    <li>Close the PulseAudio Manager.</li>
+    <li>Do another left-click on the mic jack icon in your system tray.</li>
+    <li>Go to &ldquo;Default Sink&rdquo; and then choose &ldquo;Other&rdquo; from the sub-menu. A window appears.</li>
+    <li>In this window, press Ctrl+V to paste the device name that we copied earlier, and click OK.</li>
+    <li>Play a sound from somewhere, eg: MP3 or movie in Totem. You should now hear your audio coming through your Bluetooth headset! <em>NOTE: Existing audio streams at the time of changing the sink will continue to play through whatever they were playing through until stopped and started again.</em></li>
+    <li>To switch back to your speakers, simply click on the mic jack icon again, choose &ldquo;Default Sink&rdquo; and choose &ldquo;Default&rdquo; from the sub-menu. The next audio stream played will go back through your speakers.</li>
+    <li>To make the PulseAudio Device Chooser start automatically on startup, click on the mic jack icon again, choose Preferences from the menu and then click on &ldquo;Start applet on Session Login&rdquo; in the window.</li>
+    <li>Enjoy! <img title="Stick Out Tongue" src="http://forums.overclockers.com.au/images/smilies/tongue.gif" border="0" alt="" /></li>
+</ol>
+Also note: Any application (including Skype) <strong>should</strong> be able to play audio through the headset if you follow these steps. If you want to use Skype, you will also need to set up the mic on the headset by following the same steps to configure the bluez source device (‘bluez_source.XX…’) as the &lsquo;Default Source&rsquo;.</p>
+
+<p>I was able to record and playback audio fine with Audacity, and a test call on Skype worked fine.</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        November 8, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/">capistrano_colors has been merged into capistrano</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        October 29, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/10/29/auto-reloading-your-bashrc/">Auto-reloading your .bashrc (or .zshrc)</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Running bash color codes through sed</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2011/08/18/running-bash-color-codes-through-sed/">Running bash color codes through sed</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          August 18, 2011
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>I have a script that runs a search and replace on a git status. I recently found out how to do 'git config color.status always', so that git status gives color codes to my functions. However, this broke the substitution, and it took me a while to figure it out.</p>
+
+<p>At the end of every line, there was an invisible 'reset' color code, and this meant that 'sed "s/string$/$replace"' was no longer finding 'string$'.</p>
+
+<p>Here is an example of how to use sed when your string contains color codes:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Need to strip the color character from the end of the line, otherwise</span>
+<span style="color: #75715e"># EOL &#39;$&#39; doesn&#39;t work. This gave me a headache for long time.</span>
+<span style="color: #75715e"># The echo ~&gt; regex is time-consuming, so perform a simple search first.</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f92672">[[</span> <span style="color: #f8f8f2">$line</span> <span style="color: #f92672">==</span> *<span style="color: #f8f8f2">$search</span>* <span style="color: #f92672">]]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+    <span style="color: #f8f8f2">line</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span><span style="color: #f8f8f2">echo</span> <span style="color: #f8f8f2">$line</span> <span style="color: #f8f8f2">|</span> sed -r <span style="color: #e6db74">&quot;s:</span><span style="color: #f8f8f2">$search</span><span style="color: #e6db74">(\x1B\[m)?</span>$<span style="color: #e6db74">:</span><span style="color: #f8f8f2">$replace</span><span style="color: #e6db74">:g&quot;</span><span style="color: #66d9ef">)</span>
+<span style="color: #66d9ef">fi</span>
+</pre></div>
+
+
+<p>You might also find this page useful: <a href="http://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed">http://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed</a></p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 18, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">Automatically run &lsquo;bundle install&rsquo; when Bundler can&rsquo;t find a gem</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

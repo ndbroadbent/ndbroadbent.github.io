@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Videos on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/videos/</link>
+    <description>Recent content in Videos on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 05 Aug 2010 21:12:40 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/videos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>wimp.com rss feed</title>
+      <link>http://madebynathan.com/2010/08/05/wimp-com-rss-feed/</link>
+      <pubDate>Thu, 05 Aug 2010 21:12:40 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/08/05/wimp-com-rss-feed/</guid>
+      <description>I found out about http://www.wimp.com last year, and have been watching their daily videos ever since. Its a simple website that offers 5 or 6 daily videos on a range of topics, such as science, comedy and innovation. And thats all there is. No bells and whistles, just a daily list of 5 videos. The videos are awesome, but I always wanted to watch them with google reader via rss.</description>
+    </item>
+    
+    <item>
+      <title>YoutubeJukebox</title>
+      <link>http://madebynathan.com/2010/05/13/youtubejukebox/</link>
+      <pubDate>Thu, 13 May 2010 17:46:25 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/05/13/youtubejukebox/</guid>
+      <description>http://github.com/ndbroadbent/youtube_jukebox
+A ruby script that downloads youtube videos, converts them to mp3, and plays them in a vlc playlist as they are processed.</description>
+    </item>
+    
+    <item>
+      <title>Last.fm Player - Project Videos</title>
+      <link>http://madebynathan.com/2010/04/29/project-videos/</link>
+      <pubDate>Thu, 29 Apr 2010 11:35:52 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/04/29/project-videos/</guid>
+      <description>My Compaq Evo T20 running tinycore linux, playing shell.fm, displaying track info via lcd4linux on a Pertelian X2o40 USB LCD display.
+
+ 
+Uses music software Reaper to play audio and generate MIDI events. Midi events are sent to the &#39;output&#39; of MIDI Yoke, which patches them to a software emulated MIDI input. Used the MIDIOX COM wrapper with Visual Basic, to monitor the MIDI Yoke input and trigger http downloads on certain MIDI note events.</description>
+    </item>
+    
+  </channel>
+</rss>

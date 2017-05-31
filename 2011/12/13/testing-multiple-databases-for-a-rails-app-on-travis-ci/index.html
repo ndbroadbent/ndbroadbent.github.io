@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Testing Multiple Databases for a Rails app on Travis CI</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2011/12/13/testing-multiple-databases-for-a-rails-app-on-travis-ci/">Testing Multiple Databases for a Rails app on Travis CI</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          December 13, 2011
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<p>I&rsquo;m currently doing a lot of work on an open source Ruby on Rails project called <a href="http://fatfreecrm.com/">Fat Free CRM</a>.
+The code is hosted on <a href="https://github.com/fatfreecrm/fat_free_crm">github</a>, and we are using the amazing continuous integration
+service provided by <a href="http://travis-ci.org/#!/fatfreecrm/fat_free_crm">Travis CI</a>.</p>
+
+<p><a href="http://about.travis-ci.org/">Find out more about Travis CI here.</a></p>
+
+<p>We&rsquo;ve been working on some powerful features for Fat Free CRM, such as dynamic custom fields,
+and we wanted to make sure that they work across all of our supported databases.
+So here&rsquo;s how I set up our Travis CI build matrix to test multiple databases,
+with some help from the <a href="http://about.travis-ci.org/docs/user/database-setup/">Travis docs</a>:</p>
+
+<h3 id="travis-yml">.travis.yml</h3>
+
+<p>We add the databases to our build matrix by setting ENV variables. Add the following lines to your <code>.travis.yml</code>:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #e6db74">env</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f92672">-</span> <span style="color: #66d9ef">DB</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">mysql</span>
+  <span style="color: #f92672">-</span> <span style="color: #66d9ef">DB</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">postgres</span>
+  <span style="color: #f92672">-</span> <span style="color: #66d9ef">DB</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">sqlite</span>  
+</pre></div>
+
+
+<h3 id="database-configuration">Database configuration</h3>
+
+<p>We package multiple example database configurations for each of our supported databases, like this:</p>
+
+<ul>
+<li><code>config/database.mysql.yml</code></li>
+<li><code>config/database.postgres.yml</code></li>
+<li><code>config/database.sqlite.yml</code></li>
+</ul>
+
+<p>We also have a rake task that is a prequisite for the <code>spec</code> task, and this sets up the example configuration files for Travis.</p>
+
+<p>It copies the <code>database.yml</code> template specified by our <code>DB</code> variable, using postgres as the default.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">FileUtils</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">cp</span> <span style="color: #e6db74">&quot;config/database.#{</span><span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;DB&#39;</span><span style="color: #f92672">]</span> <span style="color: #f92672">||</span> <span style="color: #e6db74">&#39;postgres&#39;}.yml&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;config/database.yml&#39;</span>
+</pre></div>
+
+
+<h3 id="gemfile-ci">Gemfile.ci</h3>
+
+<p>I created a new Gemfile for CI. It simply tells bundler to use the gem specified by our <code>DB</code> variable,
+prevents any other database gems from being loaded, and then loads the &lsquo;real&rsquo; Gemfile.</p>
+
+<p>Here&rsquo;s the contents of <code>Gemfile.ci</code>:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">case</span> <span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;DB&#39;</span><span style="color: #f92672">]</span>
+<span style="color: #66d9ef">when</span> <span style="color: #e6db74">&quot;mysql&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">gem</span> <span style="color: #e6db74">&quot;mysql2&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;0.3.10&quot;</span>
+<span style="color: #66d9ef">when</span> <span style="color: #e6db74">&quot;sqlite&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">gem</span> <span style="color: #e6db74">&quot;sqlite3&quot;</span> 
+<span style="color: #66d9ef">when</span> <span style="color: #e6db74">&quot;postgres&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">gem</span> <span style="color: #e6db74">&quot;pg&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;&gt;= 0.9.0&quot;</span>
+<span style="color: #66d9ef">end</span>
+
+<span style="color: #66d9ef">def</span> <span style="color: #a6e22e">gem</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">args)</span>
+  <span style="color: #75715e"># Override &#39;gem&#39; method to block any other database gems in the &#39;real&#39; Gemfile</span>
+  <span style="color: #66d9ef">super</span> <span style="color: #66d9ef">unless</span> <span style="color: #e6db74">%w(pg sqlite3 mysql2)</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">include?(args</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">first)</span>
+<span style="color: #66d9ef">end</span>
+
+<span style="color: #75715e"># Eval Gemfile</span>
+<span style="color: #f8f8f2">eval(</span><span style="color: #66d9ef">IO</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read(</span><span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">join(</span><span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">dirname(__FILE__),</span> <span style="color: #e6db74">&#39;Gemfile&#39;</span><span style="color: #f8f8f2">)),</span> <span style="color: #f8f8f2">binding)</span> 
+</pre></div>
+
+
+<p>That&rsquo;s all there is to it.</p>
+
+<hr />
+
+<p>This is a slightly unrelated topic, but I had a lot of trouble getting our new <code>Gemfile.ci</code> to work properly.
+After a serious headache, I figured out that we hadn&rsquo;t updated <code>config/boot.rb</code>
+to the latest version after our upgrade.
+This new <code>boot.rb</code> had a very subtle difference, and contained the following line:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;BUNDLE_GEMFILE&#39;</span><span style="color: #f92672">]</span> <span style="color: #f92672">||=</span> <span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">expand_path(</span><span style="color: #e6db74">&#39;../../Gemfile&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">__FILE__)</span>
+</pre></div>
+
+
+<p>instead of:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;BUNDLE_GEMFILE&#39;</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">gemfile</span>
+</pre></div>
+
+
+<p>Notice the <code>||=</code>, which meant that the <code>BUNDLE_GEMFILE</code> variable could actually have an effect when it was set by Travis.</p>
+
+<p>You might have found this post if you are googling for <code>Could not find multi_json-1.0.3 in any of the sources</code>, which is
+the symptom that I was experiencing (due to an updated gem and an outdated <code>Gemfile.lock</code>).
+In that case, you may need to update your <code>config/boot.rb</code> to <a href="https://github.com/rails/rails/blob/master/railties/lib/rails/generators/rails/app/templates/config/boot.rb">the latest version from Rails</a>.</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        July 10, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

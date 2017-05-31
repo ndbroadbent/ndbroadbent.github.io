@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Automatically change iPhone wallpaper every 30 minutes</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/">Automatically change iPhone wallpaper every 30 minutes</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          July 20, 2011
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p><b>NOTE: This is only for jailbroken iPhones.</b></p>
+
+<p>I love finding awesome wallpapers on <a href="http://www.reddit.com">reddit</a>. My Ubuntu desktop cycles through my wallpaper collection with a program called <a href="https://help.ubuntu.com/community/Cortina">Cortina</a>, and I wanted my iPhone to do the same.</p>
+
+<p>So I wrote a very simple script and a launchd plist that runs the script every 30 minutes. If you want to set this up for your jailbroken iPhone, all you need is SSH and a collection of images.</p>
+
+<p>Save your wallpapers to <em>/var/mobile/Media/Wallpapers</em> (or wherever you like), then ssh the following script to your iPhone and run it. (It will need to be executable: chmod +x).</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
+<span style="color: #75715e"># This script sets up your iPhone to change the lock-screen wallpaper every 30 minutes.</span>
+<span style="color: #f8f8f2">wallpaper_dir</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;/var/mobile/Media/Wallpapers&quot;</span>
+
+<span style="color: #75715e"># Install the wallpaper changing script</span>
+cat &gt; /usr/bin/ChangeWallpaper <span style="color: #e6db74">&lt;&lt;EOF</span>
+<span style="color: #e6db74">#!/bin/bash</span>
+<span style="color: #e6db74"># Overwrite the LockBackground image with a random image from the wallpaper directory.</span>
+<span style="color: #e6db74">files=($wallpaper_dir/*)</span>
+<span style="color: #e6db74">cp -f \${files[RANDOM % \${#files[@]}]} /private/var/mobile/Library/SpringBoard/LockBackground.jpg</span>
+<span style="color: #e6db74">EOF</span>
+chmod +x /usr/bin/ChangeWallpaper
+
+<span style="color: #75715e"># Install the launchd task to run the script every 30 minutes</span>
+cat &gt; /Library/LaunchDaemons/com.ndb.changewallpaper.plist <span style="color: #e6db74">&lt;&lt;EOF</span>
+<span style="color: #e6db74">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span style="color: #e6db74">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span>
+<span style="color: #e6db74">&lt;plist version=&quot;1.0&quot;&gt;</span>
+<span style="color: #e6db74">&lt;dict&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;Label&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;string&gt;com.ndb.wallpaperchanger&lt;/string&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;OnDemand&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;true/&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;RunAtLoad&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;false/&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;ProgramArguments&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;array&gt;</span>
+<span style="color: #e6db74">&lt;string&gt;/usr/bin/ChangeWallpaper&lt;/string&gt;</span>
+<span style="color: #e6db74">&lt;/array&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;UserName&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;string&gt;mobile&lt;/string&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;StartCalendarInterval&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;array&gt;</span>
+<span style="color: #e6db74">&lt;dict&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;Minute&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;integer&gt;0&lt;/integer&gt;</span>
+<span style="color: #e6db74">&lt;/dict&gt;</span>
+<span style="color: #e6db74">&lt;dict&gt;</span>
+<span style="color: #e6db74">&lt;key&gt;Minute&lt;/key&gt;</span>
+<span style="color: #e6db74">&lt;integer&gt;30&lt;/integer&gt;</span>
+<span style="color: #e6db74">&lt;/dict&gt;</span>
+<span style="color: #e6db74">&lt;/array&gt;</span>
+<span style="color: #e6db74">&lt;/dict&gt;</span>
+<span style="color: #e6db74">&lt;/plist&gt;</span>
+<span style="color: #e6db74">EOF</span>
+
+<span style="color: #75715e"># Load the scheduled task</span>
+launchctl load /Library/LaunchDaemons/com.ndb.changewallpaper.plist
+</pre></div>
+
+
+<p>Enjoy!</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 18, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">Automatically run &lsquo;bundle install&rsquo; when Bundler can&rsquo;t find a gem</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

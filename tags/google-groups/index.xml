@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Groups on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/google-groups/</link>
+    <description>Recent content in Google Groups on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 19 Sep 2012 12:05:39 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/google-groups/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to start a Google Group for a git project</title>
+      <link>http://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</link>
+      <pubDate>Wed, 19 Sep 2012 12:05:39 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2012/09/19/how-to-start-a-google-group-for-a-git-project/</guid>
+      <description>GitHub is a great way to manage code for an open source project, but it doesn&amp;rsquo;t provide any way to send a message to all of your watchers. This can be necessary whenever you make certain changes to your application. For example, I recently merged a pull request in Errbit that requires users to run a Rake task next time they update the code. I had no way of notifying our users, so I decided to create a Google Group mailing list for these kinds of notifications.</description>
+    </item>
+    
+  </channel>
+</rss>

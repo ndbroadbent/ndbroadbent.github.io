@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>Automatically run &#39;bundle install&#39; when Bundler can&#39;t find a gem</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">Automatically run &#39;bundle install&#39; when Bundler can&#39;t find a gem</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          December 18, 2012
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<p>Every Rails developer has probably experienced the following error:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="sb">Could not find &lt;gem&gt; in any of the sources</span>
+<span style="color: #FD0;">Run `bundle install` to install missing gems.</span>
+</code></pre>
+</div>
+
+<p>This happens if you or someone else adds a gem to your <code>Gemfile</code>, or if a gem version is updated in <code>Gemfile.lock</code>,
+and you forget to run <code>bundle install</code> before running a Rails command.</p>
+
+<p>Here&rsquo;s a simple function that handles this automatically, called <code>bundle_install_wrapper()</code>. It first tries to execute the command you pass to it.
+However, if Bundler exits with status code <code>7</code> (<code>GemNotFound</code>), then it will run <code>bundle install</code>. Finally, it retries the original command.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">bundle_install_wrapper()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #75715e"># Run command</span>
+  <span style="color: #f8f8f2">eval</span> <span style="color: #e6db74">&quot;$@&quot;</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #f8f8f2">$?</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">7</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+    <span style="color: #75715e"># If command crashes, try a bundle install</span>
+    <span style="color: #f8f8f2">echo</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">e</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\033</span><span style="color: #e6db74">[1;31m&#39;$@&#39; failed with exit code 7.&quot;</span>
+    <span style="color: #f8f8f2">echo</span>    <span style="color: #e6db74">&quot;This probably means that your system is missing gems defined in your Gemfile.&quot;</span>
+    <span style="color: #f8f8f2">echo</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">e</span> <span style="color: #e6db74">&quot;Executing &#39;bundle install&#39;...</span><span style="color: #ae81ff">\033</span><span style="color: #e6db74">[0m&quot;</span>
+    <span style="color: #f8f8f2">bundle</span> <span style="color: #f8f8f2">install</span>
+    <span style="color: #75715e"># If bundle install was successful, try running command again.</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #f8f8f2">$?</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+      <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;&#39;bundle install&#39; was successful. Retrying &#39;$@&#39;...&quot;</span>
+      <span style="color: #f8f8f2">eval</span> <span style="color: #e6db74">&quot;$@&quot;</span>
+    <span style="color: #f8f8f2">fi</span>
+  <span style="color: #f8f8f2">fi</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+
+
+<h2 id="usage">Usage</h2>
+
+<p>Drop the function in your <code>~/.bashrc</code>, and add aliases for rails commands:</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">alias</span> <span style="color: #f8f8f2">rs</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;bundle_install_wrapper rails server&quot;</span>
+<span style="color: #66d9ef">alias</span> <span style="color: #f8f8f2">rc</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;bundle_install_wrapper rails console&quot;</span>
+<span style="color: #75715e"># etc.</span>
+</pre></div>
+</p>
+
+<p>If you want aliases that support any Rails application, you can use something like this:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Run Rails commands on any version</span>
+<span style="color: #f8f8f2">rails_cmd(){</span>
+  <span style="color: #75715e"># Rails 3</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">e</span> <span style="color: #f92672">.</span><span style="color: #f8f8f2">/script</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">rails</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span> <span style="color: #f8f8f2">bundle_install_wrapper</span> <span style="color: #f8f8f2">rails3_with_editor</span> <span style="color: #f8f8f2">$@</span>
+  <span style="color: #75715e"># Rails &lt;= 2</span>
+  <span style="color: #f8f8f2">elif</span> <span style="color: #f92672">[</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">e</span> <span style="color: #f92672">.</span><span style="color: #f8f8f2">/script</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">$1</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span> <span style="color: #f8f8f2">bundle_install_wrapper</span> <span style="color: #f92672">.</span><span style="color: #f8f8f2">/script</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">$@</span>
+  <span style="color: #75715e"># Rails 4</span>
+  <span style="color: #f8f8f2">elif</span> <span style="color: #f92672">[</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">e</span> <span style="color: #f92672">.</span><span style="color: #f8f8f2">/config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">ru</span> <span style="color: #f92672">]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">grep</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">q</span> <span style="color: #66d9ef">Rails</span> <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">ru;</span> <span style="color: #66d9ef">then</span> <span style="color: #f8f8f2">bundle_install_wrapper</span> <span style="color: #f8f8f2">rails</span> <span style="color: #f8f8f2">$@</span>
+  <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;== I don&#39;t think this is a Rails application!&quot;</span>
+  <span style="color: #f8f8f2">fi</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">alias</span>   <span style="color: #f8f8f2">rs</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;rails_cmd server&quot;</span>
+<span style="color: #66d9ef">alias</span>  <span style="color: #f8f8f2">rsd</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;rails_cmd server -u&quot;</span>
+<span style="color: #66d9ef">alias</span>   <span style="color: #f8f8f2">rc</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;rails_cmd console&quot;</span>
+<span style="color: #66d9ef">alias</span>   <span style="color: #f8f8f2">rg</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;rails_cmd generate&quot;</span>
+</pre></div>
+
+
+<p>See the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh">Ruby on Rails section in my .bashrc</a> if you&rsquo;re interested in more aliases,
+and please leave a comment if you have any tips to share.</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        July 10, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

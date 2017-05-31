@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lcd4linux on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/lcd4linux/</link>
+    <description>Recent content in Lcd4linux on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 26 Jun 2010 00:30:15 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/lcd4linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Last.fm on embedded systems</title>
+      <link>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</link>
+      <pubDate>Sat, 26 Jun 2010 00:30:15 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/06/26/last-fm-on-embedded-systems/</guid>
+      <description>I&amp;rsquo;ve finished most of the work I&amp;rsquo;m going to do on my shell.fm ruby server. Its written on sinatra + jquery + jquery-ui (so, a lot of ajax calls). It also requires my custom shell.fm fork if you want the volume control to work.
+You can find my shell.fm fork here: http://github.com/ndbroadbent/shell-fm
+and the shell.fm sinatra server is here: http://github.com/ndbroadbent/shell-fm_sinatra
+By the way, this post is about an embedded linux system that plays last.</description>
+    </item>
+    
+    <item>
+      <title>Hacking DSP-420 LCD displays</title>
+      <link>http://madebynathan.com/2010/04/25/my-job-is-sweet/</link>
+      <pubDate>Sun, 25 Apr 2010 13:55:31 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/04/25/my-job-is-sweet/</guid>
+      <description>I recently found a bunch ofDSP-420 LCD displays, like the ones that you see on POS terminals in grocery stores. After a fruitless battle with the proprietary protocol of an LED wallboard (that I also found at work :) ), it was good to find so much protocol documentation on these little displays. I had it up and running within a few hours, displaying the artist, title and track length from shell.</description>
+    </item>
+    
+    <item>
+      <title>Pertelian X2040, lcd4linux, shell-fm</title>
+      <link>http://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</link>
+      <pubDate>Tue, 20 Apr 2010 13:19:42 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/</guid>
+      <description>I received my Pertelian X2040, and had a bit of trouble getting it work on my 64bit Ubuntu machine. The characters were getting all mixed up. I gave up on my 64bit machine and decided to focus my efforts on the T20 running tinycore.
+To get lcd4linux running on tinycore with any lcd screen, you need the dbus, usbutils and usb-serial packages installed.
+At first, lcd4linux was asking me for mysql, and then sqlite, and those are pretty hefty packages for a little thin client.</description>
+    </item>
+    
+  </channel>
+</rss>

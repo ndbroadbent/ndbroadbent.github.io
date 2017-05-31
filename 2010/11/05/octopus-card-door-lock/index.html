@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>RFID apartment lock (&amp; iPhone app)</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2010/11/05/octopus-card-door-lock/">RFID apartment lock (&amp; iPhone app)</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          November 5, 2010
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p><a href="http://en.wikipedia.org/wiki/Octopus_card">Octopus cards</a> in Hong Kong can be used to purchase almost anything, such as groceries, McDonalds, and public transport. Since everyone has one, a lot of apartments are using them for access control.</p>
+
+<p>One of my first projects after moving back to Hong Kong was installing an electronic lock on my apartment door. My door can be now be unlocked with an Octopus RFID card, iPhone app, or over the web.</p>
+
+<p><br/>
+<h3>Parts List</h3>
+<ul>
+    <li> Compaq Evo T20 thin client running linux (and Ruby!) (any dedicated PC would work too)</li>
+</ul>
+<ul>
+    <li>USB Octopus Card Reader (Sony FeliCa ISO14443C)
+<ul>
+    <li>a <strong>14443C-R-USB-D2</strong> from <a href="http://www.rfidshop.com.hk/">http://www.rfidshop.com.hk/</a> under <strong>Passive RFID Reader</strong> → <strong>13.56Mhz</strong> → <strong>ISO14443C – Sony Felica</strong></li>
+</ul>
+</li>
+    <li>Door with a lock that can be unlocked by turning the handle from the inside.</li>
+    <li>12V central locking actuator from a car door.</li>
+    <li>Vellman K8055 USB interface board</li>
+    <li>Ruby octopus reader library, etc (<a href="http://github.com/ndbroadbent/octopus">http://github.com/ndbroadbent/octopus</a>)</li>
+</ul>
+<br/></p>
+
+<p>I wrote a small ruby library to read an octopus card ID (<a href="http://github.com/ndbroadbent/octopus">http://github.com/ndbroadbent/octopus</a>), using a USB RFID reader for the 13.56 MHz Sony FeliCa chip. I used a K8055 USB interface board to switch on a relay every time an authorized octopus card was recognized.</p>
+
+<p>My apartment door lock is the &ldquo;button&rdquo; kind, with a button in the middle of the handle that pops out when the knob is turned from the inside. So I put a screw into the base of the handle, and mounted the actuator on the apartment door, so the actuator turns the handle and unlocks the door. Of course its not the most elegant solution, but the actuator was only about $7 USD&hellip;
+It can only unlock the door, but I don&rsquo;t need it to lock automatically.</p>
+
+<p>I added a web server, and wrote an iPhone app so that I can unlock the door via our wifi connection.
+I&rsquo;ve also added some more relays to control the house lights and ceiling fan.</p>
+
+<p>Here&rsquo;s some photos of the lock and the iPhone app (sorry for the quality):</p>
+
+<p><br/></p>
+
+<div class="gallery">
+    <img class="lightbox thumb" src="/images/posts/2010/11/outside_door.jpg" alt="Outside Door - LCD Screen &amp; Octopus RFID Reader" />
+    <img class="lightbox thumb" src="/images/posts/2010/11/compaq_evo_t20.jpg" alt="Compaq Evo T20 - TinyCore Linux" />
+    <img class="lightbox thumb" src="/images/posts/2010/11/inside_door.jpg" alt="Lock - Inside Door" />
+    <img class="lightbox thumb" src="/images/posts/2010/11/falt10C-screen.jpg" alt="Default LCD message" />
+    <img class="lightbox thumb" src="/images/posts/2010/11/welcome_nathan.jpg" alt="RFID card scanned" />
+
+    <img class="lightbox thumb" src="/images/posts/2010/06/IMG_0173.png" alt="Unlock Apartment 10C" />
+    <img class="lightbox thumb" src="/images/posts/2010/06/IMG_0174.png" alt="Unlocking" />
+    <img class="lightbox thumb" src="/images/posts/2010/06/IMG_0176.png" alt="Unlocked" />
+    <img class="lightbox thumb" src="/images/posts/2010/06/IMG_0178.png" alt="Settings" />
+</div>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        July 10, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        March 29, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        December 20, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>

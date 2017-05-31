@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home Automation on Nathan Broadbent</title>
+    <link>http://madebynathan.com/tags/home-automation/</link>
+    <description>Recent content in Home Automation on Nathan Broadbent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 10 Jul 2013 23:51:47 +0000</lastBuildDate>
+    
+	<atom:link href="http://madebynathan.com/tags/home-automation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Raspberry Pi Microwave</title>
+      <link>http://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/</link>
+      <pubDate>Wed, 10 Jul 2013 23:51:47 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/</guid>
+      <description>A few months ago, I was inspired by this post on Reddit, titled: Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes..
+I thought this was a pretty cool idea, and that it would be a fun project for a Raspberry Pi. I agreed with the people who thought using UPC barcodes would be better, since products already have them, so I went with a barcode scanner + online product database.</description>
+    </item>
+    
+    <item>
+      <title>How to calculate Easter Sunday</title>
+      <link>http://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</link>
+      <pubDate>Thu, 31 Mar 2011 17:41:27 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</guid>
+      <description>I wanted the LCD screen on my apartment door to display a message on certain days, such as birthdays, Christmas, and Easter. I didn&amp;rsquo;t realize how hard it was to calculate which day Easter Sunday is&amp;hellip;
+def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)*(29/(i+1))*((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
+    </item>
+    
+    <item>
+      <title>Weather Notifier</title>
+      <link>http://madebynathan.com/2011/03/19/weather-notifier/</link>
+      <pubDate>Sat, 19 Mar 2011 15:37:32 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2011/03/19/weather-notifier/</guid>
+      <description>This is just a little idea I had on the bus.
+Outside my apartment, I have a bucket for umbrellas.
+A program checks the local weather on weather.com from time to time. If there&#39;s any chance of rain, it switches on the lights installed in the bucket.
+So when I walk out the door, I know whether or not I should take an umbrella to work.
+ </description>
+    </item>
+    
+    <item>
+      <title>Demo iPhone app - Apartment automation</title>
+      <link>http://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</link>
+      <pubDate>Tue, 28 Dec 2010 18:21:50 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</guid>
+      <description>https://github.com/ndbroadbent/ios_flat_10c
+This is the little app I wrote to control my apartment. Its not going to be much use to anyone by itself, but as it says on the github page:
+You could use this as a demo app to help you learn about:  InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
+    </item>
+    
+    <item>
+      <title>More home automation..</title>
+      <link>http://madebynathan.com/2010/12/27/more-home-automation/</link>
+      <pubDate>Mon, 27 Dec 2010 16:29:12 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/12/27/more-home-automation/</guid>
+      <description>My hall light turns on for 15 minutes if it&amp;rsquo;s past 10pm and I unlock my door with an octopus card or iPhone.
+
+Its just a 12v relay (rated at 240V/30A), and some cat-5 to the thin client PC. All happens to fit perfectly inside the light switch.
+Next up, automatic plant watering &amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>RFID apartment lock (&amp; iPhone app)</title>
+      <link>http://madebynathan.com/2010/11/05/octopus-card-door-lock/</link>
+      <pubDate>Fri, 05 Nov 2010 20:10:37 +0000</pubDate>
+      
+      <guid>http://madebynathan.com/2010/11/05/octopus-card-door-lock/</guid>
+      <description>Octopus cards in Hong Kong can be used to purchase almost anything, such as groceries, McDonalds, and public transport. Since everyone has one, a lot of apartments are using them for access control.
+One of my first projects after moving back to Hong Kong was installing an electronic lock on my apartment door. My door can be now be unlocked with an Octopus RFID card, iPhone app, or over the web.</description>
+    </item>
+    
+  </channel>
+</rss>

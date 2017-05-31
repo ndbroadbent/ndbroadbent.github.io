@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Web, mobile, electronics, music">
+    <link rel="shortcut icon" type="image/x-icon" href="http://madebynathan.comimg/favicon.ico">
+    <title>iOS JB tweak - Replace operator with current prepaid balance</title>
+    <meta name="generator" content="Hugo 0.21" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://madebynathan.comcss/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+    
+
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-19054098-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://madebynathan.com">
+        Made by Nathan
+      </a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">
+          Posts</a>
+        </li>
+        
+        <li><a href="https://ndbroadbent.com">
+          Consulting</a>
+        </li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/">iOS JB tweak - Replace operator with current prepaid balance</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          December 26, 2010
+          </h4>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p><a href="https://github.com/ndbroadbent/ios_replace_operator_with_balance"><strong><a href="https://github.com/ndbroadbent/ios_replace_operator_with_balance">https://github.com/ndbroadbent/ios_replace_operator_with_balance</a></strong></a></p>
+
+<p>Replace Operator on jailbroken iOS 4.x with current prepaid balance.
+Specifically written for PCCW in Hong Kong, with an AT+CUSD command of “##122#”.</p>
+
+<p>An extension to <a href="https://github.com/NSPwn/Fake-Operator">Fake-Operator</a></p>
+
+<p>Credit to <a href="http://george.insideiphone.com/index.php/2007/11/25/a-convenient-tool-to-send-at-commands">this site</a> for the source code of sendmodem.</p>
+
+<p><img class="lightbox thumb" src="/images/posts/2010/12/photo.png" alt="BalanceAsOperator screenshot" /></p>
+
+<p><strong>Install</strong></p>
+
+<p>Download the .deb package from the <a href="https://github.com/ndbroadbent/ios_replace_operator_with_balance">‘Downloads’ page on github</a>, and install with $ dpkg -i &lt;&lt; package &gt;&gt;.deb</p>
+
+<p><strong>How it works</strong></p>
+
+<p>Package contains an executable binary that sends an AT USSD command to the carrier, which returns the balance message. Program then replaces the carrier name in the top left corner with the parsed balance. It does this by altering the com.nspwn.fakeoperatorpreferences plist, and then notifying FakeOperator to update SpringBoard.</p>
+
+<p>Also includes a launchd script that schedules the program to be executed every half hour.</p>
+
+<p><strong>Tags</strong></p>
+
+<p>This project might also be useful if you need to learn how to:</p>
+
+<ul>
+<li>Compile an iPhone program for iOS 4.<sup>1</sup>&frasl;<sub>4</sub>.2</li>
+<li>Run a script or application on iOS 4.<sup>1</sup>&frasl;<sub>4</sub>.2 at a scheduled interval (with launchd)</li>
+<li>Send AT commands to the iPhone/iPad modem (programmatically send SMS/dial numbers/etc)</li>
+<li>Write plist files to alter preferences for another application</li>
+</ul>
+
+<p><strong>Why</strong></p>
+
+<p>My carrier (PCCW) doesn’t believe in sending SMS alerts when my balance is about to, or even has, run out. I’ve emailed them about it, but thats just the way it is. So I thought this would be a better alternative to getting a new number.</p>
+
+<p>Would be happy to help anyone alter this for their own carriers, if requested. However, some operators do weird stuff like SMS every time you send an AT command like this, so that would be annoying.</p>
+
+
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        July 10, 2013
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        October 20, 2011
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/">10 Reasons why Hackers should Jailbreak their iPhones</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date" style="text-align: right;">
+                        October 19, 2011
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <strong><a href="/2011/10/19/git-shortcuts-like-youve-never-seen-before/">Git Shortcuts Like You&rsquo;ve Never Seen Before</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+
+    
+    
+
+  </body>
+</html>
