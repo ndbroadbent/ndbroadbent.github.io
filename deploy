@@ -1,6 +1,13 @@
 #!/bin/bash
 echo "Pushing source..."
 git push
+
+if [ ! -d public/.git ]; then
+  rm -rf public
+  REMOTE="$(git remote get-url origin)"
+  git clone "${REMOTE}" public
+fi
+
 hugo
 cd public
 git add -A
