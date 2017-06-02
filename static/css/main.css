@@ -19,9 +19,9 @@ a.image {
   text-decoration: none;
 }
 
-pre {
-  background-color: #272822;
-  color: white;
+code {
+  color: #555;
+  background-color: #f0f0f0;
 }
 
 .highlight {
