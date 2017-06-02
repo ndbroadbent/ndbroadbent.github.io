@@ -89,7 +89,7 @@ Now it performs frequent updates for the current branch, and only periodic updat
 
 <hr />
 
-<p><a href="http://travis-ci.org/">Travis CI</a> is a distributed <a href="http://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> service for the open source community, and it can be used with any of your public projects on <a href="https://github.com/">GitHub</a>. You&rsquo;ve probably seen some &lsquo;build status&rsquo; badges like this:</p>
+<p><a href="https://travis-ci.org/">Travis CI</a> is a distributed <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> service for the open source community, and it can be used with any of your public projects on <a href="https://github.com/">GitHub</a>. You&rsquo;ve probably seen some &lsquo;build status&rsquo; badges like this:</p>
 
 <p><img src="https://secure.travis-ci.org/travis-ci/travis-ci.png" alt="Travis CI build status"></p>
 
@@ -119,12 +119,12 @@ ruby -e <span style="color: #C41A16">&#39;require &quot;json&quot;&#39;</span> <
 
 
 <p>Next, we need to update the cached status.
-The following code is included as part of my <a href="http://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">SCM Breeze project</a>, but feel free to save the <code>update_travis_ci_status</code> script <a href="#update_travis_ci_status">at the bottom of this post [1]</a> to <code>/usr/bin/update_travis_ci_status</code>.</p>
+The following code is included as part of my <a href="https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">SCM Breeze project</a>, but feel free to save the <code>update_travis_ci_status</code> script <a href="#update_travis_ci_status">at the bottom of this post [1]</a> to <code>/usr/bin/update_travis_ci_status</code>.</p>
 
 <p>We will also need a way to run this update task every few minutes, across all of our local git repos.
 We only want to frequently update the status for the currently checked out branch, and periodically update the status for all branches.</p>
 
-<p>The <a href="http://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">SCM Breeze project</a> also maintains an index of your git repositories, which gives you the ability to run batch commands via the <code>git_index</code> function.
+<p>The <a href="https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">SCM Breeze project</a> also maintains an index of your git repositories, which gives you the ability to run batch commands via the <code>git_index</code> function.
 So the build status update can be easily set up as a cron task:</p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>*/5 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; git_index --rebuild &amp;&amp; git_index --batch-cmd update_travis_ci_status&#39;

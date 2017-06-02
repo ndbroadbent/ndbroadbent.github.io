@@ -82,7 +82,7 @@ ga('send', 'pageview');
             <div class="blogpost">
               
 
-<p>A few months ago, I was inspired by <a href="http://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/">this post</a> on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.</p>
+<p>A few months ago, I was inspired by <a href="https://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/">this post</a> on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.</p>
 
 <p>I thought this was a pretty cool idea, and that it would be a fun project for a Raspberry Pi. I agreed with the people who thought using UPC barcodes would be better, since products already have them, so I went with a barcode scanner + online product database.</p>
 
@@ -94,7 +94,7 @@ ga('send', 'pageview');
 <li>Clock is automatically updated from the internet</li>
 <li>Can be controlled with voice commands</li>
 <li>Can use a barcode scanner to look up cooking instructions from an online database</li>
-<li>There weren&rsquo;t any online microwave cooking databases around, so I made one: <a href="http://microwavecookingdb.com">http://microwavecookingdb.com</a></li>
+<li>There weren&rsquo;t any online microwave cooking databases around, so I made one: <a href="https://microwavecookingdb.com">https://microwavecookingdb.com</a></li>
 <li>The microwave has a web page so you can control it from your phone (why not), and set up cooking instructions for products</li>
 <li>Tweets after it&rsquo;s finished cooking something (See <a href="https://twitter.com/rbmicrowave">https://twitter.com/rbmicrowave</a>)</li>
 </ul>
@@ -105,7 +105,7 @@ ga('send', 'pageview');
 
 <h2 id="using-a-raspberry-pi-to-cook-a-raspberry-pie">Using a Raspberry Pi to cook a Raspberry Pie</h2>
 
-<p><a href="http://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html">Here&rsquo;s the recipe</a>.</p>
+<p><a href="https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html">Here&rsquo;s the recipe</a>.</p>
 
 <p><a class="image" href="/images/posts/2013/07/ingredients.jpg" target="_blank" rel="noopener noreferrer">
   <img class="lightbox thumb" src="/images/posts/2013/07/ingredients-resized-thumb.jpg" alt="Raspberry Pie Ingredients" />
@@ -184,11 +184,11 @@ ga('send', 'pageview');
   <img class="lightbox" width="145" src="/images/posts/2013/07/touchpad-resized-thumb.jpg" alt="Touchpad" />
 </a></p>
 
-<p>You might have noticed that I started the project with the intention of using an <a href="http://arduino.cc/en/Main/ArduinoBoardNano">Arduino Nano</a> plugged into a Raspberry Pi USB port. This was because I was a) familiar with the Arduino, b) not familiar with the Raspberry Pi GPIO, and c) thought it would make testing and debugging a bit easier, since I could just plug the Arduino into my laptop.</p>
+<p>You might have noticed that I started the project with the intention of using an <a href="https://arduino.cc/en/Main/ArduinoBoardNano">Arduino Nano</a> plugged into a Raspberry Pi USB port. This was because I was a) familiar with the Arduino, b) not familiar with the Raspberry Pi GPIO, and c) thought it would make testing and debugging a bit easier, since I could just plug the Arduino into my laptop.</p>
 
 <p>However, it turns out that my Raspberry Pi had some issues with the arduino&rsquo;s FTDI chip if the Raspberry Pi was turned on while the Arduino was plugged in. It wouldn&rsquo;t recognize the Arduino until I unplugged it, and then plugged it back in again.</p>
 
-<p>So I decided to make an Arduino Nano =&gt; Raspberry Pi GPIO adapter, and port my Arduino code to the Raspberry Pi GPIO using the <a href="http://wiringpi.com/">WiringPi</a> library.</p>
+<p>So I decided to make an Arduino Nano =&gt; Raspberry Pi GPIO adapter, and port my Arduino code to the Raspberry Pi GPIO using the <a href="https://wiringpi.com/">WiringPi</a> library.</p>
 
 <p><a class="image" href="/images/posts/2013/07/arduino_raspberry_adapter.jpg" target="_blank" rel="noopener noreferrer">
   <img class="lightbox thumb" src="/images/posts/2013/07/arduino_raspberry_adapter-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
@@ -231,7 +231,7 @@ ga('send', 'pageview');
 
 <h3 id="voice-control">Voice Control</h3>
 
-<p>I used <a href="http://cmusphinx.sourceforge.net/">PocketSphinx</a> for voice recognition, which worked very well with my small <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt">corpus</a>. I embedded Ruby in the <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c">pocketsphinx_contiunous</a> C program, so that it would be easier to <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb">script voice commands</a> and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won&rsquo;t be used very often.</p>
+<p>I used <a href="https://cmusphinx.sourceforge.net/">PocketSphinx</a> for voice recognition, which worked very well with my small <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt">corpus</a>. I embedded Ruby in the <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c">pocketsphinx_contiunous</a> C program, so that it would be easier to <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb">script voice commands</a> and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won&rsquo;t be used very often.</p>
 
 <h3 id="sinatra-app">Sinatra App</h3>
 
@@ -247,7 +247,7 @@ ga('send', 'pageview');
   <img src="/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database" />
 </a></p>
 
-<p>(UPDATE: It used to be live at <a href="http://www.microwavecookingdb.com/">http://www.microwavecookingdb.com/</a>, but I let the domain expire. Sorry!)</p>
+<p>(UPDATE: It used to be live at <a href="https://www.microwavecookingdb.com/">https://www.microwavecookingdb.com/</a>, but I let the domain expire. Sorry!)</p>
 
 <p>If cooking instructions are posted for a 1000W microwave, you can request the instructions for a 700W microwave, and the cooking times will be automatically adjusted.</p>
 
@@ -255,11 +255,11 @@ ga('send', 'pageview');
 
 <h2 id="patents">Patents?</h2>
 
-<p>Nope, this is just a fun project. <a href="http://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top">Microwaves with barcode scanners already exist</a>, and <a href="http://www.google.com/patents/US4323773">most</a> of these <a href="http://www.google.com/patents/US6124583">features</a> are <a href="http://www.google.com/patents/US6444965">already</a> <a href="http://www.google.com/patents/EP1117275A2?cl=en">patented</a>.</p>
+<p>Nope, this is just a fun project. <a href="https://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top">Microwaves with barcode scanners already exist</a>, and <a href="https://www.google.com/patents/US4323773">most</a> of these <a href="https://www.google.com/patents/US6124583">features</a> are <a href="https://www.google.com/patents/US6444965">already</a> <a href="https://www.google.com/patents/EP1117275A2?cl=en">patented</a>.</p>
 
 <h2 id="thanks-for-reading">Thanks for reading!</h2>
 
-<p>I&rsquo;d be interested to hear if you do something similar, or make use of <a href="http://www.microwavecookingdb.com">http://www.microwavecookingdb.com</a>.</p>
+<p>I&rsquo;d be interested to hear if you do something similar, or make use of <a href="https://www.microwavecookingdb.com">https://www.microwavecookingdb.com</a>.</p>
 
 
               <div class="related-posts">

@@ -130,7 +130,7 @@ to integrate the clipboard with the command line.</p>
 
 <p>It also comes with a handy <code>cb_ssh</code> alias that copies your SSH public key to the clipboard,
 for when you are setting up your new <a href="https://bitbucket.org">BitBucket account</a>
-with <a href="http://blog.bitbucket.org/2011/10/03/bitbucket-now-rocks-git/">unlimited, free private git repositories</a>!
+with <a href="https://blog.bitbucket.org/2011/10/03/bitbucket-now-rocks-git/">unlimited, free private git repositories</a>!
 I&rsquo;m not affiliated with Atlassian, I just think they&rsquo;re awesome.</p>
 
 <p>So if you think this looks handy, you can add the following to your <code>~/.bashrc</code>:</p>
@@ -171,13 +171,13 @@ cb<span style="color: #000000">()</span> <span style="color: #000000">{</span>
 <span style="color: #177500"># Aliases / functions leveraging the cb() function</span>
 <span style="color: #177500"># ------------------------------------------------</span>
 <span style="color: #177500"># Copy contents of a file</span>
-<span style="color: #A90D91">function</span> cbf<span style="color: #000000">()</span> <span style="color: #000000">{</span> cat <span style="color: #C41A16">&quot;</span><span style="color: #000000">$1</span><span style="color: #C41A16">&quot;</span> | cb; <span style="color: #000000">}</span>  
+<span style="color: #A90D91">function</span> cbf<span style="color: #000000">()</span> <span style="color: #000000">{</span> cat <span style="color: #C41A16">&quot;</span><span style="color: #000000">$1</span><span style="color: #C41A16">&quot;</span> | cb; <span style="color: #000000">}</span>
 <span style="color: #177500"># Copy SSH public key</span>
-<span style="color: #A90D91">alias</span> <span style="color: #000000">cbssh=</span><span style="color: #C41A16">&quot;cbf ~/.ssh/id_rsa.pub&quot;</span>  
+<span style="color: #A90D91">alias</span> <span style="color: #000000">cbssh=</span><span style="color: #C41A16">&quot;cbf ~/.ssh/id_rsa.pub&quot;</span>
 <span style="color: #177500"># Copy current working directory</span>
-<span style="color: #A90D91">alias</span> <span style="color: #000000">cbwd=</span><span style="color: #C41A16">&quot;pwd | cb&quot;</span>  
+<span style="color: #A90D91">alias</span> <span style="color: #000000">cbwd=</span><span style="color: #C41A16">&quot;pwd | cb&quot;</span>
 <span style="color: #177500"># Copy most recent command in bash history</span>
-<span style="color: #A90D91">alias</span> <span style="color: #000000">cbhs=</span><span style="color: #C41A16">&quot;cat </span><span style="color: #000000">$HISTFILE</span><span style="color: #C41A16"> | tail -n 1 | cb&quot;</span>  
+<span style="color: #A90D91">alias</span> <span style="color: #000000">cbhs=</span><span style="color: #C41A16">&quot;cat </span><span style="color: #000000">$HISTFILE</span><span style="color: #C41A16"> | tail -n 1 | cb&quot;</span>
 </pre></div>
 
 
