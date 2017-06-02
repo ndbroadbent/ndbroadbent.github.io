@@ -86,12 +86,12 @@ ga('send', 'pageview');
 
 <p>Here is an example of how to use sed when your string contains color codes:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Need to strip the color character from the end of the line, otherwise</span>
-<span style="color: #75715e"># EOL &#39;$&#39; doesn&#39;t work. This gave me a headache for long time.</span>
-<span style="color: #75715e"># The echo ~&gt; regex is time-consuming, so perform a simple search first.</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f92672">[[</span> <span style="color: #f8f8f2">$line</span> <span style="color: #f92672">==</span> *<span style="color: #f8f8f2">$search</span>* <span style="color: #f92672">]]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
-    <span style="color: #f8f8f2">line</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span><span style="color: #f8f8f2">echo</span> <span style="color: #f8f8f2">$line</span> <span style="color: #f8f8f2">|</span> sed -r <span style="color: #e6db74">&quot;s:</span><span style="color: #f8f8f2">$search</span><span style="color: #e6db74">(\x1B\[m)?</span>$<span style="color: #e6db74">:</span><span style="color: #f8f8f2">$replace</span><span style="color: #e6db74">:g&quot;</span><span style="color: #66d9ef">)</span>
-<span style="color: #66d9ef">fi</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Need to strip the color character from the end of the line, otherwise</span>
+<span style="color: #177500"># EOL &#39;$&#39; doesn&#39;t work. This gave me a headache for long time.</span>
+<span style="color: #177500"># The echo ~&gt; regex is time-consuming, so perform a simple search first.</span>
+<span style="color: #A90D91">if</span> <span style="color: #000000">[[</span> <span style="color: #000000">$line</span> <span style="color: #000000">==</span> *<span style="color: #000000">$search</span>* <span style="color: #000000">]]</span>; <span style="color: #A90D91">then</span>
+    <span style="color: #000000">line=</span><span style="color: #A90D91">$(echo</span> <span style="color: #000000">$line</span> | sed -r <span style="color: #C41A16">&quot;s:</span><span style="color: #000000">$search</span><span style="color: #C41A16">(\x1B\[m)?</span>$<span style="color: #C41A16">:</span><span style="color: #000000">$replace</span><span style="color: #C41A16">:g&quot;</span><span style="color: #A90D91">)</span>
+<span style="color: #A90D91">fi</span>
 </pre></div>
 
 

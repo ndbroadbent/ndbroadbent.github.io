@@ -86,19 +86,19 @@ ga('send', 'pageview');
 
 <p>Here is an example for way faster hoptoad notifications (this cut our deploy time in half):</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Speed up hoptoad:deploy by not loading rails environment</span>
-<span style="color: #66d9ef">if</span> <span style="color: #66d9ef">ARGV</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;hoptoad:deploy&quot;</span>
-  <span style="color: #f8f8f2">require</span> <span style="color: #e6db74">&#39;active_support/core_ext/string&#39;</span>
-  <span style="color: #f8f8f2">require</span> <span style="color: #e6db74">&#39;hoptoad_notifier&#39;</span>
-  <span style="color: #f8f8f2">require</span> <span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">join(</span><span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">dirname(__FILE__),</span> <span style="color: #e6db74">&#39;config&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;initializers&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;hoptoad&#39;</span><span style="color: #f8f8f2">)</span>
-  <span style="color: #f8f8f2">require</span> <span style="color: #e6db74">&#39;hoptoad_tasks&#39;</span>
-  <span style="color: #66d9ef">HoptoadTasks</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">deploy(</span><span style="color: #e6db74">:rails_env</span>      <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;TO&#39;</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">,</span>
-                      <span style="color: #e6db74">:scm_revision</span>   <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;REVISION&#39;</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">,</span>
-                      <span style="color: #e6db74">:scm_repository</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;REPO&#39;</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">,</span>
-                      <span style="color: #e6db74">:local_username</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;USER&#39;</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">,</span>
-                      <span style="color: #e6db74">:api_key</span>        <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">ENV</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;API_KEY&#39;</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">)</span>
-  <span style="color: #f8f8f2">exit</span>
-<span style="color: #66d9ef">end</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Speed up hoptoad:deploy by not loading rails environment</span>
+<span style="color: #A90D91">if</span> <span style="color: #000000">ARGV[</span><span style="color: #1C01CE">0</span><span style="color: #000000">]</span> <span style="color: #000000">==</span> <span style="color: #C41A16">&quot;hoptoad:deploy&quot;</span>
+  <span style="color: #A90D91">require</span> <span style="color: #C41A16">&#39;active_support/core_ext/string&#39;</span>
+  <span style="color: #A90D91">require</span> <span style="color: #C41A16">&#39;hoptoad_notifier&#39;</span>
+  <span style="color: #A90D91">require</span> <span style="color: #000000">File.join</span>(<span style="color: #000000">File.dirname</span>(<span style="color: #5B269A">__FILE__</span>), <span style="color: #C41A16">&#39;config&#39;</span>, <span style="color: #C41A16">&#39;initializers&#39;</span>, <span style="color: #C41A16">&#39;hoptoad&#39;</span>)
+  <span style="color: #A90D91">require</span> <span style="color: #C41A16">&#39;hoptoad_tasks&#39;</span>
+  <span style="color: #000000">HoptoadTasks.deploy</span>(<span style="color: #C41A16">:rails_env</span>      <span style="color: #000000">=&gt;</span> <span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;TO&#39;</span><span style="color: #000000">]</span>,
+                      <span style="color: #C41A16">:scm_revision</span>   <span style="color: #000000">=&gt;</span> <span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;REVISION&#39;</span><span style="color: #000000">]</span>,
+                      <span style="color: #C41A16">:scm_repository</span> <span style="color: #000000">=&gt;</span> <span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;REPO&#39;</span><span style="color: #000000">]</span>,
+                      <span style="color: #C41A16">:local_username</span> <span style="color: #000000">=&gt;</span> <span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;USER&#39;</span><span style="color: #000000">]</span>,
+                      <span style="color: #C41A16">:api_key</span>        <span style="color: #000000">=&gt;</span> <span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;API_KEY&#39;</span><span style="color: #000000">]</span>)
+  <span style="color: #A90D91">exit</span>
+<span style="color: #A90D91">end</span>
 </pre></div>
 
 

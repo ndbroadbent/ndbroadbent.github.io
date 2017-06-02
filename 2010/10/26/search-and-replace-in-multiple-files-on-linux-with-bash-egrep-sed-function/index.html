@@ -82,14 +82,14 @@ ga('send', 'pageview');
             <div class="blogpost">
               <p>Heres a simple function to add to your shell if you ever want to replace a string in multiple files at once. It ignores everything in .git, otherwise you get &lsquo;bad index file sha1 signature&rsquo; errors.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">function</span> gsed <span style="color: #f92672">()</span> <span style="color: #f92672">{</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> -z <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$3</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">]</span>
-  <span style="color: #66d9ef">then</span>
-    <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;== Usage:    gsed search_string replace_string [path]&quot;</span>
-  <span style="color: #66d9ef">else</span>
-    egrep --exclude-dir<span style="color: #f92672">=</span>.git -lRZ <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$1</span><span style="color: #e6db74">&quot;</span> <span style="color: #f8f8f2">$3</span> <span style="color: #f8f8f2">|</span> xargs -0 -l sed -i -e <span style="color: #e6db74">&quot;s/</span><span style="color: #f8f8f2">$1</span><span style="color: #e6db74">/</span><span style="color: #f8f8f2">$2</span><span style="color: #e6db74">/g&quot;</span>
-  <span style="color: #66d9ef">fi</span>
-<span style="color: #f92672">}</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">function</span> gsed <span style="color: #000000">()</span> <span style="color: #000000">{</span>
+  <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> -z <span style="color: #C41A16">&quot;</span><span style="color: #000000">$3</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">]</span>
+  <span style="color: #A90D91">then</span>
+    <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;== Usage:    gsed search_string replace_string [path]&quot;</span>
+  <span style="color: #A90D91">else</span>
+    egrep --exclude-dir<span style="color: #000000">=</span>.git -lRZ <span style="color: #C41A16">&quot;</span><span style="color: #000000">$1</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">$3</span> | xargs -0 -l sed -i -e <span style="color: #C41A16">&quot;s/</span><span style="color: #000000">$1</span><span style="color: #C41A16">/</span><span style="color: #000000">$2</span><span style="color: #C41A16">/g&quot;</span>
+  <span style="color: #A90D91">fi</span>
+<span style="color: #000000">}</span>
 </pre></div>
 
 
@@ -97,7 +97,7 @@ ga('send', 'pageview');
 
 <p>So you might want to replace all occurences of &lsquo;badly_named_method&rsquo; with &lsquo;awesome_method_name&rsquo;, recursively for the current directory? You would type:</p>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>  gsed <span style="color: #e6db74">&quot;badly_named_ruby_method&quot;</span> <span style="color: #e6db74">&quot;awesome_method_name&quot;</span> .
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>  gsed <span style="color: #C41A16">&quot;badly_named_ruby_method&quot;</span> <span style="color: #C41A16">&quot;awesome_method_name&quot;</span> .
 </pre></div>
 </p>
 

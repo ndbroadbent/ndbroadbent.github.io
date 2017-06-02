@@ -89,20 +89,20 @@ uninitialized constant RSpec::Rake</p>
 
 <p>Instead, do:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">RSpec</span><span style="color: #f92672">::</span><span style="color: #66d9ef">Core</span><span style="color: #f92672">::</span><span style="color: #66d9ef">RakeTask</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">new(</span><span style="color: #e6db74">:spec</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">t</span><span style="color: #f92672">|</span>
-<span style="color: #f92672">...</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">RSpec::Core::RakeTask.new</span>(<span style="color: #C41A16">:spec</span>) <span style="color: #A90D91">do</span> <span style="color: #000000">|t|</span>
+<span style="color: #000000">...</span>
 </pre></div>
 
 
 <p>and make sure to change:</p>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">t</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">spec_files</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">FileList</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;spec/**/*_spec.rb&#39;</span><span style="color: #f92672">]</span>
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">t.spec_files</span> <span style="color: #000000">=</span> <span style="color: #000000">FileList[</span><span style="color: #C41A16">&#39;spec/**/*_spec.rb&#39;</span><span style="color: #000000">]</span>
 </pre></div>
 </p>
 
 <p>to</p>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">t</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">pattern</span>   <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;spec/**/*_spec.rb&#39;</span>
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">t.pattern</span>   <span style="color: #000000">=</span> <span style="color: #C41A16">&#39;spec/**/*_spec.rb&#39;</span>
 </pre></div>
 </p>
 

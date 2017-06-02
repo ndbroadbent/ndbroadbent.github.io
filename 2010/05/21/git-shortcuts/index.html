@@ -85,7 +85,7 @@ I just want to be able to run &ldquo;git push&rdquo; and &ldquo;git pull&rdquo;.
 &ldquo;git pull origin master&rdquo; just gets annoying after a while.
 In case I forget how to do this again, this is all it takes (provided you already have an &lsquo;origin&rsquo; remote configured):</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>git config branch.master.remote origin
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git config branch.master.remote origin
 git config branch.master.merge refs/heads/master
 </pre></div>
 
@@ -93,22 +93,22 @@ git config branch.master.merge refs/heads/master
 <p>Other useful git shortcut that I literally use everyday
 (add them to the bottom of ~/.bashrc and then run $ source ~/.bashrc):</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">alias</span> <span style="color: #f8f8f2">gst</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;git status&#39;</span>
-<span style="color: #f8f8f2">alias</span> <span style="color: #f8f8f2">gca</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;git commit -am&#39;</span>
-<span style="color: #f8f8f2">alias</span> <span style="color: #f8f8f2">gc</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;git commit -m&#39;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">alias</span> <span style="color: #000000">gst=</span><span style="color: #C41A16">&#39;git status&#39;</span>
+<span style="color: #A90D91">alias</span> <span style="color: #000000">gca=</span><span style="color: #C41A16">&#39;git commit -am&#39;</span>
+<span style="color: #A90D91">alias</span> <span style="color: #000000">gc=</span><span style="color: #C41A16">&#39;git commit -m&#39;</span>
 </pre></div>
 
 
 <p>So, say I&rsquo;ve made changes to lots of files and I want to commit them all. I just type:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ gca <span style="color: #e6db74">&quot;I made a bunch of changes to lots of files&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ gca <span style="color: #C41A16">&quot;I made a bunch of changes to lots of files&quot;</span>
 </pre></div>
 
 
 <p>And if Ive made lots of changes to various files, but only want to commit changes in one file &ldquo;foo.bar&rdquo;, I type:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ git add foo.bar
-$ gc <span style="color: #e6db74">&quot;I made a change to foo.bar&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ git add foo.bar
+$ gc <span style="color: #C41A16">&quot;I made a change to foo.bar&quot;</span>
 </pre></div>
 
 

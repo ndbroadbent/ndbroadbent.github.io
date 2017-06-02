@@ -90,10 +90,10 @@ ga('send', 'pageview');
     <li>Add the following code to the bottom of your root Gemfile (in your main Rails app):</li>
 </ol></p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Install gems from each plugin</span>
-<span style="color: #66d9ef">Dir</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">glob(</span><span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">join(</span><span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">dirname(__FILE__),</span> <span style="color: #e6db74">&#39;vendor&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;plugins&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;**&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Gemfile&quot;</span><span style="color: #f8f8f2">))</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">gemfile</span><span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">eval(</span><span style="color: #66d9ef">IO</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read(gemfile),</span> <span style="color: #f8f8f2">binding)</span>
-<span style="color: #66d9ef">end</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Install gems from each plugin</span>
+<span style="color: #000000">Dir.glob</span>(<span style="color: #000000">File.join</span>(<span style="color: #000000">File.dirname</span>(<span style="color: #5B269A">__FILE__</span>), <span style="color: #C41A16">&#39;vendor&#39;</span>, <span style="color: #C41A16">&#39;plugins&#39;</span>, <span style="color: #C41A16">&#39;**&#39;</span>, <span style="color: #C41A16">&quot;Gemfile&quot;</span>)) <span style="color: #A90D91">do</span> <span style="color: #000000">|gemfile|</span>
+    <span style="color: #A90D91">eval</span>(<span style="color: #000000">IO.read</span>(<span style="color: #000000">gemfile</span>), <span style="color: #A90D91">binding</span>)
+<span style="color: #A90D91">end</span>
 </pre></div>
 
 

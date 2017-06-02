@@ -118,11 +118,11 @@ It took a lot of help from other people before I solved all of the problems I wa
         all you have to do is place the following lines in <code>/opt/bootlocal.sh:</code></li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;# KMW: hacked sound setup - BEGIN&quot;</span> &gt;&gt; /etc/modprobe.conf
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;alias snd-card-0 snd-sb16&quot;</span>         &gt;&gt; /etc/modprobe.conf
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;alias sound-slot-0 snd-sb16&quot;</span>       &gt;&gt; /etc/modprobe.conf
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;options snd-sb16 isapnp=0&quot;</span>         &gt;&gt; /etc/modprobe.conf
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;# KMW: hacked sound setup - END&quot;</span>   &gt;&gt; /etc/modprobe.conf
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;# KMW: hacked sound setup - BEGIN&quot;</span> &gt;&gt; /etc/modprobe.conf
+<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;alias snd-card-0 snd-sb16&quot;</span>         &gt;&gt; /etc/modprobe.conf
+<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;alias sound-slot-0 snd-sb16&quot;</span>       &gt;&gt; /etc/modprobe.conf
+<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;options snd-sb16 isapnp=0&quot;</span>         &gt;&gt; /etc/modprobe.conf
+<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;# KMW: hacked sound setup - END&quot;</span>   &gt;&gt; /etc/modprobe.conf
 /usr/local/etc/init.d/alsasound start
 </pre></div>
 
