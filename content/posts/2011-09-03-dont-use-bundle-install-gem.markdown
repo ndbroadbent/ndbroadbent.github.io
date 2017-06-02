@@ -7,7 +7,7 @@ tags: ["bundler", "ruby", "ruby-gems"]
 title: Don't use 'bundle install {gem}'.
 url: /2011/09/03/dont-use-bundle-install-gem/
 wordpress_id: 571
-wordpress_url: http://madebynathan.com/?p=571
+wordpress_url: https://madebynathan.com/?p=571
 ---
 
 Maybe you want to update haml to the latest version. You tried to run <code>bundle install haml</code>, but now some really weird stuff is happening. Bundler decided to install all of your gems from scratch into a ./haml folder. Even when you try <code>bundle update haml</code>, the gems are still going into the ./haml folder! What's going on?

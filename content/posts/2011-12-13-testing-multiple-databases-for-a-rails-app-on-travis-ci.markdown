@@ -7,16 +7,16 @@ title: Testing Multiple Databases for a Rails app on Travis CI
 url: /2011/12/13/testing-multiple-databases-for-a-rails-app-on-travis-ci/
 ---
 
-I'm currently doing a lot of work on an open source Ruby on Rails project called [Fat Free CRM](http://fatfreecrm.com/).
+I'm currently doing a lot of work on an open source Ruby on Rails project called [Fat Free CRM](https://fatfreecrm.com/).
 The code is hosted on [github](https://github.com/fatfreecrm/fat_free_crm), and we are using the amazing continuous integration
-service provided by [Travis CI](http://travis-ci.org/#!/fatfreecrm/fat_free_crm).
+service provided by [Travis CI](https://travis-ci.org/#!/fatfreecrm/fat_free_crm).
 
-[Find out more about Travis CI here.](http://about.travis-ci.org/)
+[Find out more about Travis CI here.](https://about.travis-ci.org/)
 
 We've been working on some powerful features for Fat Free CRM, such as dynamic custom fields,
 and we wanted to make sure that they work across all of our supported databases.
-So here's how I set up our Travis CI build matrix to test multiple databases, 
-with some help from the [Travis docs](http://about.travis-ci.org/docs/user/database-setup/):
+So here's how I set up our Travis CI build matrix to test multiple databases,
+with some help from the [Travis docs](https://about.travis-ci.org/docs/user/database-setup/):
 
 
 ### .travis.yml
@@ -27,7 +27,7 @@ We add the databases to our build matrix by setting ENV variables. Add the follo
 env:
   - DB=mysql
   - DB=postgres
-  - DB=sqlite  
+  - DB=sqlite
 {{< / highlight >}}
 
 
@@ -49,7 +49,7 @@ FileUtils.cp "config/database.#{ENV['DB'] || 'postgres'}.yml", 'config/database.
 
 ### Gemfile.ci
 
-I created a new Gemfile for CI. It simply tells bundler to use the gem specified by our `DB` variable, 
+I created a new Gemfile for CI. It simply tells bundler to use the gem specified by our `DB` variable,
 prevents any other database gems from being loaded, and then loads the 'real' Gemfile.
 
 Here's the contents of `Gemfile.ci`:
@@ -57,7 +57,7 @@ Here's the contents of `Gemfile.ci`:
 {{< highlight ruby >}}
 case ENV['DB']
 when "mysql"; gem "mysql2", "0.3.10"
-when "sqlite"; gem "sqlite3" 
+when "sqlite"; gem "sqlite3"
 when "postgres"; gem "pg", ">= 0.9.0"
 end
 
@@ -67,7 +67,7 @@ def gem(*args)
 end
 
 # Eval Gemfile
-eval(IO.read(File.join(File.dirname(__FILE__), 'Gemfile')), binding) 
+eval(IO.read(File.join(File.dirname(__FILE__), 'Gemfile')), binding)
 {{< / highlight >}}
 
 
@@ -92,7 +92,7 @@ ENV['BUNDLE_GEMFILE'] = gemfile
 
 Notice the `||=`, which meant that the `BUNDLE_GEMFILE` variable could actually have an effect when it was set by Travis.
 
-You might have found this post if you are googling for `Could not find multi_json-1.0.3 in any of the sources`, which is 
+You might have found this post if you are googling for `Could not find multi_json-1.0.3 in any of the sources`, which is
 the symptom that I was experiencing (due to an updated gem and an outdated `Gemfile.lock`).
 In that case, you may need to update your `config/boot.rb` to [the latest version from Rails](https://github.com/rails/rails/blob/master/railties/lib/rails/generators/rails/app/templates/config/boot.rb).
 

@@ -5,7 +5,7 @@ tags: ["guides", "rails", "rails-3"]
 title: Rails 3 Rake tasks can take too long to load
 url: /2011/02/24/rails-3-rake-tasks-are-so-slow/
 wordpress_id: 373
-wordpress_url: http://www.f-77.com/?p=373
+wordpress_url: https://www.f-77.com/?p=373
 ---
 
 When you run a rake task for a Rails 3 project, it has to load the entire environment since gems can include their own rake tasks. I started to get annoyed by this, because every capistrano deployment would load up rails on my environment just to notify hoptoad.

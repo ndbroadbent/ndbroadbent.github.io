@@ -6,13 +6,13 @@ title: Scheduling one-off tasks with 'at'
 url: /2012/02/25/scheduling-one-off-tasks-with-at-/
 ---
 
-You might be familiar with the [cron](http://en.wikipedia.org/wiki/Cron) job scheduler,
+You might be familiar with the [cron](https://en.wikipedia.org/wiki/Cron) job scheduler,
 which is great for repeating tasks.
 But when you want to schedule a command to only run once in the future,
-the [at](http://linux.die.net/man/1/at) command is what you are looking for.
+the [at](https://linux.die.net/man/1/at) command is what you are looking for.
 
-In my case, I was updating a plugin for our 
-[Thoughtworks Mingle](http://www.thoughtworks-studios.com/mingle-agile-project-management) instance,
+In my case, I was updating a plugin for our
+[Thoughtworks Mingle](https://www.thoughtworks-studios.com/mingle-agile-project-management) instance,
 but the update wasn't hugely important. Many of our staff rely on Mingle for their work,
 and restarting it takes it offline for a few minutes.
 

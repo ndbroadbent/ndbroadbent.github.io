@@ -5,7 +5,7 @@ tags: ["bugfixes", "rails"]
 title: Don&#039;t override core Rails methods
 url: /2010/05/28/dont-override-core-rails-methods/
 wordpress_id: 90
-wordpress_url: http://nathanf77.wordpress.com/?p=90
+wordpress_url: https://nathanf77.wordpress.com/?p=90
 ---
 
 Every programmer makes mistakes.. But every so often though, you make those mistakes that really mess things up. I just made two of them, and feel like a right n00b.

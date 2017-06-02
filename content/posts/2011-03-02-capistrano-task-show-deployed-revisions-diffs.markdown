@@ -5,7 +5,7 @@ tags: ["guides", "rails", "rails-3", "capistrano"]
 title: Capistrano task - show deployed revisions & diffs
 url: /2011/03/02/capistrano-task-show-deployed-revisions-diffs/
 wordpress_id: 380
-wordpress_url: http://www.f-77.com/?p=380
+wordpress_url: https://www.f-77.com/?p=380
 ---
 
 Capistrano is a great tool, and I couldn't imagine running a project without it.

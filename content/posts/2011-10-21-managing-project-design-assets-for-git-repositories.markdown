@@ -12,8 +12,8 @@ have you ever wondered where you should store those `.psd` or `.xcf` files?
 Do you commit all of your raw design files, or does it put you off that any changes to those files
 will bloat your repository?
 
-The following post describes a part of my [SCM Breeze](http://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/)
-project. If you haven't seen it already, take a look at my [blog post that describes what it can do](http://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/).
+The following post describes a part of my [SCM Breeze](https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/)
+project. If you haven't seen it already, take a look at my [blog post that describes what it can do](https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/).
 
 Here were my goals when I set out to find a solution:
 
@@ -35,7 +35,7 @@ Either way, here's how you can effectively manage your design assets for git pro
 
 ## 1) Install SCM Breeze
 
-This gives you the `design()` function, as well as a bunch of other features that you can [read about here](http://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/).
+This gives you the `design()` function, as well as a bunch of other features that you can [read about here](https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/).
 
 To install, run:
 
@@ -124,6 +124,6 @@ If you find a bug, or it doesn't work quite right on your operating system,
 
 ## Shameless Dropbox Referral
 
-If you don't already use Dropbox, [click here to sign up!](http://db.tt/hN3mN1W) It's an awesome service!
+If you don't already use Dropbox, [click here to sign up!](https://db.tt/hN3mN1W) It's an awesome service!
 And if you sign up via that referral link, you'll be giving me a little extra free space :)
 

@@ -6,7 +6,7 @@ title: Raspberry Pi Microwave
 url: /2013/07/10/raspberry-pi-powered-microwave/
 ---
 
-A few months ago, I was inspired by [this post](http://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/) on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.
+A few months ago, I was inspired by [this post](https://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/) on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.
 
 I thought this was a pretty cool idea, and that it would be a fun project for a Raspberry Pi. I agreed with the people who thought using UPC barcodes would be better, since products already have them, so I went with a barcode scanner + online product database.
 
@@ -17,7 +17,7 @@ Here's a summary of the features that I've added to my microwave:
 * Clock is automatically updated from the internet
 * Can be controlled with voice commands
 * Can use a barcode scanner to look up cooking instructions from an online database
-* There weren't any online microwave cooking databases around, so I made one: [http://microwavecookingdb.com](http://microwavecookingdb.com)
+* There weren't any online microwave cooking databases around, so I made one: [https://microwavecookingdb.com](https://microwavecookingdb.com)
 * The microwave has a web page so you can control it from your phone (why not), and set up cooking instructions for products
 * Tweets after it's finished cooking something (See [https://twitter.com/rbmicrowave](https://twitter.com/rbmicrowave))
 
@@ -28,7 +28,7 @@ Here's a summary of the features that I've added to my microwave:
 
 ## Using a Raspberry Pi to cook a Raspberry Pie
 
-[Here's the recipe](http://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html).
+[Here's the recipe](https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html).
 
 <a class="image" href="/images/posts/2013/07/ingredients.jpg" target="_blank" rel="noopener noreferrer">
   <img class="lightbox thumb" src="/images/posts/2013/07/ingredients-resized-thumb.jpg" alt="Raspberry Pie Ingredients" />
@@ -109,11 +109,11 @@ When I peeled off the old touchpad overlay, it became wrinkled and ugly, so I th
   <img class="lightbox" width="145" src="/images/posts/2013/07/touchpad-resized-thumb.jpg" alt="Touchpad" />
 </a>
 
-You might have noticed that I started the project with the intention of using an [Arduino Nano](http://arduino.cc/en/Main/ArduinoBoardNano) plugged into a Raspberry Pi USB port. This was because I was a) familiar with the Arduino, b) not familiar with the Raspberry Pi GPIO, and c) thought it would make testing and debugging a bit easier, since I could just plug the Arduino into my laptop.
+You might have noticed that I started the project with the intention of using an [Arduino Nano](https://arduino.cc/en/Main/ArduinoBoardNano) plugged into a Raspberry Pi USB port. This was because I was a) familiar with the Arduino, b) not familiar with the Raspberry Pi GPIO, and c) thought it would make testing and debugging a bit easier, since I could just plug the Arduino into my laptop.
 
 However, it turns out that my Raspberry Pi had some issues with the arduino's FTDI chip if the Raspberry Pi was turned on while the Arduino was plugged in. It wouldn't recognize the Arduino until I unplugged it, and then plugged it back in again.
 
-So I decided to make an Arduino Nano =&gt; Raspberry Pi GPIO adapter, and port my Arduino code to the Raspberry Pi GPIO using the [WiringPi](http://wiringpi.com/) library.
+So I decided to make an Arduino Nano =&gt; Raspberry Pi GPIO adapter, and port my Arduino code to the Raspberry Pi GPIO using the [WiringPi](https://wiringpi.com/) library.
 
 <a class="image" href="/images/posts/2013/07/arduino_raspberry_adapter.jpg" target="_blank" rel="noopener noreferrer">
   <img class="lightbox thumb" src="/images/posts/2013/07/arduino_raspberry_adapter-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
@@ -158,7 +158,7 @@ This program listens to the barcode scanner, and requests product information fr
 
 ### Voice Control
 
-I used [PocketSphinx](http://cmusphinx.sourceforge.net/) for voice recognition, which worked very well with my small [corpus](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt). I embedded Ruby in the [pocketsphinx_contiunous](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c) C program, so that it would be easier to [script voice commands](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb) and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won't be used very often.
+I used [PocketSphinx](https://cmusphinx.sourceforge.net/) for voice recognition, which worked very well with my small [corpus](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt). I embedded Ruby in the [pocketsphinx_contiunous](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c) C program, so that it would be easier to [script voice commands](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb) and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won't be used very often.
 
 ### Sinatra App
 
@@ -175,7 +175,7 @@ I couldn't find any existing websites with a database of microwave cooking instr
   <img src="/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database" />
 </a>
 
-(UPDATE: It used to be live at http://www.microwavecookingdb.com/, but I let the domain expire. Sorry!)
+(UPDATE: It used to be live at https://www.microwavecookingdb.com/, but I let the domain expire. Sorry!)
 
 If cooking instructions are posted for a 1000W microwave, you can request the instructions for a 700W microwave, and the cooking times will be automatically adjusted.
 
@@ -184,9 +184,9 @@ So if you're also planning on making an internet connected microwave with a barc
 
 ## Patents?
 
-Nope, this is just a fun project. [Microwaves with barcode scanners already exist](http://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top), and [most](http://www.google.com/patents/US4323773) of these [features](http://www.google.com/patents/US6124583) are [already](http://www.google.com/patents/US6444965) [patented](http://www.google.com/patents/EP1117275A2?cl=en).
+Nope, this is just a fun project. [Microwaves with barcode scanners already exist](https://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top), and [most](https://www.google.com/patents/US4323773) of these [features](https://www.google.com/patents/US6124583) are [already](https://www.google.com/patents/US6444965) [patented](https://www.google.com/patents/EP1117275A2?cl=en).
 
 
 ## Thanks for reading!
 
-I'd be interested to hear if you do something similar, or make use of [http://www.microwavecookingdb.com](http://www.microwavecookingdb.com).
+I'd be interested to hear if you do something similar, or make use of [https://www.microwavecookingdb.com](https://www.microwavecookingdb.com).

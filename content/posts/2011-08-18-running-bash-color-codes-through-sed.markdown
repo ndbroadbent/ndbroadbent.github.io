@@ -5,7 +5,7 @@ tags: ["bash", "scripts"]
 title: Running bash color codes through sed
 url: /2011/08/18/running-bash-color-codes-through-sed/
 wordpress_id: 569
-wordpress_url: http://madebynathan.com/?p=569
+wordpress_url: https://madebynathan.com/?p=569
 ---
 
 <p>I have a script that runs a search and replace on a git status. I recently found out how to do 'git config color.status always', so that git status gives color codes to my functions. However, this broke the substitution, and it took me a while to figure it out.</p>
@@ -23,5 +23,5 @@ if [[ $line == *$search* ]]; then
 fi
 {{< / highlight >}}
 
-<p>You might also find this page useful: <a href="http://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed">http://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed</a></p>
+<p>You might also find this page useful: <a href="https://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed">https://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed</a></p>
 

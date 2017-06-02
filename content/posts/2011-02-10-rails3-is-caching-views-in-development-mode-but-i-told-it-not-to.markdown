@@ -5,7 +5,7 @@ tags: ["guides", "rails", "rails-3"]
 title: Rails 3 caching views in development mode
 url: /2011/02/10/rails3-is-caching-views-in-development-mode-but-i-told-it-not-to/
 wordpress_id: 366
-wordpress_url: http://www.f-77.com/?p=366
+wordpress_url: https://www.f-77.com/?p=366
 ---
 
 We are working with a Rails 3 port of Fat Free CRM. We have so many plugins modifying classes that we have to set <em>config.cache_classes</em> to <em>true</em>.

@@ -5,7 +5,7 @@ tags: ["bash", "scripts"]
 title: Bash Color Index
 url: /2011/08/16/bash-color-index/
 wordpress_id: 552
-wordpress_url: http://madebynathan.com/?p=552
+wordpress_url: https://madebynathan.com/?p=552
 ---
 
 Sometimes it's nice to add color output to your bash scripts. Here's a small 'color index' reference script for your .bashrc, for when you want to add a bit of color to your scripts.

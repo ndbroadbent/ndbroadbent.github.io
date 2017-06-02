@@ -30,7 +30,7 @@ These are the steps that worked for me. YMMV with other headset brands/models.
 	<li>Play a sound from somewhere, eg: MP3 or movie in Totem. You should now hear your audio coming through your Bluetooth headset! <em>NOTE: Existing audio streams at the time of changing the sink will continue to play through whatever they were playing through until stopped and started again.</em></li>
 	<li>To switch back to your speakers, simply click on the mic jack icon again, choose "Default Sink" and choose "Default" from the sub-menu. The next audio stream played will go back through your speakers.</li>
 	<li>To make the PulseAudio Device Chooser start automatically on startup, click on the mic jack icon again, choose Preferences from the menu and then click on "Start applet on Session Login" in the window.</li>
-	<li>Enjoy! <img title="Stick Out Tongue" src="http://forums.overclockers.com.au/images/smilies/tongue.gif" border="0" alt="" /></li>
+	<li>Enjoy! <img title="Stick Out Tongue" src="https://forums.overclockers.com.au/images/smilies/tongue.gif" border="0" alt="" /></li>
 </ol>
 Also note: Any application (including Skype) <strong>should</strong> be able to play audio through the headset if you follow these steps. If you want to use Skype, you will also need to set up the mic on the headset by following the same steps to configure the bluez source device (‘bluez_source.XX…’) as the 'Default Source'.
 

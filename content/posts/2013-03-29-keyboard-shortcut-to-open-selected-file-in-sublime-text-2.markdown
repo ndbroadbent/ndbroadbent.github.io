@@ -6,7 +6,7 @@ title: 'Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2'
 url: /2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/
 ---
 
-Whenever I'm looking at backtraces, logs, or failing tests in the terminal, I often need to open one of those files in my text editor. It was previously a semi-arduous process that involved highlighting, copying, pasting and the return key. Now, all I need to do is double-click or highlight a line, and then press a keyboard shortcut to open that file & line in my text editor (currently [Sublime Text 2](http://www.sublimetext.com/2).) I've also added a thing to my `$PROMPT_SCRIPT` that stores my terminal's most recent directory in `~/.cwd~`, so that the script can handle relative paths. (Most of the time I'm just in the root folder of a given project.)
+Whenever I'm looking at backtraces, logs, or failing tests in the terminal, I often need to open one of those files in my text editor. It was previously a semi-arduous process that involved highlighting, copying, pasting and the return key. Now, all I need to do is double-click or highlight a line, and then press a keyboard shortcut to open that file & line in my text editor (currently [Sublime Text 2](https://www.sublimetext.com/2).) I've also added a thing to my `$PROMPT_SCRIPT` that stores my terminal's most recent directory in `~/.cwd~`, so that the script can handle relative paths. (Most of the time I'm just in the root folder of a given project.)
 
 One extra feature for Ruby developers is support for backtrace lines like this:
 
@@ -20,7 +20,7 @@ If you double-click that file, you'll end up with the following selection: **app
 
 * Ubuntu
 * xclip (install with `sudo apt-get install xclip`)
-* A text editor, such as [Sublime Text 2](http://www.sublimetext.com/2).
+* A text editor, such as [Sublime Text 2](https://www.sublimetext.com/2).
 
 ### Installation
 

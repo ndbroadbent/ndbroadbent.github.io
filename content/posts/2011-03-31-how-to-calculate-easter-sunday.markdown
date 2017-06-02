@@ -5,7 +5,7 @@ tags: ["guides", "ruby", "home-automation"]
 title: How to calculate Easter Sunday
 url: /2011/03/31/how-to-calculate-easter-sunday/
 wordpress_id: 420
-wordpress_url: http://www.f-77.com/?p=420
+wordpress_url: https://www.f-77.com/?p=420
 ---
 
 I wanted the LCD screen on my apartment door to display a message on certain days,

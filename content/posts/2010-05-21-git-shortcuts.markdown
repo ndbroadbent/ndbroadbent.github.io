@@ -5,7 +5,7 @@ tags: ["git", "guides"]
 title: git shortcuts
 url: /2010/05/21/git-shortcuts/
 wordpress_id: 87
-wordpress_url: http://nathanf77.wordpress.com/?p=87
+wordpress_url: https://nathanf77.wordpress.com/?p=87
 ---
 
 It seems that for every single git repository I create,

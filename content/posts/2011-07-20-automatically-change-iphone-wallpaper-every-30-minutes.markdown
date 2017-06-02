@@ -5,12 +5,12 @@ tags: ["scripts", "bash", "iphone", "jailbreak"]
 title: Automatically change iPhone wallpaper every 30 minutes
 url: /2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/
 wordpress_id: 526
-wordpress_url: http://madebynathan.com/?p=526
+wordpress_url: https://madebynathan.com/?p=526
 ---
 
 <b>NOTE: This is only for jailbroken iPhones.</b>
 
-I love finding awesome wallpapers on <a href="http://www.reddit.com">reddit</a>. My Ubuntu desktop cycles through my wallpaper collection with a program called <a href="https://help.ubuntu.com/community/Cortina">Cortina</a>, and I wanted my iPhone to do the same.
+I love finding awesome wallpapers on <a href="https://www.reddit.com">reddit</a>. My Ubuntu desktop cycles through my wallpaper collection with a program called <a href="https://help.ubuntu.com/community/Cortina">Cortina</a>, and I wanted my iPhone to do the same.
 
 So I wrote a very simple script and a launchd plist that runs the script every 30 minutes. If you want to set this up for your jailbroken iPhone, all you need is SSH and a collection of images.
 
@@ -33,7 +33,7 @@ chmod +x /usr/bin/ChangeWallpaper
 # Install the launchd task to run the script every 30 minutes
 cat > /Library/LaunchDaemons/com.ndb.changewallpaper.plist <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 <key>Label</key>

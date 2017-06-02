@@ -48,7 +48,7 @@ No options, no <code>man</code> pages.
 
 It also comes with a handy <code>cb_ssh</code> alias that copies your SSH public key to the clipboard,
 for when you are setting up your new [BitBucket account](https://bitbucket.org)
-with [unlimited, free private git repositories](http://blog.bitbucket.org/2011/10/03/bitbucket-now-rocks-git/)!
+with [unlimited, free private git repositories](https://blog.bitbucket.org/2011/10/03/bitbucket-now-rocks-git/)!
 I'm not affiliated with Atlassian, I just think they're awesome.
 
 So if you think this looks handy, you can add the following to your <code>~/.bashrc</code>:
@@ -90,12 +90,12 @@ cb() {
 # Aliases / functions leveraging the cb() function
 # ------------------------------------------------
 # Copy contents of a file
-function cbf() { cat "$1" | cb; }  
+function cbf() { cat "$1" | cb; }
 # Copy SSH public key
-alias cbssh="cbf ~/.ssh/id_rsa.pub"  
+alias cbssh="cbf ~/.ssh/id_rsa.pub"
 # Copy current working directory
-alias cbwd="pwd | cb"  
+alias cbwd="pwd | cb"
 # Copy most recent command in bash history
-alias cbhs="cat $HISTFILE | tail -n 1 | cb"  
+alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 {{< / highlight >}}
 

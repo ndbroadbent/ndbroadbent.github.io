@@ -23,7 +23,7 @@ See <a href="http://www.gimptalk.com/forum/divide-or-crop-multiple-images-from-s
 </ol>
 The rest is easy to figure out. Just make sure your 'size threshold' is large enough. Also, it may help to cover the photos with a couple of sheets of A4 paper, to give an even white background. Then place a few photos (3 or 4) on the scanner, with adequate spaces between them, scan them, and let the plugin do the rest!
 
-Thanks to <strong> <a href="http://www.gimptalk.com/forum/memberlist.php?mode=viewprofile&amp;u=10783">RobA</a> </strong> <img title="Offline" src="http://www.gimptalk.com/forum/styles/GimpTalkPro/imageset/en/icon_user_offline.gif" alt="Offline" />for the awesome script!
+Thanks to <strong> <a href="https://www.gimptalk.com/forum/memberlist.php?mode=viewprofile&amp;u=10783">RobA</a> </strong> <img title="Offline" src="https://www.gimptalk.com/forum/styles/GimpTalkPro/imageset/en/icon_user_offline.gif" alt="Offline" />for the awesome script!
 
 &nbsp;
 

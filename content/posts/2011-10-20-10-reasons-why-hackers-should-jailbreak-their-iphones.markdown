@@ -6,7 +6,7 @@ title: 10 Reasons why Hackers should Jailbreak their iPhones
 url: /2011/10/20/10-reasons-why-hackers-should-jailbreak-their-iphones/
 ---
 
-There was a post on the front page of [Hacker News](http://news.ycombinator.com/) recently, titled "[Making Chrome better on iOS](http://raphaelcaixeta.com/blog/2012/07/09/making-chrome-better-on-ios/)". Google's Chrome browser is now available on iOS, and the author of the article was talking about how app developers could be persuaded to add some code to their apps which would allow Chrome to open links.
+There was a post on the front page of [Hacker News](https://news.ycombinator.com/) recently, titled "[Making Chrome better on iOS](https://raphaelcaixeta.com/blog/2012/07/09/making-chrome-better-on-ios/)". Google's Chrome browser is now available on iOS, and the author of the article was talking about how app developers could be persuaded to add some code to their apps which would allow Chrome to open links.
 
 Restrictions like this (not being able to change your default browser) are one of the many reasons why I wouldn't buy another iPhone if it couldn't be jailbroken.
 It also seems strange that 'Hacker News' readers don't appear to be very excited about 'hacking' the incredible device in their pockets.
@@ -15,7 +15,7 @@ We don't need to ask developers to support Chrome when we can just change the de
 
 <img src="/images/posts/2012/07/browser_changer.png" alt="Changing Default Browser" />
 
-You can find the "[Browser Changer](http://cydia.saurik.com/package/jp.tom-go.openopera)" package on [Cydia](http://cydia.saurik.com/).
+You can find the "[Browser Changer](https://cydia.saurik.com/package/jp.tom-go.openopera)" package on [Cydia](https://cydia.saurik.com/).
 
 
 **Here's 9 other reasons why a jailbroken iPhone is better than any other mobile device:**
@@ -87,14 +87,14 @@ This is just my personal preference, but I like having 5 icons in my dock and ho
 ### Compiling and installing any open source iPhone apps
 
 No $99 developer license required. One example is the [Last.FM](https://github.com/c99koder/lastfm-iphone) app, which is open source, but not available in NZ or HK iTunes stores.
-Here's a decent list of some other [open source iPhone apps](http://maniacdev.com/2010/06/35-open-source-iphone-app-store-apps-updated-with-10-new-apps/).
+Here's a decent list of some other [open source iPhone apps](https://maniacdev.com/2010/06/35-open-source-iphone-app-store-apps-updated-with-10-new-apps/).
 
 <hr/>
 
 ### Script anything
 
 Finally, and perhaps most importantly, it's just awesome to be able to script the phone to do whatever I want.
-For example, I can make the iPhone [change the wallpaper every 30 minutes](http://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/), [show my prepaid balance in the status bar](http://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/), or [scroll up and down a page when it tilts](https://github.com/ndbroadbent/quickscrollplus).
+For example, I can make the iPhone [change the wallpaper every 30 minutes](https://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/), [show my prepaid balance in the status bar](https://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/), or [scroll up and down a page when it tilts](https://github.com/ndbroadbent/quickscrollplus).
 
 
 ## Conclusion

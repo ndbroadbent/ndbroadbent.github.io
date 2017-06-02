@@ -5,7 +5,7 @@ tags: ["guides", "rails", "bundler", "rails-3", "rvm", "gedit"]
 title: Really handy RVM hook to symlink current gem directory
 url: /2011/04/28/really-handy-rvm-hook-to-symlink-current-gem-directory/
 wordpress_id: 446
-wordpress_url: http://www.f-77.com/?p=446
+wordpress_url: https://www.f-77.com/?p=446
 ---
 
 I use gedit to write code. I keep a filebrowser tab open at the left side of my screen,
