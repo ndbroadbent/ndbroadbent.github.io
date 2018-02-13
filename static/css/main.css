@@ -7,6 +7,13 @@ html, body {
   /*border-top: 3px solid #27A822;*/
 }
 
+ul p {
+  margin-bottom: 5px;
+}
+ul li {
+  margin-bottom: 5px;
+}
+
 .h3, h3 {
   font-size: 23px;
 }
