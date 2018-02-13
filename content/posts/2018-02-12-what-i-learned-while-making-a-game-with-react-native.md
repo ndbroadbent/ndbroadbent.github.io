@@ -109,6 +109,8 @@ Some examples:
 Android was particularly unstable. Not just React Native, but Android itself.
 I didn't have too many problems with iOS.
 
+### React Native vs. iOS / Swift
+
 I wrote an iOS app with Swift a few years ago, and I've actually had a much better experience with React Native.
 When I was working with UIKit, I remember constantly fighting with things like layout, contraints, and font rendering. I uncovered some actual bugs, and found long threads on the Apple forums that were being ignored.
 It was really nice to let React Native handle all of the rendering. I had no rendering issues on iOS or Android,
