@@ -2,7 +2,7 @@
 title: "What I Learned While Making a Game With React Native"
 date: 2018-02-12T01:34:40+07:00
 tags: ["projects", "games", "react native", "react", "javascript"]
-draft: true
+draft: false
 ---
 
 I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. [SudoBlock](https://sudoblock.com/)
