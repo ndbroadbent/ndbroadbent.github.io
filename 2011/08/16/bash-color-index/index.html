@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Bash Color Index</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -84,36 +84,34 @@ ga('send', 'pageview');
 
 <p>Save the following script somewhere in your PATH (e.g. <code>/bin/color_index</code>), <br/>and make it executable. (<code>chmod +x /bin/color_index</code>)</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500">#!/bin/bash</span>
-<span style="color: #177500"># Bash Colors Index</span>
-<span style="color: #177500"># Shows an index of all available bash colors</span>
-<span style="color: #177500"># ------------------------------------------------</span>
-<span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;\n              Usage: \\\e[*;**(;**)m&quot;</span>
-<span style="color: #A90D91">echo</span> -e   <span style="color: #C41A16">&quot;            Default: \\\e[0m&quot;</span>
-<span style="color: #000000">blank_line=</span><span style="color: #C41A16">&quot;\e[0m\n     \e[0;30;40m</span><span style="color: #A90D91">$(printf</span> <span style="color: #C41A16">&quot;%41s&quot;</span><span style="color: #A90D91">)</span><span style="color: #C41A16">\e[0m&quot;</span>
-<span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$blank_line</span><span style="color: #C41A16">&quot;</span> <span style="color: #177500"># Top border</span>
-<span style="color: #A90D91">for</span> style in <span style="color: #1C01CE">2</span> <span style="color: #1C01CE">0</span> <span style="color: #1C01CE">1</span> <span style="color: #1C01CE">4</span> <span style="color: #1C01CE">9</span>; <span style="color: #A90D91">do</span>
-  <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;     \e[0;30;40m &quot;</span>
-  <span style="color: #177500"># Display black fg on white bg</span>
-  <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;\e[${</span><span style="color: #000000">style</span><span style="color: #C41A16">};30;47m${</span><span style="color: #000000">style</span><span style="color: #C41A16">};30\e[0;30;40m &quot;</span>
-  <span style="color: #A90D91">for</span> foreground in <span style="color: #A90D91">$(</span>seq <span style="color: #1C01CE">31</span> <span style="color: #1C01CE">37</span><span style="color: #A90D91">)</span>; <span style="color: #A90D91">do</span>
-      <span style="color: #000000">ctrl=</span><span style="color: #C41A16">&quot;\e[${</span><span style="color: #000000">style</span><span style="color: #C41A16">};${</span><span style="color: #000000">foreground</span><span style="color: #C41A16">};40m&quot;</span>
-      <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">ctrl</span><span style="color: #C41A16">}&quot;</span>
-      <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">style</span><span style="color: #C41A16">};${</span><span style="color: #000000">foreground</span><span style="color: #C41A16">}\e[0;30;40m &quot;</span>
-  <span style="color: #A90D91">done</span>
-  <span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$blank_line</span><span style="color: #C41A16">&quot;</span> <span style="color: #177500"># Separators</span>
-<span style="color: #A90D91">done</span>
-<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;     \e[0;30;40m &quot;</span>
-<span style="color: #177500"># Background colors</span>
-<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;\e[0;37;40m*;40\e[0;30;40m \e[0m&quot;</span> <span style="color: #177500"># Display white fg on black bg</span>
-<span style="color: #A90D91">for</span> background in <span style="color: #A90D91">$(</span>seq <span style="color: #1C01CE">41</span> <span style="color: #1C01CE">47</span><span style="color: #A90D91">)</span>; <span style="color: #A90D91">do</span>
-    <span style="color: #000000">ctrl=</span><span style="color: #C41A16">&quot;\e[0;30;${</span><span style="color: #000000">background</span><span style="color: #C41A16">}m&quot;</span>
-    <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">ctrl</span><span style="color: #C41A16">}&quot;</span>
-    <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;*;${</span><span style="color: #000000">background</span><span style="color: #C41A16">}\e[0;30;40m &quot;</span>
-<span style="color: #A90D91">done</span>
-<span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$blank_line</span><span style="color: #C41A16">&quot;</span> <span style="color: #C41A16">&quot;\n&quot;</span> <span style="color: #177500"># Bottom border</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#633820">#!/bin/bash
+</span><span style="color:#633820"></span><span style="color:#177500"># Bash Colors Index
+</span><span style="color:#177500"># Shows an index of all available bash colors
+</span><span style="color:#177500"># ------------------------------------------------
+</span><span style="color:#177500"></span><span style="color:#a90d91">echo</span> -e <span style="color:#c41a16">&#34;\n              Usage: \\\e[*;**(;**)m&#34;</span>
+<span style="color:#a90d91">echo</span> -e   <span style="color:#c41a16">&#34;            Default: \\\e[0m&#34;</span>
+<span style="color:#000">blank_line</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;\e[0m\n     \e[0;30;40m</span><span style="color:#a90d91">$(</span><span style="color:#a90d91">printf</span> <span style="color:#c41a16">&#34;%41s&#34;</span><span style="color:#a90d91">)</span><span style="color:#c41a16">\e[0m&#34;</span>
+<span style="color:#a90d91">echo</span> -e <span style="color:#c41a16">&#34;</span><span style="color:#000">$blank_line</span><span style="color:#c41a16">&#34;</span> <span style="color:#177500"># Top border
+</span><span style="color:#177500"></span><span style="color:#a90d91">for</span> style in <span style="color:#1c01ce">2</span> <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">1</span> <span style="color:#1c01ce">4</span> <span style="color:#1c01ce">9</span>; <span style="color:#a90d91">do</span>
+  <span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;     \e[0;30;40m &#34;</span>
+  <span style="color:#177500"># Display black fg on white bg
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;\e[</span><span style="color:#c41a16">${</span><span style="color:#000">style</span><span style="color:#c41a16">}</span><span style="color:#c41a16">;30;47m</span><span style="color:#c41a16">${</span><span style="color:#000">style</span><span style="color:#c41a16">}</span><span style="color:#c41a16">;30\e[0;30;40m &#34;</span>
+  <span style="color:#a90d91">for</span> foreground in <span style="color:#a90d91">$(</span>seq <span style="color:#1c01ce">31</span> <span style="color:#1c01ce">37</span><span style="color:#a90d91">)</span>; <span style="color:#a90d91">do</span>
+      <span style="color:#000">ctrl</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;\e[</span><span style="color:#c41a16">${</span><span style="color:#000">style</span><span style="color:#c41a16">}</span><span style="color:#c41a16">;</span><span style="color:#c41a16">${</span><span style="color:#000">foreground</span><span style="color:#c41a16">}</span><span style="color:#c41a16">;40m&#34;</span>
+      <span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;</span><span style="color:#c41a16">${</span><span style="color:#000">ctrl</span><span style="color:#c41a16">}</span><span style="color:#c41a16">&#34;</span>
+      <span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;</span><span style="color:#c41a16">${</span><span style="color:#000">style</span><span style="color:#c41a16">}</span><span style="color:#c41a16">;</span><span style="color:#c41a16">${</span><span style="color:#000">foreground</span><span style="color:#c41a16">}</span><span style="color:#c41a16">\e[0;30;40m &#34;</span>
+  <span style="color:#a90d91">done</span>
+  <span style="color:#a90d91">echo</span> -e <span style="color:#c41a16">&#34;</span><span style="color:#000">$blank_line</span><span style="color:#c41a16">&#34;</span> <span style="color:#177500"># Separators
+</span><span style="color:#177500"></span><span style="color:#a90d91">done</span>
+<span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;     \e[0;30;40m &#34;</span>
+<span style="color:#177500"># Background colors
+</span><span style="color:#177500"></span><span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;\e[0;37;40m*;40\e[0;30;40m \e[0m&#34;</span> <span style="color:#177500"># Display white fg on black bg
+</span><span style="color:#177500"></span><span style="color:#a90d91">for</span> background in <span style="color:#a90d91">$(</span>seq <span style="color:#1c01ce">41</span> <span style="color:#1c01ce">47</span><span style="color:#a90d91">)</span>; <span style="color:#a90d91">do</span>
+    <span style="color:#000">ctrl</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;\e[0;30;</span><span style="color:#c41a16">${</span><span style="color:#000">background</span><span style="color:#c41a16">}</span><span style="color:#c41a16">m&#34;</span>
+    <span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;</span><span style="color:#c41a16">${</span><span style="color:#000">ctrl</span><span style="color:#c41a16">}</span><span style="color:#c41a16">&#34;</span>
+    <span style="color:#a90d91">echo</span> -en <span style="color:#c41a16">&#34;*;</span><span style="color:#c41a16">${</span><span style="color:#000">background</span><span style="color:#c41a16">}</span><span style="color:#c41a16">\e[0;30;40m &#34;</span>
+<span style="color:#a90d91">done</span>
+<span style="color:#a90d91">echo</span> -e <span style="color:#c41a16">&#34;</span><span style="color:#000">$blank_line</span><span style="color:#c41a16">&#34;</span> <span style="color:#c41a16">&#34;\n&#34;</span> # Bottom border</code></pre></div>
 
 <p>Running &lsquo;color_index&rsquo; will display something like this:</p>
 

@@ -21,12 +21,12 @@
     </item>
     
     <item>
-      <title>Git Shortcuts Like You&#39;ve Never Seen Before</title>
+      <title>SCM Breeze</title>
       <link>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</link>
       <pubDate>Wed, 19 Oct 2011 01:14:01 +0000</pubDate>
       
       <guid>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</guid>
-      <description>Introducing &amp;lsquo;SCM Breeze&amp;rsquo; SCM Breeze is a set of shell scripts (for bash and zsh) that enhance your interaction with tools such as git. It integrates with your shell to give you numbered file shortcuts, a repository index with tab completion, and a community driven collection of useful SCM functions.
+      <description>SCM Breeze is a set of shell scripts (for bash and zsh) that make it easier to use git. It integrates with your shell to give you numbered file shortcuts, a repository index with tab completion, and a community driven collection of useful SCM functions.
 Disclaimer: git is currently the only supported SCM. I&amp;rsquo;ve kept the project&amp;rsquo;s name open because it won&amp;rsquo;t be difficult to port it for other SCMs.</description>
     </item>
     

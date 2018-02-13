@@ -112,7 +112,7 @@ I&amp;rsquo;m using the whenever gem to create cron tasks that:
       <guid>https://madebynathan.com/2012/03/24/skype-notifications-using-libnotify-on-linux/</guid>
       <description>Skype on Linux comes with it&amp;rsquo;s own notification system. It&amp;rsquo;s not that bad, but it&amp;rsquo;s not consistent, either. If you want to configure Skype to use libnotify instead, run the following script in your terminal:
 (NOTE: You must have installed Skype, and logged in at least once.)
-bash &amp;lt; &amp;lt;(curl -s https://raw.github.com/gist/2181122/skype-libnotify.sh)  This downloads and executes the script from this gist: https://gist.github.com/2181122
+bash &amp;lt; &amp;lt;(curl -s https://raw.github.com/gist/2181122/skype-libnotify.sh) This downloads and executes the script from this gist: https://gist.github.com/2181122
 It fetches the skype configuration from here, which is part of my dotfiles repo.</description>
     </item>
     
@@ -168,12 +168,12 @@ Restrictions like this (not being able to change your default browser) are one o
     </item>
     
     <item>
-      <title>Git Shortcuts Like You&#39;ve Never Seen Before</title>
+      <title>SCM Breeze</title>
       <link>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</link>
       <pubDate>Wed, 19 Oct 2011 01:14:01 +0000</pubDate>
       
       <guid>https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/</guid>
-      <description>Introducing &amp;lsquo;SCM Breeze&amp;rsquo; SCM Breeze is a set of shell scripts (for bash and zsh) that enhance your interaction with tools such as git. It integrates with your shell to give you numbered file shortcuts, a repository index with tab completion, and a community driven collection of useful SCM functions.
+      <description>SCM Breeze is a set of shell scripts (for bash and zsh) that make it easier to use git. It integrates with your shell to give you numbered file shortcuts, a repository index with tab completion, and a community driven collection of useful SCM functions.
 Disclaimer: git is currently the only supported SCM. I&amp;rsquo;ve kept the project&amp;rsquo;s name open because it won&amp;rsquo;t be difficult to port it for other SCMs.</description>
     </item>
     
@@ -216,7 +216,7 @@ At the end of every line, there was an invisible &#39;reset&#39; color code, and
       <guid>https://madebynathan.com/2011/08/16/bash-color-index/</guid>
       <description>Sometimes it&amp;rsquo;s nice to add color output to your bash scripts. Here&amp;rsquo;s a small &amp;lsquo;color index&amp;rsquo; reference script for your .bashrc, for when you want to add a bit of color to your scripts.
 Save the following script somewhere in your PATH (e.g. /bin/color_index), and make it executable. (chmod +x /bin/color_index)
-#!/bin/bash # Bash Colors Index # Shows an index of all available bash colors # ------------------------------------------------ echo -e &amp;quot;\n Usage: \\\e[*;**(;**)m&amp;quot; echo -e &amp;quot; Default: \\\e[0m&amp;quot; blank_line=&amp;quot;\e[0m\n \e[0;30;40m$(printf &amp;quot;%41s&amp;quot;)\e[0m&amp;quot; echo -e &amp;quot;$blank_line&amp;quot; # Top border for style in 2 0 1 4 9; do echo -en &amp;quot; \e[0;30;40m &amp;quot; # Display black fg on white bg echo -en &amp;quot;\e[${style};30;47m${style};30\e[0;30;40m &amp;quot; for foreground in $(seq 31 37); do ctrl=&amp;quot;\e[${style};${foreground};40m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;${style};${foreground}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; # Separators done echo -en &amp;quot; \e[0;30;40m &amp;quot; # Background colors echo -en &amp;quot;\e[0;37;40m*;40\e[0;30;40m \e[0m&amp;quot; # Display white fg on black bg for background in $(seq 41 47); do ctrl=&amp;quot;\e[0;30;${background}m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;*;${background}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; &amp;quot;\n&amp;quot; # Bottom border  Running &amp;lsquo;color_index&amp;rsquo; will display something like this:</description>
+#!/bin/bash # Bash Colors Index # Shows an index of all available bash colors # ------------------------------------------------ echo -e &amp;#34;\n Usage: \\\e[*;**(;**)m&amp;#34; echo -e &amp;#34; Default: \\\e[0m&amp;#34; blank_line=&amp;#34;\e[0m\n \e[0;30;40m$(printf &amp;#34;%41s&amp;#34;)\e[0m&amp;#34; echo -e &amp;#34;$blank_line&amp;#34; # Top border for style in 2 0 1 4 9; do echo -en &amp;#34; \e[0;30;40m &amp;#34; # Display black fg on white bg  echo -en &amp;#34;\e[${style};30;47m${style};30\e[0;30;40m &amp;#34; for foreground in $(seq 31 37); do ctrl=&amp;#34;\e[${style};${foreground};40m&amp;#34; echo -en &amp;#34;${ctrl}&amp;#34; echo -en &amp;#34;${style};${foreground}\e[0;30;40m &amp;#34; done echo -e &amp;#34;$blank_line&amp;#34; # Separators done echo -en &amp;#34; \e[0;30;40m &amp;#34; # Background colors echo -en &amp;#34;\e[0;37;40m*;40\e[0;30;40m \e[0m&amp;#34; # Display white fg on black bg for background in $(seq 41 47); do ctrl=&amp;#34;\e[0;30;${background}m&amp;#34; echo -en &amp;#34;${ctrl}&amp;#34; echo -en &amp;#34;*;${background}\e[0;30;40m &amp;#34; done echo -e &amp;#34;$blank_line&amp;#34; &amp;#34;\n&amp;#34; # Bottom border Running &amp;lsquo;color_index&amp;rsquo; will display something like this:</description>
     </item>
     
     <item>
@@ -237,7 +237,7 @@ So I wrote a very simple script and a launchd plist that runs the script every 3
       
       <guid>https://madebynathan.com/2011/04/30/repurposed-pressure-gauge-as-bathroom-indicator/</guid>
       <description>I turned an old brass pressure gauge into a vacant/engaged indicator for our bathroom. The needle is a hacked ammeter, and the metal slide lock on the other side of the door switches it on.
-Inspired by this guy&amp;rsquo;s work.</description>
+(Inspired by this analog bandwidth meter.)</description>
     </item>
     
     <item>
@@ -269,7 +269,7 @@ It can sync avatars in the following directions:
       
       <guid>https://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</guid>
       <description>I wanted the LCD screen on my apartment door to display a message on certain days, such as birthdays, Christmas, and Easter. I didn&amp;rsquo;t realize how hard it was to calculate which day Easter Sunday is&amp;hellip;
-def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)*(29/(i+1))*((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
+def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)*(29/(i+1))*((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
     </item>
     
     <item>
@@ -351,7 +351,7 @@ Here&amp;rsquo;s a daily Calvin and Hobbes RSS feed that parses the comic image 
       <guid>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
       <description>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&amp;rsquo;re used to.
 To do this:  Create and edit your &amp;ldquo;.bashrc&amp;rdquo; file at &amp;ldquo;/var/root/.bashrc&amp;rdquo; Add the following line to &amp;ldquo;/etc/profile&amp;rdquo;: 
-source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
+source /var/root/.bashrc An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
 Colored prompts look great in MobileTerminal too.
 This is the bashrc that I use on my iPhone.</description>
     </item>
@@ -482,7 +482,7 @@ Your jailbreak should now work fine.</description>
       
       <guid>https://madebynathan.com/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/</guid>
       <description>Heres a simple function to add to your shell if you ever want to replace a string in multiple files at once. It ignores everything in .git, otherwise you get &amp;lsquo;bad index file sha1 signature&amp;rsquo; errors.
-function gsed () { if [ -z &amp;quot;$3&amp;quot; ] then echo &amp;quot;== Usage: gsed search_string replace_string [path]&amp;quot; else egrep --exclude-dir=.git -lRZ &amp;quot;$1&amp;quot; $3 | xargs -0 -l sed -i -e &amp;quot;s/$1/$2/g&amp;quot; fi }  Add it to the bottom of ~/.</description>
+function gsed () { if [ -z &amp;#34;$3&amp;#34; ] then echo &amp;#34;== Usage: gsed search_string replace_string [path]&amp;#34; else egrep --exclude-dir=.git -lRZ &amp;#34;$1&amp;#34; $3 | xargs -0 -l sed -i -e &amp;#34;s/$1/$2/g&amp;#34; fi } Add it to the bottom of ~/.</description>
     </item>
     
     <item>
@@ -494,8 +494,9 @@ function gsed () { if [ -z &amp;quot;$3&amp;quot; ] then echo &amp;quot;== Usage
       <description>Dont use the visual editor. Copy the code into your &amp;lsquo;HTML&amp;rsquo; view and it will preserve indentation. Copy it into &amp;lsquo;Visual&amp;rsquo; view and your code will be all left-aligned&amp;hellip;
 Examples:
 Code pasted in &amp;lsquo;Visual&amp;rsquo; View
-&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt;  Code pasted in &amp;lsquo;HTML&amp;rsquo; View
-&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt;  YMMV, I guess, but this is what works for me.</description>
+&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; Code pasted in &amp;lsquo;HTML&amp;rsquo; View
+&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt;
+YMMV, I guess, but this is what works for me.</description>
     </item>
     
     <item>
@@ -528,9 +529,10 @@ If we are developing a Spree extension, or a Retrospectiva extension, or a Fat F
 Solution:
 You are using rails 3 (and rspec 2), and trying to define a custom rake task with Spec::Rake::SpecTask.new
 Instead, do:
-RSpec::Core::RakeTask.new(:spec) do |t| ...  and make sure to change:
-t.spec_files = FileList[&amp;#39;spec/**/*_spec.rb&amp;#39;]  to
-t.pattern = &amp;#39;spec/**/*_spec.rb&amp;#39;  </description>
+RSpec::Core::RakeTask.new(:spec) do |t| ... and make sure to change:
+t.spec_files = FileList[&amp;#39;spec/**/*_spec.rb&amp;#39;]
+to
+t.pattern = &amp;#39;spec/**/*_spec.rb&amp;#39;</description>
     </item>
     
     <item>
@@ -549,7 +551,7 @@ t.pattern = &amp;#39;spec/**/*_spec.rb&amp;#39;  </description>
       
       <guid>https://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</guid>
       <description>Follow these steps to get git 1.7 + on ubuntu 9.10 or less. (10.04 comes with the latest version)
-sudo apt-get install libcurl4-dev # (for new http[s] support) cd /tmp wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz tar -xf git-1.7.2.1.tar.gz cd git-1.7.2.1/ ./configure make sudo make install ln -nfs /usr/bin/git /usr/local/bin/git  </description>
+sudo apt-get install libcurl4-dev # (for new http[s] support) cd /tmp wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz tar -xf git-1.7.2.1.tar.gz cd git-1.7.2.1/ ./configure make sudo make install ln -nfs /usr/bin/git /usr/local/bin/git </description>
     </item>
     
     <item>
@@ -582,7 +584,7 @@ NEVER use method names such as &amp;lsquo;create&amp;rsquo;, &amp;lsquo;update&a
       
       <guid>https://madebynathan.com/2010/05/21/git-shortcuts/</guid>
       <description>It seems that for every single git repository I create, I just want to be able to run &amp;ldquo;git push&amp;rdquo; and &amp;ldquo;git pull&amp;rdquo;. &amp;ldquo;git pull origin master&amp;rdquo; just gets annoying after a while. In case I forget how to do this again, this is all it takes (provided you already have an &amp;lsquo;origin&amp;rsquo; remote configured):
-git config branch.master.remote origin git config branch.master.merge refs/heads/master  Other useful git shortcut that I literally use everyday (add them to the bottom of ~/.</description>
+git config branch.master.remote origin git config branch.master.merge refs/heads/master Other useful git shortcut that I literally use everyday (add them to the bottom of ~/.</description>
     </item>
     
     <item>
@@ -730,16 +732,6 @@ At work, I found an Advatel TCD226C LED Wallboard. It is a single line, 26 chara
       <description>Compaq Evo T20s are fun. I have a few that I&amp;rsquo;m using for various projects. I plan to set one up as a RFID controlled alarm/door lock system. Its running Damn Small Linux using ruby, rubygems and sinatra packages that I compiled myself.
 Karl Mowatt-Wilson&amp;rsquo;s tutorials have been a huge help with flashing the T20s with linux images, as well as the open-evot20 site.
 I wrote a K8055 USB Ruby C wrapper for the K8055 USB interface experiment board (bought from here).</description>
-    </item>
-    
-    <item>
-      <title>This blog should have been started a long time ago</title>
-      <link>https://madebynathan.com/2010/04/07/this-blog-should-have-been-started-a-long-time-ago/</link>
-      <pubDate>Wed, 07 Apr 2010 13:30:37 +0000</pubDate>
-      
-      <guid>https://madebynathan.com/2010/04/07/this-blog-should-have-been-started-a-long-time-ago/</guid>
-      <description>I am indebted to the collective Internet. My workflow mostly consists of &amp;ldquo;problem -&amp;gt; google -&amp;gt; forum/blog -&amp;gt; solution&amp;rdquo;.
-After years of stealing answers from other peoples forum posts and blogs, I finally have my own place to share and hopefully help other people out. This will be a scrapbook of errors, headaches, solutions, and whatever other random stuff I feel like sharing with you.</description>
     </item>
     
   </channel>

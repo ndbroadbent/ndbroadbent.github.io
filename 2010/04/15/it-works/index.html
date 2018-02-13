@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>The Compaq Evo T20 works</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -118,14 +118,12 @@ It took a lot of help from other people before I solved all of the problems I wa
         all you have to do is place the following lines in <code>/opt/bootlocal.sh:</code></li>
 </ul>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;# KMW: hacked sound setup - BEGIN&quot;</span> &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;alias snd-card-0 snd-sb16&quot;</span>         &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;alias sound-slot-0 snd-sb16&quot;</span>       &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;options snd-sb16 isapnp=0&quot;</span>         &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;# KMW: hacked sound setup - END&quot;</span>   &gt;&gt; /etc/modprobe.conf
-/usr/local/etc/init.d/alsasound start
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;# KMW: hacked sound setup - BEGIN&#34;</span> &gt;&gt; /etc/modprobe.conf
+<span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;alias snd-card-0 snd-sb16&#34;</span>         &gt;&gt; /etc/modprobe.conf
+<span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;alias sound-slot-0 snd-sb16&#34;</span>       &gt;&gt; /etc/modprobe.conf
+<span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;options snd-sb16 isapnp=0&#34;</span>         &gt;&gt; /etc/modprobe.conf
+<span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;# KMW: hacked sound setup - END&#34;</span>   &gt;&gt; /etc/modprobe.conf
+/usr/local/etc/init.d/alsasound start</code></pre></div>
 
 <p>(Thanks to Karl Mowatt-Wilson for this)</p>
 

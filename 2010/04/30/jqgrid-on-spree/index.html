@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>jqgrid on Spree</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -97,22 +97,18 @@ because jqgrid only has the one &lsquo;en&rsquo; locale file in its &lsquo;i18n&
 
 <p>The simple fix is to change the file &lsquo;2dc_jqgrid.rb&rsquo; (starting from line 11), from this:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">def</span> <span style="color: #000000">jqgrid_javascripts</span>
-    <span style="color: #000000">locale</span> <span style="color: #000000">=</span> <span style="color: #000000">I18n.locale</span> <span style="color: #A90D91">rescue</span> <span style="color: #C41A16">:en</span>
-    <span style="color: #000000">js</span> <span style="color: #000000">=</span> <span style="color: #C41A16">&#39;&#39;</span>
-    <span style="color: #000000">...</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#a90d91">def</span> <span style="color:#3f6e75"></span><span style="color:#000"></span><span style="color:#000">jqgrid_javascripts</span>
+    <span style="color:#000">locale</span> <span style="color:#000">=</span> <span style="color:#000">I18n</span><span style="color:#000">.</span><span style="color:#000">locale</span> <span style="color:#a90d91">rescue</span> <span style="color:#c41a16">:en</span>
+    <span style="color:#000">js</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;&#39;</span>
+    <span style="color:#000">...</span></code></pre></div>
 
 <p>to this:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">def</span> <span style="color: #000000">jqgrid_javascripts</span>
-    <span style="color: #000000">locale</span> <span style="color: #000000">=</span> <span style="color: #000000">I18n.locale</span> <span style="color: #A90D91">rescue</span> <span style="color: #C41A16">:en</span>
-    <span style="color: #000000">locale</span> <span style="color: #000000">=</span> <span style="color: #C41A16">:en</span> <span style="color: #A90D91">if</span> <span style="color: #000000">locale.to_s.start_with?</span>(<span style="color: #C41A16">&quot;en&quot;</span>)
-    <span style="color: #000000">js</span> <span style="color: #000000">=</span> <span style="color: #C41A16">&#39;&#39;</span>
-    <span style="color: #000000">...</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#a90d91">def</span> <span style="color:#3f6e75"></span><span style="color:#000"></span><span style="color:#000">jqgrid_javascripts</span>
+    <span style="color:#000">locale</span> <span style="color:#000">=</span> <span style="color:#000">I18n</span><span style="color:#000">.</span><span style="color:#000">locale</span> <span style="color:#a90d91">rescue</span> <span style="color:#c41a16">:en</span>
+    <span style="color:#000">locale</span> <span style="color:#000">=</span> <span style="color:#c41a16">:en</span> <span style="color:#a90d91">if</span> <span style="color:#000">locale</span><span style="color:#000">.</span><span style="color:#000">to_s</span><span style="color:#000">.</span><span style="color:#000">start_with?</span>(<span style="color:#c41a16">&#34;en&#34;</span>)
+    <span style="color:#000">js</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;&#39;</span>
+    <span style="color:#000">...</span></code></pre></div>
 
 
               <div class="related-posts">

@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Automatically change iPhone wallpaper every 30 minutes</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -88,56 +88,54 @@ ga('send', 'pageview');
 
 <p>Save your wallpapers to <em>/var/mobile/Media/Wallpapers</em> (or wherever you like), then ssh the following script to your iPhone and run it. (It will need to be executable: chmod +x).</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500">#!/bin/bash</span>
-<span style="color: #177500"># This script sets up your iPhone to change the lock-screen wallpaper every 30 minutes.</span>
-<span style="color: #000000">wallpaper_dir=</span><span style="color: #C41A16">&quot;/var/mobile/Media/Wallpapers&quot;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#633820">#!/bin/bash
+</span><span style="color:#633820"></span><span style="color:#177500"># This script sets up your iPhone to change the lock-screen wallpaper every 30 minutes.
+</span><span style="color:#177500"></span><span style="color:#000">wallpaper_dir</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;/var/mobile/Media/Wallpapers&#34;</span>
 
-<span style="color: #177500"># Install the wallpaper changing script</span>
-cat &gt; /usr/bin/ChangeWallpaper <span style="color: #C41A16">&lt;&lt;EOF</span>
-<span style="color: #C41A16">#!/bin/bash</span>
-<span style="color: #C41A16"># Overwrite the LockBackground image with a random image from the wallpaper directory.</span>
-<span style="color: #C41A16">files=($wallpaper_dir/*)</span>
-<span style="color: #C41A16">cp -f \${files[RANDOM % \${#files[@]}]} /private/var/mobile/Library/SpringBoard/LockBackground.jpg</span>
-<span style="color: #C41A16">EOF</span>
+<span style="color:#177500"># Install the wallpaper changing script
+</span><span style="color:#177500"></span>cat &gt; /usr/bin/ChangeWallpaper <span style="color:#c41a16">&lt;&lt;EOF
+</span><span style="color:#c41a16">#!/bin/bash
+</span><span style="color:#c41a16"># Overwrite the LockBackground image with a random image from the wallpaper directory.
+</span><span style="color:#c41a16">files=($wallpaper_dir/*)
+</span><span style="color:#c41a16">cp -f \${files[RANDOM % \${#files[@]}]} /private/var/mobile/Library/SpringBoard/LockBackground.jpg
+</span><span style="color:#c41a16">EOF</span>
 chmod +x /usr/bin/ChangeWallpaper
 
-<span style="color: #177500"># Install the launchd task to run the script every 30 minutes</span>
-cat &gt; /Library/LaunchDaemons/com.ndb.changewallpaper.plist <span style="color: #C41A16">&lt;&lt;EOF</span>
-<span style="color: #C41A16">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span style="color: #C41A16">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;https://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span>
-<span style="color: #C41A16">&lt;plist version=&quot;1.0&quot;&gt;</span>
-<span style="color: #C41A16">&lt;dict&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;Label&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;string&gt;com.ndb.wallpaperchanger&lt;/string&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;OnDemand&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;true/&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;RunAtLoad&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;false/&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;ProgramArguments&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;array&gt;</span>
-<span style="color: #C41A16">&lt;string&gt;/usr/bin/ChangeWallpaper&lt;/string&gt;</span>
-<span style="color: #C41A16">&lt;/array&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;UserName&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;string&gt;mobile&lt;/string&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;StartCalendarInterval&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;array&gt;</span>
-<span style="color: #C41A16">&lt;dict&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;Minute&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;integer&gt;0&lt;/integer&gt;</span>
-<span style="color: #C41A16">&lt;/dict&gt;</span>
-<span style="color: #C41A16">&lt;dict&gt;</span>
-<span style="color: #C41A16">&lt;key&gt;Minute&lt;/key&gt;</span>
-<span style="color: #C41A16">&lt;integer&gt;30&lt;/integer&gt;</span>
-<span style="color: #C41A16">&lt;/dict&gt;</span>
-<span style="color: #C41A16">&lt;/array&gt;</span>
-<span style="color: #C41A16">&lt;/dict&gt;</span>
-<span style="color: #C41A16">&lt;/plist&gt;</span>
-<span style="color: #C41A16">EOF</span>
+<span style="color:#177500"># Install the launchd task to run the script every 30 minutes
+</span><span style="color:#177500"></span>cat &gt; /Library/LaunchDaemons/com.ndb.changewallpaper.plist <span style="color:#c41a16">&lt;&lt;EOF
+</span><span style="color:#c41a16">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+</span><span style="color:#c41a16">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;https://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;
+</span><span style="color:#c41a16">&lt;plist version=&#34;1.0&#34;&gt;
+</span><span style="color:#c41a16">&lt;dict&gt;
+</span><span style="color:#c41a16">&lt;key&gt;Label&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;string&gt;com.ndb.wallpaperchanger&lt;/string&gt;
+</span><span style="color:#c41a16">&lt;key&gt;OnDemand&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;true/&gt;
+</span><span style="color:#c41a16">&lt;key&gt;RunAtLoad&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;false/&gt;
+</span><span style="color:#c41a16">&lt;key&gt;ProgramArguments&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;array&gt;
+</span><span style="color:#c41a16">&lt;string&gt;/usr/bin/ChangeWallpaper&lt;/string&gt;
+</span><span style="color:#c41a16">&lt;/array&gt;
+</span><span style="color:#c41a16">&lt;key&gt;UserName&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;string&gt;mobile&lt;/string&gt;
+</span><span style="color:#c41a16">&lt;key&gt;StartCalendarInterval&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;array&gt;
+</span><span style="color:#c41a16">&lt;dict&gt;
+</span><span style="color:#c41a16">&lt;key&gt;Minute&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;integer&gt;0&lt;/integer&gt;
+</span><span style="color:#c41a16">&lt;/dict&gt;
+</span><span style="color:#c41a16">&lt;dict&gt;
+</span><span style="color:#c41a16">&lt;key&gt;Minute&lt;/key&gt;
+</span><span style="color:#c41a16">&lt;integer&gt;30&lt;/integer&gt;
+</span><span style="color:#c41a16">&lt;/dict&gt;
+</span><span style="color:#c41a16">&lt;/array&gt;
+</span><span style="color:#c41a16">&lt;/dict&gt;
+</span><span style="color:#c41a16">&lt;/plist&gt;
+</span><span style="color:#c41a16">EOF</span>
 
-<span style="color: #177500"># Load the scheduled task</span>
-launchctl load /Library/LaunchDaemons/com.ndb.changewallpaper.plist
-</pre></div>
-
+<span style="color:#177500"># Load the scheduled task
+</span><span style="color:#177500"></span>launchctl load /Library/LaunchDaemons/com.ndb.changewallpaper.plist</code></pre></div>
 
 <p>Enjoy!</p>
 

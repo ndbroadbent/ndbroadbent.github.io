@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Search and replace in multiple files on linux with bash, egrep, sed function</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -82,24 +82,20 @@ ga('send', 'pageview');
             <div class="blogpost">
               <p>Heres a simple function to add to your shell if you ever want to replace a string in multiple files at once. It ignores everything in .git, otherwise you get &lsquo;bad index file sha1 signature&rsquo; errors.</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">function</span> gsed <span style="color: #000000">()</span> <span style="color: #000000">{</span>
-  <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> -z <span style="color: #C41A16">&quot;</span><span style="color: #000000">$3</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">]</span>
-  <span style="color: #A90D91">then</span>
-    <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;== Usage:    gsed search_string replace_string [path]&quot;</span>
-  <span style="color: #A90D91">else</span>
-    egrep --exclude-dir<span style="color: #000000">=</span>.git -lRZ <span style="color: #C41A16">&quot;</span><span style="color: #000000">$1</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">$3</span> | xargs -0 -l sed -i -e <span style="color: #C41A16">&quot;s/</span><span style="color: #000000">$1</span><span style="color: #C41A16">/</span><span style="color: #000000">$2</span><span style="color: #C41A16">/g&quot;</span>
-  <span style="color: #A90D91">fi</span>
-<span style="color: #000000">}</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a90d91">function</span> gsed <span style="color:#000">()</span> <span style="color:#000">{</span>
+  <span style="color:#a90d91">if</span> <span style="color:#000">[</span> -z <span style="color:#c41a16">&#34;</span><span style="color:#000">$3</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">]</span>
+  <span style="color:#a90d91">then</span>
+    <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;== Usage:    gsed search_string replace_string [path]&#34;</span>
+  <span style="color:#a90d91">else</span>
+    egrep --exclude-dir<span style="color:#000">=</span>.git -lRZ <span style="color:#c41a16">&#34;</span><span style="color:#000">$1</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">$3</span> | xargs -0 -l sed -i -e <span style="color:#c41a16">&#34;s/</span><span style="color:#000">$1</span><span style="color:#c41a16">/</span><span style="color:#000">$2</span><span style="color:#c41a16">/g&#34;</span>
+  <span style="color:#a90d91">fi</span>
+<span style="color:#000">}</span></code></pre></div>
 
 <p>Add it to the bottom of ~/.bashrc</p>
 
 <p>So you might want to replace all occurences of &lsquo;badly_named_method&rsquo; with &lsquo;awesome_method_name&rsquo;, recursively for the current directory? You would type:</p>
 
-<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>  gsed <span style="color: #C41A16">&quot;badly_named_ruby_method&quot;</span> <span style="color: #C41A16">&quot;awesome_method_name&quot;</span> .
-</pre></div>
-</p>
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  gsed <span style="color:#c41a16">&#34;badly_named_ruby_method&#34;</span> <span style="color:#c41a16">&#34;awesome_method_name&#34;</span> .</code></pre></div></p>
 
 <p>Note: quotes are optional for single words.</p>
 

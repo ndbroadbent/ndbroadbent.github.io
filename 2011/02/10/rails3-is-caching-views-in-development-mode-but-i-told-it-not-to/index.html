@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Rails 3 caching views in development mode</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -85,13 +85,11 @@ But all our view templates seemed to stay cached as well, and I had to restart t
 
 <p>We just needed to add this to the end of our <em>environments/development.rb</em> file to clear the view template cache after every request:</p>
 
-<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">ActiveSupport.on_load</span>(<span style="color: #C41A16">:after_initialize</span>) <span style="color: #A90D91">do</span>
-  <span style="color: #000000">ActionController::Base.before_filter</span> <span style="color: #A90D91">do</span>
-    <span style="color: #000000">ActionController::Base.view_paths.each</span>(<span style="color: #000000">&amp;</span><span style="color: #C41A16">:clear_cache</span>)
-  <span style="color: #A90D91">end</span>
-<span style="color: #A90D91">end</span>
-</pre></div>
-
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">ActiveSupport</span><span style="color:#000">.</span><span style="color:#000">on_load</span>(<span style="color:#c41a16">:after_initialize</span>) <span style="color:#a90d91">do</span>
+  <span style="color:#000">ActionController</span><span style="color:#000">::</span><span style="color:#000">Base</span><span style="color:#000">.</span><span style="color:#000">before_filter</span> <span style="color:#a90d91">do</span>
+    <span style="color:#000">ActionController</span><span style="color:#000">::</span><span style="color:#000">Base</span><span style="color:#000">.</span><span style="color:#000">view_paths</span><span style="color:#000">.</span><span style="color:#000">each</span>(<span style="color:#000">&amp;</span><span style="color:#c41a16">:clear_cache</span>)
+  <span style="color:#a90d91">end</span>
+<span style="color:#a90d91">end</span></code></pre></div>
 <br/>
 Thanks to <a href="https://rails.lighthouseapp.com/users/52307">Eric</a> for this.</p>
 

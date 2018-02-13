@@ -7,8 +7,8 @@
     <meta name="author" content="map[]" />
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <title>Git Shortcuts Like You&#39;ve Never Seen Before</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <title>SCM Breeze</title>
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -68,7 +68,7 @@ ga('send', 'pageview');
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/">Git Shortcuts Like You&#39;ve Never Seen Before</a></strong>
+            <strong><a href="https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/">SCM Breeze</a></strong>
           </h3>
         </div>
         <div class="blog-title">
@@ -82,10 +82,8 @@ ga('send', 'pageview');
             <div class="blogpost">
               
 
-<h2 id="introducing-scm-breeze">Introducing &lsquo;SCM Breeze&rsquo;</h2>
-
-<p><strong>SCM Breeze</strong> is a set of shell scripts (for <code>bash</code> and <code>zsh</code>) that enhance your interaction with tools
-such as git. It integrates with your shell to give you numbered file shortcuts,
+<p><strong>SCM Breeze</strong> is a set of shell scripts (for <code>bash</code> and <code>zsh</code>) that make it easier to use git.
+It integrates with your shell to give you numbered file shortcuts,
 a repository index with tab completion, and a community driven collection of useful SCM functions.</p>
 
 <p>Disclaimer: <strong>git</strong> is currently the only supported SCM.
@@ -108,52 +106,40 @@ You can configure the variable prefix, which is &lsquo;e&rsquo; by default.</p>
 
 <p>For example, if <code>ga</code> was your alias for <code>git add</code>, instead of typing something like:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ ga assets/git_breeze/config* assets/git_breeze/install.sh
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ga assets/git_breeze/config* assets/git_breeze/install.sh</code></pre></div>
 
 <p>You can type this instead:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ ga <span style="color: #000000">$e2</span> <span style="color: #000000">$e3</span> <span style="color: #000000">$e11</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ga <span style="color:#000">$e2</span> <span style="color:#000">$e3</span> <span style="color:#000">$e11</span></code></pre></div>
 
 <p>But SCM Breeze aliases <code>ga</code> to the <code>git_add_shorcuts</code> function,
 which is smart enough to expand integers and ranges, so all you need to type is:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ ga <span style="color: #1C01CE">2</span> <span style="color: #1C01CE">3</span> <span style="color: #1C01CE">11</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ga <span style="color:#1c01ce">2</span> <span style="color:#1c01ce">3</span> <span style="color:#1c01ce">11</span></code></pre></div>
 
 <p>And if you want to add all unstaged changes (files 1 to 10):</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ ga <span style="color: #1C01CE">1</span>-10
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ga <span style="color:#1c01ce">1</span>-10</code></pre></div>
 
 <p>(Note that <code>ga</code> will also remove deleted files, unlike the standard <code>git add</code> command.
 This behaviour can be turned off if you don&rsquo;t like it.)</p>
 
 <p>You can also diff, reset or checkout a file by typing:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ gd <span style="color: #1C01CE">3</span>
-$ grs <span style="color: #1C01CE">4</span>
-$ gco <span style="color: #1C01CE">5</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gd <span style="color:#1c01ce">3</span>
+$ grs <span style="color:#1c01ce">4</span>
+$ gco <span style="color:#1c01ce">5</span></code></pre></div>
 
 <p>You can use these shortcuts with system commands by passing your command through <code>exec_git_expand_args</code>
 (default alias is &lsquo;ge&rsquo;):</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ <span style="color: #A90D91">echo</span> <span style="color: #000000">$e4</span>
-<span style="color: #177500"># =&gt; assets/git_breeze/git_breeze.sh</span>
-$ ge <span style="color: #A90D91">echo</span> <span style="color: #1C01CE">4</span>
-<span style="color: #177500"># =&gt; assets/git_breeze/git_breeze.sh</span>
-$ ge <span style="color: #A90D91">echo</span> <span style="color: #1C01CE">1</span>-3
-<span style="color: #177500"># expands to echo $e1 $e2 $e3</span>
-<span style="color: #177500"># =&gt; _shared.sh assets/git_breeze/config.example.sh assets/git_breeze/config.sh</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a90d91">echo</span> <span style="color:#000">$e4</span>
+<span style="color:#177500"># =&gt; assets/git_breeze/git_breeze.sh
+</span><span style="color:#177500"></span>$ ge <span style="color:#a90d91">echo</span> <span style="color:#1c01ce">4</span>
+<span style="color:#177500"># =&gt; assets/git_breeze/git_breeze.sh
+</span><span style="color:#177500"></span>$ ge <span style="color:#a90d91">echo</span> <span style="color:#1c01ce">1</span>-3
+<span style="color:#177500"># expands to echo $e1 $e2 $e3
+</span><span style="color:#177500"></span># <span style="color:#000">=</span>&gt; _shared.sh assets/git_breeze/config.example.sh assets/git_breeze/config.sh</code></pre></div>
 
 <h2 id="keyboard-bindings-disabled-by-default">Keyboard bindings (disabled by default)</h2>
 
@@ -181,9 +167,7 @@ but here are the default key bindings if you enable them:</p>
 
 <p>And if you really want to speed up your workflow, you can type this:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ <span style="color: #1C01CE">2</span> <span style="color: #1C01CE">3</span> &lt;CTRL+x c&gt;
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#1c01ce">2</span> <span style="color:#1c01ce">3</span> &lt;CTRL+x c&gt;</code></pre></div>
 
 <p>This sends the <code>HOME</code> key, followed by <code>git_add_and_commit</code>:</p>
 
@@ -212,11 +196,9 @@ and it can do SCM-specific stuff like:</p>
 
 <p>You will first need to configure your repository directory, and then build the index:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ s --rebuild
-<span style="color: #177500"># =&gt; == Scanning /home/ndbroadbent/src for git repos &amp; submodules...</span>
-<span style="color: #177500"># =&gt; ===== Indexed 64 repos in /home/ndbroadbent/src/.git_index</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ s --rebuild
+<span style="color:#177500"># =&gt; == Scanning /home/ndbroadbent/src for git repos &amp; submodules...
+</span><span style="color:#177500"></span># <span style="color:#000">=</span>&gt; <span style="color:#000">=====</span> Indexed <span style="color:#1c01ce">64</span> repos in /home/ndbroadbent/src/.git_index</code></pre></div>
 
 <p>Then you&rsquo;ll be able to switch between your projects, or show the list of indexed repos:</p>
 
@@ -228,22 +210,18 @@ and it can do SCM-specific stuff like:</p>
 <p>To switch to a project directory, you don&rsquo;t need to type the full project name. For example,
 to switch to the <code>errbit</code> project, you could type any of the following:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ s errbit
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ s errbit
 $ s err
-$ s rbit
-</pre></div>
-
+$ s rbit</code></pre></div>
 
 <p>Or if you wanted to go straight to a subdirectory within <code>errbit</code>:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ s err&lt;TAB&gt;
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ s err&lt;TAB&gt;
 $ s errbit/&lt;TAB&gt;
-<span style="color: #177500"># =&gt; app/       autotest/  config/    db/    ...</span>
-$ s errbit/conf&lt;TAB&gt;
+<span style="color:#177500"># =&gt; app/       autotest/  config/    db/    ...
+</span><span style="color:#177500"></span>$ s errbit/conf&lt;TAB&gt;
 $ s errbit/config/
-<span style="color: #177500"># =&gt; cd ~/src/rails/errbit/config</span>
-</pre></div>
-
+# <span style="color:#000">=</span>&gt; <span style="color:#a90d91">cd</span> ~/src/rails/errbit/config</code></pre></div>
 
 <h2 id="anything-else">Anything else?</h2>
 
@@ -253,11 +231,9 @@ It would be cool to make this project into an <a href="https://github.com/robbyr
 
 <h1 id="installation">Installation</h1>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
-<span style="color: #A90D91">source</span> ~/.bashrc   <span style="color: #177500"># or source ~/.zshrc</span>
-</pre></div>
-
+<span style="color:#a90d91">source</span> ~/.bashrc   # or <span style="color:#a90d91">source</span> ~/.zshrc</code></pre></div>
 
 <p>(The install script simply appends the following line to your <code>.bashrc</code> or <code>.zshrc</code>):</p>
 

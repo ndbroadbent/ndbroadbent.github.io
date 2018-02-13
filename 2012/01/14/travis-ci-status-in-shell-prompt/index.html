@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Travis CI Status in Shell Prompt</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -109,14 +109,12 @@ Now it performs frequent updates for the current branch, and only periodic updat
 
 <p>Run the following to install it:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>mkdir -p ~/bin/
-curl -sL https://raw.github.com/gist/1708408/travis.rb &gt; ~/bin/travis-ci <span style="color: #C41A16">\</span>
-  <span style="color: #000000">&amp;&amp;</span> chmod +x ~/bin/travis-ci
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/bin/
+curl -sL https://raw.github.com/gist/1708408/travis.rb &gt; ~/bin/travis-ci <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>  <span style="color:#000">&amp;&amp;</span> chmod +x ~/bin/travis-ci
 
 gem install hub | tail -2
-ruby -e <span style="color: #C41A16">&#39;require &quot;json&quot;&#39;</span> <span style="color: #1C01CE">2</span>&gt;/dev/null <span style="color: #000000">||</span> gem install json
-</pre></div>
-
+ruby -e <span style="color:#c41a16">&#39;require &#34;json&#34;&#39;</span> <span style="color:#1c01ce">2</span>&gt;/dev/null <span style="color:#000">||</span> gem install json</code></pre></div>
 
 <p>Next, we need to update the cached status.
 The following code is included as part of my <a href="https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">SCM Breeze project</a>, but feel free to save the <code>update_travis_ci_status</code> script <a href="#update_travis_ci_status">at the bottom of this post [1]</a> to <code>/usr/bin/update_travis_ci_status</code>.</p>
@@ -127,27 +125,21 @@ We only want to frequently update the status for the currently checked out branc
 <p>The <a href="https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">SCM Breeze project</a> also maintains an index of your git repositories, which gives you the ability to run batch commands via the <code>git_index</code> function.
 So the build status update can be easily set up as a cron task:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>*/5 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; git_index --rebuild &amp;&amp; git_index --batch-cmd update_travis_ci_status&#39;
-*/45 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; git_index --rebuild &amp;&amp; export UPDATE_ALL_BRANCHES=true &amp;&amp; git_index --batch-cmd update_travis_ci_status&#39;
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">*/5 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; git_index --rebuild &amp;&amp; git_index --batch-cmd update_travis_ci_status&#39;
+*/45 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; git_index --rebuild &amp;&amp; export UPDATE_ALL_BRANCHES=true &amp;&amp; git_index --batch-cmd update_travis_ci_status&#39;</code></pre></div>
 
 <p>Alternatively, you could save the following script to <code>/usr/bin/update_all_travis_ci_statuses</code>.</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500">#!/bin/bash</span>
-<span style="color: #177500"># (Replace `$HOME/code` with the location of your projects)</span>
-<span style="color: #A90D91">for</span> f in find <span style="color: #C41A16">&quot;</span><span style="color: #000000">$HOME</span><span style="color: #C41A16">/code&quot;</span> -maxdepth <span style="color: #1C01CE">4</span> -name .travis.yml; <span style="color: #A90D91">do</span>
-  <span style="color: #000000">(</span><span style="color: #A90D91">builtin</span> <span style="color: #A90D91">cd</span> <span style="color: #C41A16">&quot;</span><span style="color: #A90D91">$(</span>dirname <span style="color: #000000">$f</span><span style="color: #A90D91">)</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">&amp;&amp;</span> update_travis_ci_status<span style="color: #000000">)</span>
-<span style="color: #A90D91">done</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#633820">#!/bin/bash
+</span><span style="color:#633820"></span><span style="color:#177500"># (Replace `$HOME/code` with the location of your projects)
+</span><span style="color:#177500"></span><span style="color:#a90d91">for</span> f in find <span style="color:#c41a16">&#34;</span><span style="color:#000">$HOME</span><span style="color:#c41a16">/code&#34;</span> -maxdepth <span style="color:#1c01ce">4</span> -name .travis.yml; <span style="color:#a90d91">do</span>
+  <span style="color:#000">(</span><span style="color:#a90d91">builtin</span> <span style="color:#a90d91">cd</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>dirname <span style="color:#000">$f</span><span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">&amp;&amp;</span> update_travis_ci_status<span style="color:#000">)</span>
+<span style="color:#a90d91">done</span></code></pre></div>
 
 <p>&hellip; and use the following cron task:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>*/5 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; /usr/bin/update_all_travis_ci_statuses&#39;
-*/45 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; export UPDATE_ALL_BRANCHES=true &amp;&amp; /usr/bin/update_all_travis_ci_statuses&#39;
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">*/5 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; /usr/bin/update_all_travis_ci_statuses&#39;
+*/45 * * * * /bin/bash -c &#39;. $HOME/.bashrc &amp;&amp; export UPDATE_ALL_BRANCHES=true &amp;&amp; /usr/bin/update_all_travis_ci_statuses&#39;</code></pre></div>
 
 <p>(you need to source your <code>.bashrc</code> if your default ruby comes from RVM)</p>
 
@@ -155,32 +147,30 @@ So the build status update can be easily set up as a cron task:</p>
 
 <p>Here are the functions I use to return a colored pass / fail / running symbol:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Returns the Travis CI status for a github project</span>
-parse_travis_status<span style="color: #000000">()</span> <span style="color: #000000">{</span>
-  <span style="color: #A90D91">local</span> <span style="color: #000000">branch=</span><span style="color: #C41A16">&quot;</span><span style="color: #000000">$1</span><span style="color: #C41A16">&quot;</span>
-  <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> -z <span style="color: #C41A16">&quot;</span><span style="color: #000000">$branch</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span> <span style="color: #000000">branch=</span><span style="color: #C41A16">&quot;master&quot;</span>; <span style="color: #A90D91">fi</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># Returns the Travis CI status for a github project
+</span><span style="color:#177500"></span>parse_travis_status<span style="color:#000">()</span> <span style="color:#000">{</span>
+  <span style="color:#a90d91">local</span> <span style="color:#000">branch</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#000">$1</span><span style="color:#c41a16">&#34;</span>
+  <span style="color:#a90d91">if</span> <span style="color:#000">[</span> -z <span style="color:#c41a16">&#34;</span><span style="color:#000">$branch</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span> <span style="color:#000">branch</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;master&#34;</span>; <span style="color:#a90d91">fi</span>
 
-  <span style="color: #A90D91">local</span> <span style="color: #000000">stat_file=</span><span style="color: #A90D91">$(</span>find_in_cwd_or_parent <span style="color: #C41A16">&quot;.travis_status~&quot;</span><span style="color: #A90D91">)</span>
-  <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>
-    <span style="color: #A90D91">case</span> <span style="color: #C41A16">&quot;</span><span style="color: #A90D91">$(</span>grep -m <span style="color: #1C01CE">1</span> <span style="color: #C41A16">&quot;^</span><span style="color: #000000">$branch</span><span style="color: #C41A16"> &quot;</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;</span><span style="color: #A90D91">)</span><span style="color: #C41A16">&quot;</span> in
-    *passed<span style="color: #000000">)</span>  <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;\[\e[01;32m\]✔ &quot;</span>;; <span style="color: #177500"># green</span>
-    *failed<span style="color: #000000">)</span>  <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;\[\e[01;31m\]✘ &quot;</span>;; <span style="color: #177500"># red</span>
-    *running<span style="color: #000000">)</span> <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;\[\e[01;33m\]⁇ &quot;</span>;; <span style="color: #177500"># yellow</span>
-    <span style="color: #A90D91">esac</span>
-  <span style="color: #A90D91">fi</span>
-<span style="color: #000000">}</span>
+  <span style="color:#a90d91">local</span> <span style="color:#000">stat_file</span><span style="color:#000">=</span><span style="color:#a90d91">$(</span>find_in_cwd_or_parent <span style="color:#c41a16">&#34;.travis_status~&#34;</span><span style="color:#a90d91">)</span>
+  <span style="color:#a90d91">if</span> <span style="color:#000">[</span> -e <span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>
+    <span style="color:#a90d91">case</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>grep -m <span style="color:#1c01ce">1</span> <span style="color:#c41a16">&#34;^</span><span style="color:#000">$branch</span><span style="color:#c41a16"> &#34;</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;</span><span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span> in
+    *passed<span style="color:#000">)</span>  <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;\[\e[01;32m\]✔ &#34;</span>;; <span style="color:#177500"># green
+</span><span style="color:#177500"></span>    *failed<span style="color:#000">)</span>  <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;\[\e[01;31m\]✘ &#34;</span>;; <span style="color:#177500"># red
+</span><span style="color:#177500"></span>    *running<span style="color:#000">)</span> <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;\[\e[01;33m\]⁇ &#34;</span>;; <span style="color:#177500"># yellow
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">esac</span>
+  <span style="color:#a90d91">fi</span>
+<span style="color:#000">}</span>
 
-<span style="color: #177500"># Test whether file exists in current or parent directories</span>
-find_in_cwd_or_parent<span style="color: #000000">()</span> <span style="color: #000000">{</span>
-  <span style="color: #A90D91">local</span> <span style="color: #000000">slashes=</span><span style="color: #C41A16">${</span><span style="color: #000000">PWD</span>//[^<span style="color: #C41A16">\/</span>]/<span style="color: #C41A16">}</span>; <span style="color: #A90D91">local</span> <span style="color: #000000">directory=$PWD</span>;
-  <span style="color: #A90D91">for</span> <span style="color: #000000">((</span> <span style="color: #000000">n=</span><span style="color: #C41A16">${#</span><span style="color: #000000">slashes</span><span style="color: #C41A16">}</span>; n&gt;0; --n <span style="color: #000000">))</span>; <span style="color: #A90D91">do</span>
-    <span style="color: #A90D91">test</span> -e <span style="color: #000000">$directory</span>/<span style="color: #000000">$1</span> <span style="color: #000000">&amp;&amp;</span> <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$directory</span><span style="color: #C41A16">/</span><span style="color: #000000">$1</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">&amp;&amp;</span> <span style="color: #A90D91">return</span> <span style="color: #1C01CE">0</span>
-    <span style="color: #000000">directory=$directory</span>/..
-  <span style="color: #A90D91">done</span>
-  <span style="color: #A90D91">return</span> <span style="color: #1C01CE">1</span>
-<span style="color: #000000">}</span>
-</pre></div>
-
+<span style="color:#177500"># Test whether file exists in current or parent directories
+</span><span style="color:#177500"></span>find_in_cwd_or_parent<span style="color:#000">()</span> <span style="color:#000">{</span>
+  <span style="color:#a90d91">local</span> <span style="color:#000">slashes</span><span style="color:#000">=</span><span style="color:#c41a16">${</span><span style="color:#000">PWD</span>//[^<span style="color:#c41a16">\/</span>]/<span style="color:#c41a16">}</span>; <span style="color:#a90d91">local</span> <span style="color:#000">directory</span><span style="color:#000">=</span><span style="color:#000">$PWD</span>;
+  <span style="color:#a90d91">for</span> <span style="color:#000">((</span> <span style="color:#000">n</span><span style="color:#000">=</span><span style="color:#c41a16">${#</span><span style="color:#000">slashes</span><span style="color:#c41a16">}</span>; n&gt;0; --n <span style="color:#000">))</span>; <span style="color:#a90d91">do</span>
+    <span style="color:#a90d91">test</span> -e <span style="color:#000">$directory</span>/<span style="color:#000">$1</span> <span style="color:#000">&amp;&amp;</span> <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$directory</span><span style="color:#c41a16">/</span><span style="color:#000">$1</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">&amp;&amp;</span> <span style="color:#a90d91">return</span> <span style="color:#1c01ce">0</span>
+    <span style="color:#000">directory</span><span style="color:#000">=</span><span style="color:#000">$directory</span>/..
+  <span style="color:#a90d91">done</span>
+  <span style="color:#a90d91">return</span> <span style="color:#1c01ce">1</span>
+<span style="color:#000">}</span></code></pre></div>
 
 <p>(it also works if you are in a project&rsquo;s sub-directory.)</p>
 
@@ -194,61 +184,59 @@ find_in_cwd_or_parent<span style="color: #000000">()</span> <span style="color: 
 
 <p><a name="update_travis_ci_status">[1]</a> <code>update_travis_ci_status</code> script:</p>
 
-<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500">#!/bin/bash</span>
-<span style="color: #A90D91">if</span> <span style="color: #000000">[</span> -e <span style="color: #C41A16">&quot;.travis.yml&quot;</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>
-  <span style="color: #A90D91">if</span> <span style="color: #A90D91">type</span> ruby &gt; /dev/null <span style="color: #1C01CE">2</span>&gt;&amp;<span style="color: #1C01CE">1</span> <span style="color: #000000">&amp;&amp;</span> <span style="color: #A90D91">type</span> travis-ci &gt; /dev/null <span style="color: #1C01CE">2</span>&gt;&amp;<span style="color: #1C01CE">1</span>; <span style="color: #A90D91">then</span>
-    <span style="color: #A90D91">local</span> <span style="color: #000000">stat_file=</span><span style="color: #C41A16">&quot;.travis_status~&quot;</span>
-    <span style="color: #A90D91">local</span> <span style="color: #000000">tmp_stat_file=</span><span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;&quot;.tmp&quot;</span>
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#633820">#!/bin/bash
+</span><span style="color:#633820"></span><span style="color:#a90d91">if</span> <span style="color:#000">[</span> -e <span style="color:#c41a16">&#34;.travis.yml&#34;</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>
+  <span style="color:#a90d91">if</span> <span style="color:#a90d91">type</span> ruby &gt; /dev/null <span style="color:#1c01ce">2</span>&gt;&amp;<span style="color:#1c01ce">1</span> <span style="color:#000">&amp;&amp;</span> <span style="color:#a90d91">type</span> travis-ci &gt; /dev/null <span style="color:#1c01ce">2</span>&gt;&amp;<span style="color:#1c01ce">1</span>; <span style="color:#a90d91">then</span>
+    <span style="color:#a90d91">local</span> <span style="color:#000">stat_file</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;.travis_status~&#34;</span>
+    <span style="color:#a90d91">local</span> <span style="color:#000">tmp_stat_file</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;&#34;.tmp&#34;</span>
 
-    <span style="color: #177500"># Either update all branches, or only current branch</span>
-    <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$UPDATE_ALL_BRANCHES</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">=</span> <span style="color: #C41A16">&quot;true&quot;</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>
-      <span style="color: #A90D91">local</span> <span style="color: #000000">all_branches=</span><span style="color: #A90D91">$(</span><span style="color: #C41A16">\g</span>it branch -a<span style="color: #A90D91">)</span>
-      <span style="color: #177500"># All branches on origin remote that have local copies</span>
-      <span style="color: #A90D91">local</span> <span style="color: #000000">branches=</span><span style="color: #A90D91">$(</span>comm -12 &lt;<span style="color: #000000">(</span><span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$all_branches</span><span style="color: #C41A16">&quot;</span> | <span style="color: #C41A16">\</span>
-                                  sed <span style="color: #C41A16">&quot;s/ *remotes\/origin\///;tm;d;:m;/^HEAD/d;&quot;</span> | sort<span style="color: #A90D91">)</span> <span style="color: #C41A16">\</span>
-                                &lt;<span style="color: #000000">(</span><span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$all_branches</span><span style="color: #C41A16">&quot;</span> | <span style="color: #C41A16">\</span>
-                                  sed <span style="color: #C41A16">&quot;/ *remotes\//d;s/^[\* ]*//&quot;</span> | sort<span style="color: #000000">))</span>
-      <span style="color: #177500"># Create a new, blank temp file</span>
-      <span style="color: #A90D91">echo</span> -n &gt; <span style="color: #C41A16">&quot;</span><span style="color: #000000">$tmp_stat_file</span><span style="color: #C41A16">&quot;</span>
-    <span style="color: #A90D91">else</span>
-      <span style="color: #177500"># Only current branch</span>
-      <span style="color: #A90D91">local</span> <span style="color: #000000">branches=</span><span style="color: #C41A16">&quot;</span><span style="color: #A90D91">$(</span><span style="color: #C41A16">\g</span>it branch <span style="color: #1C01CE">2</span>&gt; /dev/null | sed <span style="color: #C41A16">&quot;s/^\* \([^ ]*\)/\1/;tm;d;:m&quot;</span><span style="color: #A90D91">)</span><span style="color: #C41A16">&quot;</span>
-      <span style="color: #177500"># Copy current file to temp file</span>
-      touch <span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;</span>
-      cp -f <span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$tmp_stat_file</span><span style="color: #C41A16">&quot;</span>
-    <span style="color: #A90D91">fi</span>
+    <span style="color:#177500"># Either update all branches, or only current branch
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">if</span> <span style="color:#000">[</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$UPDATE_ALL_BRANCHES</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;true&#34;</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>
+      <span style="color:#a90d91">local</span> <span style="color:#000">all_branches</span><span style="color:#000">=</span><span style="color:#a90d91">$(</span><span style="color:#c41a16">\g</span>it branch -a<span style="color:#a90d91">)</span>
+      <span style="color:#177500"># All branches on origin remote that have local copies
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">local</span> <span style="color:#000">branches</span><span style="color:#000">=</span><span style="color:#a90d91">$(</span>comm -12 &lt;<span style="color:#000">(</span><span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$all_branches</span><span style="color:#c41a16">&#34;</span> | <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>                                  sed <span style="color:#c41a16">&#34;s/ *remotes\/origin\///;tm;d;:m;/^HEAD/d;&#34;</span> | sort<span style="color:#a90d91">)</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>                                &lt;<span style="color:#000">(</span><span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$all_branches</span><span style="color:#c41a16">&#34;</span> | <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>                                  sed <span style="color:#c41a16">&#34;/ *remotes\//d;s/^[\* ]*//&#34;</span> | sort<span style="color:#000">))</span>
+      <span style="color:#177500"># Create a new, blank temp file
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">echo</span> -n &gt; <span style="color:#c41a16">&#34;</span><span style="color:#000">$tmp_stat_file</span><span style="color:#c41a16">&#34;</span>
+    <span style="color:#a90d91">else</span>
+      <span style="color:#177500"># Only current branch
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">local</span> <span style="color:#000">branches</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span><span style="color:#c41a16">\g</span>it branch <span style="color:#1c01ce">2</span>&gt; /dev/null | sed <span style="color:#c41a16">&#34;s/^\* \([^ ]*\)/\1/;tm;d;:m&#34;</span><span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
+      <span style="color:#177500"># Copy current file to temp file
+</span><span style="color:#177500"></span>      touch <span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;</span>
+      cp -f <span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$tmp_stat_file</span><span style="color:#c41a16">&#34;</span>
+    <span style="color:#a90d91">fi</span>
 
-    <span style="color: #A90D91">for</span> branch in <span style="color: #000000">$branches</span>; <span style="color: #A90D91">do</span>
-      <span style="color: #A90D91">local</span> <span style="color: #000000">travis_output=</span><span style="color: #A90D91">$(</span>travis-ci <span style="color: #C41A16">&quot;</span><span style="color: #000000">$branch</span><span style="color: #C41A16">&quot;</span> <span style="color: #1C01CE">2</span>&gt;&amp;<span style="color: #1C01CE">1</span><span style="color: #A90D91">)</span>
-      <span style="color: #A90D91">local</span> <span style="color: #000000">status=</span><span style="color: #C41A16">&quot;&quot;</span>
-      <span style="color: #A90D91">case</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$travis_output</span><span style="color: #C41A16">&quot;</span> in
-      *built<span style="color: #C41A16">\ </span>OK*<span style="color: #000000">)</span>    <span style="color: #000000">status=</span><span style="color: #C41A16">&quot;passed&quot;</span>;;
-      *failed*<span style="color: #000000">)</span>       <span style="color: #000000">status=</span><span style="color: #C41A16">&quot;failed&quot;</span>;;
-      *in<span style="color: #C41A16">\ </span>progress*<span style="color: #000000">)</span> <span style="color: #000000">status=</span><span style="color: #C41A16">&quot;running&quot;</span>;;
-      <span style="color: #A90D91">esac</span>
+    <span style="color:#a90d91">for</span> branch in <span style="color:#000">$branches</span>; <span style="color:#a90d91">do</span>
+      <span style="color:#a90d91">local</span> <span style="color:#000">travis_output</span><span style="color:#000">=</span><span style="color:#a90d91">$(</span>travis-ci <span style="color:#c41a16">&#34;</span><span style="color:#000">$branch</span><span style="color:#c41a16">&#34;</span> <span style="color:#1c01ce">2</span>&gt;&amp;<span style="color:#1c01ce">1</span><span style="color:#a90d91">)</span>
+      <span style="color:#a90d91">local</span> <span style="color:#000">status</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;&#34;</span>
+      <span style="color:#a90d91">case</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$travis_output</span><span style="color:#c41a16">&#34;</span> in
+      *built<span style="color:#c41a16">\ </span>OK*<span style="color:#000">)</span>    <span style="color:#000">status</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;passed&#34;</span>;;
+      *failed*<span style="color:#000">)</span>       <span style="color:#000">status</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;failed&#34;</span>;;
+      *in<span style="color:#c41a16">\ </span>progress*<span style="color:#000">)</span> <span style="color:#000">status</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;running&#34;</span>;;
+      <span style="color:#a90d91">esac</span>
 
-      <span style="color: #177500"># If branch has a build status</span>
-      <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> -n <span style="color: #C41A16">&quot;</span><span style="color: #000000">$status</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>
-        <span style="color: #A90D91">if</span> grep -q <span style="color: #C41A16">&quot;^</span><span style="color: #000000">$branch</span><span style="color: #C41A16">&quot;</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$tmp_stat_file</span><span style="color: #C41A16">&quot;</span>; <span style="color: #A90D91">then</span>
-          <span style="color: #177500"># Replace branch&#39;s build status</span>
-          sed -e <span style="color: #C41A16">&quot;s/^</span><span style="color: #000000">$branch</span><span style="color: #C41A16"> .*/</span><span style="color: #000000">$branch</span><span style="color: #C41A16"> </span><span style="color: #000000">$status</span><span style="color: #C41A16">/&quot;</span> -i <span style="color: #C41A16">&quot;</span><span style="color: #000000">$tmp_stat_file</span><span style="color: #C41A16">&quot;</span>
-        <span style="color: #A90D91">else</span>
-          <span style="color: #177500"># Append new line for branch</span>
-          <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$branch</span><span style="color: #C41A16"> </span><span style="color: #000000">$status</span><span style="color: #C41A16">&quot;</span> &gt;&gt; <span style="color: #C41A16">&quot;</span><span style="color: #000000">$tmp_stat_file</span><span style="color: #C41A16">&quot;</span>
-        <span style="color: #A90D91">fi</span>
-      <span style="color: #A90D91">fi</span>
-    <span style="color: #A90D91">done</span>
+      <span style="color:#177500"># If branch has a build status
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">if</span> <span style="color:#000">[</span> -n <span style="color:#c41a16">&#34;</span><span style="color:#000">$status</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>
+        <span style="color:#a90d91">if</span> grep -q <span style="color:#c41a16">&#34;^</span><span style="color:#000">$branch</span><span style="color:#c41a16">&#34;</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$tmp_stat_file</span><span style="color:#c41a16">&#34;</span>; <span style="color:#a90d91">then</span>
+          <span style="color:#177500"># Replace branch&#39;s build status
+</span><span style="color:#177500"></span>          sed -e <span style="color:#c41a16">&#34;s/^</span><span style="color:#000">$branch</span><span style="color:#c41a16"> .*/</span><span style="color:#000">$branch</span><span style="color:#c41a16"> </span><span style="color:#000">$status</span><span style="color:#c41a16">/&#34;</span> -i <span style="color:#c41a16">&#34;</span><span style="color:#000">$tmp_stat_file</span><span style="color:#c41a16">&#34;</span>
+        <span style="color:#a90d91">else</span>
+          <span style="color:#177500"># Append new line for branch
+</span><span style="color:#177500"></span>          <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$branch</span><span style="color:#c41a16"> </span><span style="color:#000">$status</span><span style="color:#c41a16">&#34;</span> &gt;&gt; <span style="color:#c41a16">&#34;</span><span style="color:#000">$tmp_stat_file</span><span style="color:#c41a16">&#34;</span>
+        <span style="color:#a90d91">fi</span>
+      <span style="color:#a90d91">fi</span>
+    <span style="color:#a90d91">done</span>
 
-    <span style="color: #177500"># Replace current stat file with finished update</span>
-    mv -f <span style="color: #C41A16">&quot;</span><span style="color: #000000">$tmp_stat_file</span><span style="color: #C41A16">&quot;</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;</span>
-    <span style="color: #177500"># Ignore status file from git repo</span>
-    <span style="color: #A90D91">if</span> ! <span style="color: #000000">([</span> -e .git/info/exclude <span style="color: #000000">]</span> <span style="color: #000000">&amp;&amp;</span> grep -q <span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;</span> .git/info/exclude<span style="color: #000000">)</span>; <span style="color: #A90D91">then</span>
-      <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$stat_file</span><span style="color: #C41A16">&quot;</span> &gt;&gt; .git/info/exclude
-    <span style="color: #A90D91">fi</span>
-  <span style="color: #A90D91">fi</span>
-<span style="color: #A90D91">fi</span>
-</pre></div>
-</p>
+    <span style="color:#177500"># Replace current stat file with finished update
+</span><span style="color:#177500"></span>    mv -f <span style="color:#c41a16">&#34;</span><span style="color:#000">$tmp_stat_file</span><span style="color:#c41a16">&#34;</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;</span>
+    <span style="color:#177500"># Ignore status file from git repo
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">if</span> ! <span style="color:#000">([</span> -e .git/info/exclude <span style="color:#000">]</span> <span style="color:#000">&amp;&amp;</span> grep -q <span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;</span> .git/info/exclude<span style="color:#000">)</span>; <span style="color:#a90d91">then</span>
+      <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$stat_file</span><span style="color:#c41a16">&#34;</span> &gt;&gt; .git/info/exclude
+    <span style="color:#a90d91">fi</span>
+  <span style="color:#a90d91">fi</span>
+<span style="color:#a90d91">fi</span></code></pre></div></p>
 
 
               <div class="related-posts">

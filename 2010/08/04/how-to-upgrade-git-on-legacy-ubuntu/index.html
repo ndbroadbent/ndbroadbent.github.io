@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>How to upgrade git on legacy Ubuntu</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -82,17 +82,15 @@ ga('send', 'pageview');
             <div class="blogpost">
               <p>Follow these steps to get git 1.7 + on ubuntu 9.10 or less. (10.04 comes with the latest version)</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>sudo apt-get install libcurl4-dev  <span style="color: #177500"># (for new http[s] support)</span>
-<span style="color: #A90D91">cd</span> /tmp
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install libcurl4-dev  <span style="color:#177500"># (for new http[s] support)
+</span><span style="color:#177500"></span><span style="color:#a90d91">cd</span> /tmp
 wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz
 tar -xf git-1.7.2.1.tar.gz
-<span style="color: #A90D91">cd</span> git-1.7.2.1/
+<span style="color:#a90d91">cd</span> git-1.7.2.1/
 ./configure
 make
 sudo make install
-ln -nfs /usr/bin/git /usr/local/bin/git
-</pre></div>
-
+ln -nfs /usr/bin/git /usr/local/bin/git</code></pre></div>
 
 
               <div class="related-posts">

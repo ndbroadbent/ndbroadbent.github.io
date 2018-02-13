@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Running bash color codes through sed</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -86,14 +86,12 @@ ga('send', 'pageview');
 
 <p>Here is an example of how to use sed when your string contains color codes:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Need to strip the color character from the end of the line, otherwise</span>
-<span style="color: #177500"># EOL &#39;$&#39; doesn&#39;t work. This gave me a headache for long time.</span>
-<span style="color: #177500"># The echo ~&gt; regex is time-consuming, so perform a simple search first.</span>
-<span style="color: #A90D91">if</span> <span style="color: #000000">[[</span> <span style="color: #000000">$line</span> <span style="color: #000000">==</span> *<span style="color: #000000">$search</span>* <span style="color: #000000">]]</span>; <span style="color: #A90D91">then</span>
-    <span style="color: #000000">line=</span><span style="color: #A90D91">$(echo</span> <span style="color: #000000">$line</span> | sed -r <span style="color: #C41A16">&quot;s:</span><span style="color: #000000">$search</span><span style="color: #C41A16">(\x1B\[m)?</span>$<span style="color: #C41A16">:</span><span style="color: #000000">$replace</span><span style="color: #C41A16">:g&quot;</span><span style="color: #A90D91">)</span>
-<span style="color: #A90D91">fi</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># Need to strip the color character from the end of the line, otherwise
+</span><span style="color:#177500"># EOL &#39;$&#39; doesn&#39;t work. This gave me a headache for long time.
+</span><span style="color:#177500"># The echo ~&gt; regex is time-consuming, so perform a simple search first.
+</span><span style="color:#177500"></span><span style="color:#a90d91">if</span> <span style="color:#000">[[</span> <span style="color:#000">$line</span> <span style="color:#000">==</span> *<span style="color:#000">$search</span>* <span style="color:#000">]]</span>; <span style="color:#a90d91">then</span>
+    <span style="color:#000">line</span><span style="color:#000">=</span><span style="color:#a90d91">$(</span><span style="color:#a90d91">echo</span> <span style="color:#000">$line</span> | sed -r <span style="color:#c41a16">&#34;s:</span><span style="color:#000">$search</span><span style="color:#c41a16">(\x1B\[m)?</span>$<span style="color:#c41a16">:</span><span style="color:#000">$replace</span><span style="color:#c41a16">:g&#34;</span><span style="color:#a90d91">)</span>
+<span style="color:#a90d91">fi</span></code></pre></div>
 
 <p>You might also find this page useful: <a href="https://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed">https://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed</a></p>
 

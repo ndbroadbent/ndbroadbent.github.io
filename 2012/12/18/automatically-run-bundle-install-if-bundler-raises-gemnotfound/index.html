@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Automatically run &#39;bundle install&#39; when Bundler can&#39;t find a gem</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -95,54 +95,48 @@ and you forget to run <code>bundle install</code> before running a Rails command
 <p>Here&rsquo;s a simple function that handles this automatically, called <code>bundle_install_wrapper()</code>. It first tries to execute the command you pass to it.
 However, if Bundler exits with status code <code>7</code> (<code>GemNotFound</code>), then it will run <code>bundle install</code>. Finally, it retries the original command.</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">bundle_install_wrapper</span>() {
-  <span style="color: #177500"># Run command</span>
-  <span style="color: #A90D91">eval</span> <span style="color: #C41A16">&quot;$@&quot;</span>
-  <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> <span style="color: #000000">$?</span> <span style="color: #000000">=</span> <span style="color: #1C01CE">7</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>
-    <span style="color: #177500"># If command crashes, try a bundle install</span>
-    <span style="color: #000000">echo</span> <span style="color: #000000">-e</span> <span style="color: #C41A16">&quot;\033[1;31m&#39;$@&#39; failed with exit code 7.&quot;</span>
-    <span style="color: #000000">echo</span>    <span style="color: #C41A16">&quot;This probably means that your system is missing gems defined in your Gemfile.&quot;</span>
-    <span style="color: #000000">echo</span> <span style="color: #000000">-e</span> <span style="color: #C41A16">&quot;Executing &#39;bundle install&#39;...\033[0m&quot;</span>
-    <span style="color: #000000">bundle</span> <span style="color: #000000">install</span>
-    <span style="color: #177500"># If bundle install was successful, try running command again.</span>
-    <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> <span style="color: #000000">$?</span> <span style="color: #000000">=</span> <span style="color: #1C01CE">0</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>
-      <span style="color: #000000">echo</span> <span style="color: #C41A16">&quot;&#39;bundle install&#39; was successful. Retrying &#39;$@&#39;...&quot;</span>
-      <span style="color: #A90D91">eval</span> <span style="color: #C41A16">&quot;$@&quot;</span>
-    <span style="color: #000000">fi</span>
-  <span style="color: #000000">fi</span>
-}
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">bundle_install_wrapper</span>() {
+  <span style="color:#177500"># Run command</span>
+  <span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;$@&#34;</span>
+  <span style="color:#a90d91">if</span> <span style="color:#000">[</span> <span style="color:#000">$?</span> <span style="color:#000">=</span> <span style="color:#1c01ce">7</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>
+    <span style="color:#177500"># If command crashes, try a bundle install</span>
+    <span style="color:#000">echo</span> <span style="color:#000">-</span><span style="color:#000">e</span> <span style="color:#c41a16">&#34;</span><span style="color:#c41a16">\033</span><span style="color:#c41a16">[1;31m&#39;$@&#39; failed with exit code 7.&#34;</span>
+    <span style="color:#000">echo</span>    <span style="color:#c41a16">&#34;This probably means that your system is missing gems defined in your Gemfile.&#34;</span>
+    <span style="color:#000">echo</span> <span style="color:#000">-</span><span style="color:#000">e</span> <span style="color:#c41a16">&#34;Executing &#39;bundle install&#39;...</span><span style="color:#c41a16">\033</span><span style="color:#c41a16">[0m&#34;</span>
+    <span style="color:#000">bundle</span> <span style="color:#000">install</span>
+    <span style="color:#177500"># If bundle install was successful, try running command again.</span>
+    <span style="color:#a90d91">if</span> <span style="color:#000">[</span> <span style="color:#000">$?</span> <span style="color:#000">=</span> <span style="color:#1c01ce">0</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>
+      <span style="color:#000">echo</span> <span style="color:#c41a16">&#34;&#39;bundle install&#39; was successful. Retrying &#39;$@&#39;...&#34;</span>
+      <span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;$@&#34;</span>
+    <span style="color:#000">fi</span>
+  <span style="color:#000">fi</span>
+}</code></pre></div>
 
 <h2 id="usage">Usage</h2>
 
 <p>Drop the function in your <code>~/.bashrc</code>, and add aliases for rails commands:</p>
 
-<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">alias</span> <span style="color: #000000">rs=</span><span style="color: #C41A16">&quot;bundle_install_wrapper rails server&quot;</span>
-<span style="color: #A90D91">alias</span> <span style="color: #000000">rc=</span><span style="color: #C41A16">&quot;bundle_install_wrapper rails console&quot;</span>
-<span style="color: #177500"># etc.</span>
-</pre></div>
-</p>
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#a90d91">alias</span> <span style="color:#000">rs</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;bundle_install_wrapper rails server&#34;</span>
+<span style="color:#a90d91">alias</span> <span style="color:#000">rc</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;bundle_install_wrapper rails console&#34;</span>
+<span style="color:#177500"># etc.</span></code></pre></div></p>
 
 <p>If you want aliases that support any Rails application, you can use something like this:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Run Rails commands on any version</span>
-<span style="color: #000000">rails_cmd</span>(){
-  <span style="color: #177500"># Rails 3</span>
-  <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> <span style="color: #000000">-e</span> <span style="color: #000000">./script/rails</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span> <span style="color: #000000">bundle_install_wrapper</span> <span style="color: #000000">rails3_with_editor</span> <span style="color: #000000">$@</span>
-  <span style="color: #177500"># Rails &lt;= 2</span>
-  <span style="color: #000000">elif</span> <span style="color: #000000">[</span> <span style="color: #000000">-e</span> <span style="color: #000000">./script/$1</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span> <span style="color: #000000">bundle_install_wrapper</span> <span style="color: #000000">./script/$@</span>
-  <span style="color: #177500"># Rails 4</span>
-  <span style="color: #000000">elif</span> <span style="color: #000000">[</span> <span style="color: #000000">-e</span> <span style="color: #000000">./config.ru</span> <span style="color: #000000">]</span> <span style="color: #000000">&amp;&amp;</span> <span style="color: #000000">grep</span> <span style="color: #000000">-q</span> <span style="color: #000000">Rails</span> <span style="color: #000000">config.ru</span>; <span style="color: #A90D91">then</span> <span style="color: #000000">bundle_install_wrapper</span> <span style="color: #000000">rails</span> <span style="color: #000000">$@</span>
-  <span style="color: #A90D91">else</span> <span style="color: #000000">echo</span> <span style="color: #C41A16">&quot;== I don&#39;t think this is a Rails application!&quot;</span>
-  <span style="color: #000000">fi</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#177500"># Run Rails commands on any version</span>
+<span style="color:#000">rails_cmd</span>(){
+  <span style="color:#177500"># Rails 3</span>
+  <span style="color:#a90d91">if</span> <span style="color:#000">[</span> <span style="color:#000">-</span><span style="color:#000">e</span> <span style="color:#000">.</span><span style="color:#000">/</span><span style="color:#000">script</span><span style="color:#c41a16">/rails ]; then bundle_install_wrapper rails3_with_editor $@
+</span><span style="color:#c41a16">  # Rails &lt;= 2
+</span><span style="color:#c41a16">  elif [ -e ./s</span><span style="color:#000">cript</span><span style="color:#c41a16">/$1 ]; then bundle_install_wrapper ./s</span><span style="color:#000">cript</span><span style="color:#c41a16">/$@
+</span><span style="color:#c41a16">  # Rails 4
+</span><span style="color:#c41a16">  elif [ -e ./</span><span style="color:#000">config</span><span style="color:#000">.</span><span style="color:#000">ru</span> <span style="color:#000">]</span> <span style="color:#000">&amp;&amp;</span> <span style="color:#000">grep</span> <span style="color:#000">-</span><span style="color:#000">q</span> <span style="color:#000">Rails</span> <span style="color:#000">config</span><span style="color:#000">.</span><span style="color:#000">ru</span>; <span style="color:#a90d91">then</span> <span style="color:#000">bundle_install_wrapper</span> <span style="color:#000">rails</span> <span style="color:#000">$@</span>
+  <span style="color:#a90d91">else</span> <span style="color:#000">echo</span> <span style="color:#c41a16">&#34;== I don&#39;t think this is a Rails application!&#34;</span>
+  <span style="color:#000">fi</span>
 }
-<span style="color: #A90D91">alias</span>   <span style="color: #000000">rs=</span><span style="color: #C41A16">&quot;rails_cmd server&quot;</span>
-<span style="color: #A90D91">alias</span>  <span style="color: #000000">rsd=</span><span style="color: #C41A16">&quot;rails_cmd server -u&quot;</span>
-<span style="color: #A90D91">alias</span>   <span style="color: #000000">rc=</span><span style="color: #C41A16">&quot;rails_cmd console&quot;</span>
-<span style="color: #A90D91">alias</span>   <span style="color: #000000">rg=</span><span style="color: #C41A16">&quot;rails_cmd generate&quot;</span>
-</pre></div>
-
+<span style="color:#a90d91">alias</span>   <span style="color:#000">rs</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;rails_cmd server&#34;</span>
+<span style="color:#a90d91">alias</span>  <span style="color:#000">rsd</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;rails_cmd server -u&#34;</span>
+<span style="color:#a90d91">alias</span>   <span style="color:#000">rc</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;rails_cmd console&#34;</span>
+<span style="color:#a90d91">alias</span>   <span style="color:#000">rg</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;rails_cmd generate&#34;</span></code></pre></div>
 
 <p>See the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh">Ruby on Rails section in my .bashrc</a> if you&rsquo;re interested in more aliases,
 and please leave a comment if you have any tips to share.</p>

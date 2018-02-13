@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>RSpec tasks on Rails 3</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -89,22 +89,16 @@ uninitialized constant RSpec::Rake</p>
 
 <p>Instead, do:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">RSpec::Core::RakeTask.new</span>(<span style="color: #C41A16">:spec</span>) <span style="color: #A90D91">do</span> <span style="color: #000000">|t|</span>
-<span style="color: #000000">...</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">RSpec</span><span style="color:#000">::</span><span style="color:#000">Core</span><span style="color:#000">::</span><span style="color:#000">RakeTask</span><span style="color:#000">.</span><span style="color:#000">new</span>(<span style="color:#c41a16">:spec</span>) <span style="color:#a90d91">do</span> <span style="color:#000">|</span><span style="color:#000">t</span><span style="color:#000">|</span>
+<span style="color:#000">...</span></code></pre></div>
 
 <p>and make sure to change:</p>
 
-<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">t.spec_files</span> <span style="color: #000000">=</span> <span style="color: #000000">FileList[</span><span style="color: #C41A16">&#39;spec/**/*_spec.rb&#39;</span><span style="color: #000000">]</span>
-</pre></div>
-</p>
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#000">spec_files</span> <span style="color:#000">=</span> <span style="color:#000">FileList</span><span style="color:#000">[</span><span style="color:#c41a16">&#39;spec/**/*_spec.rb&#39;</span><span style="color:#000">]</span></code></pre></div></p>
 
 <p>to</p>
 
-<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">t.pattern</span>   <span style="color: #000000">=</span> <span style="color: #C41A16">&#39;spec/**/*_spec.rb&#39;</span>
-</pre></div>
-</p>
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#000">pattern</span>   <span style="color:#000">=</span> <span style="color:#c41a16">&#39;spec/**/*_spec.rb&#39;</span></code></pre></div></p>
 
 
               <div class="related-posts">

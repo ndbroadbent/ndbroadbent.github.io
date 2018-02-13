@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Make &#39;git status&#39; put filepaths into numbered variables</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -85,84 +85,78 @@ But I wanted more, so I thought it would be nice if I could somehow create &lsqu
 I created a function to export the paths of each modified file into numbered environment variables, and it has really sped up my workflow.</p>
 
 <p>You will need to configure git if you want to have colorized output:
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git config --global color.status always
-</pre></div>
-</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git config --global color.status always</code></pre></div></p>
 
 <p>Paste the following script at the bottom of your ~/.bashrc file, and use it by typing &lsquo;gs&rsquo;. (Change the shortcut to whatever you like.)</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Processes your git status output, exporting bash variables</span>
-<span style="color: #177500"># for the filepaths of each modified file.</span>
-<span style="color: #177500"># To ensure colored output, please run: $ git config --global color.status always</span>
-<span style="color: #177500"># Written by Nathan D. Broadbent (www.madebynathan.com)</span>
-<span style="color: #177500"># -----------------------------------------------------------</span>
-gs<span style="color: #000000">()</span> <span style="color: #000000">{</span>
-  <span style="color: #000000">pfix=</span><span style="color: #C41A16">&quot;e&quot;</span> <span style="color: #177500"># Set your preferred shortcut letter here</span>
-  <span style="color: #000000">max_changes=</span><span style="color: #1C01CE">20</span>  <span style="color: #177500"># Max changes before reverting to standard &#39;git status&#39; (can be very slow otherwise)</span>
-  <span style="color: #000000">IFS=</span><span style="color: #C41A16">$&#39;\n&#39;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># Processes your git status output, exporting bash variables
+</span><span style="color:#177500"># for the filepaths of each modified file.
+</span><span style="color:#177500"># To ensure colored output, please run: $ git config --global color.status always
+</span><span style="color:#177500"># Written by Nathan D. Broadbent (www.madebynathan.com)
+</span><span style="color:#177500"># -----------------------------------------------------------
+</span><span style="color:#177500"></span>gs<span style="color:#000">()</span> <span style="color:#000">{</span>
+  <span style="color:#000">pfix</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;e&#34;</span> <span style="color:#177500"># Set your preferred shortcut letter here
+</span><span style="color:#177500"></span>  <span style="color:#000">max_changes</span><span style="color:#000">=</span><span style="color:#1c01ce">20</span>  <span style="color:#177500"># Max changes before reverting to standard &#39;git status&#39; (can be very slow otherwise)
+</span><span style="color:#177500"></span>  <span style="color:#000">IFS</span><span style="color:#000">=</span><span style="color:#c41a16">$&#39;\n&#39;</span>
 
-  <span style="color: #177500"># Only export variables for less than $max_changes</span>
-  <span style="color: #000000">status=</span><span style="color: #C41A16">`</span>git status --porcelain<span style="color: #C41A16">`</span>
-  <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> <span style="color: #C41A16">`</span><span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$status</span><span style="color: #C41A16">&quot;</span> | wc -l<span style="color: #C41A16">`</span> -lt <span style="color: #000000">$max_changes</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>
-    <span style="color: #000000">f=</span><span style="color: #1C01CE">0</span>  <span style="color: #177500"># Counter for the number of files</span>
-    <span style="color: #A90D91">for</span> line in <span style="color: #000000">$status</span>; <span style="color: #A90D91">do</span>
-      <span style="color: #000000">file=</span><span style="color: #A90D91">$(echo</span> <span style="color: #000000">$line</span> | sed <span style="color: #C41A16">&quot;s/^...//g&quot;</span><span style="color: #A90D91">)</span>
-      <span style="color: #A90D91">let</span> f++
-      files<span style="color: #000000">[$f]=$file</span>         <span style="color: #177500"># Array for formatting the output</span>
-      <span style="color: #A90D91">export</span> <span style="color: #000000">$pfix$f=$file</span>   <span style="color: #177500"># Exporting variable for use.</span>
-    <span style="color: #A90D91">done</span>
+  <span style="color:#177500"># Only export variables for less than $max_changes
+</span><span style="color:#177500"></span>  <span style="color:#000">status</span><span style="color:#000">=</span><span style="color:#c41a16">`</span>git status --porcelain<span style="color:#c41a16">`</span>
+  <span style="color:#a90d91">if</span> <span style="color:#000">[</span> <span style="color:#c41a16">`</span><span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$status</span><span style="color:#c41a16">&#34;</span> | wc -l<span style="color:#c41a16">`</span> -lt <span style="color:#000">$max_changes</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>
+    <span style="color:#000">f</span><span style="color:#000">=</span><span style="color:#1c01ce">0</span>  <span style="color:#177500"># Counter for the number of files
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">for</span> line in <span style="color:#000">$status</span>; <span style="color:#a90d91">do</span>
+      <span style="color:#000">file</span><span style="color:#000">=</span><span style="color:#a90d91">$(</span><span style="color:#a90d91">echo</span> <span style="color:#000">$line</span> | sed <span style="color:#c41a16">&#34;s/^...//g&#34;</span><span style="color:#a90d91">)</span>
+      <span style="color:#a90d91">let</span> f++
+      files<span style="color:#000">[</span><span style="color:#000">$f</span><span style="color:#000">]=</span><span style="color:#000">$file</span>         <span style="color:#177500"># Array for formatting the output
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">export</span> <span style="color:#000">$pfix$f</span><span style="color:#000">=</span><span style="color:#000">$file</span>   <span style="color:#177500"># Exporting variable for use.
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">done</span>
 
-    <span style="color: #000000">status=</span><span style="color: #C41A16">`</span>git status<span style="color: #C41A16">`</span>    <span style="color: #177500"># Fetch full status</span>
-
-    <span style="color: #177500"># Search and replace each line, showing the exported variable name next to files.</span>
-    <span style="color: #A90D91">for</span> line in <span style="color: #000000">$status</span>; <span style="color: #A90D91">do</span>
-      <span style="color: #000000">i=</span><span style="color: #1C01CE">1</span>
-      <span style="color: #A90D91">while</span> <span style="color: #000000">[</span> <span style="color: #000000">$i</span> -le <span style="color: #000000">$f</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">do</span>
-        <span style="color: #000000">search=</span><span style="color: #C41A16">${</span><span style="color: #000000">files</span>[<span style="color: #000000">$i</span>]<span style="color: #C41A16">}</span>
-        <span style="color: #000000">replace=</span><span style="color: #C41A16">&quot;\033[2;37m[\033[1m\$</span><span style="color: #000000">$pfix$i</span><span style="color: #C41A16">\033[2;37m]\033[0m </span><span style="color: #000000">$search</span><span style="color: #C41A16"> &quot;</span>
-        <span style="color: #177500">#echo $replace</span>
-        <span style="color: #177500"># (fixes a case when a file contains another file as a substring)</span>
-        <span style="color: #000000">line=</span><span style="color: #C41A16">${</span><span style="color: #000000">line</span>/<span style="color: #000000">$search</span>/<span style="color: #000000">$replace</span> <span style="color: #C41A16">}</span>   <span style="color: #177500"># Substitution for files with a space suffix.</span>
-        <span style="color: #000000">line=</span><span style="color: #C41A16">${</span><span style="color: #000000">line</span>/%<span style="color: #000000">$search</span>/<span style="color: #000000">$replace</span><span style="color: #C41A16">}</span>    <span style="color: #177500"># Substitution for files with a newline suffix.</span>
-        <span style="color: #A90D91">let</span> i++
-      <span style="color: #A90D91">done</span>
-      <span style="color: #A90D91">echo</span> -e <span style="color: #000000">$line</span>                        <span style="color: #177500"># Print the final transformed line.</span>
-    <span style="color: #A90D91">done</span>
-  <span style="color: #A90D91">else</span>
-    <span style="color: #177500"># If there are too many changed files, this &#39;gs&#39; function will slow down.</span>
-    <span style="color: #177500"># In this case, fall back to plain &#39;git status&#39;</span>
-    git status
-  <span style="color: #A90D91">fi</span>
-  <span style="color: #177500"># Reset IFS separator to default.</span>
-  <span style="color: #A90D91">unset</span> IFS
-<span style="color: #000000">}</span>
-</pre></div>
-
+    <span style="color:#000">status</span><span style="color:#000">=</span><span style="color:#c41a16">`</span>git status<span style="color:#c41a16">`</span>    <span style="color:#177500"># Fetch full status
+</span><span style="color:#177500"></span>
+    <span style="color:#177500"># Search and replace each line, showing the exported variable name next to files.
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">for</span> line in <span style="color:#000">$status</span>; <span style="color:#a90d91">do</span>
+      <span style="color:#000">i</span><span style="color:#000">=</span><span style="color:#1c01ce">1</span>
+      <span style="color:#a90d91">while</span> <span style="color:#000">[</span> <span style="color:#000">$i</span> -le <span style="color:#000">$f</span> <span style="color:#000">]</span>; <span style="color:#a90d91">do</span>
+        <span style="color:#000">search</span><span style="color:#000">=</span><span style="color:#c41a16">${</span><span style="color:#000">files</span>[<span style="color:#000">$i</span>]<span style="color:#c41a16">}</span>
+        <span style="color:#000">replace</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;\033[2;37m[\033[1m\$</span><span style="color:#000">$pfix$i</span><span style="color:#c41a16">\033[2;37m]\033[0m </span><span style="color:#000">$search</span><span style="color:#c41a16"> &#34;</span>
+        <span style="color:#177500">#echo $replace
+</span><span style="color:#177500"></span>        <span style="color:#177500"># (fixes a case when a file contains another file as a substring)
+</span><span style="color:#177500"></span>        <span style="color:#000">line</span><span style="color:#000">=</span><span style="color:#c41a16">${</span><span style="color:#000">line</span>/<span style="color:#000">$search</span>/<span style="color:#000">$replace</span> <span style="color:#c41a16">}</span>   <span style="color:#177500"># Substitution for files with a space suffix.
+</span><span style="color:#177500"></span>        <span style="color:#000">line</span><span style="color:#000">=</span><span style="color:#c41a16">${</span><span style="color:#000">line</span>/%<span style="color:#000">$search</span>/<span style="color:#000">$replace</span><span style="color:#c41a16">}</span>    <span style="color:#177500"># Substitution for files with a newline suffix.
+</span><span style="color:#177500"></span>        <span style="color:#a90d91">let</span> i++
+      <span style="color:#a90d91">done</span>
+      <span style="color:#a90d91">echo</span> -e <span style="color:#000">$line</span>                        <span style="color:#177500"># Print the final transformed line.
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">done</span>
+  <span style="color:#a90d91">else</span>
+    <span style="color:#177500"># If there are too many changed files, this &#39;gs&#39; function will slow down.
+</span><span style="color:#177500"></span>    <span style="color:#177500"># In this case, fall back to plain &#39;git status&#39;
+</span><span style="color:#177500"></span>    git status
+  <span style="color:#a90d91">fi</span>
+  <span style="color:#177500"># Reset IFS separator to default.
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">unset</span> IFS
+<span style="color:#000">}</span></code></pre></div>
 
 <p>Now you can just type &lsquo;gs&rsquo;, and use the exported variables for commands. You can also customise the shortcut letter by changing the &lsquo;pfix&rsquo; variable in the function. I chose &lsquo;e&rsquo; because it&rsquo;s easy to slide your finger to it from the &lsquo;$&rsquo; key.</p>
 
 <p>Example:</p>
 
-<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ gs
-<span style="color: #177500"># On branch master</span>
-<span style="color: #177500"># Your branch is ahead of &#39;origin/master&#39; by 4 commits.</span>
-<span style="color: #177500">#</span>
-<span style="color: #177500"># Changed but not updated:</span>
-<span style="color: #177500">#   (use &quot;git add &lt;file&gt;...&quot;; to update what will be committed)</span>
-<span style="color: #177500">#   (use &quot;git checkout -- &lt;file&gt;...&quot;; to discard changes in working directory)</span>
-<span style="color: #177500">#   (commit or discard the untracked or modified content in submodules)</span>
-<span style="color: #177500">#</span>
-<span style="color: #177500">#	modified:   [$e1] vendor/plugins/crm_merge (modified content)</span>
-<span style="color: #177500">#	modified:   [$e2] vendor/plugins/crm_search (new commits, modified content)</span>
-<span style="color: #177500">#	modified:   [$e3] vendor/plugins/crm_super_tags (modified content)</span>
-<span style="color: #177500">#</span>
-no changes added to commit <span style="color: #000000">(</span>use <span style="color: #C41A16">&quot;git add&quot;</span>; and/or <span style="color: #C41A16">&quot;git commit -a&quot;</span><span style="color: #000000">)</span>
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gs
+<span style="color:#177500"># On branch master
+</span><span style="color:#177500"># Your branch is ahead of &#39;origin/master&#39; by 4 commits.
+</span><span style="color:#177500">#
+</span><span style="color:#177500"># Changed but not updated:
+</span><span style="color:#177500">#   (use &#34;git add &lt;file&gt;...&#34;; to update what will be committed)
+</span><span style="color:#177500">#   (use &#34;git checkout -- &lt;file&gt;...&#34;; to discard changes in working directory)
+</span><span style="color:#177500">#   (commit or discard the untracked or modified content in submodules)
+</span><span style="color:#177500">#
+</span><span style="color:#177500">#	modified:   [$e1] vendor/plugins/crm_merge (modified content)
+</span><span style="color:#177500">#	modified:   [$e2] vendor/plugins/crm_search (new commits, modified content)
+</span><span style="color:#177500">#	modified:   [$e3] vendor/plugins/crm_super_tags (modified content)
+</span><span style="color:#177500">#
+</span><span style="color:#177500"></span>no changes added to commit <span style="color:#000">(</span>use <span style="color:#c41a16">&#34;git add&#34;</span>; and/or <span style="color:#c41a16">&#34;git commit -a&#34;</span><span style="color:#000">)</span>
 
-$ <span style="color: #A90D91">cd</span> <span style="color: #000000">$e2</span>
+$ <span style="color:#a90d91">cd</span> <span style="color:#000">$e2</span>
 or
-$ git rm -r <span style="color: #000000">$e3</span>
-</pre></div>
-</p>
+$ git rm -r <span style="color:#000">$e3</span></code></pre></div></p>
 
 <p>&nbsp;</p>
 

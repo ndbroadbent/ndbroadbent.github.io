@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Really handy RVM hook to symlink current gem directory</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -88,9 +88,7 @@ but this makes it tricky to find the gem you need to look at.</p>
 <p>Enter RVM hooks! If you want a symlink to the current gem directory to be updated each time you switch ruby versions,
 save something like the following code to <code>~/.rvm/hooks/after_use</code></p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>ln -nfs <span style="color: #000000">$rvm_ruby_gem_home</span>/gems ~/src/gems/current_bundle
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -nfs <span style="color:#000">$rvm_ruby_gem_home</span>/gems ~/src/gems/current_bundle</code></pre></div>
 
 <p>Now you have access to the source code of gems from the file browser in your editor.</p>
 

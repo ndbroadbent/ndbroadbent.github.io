@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>A better way to use xclip (clipboard from the command line)</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -103,28 +103,22 @@ to integrate the clipboard with the command line.</p>
 <li>Pipe anything to the clipboard</li>
 </ul>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ tail -n <span style="color: #1C01CE">100</span> /var/log/apache2/error.log | cb
-<span style="color: #177500"># =&gt; Copied to clipboard: [Sun Oct 02 08:02:08 2011] [notice] Apache/2.2.17 (Ubuntu) configured -- resumin...</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tail -n <span style="color:#1c01ce">100</span> /var/log/apache2/error.log | cb
+# <span style="color:#000">=</span>&gt; Copied to clipboard: <span style="color:#000">[</span>Sun Oct <span style="color:#1c01ce">02</span> <span style="color:#1c01ce">08</span>:02:08 <span style="color:#1c01ce">2011</span><span style="color:#000">]</span> <span style="color:#000">[</span>notice<span style="color:#000">]</span> Apache/2.2.17 <span style="color:#000">(</span>Ubuntu<span style="color:#000">)</span> configured -- resumin...</code></pre></div>
 
 <ul>
 <li>Copy the contents of a file to the clipboard</li>
 </ul>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ cbf ~/.ssh/id_rsa.pub
-<span style="color: #177500"># =&gt; Copied to clipboard: ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnwaNIuOhZzUeR6/xEEudXt3zEh91dawhkkKx8p/+4Bw9...</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cbf ~/.ssh/id_rsa.pub
+# <span style="color:#000">=</span>&gt; Copied to clipboard: ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnwaNIuOhZzUeR6/xEEudXt3zEh91dawhkkKx8p/+4Bw9...</code></pre></div>
 
 <ul>
 <li>Type straight into the clipboard</li>
 </ul>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ cb This is some unquoted text.
-<span style="color: #177500"># =&gt; Copied to clipboard: This is some unquoted text.</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cb This is some unquoted text.
+# <span style="color:#000">=</span>&gt; Copied to clipboard: This is some unquoted text.</code></pre></div>
 
 <p>No options, no <code>man</code> pages.</p>
 
@@ -135,51 +129,49 @@ I&rsquo;m not affiliated with Atlassian, I just think they&rsquo;re awesome.</p>
 
 <p>So if you think this looks handy, you can add the following to your <code>~/.bashrc</code>:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># A shortcut function that simplifies usage of xclip.</span>
-<span style="color: #177500"># - Accepts input from either stdin (pipe), or params.</span>
-<span style="color: #177500"># ------------------------------------------------</span>
-cb<span style="color: #000000">()</span> <span style="color: #000000">{</span>
-  <span style="color: #A90D91">local</span> <span style="color: #000000">_scs_col=</span><span style="color: #C41A16">&quot;\e[0;32m&quot;</span>; <span style="color: #A90D91">local</span> <span style="color: #000000">_wrn_col=</span><span style="color: #C41A16">&#39;\e[1;31m&#39;</span>; <span style="color: #A90D91">local</span> <span style="color: #000000">_trn_col=</span><span style="color: #C41A16">&#39;\e[0;33m&#39;</span>
-  <span style="color: #177500"># Check that xclip is installed.</span>
-  <span style="color: #A90D91">if</span> ! <span style="color: #A90D91">type</span> xclip &gt; /dev/null <span style="color: #1C01CE">2</span>&gt;&amp;<span style="color: #1C01CE">1</span>; <span style="color: #A90D91">then</span>
-    <span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$_wrn_col</span><span style="color: #C41A16">&quot;&quot;You must have the &#39;xclip&#39; program installed.\e[0m&quot;</span>
-  <span style="color: #177500"># Check user is not root (root doesn&#39;t have access to user xorg server)</span>
-  <span style="color: #A90D91">elif</span> <span style="color: #000000">[[</span> <span style="color: #C41A16">&quot;</span><span style="color: #000000">$USER</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">==</span> <span style="color: #C41A16">&quot;root&quot;</span> <span style="color: #000000">]]</span>; <span style="color: #A90D91">then</span>
-    <span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$_wrn_col</span><span style="color: #C41A16">&quot;&quot;Must be regular user (not root) to copy a file to the clipboard.\e[0m&quot;</span>
-  <span style="color: #A90D91">else</span>
-    <span style="color: #177500"># If no tty, data should be available on stdin</span>
-    <span style="color: #A90D91">if</span> ! <span style="color: #000000">[[</span> <span style="color: #C41A16">&quot;</span><span style="color: #A90D91">$(</span> tty <span style="color: #A90D91">)</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">==</span> /dev/* <span style="color: #000000">]]</span>; <span style="color: #A90D91">then</span>
-      <span style="color: #000000">input=</span><span style="color: #C41A16">&quot;</span><span style="color: #A90D91">$(</span>&lt; /dev/stdin<span style="color: #A90D91">)</span><span style="color: #C41A16">&quot;</span>
-    <span style="color: #177500"># Else, fetch input from params</span>
-    <span style="color: #A90D91">else</span>
-      <span style="color: #000000">input=</span><span style="color: #C41A16">&quot;</span><span style="color: #000000">$*</span><span style="color: #C41A16">&quot;</span>
-    <span style="color: #A90D91">fi</span>
-    <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> -z <span style="color: #C41A16">&quot;</span><span style="color: #000000">$input</span><span style="color: #C41A16">&quot;</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span>  <span style="color: #177500"># If no input, print usage message.</span>
-      <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;Copies a string to the clipboard.&quot;</span>
-      <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;Usage: cb &lt;string&gt;&quot;</span>
-      <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;       echo &lt;string&gt; | cb&quot;</span>
-    <span style="color: #A90D91">else</span>
-      <span style="color: #177500"># Copy input to clipboard</span>
-      <span style="color: #A90D91">echo</span> -n <span style="color: #C41A16">&quot;</span><span style="color: #000000">$input</span><span style="color: #C41A16">&quot;</span> | xclip -selection c
-      <span style="color: #177500"># Truncate text for status</span>
-      <span style="color: #A90D91">if</span> <span style="color: #000000">[</span> <span style="color: #C41A16">${#</span><span style="color: #000000">input</span><span style="color: #C41A16">}</span> -gt <span style="color: #1C01CE">80</span> <span style="color: #000000">]</span>; <span style="color: #A90D91">then</span> <span style="color: #000000">input=</span><span style="color: #C41A16">&quot;</span><span style="color: #A90D91">$(echo</span> <span style="color: #000000">$input</span> | cut -c1-80<span style="color: #A90D91">)</span><span style="color: #000000">$_trn_col</span><span style="color: #C41A16">...\e[0m&quot;</span>; <span style="color: #A90D91">fi</span>
-      <span style="color: #177500"># Print status.</span>
-      <span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$_scs_col</span><span style="color: #C41A16">&quot;&quot;Copied to clipboard:\e[0m </span><span style="color: #000000">$input</span><span style="color: #C41A16">&quot;</span>
-    <span style="color: #A90D91">fi</span>
-  <span style="color: #A90D91">fi</span>
-<span style="color: #000000">}</span>
-<span style="color: #177500"># Aliases / functions leveraging the cb() function</span>
-<span style="color: #177500"># ------------------------------------------------</span>
-<span style="color: #177500"># Copy contents of a file</span>
-<span style="color: #A90D91">function</span> cbf<span style="color: #000000">()</span> <span style="color: #000000">{</span> cat <span style="color: #C41A16">&quot;</span><span style="color: #000000">$1</span><span style="color: #C41A16">&quot;</span> | cb; <span style="color: #000000">}</span>
-<span style="color: #177500"># Copy SSH public key</span>
-<span style="color: #A90D91">alias</span> <span style="color: #000000">cbssh=</span><span style="color: #C41A16">&quot;cbf ~/.ssh/id_rsa.pub&quot;</span>
-<span style="color: #177500"># Copy current working directory</span>
-<span style="color: #A90D91">alias</span> <span style="color: #000000">cbwd=</span><span style="color: #C41A16">&quot;pwd | cb&quot;</span>
-<span style="color: #177500"># Copy most recent command in bash history</span>
-<span style="color: #A90D91">alias</span> <span style="color: #000000">cbhs=</span><span style="color: #C41A16">&quot;cat </span><span style="color: #000000">$HISTFILE</span><span style="color: #C41A16"> | tail -n 1 | cb&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># A shortcut function that simplifies usage of xclip.
+</span><span style="color:#177500"># - Accepts input from either stdin (pipe), or params.
+</span><span style="color:#177500"># ------------------------------------------------
+</span><span style="color:#177500"></span>cb<span style="color:#000">()</span> <span style="color:#000">{</span>
+  <span style="color:#a90d91">local</span> <span style="color:#000">_scs_col</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;\e[0;32m&#34;</span>; <span style="color:#a90d91">local</span> <span style="color:#000">_wrn_col</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;\e[1;31m&#39;</span>; <span style="color:#a90d91">local</span> <span style="color:#000">_trn_col</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;\e[0;33m&#39;</span>
+  <span style="color:#177500"># Check that xclip is installed.
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">if</span> ! <span style="color:#a90d91">type</span> xclip &gt; /dev/null <span style="color:#1c01ce">2</span>&gt;&amp;<span style="color:#1c01ce">1</span>; <span style="color:#a90d91">then</span>
+    <span style="color:#a90d91">echo</span> -e <span style="color:#c41a16">&#34;</span><span style="color:#000">$_wrn_col</span><span style="color:#c41a16">&#34;&#34;You must have the &#39;xclip&#39; program installed.\e[0m&#34;</span>
+  <span style="color:#177500"># Check user is not root (root doesn&#39;t have access to user xorg server)
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">elif</span> <span style="color:#000">[[</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$USER</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#34;root&#34;</span> <span style="color:#000">]]</span>; <span style="color:#a90d91">then</span>
+    <span style="color:#a90d91">echo</span> -e <span style="color:#c41a16">&#34;</span><span style="color:#000">$_wrn_col</span><span style="color:#c41a16">&#34;&#34;Must be regular user (not root) to copy a file to the clipboard.\e[0m&#34;</span>
+  <span style="color:#a90d91">else</span>
+    <span style="color:#177500"># If no tty, data should be available on stdin
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">if</span> ! <span style="color:#000">[[</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span> tty <span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">==</span> /dev/* <span style="color:#000">]]</span>; <span style="color:#a90d91">then</span>
+      <span style="color:#000">input</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>&lt; /dev/stdin<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
+    <span style="color:#177500"># Else, fetch input from params
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">else</span>
+      <span style="color:#000">input</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#000">$*</span><span style="color:#c41a16">&#34;</span>
+    <span style="color:#a90d91">fi</span>
+    <span style="color:#a90d91">if</span> <span style="color:#000">[</span> -z <span style="color:#c41a16">&#34;</span><span style="color:#000">$input</span><span style="color:#c41a16">&#34;</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span>  <span style="color:#177500"># If no input, print usage message.
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;Copies a string to the clipboard.&#34;</span>
+      <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;Usage: cb &lt;string&gt;&#34;</span>
+      <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;       echo &lt;string&gt; | cb&#34;</span>
+    <span style="color:#a90d91">else</span>
+      <span style="color:#177500"># Copy input to clipboard
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">echo</span> -n <span style="color:#c41a16">&#34;</span><span style="color:#000">$input</span><span style="color:#c41a16">&#34;</span> | xclip -selection c
+      <span style="color:#177500"># Truncate text for status
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">if</span> <span style="color:#000">[</span> <span style="color:#c41a16">${#</span><span style="color:#000">input</span><span style="color:#c41a16">}</span> -gt <span style="color:#1c01ce">80</span> <span style="color:#000">]</span>; <span style="color:#a90d91">then</span> <span style="color:#000">input</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span><span style="color:#a90d91">echo</span> <span style="color:#000">$input</span> | cut -c1-80<span style="color:#a90d91">)</span><span style="color:#000">$_trn_col</span><span style="color:#c41a16">...\e[0m&#34;</span>; <span style="color:#a90d91">fi</span>
+      <span style="color:#177500"># Print status.
+</span><span style="color:#177500"></span>      <span style="color:#a90d91">echo</span> -e <span style="color:#c41a16">&#34;</span><span style="color:#000">$_scs_col</span><span style="color:#c41a16">&#34;&#34;Copied to clipboard:\e[0m </span><span style="color:#000">$input</span><span style="color:#c41a16">&#34;</span>
+    <span style="color:#a90d91">fi</span>
+  <span style="color:#a90d91">fi</span>
+<span style="color:#000">}</span>
+<span style="color:#177500"># Aliases / functions leveraging the cb() function
+</span><span style="color:#177500"># ------------------------------------------------
+</span><span style="color:#177500"># Copy contents of a file
+</span><span style="color:#177500"></span><span style="color:#a90d91">function</span> cbf<span style="color:#000">()</span> <span style="color:#000">{</span> cat <span style="color:#c41a16">&#34;</span><span style="color:#000">$1</span><span style="color:#c41a16">&#34;</span> | cb; <span style="color:#000">}</span>
+<span style="color:#177500"># Copy SSH public key
+</span><span style="color:#177500"></span><span style="color:#a90d91">alias</span> <span style="color:#000">cbssh</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;cbf ~/.ssh/id_rsa.pub&#34;</span>
+<span style="color:#177500"># Copy current working directory
+</span><span style="color:#177500"></span><span style="color:#a90d91">alias</span> <span style="color:#000">cbwd</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;pwd | cb&#34;</span>
+<span style="color:#177500"># Copy most recent command in bash history
+</span><span style="color:#177500"></span><span style="color:#a90d91">alias</span> <span style="color:#000">cbhs</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;cat </span><span style="color:#000">$HISTFILE</span><span style="color:#c41a16"> | tail -n 1 | cb&#34;</span></code></pre></div>
 
 
               <div class="related-posts">

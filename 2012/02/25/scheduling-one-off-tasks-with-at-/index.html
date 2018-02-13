@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Scheduling one-off tasks with &#39;at&#39;</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -92,40 +92,32 @@ and restarting it takes it offline for a few minutes.</p>
 
 <p>So I used the <code>at</code> command to schedule the restart to happen at midnight, after everyone had gone home:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;/etc/init.d/mingle restart&quot;</span> | at -m <span style="color: #1C01CE">00</span>:00
-job <span style="color: #1C01CE">6</span> at <span style="color: #1C01CE">2012</span>-02-26 <span style="color: #1C01CE">00</span>:00
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;/etc/init.d/mingle restart&#34;</span> | at -m <span style="color:#1c01ce">00</span>:00
+job <span style="color:#1c01ce">6</span> at <span style="color:#1c01ce">2012</span>-02-26 <span style="color:#1c01ce">00</span>:00</code></pre></div>
 
 <p>Use <code>atq</code> or <code>at -l</code> to see the list of pending jobs:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ atq
-<span style="color: #1C01CE">6</span>	<span style="color: #1C01CE">2012</span>-02-26 <span style="color: #1C01CE">00</span>:00 a root
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ atq
+<span style="color:#1c01ce">6</span>	<span style="color:#1c01ce">2012</span>-02-26 <span style="color:#1c01ce">00</span>:00 a root</code></pre></div>
 
 <p>Use <code>at -c &lt;job id&gt;</code> to view the script that will be run:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ at -c <span style="color: #1C01CE">6</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ at -c <span style="color:#1c01ce">6</span>
 
-<span style="color: #177500">#!/bin/sh</span>
-<span style="color: #177500"># atrun uid=0 gid=0</span>
-<span style="color: #177500"># mail     root 1</span>
-<span style="color: #A90D91">umask</span> <span style="color: #1C01CE">22</span>
-<span style="color: #000000">HOSTNAME=</span>...
-&lt;lots of environment variables <span style="color: #A90D91">set</span> here&gt;
+<span style="color:#633820">#!/bin/sh
+</span><span style="color:#633820"></span><span style="color:#177500"># atrun uid=0 gid=0
+</span><span style="color:#177500"># mail     root 1
+</span><span style="color:#177500"></span><span style="color:#a90d91">umask</span> <span style="color:#1c01ce">22</span>
+<span style="color:#000">HOSTNAME</span><span style="color:#000">=</span>...
+&lt;lots of environment variables <span style="color:#a90d91">set</span> here&gt;
 
-/etc/init.d/mingle restart
-</pre></div>
-
+/etc/init.d/mingle restart</code></pre></div>
 
 <p>To delete a scheduled task, run <code>at -d &lt;job id&gt;</code>:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ at -d <span style="color: #1C01CE">6</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ at -d <span style="color:#1c01ce">6</span>
 $ atq
-<span style="color: #000000">(</span>no output<span style="color: #000000">)</span>
-</pre></div>
-
+<span style="color:#000">(</span>no output<span style="color:#000">)</span></code></pre></div>
 
 
               <div class="related-posts">

@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Pertelian X2040, lcd4linux, shell-fm</title>
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -91,9 +91,7 @@ you need the dbus, usbutils and usb-serial packages installed.</p>
 packages for a little thin client. So before you compile lcd4linux,
 do this if you just want the fifo and exec plugins (substitute for your requirements):</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>./configure --with-plugins<span style="color: #000000">=</span>fifo,exec --with-drivers<span style="color: #000000">=</span>Pertelian
-</pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure --with-plugins<span style="color:#000">=</span>fifo,exec --with-drivers<span style="color:#000">=</span>Pertelian</code></pre></div>
 
 <p>(also keep in mind the suggested compiling flags from the
 <a href="http://wiki.tinycorelinux.com/tiki-index.php?page=Creating+Extensions">&ldquo;Creating an Extension&rdquo;</a>
