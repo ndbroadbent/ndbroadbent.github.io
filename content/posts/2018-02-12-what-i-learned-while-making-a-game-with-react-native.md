@@ -178,7 +178,7 @@ JavaScript, and especially some of the new ES6 features.
 
 * I tested the app while simulating a slow network connection in Chrome. This revealed a bug where the counter started ticking before everything had finished loading.
 
-* I discovered that it takes a huge amount of effort to actually launch a game. Once I had a playable game, it was another 2 months before everything else was finished. Things like in-app purchases, ads, analytics, high scores, achievements, tutorials, app store listings, screenshots, icons, videos, social media accounts, etc.
+* I discovered that it takes a huge amount of effort to actually launch a game. Once I had a playable game, it was another 2 months before everything else was finished. Things like in-app purchases, ads, analytics, high scores, achievements, tutorials, app store listings, screenshots, icons, social media accounts, etc.
 
 <br/>
 <br/>
