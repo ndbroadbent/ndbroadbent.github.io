@@ -2,14 +2,12 @@
 comments: true
 date: 2011-10-19T01:14:01Z
 tags: ["git", "bash", "zsh", "scripts", "projects"]
-title: Git Shortcuts Like You've Never Seen Before
+title: SCM Breeze
 url: /2011/10/19/git-shortcuts-like-youve-never-seen-before/
 ---
 
-## Introducing 'SCM Breeze'
-
-**SCM Breeze** is a set of shell scripts (for `bash` and `zsh`) that enhance your interaction with tools
-such as git. It integrates with your shell to give you numbered file shortcuts,
+**SCM Breeze** is a set of shell scripts (for `bash` and `zsh`) that make it easier to use git.
+It integrates with your shell to give you numbered file shortcuts,
 a repository index with tab completion, and a community driven collection of useful SCM functions.
 
 Disclaimer: **git** is currently the only supported SCM.
