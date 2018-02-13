@@ -95,9 +95,8 @@ and for ads and in-app purchases on Windows. I also wrote a small library to man
 ### There will be bugs
 
 React Native is pretty stable, but there's a lot of unmaintained libraries,
-and most libraries don't have any tests. React Native is a bit like jQuery, in that it smooths over a lot of quirks and inconsistencies and provides a consistent API. But sometimes you'll
-come across an edge case, so I often had to read the React Native source code to figure out
-what was happening.
+and most libraries don't have any tests. React Native is a bit like jQuery, in that it smooths over a lot of quirks and inconsistencies and provides a consistent API. But there's some tricky edge cases,
+and I often had to read the React Native source code to figure out why something was happening.
 
 Some examples:
 
