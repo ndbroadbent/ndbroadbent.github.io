@@ -187,7 +187,7 @@ This was about 3 months of work, and I was in a [state of flow](https://en.wikip
 The game has only made about $50 so far, but I have some more ideas for grid-based games, and
 I can reuse a lot of the SudoBlock code. I'm also a freelancer, so this is the only way I can pick up new skills.
 
-Thanks for reading! If you have any questions, please leave a comment on Hacker News.
+Thanks for reading! If you have any questions, please [leave a comment on Hacker News](https://news.ycombinator.com/item?id=16367937).
 
 <br/>
 
