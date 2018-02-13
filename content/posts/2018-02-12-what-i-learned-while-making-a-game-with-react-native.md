@@ -47,7 +47,7 @@ There's a RN library for [particle effects](https://github.com/greghe/react-nati
 (although you'd have to add support for Android),
 and [react-game-kit](https://github.com/FormidableLabs/react-game-kit) provides a way to manage sprites and animations.
 
-I want to make a few more simple games, and I'm going to stick with React Native. I can fork SudoBlock and reuse a lot of the code that I've already written.
+I want to make a few more simple games. I'm going to stick with React Native because I can fork SudoBlock and reuse a lot of the code that I've already written.
 
 If your goal is to build a cross-platform mobile game, and you need to build it fast,
 then I would recommend learning Godot or Unity.
@@ -79,7 +79,7 @@ is unmaintained and out of date, so it would be great if a company sponsored dev
 
 ### You'll probably have to write some native code
 
-Some people are attracted to React Native because they heard that you can write a mobile
+Some people are attracted to React Native because they've heard that you can write a mobile
 app with only JavaScript. In practice, this is only true for extremely simple applications.
 Most of your code will be written in JavaScript, but you'll probably have to write some native code.
 At the very least, you must be prepared to fix some bugs in third-party libraries.
