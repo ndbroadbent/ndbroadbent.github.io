@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://madebynathan.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/</loc>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/</loc>
     <lastmod>2013-07-10T23:51:47+00:00</lastmod>
   </url>
@@ -438,6 +443,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/games/</loc>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/gedit/</loc>
     <lastmod>2011-04-28T05:23:44+00:00</lastmod>
     <priority>0</priority>
@@ -511,7 +522,7 @@
   
   <url>
     <loc>https://madebynathan.com/tags/javascript/</loc>
-    <lastmod>2010-11-04T19:07:51+00:00</lastmod>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -547,7 +558,7 @@
   
   <url>
     <loc>https://madebynathan.com/</loc>
-    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -583,13 +594,13 @@
   
   <url>
     <loc>https://madebynathan.com/posts/</loc>
-    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://madebynathan.com/tags/projects/</loc>
-    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -626,6 +637,18 @@
   <url>
     <loc>https://madebynathan.com/tags/raspberry-pi/</loc>
     <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://madebynathan.com/tags/react/</loc>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://madebynathan.com/tags/react-native/</loc>
+    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
     <priority>0</priority>
   </url>
   

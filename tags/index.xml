@@ -147,6 +147,15 @@
     </item>
     
     <item>
+      <title>Games</title>
+      <link>https://madebynathan.com/tags/games/</link>
+      <pubDate>Mon, 12 Feb 2018 01:34:40 +0700</pubDate>
+      
+      <guid>https://madebynathan.com/tags/games/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Gedit</title>
       <link>https://madebynathan.com/tags/gedit/</link>
       <pubDate>Thu, 28 Apr 2011 05:23:44 +0000</pubDate>
@@ -257,7 +266,7 @@
     <item>
       <title>Javascript</title>
       <link>https://madebynathan.com/tags/javascript/</link>
-      <pubDate>Thu, 04 Nov 2010 19:07:51 +0000</pubDate>
+      <pubDate>Mon, 12 Feb 2018 01:34:40 +0700</pubDate>
       
       <guid>https://madebynathan.com/tags/javascript/</guid>
       <description></description>
@@ -356,7 +365,7 @@
     <item>
       <title>Projects</title>
       <link>https://madebynathan.com/tags/projects/</link>
-      <pubDate>Wed, 10 Jul 2013 23:51:47 +0000</pubDate>
+      <pubDate>Mon, 12 Feb 2018 01:34:40 +0700</pubDate>
       
       <guid>https://madebynathan.com/tags/projects/</guid>
       <description></description>
@@ -413,6 +422,24 @@
       <pubDate>Wed, 10 Jul 2013 23:51:47 +0000</pubDate>
       
       <guid>https://madebynathan.com/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://madebynathan.com/tags/react/</link>
+      <pubDate>Mon, 12 Feb 2018 01:34:40 +0700</pubDate>
+      
+      <guid>https://madebynathan.com/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React Native</title>
+      <link>https://madebynathan.com/tags/react-native/</link>
+      <pubDate>Mon, 12 Feb 2018 01:34:40 +0700</pubDate>
+      
+      <guid>https://madebynathan.com/tags/react-native/</guid>
       <description></description>
     </item>
     
