@@ -34,8 +34,10 @@ I've heard good things about [Godot](https://godotengine.org/) and [Unity](https
 These game engines support iOS, Android, Windows, and Linux. Unity supports
 [many other platforms](https://unity3d.com/unity/features/multiplatform).
 
-Building a simple game was a great way to learn React Native. People have also started working on game engines for React Native, such as [react-game-kit](https://github.com/FormidableLabs/react-game-kit) and [react-native-game-engine](https://github.com/bberak/react-native-game-engine).
+Making a simple game was a great way to learn React Native, but it's not the best tool for the job.
+However, people have started working on some game libraries for React Native, such as [react-game-kit](https://github.com/FormidableLabs/react-game-kit) and [react-native-game-engine](https://github.com/bberak/react-native-game-engine).
 
+It's not the easiest way to make a game, but it's also not impossible.
 The built-in [Animated](https://facebook.github.io/react-native/docs/animated.html) library is great,
 and I also used [react-native-animatable](https://github.com/oblador/react-native-animatable).
 I used a library to [play sounds](https://github.com/zmxv/react-native-sound).
@@ -47,10 +49,9 @@ There's a RN library for [particle effects](https://github.com/greghe/react-nati
 (although you'd have to add support for Android),
 and [react-game-kit](https://github.com/FormidableLabs/react-game-kit) provides a way to manage sprites and animations.
 
-I want to make a few more simple games. I'm going to stick with React Native because I can fork SudoBlock and reuse a lot of the code that I've already written.
+I want to make some more simple 2D games, and I'm going to stick with React Native for now. I can fork SudoBlock and reuse a lot of the code that I've already written.
 
-If your goal is to build a cross-platform mobile game, and you need to build it fast,
-then I would recommend learning Godot or Unity.
+If your goal is to quickly build a cross-platform mobile game, then I'd recommend learning Godot or Unity.
 
 
 ### Don't worry about supporting Windows
@@ -165,7 +166,7 @@ JavaScript, and especially some of the new ES6 features.
 * I learned a lot about Reactive programming. This post is amazing: [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754). I started playing with [RxJS](https://github.com/Reactive-Extensions/RxJS) and
 [redux-observable](https://github.com/redux-observable/redux-observable).
 
-* I set up [CodePush](https://microsoft.github.io/code-push/), so that I could push JS changes without releasing a new version to the App Store. [Their setup guide is really good.](https://github.com/Microsoft/react-native-code-push/blob/master/README.md)
+* I set up [CodePush](https://microsoft.github.io/code-push/), so that I could push JS changes without releasing a new version to the App Store. [The setup guide is very helpful.](https://github.com/Microsoft/react-native-code-push/blob/master/README.md)
 
 * I had to debug some memory issues on Android, and this article was really helpful: [React Native Android App Memory Investigation](https://shift.infinite.red/react-native-android-app-memory-investigation-55695625da9c)
 
