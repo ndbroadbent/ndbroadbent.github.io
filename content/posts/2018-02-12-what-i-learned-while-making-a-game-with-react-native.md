@@ -70,7 +70,8 @@ run on Windows Phone, tablets, desktop, Xbox One, HoloLens, and other Windows pl
 
 ### React Native is better than Electron for desktop apps
 
-I think React Native is a better choice than [Electron](https://electronjs.org/).
+When I was running SudoBlock as a Windows desktop application, I realized that
+React Native could a better choice than [Electron](https://electronjs.org/).
 Electron apps are notorious for being huge and using a lot of memory (e.g. Slack and Spotify.)
 They have to package and load an entire WebKit browser.
 React Native apps are much smaller and use far less memory, because they only need a JavaScript engine.
