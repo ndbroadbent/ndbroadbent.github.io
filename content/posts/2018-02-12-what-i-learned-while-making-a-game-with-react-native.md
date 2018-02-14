@@ -68,10 +68,10 @@ run on Windows Phone, tablets, desktop, Xbox One, HoloLens, and other Windows pl
 * Mobile games don't usually make sense on an Xbox.
 * If your game runs in a browser, then you probably don't need a desktop app.
 
-### React Native is better than Electron for desktop apps
+### React Native could be better than Electron for desktop applications
 
 When I was running SudoBlock as a Windows desktop application, I realized that
-React Native could a better choice than [Electron](https://electronjs.org/).
+React Native could be a better choice than [Electron](https://electronjs.org/).
 Electron apps are notorious for being huge and using a lot of memory (e.g. Slack and Spotify.)
 They have to package and load an entire WebKit browser.
 React Native apps are much smaller and use far less memory, because they only need a JavaScript engine.
