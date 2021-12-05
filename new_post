@@ -31,6 +31,9 @@ function new_post() {
   
   # Open the post in the editor
   open "$full_path"
+
+  # Open the post in the browser (e.g. http://localhost:1313/posts/yyyy-mm-dd-<title kebab case>)
+  open "http://localhost:1313/posts/$path"
 }
 
 new_post "$@"
