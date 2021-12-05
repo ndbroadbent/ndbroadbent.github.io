@@ -166,6 +166,10 @@ html, body {
 .page-not-found {
   padding-top: 20%;
 }
+img.lost-gif {
+  margin-top: 40px;
+}
+
 .disqus {
   padding-bottom: 15px;
 }
