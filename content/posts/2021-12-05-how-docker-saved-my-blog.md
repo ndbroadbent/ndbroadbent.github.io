@@ -14,7 +14,7 @@ Time passed. One day, I tried to update a post or write a new post, and I realiz
 
 So I gave up for a while. Instead of generating my blog from the source, I switched to editing the static files directly. Sometimes I would need to correct a typo or adjust some styles, so I'd go into the generated `./public` directory and manually modify the raw HTML and CSS.
 
-Time passed. One day, I started to notice some activity on [a blog post that I had written 11 years ago](/2010/05/13/scanning-lots-of-photos-at-once/). This post talked about a GIMP plugin called `deskew` that makes it easy to scan old photos in batches on a scanner and automatically rotate them. I had dropped this plugin file in my Google Drive and had pasted a link to the file. The link worked great for 10 years, and people were able to download the file without any issues. But eventually Google changed something and the link was no longer working. I started to receive emails from people who were requesting access to this file.
+Time passed. One day, I started to notice some activity on [a blog post that I had written 11 years ago](/2010/05/13/scanning-lots-of-photos-at-once/). This post is about a GIMP plugin called `deskew` that makes it easy to scan old photos in batches on a scanner and automatically rotate them. I had dropped this plugin file in my Google Drive and had pasted a link to the file. The link worked great for 10 years, and people were able to download the file without any issues. But eventually Google changed something and the link was no longer working. I started to receive emails from people who were requesting access to this file.
 
 <img class="lightbox thumb" src="/images/posts/2021/12/request-to-access-deskew.jpeg" alt="Request to access the deskew file" />
 
@@ -24,13 +24,13 @@ Should I switch to Ghost? I've loved using Ghost for the [DocSpring blog](https:
 
 Should I upgrade to the latest version of Hugo and spend hours fixing up the themes and tweaking all my posts until everything is working again? No thanks. Hugo runs on my local machine and produces static HTML and CSS content. It's a [pure function](https://www.wikiwand.com/en/Pure_function). There are no security vulnerabilities to watch out for. As far as I'm concerned, Hugo version `0.21` is "finished software." It generates my blog, and I'm happy with my blog. I will continue to be happy with my blog for many years to come. I don't need the latest and greatest features. I just want something stable that I can use over the next few decades without the constant grind of updating packages, breaking things, and debugging random issues. Give me Hugo `0.21` from May 2017!
 
-I had a sudden burst of inspiration.
+I had a sudden burst of inspiration:
 
 # Docker!
 
 I could run Hugo in a Docker image! If I can get Hugo `0.21` running in a Docker image, then I can save that Docker image into a `*.tar.gz` file and store it right in my git repo. Then I have a static `hugo` binary that comes packaged with everything it needs to run in a consistent environment, and I can run it anywhere (Linux, Mac OS, Windows.)
 
-I found a [Dockerfile in this docker-alpine-hugo repo](https://github.com/jonathanbp/docker-alpine-hugo/blob/master/Dockerfile), and I just needed to change `0.55.3` to `0.21`. Everything worked on the first try. [^2]
+I found a [Dockerfile in this docker-alpine-hugo repo](https://github.com/jonathanbp/docker-alpine-hugo/blob/master/Dockerfile), and I just needed to change `0.55.3` to `0.21`. Everything worked on the first try! [^2]
 
 ### How I use Docker
 
@@ -88,12 +88,14 @@ echo "Pushing source..."
 git push
 ```
 
+### You can view the source code for my blog here: https://github.com/ndbroadbent/ndbroadbent.github.io
+
 ---
 
 I'm very happy with this workaround. Before I realized that I could fix this with Docker, I was even tempted to switch to something written in Bash, C, or Perl. Go and Rust are cool new languages, but they continue to "move fast and break things." The POSIX standard was created 33 years ago in 1988, so I could still run some shell scripts that are over 30 years old. (I asked Hacker News for some examples: [Ask HN: What is the oldest Posix script that I can still run in a modern shell?](https://news.ycombinator.com/item?id=29446380).)
 
-But now I'm back in business, and this setup should last me for the next few decades at least.
+Now I'm back in business, and I can update or write new blog posts to my heart's content. This new Docker-based setup should last me for the next few decades at least. I'm in no hurry to switch to anything else.
 
 [^1]: A [static site generator](https://www.cloudflare.com/learning/performance/static-site-generator/) converts a folder full of Markdown files into a plain HTML/CSS website that you can host for free on [GitHub Pages](https://pages.github.com/) or [Netlify](https://www.netlify.com/).
-[^2]: I think it's generally much easier to get older Linux packages running, especially when it's a single Go binary with no dependencies. I wish it was this easy on Mac.
+[^2]: I think it's generally much easier to get older Linux packages running, especially when it's a single Go binary with no dependencies. I wish it was this easy on Mac!
 [^3]: Hopefully I never have to run this again!
