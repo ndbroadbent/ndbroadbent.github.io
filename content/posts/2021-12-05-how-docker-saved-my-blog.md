@@ -53,7 +53,7 @@ echo "Saving image to hugo-alpine.tar.gz"
 docker save hugo-alpine > hugo-alpine.tar.gz
 ```
 
-If I'm on a new computer, I can just run `docker load -i hugo-alpine.tar.gz` to load the `hugo-alpine` image into Docker. The nice thing is that this image is completely portable, and I can run it on Mac, Windows, or Linux. I just need to trust that Docker will continue to exist in the future, and that I'll always be able to run this kind of Docker image. I'm pretty sure that Docker is going to be around for a long time.
+If I'm on a new computer, I can just run `docker load -i hugo-alpine.tar.gz` to load the `hugo-alpine` image into Docker.
 
 I have a `dev` script that starts the `hugo` server and makes it available on port `1313`:
 
