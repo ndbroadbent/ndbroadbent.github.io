@@ -53,7 +53,6 @@ I want to make some more simple 2D games, and I'm going to stick with React Nati
 
 If your goal is to quickly build a cross-platform mobile game, then I'd recommend learning Godot or Unity.
 
-
 ### Don't worry about supporting Windows
 
 This is a no-brainer. No one uses Windows Phone and Microsoft have abandoned it.
@@ -64,9 +63,9 @@ I also figured out how to write cross-platform npm scripts using [scripty](https
 [react-native-windows](https://github.com/Microsoft/react-native-windows) gives you a UWP app that can
 run on Windows Phone, tablets, desktop, Xbox One, HoloLens, and other Windows platforms. But:
 
-* Nobody uses Windows Phone.
-* Mobile games don't usually make sense on an Xbox.
-* If your game runs in a browser, then you probably don't need a desktop app.
+- Nobody uses Windows Phone.
+- Mobile games don't usually make sense on an Xbox.
+- If your game runs in a browser, then you probably don't need a desktop app.
 
 ### React Native could be better than Electron for desktop applications
 
@@ -77,7 +76,6 @@ They have to package and load an entire WebKit browser.
 React Native apps are much smaller and use far less memory, because they only need a JavaScript engine.
 You can also use responsive design, so that a single codebase works on desktop, mobile, and the web. The only problem is that [react-native-macos](https://github.com/ptmt/react-native-macos)
 is unmaintained and out of date, so it would be great if a company sponsored development.
-
 
 ### You'll probably have to write some native code
 
@@ -102,10 +100,10 @@ and I often had to read the React Native source code to figure out why something
 
 Some examples:
 
-* There was a bug with the [native animation driver for Android](https://github.com/facebook/react-native/issues/13530).
-* There were crashes in the
-[react-native-sound](https://github.com/zmxv/react-native-sound) library.
-* The [Android GC seemed to be clearing some memory that shouldn't have been cleared](https://stackoverflow.com/questions/43470160/in-a-react-native-javascript-app-why-would-the-android-gc-behavior-change-if-i).
+- There was a bug with the [native animation driver for Android](https://github.com/facebook/react-native/issues/13530).
+- There were crashes in the
+  [react-native-sound](https://github.com/zmxv/react-native-sound) library.
+- The [Android GC seemed to be clearing some memory that shouldn't have been cleared](https://stackoverflow.com/questions/43470160/in-a-react-native-javascript-app-why-would-the-android-gc-behavior-change-if-i).
 
 Android was particularly unstable. Not just React Native, but Android itself.
 I didn't have too many problems with iOS.
@@ -124,69 +122,67 @@ I believe Swift is [more stable now](https://github.com/apple/swift/blob/master/
 
 I had a lot of headaches with React Native, but it wasn't as bad as Swift v1 and UIKit.
 
-
 ### Marketing is really hard
 
-* I tested Facebook ads with $50. I reached about ~7,000 people and got ~50 clicks. One person
-ended up buying the game for $2.99, so I made $2. You can't spend $50 to make $2.
+- I tested Facebook ads with $50. I reached about ~7,000 people and got ~50 clicks. One person
+  ended up buying the game for $2.99, so I made $2. You can't spend $50 to make $2.
 
-* I posted on Reddit a few times:
-  * [I posted on /r/iosgaming, which went ok](https://www.reddit.com/r/iosgaming/comments/6edh0l/free_299_to_remove_ads_sudoblock_i_made_a_new_and/)
-  * [I also tried a different tactic, which worked pretty well](https://www.reddit.com/r/ios/comments/6ecos4/after_seeing_all_your_posts_about_bug_fixes_and/)
+- I posted on Reddit a few times:
 
-* A German website
-[published an article about SudoBlock](https://www.mobiflip.de/sudoblock-ist-eine-interessante-mischung-aus-tetris-und-sudoku/).
+  - [I posted on /r/iosgaming, which went ok](https://www.reddit.com/r/iosgaming/comments/6edh0l/free_299_to_remove_ads_sudoblock_i_made_a_new_and/)
+  - [I also tried a different tactic, which worked pretty well](https://www.reddit.com/r/ios/comments/6ecos4/after_seeing_all_your_posts_about_bug_fixes_and/)
 
-* I tried to capitalize on [#covfefe](https://twitter.com/SudoBlock/status/870202842182590465),
-which didn't work at all. But I repurposed that new code into an [Emojidoku mode](https://twitter.com/SudoBlock/status/875065979679645696).
+- A German website
+  [published an article about SudoBlock](https://www.mobiflip.de/sudoblock-ist-eine-interessante-mischung-aus-tetris-und-sudoku/).
 
-* I found a game publisher who was going to handle all the marketing and split the revenue.
-They even promised to get the game featured on the App Store.
-We signed the contract and I took the apps down for a while, but the publisher fell off the radar and stopped replying to my emails.
+- I tried to capitalize on [#covfefe](https://twitter.com/SudoBlock/status/870202842182590465),
+  which didn't work at all. But I repurposed that new code into an [Emojidoku mode](https://twitter.com/SudoBlock/status/875065979679645696).
 
-* I finally got around to writing this blog post.
+- I found a game publisher who was going to handle all the marketing and split the revenue.
+  They even promised to get the game featured on the App Store.
+  We signed the contract and I took the apps down for a while, but the publisher fell off the radar and stopped replying to my emails.
 
-
+- I finally got around to writing this blog post.
 
 ### Other Notes
 
-* I switched from Sublime Text to [VS Code](https://code.visualstudio.com/) near the beginning of the project.
-VS Code is awesome. It's super fast and very customizable.
+- I switched from Sublime Text to [VS Code](https://code.visualstudio.com/) near the beginning of the project.
+  VS Code is awesome. It's super fast and very customizable.
 
-* I set up [Flow](https://flow.org/) and started using [Immutable.js](https://facebook.github.io/immutable-js/).
-I love having static type checking for JavaScript.
+- I set up [Flow](https://flow.org/) and started using [Immutable.js](https://facebook.github.io/immutable-js/).
+  I love having static type checking for JavaScript.
 
-* I used Airbnb's [eslint config](https://github.com/airbnb/javascript), and spent about a day
-fixing all the issues. Every time I saw a rule that I didn't understand, I looked it up to understand their reasoning. I read through a lot of great discussions on Github. This was a great way to learn more about
-JavaScript, and especially some of the new ES6 features.
+- I used Airbnb's [eslint config](https://github.com/airbnb/javascript), and spent about a day
+  fixing all the issues. Every time I saw a rule that I didn't understand, I looked it up to understand their reasoning. I read through a lot of great discussions on Github. This was a great way to learn more about
+  JavaScript, and especially some of the new ES6 features.
 
-* I starting doing some functional programming with [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) and [ramda](https://github.com/ramda/ramda). I had fun refactoring some code in a more functional style.
+- I starting doing some functional programming with [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) and [ramda](https://github.com/ramda/ramda). I had fun refactoring some code in a more functional style.
 
-* I really enjoyed working with [redux-saga](https://github.com/redux-saga/redux-saga), which helped me clean up a lot of messy code.
+- I really enjoyed working with [redux-saga](https://github.com/redux-saga/redux-saga), which helped me clean up a lot of messy code.
 
-* I learned a lot about Reactive programming. This post is amazing: [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754). I started playing with [RxJS](https://github.com/Reactive-Extensions/RxJS) and
-[redux-observable](https://github.com/redux-observable/redux-observable).
+- I learned a lot about Reactive programming. This post is amazing: [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754). I started playing with [RxJS](https://github.com/Reactive-Extensions/RxJS) and
+  [redux-observable](https://github.com/redux-observable/redux-observable).
 
-* I set up [CodePush](https://microsoft.github.io/code-push/), so that I could push JS changes without releasing a new version to the App Store. [The setup guide is very helpful.](https://github.com/Microsoft/react-native-code-push/blob/master/README.md)
+- I set up [CodePush](https://microsoft.github.io/code-push/), so that I could push JS changes without releasing a new version to the App Store. [The setup guide is very helpful.](https://github.com/Microsoft/react-native-code-push/blob/master/README.md)
 
-* I had to debug some memory issues on Android, and this article was really helpful: [React Native Android App Memory Investigation](https://shift.infinite.red/react-native-android-app-memory-investigation-55695625da9c)
+- I had to debug some memory issues on Android, and this article was really helpful: [React Native Android App Memory Investigation](https://shift.infinite.red/react-native-android-app-memory-investigation-55695625da9c)
 
-* I learned about the [webpack DLL plugin](https://medium.com/@soederpop/webpack-plugins-been-we-been-keepin-on-the-dll-cdfdd6cb8cd7), which made development a lot faster. You can compile everything in `node_modules` as a separate bundle. You only need to do that once, so it saves a lot of time.
+- I learned about the [webpack DLL plugin](https://medium.com/@soederpop/webpack-plugins-been-we-been-keepin-on-the-dll-cdfdd6cb8cd7), which made development a lot faster. You can compile everything in `node_modules` as a separate bundle. You only need to do that once, so it saves a lot of time.
 
-* I released a boilerplate project with my [webpack config for react-native-web](https://github.com/ndbroadbent/react-native-web-webpack).
+- I released a boilerplate project with my [webpack config for react-native-web](https://github.com/ndbroadbent/react-native-web-webpack).
 
-* I learned about the [Babel AST](https://github.com/ndbroadbent/babel-plugin-transform-react-remove-prop-types/commit/18edb329aa4fe7ebfd91af6d4b325cf9204e2ae1) while working on [an issue](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types/issues/95) in a Babel plugin, related to react-native-web.
+- I learned about the [Babel AST](https://github.com/ndbroadbent/babel-plugin-transform-react-remove-prop-types/commit/18edb329aa4fe7ebfd91af6d4b325cf9204e2ae1) while working on [an issue](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types/issues/95) in a Babel plugin, related to react-native-web.
 
-* I wrote a script that stripped unused glyphs from icon fonts, to reduce the app size.
+- I wrote a script that stripped unused glyphs from icon fonts, to reduce the app size.
 
-* I tested the app while simulating a slow network connection in Chrome. This revealed a bug where the counter started ticking before everything had finished loading.
+- I tested the app while simulating a slow network connection in Chrome. This revealed a bug where the counter started ticking before everything had finished loading.
 
-* I discovered that it takes a huge amount of effort to actually launch a game. Once I had a playable game, it was another 2 months before everything else was finished. Things like in-app purchases, ads, analytics, high scores, achievements, tutorials, app store listings, screenshots, icons, social media accounts, etc.
+- I discovered that it takes a huge amount of effort to actually launch a game. Once I had a playable game, it was another 2 months before everything else was finished. Things like in-app purchases, ads, analytics, high scores, achievements, tutorials, app store listings, screenshots, icons, social media accounts, etc.
 
 <br/>
 <br/>
 
-This was about 3 months of work, and I was in a [state of flow](https://en.wikipedia.org/wiki/Flow_(psychology)) most of the time. I learned a lot of new things, and I really enjoyed the whole process.
+This was about 3 months of work, and I was in a [state of flow](<https://en.wikipedia.org/wiki/Flow_(psychology)>) most of the time. I learned a lot of new things, and I really enjoyed the whole process.
 The game has only made about $50 so far, but I have some more ideas for grid-based games, and
 I can reuse a lot of the SudoBlock code. I'm also a freelancer, so this is the only way I can pick up new skills.
 
@@ -194,6 +190,6 @@ Thanks for reading! If you have any questions, please [leave a comment on Hacker
 
 <br/>
 
------------------------------
+---
 
-* I'm currently working on [DocSpring](https://docspring.com/), which is an API for filling out PDFs.
+- I'm currently working on [DocSpring](https://docspring.com/), which is an API for filling out PDFs.

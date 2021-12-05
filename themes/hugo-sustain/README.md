@@ -13,11 +13,11 @@
 - [Changelog](#changelog)
 - [License](#license)
 
-********************
+---
 
 ![Sustain Screen][screenshot]
 
-********************
+---
 
 <p align="center"><b><a href="https://demo.nurlan.co/hugo-sustain/">Sustain Live Demo</a></b></p>
 
@@ -26,6 +26,7 @@
 #### With `git`
 
 From the root of your Hugo site, clone the theme into `themes/hugo-sustain` by running :
+
 ```
 git clone https://github.com/nurlansu/hugo-sustain.git themes/hugo-sustain
 ```
@@ -65,7 +66,7 @@ Copy at least the `config.toml` in the root directory of your website. Overwrite
 Hugo includes a development server, so you can view your changes as you go -
 very handy. Spin it up with the following command:
 
-``` sh
+```sh
 hugo serve
 ```
 
@@ -117,8 +118,6 @@ Pull requests, bug fixes, and new features are welcome!
   <a href="./LICENSE.md"><img src="https://i.nurlan.co/logo.svg" width="100%" height="128"></a>
   <a href="./LICENSE.md"><strong>MIT</strong></a>
 </p>
-
-
 
 [logo]: https://i.nurlan.co/sustain.png
 [screenshot]: https://i.nurlan.co/sustain-screen.png

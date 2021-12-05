@@ -1,17 +1,15 @@
-Herring Cove
-============
+# Herring Cove
 
 Herring Cove is a clean and responsive [Hugo](//gohugo.io) theme based on the [Jekyll](http://jekyllrb.com) theme of the same name.
 
-
 ### Overview
 
-* Fixed Sidebar with social links
-* Minimal design 
-* Comments by Disqus
-* Social Sharing abilities 
-* Easy to configure
-* Based on Bootstrap
+- Fixed Sidebar with social links
+- Minimal design
+- Comments by Disqus
+- Social Sharing abilities
+- Easy to configure
+- Based on Bootstrap
 
 ### Screenshots
 
@@ -30,44 +28,54 @@ Herring Cove is a clean and responsive [Hugo](//gohugo.io) theme based on the [J
 [download](//github.com/spf13/herring-cove/archive/master.zip)
 
 ### License
-* [MIT](//opensource.org/licenses/MIT)
+
+- [MIT](//opensource.org/licenses/MIT)
 
 ## Author
+
 **Ravi Patel**
+
 - <https://github.com/arnp>
 
 ## Ported By
+
 **Steve Francia**
+
 - <https://github.com/spf13>
 
--------------
-Herring Cove is always a work in progress and as such, I hope to clean up the code and add features as time permits. Feel free to add your own additions. 
+---
 
-*What's with the name?*
+Herring Cove is always a work in progress and as such, I hope to clean up the code and add features as time permits. Feel free to add your own additions.
+
+_What's with the name?_
 
 [Herring Cove](//www.capecodbeachchair.com/beachguide/index.cfm?page=3&BeachID=5) is a beach on Cape Cod in Provincetown, Massachusetts. If you're in the area, be sure to check it out!
 
 ## Additional features by
+
 **Maikel Bollemeijer**
+
 - <https://github.com/mbollemeijer>
 
--------------
+---
 
 1. Profile picture parameter
 2. Links in the menus are generated through params in the config
 3. Landingpage
 
 Below an example of the yaml config
+
 ```yaml
 params:
   ProfilePicture: "pathOrUrlToImage"
   links:
-    Home : "/"
+    Home: "/"
     Blog: "/blog/"
     About: "/about/"
 ```
 
 ## Landing page
+
 If you want to enable the landing page make sure you have the following params in your config.
 
 ```yaml

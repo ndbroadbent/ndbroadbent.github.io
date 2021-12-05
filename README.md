@@ -1,6 +1,6 @@
 # madebynathan.com
 
-* Hugo version: `0.21`
+- Hugo version: `0.21`
 
 ## Development
 
