@@ -94,7 +94,7 @@ git push
 
 ---
 
-I'm very happy with this workaround. Now I'm back in business, and I can update or write new blog posts to my heart's content. This new Docker-based setup should last me for the next few decades, if not longer. I'm in no hurry to switch to anything else.
+I'm very happy with this workaround. Now I'm back in business, and I can update or write new blog posts to my heart's content. This new Docker-based setup should last me for the next few decades, if not longer. I still love how Hugo is super fast and generates my entire blog in about 6 seconds (even version `0.21`!) I'm in no hurry to switch to anything else.
 
 [^1]: A [static site generator](https://www.cloudflare.com/learning/performance/static-site-generator/) converts a folder full of Markdown files into a plain HTML/CSS website that you can host for free on [GitHub Pages](https://pages.github.com/) or [Netlify](https://www.netlify.com/).
 [^2]: I think it's generally much easier to get older Linux packages running, especially when it's a single Go binary with no dependencies. I wish it was this easy on Mac!
