@@ -1,0 +1,36 @@
+#!/bin/bash
+set -euo pipefail
+
+# https://stackoverflow.com/a/67149569/304706
+function kebab_case() {
+  echo -n "$1" |\
+  sed 's/\([^A-Z+]\)\([A-Z0-9]\)/\1-\2/g' |\
+  sed 's/\([0-9]\)\([A-Z]\)/\1-\2/g' |\
+  sed 's/\([A-Z]\)\([0-9]\)/\1-\2/g' |\
+  sed 's/--/-/g' |\
+  sed 's/\([\/]\)-/\1/g' |\
+  tr '[:upper:]' '[:lower:]'
+}
+
+# Param: $1 - title
+# Runs: ./hugo new posts/yyyy-mm-dd-<title kebab case>.md
+function new_post() {
+  local title="$1"
+  local date="$(date +%Y-%m-%d)"
+  local slug="$(kebab_case "$title")"
+  local path="$date-$slug.md"
+  local full_path="$(pwd)/content/posts/$path"
+
+  if [ -f "$full_path" ]; then
+    echo "File already exists: $full_path"
+    return 1
+  fi
+
+  echo "Creating new post: $full_path"
+  ./hugo new posts/$path
+  
+  # Open the post in the editor
+  open "$full_path"
+}
+
+new_post "$@"

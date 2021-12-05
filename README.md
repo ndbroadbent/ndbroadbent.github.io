@@ -14,7 +14,17 @@ I switched to using Docker so that I can easily run an older version of hugo and
 
 Run `docker load -i hugo-alpine.tar.gz`. This will load the `hugo` image into Docker.
 
+### Development Server
+
 Run `./dev`. You will now be able to access the blog development server at `localhost:1313` (with live reloading.)
+
+### Hugo commands
+
+Run `./hugo ...`. This runs the hugo binary inside a Docker container.
+
+### New Post
+
+Run `./new_post <TITLE>`. This runs `hugo new posts/yyyy-mm-dd-<title>`.
 
 ### Building new Docker image
 
