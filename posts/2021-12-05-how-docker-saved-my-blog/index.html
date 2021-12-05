@@ -127,7 +127,7 @@ echo &quot;Saving image to hugo-alpine.tar.gz&quot;
 docker save hugo-alpine &gt; hugo-alpine.tar.gz
 </code></pre>
 
-<p>If I&rsquo;m on a new computer, I can just run <code>docker load -i hugo-alpine.tar.gz</code> to load the <code>hugo-alpine</code> image into Docker. The nice thing is that this image is completely portable, and I can run it on Mac, Windows, or Linux. I just need to trust that Docker will continue to exist in the future, and that I&rsquo;ll always be able to run this kind of Docker image. I&rsquo;m pretty sure that Docker is going to be around for a long time.</p>
+<p>If I&rsquo;m on a new computer, I can just run <code>docker load -i hugo-alpine.tar.gz</code> to load the <code>hugo-alpine</code> image into Docker.</p>
 
 <p>I have a <code>dev</code> script that starts the <code>hugo</code> server and makes it available on port <code>1313</code>:</p>
 
