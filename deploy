@@ -1,6 +1,5 @@
 #!/bin/bash
-echo "Pushing source..."
-git push
+set -euo pipefail
 
 if [ ! -d public/.git ]; then
   rm -rf public
@@ -15,4 +14,8 @@ cd public
 git add -A
 git commit -m "$(date)"
 echo "Pushing build..."
+git push
+
+cd ..
+echo "Pushing source..."
 git push

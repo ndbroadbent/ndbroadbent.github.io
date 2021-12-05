@@ -1,2 +1,4 @@
 #!/bin/bash
+set -euo pipefail
+
 docker run --rm -v "${PWD}:/src" hugo-alpine hugo
