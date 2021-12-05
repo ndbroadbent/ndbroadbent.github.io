@@ -2,7 +2,7 @@
 categories = []
 date = "2021-12-05T02:15:59Z"
 description = ""
-tags = ["docker", "hugo"]
+tags = ["docker", "hugo", "scripts"]
 title = "How Docker Saved My Blog"
 +++
 
