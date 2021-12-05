@@ -23,3 +23,27 @@ Run `./build_docker`. This will build the `Dockerfile` and save the new image to
 ### Deploying
 
 Run `./deploy`. This will build the blog and commit to the `master` branch, then push the changes.
+
+# Submodules
+
+I removed the submodules and just checked in all the files.
+
+Original `.gitmodules`:
+
+```
+[submodule "themes/herring-cove"]
+	path = themes/herring-cove
+	url = https://github.com/spf13/herring-cove.git
+[submodule "themes/hugo-sustain"]
+	path = themes/hugo-sustain
+	url = https://github.com/nurlansu/hugo-sustain.git
+```
+
+Original commits:
+
+```
+$ git submodule init
+$ git submodule update
+Submodule path 'themes/herring-cove': checked out '4d435ffe4b0015d98a76370539e61e2944160d7f'
+Submodule path 'themes/hugo-sustain': checked out 'd88e0927e2b0d7d7e2a12690960e2e3fed72f5dd'
+```
