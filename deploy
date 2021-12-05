@@ -8,7 +8,8 @@ if [ ! -d public/.git ]; then
   git clone "${REMOTE}" public
 fi
 
-hugo
+docker run --rm -v "${PWD}:/src" -p 1313:1313 hugo-alpine hugo
+
 cd public
 git add -A
 git commit -m "$(date)"
