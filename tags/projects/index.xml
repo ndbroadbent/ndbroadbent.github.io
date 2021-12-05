@@ -86,7 +86,8 @@ So when I walk out the door, I know whether or not I should take an umbrella to 
       <guid>https://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</guid>
       <description>https://github.com/ndbroadbent/ios_flat_10c
 This is the little app I wrote to control my apartment. Its not going to be much use to anyone by itself, but as it says on the github page:
-You could use this as a demo app to help you learn about:  InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
+You could use this as a demo app to help you learn about:
+ InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
     </item>
     
     <item>

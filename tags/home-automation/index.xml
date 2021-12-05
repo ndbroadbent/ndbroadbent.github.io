@@ -28,7 +28,7 @@ I thought this was a pretty cool idea, and that it would be a fun project for a 
       
       <guid>https://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</guid>
       <description>I wanted the LCD screen on my apartment door to display a message on certain days, such as birthdays, Christmas, and Easter. I didn&amp;rsquo;t realize how hard it was to calculate which day Easter Sunday is&amp;hellip;
-def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)*(29/(i+1))*((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
+def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)_(29/(i+1))_((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
     </item>
     
     <item>
@@ -52,7 +52,8 @@ So when I walk out the door, I know whether or not I should take an umbrella to 
       <guid>https://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</guid>
       <description>https://github.com/ndbroadbent/ios_flat_10c
 This is the little app I wrote to control my apartment. Its not going to be much use to anyone by itself, but as it says on the github page:
-You could use this as a demo app to help you learn about:  InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
+You could use this as a demo app to help you learn about:
+ InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
     </item>
     
     <item>

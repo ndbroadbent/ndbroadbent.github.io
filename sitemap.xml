@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://madebynathan.com/posts/2021-12-05-how-docker-saved-my-blog/</loc>
+    <lastmod>2021-12-05T02:15:59+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/</loc>
     <lastmod>2018-02-12T01:34:40+07:00</lastmod>
   </url>
@@ -425,6 +430,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/docker/</loc>
+    <lastmod>2021-12-05T02:15:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/electronics/</loc>
     <lastmod>2013-07-10T23:51:47+00:00</lastmod>
     <priority>0</priority>
@@ -503,6 +514,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/hugo/</loc>
+    <lastmod>2021-12-05T02:15:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/ios/</loc>
     <lastmod>2011-02-10T01:28:28+00:00</lastmod>
     <priority>0</priority>
@@ -558,7 +575,7 @@
   
   <url>
     <loc>https://madebynathan.com/</loc>
-    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
+    <lastmod>2021-12-05T02:15:59+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -594,7 +611,7 @@
   
   <url>
     <loc>https://madebynathan.com/posts/</loc>
-    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
+    <lastmod>2021-12-05T02:15:59+00:00</lastmod>
     <priority>0</priority>
   </url>
   

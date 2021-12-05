@@ -85,31 +85,39 @@ ga('send', 'pageview');
 <p>Save the following script somewhere in your PATH (e.g. <code>/bin/color_index</code>), <br/>and make it executable. (<code>chmod +x /bin/color_index</code>)</p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500">#!/bin/bash</span>
+
 <span style="color: #177500"># Bash Colors Index</span>
+
 <span style="color: #177500"># Shows an index of all available bash colors</span>
+
 <span style="color: #177500"># ------------------------------------------------</span>
-<span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;\n              Usage: \\\e[*;**(;**)m&quot;</span>
-<span style="color: #A90D91">echo</span> -e   <span style="color: #C41A16">&quot;            Default: \\\e[0m&quot;</span>
-<span style="color: #000000">blank_line=</span><span style="color: #C41A16">&quot;\e[0m\n     \e[0;30;40m</span><span style="color: #A90D91">$(printf</span> <span style="color: #C41A16">&quot;%41s&quot;</span><span style="color: #A90D91">)</span><span style="color: #C41A16">\e[0m&quot;</span>
+
+<span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;\n Usage: \\\e[\*;**(;**)m&quot;</span>
+<span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot; Default: \\\e[0m&quot;</span>
+<span style="color: #000000">blank_line=</span><span style="color: #C41A16">&quot;\e[0m\n \e[0;30;40m</span><span style="color: #A90D91">$(printf</span> <span style="color: #C41A16">&quot;%41s&quot;</span><span style="color: #A90D91">)</span><span style="color: #C41A16">\e[0m&quot;</span>
 <span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$blank_line</span><span style="color: #C41A16">&quot;</span> <span style="color: #177500"># Top border</span>
 <span style="color: #A90D91">for</span> style in <span style="color: #1C01CE">2</span> <span style="color: #1C01CE">0</span> <span style="color: #1C01CE">1</span> <span style="color: #1C01CE">4</span> <span style="color: #1C01CE">9</span>; <span style="color: #A90D91">do</span>
-  <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;     \e[0;30;40m &quot;</span>
-  <span style="color: #177500"># Display black fg on white bg</span>
-  <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;\e[${</span><span style="color: #000000">style</span><span style="color: #C41A16">};30;47m${</span><span style="color: #000000">style</span><span style="color: #C41A16">};30\e[0;30;40m &quot;</span>
-  <span style="color: #A90D91">for</span> foreground in <span style="color: #A90D91">$(</span>seq <span style="color: #1C01CE">31</span> <span style="color: #1C01CE">37</span><span style="color: #A90D91">)</span>; <span style="color: #A90D91">do</span>
+<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot; \e[0;30;40m &quot;</span>
+
+<span style="color: #177500"># Display black fg on white bg</span>
+
+<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;\e[${</span><span style="color: #000000">style</span><span style="color: #C41A16">};30;47m${</span><span style="color: #000000">style</span><span style="color: #C41A16">};30\e[0;30;40m &quot;</span>
+<span style="color: #A90D91">for</span> foreground in <span style="color: #A90D91">$(</span>seq <span style="color: #1C01CE">31</span> <span style="color: #1C01CE">37</span><span style="color: #A90D91">)</span>; <span style="color: #A90D91">do</span>
       <span style="color: #000000">ctrl=</span><span style="color: #C41A16">&quot;\e[${</span><span style="color: #000000">style</span><span style="color: #C41A16">};${</span><span style="color: #000000">foreground</span><span style="color: #C41A16">};40m&quot;</span>
       <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">ctrl</span><span style="color: #C41A16">}&quot;</span>
-      <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">style</span><span style="color: #C41A16">};${</span><span style="color: #000000">foreground</span><span style="color: #C41A16">}\e[0;30;40m &quot;</span>
-  <span style="color: #A90D91">done</span>
-  <span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$blank_line</span><span style="color: #C41A16">&quot;</span> <span style="color: #177500"># Separators</span>
+<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">style</span><span style="color: #C41A16">};${</span><span style="color: #000000">foreground</span><span style="color: #C41A16">}\e[0;30;40m &quot;</span>
 <span style="color: #A90D91">done</span>
-<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;     \e[0;30;40m &quot;</span>
+<span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$blank_line</span><span style="color: #C41A16">&quot;</span> <span style="color: #177500"># Separators</span>
+<span style="color: #A90D91">done</span>
+<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot; \e[0;30;40m &quot;</span>
+
 <span style="color: #177500"># Background colors</span>
+
 <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;\e[0;37;40m*;40\e[0;30;40m \e[0m&quot;</span> <span style="color: #177500"># Display white fg on black bg</span>
 <span style="color: #A90D91">for</span> background in <span style="color: #A90D91">$(</span>seq <span style="color: #1C01CE">41</span> <span style="color: #1C01CE">47</span><span style="color: #A90D91">)</span>; <span style="color: #A90D91">do</span>
     <span style="color: #000000">ctrl=</span><span style="color: #C41A16">&quot;\e[0;30;${</span><span style="color: #000000">background</span><span style="color: #C41A16">}m&quot;</span>
-    <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">ctrl</span><span style="color: #C41A16">}&quot;</span>
-    <span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;*;${</span><span style="color: #000000">background</span><span style="color: #C41A16">}\e[0;30;40m &quot;</span>
+<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;${</span><span style="color: #000000">ctrl</span><span style="color: #C41A16">}&quot;</span>
+<span style="color: #A90D91">echo</span> -en <span style="color: #C41A16">&quot;*;${</span><span style="color: #000000">background</span><span style="color: #C41A16">}\e[0;30;40m &quot;</span>
 <span style="color: #A90D91">done</span>
 <span style="color: #A90D91">echo</span> -e <span style="color: #C41A16">&quot;</span><span style="color: #000000">$blank_line</span><span style="color: #C41A16">&quot;</span> <span style="color: #C41A16">&quot;\n&quot;</span> <span style="color: #177500"># Bottom border</span>
 </pre></div>

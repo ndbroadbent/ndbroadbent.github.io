@@ -98,9 +98,11 @@ with some help from the <a href="https://about.travis-ci.org/docs/user/database-
 <p>We add the databases to our build matrix by setting ENV variables. Add the following lines to your <code>.travis.yml</code>:</p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #C41A16">env</span>:
-  <span style="color: #000000">-</span> <span style="color: #000000">DB=mysql</span>
-  <span style="color: #000000">-</span> <span style="color: #000000">DB=postgres</span>
-  <span style="color: #000000">-</span> <span style="color: #000000">DB=sqlite</span>
+
+<span style="color: #000000">-</span> <span style="color: #000000">DB=mysql</span>
+<span style="color: #000000">-</span> <span style="color: #000000">DB=postgres</span>
+<span style="color: #000000">-</span> <span style="color: #000000">DB=sqlite</span>
+  
 </pre></div>
 
 
@@ -135,13 +137,16 @@ prevents any other database gems from being loaded, and then loads the &lsquo;re
 <span style="color: #A90D91">when</span> <span style="color: #C41A16">&quot;postgres&quot;</span>; <span style="color: #000000">gem</span> <span style="color: #C41A16">&quot;pg&quot;</span>, <span style="color: #C41A16">&quot;&gt;= 0.9.0&quot;</span>
 <span style="color: #A90D91">end</span>
 
-<span style="color: #A90D91">def</span> <span style="color: #000000">gem</span>(<span style="color: #000000">*args</span>)
-  <span style="color: #177500"># Override &#39;gem&#39; method to block any other database gems in the &#39;real&#39; Gemfile</span>
-  <span style="color: #A90D91">super</span> <span style="color: #A90D91">unless</span> <span style="color: #C41A16">%w(pg sqlite3 mysql2)</span><span style="color: #000000">.include?</span>(<span style="color: #000000">args.first</span>)
+<span style="color: #A90D91">def</span> <span style="color: #000000">gem</span>(\<span style="color: #000000">*args</span>)
+
+<span style="color: #177500"># Override &#39;gem&#39; method to block any other database gems in the &#39;real&#39; Gemfile</span>
+
+<span style="color: #A90D91">super</span> <span style="color: #A90D91">unless</span> <span style="color: #C41A16">%w(pg sqlite3 mysql2)</span><span style="color: #000000">.include?</span>(<span style="color: #000000">args.first</span>)
 <span style="color: #A90D91">end</span>
 
 <span style="color: #177500"># Eval Gemfile</span>
-<span style="color: #A90D91">eval</span>(<span style="color: #000000">IO.read</span>(<span style="color: #000000">File.join</span>(<span style="color: #000000">File.dirname</span>(<span style="color: #5B269A">__FILE__</span>), <span style="color: #C41A16">&#39;Gemfile&#39;</span>)), <span style="color: #A90D91">binding</span>)
+
+<span style="color: #A90D91">eval</span>(<span style="color: #000000">IO.read</span>(<span style="color: #000000">File.join</span>(<span style="color: #000000">File.dirname</span>(<span style="color: #000000">**FILE**</span>), <span style="color: #C41A16">&#39;Gemfile&#39;</span>)), <span style="color: #A90D91">binding</span>)
 </pre></div>
 
 
@@ -154,7 +159,7 @@ After a serious headache, I figured out that we hadn&rsquo;t updated <code>confi
 to the latest version after our upgrade.
 This new <code>boot.rb</code> had a very subtle difference, and contained the following line:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;BUNDLE_GEMFILE&#39;</span><span style="color: #000000">]</span> <span style="color: #000000">||=</span> <span style="color: #000000">File.expand_path</span>(<span style="color: #C41A16">&#39;../../Gemfile&#39;</span>, <span style="color: #5B269A">__FILE__</span>)
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;BUNDLE_GEMFILE&#39;</span><span style="color: #000000">]</span> <span style="color: #000000">||=</span> <span style="color: #000000">File.expand_path</span>(<span style="color: #C41A16">&#39;../../Gemfile&#39;</span>, <span style="color: #000000">**FILE**</span>)
 </pre></div>
 
 

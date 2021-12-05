@@ -104,7 +104,7 @@ so here&rsquo;s a Bash/Zsh script that will print all of your contributor emails
   <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;-------------------------------------------------------&quot;</span>
   <span style="color: #000000">grouped_emails=(</span> <span style="color: #C41A16">${</span><span style="color: #000000">emails</span>[@]:<span style="color: #A90D91">$((</span> <span style="color: #000000">$i</span> <span style="color: #000000">*</span> <span style="color: #1C01CE">10</span> <span style="color: #A90D91">))</span>:<span style="color: #000000">10</span><span style="color: #C41A16">}</span> <span style="color: #000000">)</span>
   <span style="color: #A90D91">printf</span> <span style="color: #C41A16">&quot;%s, &quot;</span> <span style="color: #C41A16">&quot;${</span><span style="color: #000000">grouped_emails</span>[@]<span style="color: #C41A16">}&quot;</span> | cut -d <span style="color: #C41A16">&quot;,&quot;</span> -f <span style="color: #1C01CE">1</span>-<span style="color: #C41A16">${#</span><span style="color: #000000">grouped_emails</span>[@]<span style="color: #C41A16">}</span>
-  <span style="color: #A90D91">echo</span>
+<span style="color: #A90D91">echo</span>
 <span style="color: #A90D91">done</span>
 </pre></div>
 

@@ -39,7 +39,7 @@ In the meantime, I was dissapointed that I couldn&amp;rsquo;t see which song was
       <pubDate>Thu, 06 May 2010 15:33:06 +0000</pubDate>
       
       <guid>https://madebynathan.com/2010/05/06/obscure-jqgrid-api-notes/</guid>
-      <description>If you are using an older version of jqGrid because it comes nicely wrapped up in the jquery-grid-rails-plugin, keep in mind that all the demo code is written with the new API introduced in version 3.6. Fortunately, most of the demo code can still be reused with our version of jqGrid (3.5). Just get rid of any &amp;ldquo;jqGrid(&amp;rsquo; ****** &amp;lsquo;)&amp;rdquo; function wrappers, and everything should work fine. (I find this easier to do than rewriting the rails plugin for the new version)</description>
+      <description>If you are using an older version of jqGrid because it comes nicely wrapped up in the jquery-grid-rails-plugin, keep in mind that all the demo code is written with the new API introduced in version 3.6. Fortunately, most of the demo code can still be reused with our version of jqGrid (3.5). Just get rid of any &amp;ldquo;jqGrid(&amp;rsquo; ** &amp;lsquo;)&amp;rdquo; function wrappers, and everything should work fine. (I find this easier to do than rewriting the rails plugin for the new version)</description>
     </item>
     
   </channel>

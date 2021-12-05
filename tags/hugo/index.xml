@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Made by Nathan</title>
+    <link>https://madebynathan.com/tags/hugo/</link>
+    <description>Recent content in Hugo on Made by Nathan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 05 Dec 2021 02:15:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://madebynathan.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How Docker Saved My Blog</title>
+      <link>https://madebynathan.com/posts/2021-12-05-how-docker-saved-my-blog/</link>
+      <pubDate>Sun, 05 Dec 2021 02:15:59 +0000</pubDate>
+      
+      <guid>https://madebynathan.com/posts/2021-12-05-how-docker-saved-my-blog/</guid>
+      <description>I haven&amp;rsquo;t written any blog posts for a while. One reason is that I&amp;rsquo;ve been hard at work on DocSpring for the last few years, and I haven&amp;rsquo;t had a lot of time to work on personal projects. But the main reason is that my blog uses an older version of Hugo, which is a &amp;ldquo;static site generator&amp;rdquo; 1.
+I switched from Jekyll to Hugo in 2017, and the current version of Hugo at the time was 0.</description>
+    </item>
+    
+  </channel>
+</rss>

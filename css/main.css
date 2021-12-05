@@ -1,8 +1,9 @@
 /* Main page with stikky-footer */
-html, body {
+html,
+body {
   /*height: 100%;*/
   background-color: #fff;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   /* The html and body elements cannot have any padding or margin. */
   /*border-top: 3px solid #27A822;*/
 }
@@ -14,8 +15,10 @@ ul li {
   margin-bottom: 5px;
 }
 
-.h3, h3 {
+.h3,
+h3 {
   font-size: 23px;
+  line-height: 37px;
 }
 
 .post-date {
@@ -101,10 +104,12 @@ section#recent-posts {
 .navbar-static-top {
   margin-bottom: 10px;
 }
-.navbar-default a.active, .navbar-default .navbar-nav > li > a.active {
+.navbar-default a.active,
+.navbar-default .navbar-nav > li > a.active {
   color: black;
 }
-.navbar-default a.active:hover, .navbar-default .navbar-nav > li > a:hover {
+.navbar-default a.active:hover,
+.navbar-default .navbar-nav > li > a:hover {
   color: #777;
 }
 
@@ -125,7 +130,8 @@ section#recent-posts {
   margin-left: 20px;
 }
 
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
   color: #111;
 }
 .navbar-default .navbar-text {
@@ -134,21 +140,27 @@ section#recent-posts {
 .navbar-default .navbar-nav > li > a {
   color: #999;
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
   color: #111;
 }
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
   color: #6b6b6b;
   background-color: #ffffff;
 }
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
   color: #6b6b6b;
   background-color: #ffffff;
 }
 .navbar-default .navbar-toggle {
   border-color: #ffffff;
 }
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
   background-color: #ffffff;
 }
 .navbar-default .navbar-toggle .icon-bar {
@@ -168,10 +180,13 @@ section#recent-posts {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #6b6b6b;
   }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #6b6b6b;
   }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #6b6b6b;
     background-color: #ffffff;
   }
@@ -187,15 +202,15 @@ section#recent-posts {
   margin: 20px 0;
 }
 .container a {
-  color: #27A822;
+  color: #27a822;
 }
 .container a:hover {
   color: #267723;
 }
 .img-responsive {
- display: block;
- height: auto;
- max-width: 100%;
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 .panel-default h4 {
   text-align: left;
@@ -210,10 +225,12 @@ section#recent-posts {
 .panel-default h6 {
   font-size: 15px;
 }
-.panel-default h4 a, h5 a {
-  color: #27A822;
+.panel-default h4 a,
+h5 a {
+  color: #27a822;
 }
-.panel-default h4 a:hover, h5 a:hover {
+.panel-default h4 a:hover,
+h5 a:hover {
   color: #267723;
 }
 .panel {
@@ -291,13 +308,14 @@ img.lost-gif {
 .disqus {
   padding-bottom: 75px;
 }
-.blogpost{
+.blogpost {
   text-align: left;
   line-height: 30px;
   font-size: 18px;
 }
 
-.blogpost h3, .blogpost h2 {
+.blogpost h3,
+.blogpost h2 {
   margin-top: 36px;
   margin-bottom: 14px;
 }
@@ -307,9 +325,9 @@ img.lost-gif {
   text-decoration: none !important;
 }
 .text-muted {
-	color: #6b6b6b;
+  color: #6b6b6b;
 }
-div.footer{
+div.footer {
   /*border-bottom: 5px solid #27A822;*/
 }
 /* Set the fixed height of the footer here */
@@ -319,7 +337,7 @@ div.footer{
 
 }*/
 
-
 img.lightbox.thumb {
   margin: 14px;
+  max-width: 100%;
 }

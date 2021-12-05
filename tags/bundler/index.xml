@@ -30,7 +30,7 @@ Here&amp;rsquo;s a simple function that handles this automatically, called bundl
       <guid>https://madebynathan.com/2011/09/03/dont-use-bundle-install-gem/</guid>
       <description>Maybe you want to update haml to the latest version. You tried to run bundle install haml, but now some really weird stuff is happening. Bundler decided to install all of your gems from scratch into a ./haml folder. Even when you try bundle update haml, the gems are still going into the ./haml folder! What&amp;rsquo;s going on?
 bundle install haml is totally different from bundle update haml.
-What bundle install haml does:  Installs all of your gems into a &amp;lsquo;haml&amp;rsquo; folder.</description>
+What bundle install haml does:</description>
     </item>
     
     <item>
@@ -49,7 +49,8 @@ Enter RVM hooks! If you want a symlink to the current gem directory to be update
       <pubDate>Sat, 22 Jan 2011 06:39:39 +0000</pubDate>
       
       <guid>https://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</guid>
-      <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.  Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
+      <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.
+ Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
     </item>
     
     <item>

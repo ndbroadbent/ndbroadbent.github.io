@@ -84,15 +84,17 @@ ga('send', 'pageview');
 
 <p>But if you really don&rsquo;t want your plugin to be a gem, for whatever reason, then read on&hellip;</p>
 
-<p>If we are developing a Spree extension, or a Retrospectiva extension, or a Fat Free CRM plugin, we might sometimes need a way to require the gems in multiple Gemfiles, but Bundler doesn&rsquo;t cater for this. The best solution I came up with is this:
+<p>If we are developing a Spree extension, or a Retrospectiva extension, or a Fat Free CRM plugin, we might sometimes need a way to require the gems in multiple Gemfiles, but Bundler doesn&rsquo;t cater for this. The best solution I came up with is this:</p>
+
 <ol>
     <li>Add a <strong>Gemfile</strong> file to the root of your plugin or extension, and specify the gems you need in the normal way.</li>
     <li>Add the following code to the bottom of your root Gemfile (in your main Rails app):</li>
-</ol></p>
+</ol>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #177500"># Install gems from each plugin</span>
-<span style="color: #000000">Dir.glob</span>(<span style="color: #000000">File.join</span>(<span style="color: #000000">File.dirname</span>(<span style="color: #5B269A">__FILE__</span>), <span style="color: #C41A16">&#39;vendor&#39;</span>, <span style="color: #C41A16">&#39;plugins&#39;</span>, <span style="color: #C41A16">&#39;**&#39;</span>, <span style="color: #C41A16">&quot;Gemfile&quot;</span>)) <span style="color: #A90D91">do</span> <span style="color: #000000">|gemfile|</span>
-    <span style="color: #A90D91">eval</span>(<span style="color: #000000">IO.read</span>(<span style="color: #000000">gemfile</span>), <span style="color: #A90D91">binding</span>)
+
+<span style="color: #000000">Dir.glob</span>(<span style="color: #000000">File.join</span>(<span style="color: #000000">File.dirname</span>(<span style="color: #000000">**FILE**</span>), <span style="color: #C41A16">&#39;vendor&#39;</span>, <span style="color: #C41A16">&#39;plugins&#39;</span>, <span style="color: #C41A16">&#39;\*\*&#39;</span>, <span style="color: #C41A16">&quot;Gemfile&quot;</span>)) <span style="color: #A90D91">do</span> <span style="color: #000000">|gemfile|</span>
+<span style="color: #A90D91">eval</span>(<span style="color: #000000">IO.read</span>(<span style="color: #000000">gemfile</span>), <span style="color: #A90D91">binding</span>)
 <span style="color: #A90D91">end</span>
 </pre></div>
 

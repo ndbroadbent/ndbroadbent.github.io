@@ -100,7 +100,7 @@ job <span style="color: #1C01CE">6</span> at <span style="color: #1C01CE">2012</
 <p>Use <code>atq</code> or <code>at -l</code> to see the list of pending jobs:</p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ atq
-<span style="color: #1C01CE">6</span>	<span style="color: #1C01CE">2012</span>-02-26 <span style="color: #1C01CE">00</span>:00 a root
+<span style="color: #1C01CE">6</span> <span style="color: #1C01CE">2012</span>-02-26 <span style="color: #1C01CE">00</span>:00 a root
 </pre></div>
 
 
@@ -109,8 +109,11 @@ job <span style="color: #1C01CE">6</span> at <span style="color: #1C01CE">2012</
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ at -c <span style="color: #1C01CE">6</span>
 
 <span style="color: #177500">#!/bin/sh</span>
+
 <span style="color: #177500"># atrun uid=0 gid=0</span>
-<span style="color: #177500"># mail     root 1</span>
+
+<span style="color: #177500"># mail root 1</span>
+
 <span style="color: #A90D91">umask</span> <span style="color: #1C01CE">22</span>
 <span style="color: #000000">HOSTNAME=</span>...
 &lt;lots of environment variables <span style="color: #A90D91">set</span> here&gt;

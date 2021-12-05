@@ -6,10 +6,20 @@
     <description>Recent content on Made by Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 12 Feb 2018 01:34:40 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 05 Dec 2021 02:15:59 +0000</lastBuildDate>
     
 	<atom:link href="https://madebynathan.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How Docker Saved My Blog</title>
+      <link>https://madebynathan.com/posts/2021-12-05-how-docker-saved-my-blog/</link>
+      <pubDate>Sun, 05 Dec 2021 02:15:59 +0000</pubDate>
+      
+      <guid>https://madebynathan.com/posts/2021-12-05-how-docker-saved-my-blog/</guid>
+      <description>I haven&amp;rsquo;t written any blog posts for a while. One reason is that I&amp;rsquo;ve been hard at work on DocSpring for the last few years, and I haven&amp;rsquo;t had a lot of time to work on personal projects. But the main reason is that my blog uses an older version of Hugo, which is a &amp;ldquo;static site generator&amp;rdquo; 1.
+I switched from Jekyll to Hugo in 2017, and the current version of Hugo at the time was 0.</description>
+    </item>
     
     <item>
       <title>What I Learned While Making a Game With React Native</title>
@@ -207,7 +217,7 @@ So here&amp;rsquo;s a wrapper function that makes it less of a hassle to integra
       <guid>https://madebynathan.com/2011/09/03/dont-use-bundle-install-gem/</guid>
       <description>Maybe you want to update haml to the latest version. You tried to run bundle install haml, but now some really weird stuff is happening. Bundler decided to install all of your gems from scratch into a ./haml folder. Even when you try bundle update haml, the gems are still going into the ./haml folder! What&amp;rsquo;s going on?
 bundle install haml is totally different from bundle update haml.
-What bundle install haml does:  Installs all of your gems into a &amp;lsquo;haml&amp;rsquo; folder.</description>
+What bundle install haml does:</description>
     </item>
     
     <item>
@@ -228,7 +238,7 @@ At the end of every line, there was an invisible &#39;reset&#39; color code, and
       <guid>https://madebynathan.com/2011/08/16/bash-color-index/</guid>
       <description>Sometimes it&amp;rsquo;s nice to add color output to your bash scripts. Here&amp;rsquo;s a small &amp;lsquo;color index&amp;rsquo; reference script for your .bashrc, for when you want to add a bit of color to your scripts.
 Save the following script somewhere in your PATH (e.g. /bin/color_index), and make it executable. (chmod +x /bin/color_index)
-#!/bin/bash # Bash Colors Index # Shows an index of all available bash colors # ------------------------------------------------ echo -e &amp;quot;\n Usage: \\\e[*;**(;**)m&amp;quot; echo -e &amp;quot; Default: \\\e[0m&amp;quot; blank_line=&amp;quot;\e[0m\n \e[0;30;40m$(printf &amp;quot;%41s&amp;quot;)\e[0m&amp;quot; echo -e &amp;quot;$blank_line&amp;quot; # Top border for style in 2 0 1 4 9; do echo -en &amp;quot; \e[0;30;40m &amp;quot; # Display black fg on white bg echo -en &amp;quot;\e[${style};30;47m${style};30\e[0;30;40m &amp;quot; for foreground in $(seq 31 37); do ctrl=&amp;quot;\e[${style};${foreground};40m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;${style};${foreground}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; # Separators done echo -en &amp;quot; \e[0;30;40m &amp;quot; # Background colors echo -en &amp;quot;\e[0;37;40m*;40\e[0;30;40m \e[0m&amp;quot; # Display white fg on black bg for background in $(seq 41 47); do ctrl=&amp;quot;\e[0;30;${background}m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;*;${background}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; &amp;quot;\n&amp;quot; # Bottom border  Running &amp;lsquo;color_index&amp;rsquo; will display something like this:</description>
+#!/bin/bash # Bash Colors Index # Shows an index of all available bash colors # ------------------------------------------------ echo -e &amp;quot;\n Usage: \\\e[\*;**(;**)m&amp;quot; echo -e &amp;quot; Default: \\\e[0m&amp;quot; blank_line=&amp;quot;\e[0m\n \e[0;30;40m$(printf &amp;quot;%41s&amp;quot;)\e[0m&amp;quot; echo -e &amp;quot;$blank_line&amp;quot; # Top border for style in 2 0 1 4 9; do echo -en &amp;quot; \e[0;30;40m &amp;quot; # Display black fg on white bg echo -en &amp;quot;\e[${style};30;47m${style};30\e[0;30;40m &amp;quot; for foreground in $(seq 31 37); do ctrl=&amp;quot;\e[${style};${foreground};40m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;${style};${foreground}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; # Separators done echo -en &amp;quot; \e[0;30;40m &amp;quot; # Background colors echo -en &amp;quot;\e[0;37;40m*;40\e[0;30;40m \e[0m&amp;quot; # Display white fg on black bg for background in $(seq 41 47); do ctrl=&amp;quot;\e[0;30;${background}m&amp;quot; echo -en &amp;quot;${ctrl}&amp;quot; echo -en &amp;quot;*;${background}\e[0;30;40m &amp;quot; done echo -e &amp;quot;$blank_line&amp;quot; &amp;quot;\n&amp;quot; # Bottom border  Running &amp;lsquo;color_index&amp;rsquo; will display something like this:</description>
     </item>
     
     <item>
@@ -281,7 +291,7 @@ It can sync avatars in the following directions:
       
       <guid>https://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</guid>
       <description>I wanted the LCD screen on my apartment door to display a message on certain days, such as birthdays, Christmas, and Easter. I didn&amp;rsquo;t realize how hard it was to calculate which day Easter Sunday is&amp;hellip;
-def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)*(29/(i+1))*((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
+def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)_(29/(i+1))_((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
     </item>
     
     <item>
@@ -333,7 +343,7 @@ If you have a very simple rake task that is called very often, you might want to
       
       <guid>https://madebynathan.com/2011/02/10/new-cydia-themes-sounds/</guid>
       <description>Custom sounds for iPhone mail tone and keypad I&amp;rsquo;ve released a few small packages to the modmyi cydia repo. You can find them by searching for them by name: 
-Message For Me – IT Crowd Mail Tone Replaces the &amp;lsquo;new email&amp;rsquo; sound with a clip of Moss saying &amp;ldquo;Message for me!&amp;rdquo; Overall Downloads:  Piano DTMF Tones Replaces the keypad sounds in the &amp;lsquo;phone&amp;rsquo; app with piano notes. Overall Downloads:  Plants Vs Zombies - Coin SMS Tone Plants Vs Zombies Coin SMS Tone Overall Downloads:  Crash Bandicoot Sounds Replaces iPhone sounds with sounds from the game &amp;ldquo;Crash Bandicoot&amp;rdquo; on Playstation 1  SMS Tone - &amp;lsquo;Ka-ching&amp;rsquo; New Mail Tone - &amp;lsquo;Ooogabooga&amp;rsquo; Sent mail - &amp;lsquo;Spinning noise&amp;rsquo; Plug in to power source - &amp;lsquo;Wumpa fruit&amp;rsquo; Error/low power - &amp;lsquo;TNT&amp;rsquo;  Overall Downloads:</description>
+Message For Me – IT Crowd Mail Tone Replaces the &amp;lsquo;new email&amp;rsquo; sound with a clip of Moss saying &amp;ldquo;Message for me!&amp;rdquo; Overall Downloads:  Piano DTMF Tones Replaces the keypad sounds in the &amp;lsquo;phone&amp;rsquo; app with piano notes. Overall Downloads:  Plants Vs Zombies - Coin SMS Tone Plants Vs Zombies Coin SMS Tone Overall Downloads:  Crash Bandicoot Sounds Replaces iPhone sounds with sounds from the game &amp;ldquo;Crash Bandicoot&amp;rdquo; on Playstation 1</description>
     </item>
     
     <item>
@@ -352,7 +362,8 @@ Here&amp;rsquo;s a daily Calvin and Hobbes RSS feed that parses the comic image 
       <pubDate>Sat, 22 Jan 2011 06:39:39 +0000</pubDate>
       
       <guid>https://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</guid>
-      <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.  Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
+      <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.
+ Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
     </item>
     
     <item>
@@ -362,8 +373,8 @@ Here&amp;rsquo;s a daily Calvin and Hobbes RSS feed that parses the comic image 
       
       <guid>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
       <description>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&amp;rsquo;re used to.
-To do this:  Create and edit your &amp;ldquo;.bashrc&amp;rdquo; file at &amp;ldquo;/var/root/.bashrc&amp;rdquo; Add the following line to &amp;ldquo;/etc/profile&amp;rdquo;: 
-source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
+To do this:
+ Create and edit your &#34;.bashrc&#34; file at &#34;/var/root/.bashrc&#34; Add the following line to &#34;/etc/profile&#34;:  source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
 Colored prompts look great in MobileTerminal too.
 This is the bashrc that I use on my iPhone.</description>
     </item>
@@ -385,7 +396,8 @@ This is the bashrc that I use on my iPhone.</description>
       <guid>https://madebynathan.com/2010/12/28/demo-iphone-app-apartment-automation/</guid>
       <description>https://github.com/ndbroadbent/ios_flat_10c
 This is the little app I wrote to control my apartment. Its not going to be much use to anyone by itself, but as it says on the github page:
-You could use this as a demo app to help you learn about:  InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
+You could use this as a demo app to help you learn about:
+ InAppSettingsKit  Configure settings from within an iPhone app.   ASI HTTP library  Sending HTTP GET and POST requests with form data.   Cloning the ‘slide to unlock’ feature from the iPhone lock screen.</description>
     </item>
     
     <item>
@@ -527,7 +539,8 @@ If we are developing a Spree extension, or a Retrospectiva extension, or a Fat F
       <pubDate>Thu, 07 Oct 2010 18:23:30 +0000</pubDate>
       
       <guid>https://madebynathan.com/2010/10/07/configure-wordpress-smtp-error-could-not-connect-to-smtp-host/</guid>
-      <description>If you are trying to configure your wordpress installation to send email from your gmail account:  Install the &amp;lsquo;Configure SMTP&amp;rsquo; plugin, and check the &amp;lsquo;Send e-mail via GMail?&amp;rsquo; box. Send a test email to make sure everything is working.  You might get the error message &amp;ldquo;SMTP Error: Could not connect to SMTP host.&amp;rdquo;  You just need to open port 465 on your firewall. You might need to ask your hosting provider / system administrator to do this for you.</description>
+      <description>If you are trying to configure your wordpress installation to send email from your gmail account:  Install the &amp;lsquo;Configure SMTP&amp;rsquo; plugin, and check the &amp;lsquo;Send e-mail via GMail?&amp;rsquo; box. Send a test email to make sure everything is working.  You might get the error message &amp;ldquo;SMTP Error: Could not connect to SMTP host.&amp;rdquo;
+ You just need to open port 465 on your firewall. You might need to ask your hosting provider / system administrator to do this for you.</description>
     </item>
     
     <item>
@@ -542,7 +555,7 @@ You are using rails 3 (and rspec 2), and trying to define a custom rake task wit
 Instead, do:
 RSpec::Core::RakeTask.new(:spec) do |t| ...  and make sure to change:
 t.spec_files = FileList[&amp;#39;spec/**/*_spec.rb&amp;#39;]  to
-t.pattern = &amp;#39;spec/**/*_spec.rb&amp;#39;  </description>
+t.pattern = &amp;#39;spec/\*_/_\_spec.rb&amp;#39;  </description>
     </item>
     
     <item>
@@ -646,7 +659,7 @@ A ruby script that downloads youtube videos, converts them to mp3, and plays the
       <pubDate>Thu, 06 May 2010 15:33:06 +0000</pubDate>
       
       <guid>https://madebynathan.com/2010/05/06/obscure-jqgrid-api-notes/</guid>
-      <description>If you are using an older version of jqGrid because it comes nicely wrapped up in the jquery-grid-rails-plugin, keep in mind that all the demo code is written with the new API introduced in version 3.6. Fortunately, most of the demo code can still be reused with our version of jqGrid (3.5). Just get rid of any &amp;ldquo;jqGrid(&amp;rsquo; ****** &amp;lsquo;)&amp;rdquo; function wrappers, and everything should work fine. (I find this easier to do than rewriting the rails plugin for the new version)</description>
+      <description>If you are using an older version of jqGrid because it comes nicely wrapped up in the jquery-grid-rails-plugin, keep in mind that all the demo code is written with the new API introduced in version 3.6. Fortunately, most of the demo code can still be reused with our version of jqGrid (3.5). Just get rid of any &amp;ldquo;jqGrid(&amp;rsquo; ** &amp;lsquo;)&amp;rdquo; function wrappers, and everything should work fine. (I find this easier to do than rewriting the rails plugin for the new version)</description>
     </item>
     
     <item>

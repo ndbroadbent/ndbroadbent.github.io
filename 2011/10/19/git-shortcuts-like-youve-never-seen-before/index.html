@@ -106,7 +106,7 @@ You can configure the variable prefix, which is &lsquo;e&rsquo; by default.</p>
 
 <p>For example, if <code>ga</code> was your alias for <code>git add</code>, instead of typing something like:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ ga assets/git_breeze/config* assets/git_breeze/install.sh
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ ga assets/git_breeze/config<span style="color: #C41A16">\*</span> assets/git_breeze/install.sh
 </pre></div>
 
 
@@ -144,12 +144,18 @@ $ gco <span style="color: #1C01CE">5</span>
 (default alias is &lsquo;ge&rsquo;):</p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ <span style="color: #A90D91">echo</span> <span style="color: #000000">$e4</span>
+
 <span style="color: #177500"># =&gt; assets/git_breeze/git_breeze.sh</span>
+
 $ ge <span style="color: #A90D91">echo</span> <span style="color: #1C01CE">4</span>
+
 <span style="color: #177500"># =&gt; assets/git_breeze/git_breeze.sh</span>
+
 $ ge <span style="color: #A90D91">echo</span> <span style="color: #1C01CE">1</span>-3
+
 <span style="color: #177500"># expands to echo $e1 $e2 $e3</span>
-<span style="color: #177500"># =&gt; _shared.sh assets/git_breeze/config.example.sh assets/git_breeze/config.sh</span>
+
+<span style="color: #177500"># =&gt; \_shared.sh assets/git_breeze/config.example.sh assets/git_breeze/config.sh</span>
 </pre></div>
 
 
@@ -211,7 +217,9 @@ and it can do SCM-specific stuff like:</p>
 <p>You will first need to configure your repository directory, and then build the index:</p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ s --rebuild
+
 <span style="color: #177500"># =&gt; == Scanning /home/ndbroadbent/src for git repos &amp; submodules...</span>
+
 <span style="color: #177500"># =&gt; ===== Indexed 64 repos in /home/ndbroadbent/src/.git_index</span>
 </pre></div>
 
@@ -236,9 +244,12 @@ $ s rbit
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>$ s err&lt;TAB&gt;
 $ s errbit/&lt;TAB&gt;
-<span style="color: #177500"># =&gt; app/       autotest/  config/    db/    ...</span>
+
+<span style="color: #177500"># =&gt; app/ autotest/ config/ db/ ...</span>
+
 $ s errbit/conf&lt;TAB&gt;
 $ s errbit/config/
+
 <span style="color: #177500"># =&gt; cd ~/src/rails/errbit/config</span>
 </pre></div>
 
@@ -253,7 +264,7 @@ It would be cool to make this project into an <a href="https://github.com/robbyr
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
-<span style="color: #A90D91">source</span> ~/.bashrc   <span style="color: #177500"># or source ~/.zshrc</span>
+<span style="color: #A90D91">source</span> ~/.bashrc <span style="color: #177500"># or source ~/.zshrc</span>
 </pre></div>
 
 

@@ -71,7 +71,7 @@ Enter RVM hooks! If you want a symlink to the current gem directory to be update
       
       <guid>https://madebynathan.com/2011/03/31/how-to-calculate-easter-sunday/</guid>
       <description>I wanted the LCD screen on my apartment door to display a message on certain days, such as birthdays, Christmas, and Easter. I didn&amp;rsquo;t realize how hard it was to calculate which day Easter Sunday is&amp;hellip;
-def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)*(29/(i+1))*((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
+def easter(year) c=year/100 n=year-19*(year/19) k=(c-17)/25 i=c-c/4-(c-k)/3+19*n+15 i-=30*(i/30) i-=(i/28)*(1 -(i/28)_(29/(i+1))_((21-n)/11)) j=year+year/4+i+2-c+c/4 j-=7*(j/7) l=i-j month=3+(l+40)/44 day=l+28-31*(month/4) [day, month] end  This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&amp;rsquo;s vernal equinox.</description>
     </item>
     
     <item>
@@ -109,7 +109,8 @@ If you have a very simple rake task that is called very often, you might want to
       <pubDate>Sat, 22 Jan 2011 06:39:39 +0000</pubDate>
       
       <guid>https://madebynathan.com/2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/</guid>
-      <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.  Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
+      <description>Building a ruby gem these days is really, really easy. Bundler provides a great framework generator to get you started. Bundler also lets you install a gem straight from a github repository, so now is the time to say goodbye to your git submodules and start packaging your code into gems.
+ Sign up for a rubygems.org account $ bundle gem shiny_new_gem (This creates the framework for your gem) Edit &amp;lsquo;shiny_new_gem.</description>
     </item>
     
     <item>
@@ -119,8 +120,8 @@ If you have a very simple rake task that is called very often, you might want to
       
       <guid>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
       <description>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&amp;rsquo;re used to.
-To do this:  Create and edit your &amp;ldquo;.bashrc&amp;rdquo; file at &amp;ldquo;/var/root/.bashrc&amp;rdquo; Add the following line to &amp;ldquo;/etc/profile&amp;rdquo;: 
-source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
+To do this:
+ Create and edit your &#34;.bashrc&#34; file at &#34;/var/root/.bashrc&#34; Add the following line to &#34;/etc/profile&#34;:  source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
 Colored prompts look great in MobileTerminal too.
 This is the bashrc that I use on my iPhone.</description>
     </item>
