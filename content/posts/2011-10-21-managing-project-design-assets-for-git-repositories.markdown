@@ -12,8 +12,8 @@ have you ever wondered where you should store those `.psd` or `.xcf` files?
 Do you commit all of your raw design files, or does it put you off that any changes to those files
 will bloat your repository?
 
-The following post describes a part of my [SCM Breeze](https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/)
-project. If you haven't seen it already, take a look at my [blog post that describes what it can do](https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/).
+The following post describes a part of my [SCM Breeze](/2011/10/19/git-shortcuts-like-youve-never-seen-before/)
+project. If you haven't seen it already, take a look at my [blog post that describes what it can do](/2011/10/19/git-shortcuts-like-youve-never-seen-before/).
 
 Here were my goals when I set out to find a solution:
 
@@ -35,7 +35,7 @@ Either way, here's how you can effectively manage your design assets for git pro
 
 ## 1) Install SCM Breeze
 
-This gives you the `design()` function, as well as a bunch of other features that you can [read about here](https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/).
+This gives you the `design()` function, as well as a bunch of other features that you can [read about here](/2011/10/19/git-shortcuts-like-youve-never-seen-before/).
 
 To install, run:
 

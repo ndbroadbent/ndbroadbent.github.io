@@ -17,7 +17,7 @@ I'm using the `whenever` gem to create cron tasks that:
 * Fetch Travis CI build statuses to show in my terminal
 * Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized
 
-For all of these tasks, I'm using the `git_index` function provided by my [SCM Breeze](https://github.com/ndbroadbent/scm_breeze) project. It creates an index of all your git projects by recursively scanning your code directory, and then lets you quickly jump to projects, or run batch commands for each of your repos. See my [SCM Breeze blog post for more info about the repository index](https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/#repository-index).
+For all of these tasks, I'm using the `git_index` function provided by my [SCM Breeze](https://github.com/ndbroadbent/scm_breeze) project. It creates an index of all your git projects by recursively scanning your code directory, and then lets you quickly jump to projects, or run batch commands for each of your repos. See my [SCM Breeze blog post for more info about the repository index](/2011/10/19/git-shortcuts-like-youve-never-seen-before/#repository-index).
 
 ### Updating Git Repos
 
@@ -50,7 +50,7 @@ If `bundle install` fails for any reason, it will touch a file at `'.skip_bundle
 
 ### Fetching Travis CI Build Status
 
-I've written about this before in my [Travis CI Status in Shell Prompt](https://madebynathan.com/2012/01/30/travis-ci-status-in-shell-prompt/) post. Every 30 minutes I run a task to fetch build statuses for all the repos that contain a `.travis.yml` file. The status is saved in a hidden file called `.travis_status~`, and displayed in my prompt like this:
+I've written about this before in my [Travis CI Status in Shell Prompt](/2012/01/14/travis-ci-status-in-shell-prompt/) post. Every 30 minutes I run a task to fetch build statuses for all the repos that contain a `.travis.yml` file. The status is saved in a hidden file called `.travis_status~`, and displayed in my prompt like this:
 
 <img src="/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt" />
 

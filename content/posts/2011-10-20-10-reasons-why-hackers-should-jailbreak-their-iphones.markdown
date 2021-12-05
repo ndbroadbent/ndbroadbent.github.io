@@ -94,7 +94,7 @@ Here's a decent list of some other [open source iPhone apps](https://maniacdev.c
 ### Script anything
 
 Finally, and perhaps most importantly, it's just awesome to be able to script the phone to do whatever I want.
-For example, I can make the iPhone [change the wallpaper every 30 minutes](https://madebynathan.com/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/), [show my prepaid balance in the status bar](https://madebynathan.com/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/), or [scroll up and down a page when it tilts](https://github.com/ndbroadbent/quickscrollplus).
+For example, I can make the iPhone [change the wallpaper every 30 minutes](/2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/), [show my prepaid balance in the status bar](/2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/), or [scroll up and down a page when it tilts](https://github.com/ndbroadbent/quickscrollplus).
 
 
 ## Conclusion
