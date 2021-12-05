@@ -4,7 +4,7 @@
 
 ## Development
 
-All development happens on the `source` branch. The `master` branch contains the generated static site.
+All development happens on the `main` branch. The `gh-pages` branch contains the generated static site. The `./public` directory contains another copy of the git repo with the `gh-pages` branch checked out. Hugo builds the static site into this `./public` directory, and the changes are committed and pushed.
 
 ## Docker
 
