@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Rails 3 caching views in development mode</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -85,11 +85,13 @@ But all our view templates seemed to stay cached as well, and I had to restart t
 
 <p>We just needed to add this to the end of our <em>environments/development.rb</em> file to clear the view template cache after every request:</p>
 
-<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">ActiveSupport</span><span style="color:#000">.</span><span style="color:#000">on_load</span>(<span style="color:#c41a16">:after_initialize</span>) <span style="color:#a90d91">do</span>
-  <span style="color:#000">ActionController</span><span style="color:#000">::</span><span style="color:#000">Base</span><span style="color:#000">.</span><span style="color:#000">before_filter</span> <span style="color:#a90d91">do</span>
-    <span style="color:#000">ActionController</span><span style="color:#000">::</span><span style="color:#000">Base</span><span style="color:#000">.</span><span style="color:#000">view_paths</span><span style="color:#000">.</span><span style="color:#000">each</span>(<span style="color:#000">&amp;</span><span style="color:#c41a16">:clear_cache</span>)
-  <span style="color:#a90d91">end</span>
-<span style="color:#a90d91">end</span></code></pre></div>
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">ActiveSupport.on_load</span>(<span style="color: #C41A16">:after_initialize</span>) <span style="color: #A90D91">do</span>
+  <span style="color: #000000">ActionController::Base.before_filter</span> <span style="color: #A90D91">do</span>
+    <span style="color: #000000">ActionController::Base.view_paths.each</span>(<span style="color: #000000">&amp;</span><span style="color: #C41A16">:clear_cache</span>)
+  <span style="color: #A90D91">end</span>
+<span style="color: #A90D91">end</span>
+</pre></div>
+
 <br/>
 Thanks to <a href="https://rails.lighthouseapp.com/users/52307">Eric</a> for this.</p>
 
@@ -139,14 +141,53 @@ Thanks to <a href="https://rails.lighthouseapp.com/users/52307">Eric</a> for thi
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

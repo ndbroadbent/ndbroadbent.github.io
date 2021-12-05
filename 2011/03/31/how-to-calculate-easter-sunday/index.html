@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>How to calculate Easter Sunday</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -84,28 +84,32 @@ ga('send', 'pageview');
 such as birthdays, Christmas, and Easter.
 I didn&rsquo;t realize how hard it was to calculate which day Easter Sunday is&hellip;</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#a90d91">def</span> <span style="color:#3f6e75"></span><span style="color:#000"></span><span style="color:#000">easter</span>(<span style="color:#000">year</span>)
-  <span style="color:#000">c</span><span style="color:#000">=</span><span style="color:#000">year</span><span style="color:#c41a16">/100
-</span><span style="color:#c41a16">  n=year-19*(year/</span><span style="color:#1c01ce">19</span><span style="color:#000"></span>)
-  <span style="color:#000">k</span><span style="color:#000">=</span>(<span style="color:#000">c</span><span style="color:#000">-</span><span style="color:#1c01ce">17</span><span style="color:#000"></span>)<span style="color:#c41a16">/25
-</span><span style="color:#c41a16">  i=c-c/</span><span style="color:#1c01ce">4</span><span style="color:#000">-</span>(<span style="color:#000">c</span><span style="color:#000">-</span><span style="color:#000">k</span>)<span style="color:#c41a16">/3+19*n+15
-</span><span style="color:#c41a16">  i-=30*(i/</span><span style="color:#1c01ce">30</span><span style="color:#000"></span>)
-  <span style="color:#000">i</span><span style="color:#000">-=</span>(<span style="color:#000">i</span><span style="color:#c41a16">/28)*(1 -(i/</span><span style="color:#1c01ce">28</span><span style="color:#000"></span>)<span style="color:#000">*</span>(<span style="color:#1c01ce">29</span><span style="color:#000">/</span>(<span style="color:#000">i</span><span style="color:#000">+</span><span style="color:#1c01ce">1</span><span style="color:#000"></span>))<span style="color:#000">*</span>((<span style="color:#1c01ce">21</span><span style="color:#000">-</span><span style="color:#000">n</span>)<span style="color:#c41a16">/11))
-</span><span style="color:#c41a16">  j=year+year/</span><span style="color:#1c01ce">4</span><span style="color:#000">+</span><span style="color:#000">i</span><span style="color:#000">+</span><span style="color:#1c01ce">2</span><span style="color:#000">-</span><span style="color:#000">c</span><span style="color:#000">+</span><span style="color:#000">c</span><span style="color:#c41a16">/4
-</span><span style="color:#c41a16">  j-=7*(j/</span><span style="color:#1c01ce">7</span><span style="color:#000"></span>)
-  <span style="color:#000">l</span><span style="color:#000">=</span><span style="color:#000">i</span><span style="color:#000">-</span><span style="color:#000">j</span>
-  <span style="color:#000">month</span><span style="color:#000">=</span><span style="color:#1c01ce">3</span><span style="color:#000">+</span>(<span style="color:#000">l</span><span style="color:#000">+</span><span style="color:#1c01ce">40</span><span style="color:#000"></span>)<span style="color:#c41a16">/44
-</span><span style="color:#c41a16">  day=l+28-31*(month/</span><span style="color:#1c01ce">4</span><span style="color:#000"></span>)
-  <span style="color:#000">[</span><span style="color:#000">day</span>, <span style="color:#000">month</span><span style="color:#000">]</span>
-<span style="color:#a90d91">end</span></code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">def</span> <span style="color: #000000">easter</span>(<span style="color: #000000">year</span>)
+  <span style="color: #000000">c=year/</span><span style="color: #1C01CE">100</span>
+  <span style="color: #000000">n=year-</span><span style="color: #1C01CE">19</span><span style="color: #000000">*</span>(<span style="color: #000000">year/</span><span style="color: #1C01CE">19</span>)
+  <span style="color: #000000">k=</span>(<span style="color: #000000">c-</span><span style="color: #1C01CE">17</span>)<span style="color: #000000">/</span><span style="color: #1C01CE">25</span>
+  <span style="color: #000000">i=c-c/</span><span style="color: #1C01CE">4</span><span style="color: #000000">-</span>(<span style="color: #000000">c-k</span>)<span style="color: #000000">/</span><span style="color: #1C01CE">3</span><span style="color: #000000">+</span><span style="color: #1C01CE">19</span><span style="color: #000000">*n+</span><span style="color: #1C01CE">15</span>
+  <span style="color: #000000">i-=</span><span style="color: #1C01CE">30</span><span style="color: #000000">*</span>(<span style="color: #000000">i/</span><span style="color: #1C01CE">30</span>)
+  <span style="color: #000000">i-=</span>(<span style="color: #000000">i/</span><span style="color: #1C01CE">28</span>)<span style="color: #000000">*</span>(<span style="color: #1C01CE">1</span> <span style="color: #000000">-</span>(<span style="color: #000000">i/</span><span style="color: #1C01CE">28</span>)<span style="color: #000000">*</span>(<span style="color: #1C01CE">29</span><span style="color: #000000">/</span>(<span style="color: #000000">i+</span><span style="color: #1C01CE">1</span>))<span style="color: #000000">*</span>((<span style="color: #1C01CE">21</span><span style="color: #000000">-n</span>)<span style="color: #000000">/</span><span style="color: #1C01CE">11</span>))
+  <span style="color: #000000">j=year+year/</span><span style="color: #1C01CE">4</span><span style="color: #000000">+i+</span><span style="color: #1C01CE">2</span><span style="color: #000000">-c+c/</span><span style="color: #1C01CE">4</span>
+  <span style="color: #000000">j-=</span><span style="color: #1C01CE">7</span><span style="color: #000000">*</span>(<span style="color: #000000">j/</span><span style="color: #1C01CE">7</span>)
+  <span style="color: #000000">l=i-j</span>
+  <span style="color: #000000">month=</span><span style="color: #1C01CE">3</span><span style="color: #000000">+</span>(<span style="color: #000000">l+</span><span style="color: #1C01CE">40</span>)<span style="color: #000000">/</span><span style="color: #1C01CE">44</span>
+  <span style="color: #000000">day=l+</span><span style="color: #1C01CE">28</span><span style="color: #000000">-</span><span style="color: #1C01CE">31</span><span style="color: #000000">*</span>(<span style="color: #000000">month/</span><span style="color: #1C01CE">4</span>)
+  <span style="color: #000000">[day</span>, <span style="color: #000000">month]</span>
+<span style="color: #A90D91">end</span>
+</pre></div>
+
 
 <p>This happens to be the first Sunday after the Paschal full moon following the northern hemisphere&rsquo;s vernal equinox.</p>
 
 <p>Christmas, for comparison:</p>
 
-<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#a90d91">def</span> <span style="color:#3f6e75"></span><span style="color:#000"></span><span style="color:#000">christmas</span>(<span style="color:#000">year</span>)
-  <span style="color:#000">[</span><span style="color:#1c01ce">25</span><span style="color:#000"></span>, <span style="color:#1c01ce">12</span><span style="color:#000">]</span>
-<span style="color:#a90d91">end</span></code></pre></div></p>
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">def</span> <span style="color: #000000">christmas</span>(<span style="color: #000000">year</span>)
+  <span style="color: #000000">[</span><span style="color: #1C01CE">25</span>, <span style="color: #1C01CE">12</span><span style="color: #000000">]</span>
+<span style="color: #A90D91">end</span>
+</pre></div>
+</p>
 
 
               <div class="related-posts">
@@ -153,14 +157,53 @@ I didn&rsquo;t realize how hard it was to calculate which day Easter Sunday is&h
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

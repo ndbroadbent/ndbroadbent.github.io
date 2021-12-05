@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>How to start a Google Group for a git project</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -96,16 +96,18 @@ I decided to start by inviting all the contributors to the Errbit codebase
 your git repo. However, Google Groups only lets you invite 10 emails at a time,
 so here&rsquo;s a Bash/Zsh script that will print all of your contributor emails as CSV, in groups of 10:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">emails</span><span style="color:#000">=(</span> <span style="color:#a90d91">$(</span>git log --format<span style="color:#000">=</span><span style="color:#c41a16">&#39;%ae&#39;</span> | sort -u<span style="color:#a90d91">)</span> <span style="color:#000">)</span>
-<span style="color:#000">total_groups</span><span style="color:#000">=</span><span style="color:#a90d91">$((</span> <span style="color:#c41a16">${#</span><span style="color:#000">emails</span>[@]<span style="color:#c41a16">}</span> <span style="color:#000">/</span> <span style="color:#1c01ce">10</span> <span style="color:#a90d91">))</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">emails=(</span> <span style="color: #A90D91">$(</span>git log --format<span style="color: #000000">=</span><span style="color: #C41A16">&#39;%ae&#39;</span> | sort -u<span style="color: #A90D91">)</span> <span style="color: #000000">)</span>
+<span style="color: #000000">total_groups=</span><span style="color: #A90D91">$((</span> <span style="color: #C41A16">${#</span><span style="color: #000000">emails</span>[@]<span style="color: #C41A16">}</span> <span style="color: #000000">/</span> <span style="color: #1C01CE">10</span> <span style="color: #A90D91">))</span>
 
-<span style="color:#a90d91">for</span> <span style="color:#000">((</span><span style="color:#000">i</span><span style="color:#000">=</span><span style="color:#1c01ce">0</span>; i &lt;<span style="color:#000">=</span> <span style="color:#000">$total_groups</span>; i++<span style="color:#000">))</span>; <span style="color:#a90d91">do</span>
-  <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;Group </span><span style="color:#a90d91">$((</span>i <span style="color:#000">+</span> <span style="color:#1c01ce">1</span><span style="color:#a90d91">))</span><span style="color:#c41a16">:&#34;</span>
-  <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;-------------------------------------------------------&#34;</span>
-  <span style="color:#000">grouped_emails</span><span style="color:#000">=(</span> <span style="color:#c41a16">${</span><span style="color:#000">emails</span>[@]:<span style="color:#a90d91">$((</span> <span style="color:#000">$i</span> <span style="color:#000">*</span> <span style="color:#1c01ce">10</span> <span style="color:#a90d91">))</span>:<span style="color:#000">10</span><span style="color:#c41a16">}</span> <span style="color:#000">)</span>
-  <span style="color:#a90d91">printf</span> <span style="color:#c41a16">&#34;%s, &#34;</span> <span style="color:#c41a16">&#34;</span><span style="color:#c41a16">${</span><span style="color:#000">grouped_emails</span>[@]<span style="color:#c41a16">}</span><span style="color:#c41a16">&#34;</span> | cut -d <span style="color:#c41a16">&#34;,&#34;</span> -f <span style="color:#1c01ce">1</span>-<span style="color:#c41a16">${#</span><span style="color:#000">grouped_emails</span>[@]<span style="color:#c41a16">}</span>
-  <span style="color:#a90d91">echo</span>
-<span style="color:#a90d91">done</span></code></pre></div>
+<span style="color: #A90D91">for</span> <span style="color: #000000">((i=</span><span style="color: #1C01CE">0</span>; i &lt;<span style="color: #000000">=</span> <span style="color: #000000">$total_groups</span>; i++<span style="color: #000000">))</span>; <span style="color: #A90D91">do</span>
+  <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;Group </span><span style="color: #A90D91">$((</span>i <span style="color: #000000">+</span> <span style="color: #1C01CE">1</span><span style="color: #A90D91">))</span><span style="color: #C41A16">:&quot;</span>
+  <span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;-------------------------------------------------------&quot;</span>
+  <span style="color: #000000">grouped_emails=(</span> <span style="color: #C41A16">${</span><span style="color: #000000">emails</span>[@]:<span style="color: #A90D91">$((</span> <span style="color: #000000">$i</span> <span style="color: #000000">*</span> <span style="color: #1C01CE">10</span> <span style="color: #A90D91">))</span>:<span style="color: #000000">10</span><span style="color: #C41A16">}</span> <span style="color: #000000">)</span>
+  <span style="color: #A90D91">printf</span> <span style="color: #C41A16">&quot;%s, &quot;</span> <span style="color: #C41A16">&quot;${</span><span style="color: #000000">grouped_emails</span>[@]<span style="color: #C41A16">}&quot;</span> | cut -d <span style="color: #C41A16">&quot;,&quot;</span> -f <span style="color: #1C01CE">1</span>-<span style="color: #C41A16">${#</span><span style="color: #000000">grouped_emails</span>[@]<span style="color: #C41A16">}</span>
+  <span style="color: #A90D91">echo</span>
+<span style="color: #A90D91">done</span>
+</pre></div>
+
 
 <p>After pasting this script into your terminal, you can copy and paste each batch of
 emails into the <strong>Enter email addresses of people to invite</strong> textarea.
@@ -161,14 +163,53 @@ but hopefully this script will save you some time.</p>
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

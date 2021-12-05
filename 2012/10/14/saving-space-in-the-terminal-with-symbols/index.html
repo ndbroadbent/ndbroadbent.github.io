@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Saving space in the terminal with symbols</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -91,13 +91,17 @@ as well as in the output of <code>ls</code> commands:</p>
 <p>For the ls output, it was a bit tricky to re-justify the username and group columns after substituting my username.
 I decided to do it in ruby, and then played some ruby golf:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">o</span><span style="color:#000">=</span><span style="color:#000">STDIN</span><span style="color:#000">.</span><span style="color:#000">read</span>;<span style="color:#000">re</span><span style="color:#000">=</span><span style="color:#c41a16">/^(([^ ]* +){2})(([^ ]* +){3})/</span>;<span style="color:#000">u</span>,<span style="color:#000">g</span>,<span style="color:#000">s</span><span style="color:#000">=</span><span style="color:#000">o</span><span style="color:#000">.</span><span style="color:#000">lines</span><span style="color:#000">.</span><span style="color:#000">map</span>{<span style="color:#000">|</span><span style="color:#000">l</span><span style="color:#000">|</span><span style="color:#000">l</span><span style="color:#000">[</span><span style="color:#000">re</span>,<span style="color:#1c01ce">3</span><span style="color:#000">]</span>}<span style="color:#000">.</span><span style="color:#000">compact</span><span style="color:#000">.</span><span style="color:#000">map</span>(<span style="color:#000">&amp;</span><span style="color:#c41a16">:split</span>)<span style="color:#000">.</span><span style="color:#000">transpose</span><span style="color:#000">.</span><span style="color:#000">map</span>{<span style="color:#000">|</span><span style="color:#000">a</span><span style="color:#000">|</span><span style="color:#000">a</span><span style="color:#000">.</span><span style="color:#000">map</span>(<span style="color:#000">&amp;</span><span style="color:#c41a16">:size</span>)<span style="color:#000">.</span><span style="color:#000">max</span><span style="color:#000">+</span><span style="color:#1c01ce">1</span><span style="color:#000"></span>};<span style="color:#a90d91">puts</span> <span style="color:#000">o</span><span style="color:#000">.</span><span style="color:#000">lines</span><span style="color:#000">.</span><span style="color:#000">map</span>{<span style="color:#000">|</span><span style="color:#000">l</span><span style="color:#000">|</span><span style="color:#000">l</span><span style="color:#000">.</span><span style="color:#000">sub</span>(<span style="color:#000">re</span>){<span style="color:#000">|</span><span style="color:#000">m</span><span style="color:#000">|</span><span style="color:#c41a16">&#34;%s%-</span><span style="color:#c41a16">#{</span><span style="color:#000">u</span><span style="color:#c41a16">}</span><span style="color:#c41a16">s %-</span><span style="color:#c41a16">#{</span><span style="color:#000">g</span><span style="color:#c41a16">}</span><span style="color:#c41a16">s%</span><span style="color:#c41a16">#{</span><span style="color:#000">s</span><span style="color:#c41a16">}</span><span style="color:#c41a16">s &#34;</span><span style="color:#c41a16">%[$1,*$3.split]</span>}}</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">o=STDIN.read</span>;<span style="color: #000000">re=</span><span style="color: #C41A16">/^(([^ ]* +){2})(([^ ]* +){3})/</span>;<span style="color: #000000">u</span>,<span style="color: #000000">g</span>,<span style="color: #000000">s=o.lines.map</span>{<span style="color: #000000">|l|l[re</span>,<span style="color: #1C01CE">3</span><span style="color: #000000">]</span>}<span style="color: #000000">.compact.map</span>(<span style="color: #000000">&amp;</span><span style="color: #C41A16">:split</span>)<span style="color: #000000">.transpose.map</span>{<span style="color: #000000">|a|a.map</span>(<span style="color: #000000">&amp;</span><span style="color: #C41A16">:size</span>)<span style="color: #000000">.max+</span><span style="color: #1C01CE">1</span>};<span style="color: #A90D91">puts</span> <span style="color: #000000">o.lines.map</span>{<span style="color: #000000">|l|l.sub</span>(<span style="color: #000000">re</span>){<span style="color: #000000">|m|</span><span style="color: #C41A16">&quot;%s%-#{</span><span style="color: #000000">u</span><span style="color: #C41A16">}s %-#{</span><span style="color: #000000">g</span><span style="color: #C41A16">}s%#{</span><span style="color: #000000">s</span><span style="color: #C41A16">}s &quot;%[$1,*$3.split]</span>}}
+</pre></div>
+
 
 <p>This little script parses the modified output of <code>ls -lhv</code>, calculates the max length of the user/group/size columns, and then pads those columns with the correct number of spaces.</p>
 
 <p>My final <code>ls</code> command looks like this:</p>
 
-<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ls -lhv --group-directories-first | sed <span style="color:#c41a16">\&#34;</span>s/<span style="color:#000">$USER</span>/<span style="color:#c41a16">\$</span><span style="color:#000">(</span>/bin/cat <span style="color:#000">$HOME</span>/.user_sym<span style="color:#000">)</span>/g<span style="color:#c41a16">\&#34;</span> | rejustify_ls_columns</code></pre></div></p>
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>ls -lhv --group-directories-first | sed <span style="color: #C41A16">\&quot;</span>s/<span style="color: #000000">$USER</span>/<span style="color: #C41A16">\$</span><span style="color: #000000">(</span>/bin/cat <span style="color: #000000">$HOME</span>/.user_sym<span style="color: #000000">)</span>/g<span style="color: #C41A16">\&quot;</span> | rejustify_ls_columns
+</pre></div>
+</p>
 
 <p>(where <code>rejustify_ls_columns</code> is a function wrapping the ruby script above.)</p>
 
@@ -147,14 +151,53 @@ I decided to do it in ruby, and then played some ruby golf:</p>
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

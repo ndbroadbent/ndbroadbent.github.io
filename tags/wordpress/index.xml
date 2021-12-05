@@ -20,9 +20,8 @@
       <description>Dont use the visual editor. Copy the code into your &amp;lsquo;HTML&amp;rsquo; view and it will preserve indentation. Copy it into &amp;lsquo;Visual&amp;rsquo; view and your code will be all left-aligned&amp;hellip;
 Examples:
 Code pasted in &amp;lsquo;Visual&amp;rsquo; View
-&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; Code pasted in &amp;lsquo;HTML&amp;rsquo; View
-&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt;
-YMMV, I guess, but this is what works for me.</description>
+&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt;  Code pasted in &amp;lsquo;HTML&amp;rsquo; View
+&amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt; &amp;lt;/indent&amp;gt;  YMMV, I guess, but this is what works for me.</description>
     </item>
     
     <item>

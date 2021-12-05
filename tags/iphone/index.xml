@@ -50,7 +50,7 @@ Message For Me – IT Crowd Mail Tone Replaces the &amp;lsquo;new email&amp;rsqu
       <guid>https://madebynathan.com/2011/01/07/add-bashrc-to-iphone/</guid>
       <description>When you SSH into your iPhone, or if you use MobileTerminal, you might want to use some of the aliases or functions that you&amp;rsquo;re used to.
 To do this:  Create and edit your &amp;ldquo;.bashrc&amp;rdquo; file at &amp;ldquo;/var/root/.bashrc&amp;rdquo; Add the following line to &amp;ldquo;/etc/profile&amp;rdquo;: 
-source /var/root/.bashrc An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
+source /var/root/.bashrc  An example alias would be: alias respring=&amp;ldquo;killall SpringBoard&amp;rdquo;
 Colored prompts look great in MobileTerminal too.
 This is the bashrc that I use on my iPhone.</description>
     </item>

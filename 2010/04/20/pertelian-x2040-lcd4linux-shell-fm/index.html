@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Pertelian X2040, lcd4linux, shell-fm</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -91,7 +91,9 @@ you need the dbus, usbutils and usb-serial packages installed.</p>
 packages for a little thin client. So before you compile lcd4linux,
 do this if you just want the fifo and exec plugins (substitute for your requirements):</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure --with-plugins<span style="color:#000">=</span>fifo,exec --with-drivers<span style="color:#000">=</span>Pertelian</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>./configure --with-plugins<span style="color: #000000">=</span>fifo,exec --with-drivers<span style="color: #000000">=</span>Pertelian
+</pre></div>
+
 
 <p>(also keep in mind the suggested compiling flags from the
 <a href="http://wiki.tinycorelinux.com/tiki-index.php?page=Creating+Extensions">&ldquo;Creating an Extension&rdquo;</a>
@@ -154,14 +156,53 @@ for my T20 projects. So fun.</p>
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

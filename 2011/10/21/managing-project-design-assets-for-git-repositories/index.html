@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Managing Project Design Assets For Git Repositories: A Simple Solution</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -87,8 +87,8 @@ have you ever wondered where you should store those <code>.psd</code> or <code>.
 Do you commit all of your raw design files, or does it put you off that any changes to those files
 will bloat your repository?</p>
 
-<p>The following post describes a part of my <a href="https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">SCM Breeze</a>
-project. If you haven&rsquo;t seen it already, take a look at my <a href="https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">blog post that describes what it can do</a>.</p>
+<p>The following post describes a part of my <a href="/2011/10/19/git-shortcuts-like-youve-never-seen-before/">SCM Breeze</a>
+project. If you haven&rsquo;t seen it already, take a look at my <a href="/2011/10/19/git-shortcuts-like-youve-never-seen-before/">blog post that describes what it can do</a>.</p>
 
 <p>Here were my goals when I set out to find a solution:</p>
 
@@ -109,13 +109,15 @@ of your servers and synchronize it with <code>rsync</code>.</p>
 
 <h2 id="1-install-scm-breeze">1) Install SCM Breeze</h2>
 
-<p>This gives you the <code>design()</code> function, as well as a bunch of other features that you can <a href="https://madebynathan.com/2011/10/18/git-shortcuts-like-youve-never-seen-before/">read about here</a>.</p>
+<p>This gives you the <code>design()</code> function, as well as a bunch of other features that you can <a href="/2011/10/19/git-shortcuts-like-youve-never-seen-before/">read about here</a>.</p>
 
 <p>To install, run:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
-<span style="color:#a90d91">source</span> ~/.bashrc   # or <span style="color:#a90d91">source</span> ~/.zshrc</code></pre></div>
+<span style="color: #A90D91">source</span> ~/.bashrc   <span style="color: #177500"># or source ~/.zshrc</span>
+</pre></div>
+
 
 <h2 id="2-create-and-configure-a-root-design-directory">2) Create and configure a root design directory</h2>
 
@@ -133,7 +135,9 @@ The default base subdirectories are: Images, Backgrounds, Logos, Icons, Mockups,
 
 <p>To set up the design directories and symlinks, go to a project&rsquo;s directory and run:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">design init</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>design init
+</pre></div>
+
 
 <p>If your root directory is <code>~/Dropbox/Design</code>, directories will be created at
 <code>~/Dropbox/Design/projects/my_project/Backgrounds</code>, <code>~/Dropbox/Design/projects/my_project/Icons</code>, etc.</p>
@@ -150,15 +154,21 @@ so you end up with:</p>
 <p>Here&rsquo;s the awesome part: If you use the SCM Breeze git repository index,
 you can run the following batch command to set up these directories for all of your git repos at once:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git_index --batch-cmd design init</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git_index --batch-cmd design init
+</pre></div>
+
 
 <p>If you want to remove any empty design directories, run:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">design trim</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>design trim
+</pre></div>
+
 
 <p>And if you want to remove all of a project&rsquo;s design directories, even if they contain files:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">design rm</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>design rm
+</pre></div>
+
 
 <h2 id="4-link-existing-design-directories-into-your-projects">4) Link existing design directories into your projects</h2>
 
@@ -167,7 +177,9 @@ to be synchronized across all of your other development machines.</p>
 
 <p>Just run the following command on your other machines after following steps 1 and 2:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">design link</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>design link
+</pre></div>
+
 
 <p>This uses your git index (from SCM Breeze) to figure out where to create the symlinks.
 If you don&rsquo;t use the git index, the same outcome could be achieved by running &lsquo;design init&rsquo;
@@ -230,14 +242,53 @@ And if you sign up via that referral link, you&rsquo;ll be giving me a little ex
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

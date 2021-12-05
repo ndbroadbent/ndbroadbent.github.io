@@ -283,9 +283,13 @@ section#recent-posts {
 }
 .page-not-found {
   padding-top: 20%;
+  padding-bottom: 20%;
+}
+img.lost-gif {
+  margin-top: 20px;
 }
 .disqus {
-  padding-bottom: 15px;
+  padding-bottom: 75px;
 }
 .blogpost{
   text-align: left;

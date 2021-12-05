@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Testing Multiple Databases for a Rails app on Travis CI</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -97,10 +97,12 @@ with some help from the <a href="https://about.travis-ci.org/docs/user/database-
 
 <p>We add the databases to our build matrix by setting ENV variables. Add the following lines to your <code>.travis.yml</code>:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#c41a16">env</span>:
-  <span style="color:#000">-</span> <span style="color:#000">DB</span><span style="color:#000">=</span><span style="color:#000">mysql</span>
-  <span style="color:#000">-</span> <span style="color:#000">DB</span><span style="color:#000">=</span><span style="color:#000">postgres</span>
-  <span style="color:#000">-</span> <span style="color:#000">DB</span><span style="color:#000">=</span><span style="color:#000">sqlite</span></code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #C41A16">env</span>:
+  <span style="color: #000000">-</span> <span style="color: #000000">DB=mysql</span>
+  <span style="color: #000000">-</span> <span style="color: #000000">DB=postgres</span>
+  <span style="color: #000000">-</span> <span style="color: #000000">DB=sqlite</span>
+</pre></div>
+
 
 <h3 id="database-configuration">Database configuration</h3>
 
@@ -116,7 +118,9 @@ with some help from the <a href="https://about.travis-ci.org/docs/user/database-
 
 <p>It copies the <code>database.yml</code> template specified by our <code>DB</code> variable, using postgres as the default.</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">FileUtils</span><span style="color:#000">.</span><span style="color:#000">cp</span> <span style="color:#c41a16">&#34;config/database.</span><span style="color:#c41a16">#{</span><span style="color:#000">ENV</span><span style="color:#000">[</span><span style="color:#c41a16">&#39;DB&#39;</span><span style="color:#000">]</span> <span style="color:#000">||</span> <span style="color:#c41a16">&#39;postgres&#39;</span><span style="color:#c41a16">}</span><span style="color:#c41a16">.yml&#34;</span>, <span style="color:#c41a16">&#39;config/database.yml&#39;</span></code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">FileUtils.cp</span> <span style="color: #C41A16">&quot;config/database.#{</span><span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;DB&#39;</span><span style="color: #000000">]</span> <span style="color: #000000">||</span> <span style="color: #C41A16">&#39;postgres&#39;}.yml&quot;</span>, <span style="color: #C41A16">&#39;config/database.yml&#39;</span>
+</pre></div>
+
 
 <h3 id="gemfile-ci">Gemfile.ci</h3>
 
@@ -125,19 +129,21 @@ prevents any other database gems from being loaded, and then loads the &lsquo;re
 
 <p>Here&rsquo;s the contents of <code>Gemfile.ci</code>:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#a90d91">case</span> <span style="color:#000">ENV</span><span style="color:#000">[</span><span style="color:#c41a16">&#39;DB&#39;</span><span style="color:#000">]</span>
-<span style="color:#a90d91">when</span> <span style="color:#c41a16">&#34;mysql&#34;</span>; <span style="color:#000">gem</span> <span style="color:#c41a16">&#34;mysql2&#34;</span>, <span style="color:#c41a16">&#34;0.3.10&#34;</span>
-<span style="color:#a90d91">when</span> <span style="color:#c41a16">&#34;sqlite&#34;</span>; <span style="color:#000">gem</span> <span style="color:#c41a16">&#34;sqlite3&#34;</span>
-<span style="color:#a90d91">when</span> <span style="color:#c41a16">&#34;postgres&#34;</span>; <span style="color:#000">gem</span> <span style="color:#c41a16">&#34;pg&#34;</span>, <span style="color:#c41a16">&#34;&gt;= 0.9.0&#34;</span>
-<span style="color:#a90d91">end</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">case</span> <span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;DB&#39;</span><span style="color: #000000">]</span>
+<span style="color: #A90D91">when</span> <span style="color: #C41A16">&quot;mysql&quot;</span>; <span style="color: #000000">gem</span> <span style="color: #C41A16">&quot;mysql2&quot;</span>, <span style="color: #C41A16">&quot;0.3.10&quot;</span>
+<span style="color: #A90D91">when</span> <span style="color: #C41A16">&quot;sqlite&quot;</span>; <span style="color: #000000">gem</span> <span style="color: #C41A16">&quot;sqlite3&quot;</span>
+<span style="color: #A90D91">when</span> <span style="color: #C41A16">&quot;postgres&quot;</span>; <span style="color: #000000">gem</span> <span style="color: #C41A16">&quot;pg&quot;</span>, <span style="color: #C41A16">&quot;&gt;= 0.9.0&quot;</span>
+<span style="color: #A90D91">end</span>
 
-<span style="color:#a90d91">def</span> <span style="color:#3f6e75"></span><span style="color:#000"></span><span style="color:#000">gem</span>(<span style="color:#000">*</span><span style="color:#000">args</span>)
-  <span style="color:#177500"># Override &#39;gem&#39; method to block any other database gems in the &#39;real&#39; Gemfile</span>
-  <span style="color:#a90d91">super</span> <span style="color:#a90d91">unless</span> <span style="color:#c41a16">%w(pg sqlite3 mysql2)</span><span style="color:#000">.</span><span style="color:#000">include?</span>(<span style="color:#000">args</span><span style="color:#000">.</span><span style="color:#000">first</span>)
-<span style="color:#a90d91">end</span>
+<span style="color: #A90D91">def</span> <span style="color: #000000">gem</span>(<span style="color: #000000">*args</span>)
+  <span style="color: #177500"># Override &#39;gem&#39; method to block any other database gems in the &#39;real&#39; Gemfile</span>
+  <span style="color: #A90D91">super</span> <span style="color: #A90D91">unless</span> <span style="color: #C41A16">%w(pg sqlite3 mysql2)</span><span style="color: #000000">.include?</span>(<span style="color: #000000">args.first</span>)
+<span style="color: #A90D91">end</span>
 
-<span style="color:#177500"># Eval Gemfile</span>
-<span style="color:#a90d91">eval</span>(<span style="color:#000">IO</span><span style="color:#000">.</span><span style="color:#000">read</span>(<span style="color:#000">File</span><span style="color:#000">.</span><span style="color:#000">join</span>(<span style="color:#000">File</span><span style="color:#000">.</span><span style="color:#000">dirname</span>(<span style="color:#5b269a">__FILE__</span>), <span style="color:#c41a16">&#39;Gemfile&#39;</span>)), <span style="color:#a90d91">binding</span>)</code></pre></div>
+<span style="color: #177500"># Eval Gemfile</span>
+<span style="color: #A90D91">eval</span>(<span style="color: #000000">IO.read</span>(<span style="color: #000000">File.join</span>(<span style="color: #000000">File.dirname</span>(<span style="color: #5B269A">__FILE__</span>), <span style="color: #C41A16">&#39;Gemfile&#39;</span>)), <span style="color: #A90D91">binding</span>)
+</pre></div>
+
 
 <p>That&rsquo;s all there is to it.</p>
 
@@ -148,11 +154,15 @@ After a serious headache, I figured out that we hadn&rsquo;t updated <code>confi
 to the latest version after our upgrade.
 This new <code>boot.rb</code> had a very subtle difference, and contained the following line:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">ENV</span><span style="color:#000">[</span><span style="color:#c41a16">&#39;BUNDLE_GEMFILE&#39;</span><span style="color:#000">]</span> <span style="color:#000">||=</span> <span style="color:#000">File</span><span style="color:#000">.</span><span style="color:#000">expand_path</span>(<span style="color:#c41a16">&#39;../../Gemfile&#39;</span>, <span style="color:#5b269a">__FILE__</span>)</code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;BUNDLE_GEMFILE&#39;</span><span style="color: #000000">]</span> <span style="color: #000000">||=</span> <span style="color: #000000">File.expand_path</span>(<span style="color: #C41A16">&#39;../../Gemfile&#39;</span>, <span style="color: #5B269A">__FILE__</span>)
+</pre></div>
+
 
 <p>instead of:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">ENV</span><span style="color:#000">[</span><span style="color:#c41a16">&#39;BUNDLE_GEMFILE&#39;</span><span style="color:#000">]</span> <span style="color:#000">=</span> <span style="color:#000">gemfile</span></code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">ENV[</span><span style="color: #C41A16">&#39;BUNDLE_GEMFILE&#39;</span><span style="color: #000000">]</span> <span style="color: #000000">=</span> <span style="color: #000000">gemfile</span>
+</pre></div>
+
 
 <p>Notice the <code>||=</code>, which meant that the <code>BUNDLE_GEMFILE</code> variable could actually have an effect when it was set by Travis.</p>
 
@@ -206,14 +216,53 @@ In that case, you may need to update your <code>config/boot.rb</code> to <a href
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

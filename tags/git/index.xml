@@ -67,7 +67,7 @@ Disclaimer: git is currently the only supported SCM. I&amp;rsquo;ve kept the pro
       
       <guid>https://madebynathan.com/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/</guid>
       <description>Follow these steps to get git 1.7 + on ubuntu 9.10 or less. (10.04 comes with the latest version)
-sudo apt-get install libcurl4-dev # (for new http[s] support) cd /tmp wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz tar -xf git-1.7.2.1.tar.gz cd git-1.7.2.1/ ./configure make sudo make install ln -nfs /usr/bin/git /usr/local/bin/git </description>
+sudo apt-get install libcurl4-dev # (for new http[s] support) cd /tmp wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz tar -xf git-1.7.2.1.tar.gz cd git-1.7.2.1/ ./configure make sudo make install ln -nfs /usr/bin/git /usr/local/bin/git  </description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@ sudo apt-get install libcurl4-dev # (for new http[s] support) cd /tmp wget http
       
       <guid>https://madebynathan.com/2010/05/21/git-shortcuts/</guid>
       <description>It seems that for every single git repository I create, I just want to be able to run &amp;ldquo;git push&amp;rdquo; and &amp;ldquo;git pull&amp;rdquo;. &amp;ldquo;git pull origin master&amp;rdquo; just gets annoying after a while. In case I forget how to do this again, this is all it takes (provided you already have an &amp;lsquo;origin&amp;rsquo; remote configured):
-git config branch.master.remote origin git config branch.master.merge refs/heads/master Other useful git shortcut that I literally use everyday (add them to the bottom of ~/.</description>
+git config branch.master.remote origin git config branch.master.merge refs/heads/master  Other useful git shortcut that I literally use everyday (add them to the bottom of ~/.</description>
     </item>
     
   </channel>

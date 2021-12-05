@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>RSpec tasks on Rails 3</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -89,16 +89,22 @@ uninitialized constant RSpec::Rake</p>
 
 <p>Instead, do:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">RSpec</span><span style="color:#000">::</span><span style="color:#000">Core</span><span style="color:#000">::</span><span style="color:#000">RakeTask</span><span style="color:#000">.</span><span style="color:#000">new</span>(<span style="color:#c41a16">:spec</span>) <span style="color:#a90d91">do</span> <span style="color:#000">|</span><span style="color:#000">t</span><span style="color:#000">|</span>
-<span style="color:#000">...</span></code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">RSpec::Core::RakeTask.new</span>(<span style="color: #C41A16">:spec</span>) <span style="color: #A90D91">do</span> <span style="color: #000000">|t|</span>
+<span style="color: #000000">...</span>
+</pre></div>
+
 
 <p>and make sure to change:</p>
 
-<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#000">spec_files</span> <span style="color:#000">=</span> <span style="color:#000">FileList</span><span style="color:#000">[</span><span style="color:#c41a16">&#39;spec/**/*_spec.rb&#39;</span><span style="color:#000">]</span></code></pre></div></p>
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">t.spec_files</span> <span style="color: #000000">=</span> <span style="color: #000000">FileList[</span><span style="color: #C41A16">&#39;spec/**/*_spec.rb&#39;</span><span style="color: #000000">]</span>
+</pre></div>
+</p>
 
 <p>to</p>
 
-<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#000">pattern</span>   <span style="color:#000">=</span> <span style="color:#c41a16">&#39;spec/**/*_spec.rb&#39;</span></code></pre></div></p>
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">t.pattern</span>   <span style="color: #000000">=</span> <span style="color: #C41A16">&#39;spec/**/*_spec.rb&#39;</span>
+</pre></div>
+</p>
 
 
               <div class="related-posts">
@@ -146,14 +152,53 @@ uninitialized constant RSpec::Rake</p>
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>

@@ -166,10 +166,9 @@ If we are developing a Spree extension, or a Retrospectiva extension, or a Fat F
 Solution:
 You are using rails 3 (and rspec 2), and trying to define a custom rake task with Spec::Rake::SpecTask.new
 Instead, do:
-RSpec::Core::RakeTask.new(:spec) do |t| ... and make sure to change:
-t.spec_files = FileList[&amp;#39;spec/**/*_spec.rb&amp;#39;]
-to
-t.pattern = &amp;#39;spec/**/*_spec.rb&amp;#39;</description>
+RSpec::Core::RakeTask.new(:spec) do |t| ...  and make sure to change:
+t.spec_files = FileList[&amp;#39;spec/**/*_spec.rb&amp;#39;]  to
+t.pattern = &amp;#39;spec/**/*_spec.rb&amp;#39;  </description>
     </item>
     
     <item>

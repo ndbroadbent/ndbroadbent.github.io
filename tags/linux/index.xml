@@ -60,7 +60,7 @@ For the ls output, it was a bit tricky to re-justify the username and group colu
       <guid>https://madebynathan.com/2012/03/24/skype-notifications-using-libnotify-on-linux/</guid>
       <description>Skype on Linux comes with it&amp;rsquo;s own notification system. It&amp;rsquo;s not that bad, but it&amp;rsquo;s not consistent, either. If you want to configure Skype to use libnotify instead, run the following script in your terminal:
 (NOTE: You must have installed Skype, and logged in at least once.)
-bash &amp;lt; &amp;lt;(curl -s https://raw.github.com/gist/2181122/skype-libnotify.sh) This downloads and executes the script from this gist: https://gist.github.com/2181122
+bash &amp;lt; &amp;lt;(curl -s https://raw.github.com/gist/2181122/skype-libnotify.sh)  This downloads and executes the script from this gist: https://gist.github.com/2181122
 It fetches the skype configuration from here, which is part of my dotfiles repo.</description>
     </item>
     

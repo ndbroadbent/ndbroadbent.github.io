@@ -8,7 +8,7 @@
     <meta name="description" content="Web, mobile, electronics, music">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</title>
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -86,7 +86,9 @@ ga('send', 'pageview');
 
 <p>One extra feature for Ruby developers is support for backtrace lines like this:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">app</span><span style="color:#c41a16">/models/</span><span style="color:#000">post</span><span style="color:#000">.</span><span style="color:#000">rb</span>:<span style="color:#1c01ce">225</span><span style="color:#000"></span><span style="color:#c41a16">:in</span> <span style="color:#c41a16">`sharing_is_caring&#39;</span></code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">app/models/post.rb</span>:<span style="color: #1C01CE">225</span><span style="color: #C41A16">:in</span> <span style="color: #C41A16">`sharing_is_caring&#39;</span>
+</pre></div>
+
 
 <p>If you double-click that file, you&rsquo;ll end up with the following selection: <strong>app/models/post.rb:225:in</strong>. The script will automatically strip the trailing <strong>:in</strong>, so you can just double-click instead of manually highlighting.</p>
 
@@ -104,9 +106,11 @@ ga('send', 'pageview');
 <li>Download the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/open_selected_in_editor">open_selected_in_editor</a> script to somewhere like <code>~/bin</code>.</li>
 </ul>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/bin
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>mkdir -p ~/bin
 wget https://raw.github.com/ndbroadbent/dotfiles/master/bin/open_selected_in_editor -O ~/bin/open_selected_in_editor
-chmod +x ~/bin/open_selected_in_editor</code></pre></div>
+chmod +x ~/bin/open_selected_in_editor
+</pre></div>
+
 
 <ul>
 <li>Modify the script to use your preferred text editor</li>
@@ -116,7 +120,9 @@ chmod +x ~/bin/open_selected_in_editor</code></pre></div>
 
 <p>Add the following line to your <code>~/.bashrc</code>:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">PROMPT_COMMAND</span><span style="color:#000">+=</span><span style="color:#c41a16">&#34;pwd &gt; ~/.cwd~;&#34;</span></code></pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #000000">PROMPT_COMMAND+=</span><span style="color: #C41A16">&quot;pwd &gt; ~/.cwd~;&quot;</span>
+</pre></div>
+
 
 <p>This means that every time you press return in the terminal, the script can use your current directory to determine an absolute path for a highlighted file. It&rsquo;s not completely foolproof, but good enough for me.</p>
 
@@ -183,14 +189,53 @@ chmod +x ~/bin/open_selected_in_editor</code></pre></div>
               </div>
             </div>
           </div>
-        
+
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'madebynathan';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
         </div>
       </div>
       
     </div>
 
     
-    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://madebynathan.com/js/docs.min.js"></script>
+<script src="https://madebynathan.com/js/main.js"></script>
+
+<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
   </body>
 </html>
