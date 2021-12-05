@@ -2,7 +2,7 @@ baseurl = "https://madebynathan.com/"
 languageCode = "en-US"
 title = "Made by Nathan"
 # Enable comments by entering your Disqus shortname
-# disqusShortname = "madebynathan"
+disqusShortname = "madebynathan"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-19054098-3"
 theme = "hugo-sustain"

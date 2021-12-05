@@ -196,5 +196,4 @@ Thanks for reading! If you have any questions, please [leave a comment on Hacker
 
 -----------------------------
 
-* I'm currently working on [FormAPI](https://formapi.io/), which is an API for filling out PDFs.
-* I'm also [available for consulting work](https://ndbroadbent.com/).
+* I'm currently working on [DocSpring](https://docspring.com/), which is an API for filling out PDFs.
