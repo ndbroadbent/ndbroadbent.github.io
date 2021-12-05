@@ -6,6 +6,7 @@ if [ ! -d public/.git ]; then
   rm -rf public
   REMOTE="$(git remote get-url origin)"
   git clone "${REMOTE}" public
+  (cd public && git checkout gh-pages)
 fi
 
 docker run --rm -v "${PWD}:/src" hugo-alpine hugo
