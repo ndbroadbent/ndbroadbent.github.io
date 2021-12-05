@@ -3,7 +3,7 @@ categories = []
 date = "2021-12-05T02:15:59Z"
 description = ""
 tags = ["docker", "hugo", "scripts"]
-title = "How Docker Saved My Blog"
+title = "Docker Saved My Blog"
 +++
 
 I haven't written any blog posts for a while. One reason is that I've been hard at work on [DocSpring](https://docspring.com) for the last few years, and I haven't had a lot of time to work on personal projects. But the main reason is that my blog uses an older version of [Hugo](https://gohugo.io/), which is a "static site generator" [^1].
