@@ -1,2 +1,6 @@
 #!/bin/bash
-hugo --watch serve
+set -euo pipefail
+
+#hugo --watch serve
+
+docker run --rm -v .:/src -p 1313:1313 hugo-alpine hugo --watch serve
