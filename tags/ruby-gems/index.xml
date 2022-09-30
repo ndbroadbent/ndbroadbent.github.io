@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ruby Gems on Made by Nathan</title>
+    <title>Ruby Gems on Made By Nathan</title>
     <link>https://madebynathan.com/tags/ruby-gems/</link>
-    <description>Recent content in Ruby Gems on Made by Nathan</description>
+    <description>Recent content in Ruby Gems on Made By Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 03 Sep 2011 04:39:22 +0000</lastBuildDate>

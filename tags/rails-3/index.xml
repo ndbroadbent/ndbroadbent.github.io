@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rails 3 on Made by Nathan</title>
+    <title>Rails 3 on Made By Nathan</title>
     <link>https://madebynathan.com/tags/rails-3/</link>
-    <description>Recent content in Rails 3 on Made by Nathan</description>
+    <description>Recent content in Rails 3 on Made By Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 20 Dec 2012 13:02:20 +0000</lastBuildDate>

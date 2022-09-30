@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Made by Nathan</title>
+    <title>Posts on Made By Nathan</title>
     <link>https://madebynathan.com/posts/</link>
-    <description>Recent content in Posts on Made by Nathan</description>
+    <description>Recent content in Posts on Made By Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 05 Dec 2021 02:15:59 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Sep 2022 10:21:05 +0000</lastBuildDate>
     
 	<atom:link href="https://madebynathan.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Automating my Kitchen Rangehood Fan and Light</title>
+      <link>https://madebynathan.com/posts/2022-09-30-automating-my-kitchen-rangehood/</link>
+      <pubDate>Fri, 30 Sep 2022 10:21:05 +0000</pubDate>
+      
+      <guid>https://madebynathan.com/posts/2022-09-30-automating-my-kitchen-rangehood/</guid>
+      <description>I originally posted this write-up on the Home Assistant Community Forums. I thought I would post it here as well, since I haven&amp;rsquo;t written anything on this blog for a while. I&amp;rsquo;ve been getting more serious about Home Automation lately, so I might start writing some more blog posts and making a few videos.
+ I figured out how to control the light and fan in the rangehood above my stove.</description>
+    </item>
     
     <item>
       <title>Docker Saved My Blog</title>
@@ -697,7 +707,7 @@ I found a guide written for Ubuntu 9.04 on this forum post, but Ubuntu 9.10 now 
     </item>
     
     <item>
-      <title>fireworks display in time to music.</title>
+      <title>Fireworks display in time to music</title>
       <link>https://madebynathan.com/2010/04/25/fireworks-display-in-time-to-music/</link>
       <pubDate>Sun, 25 Apr 2010 14:06:56 +0000</pubDate>
       

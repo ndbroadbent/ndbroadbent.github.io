@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on Made by Nathan</title>
+    <title>Docker on Made By Nathan</title>
     <link>https://madebynathan.com/tags/docker/</link>
-    <description>Recent content in Docker on Made by Nathan</description>
+    <description>Recent content in Docker on Made By Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 05 Dec 2021 02:15:59 +0000</lastBuildDate>

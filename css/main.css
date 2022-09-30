@@ -3,9 +3,9 @@ html,
 body {
   /*height: 100%;*/
   background-color: #fff;
-  font-family: "Merriweather", serif;
+  font-family: "Inter", "Helvetica", "Arial", sans-serif;
   /* The html and body elements cannot have any padding or margin. */
-  /*border-top: 3px solid #27A822;*/
+  /*border-top: 3px solid #337ab7;*/
 }
 
 ul p {
@@ -21,17 +21,30 @@ h3 {
   line-height: 37px;
 }
 
+h3.intro {
+  line-height: 33px;
+}
+
 .post-date {
   color: #aaa;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 a.image {
+  text-decoration: none;
+}
+a:hover {
   text-decoration: none;
 }
 
 code {
   color: #555;
   background-color: #f0f0f0;
+}
+
+blockquote {
+  opacity: 0.6;
 }
 
 .highlight {
@@ -54,7 +67,9 @@ section#recent-posts {
   display: block;
   opacity: 0.7;
   font-size: 18px;
+  font-weight: bold;
   margin-top: 40px;
+  /* text-transform: uppercase; */
 }
 
 #about h3 {
@@ -97,6 +112,7 @@ section#recent-posts {
 }
 
 .navbar-default {
+  /* text-transform: uppercase; */
   margin-bottom: 0;
 }
 
@@ -119,6 +135,14 @@ section#recent-posts {
   border-color: #ffffff;
 }
 .navbar-default .navbar-brand {
+  color: #999;
+  /* font-weight: bold; */
+  font-size: 20px;
+}
+
+.navbar-default a.navbar-brand.active,
+.navbar-default .navbar-nav > li > a.navbar-brand.active {
+  /* green */
   color: #999;
 }
 
@@ -202,10 +226,10 @@ section#recent-posts {
   margin: 20px 0;
 }
 .container a {
-  color: #27a822;
+  color: #337ab7;
 }
 .container a:hover {
-  color: #267723;
+  color: #133a67;
 }
 .img-responsive {
   display: block;
@@ -222,16 +246,22 @@ section#recent-posts {
   line-height: 27px;
   font-size: 18px;
 }
+
+.panel-default h5.post-date {
+  font-size: 15px;
+  line-height: 27px;
+}
+
 .panel-default h6 {
   font-size: 15px;
 }
 .panel-default h4 a,
 h5 a {
-  color: #27a822;
+  color: #337ab7;
 }
 .panel-default h4 a:hover,
 h5 a:hover {
-  color: #267723;
+  color: #133a67;
 }
 .panel {
   border-style: none;
@@ -245,10 +275,25 @@ h5 a:hover {
   /*padding-bottom: 34px;*/
   text-align: left;
 }
+
+.social-container {
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  position: fixed;
+  padding-bottom: 15px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* left: 15px; */
+  /* padding-right: 25px; */
+}
+
 .social-links {
   display: block;
   margin: 0 auto;
-  margin-top: 40px;
+  /* margin-top: 40px; */
+  margin-top: 22px;
   width: 100%;
   text-align: center;
   animation: fade 1s ease 1s both;
@@ -270,24 +315,72 @@ h5 a:hover {
 }
 .blog-post {
   text-align: left;
-  padding-top: 30px;
+  margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  align-items: flex-end;
+
+  margin-bottom: 5px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ccc;
 }
 .blog-title {
-  text-align: left;
-  padding-top: 2px;
-  max-width: 600px;
+  /* display: flex;
+  justify-content: space-between; */
+  /* text-align: left; */
+  /* padding-top: 2px; */
+  /* max-width: 600px; */
   /*margin: auto;*/
   margin-left: 0;
-  margin-bottom: 40px;
 }
 .blog-title h4 {
   margin-top: 3px;
   color: #aaa;
 }
-.blog-title .tag {
-  line-height: 30px;
-  font-size: 12px;
-  color: #bbb;
+.blog-title h4.post-date {
+  font-size: 14px;
+  /* margin-bottom: 0; */
+  margin-bottom: 12px;
+  margin-top: 14px;
+  min-width: 160px;
+  text-align: right;
+}
+
+.related-posts h6.post-date {
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.single-blog-post .tags-and-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.single-blog-post .tags {
+  text-align: left;
+  margin-bottom: 10px;
+}
+.single-blog-post .tags .tag {
+  display: inline-block;
+  line-height: 15px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #999;
+  background-color: #f5f5f5;
+  padding: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+.single-blog-post .tags .tag:hover {
+  text-decoration: none;
+  color: #133a67;
 }
 
 .related-posts {
@@ -319,6 +412,10 @@ img.lost-gif {
   margin-top: 36px;
   margin-bottom: 14px;
 }
+.blog-post h3 {
+  line-height: 34px;
+  font-weight: bold;
+}
 
 /* Footer  */
 .footer {
@@ -327,9 +424,9 @@ img.lost-gif {
 .text-muted {
   color: #6b6b6b;
 }
-div.footer {
-  /*border-bottom: 5px solid #27A822;*/
-}
+/*div.footer {
+  border-bottom: 5px solid #337ab7;
+}*/
 /* Set the fixed height of the footer here */
 /*.footer {
   height: 50px;
@@ -338,6 +435,79 @@ div.footer {
 }*/
 
 img.lightbox.thumb {
-  margin: 14px;
+  margin: 14px 0;
   max-width: 100%;
+}
+
+.container.tags {
+  padding-bottom: 50px;
+}
+
+.container.tags .tag-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container.tags .tag-row .comma {
+  margin-right: 4px;
+}
+
+.container.tags .tag-row .comma:last-child {
+  display: none;
+}
+
+.container.tags .letter {
+  font-size: 21px;
+  font-weight: bold;
+  border-bottom: 1px solid #777;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.container.tags a.tag {
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.homepage section#recent-posts .post-date,
+.related-posts h6.post-date {
+  text-align: right;
+}
+
+/* Responsive CSS for mobile */
+@media only screen and (max-width: 700px) {
+  section#recent-posts {
+    padding-bottom: 100px;
+  }
+  .homepage section#recent-posts .post-date,
+  .related-posts h6.post-date {
+    text-align: left;
+  }
+
+  .navbar-default #navbar ul.nav.navbar-nav.navbar-right {
+    display: flex;
+  }
+  .navbar-default #navbar ul.nav.navbar-nav.navbar-right li {
+    border-right: 1px solid #ccc;
+  }
+  .navbar-default #navbar ul.nav.navbar-nav.navbar-right li:last-child {
+    border-right: none;
+  }
+  .navbar-default #navbar ul.nav.navbar-nav.navbar-right {
+    text-align: left;
+  }
+  /* .navbar-default #navbar ul.nav.navbar-nav.navbar-right li {
+    margin-left: 10px;
+  } */
+  .navbar-default #navbar ul.nav.navbar-nav.navbar-right li a {
+    padding-left: 0;
+    /* font-weight: bold; */
+  }
+
+  .blog-post {
+    margin-top: 0;
+  }
+
+  /* img.lightbox.thumb {
+    max-width: 92%;
+  } */
 }

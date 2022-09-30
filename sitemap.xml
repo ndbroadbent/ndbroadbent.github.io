@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://madebynathan.com/posts/2022-09-30-automating-my-kitchen-rangehood/</loc>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/posts/2021-12-05-how-docker-saved-my-blog/</loc>
     <lastmod>2021-12-05T02:15:59+00:00</lastmod>
   </url>
@@ -365,6 +370,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/art/</loc>
+    <lastmod>2010-11-05T15:05:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/bash/</loc>
     <lastmod>2013-03-29T23:44:58+00:00</lastmod>
     <priority>0</priority>
@@ -437,7 +448,13 @@
   
   <url>
     <loc>https://madebynathan.com/tags/electronics/</loc>
-    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://madebynathan.com/tags/esp32/</loc>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -508,8 +525,14 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/home-assistant/</loc>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/home-automation/</loc>
-    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -551,7 +574,7 @@
   
   <url>
     <loc>https://madebynathan.com/tags/kitchen/</loc>
-    <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -575,13 +598,19 @@
   
   <url>
     <loc>https://madebynathan.com/</loc>
-    <lastmod>2021-12-05T02:15:59+00:00</lastmod>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://madebynathan.com/tags/mailing-list/</loc>
     <lastmod>2012-09-19T12:05:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://madebynathan.com/tags/metal/</loc>
+    <lastmod>2010-11-05T15:05:57+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -611,13 +640,7 @@
   
   <url>
     <loc>https://madebynathan.com/posts/</loc>
-    <lastmod>2021-12-05T02:15:59+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://madebynathan.com/tags/projects/</loc>
-    <lastmod>2018-02-12T01:34:40+07:00</lastmod>
+    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
