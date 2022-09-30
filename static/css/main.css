@@ -327,9 +327,9 @@ img.lost-gif {
 .text-muted {
   color: #6b6b6b;
 }
-div.footer {
-  /*border-bottom: 5px solid #27A822;*/
-}
+/*div.footer {
+  border-bottom: 5px solid #27A822;
+}*/
 /* Set the fixed height of the footer here */
 /*.footer {
   height: 50px;
@@ -340,4 +340,33 @@ div.footer {
 img.lightbox.thumb {
   margin: 14px;
   max-width: 100%;
+}
+
+.container.tags {
+  padding-bottom: 50px;
+}
+
+.container.tags .tag-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container.tags .tag-row .comma {
+  margin-right: 4px;
+}
+
+.container.tags .tag-row .comma:last-child {
+  display: none;
+}
+
+.container.tags .letter {
+  font-size: 21px;
+  font-weight: bold;
+  border-bottom: 1px solid #777;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.container.tags a.tag {
+  font-size: 18px;
+  text-decoration: none;
 }

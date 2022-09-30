@@ -16,7 +16,7 @@ pygmentsstyle = "xcode"
 [params]
   avatar = "avatar.jpg"
   author = "Nathan Broadbent"
-  description = "Web, mobile, electronics, music"
+  description = "Home automation, electronics, software development, etc."
 
   # Custom assets can be linked with their paths relative to static/
   custom_css = []
@@ -35,6 +35,12 @@ pygmentsstyle = "xcode"
   weight = 100
   identifier = "post"
   url = "/posts/"
+
+[[menu.main]]
+  name = "Tags"
+  weight = 200
+  identifier = "tags"
+  url = "/tags/"
   
 [[menu.main]]
   name = "Consulting"
