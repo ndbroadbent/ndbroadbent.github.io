@@ -7,7 +7,6 @@ tags:
     "microwave",
     "kitchen",
     "appliances",
-    "projects",
     "ruby",
     "rails",
     "sinatra",

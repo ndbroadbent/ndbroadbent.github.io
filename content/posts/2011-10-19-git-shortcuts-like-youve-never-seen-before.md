@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-10-19T01:14:01Z
-tags: ["git", "bash", "zsh", "scripts", "projects"]
+tags: ["git", "bash", "zsh", "scripts"]
 title: SCM Breeze
 url: /2011/10/19/git-shortcuts-like-youve-never-seen-before/
 ---

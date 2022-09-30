@@ -2,7 +2,7 @@
 comments: true
 date: 2010-11-05T15:05:57Z
 description: Embossed metal box
-tags: ["projects"]
+tags: ["art", "metal"]
 title: My attempt at an embossed metal box from beverage can
 url: /2010/11/05/my-attempt-at-an-embossed-metal-box-from-beverage-can/
 wordpress_id: 208

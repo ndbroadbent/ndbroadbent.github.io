@@ -1,15 +1,7 @@
 ---
 comments: true
 date: 2010-11-05T20:10:37Z
-tags:
-  [
-    "compaq-evo-t20",
-    "projects",
-    "linux",
-    "ruby",
-    "electronics",
-    "home-automation",
-  ]
+tags: ["compaq-evo-t20", "linux", "ruby", "electronics", "home-automation"]
 title: RFID apartment lock (& iPhone app)
 url: /2010/11/05/octopus-card-door-lock/
 wordpress_id: 104

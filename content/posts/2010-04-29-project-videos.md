@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-29T11:35:52Z
-tags: ["linux", "music", "projects", "reaper", "ruby", "ubuntu-9.10", "videos"]
+tags: ["linux", "music", "reaper", "ruby", "ubuntu-9.10", "videos"]
 title: Last.fm Player - Project Videos
 url: /2010/04/29/project-videos/
 wordpress_id: 49

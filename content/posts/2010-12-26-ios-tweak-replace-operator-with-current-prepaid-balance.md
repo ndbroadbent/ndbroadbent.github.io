@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-12-26T16:42:16Z
-tags: ["projects", "iphone", "jailbreak"]
+tags: ["iphone", "jailbreak"]
 title: iOS JB tweak - Replace operator with current prepaid balance
 url: /2010/12/26/ios-tweak-replace-operator-with-current-prepaid-balance/
 wordpress_id: 300

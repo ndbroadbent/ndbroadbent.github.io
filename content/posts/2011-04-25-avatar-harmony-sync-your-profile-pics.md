@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-04-25T17:32:50Z
-tags: ["projects", "rails", "web-design", "rails-3"]
+tags: ["rails", "web-design", "rails-3"]
 title: Avatar Harmony - Sync your profile pics
 url: /2011/04/25/avatar-harmony-sync-your-profile-pics/
 wordpress_id: 432
