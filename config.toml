@@ -1,6 +1,6 @@
 baseurl = "https://madebynathan.com/"
 languageCode = "en-US"
-title = "Made by Nathan"
+title = "Made By Nathan"
 # Enable comments by entering your Disqus shortname
 disqusShortname = "madebynathan"
 # Enable Google Analytics by entering your tracking code
@@ -41,7 +41,7 @@ pygmentsstyle = "xcode"
   weight = 200
   identifier = "tags"
   url = "/tags/"
-  
+
 [[menu.main]]
   name = "Consulting"
   identifier = "consulting"

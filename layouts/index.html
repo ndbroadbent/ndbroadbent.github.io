@@ -1,5 +1,5 @@
 {{ partial "head" . }}
-  <body>
+  <body class="homepage">
     <div id="wrap">
       {{ partial "header" . }}
       <section id="about">
@@ -8,12 +8,9 @@
             <img class="img-circle" src="https://www.gravatar.com/avatar/4931eceec58528529fd004e56af197c4?s=300" alt="Responsive image" style="width: 150px; height: 150px;">
           </div>
 
-          <h3>
-            Hello! I'm {{ .Site.Params.author }}, and I'm the founder of <a href="https://docspring.com">DocSpring</a>. 
-            I enjoy building things and automating my house.
+          <h3 class="intro">
+            Hi, I'm {{ .Site.Params.author }}.<br/>I'm a software developer who enjoys making things.
           </h3>
-
-          {{ partial "social.html" . }}
         </div>
       </section>
 
@@ -22,28 +19,30 @@
           <!--<h3>Latest Posts</h3>-->
           <div class="panel panel-default">
             <div class="panel-body">
-            {{ range first 3 .Data.Pages.ByPublishDate }}
+            {{ range first 5 .Data.Pages.ByPublishDate }}
               <div class="row">
                 <div class="col-sm-4 col-md-4 col-lg-4">
-                  <h5 class="post-date" style="text-align: right">
+                  <h5 class="post-date">
                     {{ .Date.Format "January 2, 2006" }}
                   </h5>
                   </div>
                   <div class="col-sm-8 col-md-8 col-lg-8">
                     <h5 style="text-align: left">
-                    <strong>
                       <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-                    </strong>
                   </h5>
                 </div>
               </div>
             {{ end }}
             </div>
 
-            <a class="view-all" href="/posts/">More Posts...</h3>
+            <!-- <a class="view-all" href="/posts/">View All Posts...</h3> -->
           </div>
         </div>
       </section>
+    </div>
+
+    <div class="container social-container">
+      {{ partial "social.html" . }}
     </div>
     <!--{{ partial "footer" . }}-->
   </body>

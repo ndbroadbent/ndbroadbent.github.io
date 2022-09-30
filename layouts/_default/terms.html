@@ -19,6 +19,7 @@
                 <!-- if $curLetter isn't set or the letter has changed -->
                 {{ if ne $firstChar $curLetter }}
                   {{ if ne $curLetter "" }}
+
               </div>
             </div>
                   {{ end }}
@@ -31,8 +32,7 @@
               {{ end }}
                 <a class="tag" href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a><span class="comma">,</span>
             {{ end }}
-
-              </div>    
+              </div>
             </div>
           </div>
         </div>

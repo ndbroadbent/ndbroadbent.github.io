@@ -4,7 +4,7 @@ date = "2022-09-30T10:21:05Z"
 description = ""
 tags = [
   "home-automation",
-  "home-assistant",  
+  "home-assistant",
   "esp32",
   "kitchen",
   "electronics"
@@ -53,7 +53,7 @@ I'm a software developer, so I really like having fast feedback loops and the ab
 
 I found [TinkerCad](https://www.tinkercad.com/), and my mind was blown! Now I had a virtual Arduino wired up to a virtual breadboard. I recreated this button/LED board inside TinkerCad. I could set up virtual multi-meters to see how much current was flowing through LEDs, and easily figure out values for resistors.
 
-<img class="lightbox thumb" src="/images/posts/2022/09/tinkercad_simulation" alt="Screenshot of TinkerCad simulation" />
+<img class="lightbox thumb" src="/images/posts/2022/09/tinkercad_simulation.png" alt="Screenshot of TinkerCad simulation" />
 
 This is so awesome! It even tells you when too much current is going through an LED:
 

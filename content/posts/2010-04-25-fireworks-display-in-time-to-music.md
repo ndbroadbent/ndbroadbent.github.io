@@ -2,7 +2,7 @@
 comments: true
 date: 2010-04-25T14:06:56Z
 tags: ["reaper", "music", "fireworks", "pyro", "show"]
-title: fireworks display in time to music.
+title: Fireworks display in time to music
 url: /2010/04/25/fireworks-display-in-time-to-music/
 wordpress_id: 33
 wordpress_url: http://nathanf77.wordpress.com/?p=33
@@ -27,6 +27,6 @@ it would be cool to set up a few strobes and halogens as well.
 
 UPDATE (30/09/11):
 
-I actually did set everything up last year, and it was all ready to go, but then .. it rained :(
+I actually did set everything up last year, and it was all ready to go, but then .. it rained :( Show was canceled.
 
-Next time I'm in NZ I might try this again.
+I might try this again once I'm back in NZ.

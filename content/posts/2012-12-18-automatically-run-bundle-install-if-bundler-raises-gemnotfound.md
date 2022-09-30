@@ -9,7 +9,7 @@ url: /2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/
 Every Rails developer has probably experienced the following error:
 
 <div class="highlight"><pre><code class="bash"><span class="sb">Could not find &lt;gem&gt; in any of the sources</span>
-<span style="color: #FD0;">Run `bundle install` to install missing gems.</span>
+<span style="color: #390;">Run `bundle install` to install missing gems.</span>
 </code></pre>
 </div>
 
