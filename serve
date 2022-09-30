@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+# Start a simple Python server to serve static files from public
+# https://stackoverflow.com/a/67149569/304706
+python3 -m http.server --directory public 1313
