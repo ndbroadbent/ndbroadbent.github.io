@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-04-30T17:22:57Z
-tags: ["guides", "ruby", "rails", "jqgrid"]
+tags: ["ruby", "rails", "jqgrid"]
 title: jqgrid on Spree
 url: /2010/04/30/jqgrid-on-spree/
 wordpress_id: 59

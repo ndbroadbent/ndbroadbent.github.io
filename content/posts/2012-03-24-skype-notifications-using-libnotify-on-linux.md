@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-03-24T18:55:18Z
-tags: ["scripts", "guides", "skype", "linux"]
+tags: ["scripts", "skype", "linux"]
 title: Skype notifications using libnotify on Linux
 url: /2012/03/24/skype-notifications-using-libnotify-on-linux/
 ---

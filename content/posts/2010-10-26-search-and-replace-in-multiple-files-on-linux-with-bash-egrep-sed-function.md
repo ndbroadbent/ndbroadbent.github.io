@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-10-26T18:05:53Z
-tags: ["bash", "guides"]
+tags: ["bash"]
 title: Search and replace in multiple files on linux with bash, egrep, sed function
 url: /2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/
 wordpress_id: 184

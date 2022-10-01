@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-11-01T14:26:55Z
-tags: ["guides", "iphone", "jailbreak"]
+tags: ["iphone", "jailbreak"]
 title: Trying to use l1merain but it doesn't work?
 url: /2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/
 wordpress_id: 262

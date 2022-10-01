@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-05-21T13:40:27Z
-tags: ["git", "guides"]
+tags: ["git"]
 title: git shortcuts
 url: /2010/05/21/git-shortcuts/
 wordpress_id: 87

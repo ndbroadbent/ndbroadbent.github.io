@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-01-22T06:39:39Z
-tags: ["guides", "ruby", "ruby-gems", "rails", "bundler"]
+tags: ["ruby", "ruby-gems", "rails", "bundler"]
 title: Build a ruby gem and host it on rubygems.org in 4 easy steps
 url: /2011/01/22/how-to-build-a-ruby-gem-and-host-it-on-rubygems-org-in-4-easy-steps/
 wordpress_id: 335

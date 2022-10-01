@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-02-24T05:02:15Z
-tags: ["guides", "rails", "rails-3"]
+tags: ["rails", "rails-3"]
 title: Rails 3 Rake tasks can take too long to load
 url: /2011/02/24/rails-3-rake-tasks-are-so-slow/
 wordpress_id: 373

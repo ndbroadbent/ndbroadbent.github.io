@@ -2,7 +2,7 @@
 comments: true
 date: 2011-10-04T16:45:42Z
 excerpt: A better way to use xclip
-tags: ["ubuntu", "linux", "guides", "bash"]
+tags: ["ubuntu", "linux", "bash"]
 title: A better way to use xclip (clipboard from the command line)
 url: /2011/10/04/a-nicer-way-to-use-xclip/
 ---

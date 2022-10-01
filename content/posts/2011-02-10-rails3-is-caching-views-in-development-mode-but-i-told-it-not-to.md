@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-02-10T03:40:52Z
-tags: ["guides", "rails", "rails-3"]
+tags: ["rails", "rails-3"]
 title: Rails 3 caching views in development mode
 url: /2011/02/10/rails3-is-caching-views-in-development-mode-but-i-told-it-not-to/
 wordpress_id: 366

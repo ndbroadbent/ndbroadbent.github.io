@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2012-10-11T14:56:54Z
-tags: ["ruby", "rails", "guides", "bash", "rubygems", "scripts", "git"]
+tags: ["ruby", "rails", "bash", "rubygems", "scripts", "git"]
 title:
   "Automate your Rails development with cron: Keep projects updated, install
   gems, and maintain a repo index"
