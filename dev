@@ -3,4 +3,4 @@ set -euo pipefail
 
 #hugo --watch serve
 
-docker run --rm -v "${PWD}:/src" -p 1313:1313 hugo-alpine hugo --watch serve --bind 0.0.0.0
+docker run --rm -v "${PWD}:/src" -p 1313:1313 hugo-alpine hugo --watch serve --buildDrafts --bind 0.0.0.0
