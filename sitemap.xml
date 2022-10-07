@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://madebynathan.com/2022/10/01/how-to-create-a-favicon-with-stable-diffusion-and-dalle-2/</loc>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/posts/2022-09-30-automating-my-kitchen-rangehood/</loc>
     <lastmod>2022-09-30T10:21:05+00:00</lastmod>
   </url>
@@ -364,6 +369,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/ai/</loc>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/appliances/</loc>
     <lastmod>2013-07-10T23:51:47+00:00</lastmod>
     <priority>0</priority>
@@ -371,7 +382,7 @@
   
   <url>
     <loc>https://madebynathan.com/tags/art/</loc>
-    <lastmod>2010-11-05T15:05:57+00:00</lastmod>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -435,6 +446,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/dalle-2/</loc>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/damn-small-linux/</loc>
     <lastmod>2010-04-08T13:51:23+00:00</lastmod>
     <priority>0</priority>
@@ -455,6 +472,12 @@
   <url>
     <loc>https://madebynathan.com/tags/esp32/</loc>
     <lastmod>2022-09-30T10:21:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://madebynathan.com/tags/favicon/</loc>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -515,12 +538,6 @@
   <url>
     <loc>https://madebynathan.com/tags/grooveshark/</loc>
     <lastmod>2010-11-04T19:07:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://madebynathan.com/tags/guides/</loc>
-    <lastmod>2012-10-11T14:56:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -597,8 +614,14 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/logo/</loc>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/</loc>
-    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -617,6 +640,12 @@
   <url>
     <loc>https://madebynathan.com/tags/microwave/</loc>
     <lastmod>2013-07-10T23:51:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://madebynathan.com/tags/midjourney/</loc>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -640,7 +669,7 @@
   
   <url>
     <loc>https://madebynathan.com/posts/</loc>
-    <lastmod>2022-09-30T10:21:05+00:00</lastmod>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -771,6 +800,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/stable-diffusion/</loc>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/</loc>
     <lastmod>2012-11-08T12:55:17+00:00</lastmod>
     <priority>0</priority>
@@ -808,7 +843,7 @@
   
   <url>
     <loc>https://madebynathan.com/tags/web-design/</loc>
-    <lastmod>2011-04-25T17:32:50+00:00</lastmod>
+    <lastmod>2022-10-01T18:41:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
