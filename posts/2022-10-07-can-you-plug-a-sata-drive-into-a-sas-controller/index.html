@@ -15,7 +15,7 @@
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
 
-    <title>The Compaq Evo T20 works</title>
+    <title>Can you plug a SATA drive into a SAS controller?</title>
     <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -72,25 +72,25 @@
 
         <div class="blog-post">
           <h3>
-            <a href="https://madebynathan.com/2010/04/15/it-works/">The Compaq Evo T20 works</a>
+            <a href="https://madebynathan.com/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">Can you plug a SATA drive into a SAS controller?</a>
           </h3>
         </div>
 
         <div class="tags-and-date">
           <div class="tags">
             
-              <a class="tag" href="/tags/compaq-evo-t20">compaq-evo-t20&nbsp;&nbsp;</a>
+              <a class="tag" href="/tags/home-assistant">home-assistant&nbsp;&nbsp;</a>
             
               <a class="tag" href="/tags/linux">linux&nbsp;&nbsp;</a>
             
-              <a class="tag" href="/tags/ruby">ruby&nbsp;&nbsp;</a>
+              <a class="tag" href="/tags/debian">debian&nbsp;&nbsp;</a>
             
-              <a class="tag" href="/tags/shell-fm">shell-fm&nbsp;&nbsp;</a>
+              <a class="tag" href="/tags/server">server&nbsp;&nbsp;</a>
             
           </div>
           <div class="blog-title">
             <h4 class="post-date">
-            April 15, 2010
+            October 7, 2022
             </h4>
           </div>
         </div>
@@ -100,54 +100,44 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>I&rsquo;ve finished the software research stage of my Compaq Evo T20 experiments.
-I have settled on the Tinycore 2.7 distribution.
-So I now have a 300MHz thin client that:</p>
+              
+
+<h2 id="yes">Yes.</h2>
+
+<p><img class="lightbox thumb" src="/images/posts/2022/10/sata-sas/sata-sas.jpg" alt="SATA and SAS connectors" /></p>
+
+<p>SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&rsquo;t plug a SAS drive into a SATA controller (because it won&rsquo;t fit.) SAS controller software can support SATA drives, but SATA controllers don&rsquo;t support SAS drives (even if you have an adapter.)</p>
+
+<h2 id="why-do-i-have-a-sas-controller">Why do I have a SAS controller?</h2>
+
+<p>I was running <a href="https://www.home-assistant.io/">Home Assistant</a> and <a href="https://www.plex.tv/">Plex Media Server</a> on a <a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Model B</a>. I kept adding more and more Home Assistant add-ons (which run in Docker containers), so it started to get a bit slow. It took a long time to restart Home Assistant, and we started to notice some speed and reliability issues.</p>
+
+<p>I already had a server rack in my closet, so I wanted to get a proper server to put in it. I didn&rsquo;t need anything too fancy. It just needed to be a little bit faster than a Raspberry Pi, so I found a 10 year old IBM server for $249 NZD ($160 USD.) I found it on TradeMe, which is similar to eBay in New Zealand.</p>
 
 <ul>
-    <li>can connect to a wired or wireless network.</li>
-    <li>can play audio through its onboard sound device.</li>
-    <li>has the required libraries to run MPD (music player daemon) 
-        and shell.fm (minimal console application for streaming last.fm stations.)</li>
-    <li>can run Ruby 1.8.7, rubygems, rails, sinatra, etc (Ruby 1.9.x isn't compiling properly just yet.)</li>
-    <li>can load and use my k8055 linux drivers to control up to 8 digital outputs, 2 PWM outputs,
-        5 digital inputs and 2 analog inputs.</li>
+<li>Model: <a href="https://www.ibm.com/support/pages/overview-ibm-system-x3250-m4-windows-server-2012-type-2583">IBM System X3250 M4 E3-1270v2</a></li>
+<li>CPU: Intel Xeon E3-1270v2 4-core, 8-thread Processor</li>
+<li>Memory: 8GB DDR3 Ram</li>
+<li>Storage: 4x 2.5&rdquo; SAS / SATA drive bays, 1x 240GB SAS hard drive</li>
+<li>Controller: LSI SAS2004 IR SAS / SATA HBA</li>
+<li>Power: 2x 460w power supplies</li>
 </ul>
 
-<p>The possibilities for this are endless! It&rsquo;s easy to see the potential of a tiny, stable, fanless computer
-that can be put anywhere, control anything, and be controlled from anywhere.</p>
+<p>The new server has been working great, and Home Assistant is noticeably faster. The 10-year-old Intel Xeon E3-1270v2 CPU has a CPU Mark benchmark score of 6429, which is 8x better than the Broadcom BCM2711 processor in a Raspberry Pi 4B (834.)</p>
 
-<p>Some of my ideas:</p>
+<p><img class="lightbox thumb" src="/images/posts/2022/10/sata-sas/bcm2711-vs-intel-xeon.jpg" alt="BCM2711 vs Intel Xeon E3-1270 V2" /></p>
 
 <ul>
-    <li>Online remote control car server via webcam</li>
-    <li>Networked 8-stage fireworks display</li>
-    <li>Timelapse camera controller with pan and tilt</li>
-    <li>RFID tag access control system (swipe an authorized RFID card and unlock a door)</li>
-    <li>Last.fm radio player attached to home sterio system, controllable via network.</li>
-</ul>
-I have actually implemented the last idea.
-It took a lot of help from other people before I solved all of the problems I was having. A few hints would be:
-
-<ul>
-    <li>Never use ndiswrapper with rt73 wireless devices. It made my T20s freeze randomly.
-        Get rt73.bin from the driver packages on
-        <a href="http://www.ralinktech.com/support.php?s=2">the manufactures website</a>.
-        Copy it to /usr/lib/firmware, and start wpa_supplicant with the wext driver option.</li>
-    <li>To get sound working on a Compaq Evo T20 running tinycore linux,
-        all you have to do is place the following lines in <code>/opt/bootlocal.sh:</code></li>
+<li><a href="https://www.cpubenchmark.net/compare/BCM2711-vs-Intel-Xeon-E3-1270-V2/4297vs1192">BCM2711 vs Intel Xeon E3-1270 V2 @ 3.50GHz on cpubenchmark.net</a></li>
 </ul>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;# KMW: hacked sound setup - BEGIN&quot;</span> &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;alias snd-card-0 snd-sb16&quot;</span>         &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;alias sound-slot-0 snd-sb16&quot;</span>       &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;options snd-sb16 isapnp=0&quot;</span>         &gt;&gt; /etc/modprobe.conf
-<span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;# KMW: hacked sound setup - END&quot;</span>   &gt;&gt; /etc/modprobe.conf
-/usr/local/etc/init.d/alsasound start
-</pre></div>
+<hr />
 
+<p>The only problem is that the server came with a 320GB SAS hard-drive. It was a bit too small, and it made a lot of clicking noises. I wanted to replace it with a 1TB SATA SSD, which would be faster and silent. I just wasn&rsquo;t sure if my old server would be compatible with a modern SATA SSD.</p>
 
-<p>(Thanks to Karl Mowatt-Wilson for this)</p>
+<p>I did a bit of research, and it seemed like it would work, so I bought a new Samsung 870 EVO 1TB SSD for $175 NZD ($110 USD.) It was the same size and had the same screw holes as the old 2.5&rdquo; SAS drive, so I was able to swap the drives and use the same drive bracket. I put in the new drive and installed Debian 11 (with LVM), and everything worked great!</p>
+
+<p><strong>Conclusion: The latest Samsung SATA SSDs are still compatible with SAS controllers in servers that were made in 2012.</strong></p>
 
 
               <div class="related-posts">
@@ -156,25 +146,12 @@ It took a lot of help from other people before I solved all of the problems I wa
                   <div class="row">
                     <div class="col-sm-3 col-md-3 col-lg-3">
                       <h6 class="post-date">
-                        October 7, 2022
+                        September 30, 2022
                       </h6>
                     </div>
                     <div class="col-sm-9 col-md-9 col-lg-9">
                       <h6 style="text-align: left">
-                        <a href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">Can you plug a SATA drive into a SAS controller?</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        July 10, 2013
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a>
+                        <a href="/posts/2022-09-30-automating-my-kitchen-rangehood/">Automating my Kitchen Rangehood Fan and Light</a>
                       </h6>
                     </div>
                   </div>
@@ -188,6 +165,19 @@ It took a lot of help from other people before I solved all of the problems I wa
                     <div class="col-sm-9 col-md-9 col-lg-9">
                       <h6 style="text-align: left">
                         <a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h6 class="post-date">
+                        November 8, 2012
+                      </h6>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                      <h6 style="text-align: left">
+                        <a href="/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/">capistrano_colors has been merged into capistrano</a>
                       </h6>
                     </div>
                   </div>
