@@ -24,11 +24,11 @@ I've been updating the CSS for my blog recently, and I wanted to update the favi
 
 <br/>
 
-I didn't like this one anymore and I wanted something a bit more interesting, so I wanted to see if I could use some of the new text-to-image AI tools that have been blowing up on the internet. I used [Midjourney](https://www.midjourney.com/home/) and [DALL·E 2](https://openai.com/blog/dall-e/). (Midjourney uses [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release).)
+I wanted something a bit more interesting, so I tried using some of the new text-to-image AI tools that have been getting a lot of attention lately. I used [Midjourney](https://www.midjourney.com/home/) and [DALL·E 2](https://openai.com/blog/dall-e/). (Midjourney uses [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release).)
 
 <hr style="margin: 50px 0;" />
 
-I played around with some different prompts in Midjourney and DALL·E 2, and I iterated on a few different ideas. I enjoy spending time in Midjourney's shared Discord channels (e.g. `#general-4`), where you can see what other people are doing and get some inspiration for prompts.
+I played around with some different prompts in Midjourney and DALL·E 2, and I iterated on a few different ideas. I enjoy spending time in Midjourney's shared Discord channels (e.g. `#general-*`), where you can see what other people are doing and get some inspiration for prompts.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/favicon/midjourney_discord_shared_chat.jpg" alt="Midjourney shared chat channel general-4" />
 
@@ -50,9 +50,7 @@ And here's some from Midjourney:
 
 <img class="lightbox thumb" src="/images/posts/2022/10/favicon/midjourney_library.jpg" alt="Collection of images from Midjourney" />
 
-There's a lot of garbage in there, so it's not a "one-click" process by any means. I've realized that you have to be a pretty good designer and have a very good eye if you want to get some truly great images. I'm not very good at design, and unfortunately that means that I'm not a very good "AI prompt engineer" either. But you can get better at this with practice, and the AIs will keep getting better too.
-
-I eventually found some shapes and colors that looked pretty cool, so I generated some variations, and then some variations of variations using the Midjourney Discord Bot.
+I eventually found some shapes and colors that looked pretty cool, so I generated some variations using the Midjourney Discord Bot.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/favicon/midjourney_discord.jpg" alt="Variations on a shape" />
 
@@ -66,7 +64,7 @@ I used [realfavicongenerator.net](https://realfavicongenerator.net) to generate 
 
 <img class="lightbox thumb" src="/images/posts/2022/10/favicon/realfavicongenerator_net.jpg" alt="realfavicongenerator.net is awesome. I use them for all my websites." />
 
-They provided the HTML to include in the `<head>` tag.
+They provide this HTML to include in my `<head>` tag:
 
 ```html
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -80,17 +78,9 @@ They provided the HTML to include in the `<head>` tag.
 
 <hr style="margin: 50px 0;" />
 
-So here's my new favicon:
+So here's the new favicon:
 
 <img class="lightbox thumb" src="/images/posts/2022/10/favicon/new_favicon.jpg" alt="My new favicon" />
-
-<br/>
-
-I was curious to see how long it would take me to create a new favicon using AI, so I started a timer before I began. It took me 47 minutes and 23 seconds.
-
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/total_time.jpg" alt="Total time: 47 minutes and 23 seconds" />
-
-Then it took me a few hours to write up this blog post. I hope you enjoyed it!
 
 <hr style="margin: 50px 0;" />
 
@@ -102,4 +92,4 @@ P.S. Here's one I didn't end up using, in case you want it:
 
 ### Wet Bectolon. _Crdoruf Ptaogoatuy_
 
-([wetbectolon.com](wetbectolon.com) is available!)
+([wetbectolon.com](https://www.namecheap.com/domains/registration/results/?domain=wetbectolon.com) is available!)
