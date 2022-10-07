@@ -4,7 +4,7 @@ title = "Made By Nathan"
 # Enable comments by entering your Disqus shortname
 disqusShortname = "madebynathan"
 # Enable Google Analytics by entering your tracking code
-googleAnalytics = "UA-19054098-3"
+# googleAnalytics = "UA-19054098-3"
 theme = "hugo-sustain"
 
 pygmentsuseclasses = false
