@@ -1,6 +1,5 @@
 ---
 comments: true
-draft: true
 date: 2022-10-01T18:41:13Z
 tags:
   [
