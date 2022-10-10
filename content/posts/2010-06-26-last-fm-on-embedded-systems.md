@@ -10,6 +10,7 @@ tags:
     "ruby",
     "shell-fm",
     "web-design",
+    "projects",
   ]
 title: Last.fm on embedded systems
 url: /2010/06/26/last-fm-on-embedded-systems/

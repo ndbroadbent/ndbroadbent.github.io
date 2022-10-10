@@ -31,6 +31,12 @@ pygmentsstyle = "xcode"
 
 ## Main Menu
 [[menu.main]]
+  name = "Projects"
+  weight = 90
+  identifier = "projects"
+  url = "/tags/projects/"
+
+[[menu.main]]
   name = "Posts"
   weight = 100
   identifier = "post"

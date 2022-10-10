@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-07-20T16:27:10Z
-tags: ["scripts", "bash", "iphone", "jailbreak"]
+tags: ["scripts", "projects", "bash", "iphone", "jailbreak"]
 title: Automatically change iPhone wallpaper every 30 minutes
 url: /2011/07/20/automatically-change-iphone-wallpaper-every-30-minutes/
 wordpress_id: 526

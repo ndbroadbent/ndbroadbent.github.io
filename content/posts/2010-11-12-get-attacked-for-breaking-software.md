@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-11-12T09:38:09Z
-tags: ["ruby", "continous-integration"]
+tags: ["ruby", "projects", "continous-integration"]
 title: Get Punished for Breaking Your Software Tests
 url: /2010/11/12/get-attacked-for-breaking-software/
 wordpress_id: 264

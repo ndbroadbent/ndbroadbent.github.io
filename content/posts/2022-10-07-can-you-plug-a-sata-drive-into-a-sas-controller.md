@@ -1,16 +1,10 @@
-+++
-categories = []
-date = "2022-10-07T07:29:33Z"
-description = ""
-tags = [
-  "home-assistant",
-  "linux",
-  "debian",
-  "server"
-]
-title = "Can you plug a SATA drive into a SAS controller?"
-
-+++
+---
+categories: []
+date: "2022-10-07T07:29:33Z"
+description: ""
+tags: ["home-assistant", "linux", "debian", "server"]
+title: "Can you plug a SATA drive into a SAS controller?"
+---
 
 ## Yes.
 

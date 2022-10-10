@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-12-28T18:21:50Z
-tags: ["iphone", "home-automation"]
+tags: ["iphone", "projects", "home-automation"]
 title: Demo iPhone app - Apartment automation
 url: /2010/12/28/demo-iphone-app-apartment-automation/
 wordpress_id: 316

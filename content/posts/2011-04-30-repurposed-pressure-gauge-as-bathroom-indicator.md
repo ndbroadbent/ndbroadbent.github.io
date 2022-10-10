@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2011-04-30T15:44:26Z
-tags: ["electronics"]
+tags: ["electronics", "projects"]
 title: Repurposed pressure gauge - Bathroom door indicator
 url: /2011/04/30/repurposed-pressure-gauge-as-bathroom-indicator/
 wordpress_id: 425

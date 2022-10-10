@@ -1,7 +1,7 @@
 ---
 title: "What I Learned While Making a Game With React Native"
 date: 2018-02-12T01:34:40+07:00
-tags: ["games", "react native", "react", "javascript"]
+tags: ["games", "projects", "react native", "react", "javascript"]
 draft: false
 ---
 

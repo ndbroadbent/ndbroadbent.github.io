@@ -13,6 +13,7 @@ tags:
     "linux videos",
     "electronics",
     "home-automation",
+    "projects",
     "c",
   ]
 title: Raspberry Pi Microwave

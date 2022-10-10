@@ -1,17 +1,18 @@
-+++
-categories = []
-date = "2022-09-30T10:21:05Z"
-description = ""
-tags = [
-  "home-automation",
-  "home-assistant",
-  "esp32",
-  "kitchen",
-  "electronics"
-]
-title = "Automating my Kitchen Rangehood Fan and Light"
-
-+++
+---
+categories: []
+date: "2022-09-30T10:21:05Z"
+description: ""
+tags:
+  [
+    "home-automation",
+    "home-assistant",
+    "esp32",
+    "kitchen",
+    "electronics",
+    "projects",
+  ]
+title: "Automating my Kitchen Rangehood Fan and Light"
+---
 
 > I originally [posted this write-up on the Home Assistant Community Forums](https://community.home-assistant.io/t/i-automated-the-rangehood-above-my-stove-kitchen-extractor-fan-and-light-and-learned-a-lot/458085). I thought I would post it here as well, since I haven't written anything on this blog for a while. I've been getting more serious about Home Automation lately, so I might start writing some more blog posts and making a few videos.
 

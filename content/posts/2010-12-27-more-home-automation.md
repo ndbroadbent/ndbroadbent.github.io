@@ -1,7 +1,7 @@
 ---
 comments: true
 date: 2010-12-27T16:29:12Z
-tags: ["compaq-evo-t20", "home-automation", "electronics"]
+tags: ["compaq-evo-t20", "projects", "home-automation", "electronics"]
 title: More home automation..
 url: /2010/12/27/more-home-automation/
 wordpress_id: 310
