@@ -9,7 +9,9 @@ function kebab_case() {
   sed 's/\([A-Z]\)\([0-9]\)/\1-\2/g' |\
   sed 's/--/-/g' |\
   sed 's/\([\/]\)-/\1/g' |\
-  tr '[:upper:]' '[:lower:]'
+  tr '[:upper:]' '[:lower:]' |\
+  sed 's/[^[:alnum:]+.-]/-/g' |\
+  tr --squeeze-repeats -
 }
 
 # Param: $1 - title
@@ -27,13 +29,16 @@ function new_post() {
   fi
 
   echo "Creating new post: $full_path"
-  ./hugo new posts/$path
-  
+  ./hugo new -f yaml posts/$path
+
+  sed "s/title: \"\"/title: \"$title\"/" $full_path | grep -v 'description: ""' > $full_path.tmp
+  mv $full_path.tmp $full_path
+
   # Open the post in the editor
   open "$full_path"
 
   # Open the post in the browser (e.g. http://localhost:1313/posts/yyyy-mm-dd-<title kebab case>)
-  open "http://localhost:1313/posts/$path"
+  open "http://localhost:1313/posts/${path//.md/}"
 }
 
 new_post "$@"
