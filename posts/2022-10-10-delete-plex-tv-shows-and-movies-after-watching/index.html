@@ -15,7 +15,7 @@
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Can you plug a SATA drive into a SAS controller?</title>
+    <title>Delete Plex TV Shows and Movies After Watching</title>
     <meta name="generator" content="Hugo 0.21" />
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -72,25 +72,21 @@
 
         <div class="blog-post">
           <h3>
-            <a href="https://madebynathan.com/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">Can you plug a SATA drive into a SAS controller?</a>
+            <a href="https://madebynathan.com/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">Delete Plex TV Shows and Movies After Watching</a>
           </h3>
         </div>
 
         <div class="tags-and-date">
           <div class="tags">
             
-              <a class="tag" href="/tags/home-assistant">home-assistant&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/linux">linux&nbsp;&nbsp;</a>
+              <a class="tag" href="/tags/plex">plex&nbsp;&nbsp;</a>
             
               <a class="tag" href="/tags/debian">debian&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/server">server&nbsp;&nbsp;</a>
             
           </div>
           <div class="blog-title">
             <h4 class="post-date">
-            October 7, 2022
+            October 10, 2022
             </h4>
           </div>
         </div>
@@ -100,44 +96,69 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              
+              <p><a href="https://github.com/ndbroadbent/Plex-Cleaner"><code>Plex-Cleaner</code></a> is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&rsquo;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry Pi, or wherever you run Plex Media Server.)</p>
 
-<h2 id="yes">Yes.</h2>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/10/sata-sas/sata-sas.jpg" alt="SATA and SAS connectors" /></p>
-
-<p>SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&rsquo;t plug a SAS drive into a SATA controller (because it won&rsquo;t fit.) SAS controller software can support SATA drives, but SATA controllers don&rsquo;t support SAS drives (even if you have an adapter.)</p>
-
-<h2 id="why-do-i-have-a-sas-controller">Why do I have a SAS controller?</h2>
-
-<p>I was running <a href="https://www.home-assistant.io/">Home Assistant</a> and <a href="https://www.plex.tv/">Plex Media Server</a> on a <a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Model B</a>. I kept adding more and more Home Assistant add-ons (which run in Docker containers), so it started to get a bit slow. It took a long time to restart Home Assistant, and we started to notice some speed and reliability issues.</p>
-
-<p>I already had a server rack in my closet, so I wanted to get a proper server to put in it. I didn&rsquo;t need anything too fancy. It just needed to be a little bit faster than a Raspberry Pi, so I found a 10 year old IBM server for $249 NZD ($160 USD.) I found it on TradeMe, which is similar to eBay in New Zealand.</p>
+<p>I like to put things in the <code>/opt</code> directory on my servers.</p>
 
 <ul>
-<li>Model: <a href="https://www.ibm.com/support/pages/overview-ibm-system-x3250-m4-windows-server-2012-type-2583">IBM System X3250 M4 E3-1270v2</a></li>
-<li>CPU: Intel Xeon E3-1270v2 4-core, 8-thread Processor</li>
-<li>Memory: 8GB DDR3 Ram</li>
-<li>Storage: 4x 2.5&rdquo; SAS / SATA drive bays, 1x 240GB SAS hard drive</li>
-<li>Controller: LSI SAS2004 IR SAS / SATA HBA</li>
-<li>Power: 2x 460w power supplies</li>
-</ul>
+<li>Run <code>git clone https://github.com/ndbroadbent/Plex-Cleaner.git /opt</code></li>
+<li>Run <code>python3 PlexCleaner.py --dump Cleaner.conf</code> to create a new configuration file</li>
 
-<p>The new server has been working great, and Home Assistant is noticeably faster. The 10-year-old Intel Xeon E3-1270v2 CPU has a CPU Mark benchmark score of 6429, which is 8x better than the Broadcom BCM2711 processor in a Raspberry Pi 4B (834.)</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/10/sata-sas/bcm2711-vs-intel-xeon.jpg" alt="BCM2711 vs Intel Xeon E3-1270 V2" /></p>
+<li><p>Configure an authentication token in <code>Cleaner.conf</code>, under the <code>&quot;Token&quot;</code> key.</p>
 
 <ul>
-<li><a href="https://www.cpubenchmark.net/compare/BCM2711-vs-Intel-Xeon-E3-1270-V2/4297vs1192">BCM2711 vs Intel Xeon E3-1270 V2 @ 3.50GHz on cpubenchmark.net</a></li>
+<li><a href="https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/">Here&rsquo;s how to get an authentication token.</a></li>
+</ul></li>
+
+<li><p>Call <code>python3 PlexCleaner.py</code> to test it out.</p></li>
 </ul>
+
+<p>The script will run in test mode and won&rsquo;t delete anything if your <code>Cleaner.conf</code> contains <code>&quot;test&quot;: true</code>, or if you call <code>python3 PlexCleaner.py --test</code>.</p>
+
+<ul>
+<li>After everything looks good in the logs, set <code>&quot;test&quot;: false</code> in <code>Cleaner.conf</code>.</li>
+</ul>
+
+<p>You&rsquo;ll probably want to run this script regularly as a cron job. Run <code>crontab -e</code> to edit your crontab, then add the following line to run the script every day at 4am:</p>
+
+<pre><code>0 4 * * * /usr/bin/python3 /opt/Plex-Cleaner/PlexCleaner.py
+</code></pre>
+
+<p><br/></p>
 
 <hr />
 
-<p>The only problem is that the server came with a 320GB SAS hard-drive. It was a bit too small, and it made a lot of clicking noises. I wanted to replace it with a 1TB SATA SSD, which would be faster and silent. I just wasn&rsquo;t sure if my old server would be compatible with a modern SATA SSD.</p>
+<p>I always like to set up monitoring for any scheduled scripts so that I get a notification <del>if</del>&nbsp;when they stop working. <a href="https://healthchecks.io/">healthchecks.io</a> is my favorite monitoring tool and they have a generous free tier. <em>(No affiliation, they&rsquo;re just an awesome service.)</em></p>
 
-<p>I did a bit of research, and it seemed like it would work, so I bought a new Samsung 870 EVO 1TB SSD. It was the same size and had the same screw holes as the old 2.5&rdquo; SAS drive, so I was able to swap the drives and use the same drive bracket. I put in the new drive and installed Debian 11 (with LVM), and everything worked great!</p>
+<p>To set up monitoring with healthchecks.io, you can call the <code>run_plex_cleaner.sh</code> script from <a href="https://github.com/ndbroadbent/Plex-Cleaner">my fork</a>. This script will ping <a href="https://healthchecks.io/">healthchecks.io</a> on success or failure. <a href="https://healthchecks.io/">healthchecks.io</a> will also send you a notification if it doesn&rsquo;t receive any ping at the expected time (e.g. if your server has been turned off.)</p>
 
-<p><strong>Conclusion: The latest Samsung SATA SSDs are still compatible with SAS controllers in servers that were made in 2012.</strong></p>
+<ul>
+<li>Sign up for a free <a href="https://healthchecks.io/">healthchecks.io</a> account.</li>
+<li>Create a new check. Choose the &ldquo;Cron&rdquo; schedule and enter your cron expression, e.g. <code>0 4 * * *</code>.</li>
+<li>Make sure you also set the correct Time Zone in the options.</li>
+<li>Save the healthchecks.io check ID to a <code>healthchecksio_id</code> file in the <code>Plex-Cleaner</code> directory</li>
+<li>Set the log file option in <code>Cleaner.conf</code> so that it writes logs to a file:</li>
+</ul>
+
+<pre><code>&quot;LogFile&quot;: &quot;/opt/Plex-Cleaner/plexcleaner.log&quot;,
+</code></pre>
+
+<ul>
+<li>Set up this cron job entry (instead of the one above):</li>
+</ul>
+
+<pre><code>0 4 * * * /opt/Plex-Cleaner/run_plex_cleaner.sh
+</code></pre>
+
+<p><br/></p>
+
+<p>Now you&rsquo;ll get an email alert whenever something goes wrong:</p>
+
+<ul>
+<li>The script exits with an error</li>
+<li>The <code>plexcleaner.log</code> log file contains any <code>ERROR</code> entries</li>
+<li>The script doesn&rsquo;t run at all</li>
+</ul>
 
 
               <div class="related-posts">
@@ -146,38 +167,12 @@
                   <div class="row">
                     <div class="col-sm-3 col-md-3 col-lg-3">
                       <h6 class="post-date">
-                        October 10, 2022
+                        October 7, 2022
                       </h6>
                     </div>
                     <div class="col-sm-9 col-md-9 col-lg-9">
                       <h6 style="text-align: left">
-                        <a href="/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">Delete Plex TV Shows and Movies After Watching</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        September 30, 2022
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/posts/2022-09-30-automating-my-kitchen-rangehood/">Automating my Kitchen Rangehood Fan and Light</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        March 29, 2013
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2</a>
+                        <a href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">Can you plug a SATA drive into a SAS controller?</a>
                       </h6>
                     </div>
                   </div>

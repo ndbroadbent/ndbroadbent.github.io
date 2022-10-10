@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://madebynathan.com/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/</loc>
+    <lastmod>2022-10-10T00:36:15+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/</loc>
     <lastmod>2022-10-07T07:29:33+00:00</lastmod>
   </url>
@@ -464,7 +469,7 @@
   
   <url>
     <loc>https://madebynathan.com/tags/debian/</loc>
-    <lastmod>2022-10-07T07:29:33+00:00</lastmod>
+    <lastmod>2022-10-10T00:36:15+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -632,7 +637,7 @@
   
   <url>
     <loc>https://madebynathan.com/</loc>
-    <lastmod>2022-10-07T07:29:33+00:00</lastmod>
+    <lastmod>2022-10-10T00:36:15+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -673,6 +678,12 @@
   </url>
   
   <url>
+    <loc>https://madebynathan.com/tags/plex/</loc>
+    <lastmod>2022-10-10T00:36:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://madebynathan.com/tags/plugins/</loc>
     <lastmod>2010-12-03T04:34:48+00:00</lastmod>
     <priority>0</priority>
@@ -680,7 +691,7 @@
   
   <url>
     <loc>https://madebynathan.com/posts/</loc>
-    <lastmod>2022-10-07T07:29:33+00:00</lastmod>
+    <lastmod>2022-10-10T00:36:15+00:00</lastmod>
     <priority>0</priority>
   </url>
   
