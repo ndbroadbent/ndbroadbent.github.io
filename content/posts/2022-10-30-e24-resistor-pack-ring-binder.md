@@ -84,13 +84,9 @@ I used 63.5mm X 88mm Card Sleeves from [Sleeve Kings](https://sleevekings.com/).
 
 I'm pretty happy with how this turned out, and I think my version is even better than the expensive ring binders I found for sale. The PDF and code are MIT licensed, so anyone is more than welcome to use this for personal or commercial purposes.
 
-<br/>
-
 - [Github Gist with Liquid and SCSS code](https://gist.github.com/ndbroadbent/b33a2d72a13549d01c39d10a96b97880)
 - [Try a DocSpring demo with this template](https://docspring.com/templates/tpl_GP7fTnpFzJmbeJHzR7/edit)
 - [Sign up for a free DocSpring trial account to customize the template](https://docspring.com/sign_up?library_template_id=ltp_AQbEsdhD4Ksf6mYLXD)
-
----
 
 ## Finished Ring Binder
 
@@ -145,6 +141,10 @@ I'm pretty happy with how this turned out, and I think my version is even better
 
 <br />
 <br />
+
+Special thanks to Digi-Key's [Resistor Color Code Calculator](https://www.digikey.co.nz/en/resources/conversion-calculators/conversion-calculator-resistor-color-code). It's a great tool for quickly looking up resistor values.
+
+<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/digikey-calculator.jpg" alt="DigiKey's 4 Band Resistor Color Code Calculator" />
 
 # MIT License
 
