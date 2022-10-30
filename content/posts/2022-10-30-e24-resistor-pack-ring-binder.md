@@ -61,7 +61,7 @@ You can multiply each value in the series by the multiplier (power of 10) to get
 
 ## Buying an Unsorted Pack of 1,700 Resistors
 
-I bought a resistor pack that included 1,700 resistors in the E24 series, in sets of 10 (170 different values.) These are 1/4W carbon film resistors with a 5% tolerance.
+I bought a resistor pack that included 1,700 resistors in the E24 series, in sets of 10 (170 different values.) I bought 1/4W carbon film resistors with a 5% tolerance.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/resistor-kit.jpg" alt="Pack of carbon film resistors" />
 
