@@ -57,13 +57,11 @@ The [E24 series](https://en.wikipedia.org/wiki/E_series_of_preferred_numbers) is
 
 You can multiply each value in the series by the multiplier (power of 10) to get the 24 resistance values for each order of magnitude. For example, these are the first ten resistor values with a red multiplier band (10<sup>2</sup>): 100Ω, 110Ω, 120Ω, 130Ω, 150Ω, 160Ω, 180Ω, 200Ω, 220Ω, 240Ω.
 
-The E24 series provides a very useful range of resistor values for electronic circuits. It is widelused in many electronic kits and PCB design software.
-
 <br/>
 
 ## Buying an Unsorted Pack of 1,700 Resistors
 
-I bought a resistor pack that included 1,700 resistors in sets of 10 (170 different values.) These are 1/4W carbon film resistors with a 5% tolerance.
+I bought a resistor pack that included 1,700 resistors in the E24 series, in sets of 10 (170 different values.) These are 1/4W carbon film resistors with a 5% tolerance.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/resistor-kit.jpg" alt="Pack of carbon film resistors" />
 
