@@ -20,6 +20,27 @@ You can use this PDF to make your own ring binder:
 
 > The template code and the generated PDF document are MIT Licensed. Please find a copy of the MIT license at the bottom of this page.
 
+---
+
+### Supplies
+
+- Color printer
+- Ring binder
+- Ring binder sheets
+- Card sleeves ([Sleeve Kings](https://www.amazon.com/Sleeve-Kings-Card-Sleeves-63-5x88mm/dp/B07RD9QZD2) or similar)
+- Glue stick
+
+### Instructions
+
+1. Print the PDF
+2. Insert pages into ring binder sheets
+3. Glue card sleeves to ring binder sheets in a 3x3 grid
+4. Insert resistors into card sleeves
+
+<br/>
+
+---
+
 ## Introduction to Resistors
 
 [Resistors](https://en.wikipedia.org/wiki/Resistor) are a fundamental component in electronics. They are used to limit the current flowing through a circuit, or to change the voltage of a circuit. They are also used to create a voltage divider, which is a circuit that divides the voltage of a circuit into two parts.
@@ -54,7 +75,7 @@ For my first attempt at organizing them, I sorted them by the multiplier band (0
 
 This didn't really help at all. I still needed to sort through 24 different values to find the one I was looking for. It got even worse once I started pulling out individual resistors to use in breadboard circuits. Instead of 24 sets of 10, I could have up to 240 individual resistors to sort through.
 
-## Looking for Solutions
+## Other Options
 
 I found some ring binders for sale that had pre-sorted resistors, but they were a bit expensive. Here's a few examples (in New Zealand dollars):
 
@@ -80,7 +101,11 @@ I included a resistor graphic that shows the colored bands for each value. This 
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/pdf-template-example.jpg" alt="Screenshot of the DocSpring template editor showing SCSS" />
 
-I used 63.5mm X 88mm Card Sleeves from [Sleeve Kings](https://sleevekings.com/). I cut them to make them a little shorter, and stuck them onto ring binder sheets using a glue stick. Then I sorted all the resistors into sleeves, which felt like doing a jigsaw puzzle. It was a fun activity for a rainy Sunday afternoon.
+I used [Sleeve Kings 63.5mm X 88mm Card Sleeves](https://www.amazon.com/Sleeve-Kings-Card-Sleeves-63-5x88mm/dp/B07RD9QZD2) for the 3x3 grid of pockets.
+
+<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/sleeve-kings-card-sleeves.jpg" alt="Sleeve Kings 63.5mm X 88mm Card Sleeves" />
+
+I cut them to make them a little shorter, and stuck them onto ring binder sheets using a glue stick. Then I sorted all the resistors into sleeves, which felt like doing a jigsaw puzzle. It was a fun activity for a rainy Sunday afternoon.
 
 I'm pretty happy with how this turned out, and I think my version is even better than the expensive ring binders I found for sale. The PDF and code are MIT licensed, so anyone is more than welcome to use this for personal or commercial purposes.
 
@@ -142,7 +167,7 @@ I'm pretty happy with how this turned out, and I think my version is even better
 <br />
 <br />
 
-Special thanks to Digi-Key's [Resistor Color Code Calculator](https://www.digikey.co.nz/en/resources/conversion-calculators/conversion-calculator-resistor-color-code). It's a great tool for quickly looking up resistor values.
+P.S. Digi-Key's [Resistor Color Code Calculator](https://www.digikey.co.nz/en/resources/conversion-calculators/conversion-calculator-resistor-color-code) was very useful. It's a great tool for quickly looking up resistor values.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/digikey-calculator.jpg" alt="DigiKey's 4 Band Resistor Color Code Calculator" />
 
