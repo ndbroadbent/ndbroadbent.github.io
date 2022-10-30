@@ -43,13 +43,14 @@ You can use this PDF to make your own ring binder:
 
 ## Introduction to Resistors
 
-[Resistors](https://en.wikipedia.org/wiki/Resistor) are a fundamental component in electronics. They are used to limit the current flowing through a circuit, or to change the voltage of a circuit. They are also used to create a voltage divider, which is a circuit that divides the voltage of a circuit into two parts.
+[Resistors](https://en.wikipedia.org/wiki/Resistor) are a fundamental component in electronics. They are used to limit the current flowing through a circuit. Resistors have colored bands that represent their value. The first two bands represent the first two digits of the resistance, and the third band represents the "multiplier" value, or power of 10. For example, a 10K resistor has a brown band, a black band, and an orange band. The first two bands are brown (1) and black (0), which is 10. The third band is orange (1,000), so the resistance is 10 x 1,000 = 10,000 ohms.
 
-Resistors have colored bands that represent their value. The first two bands represent the first two digits of the resistance, and the third band represents the "multiplier" value, or power of 10. For example, a 10K resistor has a brown band, a black band, and a red band. The first two bands are brown and black, which is 10. The third band is red, which is 10^2, so the resistance is 10,000 ohms.
-
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/Resistor_Color_Code.jpg" alt="Resistor color codes" />
+<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/10k-resistor.jpg" alt="10,000 ohm resistor" style="max-width: 500px;" />
 
 The "tolerance" value is the fourth band. This is the maximum deviation from the nominal resistance. For example, a 10K resistor with a 5% tolerance can have a resistance between 9,500 ohms and 10,500 ohms.
+
+<br/>
+<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/resistor-color-chart.jpg" alt="Resistor color chart" style="max-width: 500px;" />
 
 ## The E24 Series
 
