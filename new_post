@@ -4,9 +4,6 @@ set -euo pipefail
 # https://stackoverflow.com/a/67149569/304706
 function kebab_case() {
   echo -n "$1" |\
-  sed 's/\([^A-Z+]\)\([A-Z0-9]\)/\1-\2/g' |\
-  sed 's/\([0-9]\)\([A-Z]\)/\1-\2/g' |\
-  sed 's/\([A-Z]\)\([0-9]\)/\1-\2/g' |\
   sed 's/--/-/g' |\
   sed 's/\([\/]\)-/\1/g' |\
   tr '[:upper:]' '[:lower:]' |\
@@ -27,6 +24,13 @@ function new_post() {
     echo "File already exists: $full_path"
     return 1
   fi
+
+  # Create folder for images: ./static/images/yyyy/mm
+  local year="${date:0:4}"
+  local month="${date:5:2}"
+  local images_path="static/images/$year/$month"
+  echo "Creating images directory: $images_path"
+  mkdir -p "$images_path"
 
   echo "Creating new post: $full_path"
   ./hugo new -f yaml posts/$path
