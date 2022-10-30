@@ -19,3 +19,5 @@ git push
 cd ..
 echo "Pushing source..."
 git push
+
+./purge_cloudflare_cache

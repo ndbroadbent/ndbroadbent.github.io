@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+if ! [ -f ".cloudflare" ]; then
+  echo "Please create .cloudflare with zone ID and API key!"
+  exit 1
+fi
+
+source ".cloudflare"
+
+echo "Purging Cloudflare cache for zone: ${CLOUDFLARE_ZONE}..."
+REQUEST_DATA='{"purge_everything":true}'
+
+curl -X DELETE "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE}/purge_cache" \
+-H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+-H "Content-Type: application/json" \
+--data "$REQUEST_DATA"
+echo
