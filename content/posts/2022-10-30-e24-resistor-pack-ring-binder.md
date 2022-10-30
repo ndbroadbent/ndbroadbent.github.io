@@ -16,7 +16,7 @@ You can use this PDF to make your own ring binder:
 <br/>
 
 - [Download E24_Resistor_Kit_Folder.pdf](/post-assets/2022/10/E24_Resistor_Kit_Folder.pdf)
-- [Github Gist with Liquid and SCSS code](https://gist.github.com/ndbroadbent/b33a2d72a13549d01c39d10a96b97880)
+- [Liquid and SCSS that was used to generate the PDF](https://gist.github.com/ndbroadbent/b33a2d72a13549d01c39d10a96b97880)
 
 > The template code and generated PDF document are released under the MIT license. You can find a copy of the MIT license at the bottom of this page.
 
