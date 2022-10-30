@@ -29,8 +29,10 @@ function new_post() {
   local year="${date:0:4}"
   local month="${date:5:2}"
   local images_path="static/images/$year/$month"
-  echo "Creating images directory: $images_path"
+  local assets_path="static/post-assets/$year/$month"
+  echo "Creating post asset directories: $images_path, $assets_path"
   mkdir -p "$images_path"
+  mkdir -p "$assets_path"
 
   echo "Creating new post: $full_path"
   ./hugo new -f yaml posts/$path

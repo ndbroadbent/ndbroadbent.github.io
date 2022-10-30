@@ -18,7 +18,7 @@ See <a href="http://www.gimptalk.com/forum/divide-or-crop-multiple-images-from-s
 
 <ol>
 	<li>Download <a href="http://ffaat.pointclark.net/incoming/scripts/DivideScannedImages.scm">DivideScannedImages.scm</a> to  <em>~/.gimp-2.6/scripts</em></li>
-	<li>Download <a href="/post-assets/deskew">deskew</a> to<em> /usr/lib/gimp/2.0/plug-ins</em></li>
+	<li>Download <a href="/post-assets/2010/05/deskew">deskew</a> to<em> /usr/lib/gimp/2.0/plug-ins</em></li>
 	<li>Start GIMP</li>
 	<li>Click Filters -&gt; Batch Tools -&gt; Batch Divide Scanned Images</li>
 </ol>
