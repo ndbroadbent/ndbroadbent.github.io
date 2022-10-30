@@ -43,11 +43,11 @@ You can use this PDF to make your own ring binder:
 
 ## Introduction to Resistors
 
-[Resistors](https://en.wikipedia.org/wiki/Resistor) are a fundamental component in electronics. They are used to limit the current flowing through a circuit. Resistors have colored bands that represent their value. The first two bands represent the first two digits of the resistance, and the third band represents the "multiplier" value, or power of 10. For example, a 10K resistor has a brown band, a black band, and an orange band. The first two bands are brown (1) and black (0), which is 10. The third band is orange (1,000), so the resistance is 10 x 1,000 = 10,000 ohms.
+[Resistors](https://en.wikipedia.org/wiki/Resistor) are a fundamental component in electronics. They are used to limit the current flowing through a circuit. Resistors have colored bands that represent their value. The first two bands represent the first two digits of the resistance, and the third band represents the "multiplier" value, or power of 10. For example, a 10KΩ resistor has a brown band, a black band, and an orange band. The first two bands are brown (1) and black (0), which is 10. The third band is orange (1,000Ω), so the resistance is 10 x 1,000 = 10,000Ω.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/10k-resistor.jpg" alt="10,000 ohm resistor" style="max-width: 500px;" />
 
-The "tolerance" value is the fourth band. This is the maximum deviation from the nominal resistance. For example, a 10K resistor with a 5% tolerance can have a resistance between 9,500 ohms and 10,500 ohms.
+The "tolerance" value is the fourth band. This is the maximum deviation from the nominal resistance. For example, a 10KΩ resistor with a 5% tolerance can have a resistance between 9,500Ω and 10,500Ω.
 
 <br/>
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/resistor-color-chart.jpg" alt="Resistor color chart" style="max-width: 500px;" />
@@ -56,19 +56,19 @@ The "tolerance" value is the fourth band. This is the maximum deviation from the
 
 The [E24 series](https://en.wikipedia.org/wiki/E_series_of_preferred_numbers) is a logarithmic series of 24 values for each power of 10: 1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1.
 
-You can multiply each value in the series by the multiplier (power of 10) to get the 24 resistance values for each order of magnitude. For example, these are the first ten resistor values with a red multiplier band (10<sup>2</sup>): 100Ω, 110Ω, 120Ω, 130Ω, 150Ω, 160Ω, 180Ω, 200Ω, 220Ω, 240Ω.
+You can multiply each value in the series by the multiplier (power of 10) to get the 24 resistance values for each order of magnitude. For example, these are the first ten resistor values with a brown multiplier band (10Ω): 100Ω, 110Ω, 120Ω, 130Ω, 150Ω, 160Ω, 180Ω, 200Ω, 220Ω, 240Ω.
 
 <br/>
 
 ## Buying an Unsorted Pack of 1,700 Resistors
 
-I bought a resistor pack that included 1,700 resistors in the E24 series, in sets of 10 (170 different values.) I bought 1/4W carbon film resistors with a 5% tolerance.
+I bought a resistor pack that included 1,700 resistors in the E24 series, in sets of 10 (170 different values.) I bought 1/4 W carbon film resistors with a 5% tolerance.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/resistor-kit.jpg" alt="Pack of carbon film resistors" />
 
-It's very useful to have a wide range of resistors for breadboard circuits and prototype PCBs. It's not so useful when they're all mixed together in a single bag. The resistor sets didn't even have any labels or markings, so I had to read the colored bands or use a multimeter to figure out the resistance.
+It's very useful to have a wide range of resistors for breadboard circuits and prototype PCBs. It's not so useful when they're all mixed together in a single bag. The resistors I bought didn't have any labels or markings on the paper strips, so I had to read the colored bands or use a multimeter to find the resistance.
 
-For my first attempt at organizing them, I sorted them by the multiplier band (0.1 ohms, 1 ohm, 10 ohms, etc.), and put them in labeled drawers:
+For my first attempt at organizing them, I sorted them by the multiplier band (0.1Ω, 1Ω, 10Ω, etc.), and put them in labeled drawers:
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/original-labeled-drawers.jpg" alt="The original drawers I used to organize the resistors" />
 
@@ -76,15 +76,17 @@ This didn't really help at all. I still needed to sort through 24 different valu
 
 ## Other Options
 
-I found some ring binders for sale that had pre-sorted resistors, but they were a bit expensive. Here's a few examples (in New Zealand dollars):
-
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/through-hole-resistor-kit-245.jpg" alt="$245 NZD for a ring binder of sorted resistors" />
+I found some ring binders for sale that had pre-sorted resistors, but they were a bit expensive.
 
 <img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/through-hole-resistor-kit-504.jpg" alt="$504 NZD for a ring binder of sorted resistors" />
 
-## Making My Own Ring Binder
+> $504.52 New Zealand dollars = $323.72 USD
 
-I thought I would be fun to make my own ring binder. I had some spare card sleeves, and I realized that I could use these to create a 3x3 grid of pockets on an A4 ring binder sheet.
+I found a few cheaper options but they were still hundreds of dollars. So I thought it would be fun to make my own ring binder.
+
+## Designing a Ring Binder to Organize Resistors
+
+I had some spare card sleeves, and I realized that I could use these to create a 3x3 grid of pockets on an A4 ring binder sheet.
 
 I used [DocSpring](https://docspring.com) to create the layout for all the pages. DocSpring is an API for filling out and generating PDFs. You can upload an existing PDF form, or create your own PDF templates using HTML and CSS. DocSpring's HTML/CSS templates support the [Liquid template language](https://shopify.github.io/liquid/), so I wrote some Liquid code to calculate the resistor values and generate all the pages for the E24 series.
 
