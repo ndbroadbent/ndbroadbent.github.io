@@ -511,3 +511,14 @@ img.lightbox.thumb {
     max-width: 92%;
   } */
 }
+
+.slick-prev:before,
+.slick-next:before {
+  color: #888;
+}
+.slick-prev {
+  left: -60px;
+}
+.slick-next {
+  right: -60px;
+}
