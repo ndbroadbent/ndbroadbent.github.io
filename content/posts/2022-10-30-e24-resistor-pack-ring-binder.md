@@ -1,7 +1,7 @@
 ---
 categories: []
 date: 2022-10-30T04:07:28Z
-tags: []
+tags: ["electronics", "projects"]
 title: "Organizing 1,700 Resistors in a Ring Binder"
 ---
 
