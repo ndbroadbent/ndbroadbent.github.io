@@ -6,10 +6,23 @@
     <description>Recent content in Electronics on Made By Nathan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 30 Sep 2022 10:21:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Oct 2022 04:07:28 +0000</lastBuildDate>
     
 	<atom:link href="https://madebynathan.com/tags/electronics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Organizing 1,700 Resistors in a Ring Binder</title>
+      <link>https://madebynathan.com/posts/2022-10-30-e24-resistor-pack-ring-binder/</link>
+      <pubDate>Sun, 30 Oct 2022 04:07:28 +0000</pubDate>
+      
+      <guid>https://madebynathan.com/posts/2022-10-30-e24-resistor-pack-ring-binder/</guid>
+      <description>I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
+You can use this PDF to make your own ring binder:
+ 
+ Download E24_Resistor_Kit_Folder.pdf Github Gist with Liquid and SCSS code   The template code and the generated PDF document are MIT Licensed. Please find a copy of the MIT license at the bottom of this page.
+ Introduction to Resistors Resistors are a fundamental component in electronics.</description>
+    </item>
     
     <item>
       <title>Automating my Kitchen Rangehood Fan and Light</title>
