@@ -1,7 +1,6 @@
 {{ partial "head" . }}
   <body>
     <div id="wrap">
-
       <!-- Header -->
       {{ partial "header" . }}
       {{ if isset .Params "showpagemeta" }}
@@ -32,6 +31,8 @@
 
         <div class="panel panel-default">
           <div class="panel-body">
+            {{ partial "toc" . }}
+
             <div class="blogpost">
               {{ .Content }}
 

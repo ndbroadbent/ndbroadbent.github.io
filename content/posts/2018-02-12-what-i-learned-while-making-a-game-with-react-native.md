@@ -3,7 +3,12 @@ title: "What I Learned While Making a Game With React Native"
 date: 2018-02-12T01:34:40+07:00
 tags: ["games", "projects", "react native", "react", "javascript"]
 draft: false
+toc: true
 ---
+
+<style>
+  .blogpost h1 { font-size: 28px; margin-bottom: 20px; margin-top: 40px; }
+</style>
 
 I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. [SudoBlock](https://sudoblock.com/)
 is a cross between Sudoku, jigsaw puzzles, and Tetris.
@@ -28,7 +33,7 @@ but they're not being maintained.
 
 Here's some of the things I learned while building SudoBlock:
 
-### You should probably use a game engine
+# You should probably use a game engine
 
 I've heard good things about [Godot](https://godotengine.org/) and [Unity](https://unity3d.com/).
 These game engines support iOS, Android, Windows, and Linux. Unity supports
@@ -53,7 +58,7 @@ I want to make some more simple 2D games, and I'm going to stick with React Nati
 
 If your goal is to quickly build a cross-platform mobile game, then I'd recommend learning Godot or Unity.
 
-### Don't worry about supporting Windows
+# Don't worry about supporting Windows
 
 This is a no-brainer. No one uses Windows Phone and Microsoft have abandoned it.
 I wanted to explore and learn new things, so I decided to do it anyway. I enjoyed the process
@@ -67,7 +72,7 @@ run on Windows Phone, tablets, desktop, Xbox One, HoloLens, and other Windows pl
 - Mobile games don't usually make sense on an Xbox.
 - If your game runs in a browser, then you probably don't need a desktop app.
 
-### React Native could be better than Electron for desktop applications
+# React Native might be better than Electron for desktop applications
 
 When I was running SudoBlock as a Windows desktop application, I realized that
 React Native could be a better choice than [Electron](https://electronjs.org/).
@@ -77,7 +82,7 @@ React Native apps are much smaller and use far less memory, because they only ne
 You can also use responsive design, so that a single codebase works on desktop, mobile, and the web. The only problem is that [react-native-macos](https://github.com/ptmt/react-native-macos)
 is unmaintained and out of date, so it would be great if a company sponsored development.
 
-### You'll probably have to write some native code
+# You'll probably write some native code
 
 Some people are attracted to React Native because they've heard that you can write a mobile
 app with only JavaScript. In practice, this is only true for extremely simple applications.
@@ -92,7 +97,7 @@ It took a lot of work to get everything running. I could have just skipped the b
 I also had to write native code to integrate with iOS Game Center and Google Play Game Services,
 and for ads and in-app purchases on Windows. I also wrote a small library to manage vibrations and haptic feedback across iOS, Android, Windows, and the web (using the [Vibration API](https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API).)
 
-### There will be bugs
+# There will be bugs
 
 React Native is pretty stable, but there's a lot of unmaintained libraries,
 and most libraries don't have any tests. React Native is a bit like jQuery, in that it smooths over a lot of quirks and inconsistencies and provides a consistent API. But there's some tricky edge cases,
@@ -108,7 +113,7 @@ Some examples:
 Android was particularly unstable. Not just React Native, but Android itself.
 I didn't have too many problems with iOS.
 
-### React Native vs. iOS / Swift
+# React Native vs. iOS / Swift
 
 I wrote an iOS app with Swift a few years ago, and I've actually had a much better experience with React Native.
 When I was working with UIKit, I remember constantly fighting with things like layout, contraints, and font rendering. I uncovered some actual bugs, and found long threads on the Apple forums that were being ignored.
@@ -122,7 +127,7 @@ I believe Swift is [more stable now](https://github.com/apple/swift/blob/master/
 
 I had a lot of headaches with React Native, but it wasn't as bad as Swift v1 and UIKit.
 
-### Marketing is really hard
+# Marketing is really hard
 
 - I tested Facebook ads with $50. I reached about ~7,000 people and got ~50 clicks. One person
   ended up buying the game for $2.99, so I made $2. You can't spend $50 to make $2.
@@ -144,7 +149,7 @@ I had a lot of headaches with React Native, but it wasn't as bad as Swift v1 and
 
 - I finally got around to writing this blog post.
 
-### Other Notes
+# Other Notes
 
 - I switched from Sublime Text to [VS Code](https://code.visualstudio.com/) near the beginning of the project.
   VS Code is awesome. It's super fast and very customizable.

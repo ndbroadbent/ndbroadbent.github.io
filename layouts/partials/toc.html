@@ -1,0 +1,17 @@
+{{ if and (gt .WordCount 400 ) (.Params.toc) }}
+<aside class="toc" style="margin-bottom: 50px;">
+    <h3>Table of Contents</h3>
+    {{.TableOfContents}}
+</aside>
+
+<!-- <hr style="margin-bottom: 40px;" /> -->
+
+<style>
+  /* This is a workaround for weird toc behavior. Have to start with h1 tags, but don't want to break rest of the blog posts */
+  .blogpost h1 { font-size: 28px; margin-bottom: 30px; margin-top: 40px; }
+  .blogpost h2 { font-size: 24px; }
+  .blogpost h3 { font-size: 18px; }
+  .blogpost h4 { font-size: 14px; }
+  .blogpost h5 { font-size: 12px; }
+</style>
+{{ end }}

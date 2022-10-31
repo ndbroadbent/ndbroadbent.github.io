@@ -18,6 +18,7 @@ tags:
   ]
 title: Raspberry Pi Microwave
 url: /2013/07/10/raspberry-pi-powered-microwave/
+toc: true
 ---
 
 A few months ago, I was inspired by [this post](https://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/) on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.
@@ -35,13 +36,13 @@ Here's a summary of the features that I've added to my microwave:
 - The microwave has a web page so you can control it from your phone (why not), and set up cooking instructions for products
 - Tweets after it's finished cooking something (See [https://twitter.com/rbmicrowave](https://twitter.com/rbmicrowave))
 
-## Demo Video
+# Demo Video
 
 <iframe width="100%" height="400" src="//www.youtube.com/embed/e2YtARzJTys" frameborder="0" allowfullscreen></iframe>
 
-## Using a Raspberry Pi to cook a Raspberry Pie
+# Using a Raspberry Pi to cook a Raspberry Pie
 
-[Here's the recipe](https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html).
+[Here's the recipe I followed.](https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html)
 
 <a class="image" href="/images/posts/2013/07/ingredients.jpg" target="_blank" rel="noopener noreferrer">
   <img class="lightbox thumb" src="/images/posts/2013/07/ingredients-resized-thumb.jpg" alt="Raspberry Pie Ingredients" />
@@ -61,9 +62,7 @@ Here's a summary of the features that I've added to my microwave:
 
 <hr/>
 
-### Keep reading below if you're interested in electronics or software:
-
-## Hardware
+# Hardware
 
 I used a microwave with a touchpad, and discovered that the touchpad was a button matrix. I took photos of the touchpad and traced the wires, so that I could tell which pins corresponded to which buttons.
 
@@ -151,25 +150,25 @@ The Raspberry Pi is powered by a USB hub, which is also plugged into the Raspber
   <img class="lightbox thumb" src="/images/posts/2013/07/microphone_wifi-resized-thumb.jpg" alt="Microphone + Wifi" />
 </a>
 
-## Microwave Software
+# Microwave Software
 
 All the software running on the Raspberry Pi is hosted at: [https://github.com/ndbroadbent/raspberry_picrowave](https://github.com/ndbroadbent/raspberry_picrowave).
 
 There are 4 main components:
 
-### Microwave Daemon
+## Microwave Daemon
 
 This runs the code that listens for touchpad button presses, and controls the microwave. It also accepts TCP connections so that other programs can send commands or request information about the microwave's status.
 
-### Barcode Instructions
+## Barcode Instructions
 
 This program listens to the barcode scanner, and requests product information from the Microwave Cooking Database. It also runs the cooking programs.
 
-### Voice Control
+## Voice Control
 
 I used [PocketSphinx](https://cmusphinx.sourceforge.net/) for voice recognition, which worked very well with my small [corpus](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt). I embedded Ruby in the [pocketsphinx_contiunous](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c) C program, so that it would be easier to [script voice commands](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb) and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won't be used very often.
 
-### Sinatra App
+## Sinatra App
 
 There's a simple [sinatra web application](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/microwave_webapp.rb) that lets you control the microwave from your phone or computer. This may not be a big selling point. It uses a [JavaScript EventSource](https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/public/application.js) to push updates to the browser, so you could have hundreds of users connected to your microwave at once.
 
@@ -183,16 +182,19 @@ I couldn't find any existing websites with a database of microwave cooking instr
   <img src="/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database" />
 </a>
 
-(UPDATE: It used to be live at https://www.microwavecookingdb.com/, but I let the domain expire. Sorry!)
+> UPDATE: It used to be live at https://www.microwavecookingdb.com/, but the domain has now expired. Sorry!
 
 If cooking instructions are posted for a 1000W microwave, you can request the instructions for a 700W microwave, and the cooking times will be automatically adjusted.
 
 So if you're also planning on making an internet connected microwave with a barcode scanner, please feel free to sign up and add some products.
 
-## Patents?
+<!--
+# Patents?
 
-Nope, this is just a fun project. [Microwaves with barcode scanners already exist](https://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top), and [most](https://www.google.com/patents/US4323773) of these [features](https://www.google.com/patents/US6124583) are [already](https://www.google.com/patents/US6444965) [patented](https://www.google.com/patents/EP1117275A2?cl=en).
+Nope, this is just a fun project. [Microwaves with barcode scanners already exist](https://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top), and [most](https://www.google.com/patents/US4323773) of these [features](https://www.google.com/patents/US6124583) are [already](https://www.google.com/patents/US6444965) [patented](https://www.google.com/patents/EP1117275A2?cl=en). -->
 
-## Thanks for reading!
+# Thanks for reading!
 
-I'd be interested to hear if you do something similar, or make use of [https://www.microwavecookingdb.com](https://www.microwavecookingdb.com).
+I'd be interested to hear if you build something similar!
+
+<!-- , or make use of [https://www.microwavecookingdb.com](https://www.microwavecookingdb.com). -->
