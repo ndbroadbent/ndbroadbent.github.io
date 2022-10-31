@@ -17,10 +17,10 @@
       <pubDate>Mon, 12 Feb 2018 01:34:40 +0700</pubDate>
       
       <guid>https://madebynathan.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/</guid>
-      <description>I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. SudoBlock is a cross between Sudoku, jigsaw puzzles, and Tetris.
+      <description>.blogpost h1 { font-size: 28px; margin-bottom: 20px; margin-top: 40px; }  I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. SudoBlock is a cross between Sudoku, jigsaw puzzles, and Tetris.
 You can find SudoBlock on the web, App Store, Google Play, and the Microsoft Store.
 
-React Native only supports iOS and Android, but I used react-native-web for the browser, and react-native-windows for Windows desktop and phone. The UWP app can also run on Xbox One and HoloLens.</description>
+React Native only supports iOS and Android, but I used react-native-web for the browser, and react-native-windows for Windows desktop and phone.</description>
     </item>
     
   </channel>

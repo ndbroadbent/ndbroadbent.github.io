@@ -40,7 +40,6 @@
 
   <body>
     <div id="wrap">
-
       
       
 <nav class="navbar navbar-default">
@@ -124,6 +123,40 @@
 
         <div class="panel panel-default">
           <div class="panel-body">
+            
+<aside class="toc" style="margin-bottom: 50px;">
+    <h3>Table of Contents</h3>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#demo-video">Demo Video</a></li>
+<li><a href="#using-a-raspberry-pi-to-cook-a-raspberry-pie">Using a Raspberry Pi to cook a Raspberry Pie</a></li>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#microwave-software">Microwave Software</a>
+<ul>
+<li><a href="#microwave-daemon">Microwave Daemon</a></li>
+<li><a href="#barcode-instructions">Barcode Instructions</a></li>
+<li><a href="#voice-control">Voice Control</a></li>
+<li><a href="#sinatra-app">Sinatra App</a></li>
+<li><a href="#microwave-cooking-database">Microwave Cooking Database</a></li>
+</ul></li>
+<li><a href="#thanks-for-reading">Thanks for reading!</a></li>
+</ul>
+</nav>
+</aside>
+
+
+
+<style>
+   
+  .blogpost h1 { font-size: 28px; margin-bottom: 30px; margin-top: 40px; }
+  .blogpost h2 { font-size: 24px; }
+  .blogpost h3 { font-size: 18px; }
+  .blogpost h4 { font-size: 14px; }
+  .blogpost h5 { font-size: 12px; }
+</style>
+
+
+
             <div class="blogpost">
               
 
@@ -144,13 +177,13 @@
 <li>Tweets after it&rsquo;s finished cooking something (See <a href="https://twitter.com/rbmicrowave">https://twitter.com/rbmicrowave</a>)</li>
 </ul>
 
-<h2 id="demo-video">Demo Video</h2>
+<h1 id="demo-video">Demo Video</h1>
 
 <iframe width="100%" height="400" src="//www.youtube.com/embed/e2YtARzJTys" frameborder="0" allowfullscreen></iframe>
 
-<h2 id="using-a-raspberry-pi-to-cook-a-raspberry-pie">Using a Raspberry Pi to cook a Raspberry Pie</h2>
+<h1 id="using-a-raspberry-pi-to-cook-a-raspberry-pie">Using a Raspberry Pi to cook a Raspberry Pie</h1>
 
-<p><a href="https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html">Here&rsquo;s the recipe</a>.</p>
+<p><a href="https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html">Here&rsquo;s the recipe I followed.</a></p>
 
 <p><a class="image" href="/images/posts/2013/07/ingredients.jpg" target="_blank" rel="noopener noreferrer">
   <img class="lightbox thumb" src="/images/posts/2013/07/ingredients-resized-thumb.jpg" alt="Raspberry Pie Ingredients" />
@@ -170,9 +203,7 @@
 
 <hr/>
 
-<h3 id="keep-reading-below-if-you-re-interested-in-electronics-or-software">Keep reading below if you&rsquo;re interested in electronics or software:</h3>
-
-<h2 id="hardware">Hardware</h2>
+<h1 id="hardware">Hardware</h1>
 
 <p>I used a microwave with a touchpad, and discovered that the touchpad was a button matrix. I took photos of the touchpad and traced the wires, so that I could tell which pins corresponded to which buttons.</p>
 
@@ -260,25 +291,25 @@
   <img class="lightbox thumb" src="/images/posts/2013/07/microphone_wifi-resized-thumb.jpg" alt="Microphone + Wifi" />
 </a></p>
 
-<h2 id="microwave-software">Microwave Software</h2>
+<h1 id="microwave-software">Microwave Software</h1>
 
 <p>All the software running on the Raspberry Pi is hosted at: <a href="https://github.com/ndbroadbent/raspberry_picrowave">https://github.com/ndbroadbent/raspberry_picrowave</a>.</p>
 
 <p>There are 4 main components:</p>
 
-<h3 id="microwave-daemon">Microwave Daemon</h3>
+<h2 id="microwave-daemon">Microwave Daemon</h2>
 
 <p>This runs the code that listens for touchpad button presses, and controls the microwave. It also accepts TCP connections so that other programs can send commands or request information about the microwave&rsquo;s status.</p>
 
-<h3 id="barcode-instructions">Barcode Instructions</h3>
+<h2 id="barcode-instructions">Barcode Instructions</h2>
 
 <p>This program listens to the barcode scanner, and requests product information from the Microwave Cooking Database. It also runs the cooking programs.</p>
 
-<h3 id="voice-control">Voice Control</h3>
+<h2 id="voice-control">Voice Control</h2>
 
 <p>I used <a href="https://cmusphinx.sourceforge.net/">PocketSphinx</a> for voice recognition, which worked very well with my small <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt">corpus</a>. I embedded Ruby in the <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c">pocketsphinx_contiunous</a> C program, so that it would be easier to <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb">script voice commands</a> and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won&rsquo;t be used very often.</p>
 
-<h3 id="sinatra-app">Sinatra App</h3>
+<h2 id="sinatra-app">Sinatra App</h2>
 
 <p>There&rsquo;s a simple <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/microwave_webapp.rb">sinatra web application</a> that lets you control the microwave from your phone or computer. This may not be a big selling point. It uses a <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/public/application.js">JavaScript EventSource</a> to push updates to the browser, so you could have hundreds of users connected to your microwave at once.</p>
 
@@ -292,19 +323,24 @@
   <img src="/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database" />
 </a></p>
 
-<p>(UPDATE: It used to be live at <a href="https://www.microwavecookingdb.com/">https://www.microwavecookingdb.com/</a>, but I let the domain expire. Sorry!)</p>
+<blockquote>
+<p>UPDATE: It used to be live at <a href="https://www.microwavecookingdb.com/">https://www.microwavecookingdb.com/</a>, but the domain has now expired. Sorry!</p>
+</blockquote>
 
 <p>If cooking instructions are posted for a 1000W microwave, you can request the instructions for a 700W microwave, and the cooking times will be automatically adjusted.</p>
 
 <p>So if you&rsquo;re also planning on making an internet connected microwave with a barcode scanner, please feel free to sign up and add some products.</p>
 
-<h2 id="patents">Patents?</h2>
+<!--
+# Patents?
 
-<p>Nope, this is just a fun project. <a href="https://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top">Microwaves with barcode scanners already exist</a>, and <a href="https://www.google.com/patents/US4323773">most</a> of these <a href="https://www.google.com/patents/US6124583">features</a> are <a href="https://www.google.com/patents/US6444965">already</a> <a href="https://www.google.com/patents/EP1117275A2?cl=en">patented</a>.</p>
+Nope, this is just a fun project. [Microwaves with barcode scanners already exist](https://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top), and [most](https://www.google.com/patents/US4323773) of these [features](https://www.google.com/patents/US6124583) are [already](https://www.google.com/patents/US6444965) [patented](https://www.google.com/patents/EP1117275A2?cl=en). -->
 
-<h2 id="thanks-for-reading">Thanks for reading!</h2>
+<h1 id="thanks-for-reading">Thanks for reading!</h1>
 
-<p>I&rsquo;d be interested to hear if you do something similar, or make use of <a href="https://www.microwavecookingdb.com">https://www.microwavecookingdb.com</a>.</p>
+<p>I&rsquo;d be interested to hear if you build something similar!</p>
+
+<!-- , or make use of [https://www.microwavecookingdb.com](https://www.microwavecookingdb.com). -->
 
 
               <div class="related-posts">
