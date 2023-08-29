@@ -2,6 +2,6 @@
 set -euo pipefail
 
 echo "Building Dockerfile..."
-docker build . -t hugo-alpine
-echo "Saving image to hugo-alpine.tar.gz"
-docker save hugo-alpine > hugo-alpine.tar.gz
+docker build --platform linux/amd64 . -t hugo-alpine-amd64
+echo "Saving image to hugo-alpine-amd64.tar.gz"
+docker save hugo-alpine-amd64 > hugo-alpine-amd64.tar.gz

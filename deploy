@@ -8,7 +8,7 @@ if [ ! -d public/.git ]; then
   (cd public && git checkout gh-pages)
 fi
 
-docker run --rm -v "${PWD}:/src" hugo-alpine hugo
+docker run --platform linux/amd64 --rm -v "${PWD}:/src" hugo-alpine-amd64 hugo
 
 cd public
 git add -A

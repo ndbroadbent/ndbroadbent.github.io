@@ -1,4 +1,4 @@
 #!/bin/bash
 set -euo pipefail
 
-docker run --rm -v "${PWD}:/src" hugo-alpine hugo
+docker run --platform linux/amd64 --rm -v "${PWD}:/src" hugo-alpine-amd64 hugo

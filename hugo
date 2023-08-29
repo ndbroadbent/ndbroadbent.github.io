@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm -v "${PWD}:/src" hugo-alpine hugo "$@"
+docker run --rm -v "${PWD}:/src" hugo-alpine-amd64 hugo "$@"
