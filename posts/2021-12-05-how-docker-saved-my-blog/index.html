@@ -1,308 +1,443 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="map[]" />
-    <meta name="description" content="Home automation, electronics, software development, etc.">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#603cba">
-    <meta name="theme-color" content="#ffffff">
+<html lang="en">
+<head>
 
     <title>Docker Saved My Blog</title>
-    <meta name="generator" content="Hugo 0.21" />
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inter:400,700">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=06fddbd22a">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=06fddbd22a">
 
-    <!--[if lt IE 9]>
-			<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=06fddbd22a">
 
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="canonical" href="https://ghost.ndbroadbent.com/posts/2021-12-05-how-docker-saved-my-blog/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Docker Saved My Blog">
+    <meta property="og:description" content="2024 UPDATE: I&#x27;ve migrated from Hugo to Ghost.
+
+The following Docker solution broke when I started using a M2 MacBook. I wasn&#x27;t able to run the older version of Hugo in a Docker container (even with Rosetta.)
+
+I haven&#x27;t written any blog posts for a while. One reason is that">
+    <meta property="og:url" content="https://ghost.ndbroadbent.com/posts/2021-12-05-how-docker-saved-my-blog/">
+    <meta property="og:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta property="article:published_time" content="2021-12-05T02:15:59.000Z">
+    <meta property="article:modified_time" content="2024-04-19T04:03:04.000Z">
+    <meta property="article:tag" content="docker">
+    <meta property="article:tag" content="hugo">
+    <meta property="article:tag" content="scripts">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Docker Saved My Blog">
+    <meta name="twitter:description" content="2024 UPDATE: I&#x27;ve migrated from Hugo to Ghost.
+
+The following Docker solution broke when I started using a M2 MacBook. I wasn&#x27;t able to run the older version of Hugo in a Docker container (even with Rosetta.)
+
+I haven&#x27;t written any blog posts for a while. One reason is that">
+    <meta name="twitter:url" content="https://ghost.ndbroadbent.com/posts/2021-12-05-how-docker-saved-my-blog/">
+    <meta name="twitter:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="docker, hugo, scripts">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="840">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://ghost.ndbroadbent.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ghost.ndbroadbent.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Docker Saved My Blog",
+    "url": "https://ghost.ndbroadbent.com/posts/2021-12-05-how-docker-saved-my-blog/",
+    "datePublished": "2021-12-05T02:15:59.000Z",
+    "dateModified": "2024-04-19T04:03:04.000Z",
+    "keywords": "docker, hugo, scripts",
+    "description": "2024 UPDATE: I&#x27;ve migrated from Hugo to Ghost.\n\nThe following Docker solution broke when I started using a M2 MacBook. I wasn&#x27;t able to run the older version of Hugo in a Docker container (even with Rosetta.)\n\nI haven&#x27;t written any blog posts for a while. One reason is that I&#x27;ve been hard at work on DocSpring for the last few years, and I haven&#x27;t had a lot of time to work on personal projects. But the main reason is that my blog uses an older version of Hugo, which is a &quot;static site generator&quot; [",
+    "mainEntityOfPage": "https://ghost.ndbroadbent.com/posts/2021-12-05-how-docker-saved-my-blog/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.82">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://ghost.ndbroadbent.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://ghost.ndbroadbent.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://ghost.ndbroadbent.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=06fddbd22a"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=06fddbd22a">
     <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="/javascripts/libs/jquery.min.js"></script>
-    <script src="/slick/slick.min.js"></script>
-  </head>
+<style>
+  .nav-sign-up { display: none; }
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+<style>:root {--ghost-accent-color: #5619ff;}</style>
 
-  <body>
-    <div id="wrap">
-      
-      
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="https://madebynathan.com/">
-        Made By Nathan
-      </a>
-    </div>
-    <div id="navbar">
-      <ul class="nav navbar-nav navbar-right">
-      
-        
-        <li><a href="/tags/projects/">
-          Projects</a>
-        </li>
-        
-        <li><a href="/posts/">
-          Posts</a>
-        </li>
-        
-        <li><a href="/tags/">
-          Tags</a>
-        </li>
-        
-        <li><a href="https://ndbroadbent.com">
-          Consulting</a>
-        </li>
-        
-      
-      </ul>
-    </div>
-  </div>
-</nav>
+</head>
+<body class="post-template tag-docker tag-hugo tag-scripts tag-hash-import-2024-04-19-15-41 tag-hash-new-routing has-sans-title has-sans-body">
 
-      
-      <div class="container single-blog-post">
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
 
-        <div class="blog-post">
-          <h3>
-            <a href="https://madebynathan.com/posts/2021-12-05-how-docker-saved-my-blog/">Docker Saved My Blog</a>
-          </h3>
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://ghost.ndbroadbent.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
         </div>
 
-        <div class="tags-and-date">
-          <div class="tags">
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://ghost.ndbroadbent.com/">Blog</a></li>
+    <li class="nav-personal-site"><a href="https://ndbroadbent.com">Personal Site</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-docker tag-hugo tag-scripts tag-hash-import-2024-04-19-15-41 tag-hash-new-routing no-image">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://ghost.ndbroadbent.com/tag/docker/">docker</a>
+            <h1 class="gh-article-title is-title">Docker Saved My Hugo Blog</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2021-12-05">Dec 5, 2021</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 5 min read</span>
+                    </div>
+                </div>
+            </div>
+
             
-              <a class="tag" href="/tags/docker">docker&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/hugo">hugo&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/scripts">scripts&nbsp;&nbsp;</a>
-            
-          </div>
-          <div class="blog-title">
-            <h4 class="post-date">
-            December 5, 2021
-            </h4>
-          </div>
-        </div>
+        </header>
 
-
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-            
-
-
-            <div class="blogpost">
-              
-
-<p>I haven&rsquo;t written any blog posts for a while. One reason is that I&rsquo;ve been hard at work on <a href="https://docspring.com">DocSpring</a> for the last few years, and I haven&rsquo;t had a lot of time to work on personal projects. But the main reason is that my blog uses an older version of <a href="https://gohugo.io/">Hugo</a>, which is a &ldquo;static site generator&rdquo; <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>.</p>
-
-<p>I switched from Jekyll to Hugo in 2017, and the current version of Hugo at the time was <a href="https://gohugo.io/news/0.21-relnotes/"><code>0.21</code></a>. I found a cool theme called <a href="https://github.com/suyundukov/hugo-sustain">hugo-sustain</a>. Everything was great for a few years.</p>
-
-<p>Time passed. One day, I tried to update a post or write a new post (I can&rsquo;t remember which.) I realized that my <code>build</code> and <code>develop</code> scripts were broken. I was a new computer at that point, and I had updated my macOS version. I installed the latest version of <code>hugo</code> and saw a bunch of interesting and confusing error messages when it tried to compile my old themes and layouts. I tried to downgrade <code>hugo</code> to version <code>0.21</code>, and it crashed with a segfault (it was built for an older version of macOS.) I cloned the <code>hugo</code> repository and tried to compile it from source, but my Go version was too new, so it failed to compile. Finally, I downgraded my Go version to an older version that was released around the same time in 2017. I held my breath as I tried to compile <code>hugo</code> one last time. Go tried to fetch all of the required dependencies, and crashed with a bunch of 404 errors. Apparently some of the packages had been renamed and moved around, and the older versions had been removed from the Go package index.</p>
-
-<p>So I gave up for a while. Instead of generating my blog from the source, I switched to editing the static files directly. Sometimes I would need to correct a typo or adjust some styles, so I&rsquo;d go into the generated <code>./public</code> directory and manually modify the raw HTML and CSS.</p>
-
-<p>Time passed. One day, I started to notice some activity on <a href="/2010/05/13/scanning-lots-of-photos-at-once/">a blog post that I had written 11 years ago</a>. This post is about a GIMP plugin called <code>deskew</code> that makes it easy to scan old photos in batches on a scanner and automatically rotate them. I had dropped this plugin file in my Google Drive and had pasted a link to the file. The link worked great for 10 years, and people were able to download the file without any issues. But eventually Google changed something and the link was no longer working. I started to receive emails from people who were requesting access to this file.</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2021/12/request-to-access-deskew.jpeg" alt="Request to access the deskew file" /></p>
-
+        <section class="gh-content gh-canvas is-body">
+            <h3 id="2024-update-ive-migrated-from-hugo-to-ghost">2024 UPDATE: I've migrated from Hugo to Ghost.</h3><blockquote>The following Docker solution broke when I started using a M2 MacBook. I wasn't able to run the older version of Hugo in a Docker container (even with Rosetta.)</blockquote><hr><p>I haven't written any blog posts for a while. One reason is that I've been hard at work on <a href="https://docspring.com/?ref=ghost.ndbroadbent.com">DocSpring</a> for the last few years, and I haven't had a lot of time to work on personal projects. But the main reason is that my blog uses an older version of <a href="https://gohugo.io/?ref=ghost.ndbroadbent.com">Hugo</a>, which is a "static site generator" <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<p>I switched from Jekyll to Hugo in 2017, and the current version of Hugo at the time was <a href="https://gohugo.io/news/0.21-relnotes/?ref=ghost.ndbroadbent.com"><code>0.21</code></a>. I found a cool theme called <a href="https://github.com/suyundukov/hugo-sustain?ref=ghost.ndbroadbent.com">hugo-sustain</a>. Everything was great for a few years.</p>
+<p>Time passed. One day, I tried to update a post or write a new post (I can't remember which.) I realized that my <code>build</code> and <code>develop</code> scripts were broken. I was a new computer at that point, and I had updated my macOS version. I installed the latest version of <code>hugo</code> and saw a bunch of interesting and confusing error messages when it tried to compile my old themes and layouts. I tried to downgrade <code>hugo</code> to version <code>0.21</code>, and it crashed with a segfault (it was built for an older version of macOS.) I cloned the <code>hugo</code> repository and tried to compile it from source, but my Go version was too new, so it failed to compile. Finally, I downgraded my Go version to an older version that was released around the same time in 2017. I held my breath as I tried to compile <code>hugo</code> one last time. Go tried to fetch all of the required dependencies, and crashed with a bunch of 404 errors. Apparently some of the packages had been renamed and moved around, and the older versions had been removed from the Go package index.</p>
+<p>So I gave up for a while. Instead of generating my blog from the source, I switched to editing the static files directly. Sometimes I would need to correct a typo or adjust some styles, so I'd go into the generated <code>./public</code> directory and manually modify the raw HTML and CSS.</p>
+<p>Time passed. One day, I started to notice some activity on <a href="https://ghost.ndbroadbent.com/2010/05/13/scanning-lots-of-photos-at-once/">a blog post that I had written 11 years ago</a>. This post is about a GIMP plugin called <code>deskew</code> that makes it easy to scan old photos in batches on a scanner and automatically rotate them. I had dropped this plugin file in my Google Drive and had pasted a link to the file. The link worked great for 10 years, and people were able to download the file without any issues. But eventually Google changed something and the link was no longer working. I started to receive emails from people who were requesting access to this file.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2021/12/request-to-access-deskew.jpeg" alt="Request to access the deskew file">
 <p>I manually shared the file a few times. Then I decided to download the file and check it in to the blog repo. I started going into the <code>./public</code> directly to update the HTML, but I decided it was time to have another crack at this Hugo problem and fix my blog.</p>
-
-<p>Should I switch to Ghost? I&rsquo;ve loved using Ghost for the <a href="https://docspring.com/blog">DocSpring blog</a>. It&rsquo;s a really nice blogging platform that I self-host on <a href="https://www.digitalocean.com/">Digital Ocean for $5/mo</a>, and I enjoy the WYSIWYG writing experience a little more than editing plain Markdown files. (Images are a bit annoying.) But I didn&rsquo;t want to migrate all my posts over to <a href="https://ghost.org/">ghost.org</a> and get locked in, or spend $5/mo for the rest of my life. I just want some static HTML/CSS that I can put on GitHub Pages forever.</p>
-
-<p>Should I upgrade to the latest version of Hugo and spend hours fixing up the themes and tweaking all my posts until everything is working again? No thanks. Hugo runs on my local machine and produces static HTML and CSS content. It&rsquo;s a <a href="https://www.wikiwand.com/en/Pure_function">pure function</a>. There are no security vulnerabilities to watch out for. As far as I&rsquo;m concerned, Hugo version <code>0.21</code> is &ldquo;finished software.&rdquo; It generates my blog, and I&rsquo;m happy with my blog. I will continue to be happy with my blog for many years to come. I don&rsquo;t need the latest and greatest features. I just want something stable that I can use over the next few decades without the constant grind of updating packages, breaking things, and debugging random issues. Give me Hugo <code>0.21</code> from May 2017!</p>
-
-<p>I was even tempted to throw everything away and start from scratch with something old and stable. Preferably written in Bash, C, or Perl. There&rsquo;s a lot of cool new languages out there but they often &ldquo;move fast and break things.&rdquo; The POSIX standard was created 33 years ago in 1988, so I could still run some shell scripts that are over 30 years old. (I asked Hacker News for some examples: <a href="https://news.ycombinator.com/item?id=29446380">Ask HN: What is the oldest Posix script that I can still run in a modern shell?</a>.)</p>
-
+<p>Should I switch to Ghost? I've loved using Ghost for the <a href="https://docspring.com/blog?ref=ghost.ndbroadbent.com">DocSpring blog</a>. It's a really nice blogging platform that I self-host on <a href="https://www.digitalocean.com/?ref=ghost.ndbroadbent.com">Digital Ocean for $5/mo</a>, and I enjoy the WYSIWYG writing experience a little more than editing plain Markdown files. (Images are a bit annoying.) But I didn't want to migrate all my posts over to <a href="https://ghost.org/?ref=ghost.ndbroadbent.com">ghost.org</a> and get locked in, or spend $5/mo for the rest of my life. I just want some static HTML/CSS that I can put on GitHub Pages forever.</p>
+<p>Should I upgrade to the latest version of Hugo and spend hours fixing up the themes and tweaking all my posts until everything is working again? No thanks. Hugo runs on my local machine and produces static HTML and CSS content. It's a <a href="https://www.wikiwand.com/en/Pure_function?ref=ghost.ndbroadbent.com">pure function</a>. There are no security vulnerabilities to watch out for. As far as I'm concerned, Hugo version <code>0.21</code> is "finished software." It generates my blog, and I'm happy with my blog. I will continue to be happy with my blog for many years to come. I don't need the latest and greatest features. I just want something stable that I can use over the next few decades without the constant grind of updating packages, breaking things, and debugging random issues. Give me Hugo <code>0.21</code> from May 2017!</p>
+<p>I was even tempted to throw everything away and start from scratch with something old and stable. Preferably written in Bash, C, or Perl. There's a lot of cool new languages out there but they often "move fast and break things." The POSIX standard was created 33 years ago in 1988, so I could still run some shell scripts that are over 30 years old. (I asked Hacker News for some examples: <a href="https://news.ycombinator.com/item?id=29446380&ref=ghost.ndbroadbent.com">Ask HN: What is the oldest Posix script that I can still run in a modern shell?</a>.)</p>
 <p>I had a sudden burst of inspiration:</p>
-
 <h1 id="docker">Docker!</h1>
-
 <p>I could run Hugo in a Docker image! If I can get Hugo <code>0.21</code> running in a Docker image, then I can save that Docker image into a <code>*.tar.gz</code> file and store it right in my git repo. Then I have a static <code>hugo</code> binary that comes packaged with everything it needs to run in a consistent environment, and I can run it anywhere (Linux, Mac OS, Windows.)</p>
-
-<p>I found a <a href="https://github.com/jonathanbp/docker-alpine-hugo/blob/master/Dockerfile">Dockerfile in this docker-alpine-hugo repo</a>, and I just needed to change <code>0.55.3</code> to <code>0.21</code>. Everything worked on the first try! <sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup></p>
-
+<p>I found a <a href="https://github.com/jonathanbp/docker-alpine-hugo/blob/master/Dockerfile?ref=ghost.ndbroadbent.com">Dockerfile in this docker-alpine-hugo repo</a>, and I just needed to change <code>0.55.3</code> to <code>0.21</code>. Everything worked on the first try! <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 <h3 id="how-i-use-docker">How I use Docker</h3>
-
 <p>Instead of running <code>hugo</code>, I run a <code>./hugo</code> wrapper script that runs <code>hugo</code> inside a Docker container:</p>
-
 <pre><code class="language-bash">#!/bin/bash
-docker run --rm -v &quot;${PWD}:/src&quot; hugo-alpine hugo &quot;$@&quot;
+docker run --rm -v "${PWD}:/src" hugo-alpine hugo "$@"
 </code></pre>
-
-<p>I have a <code>build_docker</code> script <sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup> that builds the Docker image and saves it to <code>hugo-alpine.tar.gz</code>:</p>
-
+<p>I have a <code>build_docker</code> script <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> that builds the Docker image and saves it to <code>hugo-alpine.tar.gz</code>:</p>
 <pre><code class="language-bash">#!/bin/bash
 set -euo pipefail
 
-echo &quot;Building Dockerfile...&quot;
+echo "Building Dockerfile..."
 docker build . -t hugo-alpine
-echo &quot;Saving image to hugo-alpine.tar.gz&quot;
+echo "Saving image to hugo-alpine.tar.gz"
 docker save hugo-alpine &gt; hugo-alpine.tar.gz
 </code></pre>
-
-<p>If I&rsquo;m on a new computer, I can just run <code>docker load -i hugo-alpine.tar.gz</code> to load the <code>hugo-alpine</code> image into Docker.</p>
-
+<p>If I'm on a new computer, I can just run <code>docker load -i hugo-alpine.tar.gz</code> to load the <code>hugo-alpine</code> image into Docker.</p>
 <p>I have a <code>dev</code> script that starts the <code>hugo</code> server and makes it available on port <code>1313</code>:</p>
-
 <pre><code class="language-bash">#!/bin/bash
-docker run --rm -v &quot;${PWD}:/src&quot; -p 1313:1313 hugo-alpine hugo --watch serve --bind 0.0.0.0
+docker run --rm -v "${PWD}:/src" -p "1313:1313" hugo-alpine hugo --watch serve --bind 0.0.0.0
 </code></pre>
-
 <p>Finally, I have a <code>deploy</code> script that generates the static site into <code>./public</code>, then pushes the result to a <code>gh-pages</code> branch:</p>
-
 <pre><code class="language-bash">#!/bin/bash
 set -euo pipefail
 
 if [ ! -d public/.git ]; then
   rm -rf public
-  REMOTE=&quot;$(git remote get-url origin)&quot;
-  git clone &quot;${REMOTE}&quot; public
+  REMOTE="$(git remote get-url origin)"
+  git clone "${REMOTE}" public
   (cd public &amp;&amp; git checkout gh-pages)
 fi
 
-docker run --rm -v &quot;${PWD}:/src&quot; hugo-alpine hugo
+docker run --rm -v "${PWD}:/src" hugo-alpine hugo
 
 cd public
 git add -A
-git commit -m &quot;$(date)&quot;
-echo &quot;Pushing build...&quot;
+git commit -m "$(date)"
+echo "Pushing build..."
 git push
 
 cd ..
-echo &quot;Pushing source...&quot;
+echo "Pushing source..."
 git push
 </code></pre>
-
-<h3 id="you-can-view-the-source-code-for-my-blog-here-https-github-com-ndbroadbent-ndbroadbent-github-io">You can view the source code for my blog here: <a href="https://github.com/ndbroadbent/ndbroadbent.github.io">https://github.com/ndbroadbent/ndbroadbent.github.io</a></h3>
-
-<hr />
-
-<p>I&rsquo;m very happy with this workaround. Now I&rsquo;m back in business, and I can update or write new blog posts to my heart&rsquo;s content. This new Docker-based setup should last me for the next few decades, if not longer. I still love how Hugo is super fast and generates my entire blog in about 6 seconds (even version <code>0.21</code>!) I&rsquo;m in no hurry to switch to anything else.</p>
-<div class="footnotes">
-
-<hr />
-
-<ol>
-<li id="fn:1">A <a href="https://www.cloudflare.com/learning/performance/static-site-generator/">static site generator</a> converts a folder full of Markdown files into a plain HTML/CSS website that you can host for free on <a href="https://pages.github.com/">GitHub Pages</a> or <a href="https://www.netlify.com/">Netlify</a>.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">I think it&rsquo;s generally much easier to get older Linux packages running, especially when it&rsquo;s a single Go binary with no dependencies. I wish it was this easy on Mac!
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
-<li id="fn:3">Hopefully I never have to run this again!
- <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<h3 id="you-can-view-the-source-code-for-my-blog-here-httpsgithubcomndbroadbentndbroadbentgithubio">You can view the source code for my blog here: <a href="https://github.com/ndbroadbent/ndbroadbent.github.io?ref=ghost.ndbroadbent.com">https://github.com/ndbroadbent/ndbroadbent.github.io</a></h3>
+<hr>
+<p>I'm very happy with this workaround. Now I'm back in business, and I can update or write new blog posts to my heart's content. This new Docker-based setup should last me for the next few decades, if not longer. I still love how Hugo is super fast and generates my entire blog in about 6 seconds (even version <code>0.21</code>!) I'm in no hurry to switch to anything else.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>A <a href="https://www.cloudflare.com/learning/performance/static-site-generator/?ref=ghost.ndbroadbent.com">static site generator</a> converts a folder full of Markdown files into a plain HTML/CSS website that you can host for free on <a href="https://pages.github.com/?ref=ghost.ndbroadbent.com">GitHub Pages</a> or <a href="https://www.netlify.com/?ref=ghost.ndbroadbent.com">Netlify</a>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>I think it's generally much easier to get older Linux packages running, especially when it's a single Go binary with no dependencies. I wish it was this easy on Mac! <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Hopefully I never have to run this again! <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
 </ol>
-</div>
+</section>
+
+        </section>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ghost.ndbroadbent.com/posts/2021-12-05-how-docker-saved-my-blog/";
+            this.page.identifier = "ghost-70"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://madebynathan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+</main>
 
 
-              <div class="related-posts">
-                <h5>Related Posts</h5>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        December 20, 2012
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">Open files generated by &lsquo;rails generate&rsquo; in your editor</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        October 29, 2012
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/2012/10/29/auto-reloading-your-bashrc/">Auto-reloading your .bashrc (or .zshrc)</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        October 14, 2012
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/2012/10/14/saving-space-in-the-terminal-with-symbols/">Saving space in the terminal with symbols</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-              </div>
-            </div>
-          </div>
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-30-e24-resistor-pack-ring-binder/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Organizing 1,700 Resistors in a Ring Binder</h3>
+                    <p class="gh-card-excerpt is-body">I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
 
-        <div class="disqus">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
 
-    (function() {
-      
-      
-      if (window.location.hostname == "localhost")
-        return;
 
-      var disqus_shortname = 'madebynathan';
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
+You can use this PDF to make your own ring binder:
 
+
+
+
+
+ * Download E24_Resistor_Kit_Folder.pdf
+ * Liquid and SCSS that was used to generate the PDF
+
+
+
+
+
+The template code and generated PDF document are released</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-30">Oct 30, 2022</time>
+                <!--
+         --></footer>
         </div>
-      </div>
-      
-    </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Delete Plex TV Shows and Movies After Watching</h3>
+                    <p class="gh-card-excerpt is-body">Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#39;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-10">Oct 10, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Can you plug a SATA drive into a SAS controller?</h3>
+                    <p class="gh-card-excerpt is-body">Yes.
+
+
+
+SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&#39;t plug a SAS drive into a SATA controller (because it won&#39;t</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-07">Oct 7, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/2022/10/01/how-to-create-a-favicon-with-stable-diffusion-and-dalle-2/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Creating a new favicon with text-to-image AI</h3>
+                    <p class="gh-card-excerpt is-body">It&#39;s been a while since I wrote a blog post about creating a favicon.ico file for your website or blog. Things have changed a bit since I wrote that blog post in May 2010.
+
+
+I&#39;ve been updating the CSS for my blog recently, and I</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-02">Oct 2, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </section>
 
     
-    <footer>
-  <div id="footer">
-    <div class="container">
-      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
-      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
     </div>
-  </div>
-</footer>
-<div class="footer"></div>
+</footer>    
+</div>
 
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://madebynathan.com/js/docs.min.js"></script>
-<script src="https://madebynathan.com/js/main.js"></script>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
 
-<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
 
-  </body>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/source.js?v=06fddbd22a"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
 </html>

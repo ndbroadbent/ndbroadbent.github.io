@@ -1,7 +1,7 @@
----
-layout: nil
----
 User-agent: *
-Disallow: 
-
-Sitemap: {{ site.url }}/sitemap.xml 
+Sitemap: https://ghost.ndbroadbent.com/sitemap.xml
+Disallow: /ghost/
+Disallow: /email/
+Disallow: /members/api/comments/counts/
+Disallow: /r/
+Disallow: /webmentions/receive/

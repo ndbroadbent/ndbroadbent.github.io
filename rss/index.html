@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Made By Nathan]]></title><description><![CDATA[Here are some of the things I've made.]]></description><link>https://ghost.ndbroadbent.com/</link><image><url>https://ghost.ndbroadbent.com/favicon.png</url><title>Made By Nathan</title><link>https://ghost.ndbroadbent.com/</link></image><generator>Ghost 5.82</generator><lastBuildDate>Fri, 19 Apr 2024 04:19:00 GMT</lastBuildDate><atom:link href="https://ghost.ndbroadbent.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Organizing 1,700 Resistors in a Ring Binder]]></title><description><![CDATA[<p>I used a ring binder and card sleeves to organize 1,700 through-hole resistors.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/10k-to-51k.jpg" alt="Resistors from 10K to 51K ohms">
+<p>You can use this PDF to make your own ring binder:</p>
+<iframe style="width: 100%; height: 500px;" src="https://ghost.ndbroadbent.com/content/files/2022/10/E24_Resistor_Kit_Folder.pdf"></iframe>
+<br>
+<ul>
+<li><a href="https://ghost.ndbroadbent.com/content/files/2022/10/E24_Resistor_Kit_Folder.pdf">Download E24_Resistor_Kit_Folder.pdf</a></li>
+<li><a href="https://gist.github.com/ndbroadbent/b33a2d72a13549d01c39d10a96b97880?ref=ghost.ndbroadbent.com">Liquid and SCSS that was used to generate the PDF</a></li>
+</ul>
+<blockquote>
+<p>The template code and generated PDF document are released</p></blockquote>]]></description><link>https://ghost.ndbroadbent.com/posts/2022-10-30-e24-resistor-pack-ring-binder/</link><guid isPermaLink="false">6621e803cab1a83ac77b00a5</guid><category><![CDATA[electronics]]></category><category><![CDATA[projects]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Sun, 30 Oct 2022 04:07:28 GMT</pubDate><content:encoded><![CDATA[<p>I used a ring binder and card sleeves to organize 1,700 through-hole resistors.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/10k-to-51k.jpg" alt="Resistors from 10K to 51K ohms">
+<p>You can use this PDF to make your own ring binder:</p>
+<iframe style="width: 100%; height: 500px;" src="https://ghost.ndbroadbent.com/content/files/2022/10/E24_Resistor_Kit_Folder.pdf"></iframe>
+<br>
+<ul>
+<li><a href="https://ghost.ndbroadbent.com/content/files/2022/10/E24_Resistor_Kit_Folder.pdf">Download E24_Resistor_Kit_Folder.pdf</a></li>
+<li><a href="https://gist.github.com/ndbroadbent/b33a2d72a13549d01c39d10a96b97880?ref=ghost.ndbroadbent.com">Liquid and SCSS that was used to generate the PDF</a></li>
+</ul>
+<blockquote>
+<p>The template code and generated PDF document are released under the MIT license. You can find a copy of the MIT license at the bottom of this page.</p>
+</blockquote>
+<hr>
+<h1 id="what-are-resistors">What Are Resistors?</h1>
+<p><a href="https://en.wikipedia.org/wiki/Resistor?ref=ghost.ndbroadbent.com">Resistors</a> are a fundamental component in electronics. They are used to limit the current flowing through a circuit. Resistors have colored bands that represent their value. The first two bands represent the first two digits of the resistance, and the third band represents the &quot;multiplier&quot; value, or power of 10. For example, a 10K&#x2126; resistor has a brown band, a black band, and an orange band. The first two bands are brown (1) and black (0), which is 10. The third band is orange (1,000&#x2126;), so the resistance is 10 x 1,000 = 10,000&#x2126;.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/10k-resistor.jpg" alt="10,000 ohm resistor" style="max-width: 500px;">
+<p>The &quot;tolerance&quot; value is the fourth band. This is the maximum deviation from the nominal resistance. For example, a 10K&#x2126; resistor with a 5% tolerance can have a resistance between 9,500&#x2126; and 10,500&#x2126;.</p>
+<br>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/resistor-color-chart.jpg" alt="Resistor color chart" style="max-width: 500px;">
+<h2 id="the-e24-series">The E24 Series</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/E_series_of_preferred_numbers?ref=ghost.ndbroadbent.com">E24 series</a> is a logarithmic series of 24 values for each power of 10: 1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1.</p>
+<p>You can multiply each value in the series by the multiplier (power of 10) to get the 24 resistance values for each order of magnitude. For example, these are the first ten resistor values with a brown multiplier band (10&#x2126;): 100&#x2126;, 110&#x2126;, 120&#x2126;, 130&#x2126;, 150&#x2126;, 160&#x2126;, 180&#x2126;, 200&#x2126;, 220&#x2126;, 240&#x2126;.</p>
+<br>
+<h1 id="how-i-organized-1700-resistors">How I Organized 1,700 Resistors</h1>
+<p>I bought a resistor pack that included 1,700 resistors in the E24 series, in sets of 10 (170 different values.) I bought 1/4 W carbon film resistors with a 5% tolerance.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/resistor-kit.jpg" alt="Pack of carbon film resistors">
+<p>It&apos;s very useful to have a wide range of resistors for breadboard circuits and prototype PCBs. It&apos;s not so useful when they&apos;re all mixed together in a single bag. The resistors I bought didn&apos;t have any labels or markings on the paper strips, so I had to read the colored bands or use a multimeter to find the resistance.</p>
+<p>For my first attempt at organizing them, I sorted them by the multiplier band (0.1&#x2126;, 1&#x2126;, 10&#x2126;, etc.), and put them in labeled drawers:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/original-labeled-drawers.jpg" alt="The original drawers I used to organize the resistors">
+<p>This didn&apos;t really help at all. I still needed to sort through 24 different values to find the one I was looking for. It got even worse once I started pulling out individual resistors to use in breadboard circuits. Instead of 24 sets of 10, I could have up to 240 individual resistors to sort through.</p>
+<h2 id="ring-binder-design">Ring Binder Design</h2>
+<p>I had some spare card sleeves, and I realized that I could use these to create a 3x3 grid of pockets on an A4 ring binder sheet.</p>
+<p>I used <a href="https://docspring.com/?ref=ghost.ndbroadbent.com">DocSpring</a> to create the layout for all the pages. DocSpring is an API for filling out and generating PDFs. You can upload an existing PDF form, or create your own PDF templates using HTML and CSS. DocSpring&apos;s HTML/CSS templates support the <a href="https://shopify.github.io/liquid/?ref=ghost.ndbroadbent.com">Liquid template language</a>, so I wrote some Liquid code to calculate the resistor values and generate all the pages for the E24 series.</p>
+<blockquote>
+<p>(Disclaimer: I&apos;m the founder of DocSpring.)</p>
+</blockquote>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/docspring-template-html-screenshot.jpg" alt="Screenshot of the DocSpring template editor showing Liquid / HTML">
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/docspring-template-scss-screenshot.jpg" alt="Screenshot of the DocSpring template editor showing SCSS">
+<blockquote>
+<p>This template didn&apos;t need any fields, so I didn&apos;t need to use the DocSpring API. I just downloaded the generated PDF from the Preview tab.</p>
+</blockquote>
+<p>I included a resistor graphic that shows the colored bands for each value. This was invaluable when I was sorting resistors into sleeves.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/pdf-template-example.jpg" alt="Screenshot of the DocSpring template editor showing SCSS">
+<p>I used <a href="https://www.amazon.com/Sleeve-Kings-Card-Sleeves-63-5x88mm/dp/B07RD9QZD2?linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=b7ec66667342d933da70a72b98482f5f&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">Sleeve Kings 63.5mm X 88mm Card Sleeves</a> for the 3x3 grid of pockets.</p>
+<a href="https://www.amazon.com/Sleeve-Kings-Card-Sleeves-63-5x88mm/dp/B07RD9QZD2?linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=b7ec66667342d933da70a72b98482f5f&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/sleeve-kings-card-sleeves.jpg" alt="Sleeve Kings 63.5mm X 88mm Card Sleeves">
+</a>
+<p>I cut them to make them a little shorter, and stuck them onto ring binder sheets using a glue stick. Then I sorted all the resistors into sleeves, which felt like doing a jigsaw puzzle. It was a fun activity for a rainy Sunday afternoon.</p>
+<p>I&apos;m pretty happy with how this turned out, and I think my version is even better than the expensive ring binders I found for sale. The PDF and code are MIT licensed, so anyone is more than welcome to use this for personal or commercial purposes.</p>
+<ul>
+<li><a href="https://gist.github.com/ndbroadbent/b33a2d72a13549d01c39d10a96b97880?ref=ghost.ndbroadbent.com">Github Gist with Liquid and SCSS code</a></li>
+<li><a href="https://docspring.com/templates/tpl_GP7fTnpFzJmbeJHzR7/edit?ref=ghost.ndbroadbent.com">Try a DocSpring demo with this template</a></li>
+<li><a href="https://docspring.com/sign_up?library_template_id=ltp_AQbEsdhD4Ksf6mYLXD&amp;ref=ghost.ndbroadbent.com">Sign up for a free DocSpring trial account to customize the template</a></li>
+</ul>
+<h2 id="gallery-finished-ring-binder">Gallery: Finished Ring Binder</h2><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page00.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page00.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page00.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page00.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page01.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page01.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page01.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page01.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page02.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page02.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page02.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page02.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page03.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page03.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page03.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page03.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page04.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page04.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page04.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page04.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page05.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page05.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page05.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page05.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page06.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page06.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page06.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page06.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page07.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page07.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page07.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page07.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/page08.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/page08.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/page08.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/page08.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><blockquote>
+<p>This ring binder system makes it much easier to see when I need to order more resistors. (I&apos;ve got some more 330, 360, 1K, and 1.1K ohm resistors on the way!)</p>
+</blockquote>
+<br>
+<hr>
+<h1 id="how-to-organize-your-own-resistors">How To Organize Your Own Resistors</h1>
+<h2 id="option-1-buy-card-binder-sheets">Option 1: Buy Card Binder Sheets</h2>
+<p>After publishing this blog post, I found out that you can buy card binder sheets that already come with 9 pockets.<br>
+<a href="https://www.amazon.com/AmazonBasics-Sleeve-Protectors-Binder-Sheet/dp/B07PD7KBN5?linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=1e81f428ee077d3eaf75a8f274d88aa5&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">You can purchase these on Amazon.</a></p>
+<p><a href="https://www.amazon.com/AmazonBasics-Sleeve-Protectors-Binder-Sheet/dp/B07PD7KBN5?linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=1e81f428ee077d3eaf75a8f274d88aa5&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com"><img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/amazon-9-sleeve-card-binder-sheets.jpg" alt="3x3 card binder sheets" style="max-width: 500px;"></a></p>
+<br>
+<p>I found <a href="https://www.amazon.com/StoreSMART-Plastic-Binders-10-Pack-RMSTWPF-MEMRY-10/dp/B00JAIIMEY?th=1&amp;psc=1&amp;linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=545fa3f02aa979f1e78f4b86105ac6a0&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">another option that has some flaps at the top of each pocket</a>.<br>
+This would prevent the resistors from falling out if you drop the binder or tip it upside down. I&apos;ll probably use this option next time I need to organize electronic components. It would also be very handy for SD cards and USB sticks.</p>
+<p><a href="https://www.amazon.com/StoreSMART-Plastic-Binders-10-Pack-RMSTWPF-MEMRY-10/dp/B00JAIIMEY?th=1&amp;psc=1&amp;linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=545fa3f02aa979f1e78f4b86105ac6a0&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com"><img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/3x3-binder-pockets-with-flaps.jpg" alt="3x3 card binder sheets with flaps for each pocket" style="max-width: 500px;"></a></p>
+<h3 id="supplies">Supplies</h3>
+<ul>
+<li>Color printer</li>
+<li><a href="https://www.amazon.com/Avery-Economy-Showcase-Binder-19750/dp/B000WFMBO6?keywords=3+ring+binder&amp;qid=1667182456&amp;qu=eyJxc2MiOiI3LjY5IiwicXNhIjoiNy4wMyIsInFzcCI6IjYuNjcifQ%3D%3D&amp;sr=8-5&amp;linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=f2b3029cfdaaa7d4ffb02938cde1d7b5&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">Ring binder</a></li>
+<li><a href="https://www.amazon.com/AmazonBasics-Sleeve-Protectors-Binder-Sheet/dp/B07PD7KBN5?linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=1e81f428ee077d3eaf75a8f274d88aa5&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">9 Sleeve Card Binder Sheet</a>, or <a href="https://www.amazon.com/StoreSMART-Plastic-Binders-10-Pack-RMSTWPF-MEMRY-10/dp/B00JAIIMEY?th=1&amp;psc=1&amp;linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=545fa3f02aa979f1e78f4b86105ac6a0&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">9 Pocket Binder Sheets With Flaps</a></li>
+<li>Scissors or paper cutter</li>
+</ul>
+<h3 id="instructions">Instructions</h3>
+<ol>
+<li>Print the PDF</li>
+<li>Cut out the cards on each page</li>
+<li>Insert the cards into the pockets</li>
+<li>Insert resistors in front of the cards in each pocket</li>
+</ol>
+<hr>
+<h2 id="option-2-make-diy-card-binder-sheets">Option 2: Make DIY Card Binder Sheets</h2>
+<h3 id="supplies">Supplies</h3>
+<ul>
+<li>Color printer</li>
+<li><a href="https://www.amazon.com/Avery-Economy-Showcase-Binder-19750/dp/B000WFMBO6?keywords=3+ring+binder&amp;qid=1667182456&amp;qu=eyJxc2MiOiI3LjY5IiwicXNhIjoiNy4wMyIsInFzcCI6IjYuNjcifQ%3D%3D&amp;sr=8-5&amp;linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=f2b3029cfdaaa7d4ffb02938cde1d7b5&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">Ring binder</a></li>
+<li><a href="https://www.amazon.com/Amazon-Basics-Clear-Protector-Binder/dp/B07R479JG2?pd_rd_w=LWRzP&amp;content-id=amzn1.sym.9b14949a-3979-4b7d-b182-b07adcc4c0e7&amp;pf_rd_p=9b14949a-3979-4b7d-b182-b07adcc4c0e7&amp;pf_rd_r=51YBZA0N9E2PANB6W3QV&amp;pd_rd_wg=cp0Cc&amp;pd_rd_r=b6352cc5-3f7a-461c-be95-835c07b9087e&amp;pd_rd_i=B07R479JG2&amp;psc=1&amp;linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=89efc3eb7921da23353c29463445653f&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">Plain ring binder sheets</a></li>
+<li>Card sleeves (e.g. <a href="https://www.amazon.com/Sleeve-Kings-Card-Sleeves-63-5x88mm/dp/B07RD9QZD2?linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=b7ec66667342d933da70a72b98482f5f&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">Sleeve Kings 63.5mm X 88mm Card Sleeves</a> or similar)</li>
+<li><a href="https://www.amazon.com/Elmers-School-Glue-Sticks-5ct/dp/B074MPDDRD?ac_md=0-0-Z2x1ZSBzdGljaw%3D%3D-ac_d_rm_rm_rm&amp;content-id=amzn1.sym.568df61d-e115-4cb1-a96a-ba070b8f0935%3Aamzn1.sym.568df61d-e115-4cb1-a96a-ba070b8f0935&amp;crid=J8VFDJPMF09A&amp;cv_ct_cx=glue+stick&amp;keywords=glue+stick&amp;pd_rd_i=B074MPDDRD&amp;pd_rd_r=d791008c-9cc0-44df-b03c-3ce198e017ad&amp;pd_rd_w=icqOY&amp;pd_rd_wg=ADqNT&amp;pf_rd_p=568df61d-e115-4cb1-a96a-ba070b8f0935&amp;pf_rd_r=B3SAPW5S9MNYK8ZDVT7Z&amp;psc=1&amp;qid=1667182523&amp;qu=eyJxc2MiOiI0Ljc1IiwicXNhIjoiNC40NyIsInFzcCI6IjQuMzMifQ%3D%3D&amp;sprefix=%2Caps%2C1199&amp;sr=1-1-7d9bfb42-6e38-4445-b604-42cab39e191b&amp;linkCode=ll1&amp;tag=ndbroadbent-20&amp;linkId=1bf8d09bd3db3775d20cc2beeed4925a&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">Glue stick</a></li>
+</ul>
+<h3 id="instructions">Instructions</h3>
+<ol>
+<li>Print the PDF</li>
+<li>Insert pages into ring binder sheets</li>
+<li>Use glue stick to glue the card sleeves to the outside of the ring binder sheets</li>
+<li>Insert resistors into card sleeves</li>
+</ol>
+<hr>
+<h2 id="option-3-raaco-storage-drawers">Option 3: Raaco storage drawers</h2>
+<p><a href="https://news.ycombinator.com/item?id=33393853&amp;ref=ghost.ndbroadbent.com">@impulse7 posted a comment on Hacker News</a> where they shared their own solution to this problem. They created PDF labels to organize resistors in <a href="https://www.amazon.com/Storage-Home-Organization-Raaco-Tools-Improvement/s?rh=n%3A13400631%2Cp_89%3ARaaco&amp;linkCode=ll2&amp;tag=ndbroadbent-20&amp;linkId=8c3a44131d986bdc83efb320e3a486a9&amp;language=en_US&amp;ref_=as_li_ss_tl&amp;ref=ghost.ndbroadbent.com">Raaco storage drawers</a>. They have shared their <a href="https://github.com/tonybjorkman/raaco-organizer?ref=ghost.ndbroadbent.com">PDF generation code on GitHub</a>. This is a great option if you have plenty of space in your workshop.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/raaco-storage-labels.jpg" alt="Labels for Raaco storage organizer, from https://github.com/tonybjorkman/raaco-organizer">
+<hr>
+<h2 id="option-4-buy-a-finished-ring-binder-with-sorted-resistors">Option 4: Buy A Finished Ring Binder With Sorted Resistors</h2>
+<p>If you want to skip all the work and just buy a pre-made ring binder, you can <a href="https://nz.rs-online.com/web/p/resistor-kits/2476718?ref=ghost.ndbroadbent.com">buy one from an electronics supplier such as RS Components</a>. This will save a lot of time, but they can be quite expensive.</p>
+<a href="https://nz.rs-online.com/web/p/resistor-kits/2476718?ref=ghost.ndbroadbent.com">
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/through-hole-resistor-kit-504.jpg" alt="$504 NZD for a ring binder of sorted resistors">
+</a>
+<blockquote>
+<p>$504.52 New Zealand dollars = $323.72 USD</p>
+</blockquote>
+<p>I found a few cheaper options but they were still hundreds of dollars. So I thought it would be fun to make my own ring binder.</p>
+<hr>
+<br>
+<p>P.S. Digi-Key&apos;s <a href="https://www.digikey.co.nz/en/resources/conversion-calculators/conversion-calculator-resistor-color-code?ref=ghost.ndbroadbent.com">Resistor Color Code Calculator</a> was very useful. It&apos;s a great tool for quickly looking up resistor values.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/e24-resistors-ring-binder/digikey-calculator.jpg" alt="DigiKey&apos;s 4 Band Resistor Color Code Calculator">
+<p></p>]]></content:encoded></item><item><title><![CDATA[Delete Plex TV Shows and Movies After Watching]]></title><description><![CDATA[<p><a href="https://github.com/ndbroadbent/Plex-Cleaner?ref=ghost.ndbroadbent.com"><code>Plex-Cleaner</code></a> is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&apos;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry</p>]]></description><link>https://ghost.ndbroadbent.com/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/</link><guid isPermaLink="false">6621e803cab1a83ac77b00a4</guid><category><![CDATA[plex]]></category><category><![CDATA[debian]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Mon, 10 Oct 2022 00:36:15 GMT</pubDate><content:encoded><![CDATA[<p><a href="https://github.com/ndbroadbent/Plex-Cleaner?ref=ghost.ndbroadbent.com"><code>Plex-Cleaner</code></a> is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&apos;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry Pi, or wherever you run Plex Media Server.)</p>
+<p>I like to put things in the <code>/opt</code> directory on my servers.</p>
+<ul>
+<li>
+<p>Run <code>git clone https://github.com/ndbroadbent/Plex-Cleaner.git /opt</code></p>
+</li>
+<li>
+<p>Run <code>python3 PlexCleaner.py --dump Cleaner.conf</code> to create a new configuration file</p>
+</li>
+<li>
+<p>Configure an authentication token in <code>Cleaner.conf</code>, under the <code>&quot;Token&quot;</code> key.</p>
+<ul>
+<li><a href="https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/?ref=ghost.ndbroadbent.com">Here&apos;s how to get an authentication token.</a></li>
+</ul>
+</li>
+<li>
+<p>Call <code>python3 PlexCleaner.py</code> to test it out.</p>
+</li>
+</ul>
+<p>The script will run in test mode and won&apos;t delete anything if your <code>Cleaner.conf</code> contains <code>&quot;test&quot;: true</code>, or if you call <code>python3 PlexCleaner.py --test</code>.</p>
+<ul>
+<li>After everything looks good in the logs, set <code>&quot;test&quot;: false</code> in <code>Cleaner.conf</code>.</li>
+</ul>
+<p>You&apos;ll probably want to run this script regularly as a cron job. Run <code>crontab -e</code> to edit your crontab, then add the following line to run the script every day at 4am:</p>
+<pre><code>0 4 * * * /usr/bin/python3 /opt/Plex-Cleaner/PlexCleaner.py
+</code></pre>
+<br>
+<hr>
+<p>I always like to set up monitoring for any scheduled scripts so that I get a notification <s>if</s>&#xA0;when they stop working. <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> is my favorite monitoring tool and they have a generous free tier. <em>(No affiliation, they&apos;re just an awesome service.)</em></p>
+<p>To set up monitoring with healthchecks.io, you can call the <code>run_plex_cleaner.sh</code> script from <a href="https://github.com/ndbroadbent/Plex-Cleaner?ref=ghost.ndbroadbent.com">my fork</a>. This script will ping <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> on success or failure. <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> will also send you a notification if it doesn&apos;t receive any ping at the expected time (e.g. if your server has been turned off.)</p>
+<ul>
+<li>Sign up for a free <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> account.</li>
+<li>Create a new check. Choose the &quot;Cron&quot; schedule and enter your cron expression, e.g. <code>0 4 * * *</code>.</li>
+<li>Make sure you also set the correct Time Zone in the options.</li>
+<li>Save the healthchecks.io check ID to a <code>healthchecksio_id</code> file in the <code>Plex-Cleaner</code> directory</li>
+<li>Set the log file option in <code>Cleaner.conf</code> so that it writes logs to a file:</li>
+</ul>
+<pre><code>&quot;LogFile&quot;: &quot;/opt/Plex-Cleaner/plexcleaner.log&quot;,
+</code></pre>
+<ul>
+<li>Set up this cron job entry (instead of the one above):</li>
+</ul>
+<pre><code>0 4 * * * /opt/Plex-Cleaner/run_plex_cleaner.sh
+</code></pre>
+<br>
+<p>Now you&apos;ll get an email alert whenever something goes wrong:</p>
+<ul>
+<li>The script exits with an error</li>
+<li>The <code>plexcleaner.log</code> log file contains any <code>ERROR</code> entries</li>
+<li>The script doesn&apos;t run at all</li>
+</ul>
+]]></content:encoded></item><item><title><![CDATA[Can you plug a SATA drive into a SAS controller?]]></title><description><![CDATA[<h2 id="yes">Yes.</h2>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/sata-sas/sata-sas.jpg" alt="SATA and SAS connectors">
+<p>SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&apos;t plug a SAS drive into a SATA controller (because it won&apos;t</p>]]></description><link>https://ghost.ndbroadbent.com/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/</link><guid isPermaLink="false">6621e803cab1a83ac77b00a3</guid><category><![CDATA[home-assistant]]></category><category><![CDATA[linux]]></category><category><![CDATA[debian]]></category><category><![CDATA[server]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Fri, 07 Oct 2022 07:29:33 GMT</pubDate><content:encoded><![CDATA[<h2 id="yes">Yes.</h2>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/sata-sas/sata-sas.jpg" alt="SATA and SAS connectors">
+<p>SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&apos;t plug a SAS drive into a SATA controller (because it won&apos;t fit.) SAS controller software can support SATA drives, but SATA controllers don&apos;t support SAS drives (even if you have an adapter.)</p>
+<h2 id="why-do-i-have-a-sas-controller">Why do I have a SAS controller?</h2>
+<p>I was running <a href="https://www.home-assistant.io/?ref=ghost.ndbroadbent.com">Home Assistant</a> and <a href="https://www.plex.tv/?ref=ghost.ndbroadbent.com">Plex Media Server</a> on a <a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/?ref=ghost.ndbroadbent.com">Raspberry Pi 4 Model B</a>. I kept adding more and more Home Assistant add-ons (which run in Docker containers), so it started to get a bit slow. It took a long time to restart Home Assistant, and we started to notice some speed and reliability issues.</p>
+<p>I already had a server rack in my closet, so I wanted to get a proper server to put in it. I didn&apos;t need anything too fancy. It just needed to be a little bit faster than a Raspberry Pi, so I found a 10 year old IBM server for $249 NZD ($160 USD.) I found it on TradeMe, which is similar to eBay in New Zealand.</p>
+<ul>
+<li>Model: <a href="https://www.ibm.com/support/pages/overview-ibm-system-x3250-m4-windows-server-2012-type-2583?ref=ghost.ndbroadbent.com">IBM System X3250 M4 E3-1270v2</a></li>
+<li>CPU: Intel Xeon E3-1270v2 4-core, 8-thread Processor</li>
+<li>Memory: 8GB DDR3 Ram</li>
+<li>Storage: 4x 2.5&quot; SAS / SATA drive bays, 1x 240GB SAS hard drive</li>
+<li>Controller: LSI SAS2004 IR SAS / SATA HBA</li>
+<li>Power: 2x 460w power supplies</li>
+</ul>
+<p>The new server has been working great, and Home Assistant is noticeably faster. The 10-year-old Intel Xeon E3-1270v2 CPU has a CPU Mark benchmark score of 6429, which is 8x better than the Broadcom BCM2711 processor in a Raspberry Pi 4B (834.)</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/sata-sas/bcm2711-vs-intel-xeon.jpg" alt="BCM2711 vs Intel Xeon E3-1270 V2">
+<ul>
+<li><a href="https://www.cpubenchmark.net/compare/BCM2711-vs-Intel-Xeon-E3-1270-V2/4297vs1192?ref=ghost.ndbroadbent.com">BCM2711 vs Intel Xeon E3-1270 V2 @ 3.50GHz on cpubenchmark.net</a></li>
+</ul>
+<hr>
+<p>The only problem is that the server came with a 320GB SAS hard-drive. It was a bit too small, and it made a lot of clicking noises. I wanted to replace it with a 1TB SATA SSD, which would be faster and silent. I just wasn&apos;t sure if my old server would be compatible with a modern SATA SSD.</p>
+<p>I did a bit of research, and it seemed like it would work, so I bought a new Samsung 870 EVO 1TB SSD. It was the same size and had the same screw holes as the old 2.5&quot; SAS drive, so I was able to swap the drives and use the same drive bracket. I put in the new drive and installed Debian 11 (with LVM), and everything worked great!</p>
+<p><strong>Conclusion: The latest Samsung SATA SSDs are still compatible with SAS controllers in servers that were made in 2012.</strong></p>
+]]></content:encoded></item><item><title><![CDATA[Creating a new favicon with text-to-image AI]]></title><description><![CDATA[<!--kg-card-begin: markdown--><p>It&apos;s been a while since <a href="https://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/?ref=ghost.ndbroadbent.com">I wrote a blog post about creating a <code>favicon.ico</code> file for your website or blog.</a> Things have changed a bit since I wrote that blog post in May 2010.</p>
+<p>I&apos;ve been updating the CSS for my blog recently, and I</p>]]></description><link>https://ghost.ndbroadbent.com/2022/10/01/how-to-create-a-favicon-with-stable-diffusion-and-dalle-2/</link><guid isPermaLink="false">6621e803cab1a83ac77b00a2</guid><category><![CDATA[web-design]]></category><category><![CDATA[favicon]]></category><category><![CDATA[art]]></category><category><![CDATA[logo]]></category><category><![CDATA[ai]]></category><category><![CDATA[midjourney]]></category><category><![CDATA[stable-diffusion]]></category><category><![CDATA[dalle-2]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Sat, 01 Oct 2022 18:41:13 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>It&apos;s been a while since <a href="https://madebynathan.com/2010/05/20/how-to-create-a-favicon-ico-with-gimp/?ref=ghost.ndbroadbent.com">I wrote a blog post about creating a <code>favicon.ico</code> file for your website or blog.</a> Things have changed a bit since I wrote that blog post in May 2010.</p>
+<p>I&apos;ve been updating the CSS for my blog recently, and I wanted to update the favicon. Here&apos;s the old green square icon that I was using before:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/old_favicon.jpg" alt="My old green square favicon">
+<br>
+<p>I wanted something a bit more interesting, so I tried using some of the new text-to-image AI tools that have been getting a lot of attention lately. I used <a href="https://www.midjourney.com/home/?ref=ghost.ndbroadbent.com">Midjourney</a> and <a href="https://openai.com/blog/dall-e/?ref=ghost.ndbroadbent.com">DALL&#xB7;E 2</a>. (Midjourney uses <a href="https://stability.ai/blog/stable-diffusion-public-release?ref=ghost.ndbroadbent.com">Stable Diffusion</a>.)</p>
+<hr style="margin: 50px 0;">
+<p>I played around with some different prompts in Midjourney and DALL&#xB7;E 2, and I iterated on a few different ideas. I enjoy spending time in Midjourney&apos;s shared Discord channels (e.g. <code>#general-*</code>), where you can see what other people are doing and get some inspiration for prompts.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/midjourney_discord_shared_chat.jpg" alt="Midjourney shared chat channel general-4">
+<p>Here&apos;s a few examples of the prompts that I was trying:</p>
+<hr>
+<blockquote>
+<p><em>website favicon logo, circuit board PCB design, vector, SVG, blue purple gradient, hexagon, bolt and tools icon</em></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><em>small favicon logo for a blog website, circuit board pattern, electronics, vector, epic ultra wide aerial shot from atmosphere, cool gradients, ultra high contrast, blue background, psychedelic color, vortex, hyperrealism, intricate details, cinematic lighting</em></p>
+</blockquote>
+<p>Here&apos;s some of the images that I generated using DALL&#xB7;E 2:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/dalle_library.jpg" alt="Collection of images from Dalle 2">
+<p>And here&apos;s some from Midjourney:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/midjourney_library.jpg" alt="Collection of images from Midjourney">
+<p>I eventually found some shapes and colors that looked pretty cool, so I generated some variations using the Midjourney Discord Bot.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/midjourney_discord.jpg" alt="Variations on a shape">
+<p>Eventually I settled on this one. It kind of looks like an abstract &quot;N&quot;. I tweaked the colors and contrast a little bit in <a href="https://www.gimp.org/?ref=ghost.ndbroadbent.com">GIMP</a>.</p>
+<p class="text-center">
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/final_logo.png" alt="I settled on this gradient and shape" style="max-width: 140px; margin: 50px;">
+</p>
+<p>I used <a href="https://realfavicongenerator.net/?ref=ghost.ndbroadbent.com">realfavicongenerator.net</a> to generate a favicon package with lots of different sizes and (mostly unnecessary) features.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/realfavicongenerator_net.jpg" alt="realfavicongenerator.net is awesome. I use them for all my websites.">
+<p>They provide this HTML to include in my <code>&lt;head&gt;</code> tag:</p>
+<pre><code class="language-html">&lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;/apple-touch-icon.png&quot; /&gt;
+&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;/favicon-32x32.png&quot; /&gt;
+&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;/favicon-16x16.png&quot; /&gt;
+&lt;link rel=&quot;manifest&quot; href=&quot;/site.webmanifest&quot; /&gt;
+&lt;link rel=&quot;mask-icon&quot; href=&quot;/safari-pinned-tab.svg&quot; color=&quot;#5bbad5&quot; /&gt;
+&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#603cba&quot; /&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot; /&gt;
+</code></pre>
+<hr style="margin: 50px 0;">
+<p>So here&apos;s the new favicon:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/new_favicon.jpg" alt="My new favicon">
+<hr style="margin: 50px 0;">
+<p>P.S. Here&apos;s one I didn&apos;t end up using, in case you want it:</p>
+<p class="text-left">
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/10/favicon/wet_bectolon.jpg" alt="WET BECTOLON" style="max-width: 360px;">
+</p>
+<h3 id="wetbectoloncrdorufptaogoatuy">Wet Bectolon. <em>Crdoruf Ptaogoatuy</em></h3>
+<p>(<a href="https://www.namecheap.com/domains/registration/results/?domain=wetbectolon.com&amp;ref=ghost.ndbroadbent.com">wetbectolon.com</a> is available!)</p>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[Automating my Kitchen Rangehood Fan and Light]]></title><description><![CDATA[<blockquote>
+<p>I originally <a href="https://community.home-assistant.io/t/i-automated-the-rangehood-above-my-stove-kitchen-extractor-fan-and-light-and-learned-a-lot/458085?ref=ghost.ndbroadbent.com">posted this write-up on the Home Assistant Community Forums</a>. I thought I would post it here as well, since I haven&apos;t written anything on this blog for a while. I&apos;ve been getting more serious about Home Automation lately, so I might start writing some</p></blockquote>]]></description><link>https://ghost.ndbroadbent.com/posts/2022-09-30-automating-my-kitchen-rangehood/</link><guid isPermaLink="false">6621e803cab1a83ac77b00a1</guid><category><![CDATA[home-automation]]></category><category><![CDATA[home-assistant]]></category><category><![CDATA[esp32]]></category><category><![CDATA[kitchen]]></category><category><![CDATA[electronics]]></category><category><![CDATA[projects]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Fri, 30 Sep 2022 10:21:05 GMT</pubDate><content:encoded><![CDATA[<blockquote>
+<p>I originally <a href="https://community.home-assistant.io/t/i-automated-the-rangehood-above-my-stove-kitchen-extractor-fan-and-light-and-learned-a-lot/458085?ref=ghost.ndbroadbent.com">posted this write-up on the Home Assistant Community Forums</a>. I thought I would post it here as well, since I haven&apos;t written anything on this blog for a while. I&apos;ve been getting more serious about Home Automation lately, so I might start writing some more blog posts and making a few videos.</p>
+</blockquote>
+<p>I figured out how to control the light and fan in the rangehood above my stove. I learned a lot from this project, and I wanted to share some of my experiences.</p>
+<ul>
+<li>I figured out how to read the state of 4 buttons and light up 4 LEDs with only 5 wires</li>
+<li>I discovered some powerful circuit simulation software</li>
+<li>I used optocouplers for the first time (instead of relays)</li>
+<li>I wrote some C++ code for a custom ESPHome component</li>
+<li>I bought an oscilloscope</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>I wanted to be able to control the light and extractor fan above my stovetop, so I decided to automate it using an ESP32. This would be a similar concept to the <a href="https://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/?ref=ghost.ndbroadbent.com">Raspberry Pi Microwave project</a> that I built many years ago: I would put a &quot;proxy&quot; circuit between the buttons and the main board that controls the light and fan. The circuit would simulate button presses to control the main board, and it would read the state of the original buttons so that they would still work normally. The circuit would add WiFi connectivity so that the buttons could be controlled remotely and via automations in Home Assistant.</p>
+<p>I still use Raspberry Pis, but now I prefer using ESP32 and ESP8266 chips. ESPHome makes it so much easier to build little devices like this, and the OTA (over-the-air) updates are really convenient. I love all the built-in components that you can easily add to your YAML configuration files.</p>
+<p>Here&apos;s a photo of the rangehood, with some of my tools. You can see the main controller board and the button board hanging out.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/rangehood.jpg" alt="Picture of my kitchen rangehood">
+<p>This is the button board, which has 4 buttons, and an LED for each button:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/button_led_board.jpg" alt="Button and LED board to control the rangehood">
+<h2 id="how-to-read-4-buttons-and-light-4-leds-with-only-5-wires">How to read 4 buttons and light 4 LEDs with only 5 wires</h2>
+<p>I wanted to preserve the original functionality of the rangehood buttons, so that you wouldn&apos;t even know there&apos;s an ESP32 chip inside. This button board was the first obstacle. If there were only 4 buttons, then that would be quite easy. You can just attach them directly to GPIO pins with an internal pull-up resistor. The LEDs were a bit confusing at first, but it was a fun puzzle to solve.</p>
+<p>I took a photo of the PCB and traced it using different colors, so I could where each of the wires was going:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/pcb_traces.jpg" alt="I traced the PCB on my phone">
+<p>I found that button has a 1K ohm resistor, and each LED has a 148 ohm resistor.</p>
+<h2 id="circuit-simulation-software">Circuit simulation software</h2>
+<p>I&apos;m a software developer, so I really like having fast feedback loops and the ability to try lots of ideas quickly to see if something works. I started wondering if it might be possible to do this with circuits. I wanted to see if I could figure this out with trial and error and use some kind of circuit simulation software.</p>
+<p>I found <a href="https://www.tinkercad.com/?ref=ghost.ndbroadbent.com">TinkerCad</a>, and my mind was blown! Now I had a virtual Arduino wired up to a virtual breadboard. I recreated this button/LED board inside TinkerCad. I could set up virtual multi-meters to see how much current was flowing through LEDs, and easily figure out values for resistors.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/tinkercad_simulation.png" alt="Screenshot of TinkerCad simulation">
+<p>This is so awesome! It even tells you when too much current is going through an LED:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/tinkercad_led_warning.png" alt="It tells you when you have too much current going through an LED">
+<p>Here&apos;s <a href="https://www.tinkercad.com/things/1bAouc9AybL-rangehood-esp32-buttonled-proxy/editel?sharecode=78vrKEWsZrrcoPSy2SCQuQP9ZW9wdGJ0-cJg6wy4u84&amp;ref=ghost.ndbroadbent.com">a link to my TinkerCad project where you can run the circuit simulation</a>.</p>
+<p>I started playing around with some code in an Arduino sketch. I figured out how to light up the LEDs. I figured out how to read the buttons. But I couldn&apos;t figure out how to do them both at the same time. If I wanted to light up the LEDs, then I&apos;d need to be using <code>3.3V</code> on the shared wire. But if I wanted to read the buttons, then the shared wire needed to be connected to <code>GND</code>.</p>
+<p>Then I finally had a breakthrough. Whenever I had worked with GPIO pins in the past, I had just assumed that &quot;high&quot; and &quot;low&quot; meant &quot;on&quot; and &quot;off&quot;. But I realized that &quot;high&quot; literally just means <code>5V</code> (or <code>3.3V</code>), and &quot;low&quot; literally just means <code>GND</code>. So you can just change the direction of a circuit if you set your output pins to normally &quot;high&quot;, and you swap the <code>GND</code> pin with a <code>3.3V</code> pin.</p>
+<p>So instead of needing to choose between the <code>3.3V</code> pin and the <code>GND</code> pin, I could use a GPIO pin on the shared wire and toggle it between &quot;high&quot; and &quot;low&quot;. I set it to &quot;low&quot; whenever I needed to read the buttons, and set it to &quot;high&quot; whenever I needed to light up the LEDs.</p>
+<p>I got something working in my virtual Arduino. The other side of the circuit was quite easy (to simulate the button presses.) I used some optocouplers as relays, where you send current through an IR LED and it turns on a transistor on the other side, but it keeps both of the circuits separated. Later on I realized that I should have been looking at &quot;solid state relays&quot;, which are optocouplers that are specifically designed for this purpose and can switch much higher voltages and currents.</p>
+<p>I tried it out with a real Arduino, and it worked!</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/arduino_screenshot.jpg" alt="Screenshot of Arduino logs in real life">
+<p>It was a pretty cool experience to simulate a whole Arduino circuit inside my browser, and then see it work in real life.</p>
+<p><a href="https://everycircuit.com/?ref=ghost.ndbroadbent.com">https://everycircuit.com</a> is also a really cool option for circuit simulation:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/everycircuit.jpg" alt="EveryCircuit.com simulation">
+<p>It can handle some things that TinkerCad can&apos;t do, such as astable multivibrator circuits where you need to inject a little noise to get it started. (TinkerCad just crashes with an &quot;infinite loop&quot; error.)</p>
+<h2 id="custom-c-esphome-component">Custom C++ ESPHome Component</h2>
+<p>Alright, on to the next step. I&apos;ve got something working with an Arduino, but how do I port this to ESPHome and get it working over WiFI?</p>
+<p>I needed to set an GPIO pin to output mode for a while, briefly switch it to input mode, read the state of a button, and then set it back to output mode again. I couldn&apos;t figure out how to do this in a YAML configuration file for ESPHome, so I decided to write a custom component using C++.</p>
+<p>The <a href="https://esphome.io/custom/custom_component.html?ref=ghost.ndbroadbent.com">ESPHome documentation is pretty good</a>, and I was able to get something working. Here&apos;s my YAML configuration and my custom C++ module: <a href="https://gist.github.com/ndbroadbent/63aa5f105e21631bee4ff9a62c9b1608?ref=ghost.ndbroadbent.com">https://gist.github.com/ndbroadbent/63aa5f105e21631bee4ff9a62c9b1608</a></p>
+<p>The most important difference between Arduino and ESPHome is that a component&apos;s <code>loop()</code> function is only called once every 16 milliseconds. (Arduino restarts the loop instantly.) This was actually perfect for me, since it meant that I could read the buttons once every 16ms, and leave the LEDs on before I exit the loop.</p>
+<h2 id="i-ran-out-of-pins-on-my-esp8266-wemos-d1-mini">I ran out of pins on my ESP8266 (Wemos D1 Mini)</h2>
+<p>I should have made sure that everything worked on a breadboard. Instead, I started to get a bit impatient, and I jumped straight to soldering a prototype PCB. I soldering some pin headers for my ESP8266 development board, and then started with one input, and one optocoupler for the output. I tested it and it was all working, so I kept going.</p>
+<p>Then I checked the <a href="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/?ref=ghost.ndbroadbent.com">ESP8266 pinout</a> and realized that I had run out of GPIO pins.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/esp8266_pinout.png" alt="ESP8266 pin out">
+<p>I tried to get away with using some of the yellow &quot;OK&quot; ones, but the boot started failing (I guess I was pulling some of the pins high or low.) I needed 4 pins to control the optocoupler outputs, and 5 for the button/LED board. That&apos;s 9 GPIO pins, and the ESP8266 only had 7. I thought it had more!</p>
+<p>This can be solved with shift registers. You only need 3 GPIO pins to <a href="https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/?ref=ghost.ndbroadbent.com">control a 74HC595 8-bit shift register</a> and get 8 digital outputs. You only need one additional GPIO pin if you want to <a href="https://www.arduino.cc/en/Tutorial/Foundations/ShiftIn?ref=ghost.ndbroadbent.com">add a CD4021BE shift register</a> (parallel-in, serial-out) and get 8 digital inputs. This is because the input and output registers can share the same clock and latch pins. You can then daisy-chain both of these to get as many inputs and outputs as you need (or use bigger shift registers with more pins), and use only 4 GPIO pins.</p>
+<p>Anyway, I switched to using an ESP32 development board which has 18 usable GPIO pins, and a few more with caveats. I used breadboard jumper wires to wire it up.</p>
+<h2 id="my-resistors-were-too-big">My resistors were too big</h2>
+<p>I had put 1k resistors on the optocoupler outputs, to mimic the original button/LED board. What I didn&apos;t realize is that the optocoupler itself seemed to add about 500 ohms of resistance, so the resistance was slightly too high, and the rangehood controller board couldn&apos;t reliably read the simulated button presses.</p>
+<p>So I unsoldered them and switched to 560 ohm resistors. Should have tested on a breadboard.</p>
+<h2 id="i-bought-a-usb-oscilloscope">I bought a USB oscilloscope</h2>
+<p>After doing a bunch of unsoldering and resoldering, putting random hookup wires all over the place, and swapping out ESP dev boards, I ended up with the ugliest prototype PCB you&apos;ve ever seen. Of couse, stuff started breaking and one of my outputs wasn&apos;t working properly or reliably. It seemed like there was a problem with one of my optocouplers, and it was a real pain to figure out what was broken since I had only had a multimeter.</p>
+<p>I realized that a oscilloscope would be really useful, and I should have bought one a long time ago. I bought a <a href="http://my.bitscope.com/store/?p=view&amp;i=item+3&amp;ref=ghost.ndbroadbent.com">USB BitScope 10</a>. It&apos;s pretty cool!</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/bitscope_screenshot.jpg" alt="Screenshot of the Bitscope software on Mac">
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/components_on_desk.jpg" alt="Photo of breadboard and Bitscope on my desk">
+<p>This helped me figure out where some things needed to be resoldered. One of the optocouplers was only working when I pushed on it with my finger. I originally thought it might have been a broken chip or something to do with capacitance, but it was just a broken PCB trace and some dodgy soldering.</p>
+<p>I&apos;m still learning how to use the BitScope software and have barely scratched the surface of what it can do. This is going to be extremely useful for future projects, especially for reverse engineering how stuff works. (P.S. You&apos;ll need their <a href="https://support.bitscope.com/X37HPRRV/?ref=ghost.ndbroadbent.com#downloads">pre-release version for the latest version of Mac OS</a>.)</p>
+<h2 id="wifi-was-very-weak-on-my-duinotech-wearable-esp32-development-board">WiFi was very weak on my &quot;Duinotech Wearable ESP32 Development Board&quot;</h2>
+<p>I initially switched to a <a href="https://www.jaycar.co.nz/duinotech-wearable-esp32-development-board/p/XC3810?ref=ghost.ndbroadbent.com">Duinotech Wearable ESP32 Development Board</a> that I had bought a while ago. I got everything working, but then it really struggled to connect to WiFi and would cut out regularly, and my entities would become unavailable. Even though I had a Ubiquity access point only 10 meters away in the same room.</p>
+<p>I found a few other people who seemed to have problems with WiFi as well, but they might be for different reasons:</p>
+<ul>
+<li><a href="https://www.esp32.com/viewtopic.php?t=16311&amp;ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=16311</a></li>
+<li><a href="https://forum.micropython.org/viewtopic.php?t=11550&amp;p=63020&amp;ref=ghost.ndbroadbent.com">https://forum.micropython.org/viewtopic.php?t=11550&amp;p=63020</a></li>
+<li><a href="https://www.esp32.com/viewtopic.php?t=18159&amp;ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=18159</a></li>
+<li><a href="https://www.esp32.com/viewtopic.php?t=16622&amp;ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=16622</a></li>
+<li><a href="https://www.esp32.com/viewtopic.php?t=6073&amp;ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=6073</a></li>
+<li><a href="https://www.reddit.com/r/esp32/comments/bbjrir/very_poor_wifi_performance/?ref=ghost.ndbroadbent.com">https://www.reddit.com/r/esp32/comments/bbjrir/very_poor_wifi_performance/</a></li>
+</ul>
+<p>Then I found <a href="https://esphome.io/components/wifi.html?ref=ghost.ndbroadbent.com#wifi-power-save-mode">the &quot;WiFi Power Save Mode&quot; section in the ESPHome documentation</a>:</p>
+<ul>
+<li><code>NONE</code> (least power saving, Default for ESP8266)</li>
+<li><code>LIGHT</code> (Default for ESP32)</li>
+</ul>
+<p>So I tried:</p>
+<pre><code>wifi:
+  power_save_mode: none
+  output_power: 20
+</code></pre>
+<p>I think this seemed to help a little bit, but it still wasn&apos;t very reliable. I had ordered some more electronics stuff and threw in another <a href="https://surplustronics.co.nz/products/9368-esp32-development-board-38-pin-espwroom-32s?ref=ghost.ndbroadbent.com">ESP32 Development Board</a>. I tried this out once it arrived and it was an instant improvement. I just threw away the board with poor WiFi. I also ordered a bunch of shift registers so I can get back to using ESP8266 boards (adafruit huzzuh feathers), and they seem to have much better WiFi as well.</p>
+<p>I also ordered a few extra Wemos D1 Mini Pros that support external antennas. They haven&apos;t arrived yet, but I might try these out for car presence detection. I&apos;ve been struggling with WiFi range for this as well.</p>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>I put everything into a little black box. Connected all the wires up and stuck it inside the rangehood. I chopped the power cable for the rangehood and added a screw terminal, and wired up a USB charger to power the ESP32 board.</p>
+<p>So now I&apos;ve got the fan and light in Home Assistant. (And the physical buttons still work as well.)</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/homeassistant_rangehood_screenshot.png" alt="Screenshot of the rangehood entities in Home Assistant">
+<p>I&apos;ve set up an <a href="https://danobot.github.io/ec-docs/?ref=ghost.ndbroadbent.com">entity controller</a> to turn on the light.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>The rangehood controller board has a piezo buzzer that beeps every time a button is pressed. That&apos;s pretty annoying. I might try to <a href="https://electronics.stackexchange.com/questions/41806/how-do-you-remove-the-buzzer-from-this-pcb-whose-solder-side-is-inaccessible?ref=ghost.ndbroadbent.com">desolder or destroy the buzzer</a>.</p>
+<p>I want to put an air quality sensor in the kitchen and automatically turn on the extractor fan based on AQI. I&apos;ve ordered some <a href="https://www.aliexpress.com/item/1005003797614144.html?spm=a2g0o.order_detail.0.0.5510f19c1mjFfW&amp;ref=ghost.ndbroadbent.com">ZigBee air quality meters</a> on AliExpress, and they should arrive in a few weeks.</p>
+<blockquote>
+<p>Update from Sep 30, 2022: I&apos;ve put the air quality sensor in the kitchen, and have set it up to turn on the rangehood fan when the PM 2.5 level is above 12 &#xB5;g/m&#xB3;. (It usually hovers around 6 &#xB5;g/m&#xB3;.) It&apos;s been working really well!</p>
+</blockquote>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/kitchen_aqi_chart.jpg" alt="Chart of PM 2.5 levels in our kitchen. I use a filter to remove outliers and smooth out the data.">
+<p>I also bought a current clamp sensor that can measure AC current. I want to set this up for the stovetop so I can detect when it&apos;s on and automatically turn on the fan (in advance, instead of waiting for the AQI to get bad.) It would be easier if I could use an energy monitoring wall plug, but it looks like the stovetop is wired directly into the circuit breaker, and it uses a lot of power so I don&apos;t want to mess around with those wires. I&apos;ll just separate them and put a clamp around one of them. I&apos;ll follow <a href="https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true&amp;ref=ghost.ndbroadbent.com">this guide to set it all up</a> and get it working on an ESP32.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/ac_current_clamp_circuit.jpg" alt="Circuit diagram for measuring AC current with a clamp sensor">
+<p>I have <a href="https://www.aliexpress.com/item/32695813719.html?spm=a2g0s.12269583.0.0.197e6455U2UxlV&amp;ref=ghost.ndbroadbent.com">this power meter</a> that I&apos;ll use to calibrate it.</p>
+<p>I also want to learn how to make a proper PCB design in KiCad and order a <a href="https://oshpark.com/?ref=ghost.ndbroadbent.com">cool purple PCB from OSH park</a>.</p>
+<p>I&apos;m really enjoying this self-directed crash course in electronics. It&apos;s really fun to learn so much while working on practical projects that we can use every day in our house.</p>
+<p>Thanks for reading, it was fun to write up everything I learned. If you have any questions, please feel free to ask in the comments!</p>
+]]></content:encoded></item><item><title><![CDATA[Docker Saved My Hugo Blog]]></title><description><![CDATA[<h3 id="2024-update-ive-migrated-from-hugo-to-ghost">2024 UPDATE: I&apos;ve migrated from Hugo to Ghost.</h3><blockquote>The following Docker solution broke when I started using a M2 MacBook. I wasn&apos;t able to run the older version of Hugo in a Docker container (even with Rosetta.)</blockquote><hr><p>I haven&apos;t written any blog posts for</p>]]></description><link>https://ghost.ndbroadbent.com/posts/2021-12-05-how-docker-saved-my-blog/</link><guid isPermaLink="false">6621e803cab1a83ac77b00a0</guid><category><![CDATA[docker]]></category><category><![CDATA[hugo]]></category><category><![CDATA[scripts]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Sun, 05 Dec 2021 02:15:59 GMT</pubDate><content:encoded><![CDATA[<h3 id="2024-update-ive-migrated-from-hugo-to-ghost">2024 UPDATE: I&apos;ve migrated from Hugo to Ghost.</h3><blockquote>The following Docker solution broke when I started using a M2 MacBook. I wasn&apos;t able to run the older version of Hugo in a Docker container (even with Rosetta.)</blockquote><hr><p>I haven&apos;t written any blog posts for a while. One reason is that I&apos;ve been hard at work on <a href="https://docspring.com/?ref=ghost.ndbroadbent.com">DocSpring</a> for the last few years, and I haven&apos;t had a lot of time to work on personal projects. But the main reason is that my blog uses an older version of <a href="https://gohugo.io/?ref=ghost.ndbroadbent.com">Hugo</a>, which is a &quot;static site generator&quot; <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<p>I switched from Jekyll to Hugo in 2017, and the current version of Hugo at the time was <a href="https://gohugo.io/news/0.21-relnotes/?ref=ghost.ndbroadbent.com"><code>0.21</code></a>. I found a cool theme called <a href="https://github.com/suyundukov/hugo-sustain?ref=ghost.ndbroadbent.com">hugo-sustain</a>. Everything was great for a few years.</p>
+<p>Time passed. One day, I tried to update a post or write a new post (I can&apos;t remember which.) I realized that my <code>build</code> and <code>develop</code> scripts were broken. I was a new computer at that point, and I had updated my macOS version. I installed the latest version of <code>hugo</code> and saw a bunch of interesting and confusing error messages when it tried to compile my old themes and layouts. I tried to downgrade <code>hugo</code> to version <code>0.21</code>, and it crashed with a segfault (it was built for an older version of macOS.) I cloned the <code>hugo</code> repository and tried to compile it from source, but my Go version was too new, so it failed to compile. Finally, I downgraded my Go version to an older version that was released around the same time in 2017. I held my breath as I tried to compile <code>hugo</code> one last time. Go tried to fetch all of the required dependencies, and crashed with a bunch of 404 errors. Apparently some of the packages had been renamed and moved around, and the older versions had been removed from the Go package index.</p>
+<p>So I gave up for a while. Instead of generating my blog from the source, I switched to editing the static files directly. Sometimes I would need to correct a typo or adjust some styles, so I&apos;d go into the generated <code>./public</code> directory and manually modify the raw HTML and CSS.</p>
+<p>Time passed. One day, I started to notice some activity on <a href="https://ghost.ndbroadbent.com/2010/05/13/scanning-lots-of-photos-at-once/">a blog post that I had written 11 years ago</a>. This post is about a GIMP plugin called <code>deskew</code> that makes it easy to scan old photos in batches on a scanner and automatically rotate them. I had dropped this plugin file in my Google Drive and had pasted a link to the file. The link worked great for 10 years, and people were able to download the file without any issues. But eventually Google changed something and the link was no longer working. I started to receive emails from people who were requesting access to this file.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2021/12/request-to-access-deskew.jpeg" alt="Request to access the deskew file">
+<p>I manually shared the file a few times. Then I decided to download the file and check it in to the blog repo. I started going into the <code>./public</code> directly to update the HTML, but I decided it was time to have another crack at this Hugo problem and fix my blog.</p>
+<p>Should I switch to Ghost? I&apos;ve loved using Ghost for the <a href="https://docspring.com/blog?ref=ghost.ndbroadbent.com">DocSpring blog</a>. It&apos;s a really nice blogging platform that I self-host on <a href="https://www.digitalocean.com/?ref=ghost.ndbroadbent.com">Digital Ocean for $5/mo</a>, and I enjoy the WYSIWYG writing experience a little more than editing plain Markdown files. (Images are a bit annoying.) But I didn&apos;t want to migrate all my posts over to <a href="https://ghost.org/?ref=ghost.ndbroadbent.com">ghost.org</a> and get locked in, or spend $5/mo for the rest of my life. I just want some static HTML/CSS that I can put on GitHub Pages forever.</p>
+<p>Should I upgrade to the latest version of Hugo and spend hours fixing up the themes and tweaking all my posts until everything is working again? No thanks. Hugo runs on my local machine and produces static HTML and CSS content. It&apos;s a <a href="https://www.wikiwand.com/en/Pure_function?ref=ghost.ndbroadbent.com">pure function</a>. There are no security vulnerabilities to watch out for. As far as I&apos;m concerned, Hugo version <code>0.21</code> is &quot;finished software.&quot; It generates my blog, and I&apos;m happy with my blog. I will continue to be happy with my blog for many years to come. I don&apos;t need the latest and greatest features. I just want something stable that I can use over the next few decades without the constant grind of updating packages, breaking things, and debugging random issues. Give me Hugo <code>0.21</code> from May 2017!</p>
+<p>I was even tempted to throw everything away and start from scratch with something old and stable. Preferably written in Bash, C, or Perl. There&apos;s a lot of cool new languages out there but they often &quot;move fast and break things.&quot; The POSIX standard was created 33 years ago in 1988, so I could still run some shell scripts that are over 30 years old. (I asked Hacker News for some examples: <a href="https://news.ycombinator.com/item?id=29446380&amp;ref=ghost.ndbroadbent.com">Ask HN: What is the oldest Posix script that I can still run in a modern shell?</a>.)</p>
+<p>I had a sudden burst of inspiration:</p>
+<h1 id="docker">Docker!</h1>
+<p>I could run Hugo in a Docker image! If I can get Hugo <code>0.21</code> running in a Docker image, then I can save that Docker image into a <code>*.tar.gz</code> file and store it right in my git repo. Then I have a static <code>hugo</code> binary that comes packaged with everything it needs to run in a consistent environment, and I can run it anywhere (Linux, Mac OS, Windows.)</p>
+<p>I found a <a href="https://github.com/jonathanbp/docker-alpine-hugo/blob/master/Dockerfile?ref=ghost.ndbroadbent.com">Dockerfile in this docker-alpine-hugo repo</a>, and I just needed to change <code>0.55.3</code> to <code>0.21</code>. Everything worked on the first try! <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h3 id="how-i-use-docker">How I use Docker</h3>
+<p>Instead of running <code>hugo</code>, I run a <code>./hugo</code> wrapper script that runs <code>hugo</code> inside a Docker container:</p>
+<pre><code class="language-bash">#!/bin/bash
+docker run --rm -v &quot;${PWD}:/src&quot; hugo-alpine hugo &quot;$@&quot;
+</code></pre>
+<p>I have a <code>build_docker</code> script <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> that builds the Docker image and saves it to <code>hugo-alpine.tar.gz</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+set -euo pipefail
+
+echo &quot;Building Dockerfile...&quot;
+docker build . -t hugo-alpine
+echo &quot;Saving image to hugo-alpine.tar.gz&quot;
+docker save hugo-alpine &gt; hugo-alpine.tar.gz
+</code></pre>
+<p>If I&apos;m on a new computer, I can just run <code>docker load -i hugo-alpine.tar.gz</code> to load the <code>hugo-alpine</code> image into Docker.</p>
+<p>I have a <code>dev</code> script that starts the <code>hugo</code> server and makes it available on port <code>1313</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+docker run --rm -v &quot;${PWD}:/src&quot; -p &quot;1313:1313&quot; hugo-alpine hugo --watch serve --bind 0.0.0.0
+</code></pre>
+<p>Finally, I have a <code>deploy</code> script that generates the static site into <code>./public</code>, then pushes the result to a <code>gh-pages</code> branch:</p>
+<pre><code class="language-bash">#!/bin/bash
+set -euo pipefail
+
+if [ ! -d public/.git ]; then
+  rm -rf public
+  REMOTE=&quot;$(git remote get-url origin)&quot;
+  git clone &quot;${REMOTE}&quot; public
+  (cd public &amp;&amp; git checkout gh-pages)
+fi
+
+docker run --rm -v &quot;${PWD}:/src&quot; hugo-alpine hugo
+
+cd public
+git add -A
+git commit -m &quot;$(date)&quot;
+echo &quot;Pushing build...&quot;
+git push
+
+cd ..
+echo &quot;Pushing source...&quot;
+git push
+</code></pre>
+<h3 id="you-can-view-the-source-code-for-my-blog-here-httpsgithubcomndbroadbentndbroadbentgithubio">You can view the source code for my blog here: <a href="https://github.com/ndbroadbent/ndbroadbent.github.io?ref=ghost.ndbroadbent.com">https://github.com/ndbroadbent/ndbroadbent.github.io</a></h3>
+<hr>
+<p>I&apos;m very happy with this workaround. Now I&apos;m back in business, and I can update or write new blog posts to my heart&apos;s content. This new Docker-based setup should last me for the next few decades, if not longer. I still love how Hugo is super fast and generates my entire blog in about 6 seconds (even version <code>0.21</code>!) I&apos;m in no hurry to switch to anything else.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>A <a href="https://www.cloudflare.com/learning/performance/static-site-generator/?ref=ghost.ndbroadbent.com">static site generator</a> converts a folder full of Markdown files into a plain HTML/CSS website that you can host for free on <a href="https://pages.github.com/?ref=ghost.ndbroadbent.com">GitHub Pages</a> or <a href="https://www.netlify.com/?ref=ghost.ndbroadbent.com">Netlify</a>. <a href="#fnref1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>I think it&apos;s generally much easier to get older Linux packages running, especially when it&apos;s a single Go binary with no dependencies. I wish it was this easy on Mac! <a href="#fnref2" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Hopefully I never have to run this again! <a href="#fnref3" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded></item><item><title><![CDATA[What I Learned While Making a Game With React Native]]></title><description><![CDATA[<style>
+  .blogpost h1 { font-size: 28px; margin-bottom: 20px; margin-top: 40px; }
+</style>
+<p>I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. <a href="https://sudoblock.com/?ref=ghost.ndbroadbent.com">SudoBlock</a> is a cross between Sudoku, jigsaw puzzles, and Tetris.</p>
+<p>You can find SudoBlock on the <a href="https://sudoblock.com/?ref=ghost.ndbroadbent.com">web</a>, <a href="https://itunes.apple.com/us/app/sudoblock/id1207401341?ls=1&amp;mt=8&amp;ref=ghost.ndbroadbent.com">App Store</a>, <a href="https://play.google.com/store/apps/details?id=com.ndbroadbent.sudoblock&amp;ref=ghost.ndbroadbent.com">Google Play</a>, and the <a href="https://www.microsoft.com/store/apps/9np72dfcvkbw?ref=ghost.ndbroadbent.com">Microsoft Store</a>.</p>
+<a href="https://ghost.ndbroadbent.com/content/images/posts/2018/02/sudoblock.jpg" target="_blank">
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2018/02/sudoblock.jpg" style="max-width: 200px; margin: 30px 0;">
+</a>
+<p>React</p>]]></description><link>https://ghost.ndbroadbent.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/</link><guid isPermaLink="false">6621e803cab1a83ac77b009f</guid><category><![CDATA[games]]></category><category><![CDATA[projects]]></category><category><![CDATA[react native]]></category><category><![CDATA[react]]></category><category><![CDATA[javascript]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Mon, 12 Feb 2018 04:34:00 GMT</pubDate><content:encoded><![CDATA[<style>
+  .blogpost h1 { font-size: 28px; margin-bottom: 20px; margin-top: 40px; }
+</style>
+<p>I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. <a href="https://sudoblock.com/?ref=ghost.ndbroadbent.com">SudoBlock</a> is a cross between Sudoku, jigsaw puzzles, and Tetris.</p>
+<p>You can find SudoBlock on the <a href="https://sudoblock.com/?ref=ghost.ndbroadbent.com">web</a>, <a href="https://itunes.apple.com/us/app/sudoblock/id1207401341?ls=1&amp;mt=8&amp;ref=ghost.ndbroadbent.com">App Store</a>, <a href="https://play.google.com/store/apps/details?id=com.ndbroadbent.sudoblock&amp;ref=ghost.ndbroadbent.com">Google Play</a>, and the <a href="https://www.microsoft.com/store/apps/9np72dfcvkbw?ref=ghost.ndbroadbent.com">Microsoft Store</a>.</p>
+<a href="https://ghost.ndbroadbent.com/content/images/posts/2018/02/sudoblock.jpg" target="_blank">
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2018/02/sudoblock.jpg" style="max-width: 200px; margin: 30px 0;">
+</a>
+<p>React Native only supports iOS and Android, but I used <a href="https://github.com/necolas/react-native-web?ref=ghost.ndbroadbent.com">react-native-web</a> for the browser, and <a href="https://github.com/Microsoft/react-native-windows?ref=ghost.ndbroadbent.com">react-native-windows</a> for Windows desktop and phone. The <a href="https://docs.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp?ref=ghost.ndbroadbent.com">UWP</a> app can also run on Xbox One and HoloLens. I also experimented with <a href="https://github.com/ptmt/react-native-macos?ref=ghost.ndbroadbent.com">react-native-macos</a> and <a href="https://github.com/douglowder/react-native-appletv?ref=ghost.ndbroadbent.com">react-native-appletv</a>, but they&apos;re not being maintained.</p>
+<br>
+<p>Here&apos;s some of the things I learned while building SudoBlock:</p>
+<h1 id="you-should-probably-use-a-game-engine">You should probably use a game engine</h1>
+<p>I&apos;ve heard good things about <a href="https://godotengine.org/?ref=ghost.ndbroadbent.com">Godot</a> and <a href="https://unity3d.com/?ref=ghost.ndbroadbent.com">Unity</a>.<br>
+These game engines support iOS, Android, Windows, and Linux. Unity supports<br>
+<a href="https://unity3d.com/unity/features/multiplatform?ref=ghost.ndbroadbent.com">many other platforms</a>.</p>
+<p>Making a simple game was a great way to learn React Native, but it&apos;s not the best tool for the job.<br>
+However, people have started working on some game libraries for React Native, such as <a href="https://github.com/FormidableLabs/react-game-kit?ref=ghost.ndbroadbent.com">react-game-kit</a> and <a href="https://github.com/bberak/react-native-game-engine?ref=ghost.ndbroadbent.com">react-native-game-engine</a>.</p>
+<p>It&apos;s not the easiest way to make a game, but it&apos;s also not impossible.<br>
+The built-in <a href="https://facebook.github.io/react-native/docs/animated.html?ref=ghost.ndbroadbent.com">Animated</a> library is great,<br>
+and I also used <a href="https://github.com/oblador/react-native-animatable?ref=ghost.ndbroadbent.com">react-native-animatable</a>.<br>
+I used a library to <a href="https://github.com/zmxv/react-native-sound?ref=ghost.ndbroadbent.com">play sounds</a>.<br>
+I wrote native code to integrate with iOS Game Center and Google Play Game Services.<br>
+I used libraries to integrate with <a href="https://github.com/idehub/react-native-billing?ref=ghost.ndbroadbent.com">InApp Billing on Android</a>,<br>
+and <a href="https://github.com/chirag04/react-native-in-app-utils?ref=ghost.ndbroadbent.com">in-app purchases on iOS</a>.<br>
+I also wrote native code for ads and in-app purchases on Windows.<br>
+There&apos;s a RN library for <a href="https://github.com/greghe/react-native-particle-system?ref=ghost.ndbroadbent.com">particle effects</a><br>
+(although you&apos;d have to add support for Android),<br>
+and <a href="https://github.com/FormidableLabs/react-game-kit?ref=ghost.ndbroadbent.com">react-game-kit</a> provides a way to manage sprites and animations.</p>
+<p>I want to make some more simple 2D games, and I&apos;m going to stick with React Native for now. I can fork SudoBlock and reuse a lot of the code that I&apos;ve already written.</p>
+<p>If your goal is to quickly build a cross-platform mobile game, then I&apos;d recommend learning Godot or Unity.</p>
+<h1 id="dont-worry-about-supporting-windows">Don&apos;t worry about supporting Windows</h1>
+<p>This is a no-brainer. No one uses Windows Phone and Microsoft have abandoned it.<br>
+I wanted to explore and learn new things, so I decided to do it anyway. I enjoyed the process<br>
+of installing Windows, working with Visual Studio, and writing some C#.<br>
+I also figured out how to write cross-platform npm scripts using <a href="https://github.com/testdouble/scripty?ref=ghost.ndbroadbent.com">scripty</a>.</p>
+<p><a href="https://github.com/Microsoft/react-native-windows?ref=ghost.ndbroadbent.com">react-native-windows</a> gives you a UWP app that can<br>
+run on Windows Phone, tablets, desktop, Xbox One, HoloLens, and other Windows platforms. But:</p>
+<ul>
+<li>Nobody uses Windows Phone.</li>
+<li>Mobile games don&apos;t usually make sense on an Xbox.</li>
+<li>If your game runs in a browser, then you probably don&apos;t need a desktop app.</li>
+</ul>
+<h1 id="react-native-might-be-better-than-electron-for-desktop-applications">React Native might be better than Electron for desktop applications</h1>
+<p>When I was running SudoBlock as a Windows desktop application, I realized that<br>
+React Native could be a better choice than <a href="https://electronjs.org/?ref=ghost.ndbroadbent.com">Electron</a>.<br>
+Electron apps are notorious for being huge and using a lot of memory (e.g. Slack and Spotify.)<br>
+They have to package and load an entire WebKit browser.<br>
+React Native apps are much smaller and use far less memory, because they only need a JavaScript engine.<br>
+You can also use responsive design, so that a single codebase works on desktop, mobile, and the web. The only problem is that <a href="https://github.com/ptmt/react-native-macos?ref=ghost.ndbroadbent.com">react-native-macos</a><br>
+is unmaintained and out of date, so it would be great if a company sponsored development.</p>
+<h1 id="youll-probably-write-some-native-code">You&apos;ll probably write some native code</h1>
+<p>Some people are attracted to React Native because they&apos;ve heard that you can write a mobile<br>
+app with only JavaScript. In practice, this is only true for extremely simple applications.<br>
+Most of your code will be written in JavaScript, but you&apos;ll probably have to write some native code.<br>
+At the very least, you must be prepared to fix some bugs in third-party libraries.</p>
+<p>I started contributing to <a href="https://github.com/sbugert/react-native-admob?ref=ghost.ndbroadbent.com">react-native-admob</a>, and <a href="https://github.com/sbugert/react-native-admob/pull/90?ref=ghost.ndbroadbent.com">sent a pull request to allow multiple test devices</a>. That was my introduction to native code in React Native, and I had to work with JavaScript, Objective-C, and Java.</p>
+<p>I also did a lot of work on <a href="https://github.com/react-native-community/react-native-blur?ref=ghost.ndbroadbent.com">react-native-blur</a>. When I first tried to use it, it was completely broken on Android, and there were lots of problems on iOS.<br>
+It took a lot of work to get everything running. I could have just skipped the blur and used a darkened overlay, but I enjoyed the work and learned a lot.</p>
+<p>I also had to write native code to integrate with iOS Game Center and Google Play Game Services,<br>
+and for ads and in-app purchases on Windows. I also wrote a small library to manage vibrations and haptic feedback across iOS, Android, Windows, and the web (using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API?ref=ghost.ndbroadbent.com">Vibration API</a>.)</p>
+<h1 id="there-will-be-bugs">There will be bugs</h1>
+<p>React Native is pretty stable, but there&apos;s a lot of unmaintained libraries,<br>
+and most libraries don&apos;t have any tests. React Native is a bit like jQuery, in that it smooths over a lot of quirks and inconsistencies and provides a consistent API. But there&apos;s some tricky edge cases,<br>
+and I often had to read the React Native source code to figure out why something was happening.</p>
+<p>Some examples:</p>
+<ul>
+<li>There was a bug with the <a href="https://github.com/facebook/react-native/issues/13530?ref=ghost.ndbroadbent.com">native animation driver for Android</a>.</li>
+<li>There were crashes in the<br>
+<a href="https://github.com/zmxv/react-native-sound?ref=ghost.ndbroadbent.com">react-native-sound</a> library.</li>
+<li>The <a href="https://stackoverflow.com/questions/43470160/in-a-react-native-javascript-app-why-would-the-android-gc-behavior-change-if-i?ref=ghost.ndbroadbent.com">Android GC seemed to be clearing some memory that shouldn&apos;t have been cleared</a>.</li>
+</ul>
+<p>Android was particularly unstable. Not just React Native, but Android itself.<br>
+I didn&apos;t have too many problems with iOS.</p>
+<h1 id="react-native-vs-ios-swift">React Native vs. iOS / Swift</h1>
+<p>I wrote an iOS app with Swift a few years ago, and I&apos;ve actually had a much better experience with React Native.<br>
+When I was working with UIKit, I remember constantly fighting with things like layout, contraints, and font rendering. I uncovered some actual bugs, and found long threads on the Apple forums that were being ignored.<br>
+It was really nice to let React Native handle all of the rendering. I had no rendering issues on iOS or Android,<br>
+and just a few problems that I fixed on Windows.</p>
+<p>Swift was also very unstable at the time, and Xcode upgrades took a lot of effort.<br>
+My Obj-C code still compiles a year later on the latest version of Xcode. If I was using Swift,<br>
+I think it would take at least a day to upgrade to Swift 4.1 and update all of the third-party libraries.<br>
+I believe Swift is <a href="https://github.com/apple/swift/blob/master/docs/ABIStabilityManifesto.md?ref=ghost.ndbroadbent.com">more stable now</a>, and I love the language, so I might start using it again on future projects.</p>
+<p>I had a lot of headaches with React Native, but it wasn&apos;t as bad as Swift v1 and UIKit.</p>
+<h1 id="marketing-is-really-hard">Marketing is really hard</h1>
+<ul>
+<li>
+<p>I tested Facebook ads with $50. I reached about ~7,000 people and got ~50 clicks. One person<br>
+ended up buying the game for $2.99, so I made $2. You can&apos;t spend $50 to make $2.</p>
+</li>
+<li>
+<p>I posted on Reddit a few times:</p>
+<ul>
+<li><a href="https://www.reddit.com/r/iosgaming/comments/6edh0l/free_299_to_remove_ads_sudoblock_i_made_a_new_and/?ref=ghost.ndbroadbent.com">I posted on /r/iosgaming, which went ok</a></li>
+<li><a href="https://www.reddit.com/r/ios/comments/6ecos4/after_seeing_all_your_posts_about_bug_fixes_and/?ref=ghost.ndbroadbent.com">I also tried a different tactic, which worked pretty well</a></li>
+</ul>
+</li>
+<li>
+<p>A German website<br>
+<a href="https://www.mobiflip.de/sudoblock-ist-eine-interessante-mischung-aus-tetris-und-sudoku/?ref=ghost.ndbroadbent.com">published an article about SudoBlock</a>.</p>
+</li>
+<li>
+<p>I tried to capitalize on <a href="https://twitter.com/SudoBlock/status/870202842182590465?ref=ghost.ndbroadbent.com">#covfefe</a>,<br>
+which didn&apos;t work at all. But I repurposed that new code into an <a href="https://twitter.com/SudoBlock/status/875065979679645696?ref=ghost.ndbroadbent.com">Emojidoku mode</a>.</p>
+</li>
+<li>
+<p>I found a game publisher who was going to handle all the marketing and split the revenue.<br>
+They even promised to get the game featured on the App Store.<br>
+We signed the contract and I took the apps down for a while, but the publisher fell off the radar and stopped replying to my emails.</p>
+</li>
+<li>
+<p>I finally got around to writing this blog post.</p>
+</li>
+</ul>
+<h1 id="other-notes">Other Notes</h1>
+<ul>
+<li>
+<p>I switched from Sublime Text to <a href="https://code.visualstudio.com/?ref=ghost.ndbroadbent.com">VS Code</a> near the beginning of the project.<br>
+VS Code is awesome. It&apos;s super fast and very customizable.</p>
+</li>
+<li>
+<p>I set up <a href="https://flow.org/?ref=ghost.ndbroadbent.com">Flow</a> and started using <a href="https://facebook.github.io/immutable-js/?ref=ghost.ndbroadbent.com">Immutable.js</a>.<br>
+I love having static type checking for JavaScript.</p>
+</li>
+<li>
+<p>I used Airbnb&apos;s <a href="https://github.com/airbnb/javascript?ref=ghost.ndbroadbent.com">eslint config</a>, and spent about a day<br>
+fixing all the issues. Every time I saw a rule that I didn&apos;t understand, I looked it up to understand their reasoning. I read through a lot of great discussions on Github. This was a great way to learn more about<br>
+JavaScript, and especially some of the new ES6 features.</p>
+</li>
+<li>
+<p>I starting doing some functional programming with <a href="https://github.com/lodash/lodash/wiki/FP-Guide?ref=ghost.ndbroadbent.com">lodash/fp</a> and <a href="https://github.com/ramda/ramda?ref=ghost.ndbroadbent.com">ramda</a>. I had fun refactoring some code in a more functional style.</p>
+</li>
+<li>
+<p>I really enjoyed working with <a href="https://github.com/redux-saga/redux-saga?ref=ghost.ndbroadbent.com">redux-saga</a>, which helped me clean up a lot of messy code.</p>
+</li>
+<li>
+<p>I learned a lot about Reactive programming. This post is amazing: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754?ref=ghost.ndbroadbent.com">The introduction to Reactive Programming you&apos;ve been missing</a>. I started playing with <a href="https://github.com/Reactive-Extensions/RxJS?ref=ghost.ndbroadbent.com">RxJS</a> and<br>
+<a href="https://github.com/redux-observable/redux-observable?ref=ghost.ndbroadbent.com">redux-observable</a>.</p>
+</li>
+<li>
+<p>I set up <a href="https://microsoft.github.io/code-push/?ref=ghost.ndbroadbent.com">CodePush</a>, so that I could push JS changes without releasing a new version to the App Store. <a href="https://github.com/Microsoft/react-native-code-push/blob/master/README.md?ref=ghost.ndbroadbent.com">The setup guide is very helpful.</a></p>
+</li>
+<li>
+<p>I had to debug some memory issues on Android, and this article was really helpful: <a href="https://shift.infinite.red/react-native-android-app-memory-investigation-55695625da9c?ref=ghost.ndbroadbent.com">React Native Android App Memory Investigation</a></p>
+</li>
+<li>
+<p>I learned about the <a href="https://medium.com/@soederpop/webpack-plugins-been-we-been-keepin-on-the-dll-cdfdd6cb8cd7?ref=ghost.ndbroadbent.com">webpack DLL plugin</a>, which made development a lot faster. You can compile everything in <code>node_modules</code> as a separate bundle. You only need to do that once, so it saves a lot of time.</p>
+</li>
+<li>
+<p>I released a boilerplate project with my <a href="https://github.com/ndbroadbent/react-native-web-webpack?ref=ghost.ndbroadbent.com">webpack config for react-native-web</a>.</p>
+</li>
+<li>
+<p>I learned about the <a href="https://github.com/ndbroadbent/babel-plugin-transform-react-remove-prop-types/commit/18edb329aa4fe7ebfd91af6d4b325cf9204e2ae1?ref=ghost.ndbroadbent.com">Babel AST</a> while working on <a href="https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types/issues/95?ref=ghost.ndbroadbent.com">an issue</a> in a Babel plugin, related to react-native-web.</p>
+</li>
+<li>
+<p>I wrote a script that stripped unused glyphs from icon fonts, to reduce the app size.</p>
+</li>
+<li>
+<p>I tested the app while simulating a slow network connection in Chrome. This revealed a bug where the counter started ticking before everything had finished loading.</p>
+</li>
+<li>
+<p>I discovered that it takes a huge amount of effort to actually launch a game. Once I had a playable game, it was another 2 months before everything else was finished. Things like in-app purchases, ads, analytics, high scores, achievements, tutorials, app store listings, screenshots, icons, social media accounts, etc.</p>
+</li>
+</ul>
+<br>
+<br>
+<p>This was about 3 months of work, and I was in a <a href="https://en.wikipedia.org/wiki/Flow_(psychology)?ref=ghost.ndbroadbent.com">state of flow</a> most of the time. I learned a lot of new things, and I really enjoyed the whole process.<br>
+The game has only made about $50 so far, but I have some more ideas for grid-based games, and<br>
+I can reuse a lot of the SudoBlock code. I&apos;m also a freelancer, so this is the only way I can pick up new skills.</p>
+<p>Thanks for reading! If you have any questions, please <a href="https://news.ycombinator.com/item?id=16367937&amp;ref=ghost.ndbroadbent.com">leave a comment on Hacker News</a>.</p>
+<br>
+<hr>
+<ul>
+<li>I&apos;m currently working on <a href="https://docspring.com/?ref=ghost.ndbroadbent.com">DocSpring</a>, which is an API for filling out PDFs.</li>
+</ul>
+]]></content:encoded></item><item><title><![CDATA[Raspberry Pi Microwave]]></title><description><![CDATA[<p>A few months ago, I was inspired by <a href="https://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/?ref=ghost.ndbroadbent.com">this post</a> on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.</p>
+<p>I thought this was a pretty cool idea, and that it</p>]]></description><link>https://ghost.ndbroadbent.com/2013/07/10/raspberry-pi-powered-microwave/</link><guid isPermaLink="false">6621e803cab1a83ac77b009e</guid><category><![CDATA[raspberry-pi]]></category><category><![CDATA[microwave]]></category><category><![CDATA[kitchen]]></category><category><![CDATA[appliances]]></category><category><![CDATA[ruby]]></category><category><![CDATA[rails]]></category><category><![CDATA[sinatra]]></category><category><![CDATA[linux videos]]></category><category><![CDATA[electronics]]></category><category><![CDATA[home-automation]]></category><category><![CDATA[projects]]></category><category><![CDATA[c]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Wed, 10 Jul 2013 23:51:47 GMT</pubDate><content:encoded><![CDATA[<p>A few months ago, I was inspired by <a href="https://www.reddit.com/r/CrazyIdeas/comments/1djrnx/food_items_should_have_qr_codes_that_instruct_the/?ref=ghost.ndbroadbent.com">this post</a> on Reddit, titled: <strong>Food items should have QR codes that instruct the microwave exactly what to do. Like high for 2 minutes, let stand 1 minute, medium 1 minutes.</strong>.</p>
+<p>I thought this was a pretty cool idea, and that it would be a fun project for a Raspberry Pi. I agreed with the people who thought using UPC barcodes would be better, since products already have them, so I went with a barcode scanner + online product database.</p>
+<p>Here&apos;s a summary of the features that I&apos;ve added to my microwave:</p>
+<ul>
+<li>Re-designed touchpad</li>
+<li>Nicer sounds</li>
+<li>Clock is automatically updated from the internet</li>
+<li>Can be controlled with voice commands</li>
+<li>Can use a barcode scanner to look up cooking instructions from an online database</li>
+<li>There weren&apos;t any online microwave cooking databases around, so I made one: <a href="https://microwavecookingdb.com/?ref=ghost.ndbroadbent.com">https://microwavecookingdb.com</a></li>
+<li>The microwave has a web page so you can control it from your phone (why not), and set up cooking instructions for products</li>
+<li>Tweets after it&apos;s finished cooking something (See <a href="https://twitter.com/rbmicrowave?ref=ghost.ndbroadbent.com">https://twitter.com/rbmicrowave</a>)</li>
+</ul>
+<h1 id="demo-video">Demo Video</h1><figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/e2YtARzJTys?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Raspberry Pi Microwave - Feature Demo"></iframe></figure><h1 id="using-a-raspberry-pi-to-cook-a-raspberry-pie">Using a Raspberry Pi to cook a Raspberry Pie</h1><p><a href="https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html?ref=ghost.ndbroadbent.com">Here&apos;s the recipe I followed.</a></p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/a_slice_of_pi.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/a_slice_of_pi.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/a_slice_of_pi.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/a_slice_of_pi.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/cooking_pie_filling.jpg" width="1258" height="707" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/cooking_pie_filling.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/cooking_pie_filling.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/cooking_pie_filling.jpg 1258w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/ingredients.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/ingredients.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/ingredients.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/ingredients.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/mixing.jpg" width="768" height="1024" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/mixing.jpg 600w, https://ghost.ndbroadbent.com/content/images/2024/04/mixing.jpg 768w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_pi_raspberry_pie.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/raspberry_pi_raspberry_pie.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/raspberry_pi_raspberry_pie.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_pi_raspberry_pie.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><h1 id="hardware">Hardware</h1><p>I used a microwave with a touchpad, and discovered that the touchpad was a button matrix. I took photos of the touchpad and traced the wires, so that I could tell which pins corresponded to which buttons.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/original_touchpad.jpg" width="401" height="1000" loading="lazy" alt></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/touchpad_no_traces.jpg" width="800" height="1067" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/touchpad_no_traces.jpg 600w, https://ghost.ndbroadbent.com/content/images/2024/04/touchpad_no_traces.jpg 800w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/touchpad_traces.jpg" width="800" height="1067" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/touchpad_traces.jpg 600w, https://ghost.ndbroadbent.com/content/images/2024/04/touchpad_traces.jpg 800w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><p>I initially wanted to put everything in a case outside the microwave, but I decided that it would be more challenging and fun to try and fit everything inside. Here&apos;s all the PCB revisions, before I settled on a design that would fit neatly on top of the microwave&apos;s original PCB.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/pcb_1.jpg" width="1052" height="525" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/pcb_1.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/pcb_1.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/pcb_1.jpg 1052w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/pcb_2.jpg" width="820" height="620" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/pcb_2.jpg 600w, https://ghost.ndbroadbent.com/content/images/2024/04/pcb_2.jpg 820w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/pcb_3.jpg" width="507" height="715" loading="lazy" alt></div></div></div></figure><p>I used shift registers and optocouplers to control the touchpad pins. To listen for touchpad presses, an output shift register scans one line at a time on the first touchpad layer, and an input shift register listens for connections to the second layer.</p><p>I unsoldered the touchpad connector from the original circuit board, and replaced it with a row of pin headers. I then used the original touchpad connector on my PCB, so that my circuit acts as a kind of proxy for button presses.</p><p>Here&apos;s the final product after transferring toner, etching, drilling, and soldering. (I had to use the ribbon cables to save space.)</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/ready_to_etch.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/ready_to_etch.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/ready_to_etch.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/ready_to_etch.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/soldered.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/soldered.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/soldered.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/soldered.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/pcb_bottom.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/pcb_bottom.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/pcb_bottom.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/pcb_bottom.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><p>And here&apos;s how it fits on top of the microwave controller:</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/plugged_in1.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/plugged_in1.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/plugged_in1.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/plugged_in1.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/plugged_in2.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/plugged_in2.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/plugged_in2.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/plugged_in2.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><p>When I peeled off the old touchpad overlay, it became wrinkled and ugly, so I thought I may as well have a go at redesigning the interface. My goal was to get rid of the features I don&apos;t really use, and make the basic functions more convenient. The top two rows of buttons are now dedicated to &quot;one touch&quot; cooking times, for either &quot;high&quot; or &quot;medium&quot; power. You can also set the time and power manually.</p>
+<!--kg-card-begin: html-->
+<a class="image" href="https://ghost.ndbroadbent.com/content/images/posts/2013/07/touchpad.jpg" target="_blank" rel="noopener noreferrer">
+  <img style="margin: auto;" width="145" src="https://ghost.ndbroadbent.com/content/images/posts/2013/07/touchpad-resized-post.jpg" alt="Touchpad">
+</a>
+
+<!--kg-card-end: html-->
+<p>You might have noticed that I started the project with the intention of using an <a href="https://arduino.cc/en/Main/ArduinoBoardNano?ref=ghost.ndbroadbent.com">Arduino Nano</a> plugged into a Raspberry Pi USB port. This was because I was a) familiar with the Arduino, b) not familiar with the Raspberry Pi GPIO, and c) thought it would make testing and debugging a bit easier, since I could just plug the Arduino into my laptop.</p><p>However, it turns out that my Raspberry Pi had some issues with the arduino&apos;s FTDI chip if the Raspberry Pi was turned on while the Arduino was plugged in. It wouldn&apos;t recognize the Arduino until I unplugged it, and then plugged it back in again.</p><p>So I decided to make an Arduino Nano =&gt; Raspberry Pi GPIO adapter, and port my Arduino code to the Raspberry Pi GPIO using the <a href="https://wiringpi.com/?ref=ghost.ndbroadbent.com">WiringPi</a> library.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/arduino_raspberry_adapter.jpg" width="565" height="638" loading="lazy" alt></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_adapter_top.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/raspberry_adapter_top.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/raspberry_adapter_top.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_adapter_top.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_adapter_bottom.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/raspberry_adapter_bottom.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/raspberry_adapter_bottom.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_adapter_bottom.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_adapter_connected.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/raspberry_adapter_connected.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/raspberry_adapter_connected.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/raspberry_adapter_connected.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><p>The Raspberry Pi is powered by a USB hub, which is also plugged into the Raspberry Pi&apos;s USB port. To power the hub, I wired up a power adapter to the microwave&apos;s power source. There&apos;s also a USB powered speaker, USB microphone, wifi adapter, and barcode scanner.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/power_adapter.jpg" width="768" height="1024" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/power_adapter.jpg 600w, https://ghost.ndbroadbent.com/content/images/2024/04/power_adapter.jpg 768w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/usb_hub.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/usb_hub.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/usb_hub.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/usb_hub.jpg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://ghost.ndbroadbent.com/content/images/2024/04/microphone_wifi.jpg" width="1024" height="768" loading="lazy" alt srcset="https://ghost.ndbroadbent.com/content/images/size/w600/2024/04/microphone_wifi.jpg 600w, https://ghost.ndbroadbent.com/content/images/size/w1000/2024/04/microphone_wifi.jpg 1000w, https://ghost.ndbroadbent.com/content/images/2024/04/microphone_wifi.jpg 1024w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><h1 id="microwave-software">Microwave Software</h1>
+<p>All the software running on the Raspberry Pi is hosted at: <a href="https://github.com/ndbroadbent/raspberry_picrowave?ref=ghost.ndbroadbent.com">https://github.com/ndbroadbent/raspberry_picrowave</a>.</p>
+<p>There are 4 main components:</p>
+<h2 id="microwave-daemon">Microwave Daemon</h2>
+<p>This runs the code that listens for touchpad button presses, and controls the microwave. It also accepts TCP connections so that other programs can send commands or request information about the microwave&apos;s status.</p>
+<h2 id="barcode-instructions">Barcode Instructions</h2>
+<p>This program listens to the barcode scanner, and requests product information from the Microwave Cooking Database. It also runs the cooking programs.</p>
+<h2 id="voice-control">Voice Control</h2>
+<p>I used <a href="https://cmusphinx.sourceforge.net/?ref=ghost.ndbroadbent.com">PocketSphinx</a> for voice recognition, which worked very well with my small <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/corpus.txt?ref=ghost.ndbroadbent.com">corpus</a>. I embedded Ruby in the <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/pocketsphinx_microwave.c?ref=ghost.ndbroadbent.com">pocketsphinx_contiunous</a> C program, so that it would be easier to <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/voice_control/voice_control.rb?ref=ghost.ndbroadbent.com">script voice commands</a> and send commands to the microwave daemon. It turns out that the acoustics of my kitchen seem to mess up the recognition, so it won&apos;t be used very often.</p>
+<h2 id="sinatra-app">Sinatra App</h2>
+<p>There&apos;s a simple <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/microwave_webapp.rb?ref=ghost.ndbroadbent.com">sinatra web application</a> that lets you control the microwave from your phone or computer. This may not be a big selling point. It uses a <a href="https://github.com/ndbroadbent/raspberry_picrowave/blob/master/sinatra_app/public/application.js?ref=ghost.ndbroadbent.com">JavaScript EventSource</a> to push updates to the browser, so you could have hundreds of users connected to your microwave at once.</p>
+<p>If any barcodes are scanned that can&apos;t be found on the Microwave Cooking Database, this webpage will display the unknown barcodes and provide a link to add the new product.</p>
+<h2 id="microwave-cooking-database">Microwave Cooking Database</h2>
+<p>I couldn&apos;t find any existing websites with a database of microwave cooking instructions, so I made one.</p>
+<a class="image" href="https://ghost.ndbroadbent.com/content/images/posts/2013/07/mwcdb.png" target="_blank" rel="noopener noreferrer">
+  <img src="https://ghost.ndbroadbent.com/content/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database">
+</a>
+<blockquote>
+<p>UPDATE: It used to be live at <a href="https://www.microwavecookingdb.com/?ref=ghost.ndbroadbent.com">https://www.microwavecookingdb.com/</a>, but the domain has now expired. Sorry!</p>
+</blockquote>
+<p>If cooking instructions are posted for a 1000W microwave, you can request the instructions for a 700W microwave, and the cooking times will be automatically adjusted.</p>
+<p>So if you&apos;re also planning on making an internet connected microwave with a barcode scanner, please feel free to sign up and add some products.</p>
+<!--
+# Patents?
+
+Nope, this is just a fun project. [Microwaves with barcode scanners already exist](https://www.amazon.com/Beyond-WBYMW1-850-Watt-Microwave-Scanning/dp/B0000C8W7Z/ref=cm_cr_pr_product_top), and [most](https://www.google.com/patents/US4323773) of these [features](https://www.google.com/patents/US6124583) are [already](https://www.google.com/patents/US6444965) [patented](https://www.google.com/patents/EP1117275A2?cl=en). -->
+<h1 id="thanks-for-reading">Thanks for reading!</h1>
+<p>I&apos;d be interested to hear if you build something similar!</p>
+<!-- , or make use of [https://www.microwavecookingdb.com](https://www.microwavecookingdb.com). -->
+]]></content:encoded></item><item><title><![CDATA[Ubuntu Keyboard Shortcut: Open a selected file in Sublime Text 2]]></title><description><![CDATA[<p>Whenever I&apos;m looking at backtraces, logs, or failing tests in the terminal, I often need to open one of those files in my text editor. It was previously a semi-arduous process that involved highlighting, copying, pasting and the return key. Now, all I need to do is double-click</p>]]></description><link>https://ghost.ndbroadbent.com/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/</link><guid isPermaLink="false">6621e803cab1a83ac77b009d</guid><category><![CDATA[ruby]]></category><category><![CDATA[rails]]></category><category><![CDATA[bash]]></category><category><![CDATA[linux]]></category><category><![CDATA[ubuntu]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Fri, 29 Mar 2013 23:44:58 GMT</pubDate><content:encoded><![CDATA[<p>Whenever I&apos;m looking at backtraces, logs, or failing tests in the terminal, I often need to open one of those files in my text editor. It was previously a semi-arduous process that involved highlighting, copying, pasting and the return key. Now, all I need to do is double-click or highlight a line, and then press a keyboard shortcut to open that file &amp; line in my text editor (currently <a href="https://www.sublimetext.com/2?ref=ghost.ndbroadbent.com">Sublime Text 2</a>.) I&apos;ve also added a thing to my <code>$PROMPT_SCRIPT</code> that stores my terminal&apos;s most recent directory in <code>~/.cwd~</code>, so that the script can handle relative paths. (Most of the time I&apos;m just in the root folder of a given project.)</p>
+<p>One extra feature for Ruby developers is support for backtrace lines like this:</p>
+<pre><code class="language-ruby">app/models/post.rb:225:in `sharing_is_caring&apos;
+</code></pre>
+<p>If you double-click that file, you&apos;ll end up with the following selection: <code>app/models/post.rb:225:in</code>. The script will automatically strip the trailing <code>:in</code>, so you can just double-click instead of manually highlighting.</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Ubuntu</li>
+<li>xclip (install with <code>sudo apt-get install xclip</code>)</li>
+<li>A text editor, such as <a href="https://www.sublimetext.com/2?ref=ghost.ndbroadbent.com">Sublime Text 2</a>.</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ul>
+<li>Download the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/open_selected_in_editor?ref=ghost.ndbroadbent.com">open_selected_in_editor</a> script to somewhere like <code>~/bin</code>.</li>
+</ul>
+<pre><code class="language-bash">mkdir -p ~/bin
+wget https://raw.github.com/ndbroadbent/dotfiles/master/bin/open_selected_in_editor -O ~/bin/open_selected_in_editor
+chmod +x ~/bin/open_selected_in_editor
+</code></pre>
+<ul>
+<li>Modify the script to use your preferred text editor</li>
+</ul>
+<h3 id="set-up-current-working-directory-support">Set up current working directory support</h3>
+<p>Add the following line to your <code>~/.bashrc</code>:</p>
+<pre><code class="language-bash">PROMPT_COMMAND+=&quot;pwd &gt; ~/.cwd~;&quot;
+</code></pre>
+<p>This means that every time you press return in the terminal, the script can use your current directory to determine an absolute path for a highlighted file. It&apos;s not completely foolproof, but good enough for me.</p>
+<h3 id="set-up-a-keyboard-shortcut-in-ubuntu-1204">Set up a keyboard shortcut in Ubuntu 12.04</h3>
+<ul>
+<li>Go to <strong>System Settings</strong> -&gt; <strong>Keyboard</strong> -&gt; <strong>Shortcuts</strong> -&gt; <strong>Custom Shortcuts</strong></li>
+<li>Click the <strong>+</strong> to add a new shortcut with:
+<ul>
+<li>Name: <strong>Open selected in editor</strong></li>
+<li>Command: <strong>~/bin/open_selected_in_editor</strong></li>
+</ul>
+</li>
+<li>Set the keyboard shortcut. I like <em>Ctrl+Shift+X</em>.</li>
+</ul>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2013/03/keyboard_shortcuts.jpg" alt="Ubuntu Keyboard Shortcuts">
+<p>All done! Now you can highlight a filename in the terminal, press your keyboard shortcut, and open it in your editor without the need to copy &amp; paste filenames. Please let me know if you need any help, but I&apos;m sorry I don&apos;t know how to do this in OS X or Windows.</p>
+]]></content:encoded></item><item><title><![CDATA[Open files generated by 'rails generate' in your editor]]></title><description><![CDATA[<small>
+Note: This post is for people who use the terminal to run Rails generators. It probably won&apos;t interest you if your editor has a plugin to run them.
+</small>
+<p>After running a Rails generator, you&apos;ll often need to edit the generated files in your text editor.</p>
+<p>Rails</p>]]></description><link>https://ghost.ndbroadbent.com/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/</link><guid isPermaLink="false">6621e803cab1a83ac77b009c</guid><category><![CDATA[ruby]]></category><category><![CDATA[rails]]></category><category><![CDATA[scripts]]></category><category><![CDATA[rails-3]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Thu, 20 Dec 2012 13:02:20 GMT</pubDate><content:encoded><![CDATA[<small>
+Note: This post is for people who use the terminal to run Rails generators. It probably won&apos;t interest you if your editor has a plugin to run them.
+</small>
+<p>After running a Rails generator, you&apos;ll often need to edit the generated files in your text editor.</p>
+<p>Rails 4 may soon have the ability to open generated files in your text editor if you pass the <code>--editor</code> option on the command line.<br>
+You can <a href="https://github.com/rails/rails/pull/8553?ref=ghost.ndbroadbent.com">follow my pull request for more details</a>.</p>
+<p>If you use the <code>--editor</code> option (or its <code>-e</code> alias), the generator will open all generated or copied files in your text editor.<br>
+The default editor is your <code>GUI_EDITOR</code> or <code>EDITOR</code> environment variable, but you can set the editor manually with <code>--editor=manual-code-editor</code>.</p>
+<p>Rails 3 isn&apos;t accepting any new features, so here&apos;s how you can use the <code>--editor</code> option for your Rails 3 apps:</p>
+<h2 id="single-rails-3-app">Single Rails 3 app</h2>
+<p>To install the <code>--editor</code> option in a single Rails 3 app, run the following command from your app directory:</p>
+<pre><code class="language-bash">curl https://gist.github.com/raw/4342095/rails -o script/rails
+</code></pre>
+<p>This will update <code>script/rails</code>, and you can commit the change.</p>
+<h2 id="globally-for-all-rails-3-apps">Globally for all Rails 3 apps</h2>
+<p>If you are developing a lot of different apps, it might be too much hassle to update all of them. Instead, you can download the custom <code>rails</code> script to your <code>/bin</code> directory, and add some shortcut functions to your <code>.bashrc</code>.</p>
+<h3 id="download-script">Download script:</h3>
+<pre><code class="language-bash">sudo curl https://gist.github.com/raw/4342095/rails3_with_editor -o /bin/rails3_with_editor
+sudo chmod +x /bin/rails3_with_editor
+</code></pre>
+<h3 id="add-shortcut-functions">Add shortcut functions:</h3>
+<p>Add the following to your <code>~/.bashrc</code>:</p>
+<pre><code class="language-bash">rge() { rails3_with_editor generate &quot;$@&quot; --editor; }
+rgm() { rails3_with_editor generate migration &quot;$@&quot; --editor; }
+</code></pre>
+<p>Now you can run <code>rgm</code> to generate a migration from any Rails 3 app.</p>
+]]></content:encoded></item><item><title><![CDATA[Automatically run 'bundle install' when Bundler can't find a gem]]></title><description><![CDATA[<p>Every Rails developer has probably seen the following error:</p>
+<!--kg-card-begin: html-->
+<div class="highlight"><pre><code class="bash"><span class="sb">Could not find &lt;gem&gt; in any of the sources</span>
+<span style="color: #390;">Run `bundle install` to install missing gems.</span>
+</code></pre>
+</div>
+<!--kg-card-end: html-->
+<p>This happens if you or someone else adds a gem to your <code>Gemfile</code>, or if a gem version is updated in <code>Gemfile.lock</code></p>]]></description><link>https://ghost.ndbroadbent.com/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/</link><guid isPermaLink="false">6621e803cab1a83ac77b009b</guid><category><![CDATA[ruby]]></category><category><![CDATA[rails]]></category><category><![CDATA[bash]]></category><category><![CDATA[bundler]]></category><category><![CDATA[rubygems]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Tue, 18 Dec 2012 19:56:01 GMT</pubDate><content:encoded><![CDATA[<p>Every Rails developer has probably seen the following error:</p>
+<!--kg-card-begin: html-->
+<div class="highlight"><pre><code class="bash"><span class="sb">Could not find &lt;gem&gt; in any of the sources</span>
+<span style="color: #390;">Run `bundle install` to install missing gems.</span>
+</code></pre>
+</div>
+<!--kg-card-end: html-->
+<p>This happens if you or someone else adds a gem to your <code>Gemfile</code>, or if a gem version is updated in <code>Gemfile.lock</code>,<br>and you forget to run <code>bundle install</code> before running a Rails command.</p><p>Here&apos;s a simple function that handles this automatically, called <code>bundle_install_wrapper()</code>. It first tries to execute the command you pass to it.<br>However, if Bundler exits with status code <code>7</code> (<code>GemNotFound</code>), then it will run <code>bundle install</code>. Finally, it retries the original command.</p><pre><code class="language-bash">bundle_install_wrapper() {
+  # Run command
+  eval &quot;$@&quot;
+  if [ $? = 7 ]; then
+    # If command crashes, try a bundle install
+    echo -e &quot;\033[1;31m&apos;$@&apos; failed with exit code 7.&quot;
+    echo &quot;This probably means that your system is missing gems defined in your Gemfile.&quot;
+    echo -e &quot;Executing &apos;bundle install&apos;...\033[0m&quot;
+    
+    bundle install # If bundle install was successful, try running command again.
+    if [ $? = 0 ]; then
+      echo &quot;&apos;bundle install&apos; was successful. Retrying &apos;$@&apos;...&quot;
+      eval &quot;$@&quot;
+    fi
+  fi
+}</code></pre><h2 id="usage">Usage</h2><p>Drop the function in your <code>~/.bashrc</code>, and add aliases for rails commands:</p><pre><code class="language-ruby">alias rs=&quot;bundle_install_wrapper rails server&quot;
+alias rc=&quot;bundle_install_wrapper rails console&quot;
+
+# etc.</code></pre><p>If you want aliases that support any Rails application, you can use something like this:</p><pre><code class="language-ruby"># Run Rails commands on any version
+
+rails_cmd(){
+
+# Rails 3
+
+if [ -e ./script/rails ]; then bundle_install_wrapper rails3_with_editor $@
+
+# Rails &lt;= 2
+
+elif [ -e ./script/$1 ]; then bundle_install_wrapper ./script/$@
+
+# Rails 4
+
+elif [ -e ./config.ru ] &amp;&amp; grep -q Rails config.ru; then bundle_install_wrapper rails $@
+else echo &quot;== I don&apos;t think this is a Rails application!&quot;
+fi
+}
+alias rs=&quot;rails_cmd server&quot;
+alias rsd=&quot;rails_cmd server -u&quot;
+alias rc=&quot;rails_cmd console&quot;
+alias rg=&quot;rails_cmd generate&quot;</code></pre><p>See the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh?ref=ghost.ndbroadbent.com">Ruby on Rails section in my .bashrc</a> if you&apos;re interested in more aliases,<br>and please leave a comment if you have any tips to share.</p>]]></content:encoded></item><item><title><![CDATA[capistrano_colors has been merged into capistrano]]></title><description><![CDATA[<!--kg-card-begin: markdown--><p><code>capistrano_colors</code> has been <a href="https://github.com/capistrano/capistrano/pull/283?ref=ghost.ndbroadbent.com">merged</a> into <code>capistrano</code>. If you update <code>capistrano</code> to version <code>2.13.5</code>, you will no longer need to include <code>capistrano_colors</code> in your <code>Gemfile</code>.<br>Don&apos;t forget to also remove <code>require &apos;capistrano_colors&apos;</code> from <code>config/deploy.rb</code>.</p>
+<p>If you&apos;ve been using</p>]]></description><link>https://ghost.ndbroadbent.com/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/</link><guid isPermaLink="false">6621e803cab1a83ac77b009a</guid><category><![CDATA[rails]]></category><category><![CDATA[ruby]]></category><category><![CDATA[linux]]></category><category><![CDATA[capistrano]]></category><category><![CDATA[server]]></category><category><![CDATA[administration]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Thu, 08 Nov 2012 12:55:17 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p><code>capistrano_colors</code> has been <a href="https://github.com/capistrano/capistrano/pull/283?ref=ghost.ndbroadbent.com">merged</a> into <code>capistrano</code>. If you update <code>capistrano</code> to version <code>2.13.5</code>, you will no longer need to include <code>capistrano_colors</code> in your <code>Gemfile</code>.<br>Don&apos;t forget to also remove <code>require &apos;capistrano_colors&apos;</code> from <code>config/deploy.rb</code>.</p>
+<p>If you&apos;ve been using <code>capistrano</code> without the <code>capistrano_colors</code> gem, well, you&apos;ve been missing out! Your logs will now be nicely formatted and colored by default, like this:</p>
+<p><img src="https://ghost.ndbroadbent.com/content/images/posts/2012/11/cap_colors-resized-post.png" alt="Capistrano logs with colors and formatting" loading="lazy"></p>
+<p>However, if you happen to be a big fan of black &amp; white logs, you can just add <code>disable_log_formatters</code> to <code>config/deploy.rb</code>. See the <a href="https://github.com/capistrano/capistrano/wiki/Formatting-Logs?ref=ghost.ndbroadbent.com">Formatting Logs wiki page</a> for more information about customizing the colors and styles.</p>
+<p>Thanks to <a href="https://github.com/stjernstrom?ref=ghost.ndbroadbent.com">@stjernstrom</a> for creating the <code>capistrano_colors</code> gem, and to <a href="https://github.com/carsomyr?ref=ghost.ndbroadbent.com">@carsomyr</a> for merging my pull request!</p>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[Auto-reloading your .bashrc (or .zshrc)]]></title><description><![CDATA[<!--kg-card-begin: markdown--><p>If you often make changes to your <code>~/.bashrc</code>, you might be sick of typing <code>source ~/.bashrc</code> after every change.<br>
+It can also be annoying when you switch to a different tab in your terminal, but your new aliases or functions aren&apos;t available until you type <code>source ~/.bashrc</code>.</p>
+<p>While</p>]]></description><link>https://ghost.ndbroadbent.com/2012/10/29/auto-reloading-your-bashrc/</link><guid isPermaLink="false">6621e803cab1a83ac77b0099</guid><category><![CDATA[bash]]></category><category><![CDATA[linux]]></category><category><![CDATA[scripts]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Mon, 29 Oct 2012 20:31:21 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>If you often make changes to your <code>~/.bashrc</code>, you might be sick of typing <code>source ~/.bashrc</code> after every change.<br>
+It can also be annoying when you switch to a different tab in your terminal, but your new aliases or functions aren&apos;t available until you type <code>source ~/.bashrc</code>.</p>
+<p>While I was working on <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">scm_breeze</a> and my <a href="https://github.com/ndbroadbent/dotfiles?ref=ghost.ndbroadbent.com">dotfiles</a> repo, I grew tired of having to type this command, so I aliased it to <code>sbrc</code>. But I knew I could do better, so I created an auto-reload script that reloads my <code>~/.bashrc</code> if there are any changes to itself, or any of the files that it loads.</p>
+<p>When you run it at the beginning of your <code>.bashrc</code>, it wraps the <code>source</code> and <code>.</code> commands with a function that builds an index of all the sourced files. At the end of your <code>.bashrc</code>, you need to call the <code>finalize_auto_reload</code> function, which:</p>
+<ul>
+<li>Removes the <code>source</code> and <code>.</code> overrides</li>
+<li>Sorts the sourced file index and removes duplicates</li>
+<li>Stores the mtime of the most recently modified source file in a variable</li>
+<li>Adds the <code>auto_reload_bashrc</code> function to your <code>PROMPT_COMMAND</code>.</li>
+</ul>
+<p>Whenever you start a new line in your terminal, the <code>auto_reload_bashrc</code> function reloads your <code>.bashrc</code> if any of the sourced files have changed. Changes are detected by looking up the most recent modification time from all of the sourced files, and comparing that time with the previous value.</p>
+<p>My <code>.bashrc</code> sources 28 files from my <a href="https://github.com/ndbroadbent/dotfiles?ref=ghost.ndbroadbent.com">dotfiles</a>, <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">scm_breeze</a>, and <a href="https://rvm.io/?ref=ghost.ndbroadbent.com">RVM</a>. Running the <code>auto_reload_bashrc</code> function to check for changes only takes 11 ms.</p>
+<p>If you make a lot of changes to your <code>.bashrc</code> or <code>.zsh</code>, you can check out my auto-reloading script here:<br>
+<a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/auto_reload.sh?ref=ghost.ndbroadbent.com" target="_blank">https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/auto_reload.sh</a></p>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[Saving space in the terminal with symbols]]></title><description><![CDATA[<p>I&apos;m saving a little space in my terminal by replacing my username and group (ndbroadbent) with a single symbol.<br>
+I&apos;m doing this <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/prompt.sh?ref=ghost.ndbroadbent.com#L64-66">in my prompt</a>,<br>
+as well as in the output of <code>ls</code> commands:</p>
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2012/10/ls_with_symbols-resized-post.png" alt="ls and prompt with symbols">
+<p>(My laptop&apos;s hostname is also represented by a symbol.)</p>
+<p>For</p>]]></description><link>https://ghost.ndbroadbent.com/2012/10/14/saving-space-in-the-terminal-with-symbols/</link><guid isPermaLink="false">6621e803cab1a83ac77b0098</guid><category><![CDATA[linux]]></category><category><![CDATA[bash]]></category><category><![CDATA[ruby]]></category><category><![CDATA[scripts]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Sun, 14 Oct 2012 22:28:47 GMT</pubDate><content:encoded><![CDATA[<p>I&apos;m saving a little space in my terminal by replacing my username and group (ndbroadbent) with a single symbol.<br>
+I&apos;m doing this <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/prompt.sh?ref=ghost.ndbroadbent.com#L64-66">in my prompt</a>,<br>
+as well as in the output of <code>ls</code> commands:</p>
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2012/10/ls_with_symbols-resized-post.png" alt="ls and prompt with symbols">
+<p>(My laptop&apos;s hostname is also represented by a symbol.)</p>
+<p>For the ls output, it was a bit tricky to re-justify the username and group columns after substituting my username.<br>
+I decided to do it in ruby, and then played some ruby golf:</p>
+<pre><code class="language-ruby">o=STDIN.read;re=/^(([^ ]_ +){2})(([^ ]_ +){3})/;u,g,s=o.lines.map{|l|l[re,3]}.compact.map(&amp;:split).transpose.map{|a|a.map(&amp;:size).max+1};puts o.lines.map{|l|l.sub(re){|m|&quot;%s%-#{u}s %-#{g}s%#{s}s &quot;%[$1,*$3.split]}}
+</code></pre>
+<p>This little script parses the modified output of <code>ls -lhv</code>, calculates the max length of the user/group/size columns, and then pads those columns with the correct number of spaces.</p>
+<p>My final <code>ls</code> command looks like this:</p>
+<pre><code class="language-bash">ls -lhv --group-directories-first | sed \&quot;s/$USER/\$(/bin/cat $HOME/.user_sym)/g\&quot; | rejustify_ls_columns
+</code></pre>
+<p>(where <code>rejustify_ls_columns</code> is a function wrapping the ruby script above.)</p>
+]]></content:encoded></item><item><title><![CDATA[Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index]]></title><description><![CDATA[<p>A day in the life of a Rails developer will usually involve a few <code>git pull</code>s, <code>bundle install</code>s, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&apos;t have to spend too much</p>]]></description><link>https://ghost.ndbroadbent.com/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/</link><guid isPermaLink="false">6621e803cab1a83ac77b0097</guid><category><![CDATA[ruby]]></category><category><![CDATA[rails]]></category><category><![CDATA[bash]]></category><category><![CDATA[rubygems]]></category><category><![CDATA[scripts]]></category><category><![CDATA[git]]></category><dc:creator><![CDATA[Nathan Broadbent]]></dc:creator><pubDate>Thu, 11 Oct 2012 14:56:54 GMT</pubDate><content:encoded><![CDATA[<p>A day in the life of a Rails developer will usually involve a few <code>git pull</code>s, <code>bundle install</code>s, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&apos;t have to spend too much time updating code or installing new gems.</p>
+<p>I&apos;m using the <code>whenever</code> gem to create cron tasks that:</p>
+<ul>
+<li>Update all my git repos from their remotes</li>
+<li>Satisfy all of my Gemfile&apos;s dependencies</li>
+<li>Cache rake and capistrano commands for tab completion</li>
+<li>Fetch Travis CI build statuses to show in my terminal</li>
+<li>Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized</li>
+</ul>
+<p>For all of these tasks, I&apos;m using the <code>git_index</code> function provided by my <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">SCM Breeze</a> project. It creates an index of all your git projects by recursively scanning your code directory, and then lets you quickly jump to projects, or run batch commands for each of your repos. See my <a href="https://ghost.ndbroadbent.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/#repository-index">SCM Breeze blog post for more info about the repository index</a>.</p>
+<h3 id="updating-git-repos">Updating Git Repos</h3>
+<p>Every 30 minutes I run a task that updates all of the local branches on all of my git repos. It does this as safely as possible:</p>
+<ul>
+<li>Doesn&apos;t do anything if there are any changed files in the working directory</li>
+<li>Doesn&apos;t do anything unless remote and merge branches are explicitly configured for that branch</li>
+<li>Doesn&apos;t do anything if it cannot &apos;fast-forward&apos; merge a branch (i.e. the current commit is not a parent of the latest commit in the remote repo)</li>
+</ul>
+<p>Basically, this means that it will leave you alone if you are working on a feature, or if you&apos;ve committed something that you haven&apos;t pushed yet.</p>
+<p>Otherwise, it will bring your branches up-to-date and send a desktop notification:</p>
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2012/10/git_update_notify.jpg" alt="Git update notification">
+<h3 id="installing-gem-dependencies">Installing Gem dependencies</h3>
+<p>I have a task that runs every hour to ensure that all of my gem dependencies are installed. If someone adds a new gem dependency to your project, it&apos;s great to have that automatically installed when the repo is automatically updated.</p>
+<p>I&apos;m using the <code>git_index</code> function to run a script called <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/bundle_check_or_install?ref=ghost.ndbroadbent.com">bundle_check_or_install</a> for each of my git repos. It also sends desktop notifications on update or failure, and doesn&apos;t do anything if the gems are already up-to-date.</p>
+<p>If <code>bundle install</code> fails for any reason, it will touch a file at <code>&apos;.skip_bundle_auto_install~</code> (and exclude that file from git by adding it to <code>.git/info/exclude</code>). Any future attempts to auto-update your gems will abort with the notification that &quot;Previous bundle install failed&quot;. This notification can be disabled if <code>.skip_bundle_auto_install~</code> contains the string &quot;SILENT&quot;. I do this when I stop caring about old projects, but don&apos;t want to delete or archive them.</p>
+<h3 id="caching-rake-and-capistrano-commands-for-tab-completion">Caching Rake and Capistrano commands for tab completion</h3>
+<p><code>rake -T</code> and <code>cap -T</code> can take a long time to run, so I run a task every hour to cache the available tasks for all of my projects, and I use these cached tasks to provide tab completion. The tasks in saved to files like <code>.cached_rake_tasks~</code> and <code>.cached_cap_tasks~</code>. <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh?ref=ghost.ndbroadbent.com#L99">Here&apos;s how I set up the Bash tab completion</a>.</p>
+<h3 id="fetching-travis-ci-build-status">Fetching Travis CI Build Status</h3>
+<p>I&apos;ve written about this before in my <a href="https://ghost.ndbroadbent.com/2012/01/14/travis-ci-status-in-shell-prompt/">Travis CI Status in Shell Prompt</a> post. Every 30 minutes I run a task to fetch build statuses for all the repos that contain a <code>.travis.yml</code> file. The status is saved in a hidden file called <code>.travis_status~</code>, and displayed in my prompt like this:</p>
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt">
+<h3 id="updating-git-repo-index">Updating Git Repo Index</h3>
+<p>All of the previous tasks depend on the git repo index being up-to-date. It only takes a few seconds to scan through my code directories, so I run this task every minute.</p>
+<p>This index lets me keep my code organized in different folders, while also letting me jump to different projects by name:</p>
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2011/10/source_list-resized-post.png" alt="Git Status With Shortcuts">
+<hr>
+<p>If you want to set this up for yourself, you&apos;ll need to check out my <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">SCM Breeze</a> project. The <code>schedule.rb</code> that defines these tasks <a href="https://github.com/ndbroadbent/dotfiles/blob/master/schedule.rb?ref=ghost.ndbroadbent.com">lives in my dotfiles repo</a>, and you can find the scripts I use in the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/?ref=ghost.ndbroadbent.com">/bin</a> directory.</p>
+<p>Post a comment if you have any automation ideas to share!</p>
+]]></content:encoded></item></channel></rss>

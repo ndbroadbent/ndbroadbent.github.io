@@ -1,128 +1,193 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="map[]" />
-    <meta name="description" content="Home automation, electronics, software development, etc.">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#603cba">
-    <meta name="theme-color" content="#ffffff">
+<html lang="en">
+<head>
 
     <title>Automating my Kitchen Rangehood Fan and Light</title>
-    <meta name="generator" content="Hugo 0.21" />
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inter:400,700">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=06fddbd22a">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=06fddbd22a">
 
-    <!--[if lt IE 9]>
-			<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=06fddbd22a">
 
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="canonical" href="https://ghost.ndbroadbent.com/posts/2022-09-30-automating-my-kitchen-rangehood/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Automating my Kitchen Rangehood Fan and Light">
+    <meta property="og:description" content="I originally posted this write-up on the Home Assistant Community Forums. I thought I would post it here as well, since I haven&#x27;t written anything on this blog for a while. I&#x27;ve been getting more serious about Home Automation lately, so I might start writing some more blog posts and">
+    <meta property="og:url" content="https://ghost.ndbroadbent.com/posts/2022-09-30-automating-my-kitchen-rangehood/">
+    <meta property="og:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta property="article:published_time" content="2022-09-30T10:21:05.000Z">
+    <meta property="article:modified_time" content="2024-04-19T04:02:40.000Z">
+    <meta property="article:tag" content="home-automation">
+    <meta property="article:tag" content="home-assistant">
+    <meta property="article:tag" content="esp32">
+    <meta property="article:tag" content="kitchen">
+    <meta property="article:tag" content="electronics">
+    <meta property="article:tag" content="projects">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Automating my Kitchen Rangehood Fan and Light">
+    <meta name="twitter:description" content="I originally posted this write-up on the Home Assistant Community Forums. I thought I would post it here as well, since I haven&#x27;t written anything on this blog for a while. I&#x27;ve been getting more serious about Home Automation lately, so I might start writing some more blog posts and">
+    <meta name="twitter:url" content="https://ghost.ndbroadbent.com/posts/2022-09-30-automating-my-kitchen-rangehood/">
+    <meta name="twitter:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="home-automation, home-assistant, esp32, kitchen, electronics, projects">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="840">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://ghost.ndbroadbent.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ghost.ndbroadbent.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Automating my Kitchen Rangehood Fan and Light",
+    "url": "https://ghost.ndbroadbent.com/posts/2022-09-30-automating-my-kitchen-rangehood/",
+    "datePublished": "2022-09-30T10:21:05.000Z",
+    "dateModified": "2024-04-19T04:02:40.000Z",
+    "keywords": "home-automation, home-assistant, esp32, kitchen, electronics, projects",
+    "description": "\n\n\nI originally posted this write-up on the Home Assistant Community Forums. I thought I would post it here as well, since I haven&#x27;t written anything on this blog for a while. I&#x27;ve been getting more serious about Home Automation lately, so I might start writing some more blog posts and making a few videos.\n\n\n\nI figured out how to control the light and fan in the rangehood above my stove. I learned a lot from this project, and I wanted to share some of my experiences.\n\n\n * I figured out how to re",
+    "mainEntityOfPage": "https://ghost.ndbroadbent.com/posts/2022-09-30-automating-my-kitchen-rangehood/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.82">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://ghost.ndbroadbent.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://ghost.ndbroadbent.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://ghost.ndbroadbent.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=06fddbd22a"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=06fddbd22a">
     <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="/javascripts/libs/jquery.min.js"></script>
-    <script src="/slick/slick.min.js"></script>
-  </head>
+<style>
+  .nav-sign-up { display: none; }
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+<style>:root {--ghost-accent-color: #5619ff;}</style>
 
-  <body>
-    <div id="wrap">
-      
-      
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="https://madebynathan.com/">
-        Made By Nathan
-      </a>
-    </div>
-    <div id="navbar">
-      <ul class="nav navbar-nav navbar-right">
-      
-        
-        <li><a href="/tags/projects/">
-          Projects</a>
-        </li>
-        
-        <li><a href="/posts/">
-          Posts</a>
-        </li>
-        
-        <li><a href="/tags/">
-          Tags</a>
-        </li>
-        
-        <li><a href="https://ndbroadbent.com">
-          Consulting</a>
-        </li>
-        
-      
-      </ul>
-    </div>
-  </div>
-</nav>
+</head>
+<body class="post-template tag-home-automation tag-home-assistant tag-esp32 tag-kitchen tag-electronics tag-projects tag-hash-import-2024-04-19-15-41 tag-hash-new-routing has-sans-title has-sans-body">
 
-      
-      <div class="container single-blog-post">
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
 
-        <div class="blog-post">
-          <h3>
-            <a href="https://madebynathan.com/posts/2022-09-30-automating-my-kitchen-rangehood/">Automating my Kitchen Rangehood Fan and Light</a>
-          </h3>
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://ghost.ndbroadbent.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
         </div>
 
-        <div class="tags-and-date">
-          <div class="tags">
-            
-              <a class="tag" href="/tags/home-automation">home-automation&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/home-assistant">home-assistant&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/esp32">esp32&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/kitchen">kitchen&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/electronics">electronics&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/projects">projects&nbsp;&nbsp;</a>
-            
-          </div>
-          <div class="blog-title">
-            <h4 class="post-date">
-            September 30, 2022
-            </h4>
-          </div>
-        </div>
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://ghost.ndbroadbent.com/">Blog</a></li>
+    <li class="nav-personal-site"><a href="https://ndbroadbent.com">Personal Site</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
 
+        </nav>
 
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
 
-        <div class="panel panel-default">
-          <div class="panel-body">
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-home-automation tag-home-assistant tag-esp32 tag-kitchen tag-electronics tag-projects tag-hash-import-2024-04-19-15-41 tag-hash-new-routing no-image">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://ghost.ndbroadbent.com/tag/home-automation/">home-automation</a>
+            <h1 class="gh-article-title is-title">Automating my Kitchen Rangehood Fan and Light</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2022-09-30">Sep 30, 2022</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 10 min read</span>
+                    </div>
+                </div>
+            </div>
+
             
+        </header>
 
-
-            <div class="blogpost">
-              
-
-<blockquote>
-<p>I originally <a href="https://community.home-assistant.io/t/i-automated-the-rangehood-above-my-stove-kitchen-extractor-fan-and-light-and-learned-a-lot/458085">posted this write-up on the Home Assistant Community Forums</a>. I thought I would post it here as well, since I haven&rsquo;t written anything on this blog for a while. I&rsquo;ve been getting more serious about Home Automation lately, so I might start writing some more blog posts and making a few videos.</p>
+        <section class="gh-content gh-canvas is-body">
+            <blockquote>
+<p>I originally <a href="https://community.home-assistant.io/t/i-automated-the-rangehood-above-my-stove-kitchen-extractor-fan-and-light-and-learned-a-lot/458085?ref=ghost.ndbroadbent.com">posted this write-up on the Home Assistant Community Forums</a>. I thought I would post it here as well, since I haven't written anything on this blog for a while. I've been getting more serious about Home Automation lately, so I might start writing some more blog posts and making a few videos.</p>
 </blockquote>
-
 <p>I figured out how to control the light and fan in the rangehood above my stove. I learned a lot from this project, and I wanted to share some of my experiences.</p>
-
 <ul>
 <li>I figured out how to read the state of 4 buttons and light up 4 LEDs with only 5 wires</li>
 <li>I discovered some powerful circuit simulation software</li>
@@ -130,269 +195,277 @@
 <li>I wrote some C++ code for a custom ESPHome component</li>
 <li>I bought an oscilloscope</li>
 </ul>
-
 <h2 id="introduction">Introduction</h2>
-
-<p>I wanted to be able to control the light and extractor fan above my stovetop, so I decided to automate it using an ESP32. This would be a similar concept to the <a href="https://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave project</a> that I built many years ago: I would put a &ldquo;proxy&rdquo; circuit between the buttons and the main board that controls the light and fan. The circuit would simulate button presses to control the main board, and it would read the state of the original buttons so that they would still work normally. The circuit would add WiFi connectivity so that the buttons could be controlled remotely and via automations in Home Assistant.</p>
-
+<p>I wanted to be able to control the light and extractor fan above my stovetop, so I decided to automate it using an ESP32. This would be a similar concept to the <a href="https://madebynathan.com/2013/07/10/raspberry-pi-powered-microwave/?ref=ghost.ndbroadbent.com">Raspberry Pi Microwave project</a> that I built many years ago: I would put a "proxy" circuit between the buttons and the main board that controls the light and fan. The circuit would simulate button presses to control the main board, and it would read the state of the original buttons so that they would still work normally. The circuit would add WiFi connectivity so that the buttons could be controlled remotely and via automations in Home Assistant.</p>
 <p>I still use Raspberry Pis, but now I prefer using ESP32 and ESP8266 chips. ESPHome makes it so much easier to build little devices like this, and the OTA (over-the-air) updates are really convenient. I love all the built-in components that you can easily add to your YAML configuration files.</p>
-
-<p>Here&rsquo;s a photo of the rangehood, with some of my tools. You can see the main controller board and the button board hanging out.</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/rangehood.jpg" alt="Picture of my kitchen rangehood" /></p>
-
+<p>Here's a photo of the rangehood, with some of my tools. You can see the main controller board and the button board hanging out.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/rangehood.jpg" alt="Picture of my kitchen rangehood">
 <p>This is the button board, which has 4 buttons, and an LED for each button:</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/button_led_board.jpg" alt="Button and LED board to control the rangehood" /></p>
-
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/button_led_board.jpg" alt="Button and LED board to control the rangehood">
 <h2 id="how-to-read-4-buttons-and-light-4-leds-with-only-5-wires">How to read 4 buttons and light 4 LEDs with only 5 wires</h2>
-
-<p>I wanted to preserve the original functionality of the rangehood buttons, so that you wouldn&rsquo;t even know there&rsquo;s an ESP32 chip inside. This button board was the first obstacle. If there were only 4 buttons, then that would be quite easy. You can just attach them directly to GPIO pins with an internal pull-up resistor. The LEDs were a bit confusing at first, but it was a fun puzzle to solve.</p>
-
+<p>I wanted to preserve the original functionality of the rangehood buttons, so that you wouldn't even know there's an ESP32 chip inside. This button board was the first obstacle. If there were only 4 buttons, then that would be quite easy. You can just attach them directly to GPIO pins with an internal pull-up resistor. The LEDs were a bit confusing at first, but it was a fun puzzle to solve.</p>
 <p>I took a photo of the PCB and traced it using different colors, so I could where each of the wires was going:</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/pcb_traces.jpg" alt="I traced the PCB on my phone" /></p>
-
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/pcb_traces.jpg" alt="I traced the PCB on my phone">
 <p>I found that button has a 1K ohm resistor, and each LED has a 148 ohm resistor.</p>
-
 <h2 id="circuit-simulation-software">Circuit simulation software</h2>
-
-<p>I&rsquo;m a software developer, so I really like having fast feedback loops and the ability to try lots of ideas quickly to see if something works. I started wondering if it might be possible to do this with circuits. I wanted to see if I could figure this out with trial and error and use some kind of circuit simulation software.</p>
-
-<p>I found <a href="https://www.tinkercad.com/">TinkerCad</a>, and my mind was blown! Now I had a virtual Arduino wired up to a virtual breadboard. I recreated this button/LED board inside TinkerCad. I could set up virtual multi-meters to see how much current was flowing through LEDs, and easily figure out values for resistors.</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/tinkercad_simulation.png" alt="Screenshot of TinkerCad simulation" /></p>
-
+<p>I'm a software developer, so I really like having fast feedback loops and the ability to try lots of ideas quickly to see if something works. I started wondering if it might be possible to do this with circuits. I wanted to see if I could figure this out with trial and error and use some kind of circuit simulation software.</p>
+<p>I found <a href="https://www.tinkercad.com/?ref=ghost.ndbroadbent.com">TinkerCad</a>, and my mind was blown! Now I had a virtual Arduino wired up to a virtual breadboard. I recreated this button/LED board inside TinkerCad. I could set up virtual multi-meters to see how much current was flowing through LEDs, and easily figure out values for resistors.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/tinkercad_simulation.png" alt="Screenshot of TinkerCad simulation">
 <p>This is so awesome! It even tells you when too much current is going through an LED:</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/tinkercad_led_warning.png" alt="It tells you when you have too much current going through an LED" /></p>
-
-<p>Here&rsquo;s <a href="https://www.tinkercad.com/things/1bAouc9AybL-rangehood-esp32-buttonled-proxy/editel?sharecode=78vrKEWsZrrcoPSy2SCQuQP9ZW9wdGJ0-cJg6wy4u84">a link to my TinkerCad project where you can run the circuit simulation</a>.</p>
-
-<p>I started playing around with some code in an Arduino sketch. I figured out how to light up the LEDs. I figured out how to read the buttons. But I couldn&rsquo;t figure out how to do them both at the same time. If I wanted to light up the LEDs, then I&rsquo;d need to be using <code>3.3V</code> on the shared wire. But if I wanted to read the buttons, then the shared wire needed to be connected to <code>GND</code>.</p>
-
-<p>Then I finally had a breakthrough. Whenever I had worked with GPIO pins in the past, I had just assumed that &ldquo;high&rdquo; and &ldquo;low&rdquo; meant &ldquo;on&rdquo; and &ldquo;off&rdquo;. But I realized that &ldquo;high&rdquo; literally just means <code>5V</code> (or <code>3.3V</code>), and &ldquo;low&rdquo; literally just means <code>GND</code>. So you can just change the direction of a circuit if you set your output pins to normally &ldquo;high&rdquo;, and you swap the <code>GND</code> pin with a <code>3.3V</code> pin.</p>
-
-<p>So instead of needing to choose between the <code>3.3V</code> pin and the <code>GND</code> pin, I could use a GPIO pin on the shared wire and toggle it between &ldquo;high&rdquo; and &ldquo;low&rdquo;. I set it to &ldquo;low&rdquo; whenever I needed to read the buttons, and set it to &ldquo;high&rdquo; whenever I needed to light up the LEDs.</p>
-
-<p>I got something working in my virtual Arduino. The other side of the circuit was quite easy (to simulate the button presses.) I used some optocouplers as relays, where you send current through an IR LED and it turns on a transistor on the other side, but it keeps both of the circuits separated. Later on I realized that I should have been looking at &ldquo;solid state relays&rdquo;, which are optocouplers that are specifically designed for this purpose and can switch much higher voltages and currents.</p>
-
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/tinkercad_led_warning.png" alt="It tells you when you have too much current going through an LED">
+<p>Here's <a href="https://www.tinkercad.com/things/1bAouc9AybL-rangehood-esp32-buttonled-proxy/editel?sharecode=78vrKEWsZrrcoPSy2SCQuQP9ZW9wdGJ0-cJg6wy4u84&ref=ghost.ndbroadbent.com">a link to my TinkerCad project where you can run the circuit simulation</a>.</p>
+<p>I started playing around with some code in an Arduino sketch. I figured out how to light up the LEDs. I figured out how to read the buttons. But I couldn't figure out how to do them both at the same time. If I wanted to light up the LEDs, then I'd need to be using <code>3.3V</code> on the shared wire. But if I wanted to read the buttons, then the shared wire needed to be connected to <code>GND</code>.</p>
+<p>Then I finally had a breakthrough. Whenever I had worked with GPIO pins in the past, I had just assumed that "high" and "low" meant "on" and "off". But I realized that "high" literally just means <code>5V</code> (or <code>3.3V</code>), and "low" literally just means <code>GND</code>. So you can just change the direction of a circuit if you set your output pins to normally "high", and you swap the <code>GND</code> pin with a <code>3.3V</code> pin.</p>
+<p>So instead of needing to choose between the <code>3.3V</code> pin and the <code>GND</code> pin, I could use a GPIO pin on the shared wire and toggle it between "high" and "low". I set it to "low" whenever I needed to read the buttons, and set it to "high" whenever I needed to light up the LEDs.</p>
+<p>I got something working in my virtual Arduino. The other side of the circuit was quite easy (to simulate the button presses.) I used some optocouplers as relays, where you send current through an IR LED and it turns on a transistor on the other side, but it keeps both of the circuits separated. Later on I realized that I should have been looking at "solid state relays", which are optocouplers that are specifically designed for this purpose and can switch much higher voltages and currents.</p>
 <p>I tried it out with a real Arduino, and it worked!</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/arduino_screenshot.jpg" alt="Screenshot of Arduino logs in real life" /></p>
-
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/arduino_screenshot.jpg" alt="Screenshot of Arduino logs in real life">
 <p>It was a pretty cool experience to simulate a whole Arduino circuit inside my browser, and then see it work in real life.</p>
-
-<p><a href="https://everycircuit.com">https://everycircuit.com</a> is also a really cool option for circuit simulation:</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/everycircuit.jpg" alt="EveryCircuit.com simulation" /></p>
-
-<p>It can handle some things that TinkerCad can&rsquo;t do, such as astable multivibrator circuits where you need to inject a little noise to get it started. (TinkerCad just crashes with an &ldquo;infinite loop&rdquo; error.)</p>
-
+<p><a href="https://everycircuit.com/?ref=ghost.ndbroadbent.com">https://everycircuit.com</a> is also a really cool option for circuit simulation:</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/everycircuit.jpg" alt="EveryCircuit.com simulation">
+<p>It can handle some things that TinkerCad can't do, such as astable multivibrator circuits where you need to inject a little noise to get it started. (TinkerCad just crashes with an "infinite loop" error.)</p>
 <h2 id="custom-c-esphome-component">Custom C++ ESPHome Component</h2>
-
-<p>Alright, on to the next step. I&rsquo;ve got something working with an Arduino, but how do I port this to ESPHome and get it working over WiFI?</p>
-
-<p>I needed to set an GPIO pin to output mode for a while, briefly switch it to input mode, read the state of a button, and then set it back to output mode again. I couldn&rsquo;t figure out how to do this in a YAML configuration file for ESPHome, so I decided to write a custom component using C++.</p>
-
-<p>The <a href="https://esphome.io/custom/custom_component.html">ESPHome documentation is pretty good</a>, and I was able to get something working. Here&rsquo;s my YAML configuration and my custom C++ module: <a href="https://gist.github.com/ndbroadbent/63aa5f105e21631bee4ff9a62c9b1608">https://gist.github.com/ndbroadbent/63aa5f105e21631bee4ff9a62c9b1608</a></p>
-
-<p>The most important difference between Arduino and ESPHome is that a component&rsquo;s <code>loop()</code> function is only called once every 16 milliseconds. (Arduino restarts the loop instantly.) This was actually perfect for me, since it meant that I could read the buttons once every 16ms, and leave the LEDs on before I exit the loop.</p>
-
+<p>Alright, on to the next step. I've got something working with an Arduino, but how do I port this to ESPHome and get it working over WiFI?</p>
+<p>I needed to set an GPIO pin to output mode for a while, briefly switch it to input mode, read the state of a button, and then set it back to output mode again. I couldn't figure out how to do this in a YAML configuration file for ESPHome, so I decided to write a custom component using C++.</p>
+<p>The <a href="https://esphome.io/custom/custom_component.html?ref=ghost.ndbroadbent.com">ESPHome documentation is pretty good</a>, and I was able to get something working. Here's my YAML configuration and my custom C++ module: <a href="https://gist.github.com/ndbroadbent/63aa5f105e21631bee4ff9a62c9b1608?ref=ghost.ndbroadbent.com">https://gist.github.com/ndbroadbent/63aa5f105e21631bee4ff9a62c9b1608</a></p>
+<p>The most important difference between Arduino and ESPHome is that a component's <code>loop()</code> function is only called once every 16 milliseconds. (Arduino restarts the loop instantly.) This was actually perfect for me, since it meant that I could read the buttons once every 16ms, and leave the LEDs on before I exit the loop.</p>
 <h2 id="i-ran-out-of-pins-on-my-esp8266-wemos-d1-mini">I ran out of pins on my ESP8266 (Wemos D1 Mini)</h2>
-
 <p>I should have made sure that everything worked on a breadboard. Instead, I started to get a bit impatient, and I jumped straight to soldering a prototype PCB. I soldering some pin headers for my ESP8266 development board, and then started with one input, and one optocoupler for the output. I tested it and it was all working, so I kept going.</p>
-
-<p>Then I checked the <a href="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/">ESP8266 pinout</a> and realized that I had run out of GPIO pins.</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/esp8266_pinout.png" alt="ESP8266 pin out" /></p>
-
-<p>I tried to get away with using some of the yellow &ldquo;OK&rdquo; ones, but the boot started failing (I guess I was pulling some of the pins high or low.) I needed 4 pins to control the optocoupler outputs, and 5 for the button/LED board. That&rsquo;s 9 GPIO pins, and the ESP8266 only had 7. I thought it had more!</p>
-
-<p>This can be solved with shift registers. You only need 3 GPIO pins to <a href="https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/">control a 74HC595 8-bit shift register</a> and get 8 digital outputs. You only need one additional GPIO pin if you want to <a href="https://www.arduino.cc/en/Tutorial/Foundations/ShiftIn">add a CD4021BE shift register</a> (parallel-in, serial-out) and get 8 digital inputs. This is because the input and output registers can share the same clock and latch pins. You can then daisy-chain both of these to get as many inputs and outputs as you need (or use bigger shift registers with more pins), and use only 4 GPIO pins.</p>
-
+<p>Then I checked the <a href="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/?ref=ghost.ndbroadbent.com">ESP8266 pinout</a> and realized that I had run out of GPIO pins.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/esp8266_pinout.png" alt="ESP8266 pin out">
+<p>I tried to get away with using some of the yellow "OK" ones, but the boot started failing (I guess I was pulling some of the pins high or low.) I needed 4 pins to control the optocoupler outputs, and 5 for the button/LED board. That's 9 GPIO pins, and the ESP8266 only had 7. I thought it had more!</p>
+<p>This can be solved with shift registers. You only need 3 GPIO pins to <a href="https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/?ref=ghost.ndbroadbent.com">control a 74HC595 8-bit shift register</a> and get 8 digital outputs. You only need one additional GPIO pin if you want to <a href="https://www.arduino.cc/en/Tutorial/Foundations/ShiftIn?ref=ghost.ndbroadbent.com">add a CD4021BE shift register</a> (parallel-in, serial-out) and get 8 digital inputs. This is because the input and output registers can share the same clock and latch pins. You can then daisy-chain both of these to get as many inputs and outputs as you need (or use bigger shift registers with more pins), and use only 4 GPIO pins.</p>
 <p>Anyway, I switched to using an ESP32 development board which has 18 usable GPIO pins, and a few more with caveats. I used breadboard jumper wires to wire it up.</p>
-
 <h2 id="my-resistors-were-too-big">My resistors were too big</h2>
-
-<p>I had put 1k resistors on the optocoupler outputs, to mimic the original button/LED board. What I didn&rsquo;t realize is that the optocoupler itself seemed to add about 500 ohms of resistance, so the resistance was slightly too high, and the rangehood controller board couldn&rsquo;t reliably read the simulated button presses.</p>
-
+<p>I had put 1k resistors on the optocoupler outputs, to mimic the original button/LED board. What I didn't realize is that the optocoupler itself seemed to add about 500 ohms of resistance, so the resistance was slightly too high, and the rangehood controller board couldn't reliably read the simulated button presses.</p>
 <p>So I unsoldered them and switched to 560 ohm resistors. Should have tested on a breadboard.</p>
-
 <h2 id="i-bought-a-usb-oscilloscope">I bought a USB oscilloscope</h2>
-
-<p>After doing a bunch of unsoldering and resoldering, putting random hookup wires all over the place, and swapping out ESP dev boards, I ended up with the ugliest prototype PCB you&rsquo;ve ever seen. Of couse, stuff started breaking and one of my outputs wasn&rsquo;t working properly or reliably. It seemed like there was a problem with one of my optocouplers, and it was a real pain to figure out what was broken since I had only had a multimeter.</p>
-
-<p>I realized that a oscilloscope would be really useful, and I should have bought one a long time ago. I bought a <a href="http://my.bitscope.com/store/?p=view&amp;i=item+3">USB BitScope 10</a>. It&rsquo;s pretty cool!</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/bitscope_screenshot.jpg" alt="Screenshot of the Bitscope software on Mac" /></p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/components_on_desk.jpg" alt="Photo of breadboard and Bitscope on my desk" /></p>
-
+<p>After doing a bunch of unsoldering and resoldering, putting random hookup wires all over the place, and swapping out ESP dev boards, I ended up with the ugliest prototype PCB you've ever seen. Of couse, stuff started breaking and one of my outputs wasn't working properly or reliably. It seemed like there was a problem with one of my optocouplers, and it was a real pain to figure out what was broken since I had only had a multimeter.</p>
+<p>I realized that a oscilloscope would be really useful, and I should have bought one a long time ago. I bought a <a href="http://my.bitscope.com/store/?p=view&i=item+3&ref=ghost.ndbroadbent.com">USB BitScope 10</a>. It's pretty cool!</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/bitscope_screenshot.jpg" alt="Screenshot of the Bitscope software on Mac">
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/components_on_desk.jpg" alt="Photo of breadboard and Bitscope on my desk">
 <p>This helped me figure out where some things needed to be resoldered. One of the optocouplers was only working when I pushed on it with my finger. I originally thought it might have been a broken chip or something to do with capacitance, but it was just a broken PCB trace and some dodgy soldering.</p>
-
-<p>I&rsquo;m still learning how to use the BitScope software and have barely scratched the surface of what it can do. This is going to be extremely useful for future projects, especially for reverse engineering how stuff works. (P.S. You&rsquo;ll need their <a href="https://support.bitscope.com/X37HPRRV/#downloads">pre-release version for the latest version of Mac OS</a>.)</p>
-
-<h2 id="wifi-was-very-weak-on-my-duinotech-wearable-esp32-development-board">WiFi was very weak on my &ldquo;Duinotech Wearable ESP32 Development Board&rdquo;</h2>
-
-<p>I initially switched to a <a href="https://www.jaycar.co.nz/duinotech-wearable-esp32-development-board/p/XC3810">Duinotech Wearable ESP32 Development Board</a> that I had bought a while ago. I got everything working, but then it really struggled to connect to WiFi and would cut out regularly, and my entities would become unavailable. Even though I had a Ubiquity access point only 10 meters away in the same room.</p>
-
+<p>I'm still learning how to use the BitScope software and have barely scratched the surface of what it can do. This is going to be extremely useful for future projects, especially for reverse engineering how stuff works. (P.S. You'll need their <a href="https://support.bitscope.com/X37HPRRV/?ref=ghost.ndbroadbent.com#downloads">pre-release version for the latest version of Mac OS</a>.)</p>
+<h2 id="wifi-was-very-weak-on-my-duinotech-wearable-esp32-development-board">WiFi was very weak on my "Duinotech Wearable ESP32 Development Board"</h2>
+<p>I initially switched to a <a href="https://www.jaycar.co.nz/duinotech-wearable-esp32-development-board/p/XC3810?ref=ghost.ndbroadbent.com">Duinotech Wearable ESP32 Development Board</a> that I had bought a while ago. I got everything working, but then it really struggled to connect to WiFi and would cut out regularly, and my entities would become unavailable. Even though I had a Ubiquity access point only 10 meters away in the same room.</p>
 <p>I found a few other people who seemed to have problems with WiFi as well, but they might be for different reasons:</p>
-
 <ul>
-<li><a href="https://www.esp32.com/viewtopic.php?t=16311">https://www.esp32.com/viewtopic.php?t=16311</a></li>
-<li><a href="https://forum.micropython.org/viewtopic.php?t=11550&amp;p=63020">https://forum.micropython.org/viewtopic.php?t=11550&amp;p=63020</a></li>
-<li><a href="https://www.esp32.com/viewtopic.php?t=18159">https://www.esp32.com/viewtopic.php?t=18159</a></li>
-<li><a href="https://www.esp32.com/viewtopic.php?t=16622">https://www.esp32.com/viewtopic.php?t=16622</a></li>
-<li><a href="https://www.esp32.com/viewtopic.php?t=6073">https://www.esp32.com/viewtopic.php?t=6073</a></li>
-<li><a href="https://www.reddit.com/r/esp32/comments/bbjrir/very_poor_wifi_performance/">https://www.reddit.com/r/esp32/comments/bbjrir/very_poor_wifi_performance/</a></li>
+<li><a href="https://www.esp32.com/viewtopic.php?t=16311&ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=16311</a></li>
+<li><a href="https://forum.micropython.org/viewtopic.php?t=11550&p=63020&ref=ghost.ndbroadbent.com">https://forum.micropython.org/viewtopic.php?t=11550&amp;p=63020</a></li>
+<li><a href="https://www.esp32.com/viewtopic.php?t=18159&ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=18159</a></li>
+<li><a href="https://www.esp32.com/viewtopic.php?t=16622&ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=16622</a></li>
+<li><a href="https://www.esp32.com/viewtopic.php?t=6073&ref=ghost.ndbroadbent.com">https://www.esp32.com/viewtopic.php?t=6073</a></li>
+<li><a href="https://www.reddit.com/r/esp32/comments/bbjrir/very_poor_wifi_performance/?ref=ghost.ndbroadbent.com">https://www.reddit.com/r/esp32/comments/bbjrir/very_poor_wifi_performance/</a></li>
 </ul>
-
-<p>Then I found <a href="https://esphome.io/components/wifi.html#wifi-power-save-mode">the &ldquo;WiFi Power Save Mode&rdquo; section in the ESPHome documentation</a>:</p>
-
+<p>Then I found <a href="https://esphome.io/components/wifi.html?ref=ghost.ndbroadbent.com#wifi-power-save-mode">the "WiFi Power Save Mode" section in the ESPHome documentation</a>:</p>
 <ul>
 <li><code>NONE</code> (least power saving, Default for ESP8266)</li>
 <li><code>LIGHT</code> (Default for ESP32)</li>
 </ul>
-
 <p>So I tried:</p>
-
 <pre><code>wifi:
   power_save_mode: none
   output_power: 20
 </code></pre>
-
-<p>I think this seemed to help a little bit, but it still wasn&rsquo;t very reliable. I had ordered some more electronics stuff and threw in another <a href="https://surplustronics.co.nz/products/9368-esp32-development-board-38-pin-espwroom-32s">ESP32 Development Board</a>. I tried this out once it arrived and it was an instant improvement. I just threw away the board with poor WiFi. I also ordered a bunch of shift registers so I can get back to using ESP8266 boards (adafruit huzzuh feathers), and they seem to have much better WiFi as well.</p>
-
-<p>I also ordered a few extra Wemos D1 Mini Pros that support external antennas. They haven&rsquo;t arrived yet, but I might try these out for car presence detection. I&rsquo;ve been struggling with WiFi range for this as well.</p>
-
+<p>I think this seemed to help a little bit, but it still wasn't very reliable. I had ordered some more electronics stuff and threw in another <a href="https://surplustronics.co.nz/products/9368-esp32-development-board-38-pin-espwroom-32s?ref=ghost.ndbroadbent.com">ESP32 Development Board</a>. I tried this out once it arrived and it was an instant improvement. I just threw away the board with poor WiFi. I also ordered a bunch of shift registers so I can get back to using ESP8266 boards (adafruit huzzuh feathers), and they seem to have much better WiFi as well.</p>
+<p>I also ordered a few extra Wemos D1 Mini Pros that support external antennas. They haven't arrived yet, but I might try these out for car presence detection. I've been struggling with WiFi range for this as well.</p>
 <h2 id="putting-it-all-together">Putting it all together</h2>
-
 <p>I put everything into a little black box. Connected all the wires up and stuck it inside the rangehood. I chopped the power cable for the rangehood and added a screw terminal, and wired up a USB charger to power the ESP32 board.</p>
-
-<p>So now I&rsquo;ve got the fan and light in Home Assistant. (And the physical buttons still work as well.)</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/homeassistant_rangehood_screenshot.png" alt="Screenshot of the rangehood entities in Home Assistant" /></p>
-
-<p>I&rsquo;ve set up an <a href="https://danobot.github.io/ec-docs/">entity controller</a> to turn on the light.</p>
-
+<p>So now I've got the fan and light in Home Assistant. (And the physical buttons still work as well.)</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/homeassistant_rangehood_screenshot.png" alt="Screenshot of the rangehood entities in Home Assistant">
+<p>I've set up an <a href="https://danobot.github.io/ec-docs/?ref=ghost.ndbroadbent.com">entity controller</a> to turn on the light.</p>
 <h2 id="next-steps">Next steps</h2>
-
-<p>The rangehood controller board has a piezo buzzer that beeps every time a button is pressed. That&rsquo;s pretty annoying. I might try to <a href="https://electronics.stackexchange.com/questions/41806/how-do-you-remove-the-buzzer-from-this-pcb-whose-solder-side-is-inaccessible">desolder or destroy the buzzer</a>.</p>
-
-<p>I want to put an air quality sensor in the kitchen and automatically turn on the extractor fan based on AQI. I&rsquo;ve ordered some <a href="https://www.aliexpress.com/item/1005003797614144.html?spm=a2g0o.order_detail.0.0.5510f19c1mjFfW">ZigBee air quality meters</a> on AliExpress, and they should arrive in a few weeks.</p>
-
+<p>The rangehood controller board has a piezo buzzer that beeps every time a button is pressed. That's pretty annoying. I might try to <a href="https://electronics.stackexchange.com/questions/41806/how-do-you-remove-the-buzzer-from-this-pcb-whose-solder-side-is-inaccessible?ref=ghost.ndbroadbent.com">desolder or destroy the buzzer</a>.</p>
+<p>I want to put an air quality sensor in the kitchen and automatically turn on the extractor fan based on AQI. I've ordered some <a href="https://www.aliexpress.com/item/1005003797614144.html?spm=a2g0o.order_detail.0.0.5510f19c1mjFfW&ref=ghost.ndbroadbent.com">ZigBee air quality meters</a> on AliExpress, and they should arrive in a few weeks.</p>
 <blockquote>
-<p>Update from Sep 30, 2022: I&rsquo;ve put the air quality sensor in the kitchen, and have set it up to turn on the rangehood fan when the PM 2.5 level is above 12 µg/m³. (It usually hovers around 6 µg/m³.) It&rsquo;s been working really well!</p>
+<p>Update from Sep 30, 2022: I've put the air quality sensor in the kitchen, and have set it up to turn on the rangehood fan when the PM 2.5 level is above 12 µg/m³. (It usually hovers around 6 µg/m³.) It's been working really well!</p>
 </blockquote>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/kitchen_aqi_chart.jpg" alt="Chart of PM 2.5 levels in our kitchen. I use a filter to remove outliers and smooth out the data." /></p>
-
-<p>I also bought a current clamp sensor that can measure AC current. I want to set this up for the stovetop so I can detect when it&rsquo;s on and automatically turn on the fan (in advance, instead of waiting for the AQI to get bad.) It would be easier if I could use an energy monitoring wall plug, but it looks like the stovetop is wired directly into the circuit breaker, and it uses a lot of power so I don&rsquo;t want to mess around with those wires. I&rsquo;ll just separate them and put a clamp around one of them. I&rsquo;ll follow <a href="https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true">this guide to set it all up</a> and get it working on an ESP32.</p>
-
-<p><img class="lightbox thumb" src="/images/posts/2022/09/ac_current_clamp_circuit.jpg" alt="Circuit diagram for measuring AC current with a clamp sensor" /></p>
-
-<p>I have <a href="https://www.aliexpress.com/item/32695813719.html?spm=a2g0s.12269583.0.0.197e6455U2UxlV">this power meter</a> that I&rsquo;ll use to calibrate it.</p>
-
-<p>I also want to learn how to make a proper PCB design in KiCad and order a <a href="https://oshpark.com/">cool purple PCB from OSH park</a>.</p>
-
-<p>I&rsquo;m really enjoying this self-directed crash course in electronics. It&rsquo;s really fun to learn so much while working on practical projects that we can use every day in our house.</p>
-
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/kitchen_aqi_chart.jpg" alt="Chart of PM 2.5 levels in our kitchen. I use a filter to remove outliers and smooth out the data.">
+<p>I also bought a current clamp sensor that can measure AC current. I want to set this up for the stovetop so I can detect when it's on and automatically turn on the fan (in advance, instead of waiting for the AQI to get bad.) It would be easier if I could use an energy monitoring wall plug, but it looks like the stovetop is wired directly into the circuit breaker, and it uses a lot of power so I don't want to mess around with those wires. I'll just separate them and put a clamp around one of them. I'll follow <a href="https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true&ref=ghost.ndbroadbent.com">this guide to set it all up</a> and get it working on an ESP32.</p>
+<img class="lightbox thumb" src="https://ghost.ndbroadbent.com/content/images/posts/2022/09/ac_current_clamp_circuit.jpg" alt="Circuit diagram for measuring AC current with a clamp sensor">
+<p>I have <a href="https://www.aliexpress.com/item/32695813719.html?spm=a2g0s.12269583.0.0.197e6455U2UxlV&ref=ghost.ndbroadbent.com">this power meter</a> that I'll use to calibrate it.</p>
+<p>I also want to learn how to make a proper PCB design in KiCad and order a <a href="https://oshpark.com/?ref=ghost.ndbroadbent.com">cool purple PCB from OSH park</a>.</p>
+<p>I'm really enjoying this self-directed crash course in electronics. It's really fun to learn so much while working on practical projects that we can use every day in our house.</p>
 <p>Thanks for reading, it was fun to write up everything I learned. If you have any questions, please feel free to ask in the comments!</p>
 
+        </section>
 
-              <div class="related-posts">
-                <h5>Related Posts</h5>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        October 30, 2022
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/posts/2022-10-30-e24-resistor-pack-ring-binder/">Organizing 1,700 Resistors in a Ring Binder</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        October 7, 2022
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">Can you plug a SATA drive into a SAS controller?</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        February 12, 2018
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/">What I Learned While Making a Game With React Native</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-              </div>
-            </div>
-          </div>
+    </article>
 
-        <div class="disqus">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ghost.ndbroadbent.com/posts/2022-09-30-automating-my-kitchen-rangehood/";
+            this.page.identifier = "ghost-71"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://madebynathan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
 
-    (function() {
-      
-      
-      if (window.location.hostname == "localhost")
-        return;
+</main>
 
-      var disqus_shortname = 'madebynathan';
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
 
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-30-e24-resistor-pack-ring-binder/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Organizing 1,700 Resistors in a Ring Binder</h3>
+                    <p class="gh-card-excerpt is-body">I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
+
+
+
+You can use this PDF to make your own ring binder:
+
+
+
+
+
+ * Download E24_Resistor_Kit_Folder.pdf
+ * Liquid and SCSS that was used to generate the PDF
+
+
+
+
+
+The template code and generated PDF document are released</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-30">Oct 30, 2022</time>
+                <!--
+         --></footer>
         </div>
-      </div>
-      
-    </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Delete Plex TV Shows and Movies After Watching</h3>
+                    <p class="gh-card-excerpt is-body">Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#39;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-10">Oct 10, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Can you plug a SATA drive into a SAS controller?</h3>
+                    <p class="gh-card-excerpt is-body">Yes.
+
+
+
+SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&#39;t plug a SAS drive into a SATA controller (because it won&#39;t</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-07">Oct 7, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/2022/10/01/how-to-create-a-favicon-with-stable-diffusion-and-dalle-2/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Creating a new favicon with text-to-image AI</h3>
+                    <p class="gh-card-excerpt is-body">It&#39;s been a while since I wrote a blog post about creating a favicon.ico file for your website or blog. Things have changed a bit since I wrote that blog post in May 2010.
+
+
+I&#39;ve been updating the CSS for my blog recently, and I</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-02">Oct 2, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </section>
 
     
-    <footer>
-  <div id="footer">
-    <div class="container">
-      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
-      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
     </div>
-  </div>
-</footer>
-<div class="footer"></div>
+</footer>    
+</div>
 
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://madebynathan.com/js/docs.min.js"></script>
-<script src="https://madebynathan.com/js/main.js"></script>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
 
-<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
 
-  </body>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/source.js?v=06fddbd22a"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
 </html>

@@ -1,445 +1,559 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="map[]" />
-    <meta name="description" content="Home automation, electronics, software development, etc.">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#603cba">
-    <meta name="theme-color" content="#ffffff">
+<html lang="en">
+<head>
 
     <title>What I Learned While Making a Game With React Native</title>
-    <meta name="generator" content="Hugo 0.21" />
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inter:400,700">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=06fddbd22a">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=06fddbd22a">
 
-    <!--[if lt IE 9]>
-			<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=06fddbd22a">
 
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="canonical" href="https://ghost.ndbroadbent.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What I Learned While Making a Game With React Native">
+    <meta property="og:description" content="I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. SudoBlock is a cross between Sudoku, jigsaw puzzles, and Tetris.
+
+
+You can find SudoBlock on the web, App Store, Google Play, and the Microsoft Store.
+
+
+
+
+
+React Native only supports iOS and Android, but I">
+    <meta property="og:url" content="https://ghost.ndbroadbent.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/">
+    <meta property="og:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta property="article:published_time" content="2018-02-12T04:34:00.000Z">
+    <meta property="article:modified_time" content="2024-04-19T04:05:42.000Z">
+    <meta property="article:tag" content="games">
+    <meta property="article:tag" content="projects">
+    <meta property="article:tag" content="react native">
+    <meta property="article:tag" content="react">
+    <meta property="article:tag" content="javascript">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What I Learned While Making a Game With React Native">
+    <meta name="twitter:description" content="I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. SudoBlock is a cross between Sudoku, jigsaw puzzles, and Tetris.
+
+
+You can find SudoBlock on the web, App Store, Google Play, and the Microsoft Store.
+
+
+
+
+
+React Native only supports iOS and Android, but I">
+    <meta name="twitter:url" content="https://ghost.ndbroadbent.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/">
+    <meta name="twitter:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="games, projects, react native, react, javascript">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="840">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://ghost.ndbroadbent.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ghost.ndbroadbent.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "What I Learned While Making a Game With React Native",
+    "url": "https://ghost.ndbroadbent.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/",
+    "datePublished": "2018-02-12T04:34:00.000Z",
+    "dateModified": "2024-04-19T04:05:42.000Z",
+    "keywords": "games, projects, react native, react, javascript",
+    "description": "\n\n\nI used React Native to build a cross-platform game for iOS, Android, Windows, and the web. SudoBlock is a cross between Sudoku, jigsaw puzzles, and Tetris.\n\n\nYou can find SudoBlock on the web, App Store, Google Play, and the Microsoft Store.\n\n\n\n\n\nReact Native only supports iOS and Android, but I used react-native-web for the browser, and react-native-windows for Windows desktop and phone. The UWP app can also run on Xbox One and HoloLens. I also experimented with react-native-macos and react-",
+    "mainEntityOfPage": "https://ghost.ndbroadbent.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.82">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://ghost.ndbroadbent.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://ghost.ndbroadbent.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://ghost.ndbroadbent.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=06fddbd22a"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=06fddbd22a">
     <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
-
-    <script src="/javascripts/libs/jquery.min.js"></script>
-    <script src="/slick/slick.min.js"></script>
-  </head>
-
-  <body>
-    <div id="wrap">
-      
-      
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="https://madebynathan.com/">
-        Made By Nathan
-      </a>
-    </div>
-    <div id="navbar">
-      <ul class="nav navbar-nav navbar-right">
-      
-        
-        <li><a href="/tags/projects/">
-          Projects</a>
-        </li>
-        
-        <li><a href="/posts/">
-          Posts</a>
-        </li>
-        
-        <li><a href="/tags/">
-          Tags</a>
-        </li>
-        
-        <li><a href="https://ndbroadbent.com">
-          Consulting</a>
-        </li>
-        
-      
-      </ul>
-    </div>
-  </div>
-</nav>
-
-      
-      <div class="container single-blog-post">
-
-        <div class="blog-post">
-          <h3>
-            <a href="https://madebynathan.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/">What I Learned While Making a Game With React Native</a>
-          </h3>
-        </div>
-
-        <div class="tags-and-date">
-          <div class="tags">
-            
-              <a class="tag" href="/tags/games">games&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/projects">projects&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/react-native">react native&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/react">react&nbsp;&nbsp;</a>
-            
-              <a class="tag" href="/tags/javascript">javascript&nbsp;&nbsp;</a>
-            
-          </div>
-          <div class="blog-title">
-            <h4 class="post-date">
-            February 12, 2018
-            </h4>
-          </div>
-        </div>
-
-
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-            
-<aside class="toc" style="margin-bottom: 50px;">
-    <h3>Table of Contents</h3>
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#you-should-probably-use-a-game-engine">You should probably use a game engine</a></li>
-<li><a href="#don-t-worry-about-supporting-windows">Don&rsquo;t worry about supporting Windows</a></li>
-<li><a href="#react-native-might-be-better-than-electron-for-desktop-applications">React Native might be better than Electron for desktop applications</a></li>
-<li><a href="#you-ll-probably-write-some-native-code">You&rsquo;ll probably write some native code</a></li>
-<li><a href="#there-will-be-bugs">There will be bugs</a></li>
-<li><a href="#react-native-vs-ios-swift">React Native vs. iOS / Swift</a></li>
-<li><a href="#marketing-is-really-hard">Marketing is really hard</a></li>
-<li><a href="#other-notes">Other Notes</a></li>
-</ul>
-</nav>
-</aside>
-
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-   
-  .blogpost h1 { font-size: 28px; margin-bottom: 30px; margin-top: 40px; }
-  .blogpost h2 { font-size: 24px; }
-  .blogpost h3 { font-size: 18px; }
-  .blogpost h4 { font-size: 14px; }
-  .blogpost h5 { font-size: 12px; }
+  .nav-sign-up { display: none; }
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
 </style>
+<style>:root {--ghost-accent-color: #5619ff;}</style>
 
+</head>
+<body class="post-template tag-games tag-projects tag-react-native tag-react tag-javascript tag-hash-import-2024-04-19-15-41 tag-hash-new-routing has-sans-title has-sans-body">
 
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
 
-            <div class="blogpost">
-              
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://ghost.ndbroadbent.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
 
-<style>
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://ghost.ndbroadbent.com/">Blog</a></li>
+    <li class="nav-personal-site"><a href="https://ndbroadbent.com">Personal Site</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-games tag-projects tag-react-native tag-react tag-javascript tag-hash-import-2024-04-19-15-41 tag-hash-new-routing no-image">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://ghost.ndbroadbent.com/tag/games/">games</a>
+            <h1 class="gh-article-title is-title">What I Learned While Making a Game With React Native</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2018-02-12">Feb 12, 2018</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 7 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <style>
   .blogpost h1 { font-size: 28px; margin-bottom: 20px; margin-top: 40px; }
 </style>
-
-<p>I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. <a href="https://sudoblock.com/">SudoBlock</a>
-is a cross between Sudoku, jigsaw puzzles, and Tetris.</p>
-
-<p>You can find SudoBlock on the <a href="https://sudoblock.com/">web</a>,
-<a href="https://itunes.apple.com/us/app/sudoblock/id1207401341?ls=1&amp;mt=8">App Store</a>,
-<a href="https://play.google.com/store/apps/details?id=com.ndbroadbent.sudoblock">Google Play</a>,
-and the <a href="https://www.microsoft.com/store/apps/9np72dfcvkbw">Microsoft Store</a>.</p>
-
-<p><a href="/images/posts/2018/02/sudoblock.jpg" target="_blank">
-<img src="/images/posts/2018/02/sudoblock.jpg" style="max-width: 200px; margin: 30px 0;" />
-</a></p>
-
-<p>React Native only supports iOS and Android, but I used <a href="https://github.com/necolas/react-native-web">react-native-web</a> for the browser,
-and <a href="https://github.com/Microsoft/react-native-windows">react-native-windows</a> for Windows desktop and phone.
-The <a href="https://docs.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp">UWP</a> app can also run on Xbox One and HoloLens.
-I also experimented with <a href="https://github.com/ptmt/react-native-macos">react-native-macos</a>
-and <a href="https://github.com/douglowder/react-native-appletv">react-native-appletv</a>,
-but they&rsquo;re not being maintained.</p>
-
-<p><br/></p>
-
-<p>Here&rsquo;s some of the things I learned while building SudoBlock:</p>
-
+<p>I used React Native to build a cross-platform game for iOS, Android, Windows, and the web. <a href="https://sudoblock.com/?ref=ghost.ndbroadbent.com">SudoBlock</a> is a cross between Sudoku, jigsaw puzzles, and Tetris.</p>
+<p>You can find SudoBlock on the <a href="https://sudoblock.com/?ref=ghost.ndbroadbent.com">web</a>, <a href="https://itunes.apple.com/us/app/sudoblock/id1207401341?ls=1&mt=8&ref=ghost.ndbroadbent.com">App Store</a>, <a href="https://play.google.com/store/apps/details?id=com.ndbroadbent.sudoblock&ref=ghost.ndbroadbent.com">Google Play</a>, and the <a href="https://www.microsoft.com/store/apps/9np72dfcvkbw?ref=ghost.ndbroadbent.com">Microsoft Store</a>.</p>
+<a href="https://ghost.ndbroadbent.com/content/images/posts/2018/02/sudoblock.jpg" target="_blank">
+<img src="https://ghost.ndbroadbent.com/content/images/posts/2018/02/sudoblock.jpg" style="max-width: 200px; margin: 30px 0;">
+</a>
+<p>React Native only supports iOS and Android, but I used <a href="https://github.com/necolas/react-native-web?ref=ghost.ndbroadbent.com">react-native-web</a> for the browser, and <a href="https://github.com/Microsoft/react-native-windows?ref=ghost.ndbroadbent.com">react-native-windows</a> for Windows desktop and phone. The <a href="https://docs.microsoft.com/en-us/windows/uwp/get-started/whats-a-uwp?ref=ghost.ndbroadbent.com">UWP</a> app can also run on Xbox One and HoloLens. I also experimented with <a href="https://github.com/ptmt/react-native-macos?ref=ghost.ndbroadbent.com">react-native-macos</a> and <a href="https://github.com/douglowder/react-native-appletv?ref=ghost.ndbroadbent.com">react-native-appletv</a>, but they're not being maintained.</p>
+<br>
+<p>Here's some of the things I learned while building SudoBlock:</p>
 <h1 id="you-should-probably-use-a-game-engine">You should probably use a game engine</h1>
-
-<p>I&rsquo;ve heard good things about <a href="https://godotengine.org/">Godot</a> and <a href="https://unity3d.com/">Unity</a>.
-These game engines support iOS, Android, Windows, and Linux. Unity supports
-<a href="https://unity3d.com/unity/features/multiplatform">many other platforms</a>.</p>
-
-<p>Making a simple game was a great way to learn React Native, but it&rsquo;s not the best tool for the job.
-However, people have started working on some game libraries for React Native, such as <a href="https://github.com/FormidableLabs/react-game-kit">react-game-kit</a> and <a href="https://github.com/bberak/react-native-game-engine">react-native-game-engine</a>.</p>
-
-<p>It&rsquo;s not the easiest way to make a game, but it&rsquo;s also not impossible.
-The built-in <a href="https://facebook.github.io/react-native/docs/animated.html">Animated</a> library is great,
-and I also used <a href="https://github.com/oblador/react-native-animatable">react-native-animatable</a>.
-I used a library to <a href="https://github.com/zmxv/react-native-sound">play sounds</a>.
-I wrote native code to integrate with iOS Game Center and Google Play Game Services.
-I used libraries to integrate with <a href="https://github.com/idehub/react-native-billing">InApp Billing on Android</a>,
-and <a href="https://github.com/chirag04/react-native-in-app-utils">in-app purchases on iOS</a>.
-I also wrote native code for ads and in-app purchases on Windows.
-There&rsquo;s a RN library for <a href="https://github.com/greghe/react-native-particle-system">particle effects</a>
-(although you&rsquo;d have to add support for Android),
-and <a href="https://github.com/FormidableLabs/react-game-kit">react-game-kit</a> provides a way to manage sprites and animations.</p>
-
-<p>I want to make some more simple 2D games, and I&rsquo;m going to stick with React Native for now. I can fork SudoBlock and reuse a lot of the code that I&rsquo;ve already written.</p>
-
-<p>If your goal is to quickly build a cross-platform mobile game, then I&rsquo;d recommend learning Godot or Unity.</p>
-
-<h1 id="don-t-worry-about-supporting-windows">Don&rsquo;t worry about supporting Windows</h1>
-
-<p>This is a no-brainer. No one uses Windows Phone and Microsoft have abandoned it.
-I wanted to explore and learn new things, so I decided to do it anyway. I enjoyed the process
-of installing Windows, working with Visual Studio, and writing some C#.
-I also figured out how to write cross-platform npm scripts using <a href="https://github.com/testdouble/scripty">scripty</a>.</p>
-
-<p><a href="https://github.com/Microsoft/react-native-windows">react-native-windows</a> gives you a UWP app that can
+<p>I've heard good things about <a href="https://godotengine.org/?ref=ghost.ndbroadbent.com">Godot</a> and <a href="https://unity3d.com/?ref=ghost.ndbroadbent.com">Unity</a>.<br>
+These game engines support iOS, Android, Windows, and Linux. Unity supports<br>
+<a href="https://unity3d.com/unity/features/multiplatform?ref=ghost.ndbroadbent.com">many other platforms</a>.</p>
+<p>Making a simple game was a great way to learn React Native, but it's not the best tool for the job.<br>
+However, people have started working on some game libraries for React Native, such as <a href="https://github.com/FormidableLabs/react-game-kit?ref=ghost.ndbroadbent.com">react-game-kit</a> and <a href="https://github.com/bberak/react-native-game-engine?ref=ghost.ndbroadbent.com">react-native-game-engine</a>.</p>
+<p>It's not the easiest way to make a game, but it's also not impossible.<br>
+The built-in <a href="https://facebook.github.io/react-native/docs/animated.html?ref=ghost.ndbroadbent.com">Animated</a> library is great,<br>
+and I also used <a href="https://github.com/oblador/react-native-animatable?ref=ghost.ndbroadbent.com">react-native-animatable</a>.<br>
+I used a library to <a href="https://github.com/zmxv/react-native-sound?ref=ghost.ndbroadbent.com">play sounds</a>.<br>
+I wrote native code to integrate with iOS Game Center and Google Play Game Services.<br>
+I used libraries to integrate with <a href="https://github.com/idehub/react-native-billing?ref=ghost.ndbroadbent.com">InApp Billing on Android</a>,<br>
+and <a href="https://github.com/chirag04/react-native-in-app-utils?ref=ghost.ndbroadbent.com">in-app purchases on iOS</a>.<br>
+I also wrote native code for ads and in-app purchases on Windows.<br>
+There's a RN library for <a href="https://github.com/greghe/react-native-particle-system?ref=ghost.ndbroadbent.com">particle effects</a><br>
+(although you'd have to add support for Android),<br>
+and <a href="https://github.com/FormidableLabs/react-game-kit?ref=ghost.ndbroadbent.com">react-game-kit</a> provides a way to manage sprites and animations.</p>
+<p>I want to make some more simple 2D games, and I'm going to stick with React Native for now. I can fork SudoBlock and reuse a lot of the code that I've already written.</p>
+<p>If your goal is to quickly build a cross-platform mobile game, then I'd recommend learning Godot or Unity.</p>
+<h1 id="dont-worry-about-supporting-windows">Don't worry about supporting Windows</h1>
+<p>This is a no-brainer. No one uses Windows Phone and Microsoft have abandoned it.<br>
+I wanted to explore and learn new things, so I decided to do it anyway. I enjoyed the process<br>
+of installing Windows, working with Visual Studio, and writing some C#.<br>
+I also figured out how to write cross-platform npm scripts using <a href="https://github.com/testdouble/scripty?ref=ghost.ndbroadbent.com">scripty</a>.</p>
+<p><a href="https://github.com/Microsoft/react-native-windows?ref=ghost.ndbroadbent.com">react-native-windows</a> gives you a UWP app that can<br>
 run on Windows Phone, tablets, desktop, Xbox One, HoloLens, and other Windows platforms. But:</p>
-
 <ul>
 <li>Nobody uses Windows Phone.</li>
-<li>Mobile games don&rsquo;t usually make sense on an Xbox.</li>
-<li>If your game runs in a browser, then you probably don&rsquo;t need a desktop app.</li>
+<li>Mobile games don't usually make sense on an Xbox.</li>
+<li>If your game runs in a browser, then you probably don't need a desktop app.</li>
 </ul>
-
 <h1 id="react-native-might-be-better-than-electron-for-desktop-applications">React Native might be better than Electron for desktop applications</h1>
-
-<p>When I was running SudoBlock as a Windows desktop application, I realized that
-React Native could be a better choice than <a href="https://electronjs.org/">Electron</a>.
-Electron apps are notorious for being huge and using a lot of memory (e.g. Slack and Spotify.)
-They have to package and load an entire WebKit browser.
-React Native apps are much smaller and use far less memory, because they only need a JavaScript engine.
-You can also use responsive design, so that a single codebase works on desktop, mobile, and the web. The only problem is that <a href="https://github.com/ptmt/react-native-macos">react-native-macos</a>
+<p>When I was running SudoBlock as a Windows desktop application, I realized that<br>
+React Native could be a better choice than <a href="https://electronjs.org/?ref=ghost.ndbroadbent.com">Electron</a>.<br>
+Electron apps are notorious for being huge and using a lot of memory (e.g. Slack and Spotify.)<br>
+They have to package and load an entire WebKit browser.<br>
+React Native apps are much smaller and use far less memory, because they only need a JavaScript engine.<br>
+You can also use responsive design, so that a single codebase works on desktop, mobile, and the web. The only problem is that <a href="https://github.com/ptmt/react-native-macos?ref=ghost.ndbroadbent.com">react-native-macos</a><br>
 is unmaintained and out of date, so it would be great if a company sponsored development.</p>
-
-<h1 id="you-ll-probably-write-some-native-code">You&rsquo;ll probably write some native code</h1>
-
-<p>Some people are attracted to React Native because they&rsquo;ve heard that you can write a mobile
-app with only JavaScript. In practice, this is only true for extremely simple applications.
-Most of your code will be written in JavaScript, but you&rsquo;ll probably have to write some native code.
+<h1 id="youll-probably-write-some-native-code">You'll probably write some native code</h1>
+<p>Some people are attracted to React Native because they've heard that you can write a mobile<br>
+app with only JavaScript. In practice, this is only true for extremely simple applications.<br>
+Most of your code will be written in JavaScript, but you'll probably have to write some native code.<br>
 At the very least, you must be prepared to fix some bugs in third-party libraries.</p>
-
-<p>I started contributing to <a href="https://github.com/sbugert/react-native-admob">react-native-admob</a>, and <a href="https://github.com/sbugert/react-native-admob/pull/90">sent a pull request to allow multiple test devices</a>. That was my introduction to native code in React Native, and I had to work with JavaScript, Objective-C, and Java.</p>
-
-<p>I also did a lot of work on <a href="https://github.com/react-native-community/react-native-blur">react-native-blur</a>. When I first tried to use it, it was completely broken on Android, and there were lots of problems on iOS.
+<p>I started contributing to <a href="https://github.com/sbugert/react-native-admob?ref=ghost.ndbroadbent.com">react-native-admob</a>, and <a href="https://github.com/sbugert/react-native-admob/pull/90?ref=ghost.ndbroadbent.com">sent a pull request to allow multiple test devices</a>. That was my introduction to native code in React Native, and I had to work with JavaScript, Objective-C, and Java.</p>
+<p>I also did a lot of work on <a href="https://github.com/react-native-community/react-native-blur?ref=ghost.ndbroadbent.com">react-native-blur</a>. When I first tried to use it, it was completely broken on Android, and there were lots of problems on iOS.<br>
 It took a lot of work to get everything running. I could have just skipped the blur and used a darkened overlay, but I enjoyed the work and learned a lot.</p>
-
-<p>I also had to write native code to integrate with iOS Game Center and Google Play Game Services,
-and for ads and in-app purchases on Windows. I also wrote a small library to manage vibrations and haptic feedback across iOS, Android, Windows, and the web (using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API">Vibration API</a>.)</p>
-
+<p>I also had to write native code to integrate with iOS Game Center and Google Play Game Services,<br>
+and for ads and in-app purchases on Windows. I also wrote a small library to manage vibrations and haptic feedback across iOS, Android, Windows, and the web (using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API?ref=ghost.ndbroadbent.com">Vibration API</a>.)</p>
 <h1 id="there-will-be-bugs">There will be bugs</h1>
-
-<p>React Native is pretty stable, but there&rsquo;s a lot of unmaintained libraries,
-and most libraries don&rsquo;t have any tests. React Native is a bit like jQuery, in that it smooths over a lot of quirks and inconsistencies and provides a consistent API. But there&rsquo;s some tricky edge cases,
+<p>React Native is pretty stable, but there's a lot of unmaintained libraries,<br>
+and most libraries don't have any tests. React Native is a bit like jQuery, in that it smooths over a lot of quirks and inconsistencies and provides a consistent API. But there's some tricky edge cases,<br>
 and I often had to read the React Native source code to figure out why something was happening.</p>
-
 <p>Some examples:</p>
-
 <ul>
-<li>There was a bug with the <a href="https://github.com/facebook/react-native/issues/13530">native animation driver for Android</a>.</li>
-<li>There were crashes in the
-<a href="https://github.com/zmxv/react-native-sound">react-native-sound</a> library.</li>
-<li>The <a href="https://stackoverflow.com/questions/43470160/in-a-react-native-javascript-app-why-would-the-android-gc-behavior-change-if-i">Android GC seemed to be clearing some memory that shouldn&rsquo;t have been cleared</a>.</li>
+<li>There was a bug with the <a href="https://github.com/facebook/react-native/issues/13530?ref=ghost.ndbroadbent.com">native animation driver for Android</a>.</li>
+<li>There were crashes in the<br>
+<a href="https://github.com/zmxv/react-native-sound?ref=ghost.ndbroadbent.com">react-native-sound</a> library.</li>
+<li>The <a href="https://stackoverflow.com/questions/43470160/in-a-react-native-javascript-app-why-would-the-android-gc-behavior-change-if-i?ref=ghost.ndbroadbent.com">Android GC seemed to be clearing some memory that shouldn't have been cleared</a>.</li>
 </ul>
-
-<p>Android was particularly unstable. Not just React Native, but Android itself.
-I didn&rsquo;t have too many problems with iOS.</p>
-
+<p>Android was particularly unstable. Not just React Native, but Android itself.<br>
+I didn't have too many problems with iOS.</p>
 <h1 id="react-native-vs-ios-swift">React Native vs. iOS / Swift</h1>
-
-<p>I wrote an iOS app with Swift a few years ago, and I&rsquo;ve actually had a much better experience with React Native.
-When I was working with UIKit, I remember constantly fighting with things like layout, contraints, and font rendering. I uncovered some actual bugs, and found long threads on the Apple forums that were being ignored.
-It was really nice to let React Native handle all of the rendering. I had no rendering issues on iOS or Android,
+<p>I wrote an iOS app with Swift a few years ago, and I've actually had a much better experience with React Native.<br>
+When I was working with UIKit, I remember constantly fighting with things like layout, contraints, and font rendering. I uncovered some actual bugs, and found long threads on the Apple forums that were being ignored.<br>
+It was really nice to let React Native handle all of the rendering. I had no rendering issues on iOS or Android,<br>
 and just a few problems that I fixed on Windows.</p>
-
-<p>Swift was also very unstable at the time, and Xcode upgrades took a lot of effort.
-My Obj-C code still compiles a year later on the latest version of Xcode. If I was using Swift,
-I think it would take at least a day to upgrade to Swift 4.1 and update all of the third-party libraries.
-I believe Swift is <a href="https://github.com/apple/swift/blob/master/docs/ABIStabilityManifesto.md">more stable now</a>, and I love the language, so I might start using it again on future projects.</p>
-
-<p>I had a lot of headaches with React Native, but it wasn&rsquo;t as bad as Swift v1 and UIKit.</p>
-
+<p>Swift was also very unstable at the time, and Xcode upgrades took a lot of effort.<br>
+My Obj-C code still compiles a year later on the latest version of Xcode. If I was using Swift,<br>
+I think it would take at least a day to upgrade to Swift 4.1 and update all of the third-party libraries.<br>
+I believe Swift is <a href="https://github.com/apple/swift/blob/master/docs/ABIStabilityManifesto.md?ref=ghost.ndbroadbent.com">more stable now</a>, and I love the language, so I might start using it again on future projects.</p>
+<p>I had a lot of headaches with React Native, but it wasn't as bad as Swift v1 and UIKit.</p>
 <h1 id="marketing-is-really-hard">Marketing is really hard</h1>
-
 <ul>
-<li><p>I tested Facebook ads with $50. I reached about ~7,000 people and got ~50 clicks. One person
-ended up buying the game for $2.99, so I made $2. You can&rsquo;t spend $50 to make $2.</p></li>
-
-<li><p>I posted on Reddit a few times:</p>
-
+<li>
+<p>I tested Facebook ads with $50. I reached about ~7,000 people and got ~50 clicks. One person<br>
+ended up buying the game for $2.99, so I made $2. You can't spend $50 to make $2.</p>
+</li>
+<li>
+<p>I posted on Reddit a few times:</p>
 <ul>
-<li><a href="https://www.reddit.com/r/iosgaming/comments/6edh0l/free_299_to_remove_ads_sudoblock_i_made_a_new_and/">I posted on /r/iosgaming, which went ok</a></li>
-<li><a href="https://www.reddit.com/r/ios/comments/6ecos4/after_seeing_all_your_posts_about_bug_fixes_and/">I also tried a different tactic, which worked pretty well</a></li>
-</ul></li>
-
-<li><p>A German website
-<a href="https://www.mobiflip.de/sudoblock-ist-eine-interessante-mischung-aus-tetris-und-sudoku/">published an article about SudoBlock</a>.</p></li>
-
-<li><p>I tried to capitalize on <a href="https://twitter.com/SudoBlock/status/870202842182590465">#covfefe</a>,
-which didn&rsquo;t work at all. But I repurposed that new code into an <a href="https://twitter.com/SudoBlock/status/875065979679645696">Emojidoku mode</a>.</p></li>
-
-<li><p>I found a game publisher who was going to handle all the marketing and split the revenue.
-They even promised to get the game featured on the App Store.
-We signed the contract and I took the apps down for a while, but the publisher fell off the radar and stopped replying to my emails.</p></li>
-
-<li><p>I finally got around to writing this blog post.</p></li>
+<li><a href="https://www.reddit.com/r/iosgaming/comments/6edh0l/free_299_to_remove_ads_sudoblock_i_made_a_new_and/?ref=ghost.ndbroadbent.com">I posted on /r/iosgaming, which went ok</a></li>
+<li><a href="https://www.reddit.com/r/ios/comments/6ecos4/after_seeing_all_your_posts_about_bug_fixes_and/?ref=ghost.ndbroadbent.com">I also tried a different tactic, which worked pretty well</a></li>
 </ul>
-
+</li>
+<li>
+<p>A German website<br>
+<a href="https://www.mobiflip.de/sudoblock-ist-eine-interessante-mischung-aus-tetris-und-sudoku/?ref=ghost.ndbroadbent.com">published an article about SudoBlock</a>.</p>
+</li>
+<li>
+<p>I tried to capitalize on <a href="https://twitter.com/SudoBlock/status/870202842182590465?ref=ghost.ndbroadbent.com">#covfefe</a>,<br>
+which didn't work at all. But I repurposed that new code into an <a href="https://twitter.com/SudoBlock/status/875065979679645696?ref=ghost.ndbroadbent.com">Emojidoku mode</a>.</p>
+</li>
+<li>
+<p>I found a game publisher who was going to handle all the marketing and split the revenue.<br>
+They even promised to get the game featured on the App Store.<br>
+We signed the contract and I took the apps down for a while, but the publisher fell off the radar and stopped replying to my emails.</p>
+</li>
+<li>
+<p>I finally got around to writing this blog post.</p>
+</li>
+</ul>
 <h1 id="other-notes">Other Notes</h1>
-
 <ul>
-<li><p>I switched from Sublime Text to <a href="https://code.visualstudio.com/">VS Code</a> near the beginning of the project.
-VS Code is awesome. It&rsquo;s super fast and very customizable.</p></li>
-
-<li><p>I set up <a href="https://flow.org/">Flow</a> and started using <a href="https://facebook.github.io/immutable-js/">Immutable.js</a>.
-I love having static type checking for JavaScript.</p></li>
-
-<li><p>I used Airbnb&rsquo;s <a href="https://github.com/airbnb/javascript">eslint config</a>, and spent about a day
-fixing all the issues. Every time I saw a rule that I didn&rsquo;t understand, I looked it up to understand their reasoning. I read through a lot of great discussions on Github. This was a great way to learn more about
-JavaScript, and especially some of the new ES6 features.</p></li>
-
-<li><p>I starting doing some functional programming with <a href="https://github.com/lodash/lodash/wiki/FP-Guide">lodash/fp</a> and <a href="https://github.com/ramda/ramda">ramda</a>. I had fun refactoring some code in a more functional style.</p></li>
-
-<li><p>I really enjoyed working with <a href="https://github.com/redux-saga/redux-saga">redux-saga</a>, which helped me clean up a lot of messy code.</p></li>
-
-<li><p>I learned a lot about Reactive programming. This post is amazing: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you&rsquo;ve been missing</a>. I started playing with <a href="https://github.com/Reactive-Extensions/RxJS">RxJS</a> and
-<a href="https://github.com/redux-observable/redux-observable">redux-observable</a>.</p></li>
-
-<li><p>I set up <a href="https://microsoft.github.io/code-push/">CodePush</a>, so that I could push JS changes without releasing a new version to the App Store. <a href="https://github.com/Microsoft/react-native-code-push/blob/master/README.md">The setup guide is very helpful.</a></p></li>
-
-<li><p>I had to debug some memory issues on Android, and this article was really helpful: <a href="https://shift.infinite.red/react-native-android-app-memory-investigation-55695625da9c">React Native Android App Memory Investigation</a></p></li>
-
-<li><p>I learned about the <a href="https://medium.com/@soederpop/webpack-plugins-been-we-been-keepin-on-the-dll-cdfdd6cb8cd7">webpack DLL plugin</a>, which made development a lot faster. You can compile everything in <code>node_modules</code> as a separate bundle. You only need to do that once, so it saves a lot of time.</p></li>
-
-<li><p>I released a boilerplate project with my <a href="https://github.com/ndbroadbent/react-native-web-webpack">webpack config for react-native-web</a>.</p></li>
-
-<li><p>I learned about the <a href="https://github.com/ndbroadbent/babel-plugin-transform-react-remove-prop-types/commit/18edb329aa4fe7ebfd91af6d4b325cf9204e2ae1">Babel AST</a> while working on <a href="https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types/issues/95">an issue</a> in a Babel plugin, related to react-native-web.</p></li>
-
-<li><p>I wrote a script that stripped unused glyphs from icon fonts, to reduce the app size.</p></li>
-
-<li><p>I tested the app while simulating a slow network connection in Chrome. This revealed a bug where the counter started ticking before everything had finished loading.</p></li>
-
-<li><p>I discovered that it takes a huge amount of effort to actually launch a game. Once I had a playable game, it was another 2 months before everything else was finished. Things like in-app purchases, ads, analytics, high scores, achievements, tutorials, app store listings, screenshots, icons, social media accounts, etc.</p></li>
+<li>
+<p>I switched from Sublime Text to <a href="https://code.visualstudio.com/?ref=ghost.ndbroadbent.com">VS Code</a> near the beginning of the project.<br>
+VS Code is awesome. It's super fast and very customizable.</p>
+</li>
+<li>
+<p>I set up <a href="https://flow.org/?ref=ghost.ndbroadbent.com">Flow</a> and started using <a href="https://facebook.github.io/immutable-js/?ref=ghost.ndbroadbent.com">Immutable.js</a>.<br>
+I love having static type checking for JavaScript.</p>
+</li>
+<li>
+<p>I used Airbnb's <a href="https://github.com/airbnb/javascript?ref=ghost.ndbroadbent.com">eslint config</a>, and spent about a day<br>
+fixing all the issues. Every time I saw a rule that I didn't understand, I looked it up to understand their reasoning. I read through a lot of great discussions on Github. This was a great way to learn more about<br>
+JavaScript, and especially some of the new ES6 features.</p>
+</li>
+<li>
+<p>I starting doing some functional programming with <a href="https://github.com/lodash/lodash/wiki/FP-Guide?ref=ghost.ndbroadbent.com">lodash/fp</a> and <a href="https://github.com/ramda/ramda?ref=ghost.ndbroadbent.com">ramda</a>. I had fun refactoring some code in a more functional style.</p>
+</li>
+<li>
+<p>I really enjoyed working with <a href="https://github.com/redux-saga/redux-saga?ref=ghost.ndbroadbent.com">redux-saga</a>, which helped me clean up a lot of messy code.</p>
+</li>
+<li>
+<p>I learned a lot about Reactive programming. This post is amazing: <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754?ref=ghost.ndbroadbent.com">The introduction to Reactive Programming you've been missing</a>. I started playing with <a href="https://github.com/Reactive-Extensions/RxJS?ref=ghost.ndbroadbent.com">RxJS</a> and<br>
+<a href="https://github.com/redux-observable/redux-observable?ref=ghost.ndbroadbent.com">redux-observable</a>.</p>
+</li>
+<li>
+<p>I set up <a href="https://microsoft.github.io/code-push/?ref=ghost.ndbroadbent.com">CodePush</a>, so that I could push JS changes without releasing a new version to the App Store. <a href="https://github.com/Microsoft/react-native-code-push/blob/master/README.md?ref=ghost.ndbroadbent.com">The setup guide is very helpful.</a></p>
+</li>
+<li>
+<p>I had to debug some memory issues on Android, and this article was really helpful: <a href="https://shift.infinite.red/react-native-android-app-memory-investigation-55695625da9c?ref=ghost.ndbroadbent.com">React Native Android App Memory Investigation</a></p>
+</li>
+<li>
+<p>I learned about the <a href="https://medium.com/@soederpop/webpack-plugins-been-we-been-keepin-on-the-dll-cdfdd6cb8cd7?ref=ghost.ndbroadbent.com">webpack DLL plugin</a>, which made development a lot faster. You can compile everything in <code>node_modules</code> as a separate bundle. You only need to do that once, so it saves a lot of time.</p>
+</li>
+<li>
+<p>I released a boilerplate project with my <a href="https://github.com/ndbroadbent/react-native-web-webpack?ref=ghost.ndbroadbent.com">webpack config for react-native-web</a>.</p>
+</li>
+<li>
+<p>I learned about the <a href="https://github.com/ndbroadbent/babel-plugin-transform-react-remove-prop-types/commit/18edb329aa4fe7ebfd91af6d4b325cf9204e2ae1?ref=ghost.ndbroadbent.com">Babel AST</a> while working on <a href="https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types/issues/95?ref=ghost.ndbroadbent.com">an issue</a> in a Babel plugin, related to react-native-web.</p>
+</li>
+<li>
+<p>I wrote a script that stripped unused glyphs from icon fonts, to reduce the app size.</p>
+</li>
+<li>
+<p>I tested the app while simulating a slow network connection in Chrome. This revealed a bug where the counter started ticking before everything had finished loading.</p>
+</li>
+<li>
+<p>I discovered that it takes a huge amount of effort to actually launch a game. Once I had a playable game, it was another 2 months before everything else was finished. Things like in-app purchases, ads, analytics, high scores, achievements, tutorials, app store listings, screenshots, icons, social media accounts, etc.</p>
+</li>
+</ul>
+<br>
+<br>
+<p>This was about 3 months of work, and I was in a <a href="https://en.wikipedia.org/wiki/Flow_(psychology)?ref=ghost.ndbroadbent.com">state of flow</a> most of the time. I learned a lot of new things, and I really enjoyed the whole process.<br>
+The game has only made about $50 so far, but I have some more ideas for grid-based games, and<br>
+I can reuse a lot of the SudoBlock code. I'm also a freelancer, so this is the only way I can pick up new skills.</p>
+<p>Thanks for reading! If you have any questions, please <a href="https://news.ycombinator.com/item?id=16367937&ref=ghost.ndbroadbent.com">leave a comment on Hacker News</a>.</p>
+<br>
+<hr>
+<ul>
+<li>I'm currently working on <a href="https://docspring.com/?ref=ghost.ndbroadbent.com">DocSpring</a>, which is an API for filling out PDFs.</li>
 </ul>
 
-<p><br/>
-<br/></p>
+        </section>
 
-<p>This was about 3 months of work, and I was in a <a href="https://en.wikipedia.org/wiki/Flow_(psychology)">state of flow</a> most of the time. I learned a lot of new things, and I really enjoyed the whole process.
-The game has only made about $50 so far, but I have some more ideas for grid-based games, and
-I can reuse a lot of the SudoBlock code. I&rsquo;m also a freelancer, so this is the only way I can pick up new skills.</p>
+    </article>
 
-<p>Thanks for reading! If you have any questions, please <a href="https://news.ycombinator.com/item?id=16367937">leave a comment on Hacker News</a>.</p>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ghost.ndbroadbent.com/posts/2018-02-12-what-i-learned-while-making-a-game-with-react-native/";
+            this.page.identifier = "ghost-69"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://madebynathan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
 
-<p><br/></p>
-
-<hr />
-
-<ul>
-<li>I&rsquo;m currently working on <a href="https://docspring.com/">DocSpring</a>, which is an API for filling out PDFs.</li>
-</ul>
+</main>
 
 
-              <div class="related-posts">
-                <h5>Related Posts</h5>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        October 30, 2022
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/posts/2022-10-30-e24-resistor-pack-ring-binder/">Organizing 1,700 Resistors in a Ring Binder</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        September 30, 2022
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/posts/2022-09-30-automating-my-kitchen-rangehood/">Automating my Kitchen Rangehood Fan and Light</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h6 class="post-date">
-                        July 10, 2013
-                      </h6>
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                      <h6 style="text-align: left">
-                        <a href="/2013/07/10/raspberry-pi-powered-microwave/">Raspberry Pi Microwave</a>
-                      </h6>
-                    </div>
-                  </div>
-                
-              </div>
-            </div>
-          </div>
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-30-e24-resistor-pack-ring-binder/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Organizing 1,700 Resistors in a Ring Binder</h3>
+                    <p class="gh-card-excerpt is-body">I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
 
-        <div class="disqus">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
 
-    (function() {
-      
-      
-      if (window.location.hostname == "localhost")
-        return;
 
-      var disqus_shortname = 'madebynathan';
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
+You can use this PDF to make your own ring binder:
 
+
+
+
+
+ * Download E24_Resistor_Kit_Folder.pdf
+ * Liquid and SCSS that was used to generate the PDF
+
+
+
+
+
+The template code and generated PDF document are released</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-30">Oct 30, 2022</time>
+                <!--
+         --></footer>
         </div>
-      </div>
-      
-    </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Delete Plex TV Shows and Movies After Watching</h3>
+                    <p class="gh-card-excerpt is-body">Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#39;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-10">Oct 10, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Can you plug a SATA drive into a SAS controller?</h3>
+                    <p class="gh-card-excerpt is-body">Yes.
+
+
+
+SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&#39;t plug a SAS drive into a SATA controller (because it won&#39;t</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-07">Oct 7, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/2022/10/01/how-to-create-a-favicon-with-stable-diffusion-and-dalle-2/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Creating a new favicon with text-to-image AI</h3>
+                    <p class="gh-card-excerpt is-body">It&#39;s been a while since I wrote a blog post about creating a favicon.ico file for your website or blog. Things have changed a bit since I wrote that blog post in May 2010.
+
+
+I&#39;ve been updating the CSS for my blog recently, and I</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-02">Oct 2, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </section>
 
     
-    <footer>
-  <div id="footer">
-    <div class="container">
-      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
-      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
     </div>
-  </div>
-</footer>
-<div class="footer"></div>
+</footer>    
+</div>
 
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://madebynathan.com/js/docs.min.js"></script>
-<script src="https://madebynathan.com/js/main.js"></script>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
 
-<script src="https://madebynathan.com/js/ie10-viewport-bug-workaround.js"></script>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
 
-  </body>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/source.js?v=06fddbd22a"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
 </html>
