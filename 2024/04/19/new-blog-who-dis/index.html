@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Migrating from Hugo to Ghost</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=34e6f47cc9">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=34e6f47cc9">
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=34e6f47cc9">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2024/04/19/new-blog-who-dis/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Migrating from Hugo to Ghost">
+    <meta property="og:description" content="I haven&#x27;t been able to write any blog posts since I got an M2 MacBook. I was using an old version of Hugo and got it running in a Docker container, but the Docker container only ran on my old Intel Mac. It was too painful to update my hugo">
+    <meta property="og:url" content="https://madebynathan.com/2024/04/19/new-blog-who-dis/">
+    <meta property="og:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta property="article:published_time" content="2024-04-19T05:45:22.000Z">
+    <meta property="article:modified_time" content="2024-04-19T05:52:07.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Migrating from Hugo to Ghost">
+    <meta name="twitter:description" content="I haven&#x27;t been able to write any blog posts since I got an M2 MacBook. I was using an old version of Hugo and got it running in a Docker container, but the Docker container only ran on my old Intel Mac. It was too painful to update my hugo">
+    <meta name="twitter:url" content="https://madebynathan.com/2024/04/19/new-blog-who-dis/">
+    <meta name="twitter:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="840">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Migrating from Hugo to Ghost",
+    "url": "https://madebynathan.com/2024/04/19/new-blog-who-dis/",
+    "datePublished": "2024-04-19T05:45:22.000Z",
+    "dateModified": "2024-04-19T05:52:07.000Z",
+    "description": "I haven&#x27;t been able to write any blog posts since I got an M2 MacBook. I was using an old version of Hugo and got it running in a Docker container, but the Docker container only ran on my old Intel Mac. It was too painful to update my hugo theme to support the latest version, and I couldn&#x27;t figure out how to get it to run on my new Mac. So I didn&#x27;t write any blog posts for a while.\n\nI was using Ghost for my company blog and I really loved the editor. It&#x27;s so much nicer than editing Markdown file",
+    "mainEntityOfPage": "https://madebynathan.com/2024/04/19/new-blog-who-dis/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.82">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://madebynathan.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=34e6f47cc9"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=34e6f47cc9">
+    <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  .nav-sign-up { display: none; }
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+<style>:root {--ghost-accent-color: #5619ff;}</style>
+
+</head>
+<body class="post-template has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-personal-site"><a href="https://ndbroadbent.com">Personal Site</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post no-image">
+
+        <header class="gh-article-header gh-canvas">
+
+            <h1 class="gh-article-title is-title">Migrating from Hugo to Ghost</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2024-04-19">Apr 19, 2024</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 4 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>I haven't been able to write any blog posts since I got an M2 MacBook. I was using an old version of Hugo and got it running in a Docker container, but the Docker container only ran on my old Intel Mac. It was too painful to update my hugo theme to support the latest version, and I couldn't figure out how to get it to run on my new Mac. So I didn't write any blog posts for a while.</p><p>I was using Ghost for my <a href="https://docspring.com/blog/?ref=ghost.ndbroadbent.com">company blog</a> and I really loved the editor. It's so much nicer than editing Markdown files in VS Code, especially when it comes to embedding screenshot images and videos.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-19-at-5.05.24-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="969" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-19-at-5.05.24-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-19-at-5.05.24-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-19-at-5.05.24-PM.png 1600w, https://madebynathan.com/content/images/size/w2400/2024/04/Screenshot-2024-04-19-at-5.05.24-PM.png 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">The Ghost Editor</span></figcaption></figure><p>I loved being able to take a screenshot and just drag it into my blog post, instead of messing around with image resizing, file paths, Markdown image syntax, etc. So I decided to set up a Ghost instance on my home Proxmox server.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-19-at-5.06.48-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="972" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-19-at-5.06.48-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-19-at-5.06.48-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-19-at-5.06.48-PM.png 1600w, https://madebynathan.com/content/images/size/w2400/2024/04/Screenshot-2024-04-19-at-5.06.48-PM.png 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Proxmox Admin</span></figcaption></figure><p>I found this really helpful post on the Ghost Forum that helped me build an archive of all my old posts and import them into the Ghost database:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://forum.ghost.org/t/migration-from-hugo-to-ghost/31674/8?ref=ghost.ndbroadbent.com"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Migration from Hugo to Ghost</div><div class="kg-bookmark-description">Well, I don’t know how to write all what I did to this work, but I finally made this. I modified this script - https://github.com/saltfactory/node-jekyll-to-ghost to help. Because the script is very old, I needed to solve many small problems of patters and sanitization to get the correct final json. Every time I tried to import the json to ghost, I discovery some errors pattern. I solved that one by one. This post (Ghost and Markdown: Getting everything consistent on the backend) describe in…</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://global.discourse-cdn.com/business4/uploads/ghost2/optimized/2X/f/f381b3b952df5ad42fe691a8b14aa7f0c96c461a_2_180x180.png" alt=""><span class="kg-bookmark-author">Ghost Forum</span><span class="kg-bookmark-publisher">diegoeis</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://global.discourse-cdn.com/business4/uploads/ghost2/original/2X/8/8d4e1be1543b3ed506f105953a0d062b84797e42.png" alt=""></div></a></figure><p>See my reply for the JS script that ended up (mostly) working for me. I still had to spend a few hours fixing minor issues, getting syntax highlighting to work, and converting some image slideshows to Ghost galleries.</p><p>You can run Ghost in production and use it to serve a blog dynamically, but I didn't want to open up my home server to the public internet. I also didn't want to give up all the benefits of a static site:</p><ul><li>Extremely fast and 100% cached</li><li>No need to worry about traffic spikes or DDoS attacks</li><li>No need to worry about security updates</li></ul><p>Some downsides:</p><ul><li>You can't use Ghost's subscription and commenting features</li><li>It takes a little bit more time and effort to publish a new blog post</li></ul><p>I've turned off Ghost's subscription features and I'm using Disqus for comments.</p><p>I found a tool that can generate a static site from a Ghost blog:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/SimonM0/ghost-static-site-generator?ref=ghost.ndbroadbent.com"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - SimonM0/ghost-static-site-generator: Generate a static site from ghost and deploy using a CI</div><div class="kg-bookmark-description">Generate a static site from ghost and deploy using a CI - SimonM0/ghost-static-site-generator</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">SimonM0</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/04a6d1fbcc12a3cae3da78e58c65028a0b643bc009031cdcbf7b7f28430d8a8d/SimonM0/ghost-static-site-generator" alt=""></div></a></figure><p>I wrote a little script that will fetch all the HTML and assets, make a few changes and add a few things, commit the changes, and push to my GitHub pages repo.</p><pre><code class="language-bash">#!/bin/bash
+set -e
+
+if ! [ -d "static" ]; then
+  git clone git@github.com:ndbroadbent/ndbroadbent.github.io.git static
+  git checkout gh-pages
+fi
+rm -rf static/*
+node src/index.js --domain https://madebynathan.com --productionDomain https://madebynathan.com
+
+# Replace all remaining instances of https://madebynathan.com with https://madebynathan.com in static files
+grep -rl "https://madebynathan.com" static | xargs sed -i '' 's/https:\/\/ghost.ndbroadbent.com/https:\/\/madebynathan.com/g'
+
+echo madebynathan.com &gt; static/CNAME
+cp pubkey_38E63C0A.txt static/
+cp -R sudoblock static/
+
+cd static || exit
+git add .
+git commit -m "Update static files"
+git push origin gh-pages
+</code></pre><p>I always like to use Cloudflare, even though GitHub pages already has a CDN:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-19-at-5.23.22-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="940" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-19-at-5.23.22-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-19-at-5.23.22-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-19-at-5.23.22-PM.png 1600w, https://madebynathan.com/content/images/size/w2400/2024/04/Screenshot-2024-04-19-at-5.23.22-PM.png 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Cloudflare Dashboard</span></figcaption></figure><p>Cloudflare provides a little more flexibility, so I can set up custom redirect rules, force SSL, etc. They also have a nice analytics dashboard.</p><p>I stopped using Google Analytics a while ago. Now I use <a href="https://plausible.io/?ref=ghost.ndbroadbent.com">Plausible.io</a> for analytics on all of my websites. I use their hosted cloud platform for my blogs and personal sites, and I self-host my company instance on <a href="https://render.com/?ref=ghost.ndbroadbent.com">Render</a>.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-19-at-5.37.57-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="1484" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-19-at-5.37.57-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-19-at-5.37.57-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-19-at-5.37.57-PM.png 1600w, https://madebynathan.com/content/images/size/w2400/2024/04/Screenshot-2024-04-19-at-5.37.57-PM.png 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Plausible Analytics Dashboard</span></figcaption></figure><p>This blog post is my first real test run on my self-hosted Ghost instance, and I've really enjoyed it! It's such a game changer to have a WYSIWYG editor where I can drag-and-drop images. I'm excited to write some more blog posts about 3D printing, home automation, and all the other stuff I've been up to lately.</p>
+        </section>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://madebynathan.com/2024/04/19/new-blog-who-dis/";
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://madebynathan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-30-e24-resistor-pack-ring-binder/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Organizing 1,700 Resistors in a Ring Binder</h3>
+                    <p class="gh-card-excerpt is-body">I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
+
+
+
+You can use this PDF to make your own ring binder:
+
+
+
+
+
+ * Download E24_Resistor_Kit_Folder.pdf
+ * Liquid and SCSS that was used to generate the PDF
+
+
+
+
+
+The template code and generated PDF document are released</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-30">Oct 30, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Delete Plex TV Shows and Movies After Watching</h3>
+                    <p class="gh-card-excerpt is-body">Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#39;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-10">Oct 10, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Can you plug a SATA drive into a SAS controller?</h3>
+                    <p class="gh-card-excerpt is-body">Yes.
+
+
+
+SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&#39;t plug a SAS drive into a SATA controller (because it won&#39;t</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-07">Oct 7, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/2022/10/01/how-to-create-a-favicon-with-stable-diffusion-and-dalle-2/">
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Creating a new favicon with text-to-image AI</h3>
+                    <p class="gh-card-excerpt is-body">It&#39;s been a while since I wrote a blog post about creating a favicon.ico file for your website or blog. Things have changed a bit since I wrote that blog post in May 2010.
+
+
+I&#39;ve been updating the CSS for my blog recently, and I</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2022-10-02">Oct 2, 2022</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/source.js?v=34e6f47cc9"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
