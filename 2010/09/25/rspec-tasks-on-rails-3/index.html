@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="preload" as="style" href="/assets/built/screen.css?v=06fddbd22a">
-    <link rel="preload" as="script" href="/assets/built/source.js?v=06fddbd22a">
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=34e6f47cc9">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=34e6f47cc9">
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=06fddbd22a">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=34e6f47cc9">
 
     <style>
         :root {
@@ -31,8 +31,8 @@
         document.documentElement.className = `has-${textColor}-text`;
     </script>
 
-    <link rel="icon" href="https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
-    <link rel="canonical" href="https://ghost.ndbroadbent.com/2010/09/25/rspec-tasks-on-rails-3/">
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2010/09/25/rspec-tasks-on-rails-3/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Made By Nathan">
@@ -71,7 +71,7 @@ to
 
 
 t.">
-    <meta property="og:url" content="https://ghost.ndbroadbent.com/2010/09/25/rspec-tasks-on-rails-3/">
+    <meta property="og:url" content="https://madebynathan.com/2010/09/25/rspec-tasks-on-rails-3/">
     <meta property="og:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
     <meta property="article:published_time" content="2010-09-25T19:51:35.000Z">
     <meta property="article:modified_time" content="2024-04-19T02:17:15.000Z">
@@ -115,7 +115,7 @@ to
 
 
 t.">
-    <meta name="twitter:url" content="https://ghost.ndbroadbent.com/2010/09/25/rspec-tasks-on-rails-3/">
+    <meta name="twitter:url" content="https://madebynathan.com/2010/09/25/rspec-tasks-on-rails-3/">
     <meta name="twitter:image" content="https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="Nathan Broadbent">
@@ -132,10 +132,10 @@ t.">
     "publisher": {
         "@type": "Organization",
         "name": "Made By Nathan",
-        "url": "https://ghost.ndbroadbent.com/",
+        "url": "https://madebynathan.com/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://ghost.ndbroadbent.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
             "width": 60,
             "height": 60
         }
@@ -149,27 +149,27 @@ t.">
             "width": 250,
             "height": 250
         },
-        "url": "https://ghost.ndbroadbent.com/author/nathan/",
+        "url": "https://madebynathan.com/author/nathan/",
         "sameAs": []
     },
     "headline": "RSpec tasks on Rails 3",
-    "url": "https://ghost.ndbroadbent.com/2010/09/25/rspec-tasks-on-rails-3/",
+    "url": "https://madebynathan.com/2010/09/25/rspec-tasks-on-rails-3/",
     "datePublished": "2010-09-25T19:51:35.000Z",
     "dateModified": "2024-04-19T02:17:15.000Z",
     "keywords": "rspec, rails-3, bugfixes, rails",
     "description": "Problem:\n\n\nuninitialized constant RSpec::Rake\n\n\n\n\nSolution:\n\n\nYou are using Rails 3 (and RSpec 2), and trying to define a custom rake task with Spec::Rake::SpecTask.new\n\n\nInstead, do:\n\n\nRSpec::Core::RakeTask.new(:spec) do |t|\n...\n\n\n\nand make sure to change:\n\n\nt.spec_files &#x3D; FileList[&#x27;spec/**/*_spec.rb&#x27;]\n\n\n\nto\n\n\nt.pattern &#x3D; &#x27;spec/\\*_/_\\_spec.rb&#x27;\n\n",
-    "mainEntityOfPage": "https://ghost.ndbroadbent.com/2010/09/25/rspec-tasks-on-rails-3/"
+    "mainEntityOfPage": "https://madebynathan.com/2010/09/25/rspec-tasks-on-rails-3/"
 }
     </script>
 
     <meta name="generator" content="Ghost 5.82">
-    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://ghost.ndbroadbent.com/rss/">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
     
-    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://ghost.ndbroadbent.com/" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://madebynathan.com/" crossorigin="anonymous"></script>
     
-    <link href="https://ghost.ndbroadbent.com/webmentions/receive/" rel="webmention">
-    <script defer src="/public/cards.min.js?v=06fddbd22a"></script>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=06fddbd22a">
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=34e6f47cc9"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=34e6f47cc9">
     <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -192,7 +192,7 @@ t.">
     <div class="gh-navigation-inner gh-inner">
 
         <div class="gh-navigation-brand">
-            <a class="gh-navigation-logo is-title" href="https://ghost.ndbroadbent.com">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
                     Made By Nathan
             </a>
             <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
@@ -202,7 +202,7 @@ t.">
 
         <nav class="gh-navigation-menu">
             <ul class="nav">
-    <li class="nav-blog"><a href="https://ghost.ndbroadbent.com/">Blog</a></li>
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
     <li class="nav-personal-site"><a href="https://ndbroadbent.com">Personal Site</a></li>
     <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
 </ul>
@@ -224,7 +224,7 @@ t.">
 
         <header class="gh-article-header gh-canvas">
 
-                <a class="gh-article-tag" href="https://ghost.ndbroadbent.com/tag/rspec/">rspec</a>
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/rspec/">rspec</a>
             <h1 class="gh-article-title is-title">RSpec tasks on Rails 3</h1>
 
             <div class="gh-article-meta">
@@ -268,8 +268,7 @@ t.">
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-            this.page.url = "https://ghost.ndbroadbent.com/2010/09/25/rspec-tasks-on-rails-3/";
-            this.page.identifier = "ghost-20"
+            this.page.url = "https://madebynathan.com/2010/09/25/rspec-tasks-on-rails-3/";
         };
         (function() {
         var d = document, s = d.createElement('script');
@@ -435,7 +434,7 @@ I&#39;ve been updating the CSS for my blog recently, and I</p>
         </div>
     </div>
 </div>
-<script src="/assets/built/source.js?v=06fddbd22a"></script>
+<script src="/assets/built/source.js?v=34e6f47cc9"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
