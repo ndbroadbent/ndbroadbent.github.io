@@ -32,7 +32,7 @@ Basically, this means that it will leave you alone if you are working on a featu
 
 Otherwise, it will bring your branches up-to-date and send a desktop notification:
 
-<img src="/images/posts/2012/10/git_update_notify.jpg" alt="Git update notification" />
+<img src="/content/images/posts/2012/10/git_update_notify.jpg" alt="Git update notification" />
 
 ### Installing Gem dependencies
 
@@ -50,7 +50,7 @@ If `bundle install` fails for any reason, it will touch a file at `'.skip_bundle
 
 I've written about this before in my [Travis CI Status in Shell Prompt](/2012/01/14/travis-ci-status-in-shell-prompt/) post. Every 30 minutes I run a task to fetch build statuses for all the repos that contain a `.travis.yml` file. The status is saved in a hidden file called `.travis_status~`, and displayed in my prompt like this:
 
-<img src="/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt" />
+<img src="/content/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt" />
 
 ### Updating Git Repo Index
 
@@ -58,7 +58,7 @@ All of the previous tasks depend on the git repo index being up-to-date. It only
 
 This index lets me keep my code organized in different folders, while also letting me jump to different projects by name:
 
-<img src="/images/posts/2011/10/source_list-resized-post.png" alt="Git Status With Shortcuts" />
+<img src="/content/images/posts/2011/10/source_list-resized-post.png" alt="Git Status With Shortcuts" />
 
 <hr/>
 

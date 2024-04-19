@@ -1,0 +1,30 @@
+{
+  "name": "node-jekyll-to-ghost",
+  "version": "0.0.1",
+  "description": "jekyll to ghost exporter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saltfactory/node-jekyll-to-ghost.git"
+  },
+  "keywords": [
+    "node",
+    "jekyll",
+    "ghost",
+    "exporter"
+  ],
+  "author": "SungKwang Song <saltfactory@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saltfactory/node-jekyll-to-ghost/issues"
+  },
+  "homepage": "https://github.com/saltfactory/node-jekyll-to-ghost#readme",
+  "dependencies": {
+    "gray-matter": "^2.1.0",
+    "markdown": "^0.5.0",
+    "node-uuid": "^1.4.7"
+  }
+}

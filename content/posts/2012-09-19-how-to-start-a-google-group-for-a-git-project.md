@@ -31,7 +31,7 @@ You can get a list of contributor emails by running `git log --format='%ae' | so
 your git repo. However, Google Groups only lets you invite 10 emails at a time,
 so here's a Bash/Zsh script that will print all of your contributor emails as CSV, in groups of 10:
 
-{{< highlight bash >}}
+```bash
 emails=( $(git log --format='%ae' | sort -u) )
 total_groups=$(( ${#emails[@]} / 10 ))
 
@@ -42,7 +42,7 @@ for ((i=0; i <= $total_groups; i++)); do
   printf "%s, " "${grouped_emails[@]}" | cut -d "," -f 1-${#grouped_emails[@]}
 echo
 done
-{{< / highlight >}}
+```
 
 After pasting this script into your terminal, you can copy and paste each batch of
 emails into the **Enter email addresses of people to invite** textarea.
@@ -51,3 +51,7 @@ write it on the page you won't be able to get it back after sending the first ba
 
 It will still be quite a tedious process since you'll need to enter a captcha for each batch,
 but hopefully this script will save you some time.
+
+```
+
+```

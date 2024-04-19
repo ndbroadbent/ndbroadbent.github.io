@@ -8,7 +8,7 @@ title: "Can you plug a SATA drive into a SAS controller?"
 
 ## Yes.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/sata-sas/sata-sas.jpg" alt="SATA and SAS connectors" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/sata-sas/sata-sas.jpg" alt="SATA and SAS connectors" />
 
 SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can't plug a SAS drive into a SATA controller (because it won't fit.) SAS controller software can support SATA drives, but SATA controllers don't support SAS drives (even if you have an adapter.)
 
@@ -27,7 +27,7 @@ I already had a server rack in my closet, so I wanted to get a proper server to 
 
 The new server has been working great, and Home Assistant is noticeably faster. The 10-year-old Intel Xeon E3-1270v2 CPU has a CPU Mark benchmark score of 6429, which is 8x better than the Broadcom BCM2711 processor in a Raspberry Pi 4B (834.)
 
-<img class="lightbox thumb" src="/images/posts/2022/10/sata-sas/bcm2711-vs-intel-xeon.jpg" alt="BCM2711 vs Intel Xeon E3-1270 V2" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/sata-sas/bcm2711-vs-intel-xeon.jpg" alt="BCM2711 vs Intel Xeon E3-1270 V2" />
 
 - [BCM2711 vs Intel Xeon E3-1270 V2 @ 3.50GHz on cpubenchmark.net](https://www.cpubenchmark.net/compare/BCM2711-vs-Intel-Xeon-E3-1270-V2/4297vs1192)
 

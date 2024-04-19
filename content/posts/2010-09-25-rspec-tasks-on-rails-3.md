@@ -17,19 +17,20 @@ You are using rails 3 (and rspec 2), and trying to define a custom rake task wit
 
 Instead, do:
 
-{{< highlight ruby >}}
+````ruby
 RSpec::Core::RakeTask.new(:spec) do |t|
 ...
-{{< / highlight >}}
+```
 
 and make sure to change:
 
-{{< highlight ruby >}}
+```ruby
 t.spec_files = FileList['spec/**/*_spec.rb']
-{{< / highlight >}}
+```
 
 to
 
-{{< highlight ruby >}}
+```ruby
 t.pattern = 'spec/\*_/_\_spec.rb'
-{{< / highlight >}}
+```
+````

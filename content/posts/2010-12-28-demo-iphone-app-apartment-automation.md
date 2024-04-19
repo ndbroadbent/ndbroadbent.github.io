@@ -29,4 +29,4 @@ You could use this as a demo app to help you learn about:
 	<li>Using capistrano to deploy an iPhone app straight to your phone over SSH. (for jailbroken phones only)</li>
 	<li>etc.</li>
 </ul>
-<img class="lightbox thumb" src="/images/posts/2010/12/photo3.png" alt="Apartment Automation" />
+<img class="lightbox thumb" src="/content/images/posts/2010/12/photo3.png" alt="Apartment Automation" />

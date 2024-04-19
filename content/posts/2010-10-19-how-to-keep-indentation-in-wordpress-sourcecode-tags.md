@@ -14,24 +14,21 @@ Examples:
 
 <strong>Code pasted in 'Visual' View</strong>
 
-{{< highlight html >}}
+````html
 <indent>
-<indent>
-<indent>
+  <indent>
+    <indent> </indent>
+  </indent>
 </indent>
-</indent>
-</indent>
-{{< / highlight >}}
+```
 
 <strong>Code pasted in 'HTML' View</strong>
 
-{{< highlight html >}}
+```html
 <indent>
-<indent>
-<indent>
+  <indent>
+    <indent> </indent>
+  </indent>
 </indent>
-</indent>
-</indent>
-{{< / highlight >}}
-
-YMMV, I guess, but this is what works for me.
+``` YMMV, I guess, but this is what works for me.
+````

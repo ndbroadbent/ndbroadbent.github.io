@@ -24,12 +24,16 @@ What <code>bundle install haml</code> does:
 
 If you made this mistake and want to reset everything back to normal, just run:
 
-{{< highlight bash >}}
+```bash
 rm -rf {gem} .bundle/config
-{{< / highlight >}}
+```
 
 Then, to update your gem, you should run:
 
-{{< highlight bash >}}
+```bash
 bundle update {gem}
-{{< / highlight >}}
+```
+
+```
+
+```

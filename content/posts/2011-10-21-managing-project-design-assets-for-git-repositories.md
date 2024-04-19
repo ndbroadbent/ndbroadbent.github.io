@@ -36,11 +36,11 @@ This gives you the `design()` function, as well as a bunch of other features tha
 
 To install, run:
 
-{{< highlight bash >}}
+```bash
 git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
 source ~/.bashrc # or source ~/.zshrc
-{{< / highlight >}}
+```
 
 ## 2) Create and configure a root design directory
 
@@ -58,9 +58,9 @@ After you have changed these settings, remember to run `source ~/.bashrc` or `so
 
 To set up the design directories and symlinks, go to a project's directory and run:
 
-{{< highlight bash >}}
+```bash
 design init
-{{< / highlight >}}
+```
 
 If your root directory is `~/Dropbox/Design`, directories will be created at
 `~/Dropbox/Design/projects/my_project/Backgrounds`, `~/Dropbox/Design/projects/my_project/Icons`, etc.
@@ -75,21 +75,21 @@ It also adds this directory to `.git/info/exclude` so that git ignores it.
 Here's the awesome part: If you use the SCM Breeze git repository index,
 you can run the following batch command to set up these directories for all of your git repos at once:
 
-{{< highlight bash >}}
+```bash
 git_index --batch-cmd design init
-{{< / highlight >}}
+```
 
 If you want to remove any empty design directories, run:
 
-{{< highlight bash >}}
+```bash
 design trim
-{{< / highlight >}}
+```
 
 And if you want to remove all of a project's design directories, even if they contain files:
 
-{{< highlight bash >}}
+```bash
 design rm
-{{< / highlight >}}
+```
 
 ## 4) Link existing design directories into your projects
 
@@ -98,9 +98,9 @@ to be synchronized across all of your other development machines.
 
 Just run the following command on your other machines after following steps 1 and 2:
 
-{{< highlight bash >}}
+```bash
 design link
-{{< / highlight >}}
+```
 
 This uses your git index (from SCM Breeze) to figure out where to create the symlinks.
 If you don't use the git index, the same outcome could be achieved by running 'design init'
@@ -116,3 +116,7 @@ If you find a bug, or it doesn't work quite right on your operating system,
 
 If you don't already use Dropbox, [click here to sign up!](https://db.tt/hN3mN1W) It's an awesome service!
 And if you sign up via that referral link, you'll be giving me a little extra free space :)
+
+```
+
+```

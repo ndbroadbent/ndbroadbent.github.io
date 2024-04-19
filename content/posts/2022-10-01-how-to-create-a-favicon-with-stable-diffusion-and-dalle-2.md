@@ -20,7 +20,7 @@ It's been a while since [I wrote a blog post about creating a `favicon.ico` file
 
 I've been updating the CSS for my blog recently, and I wanted to update the favicon. Here's the old green square icon that I was using before:
 
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/old_favicon.jpg" alt="My old green square favicon" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/old_favicon.jpg" alt="My old green square favicon" />
 
 <br/>
 
@@ -30,7 +30,7 @@ I wanted something a bit more interesting, so I tried using some of the new text
 
 I played around with some different prompts in Midjourney and DALL·E 2, and I iterated on a few different ideas. I enjoy spending time in Midjourney's shared Discord channels (e.g. `#general-*`), where you can see what other people are doing and get some inspiration for prompts.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/midjourney_discord_shared_chat.jpg" alt="Midjourney shared chat channel general-4" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/midjourney_discord_shared_chat.jpg" alt="Midjourney shared chat channel general-4" />
 
 Here's a few examples of the prompts that I was trying:
 
@@ -44,25 +44,25 @@ Here's a few examples of the prompts that I was trying:
 
 Here's some of the images that I generated using DALL·E 2:
 
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/dalle_library.jpg" alt="Collection of images from Dalle 2" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/dalle_library.jpg" alt="Collection of images from Dalle 2" />
 
 And here's some from Midjourney:
 
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/midjourney_library.jpg" alt="Collection of images from Midjourney" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/midjourney_library.jpg" alt="Collection of images from Midjourney" />
 
 I eventually found some shapes and colors that looked pretty cool, so I generated some variations using the Midjourney Discord Bot.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/midjourney_discord.jpg" alt="Variations on a shape" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/midjourney_discord.jpg" alt="Variations on a shape" />
 
 Eventually I settled on this one. It kind of looks like an abstract "N". I tweaked the colors and contrast a little bit in [GIMP](https://www.gimp.org/).
 
 <p class="text-center">
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/final_logo.png" alt="I settled on this gradient and shape" style="max-width: 140px; margin: 50px;"/>
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/final_logo.png" alt="I settled on this gradient and shape" style="max-width: 140px; margin: 50px;"/>
 </p>
 
 I used [realfavicongenerator.net](https://realfavicongenerator.net) to generate a favicon package with lots of different sizes and (mostly unnecessary) features.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/realfavicongenerator_net.jpg" alt="realfavicongenerator.net is awesome. I use them for all my websites." />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/realfavicongenerator_net.jpg" alt="realfavicongenerator.net is awesome. I use them for all my websites." />
 
 They provide this HTML to include in my `<head>` tag:
 
@@ -80,14 +80,14 @@ They provide this HTML to include in my `<head>` tag:
 
 So here's the new favicon:
 
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/new_favicon.jpg" alt="My new favicon" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/new_favicon.jpg" alt="My new favicon" />
 
 <hr style="margin: 50px 0;" />
 
 P.S. Here's one I didn't end up using, in case you want it:
 
 <p class="text-left">
-<img class="lightbox thumb" src="/images/posts/2022/10/favicon/wet_bectolon.jpg" alt="WET BECTOLON" style="max-width: 360px;" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/favicon/wet_bectolon.jpg" alt="WET BECTOLON" style="max-width: 360px;" />
 </p>
 
 ### Wet Bectolon. _Crdoruf Ptaogoatuy_

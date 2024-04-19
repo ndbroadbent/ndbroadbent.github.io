@@ -28,6 +28,6 @@ By the way, this post is about an embedded linux system that plays last.fm inter
 
 Here are some screenshots of the shell.fm sinatra web interface:
 
-<img class="lightbox" alt="shell.fm sinatra" src="/images/posts/2010/06/changing-station.png" />
+<img class="lightbox" alt="shell.fm sinatra" src="/content/images/posts/2010/06/changing-station.png" />
 
-<img class="lightbox" alt="paused track, volume change" src="/images/posts/2010/06/paused.png" />
+<img class="lightbox" alt="paused track, volume change" src="/content/images/posts/2010/06/paused.png" />

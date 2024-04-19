@@ -19,9 +19,9 @@ At first, lcd4linux was asking me for mysql, and then sqlite, and those are pret
 packages for a little thin client. So before you compile lcd4linux,
 do this if you just want the fifo and exec plugins (substitute for your requirements):
 
-{{< highlight bash >}}
+```bash
 ./configure --with-plugins=fifo,exec --with-drivers=Pertelian
-{{< / highlight >}}
+```
 
 (also keep in mind the suggested compiling flags from the
 <a href="http://wiki.tinycorelinux.com/tiki-index.php?page=Creating+Extensions">"Creating an Extension"</a>
@@ -31,9 +31,10 @@ Will post some pics or video once I get it all working nicely.
 I'm also really keen to build a nice varnished pine box to house my shell.fm player
 (like the following guy from germany did..), with the LCD screen embedded.
 
-<img style="width: 600px;" class="lightbox" alt="T20 Thin Client pine box made by Dominik Huber" src="/images/posts/2010/04/thinclient.jpg" />
+<img style="width: 600px;" class="lightbox" alt="T20 Thin Client pine box made by Dominik Huber" src="/content/images/posts/2010/04/thinclient.jpg" />
 
 P.S. I bought one of these <a href="http://usb.brando.com/prod_detail.php?prod_id=00666">super-tiny keyboards</a>
 for my T20 projects. So fun.
 
-<img alt="Super Tiny USB Keyboard" src="/images/posts/2010/04/supertiny-keyboard.jpg" />
+<img alt="Super Tiny USB Keyboard" src="/content/images/posts/2010/04/supertiny-keyboard.jpg" />
+```

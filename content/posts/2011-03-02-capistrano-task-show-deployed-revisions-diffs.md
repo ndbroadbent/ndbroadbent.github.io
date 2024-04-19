@@ -17,7 +17,7 @@ If you run this 'cap revisions' task, it will show the currently deployed revisi
 
 Here it is:
 
-{{< highlight ruby >}}
+```ruby
 desc "Show currently deployed revision on server."
 task :revisions, :roles => :app do
 current, previous, latest = current_revision[0,7], previous_revision[0,7], real_revision[0,7]
@@ -45,8 +45,12 @@ end
 end
 
 after "deploy", "revisions"
-{{< / highlight >}}
+```
 
 I spent a while getting the output nicely colorized and indented. Everything is tested with ruby 1.9.2, but let me know if you have problems with 1.8.7.
 
 Also, be careful <strong>not</strong> to chain this task <strong>before</strong> 'deploy', because the 'current_revision' method caches the path and messes up bundler. (lesson learnt the hard way..)
+
+```
+
+```

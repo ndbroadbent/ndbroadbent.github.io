@@ -18,21 +18,21 @@ and restarting it takes it offline for a few minutes.
 
 So I used the `at` command to schedule the restart to happen at midnight, after everyone had gone home:
 
-{{< highlight bash >}}
+```bash
 $ echo "/etc/init.d/mingle restart" | at -m 00:00
 job 6 at 2012-02-26 00:00
-{{< / highlight >}}
+```
 
 Use `atq` or `at -l` to see the list of pending jobs:
 
-{{< highlight bash >}}
+```bash
 $ atq
 6 2012-02-26 00:00 a root
-{{< / highlight >}}
+```
 
 Use `at -c <job id>` to view the script that will be run:
 
-{{< highlight bash >}}
+```bash
 $ at -c 6
 
 #!/bin/sh
@@ -46,12 +46,16 @@ HOSTNAME=...
 <lots of environment variables set here>
 
 /etc/init.d/mingle restart
-{{< / highlight >}}
+```
 
 To delete a scheduled task, run `at -d <job id>`:
 
-{{< highlight bash >}}
+```bash
 $ at -d 6
 $ atq
 (no output)
-{{< / highlight >}}
+```
+
+```
+
+```

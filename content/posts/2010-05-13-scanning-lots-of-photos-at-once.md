@@ -30,12 +30,12 @@ Thanks to <strong> <a href="https://www.gimptalk.com/forum/memberlist.php?mode=v
 
 Example:
 
-<img src="/images/posts/2010/05/scan1-resized-post.jpg" />
+<img src="/content/images/posts/2010/05/scan1-resized-post.jpg" />
 
 <h2>becomes</h2>
 
 <div class="gallery">
-    <img class="lightbox thumb" src="/images/posts/2010/05/scan1-a.jpg" />
-    <img class="lightbox thumb" src="/images/posts/2010/05/scan1-b.jpg" />
-    <img class="lightbox thumb" src="/images/posts/2010/05/scan1-c.jpg" />
+    <img class="lightbox thumb" src="/content/images/posts/2010/05/scan1-a.jpg" />
+    <img class="lightbox thumb" src="/content/images/posts/2010/05/scan1-b.jpg" />
+    <img class="lightbox thumb" src="/content/images/posts/2010/05/scan1-c.jpg" />
 </div>

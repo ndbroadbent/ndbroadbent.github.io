@@ -24,30 +24,30 @@ to integrate the clipboard with the command line.
 
 - Pipe anything to the clipboard
 
-{{< highlight bash >}}
+```bash
 $ tail -n 100 /var/log/apache2/error.log | cb
 
 # => Copied to clipboard: [Sun Oct 02 08:02:08 2011] [notice] Apache/2.2.17 (Ubuntu) configured -- resumin...
 
-{{< / highlight >}}
+```
 
 - Copy the contents of a file to the clipboard
 
-{{< highlight bash >}}
+```bash
 $ cbf ~/.ssh/id_rsa.pub
 
 # => Copied to clipboard: ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnwaNIuOhZzUeR6/xEEudXt3zEh91dawhkkKx8p/+4Bw9...
 
-{{< / highlight >}}
+```
 
 - Type straight into the clipboard
 
-{{< highlight bash >}}
+```bash
 $ cb This is some unquoted text.
 
 # => Copied to clipboard: This is some unquoted text.
 
-{{< / highlight >}}
+```
 
 No options, no <code>man</code> pages.
 
@@ -58,7 +58,7 @@ I'm not affiliated with Atlassian, I just think they're awesome.
 
 So if you think this looks handy, you can add the following to your <code>~/.bashrc</code>:
 
-{{< highlight bash >}}
+```bash
 
 # A shortcut function that simplifies usage of xclip.
 
@@ -118,4 +118,8 @@ alias cbwd="pwd | cb"
 # Copy most recent command in bash history
 
 alias cbhs="cat $HISTFILE | tail -n 1 | cb"
-{{< / highlight >}}
+```
+
+```
+
+```

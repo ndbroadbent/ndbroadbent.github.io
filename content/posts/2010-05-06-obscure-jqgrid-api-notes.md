@@ -18,12 +18,13 @@ Just get rid of any "jqGrid(' **\*\*** ')" function wrappers, and everything sho
 
 For example:
 
-{{< highlight javascript >}}
+````js
 var ids = jQuery("#rowed2").jqGrid('getDataIDs');
-{{< / highlight >}}
+```
 
 becomes:
 
-{{< highlight javascript >}}
+```js
 var ids = jQuery("#rowed2").getDataIDs();
-{{< / highlight >}}
+```
+````

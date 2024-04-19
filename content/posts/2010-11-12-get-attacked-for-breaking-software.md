@@ -14,7 +14,7 @@ We had a USB Missile launcher lying around, and I thought it could be put to goo
 
 <br>
 
-<img class="lightbox thumb" src="/images/posts/2010/11/Photo-Nov-11-17-21-55.jpg" alt="CI Sentinel" />
+<img class="lightbox thumb" src="/content/images/posts/2010/11/Photo-Nov-11-17-21-55.jpg" alt="CI Sentinel" />
 
 <br>
 

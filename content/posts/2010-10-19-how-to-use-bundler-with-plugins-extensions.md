@@ -19,13 +19,17 @@ If we are developing a Spree extension, or a Retrospectiva extension, or a Fat F
 	<li>Add the following code to the bottom of your root Gemfile (in your main Rails app):</li>
 </ol>
 
-{{< highlight ruby >}}
+```ruby
 
 # Install gems from each plugin
 
 Dir.glob(File.join(File.dirname(**FILE**), 'vendor', 'plugins', '\*\*', "Gemfile")) do |gemfile|
 eval(IO.read(gemfile), binding)
 end
-{{< / highlight >}}
+```
 
 This will find and evaluate the Gemfiles from each of your plugins/extensions, as if you were modifying your base Gemfile.
+
+```
+
+```

@@ -10,9 +10,9 @@ Whenever I'm looking at backtraces, logs, or failing tests in the terminal, I of
 
 One extra feature for Ruby developers is support for backtrace lines like this:
 
-{{< highlight ruby >}}
+```ruby
 app/models/post.rb:225:in `sharing_is_caring'
-{{< / highlight >}}
+```
 
 If you double-click that file, you'll end up with the following selection: **app/models/post.rb:225:in**. The script will automatically strip the trailing **:in**, so you can just double-click instead of manually highlighting.
 
@@ -26,11 +26,11 @@ If you double-click that file, you'll end up with the following selection: **app
 
 - Download the [open_selected_in_editor](https://github.com/ndbroadbent/dotfiles/blob/master/bin/open_selected_in_editor) script to somewhere like `~/bin`.
 
-{{< highlight bash >}}
+```bash
 mkdir -p ~/bin
 wget https://raw.github.com/ndbroadbent/dotfiles/master/bin/open_selected_in_editor -O ~/bin/open_selected_in_editor
 chmod +x ~/bin/open_selected_in_editor
-{{< / highlight >}}
+```
 
 - Modify the script to use your preferred text editor
 
@@ -38,9 +38,9 @@ chmod +x ~/bin/open_selected_in_editor
 
 Add the following line to your `~/.bashrc`:
 
-{{< highlight bash >}}
+```bash
 PROMPT_COMMAND+="pwd > ~/.cwd~;"
-{{< / highlight >}}
+```
 
 This means that every time you press return in the terminal, the script can use your current directory to determine an absolute path for a highlighted file. It's not completely foolproof, but good enough for me.
 
@@ -52,6 +52,6 @@ This means that every time you press return in the terminal, the script can use 
   - Command: **~/bin/open_selected_in_editor**
 - Set the keyboard shortcut. I like _Ctrl+Shift+X_.
 
-<img class="lightbox thumb" src="/images/posts/2013/03/keyboard_shortcuts.jpg" alt="Ubuntu Keyboard Shortcuts" />
+<img class="lightbox thumb" src="/content/images/posts/2013/03/keyboard_shortcuts.jpg" alt="Ubuntu Keyboard Shortcuts" />
 
 All done! Now you can highlight a filename in the terminal, press your keyboard shortcut, and open it in your editor without the need to copy & paste filenames. Please let me know if you need any help, but I'm sorry I don't know how to do this in OS X or Windows.

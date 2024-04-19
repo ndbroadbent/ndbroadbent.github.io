@@ -44,20 +44,20 @@ Here's a summary of the features that I've added to my microwave:
 
 [Here's the recipe I followed.](https://frugalfastfun.blogspot.co.nz/2009/08/surprise-pies-using-microwave.html)
 
-<a class="image" href="/images/posts/2013/07/ingredients.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/ingredients-resized-thumb.jpg" alt="Raspberry Pie Ingredients" />
+<a class="image" href="/content/images/posts/2013/07/ingredients.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/ingredients-resized-thumb.jpg" alt="Raspberry Pie Ingredients" />
 </a>
-<a class="image" href="/images/posts/2013/07/mixing.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/mixing-resized-thumb.jpg" alt="Raspberry Pie Mixing" />
+<a class="image" href="/content/images/posts/2013/07/mixing.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/mixing-resized-thumb.jpg" alt="Raspberry Pie Mixing" />
 </a>
-<a class="image" href="/images/posts/2013/07/cooking_pie_filling.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/cooking_pie_filling-resized-thumb.jpg" alt="Raspberry Pie Cooking" />
+<a class="image" href="/content/images/posts/2013/07/cooking_pie_filling.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/cooking_pie_filling-resized-thumb.jpg" alt="Raspberry Pie Cooking" />
 </a>
-<a class="image" href="/images/posts/2013/07/raspberry_pi_raspberry_pie.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_pi_raspberry_pie-resized-thumb.jpg" alt="Raspberry Pi - Raspberry Pie" />
+<a class="image" href="/content/images/posts/2013/07/raspberry_pi_raspberry_pie.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/raspberry_pi_raspberry_pie-resized-thumb.jpg" alt="Raspberry Pi - Raspberry Pie" />
 </a>
-<a class="image" href="/images/posts/2013/07/a_slice_of_pi.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/a_slice_of_pi-resized-thumb.jpg" alt="A slice of Pi" />
+<a class="image" href="/content/images/posts/2013/07/a_slice_of_pi.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/a_slice_of_pi-resized-thumb.jpg" alt="A slice of Pi" />
 </a>
 
 <hr/>
@@ -66,26 +66,26 @@ Here's a summary of the features that I've added to my microwave:
 
 I used a microwave with a touchpad, and discovered that the touchpad was a button matrix. I took photos of the touchpad and traced the wires, so that I could tell which pins corresponded to which buttons.
 
-<a class="image" href="/images/posts/2013/07/touchpad_no_traces.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/touchpad_no_traces-resized-thumb.jpg" alt="Touchpad" />
+<a class="image" href="/content/images/posts/2013/07/touchpad_no_traces.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/touchpad_no_traces-resized-thumb.jpg" alt="Touchpad" />
 </a>
-<a class="image" href="/images/posts/2013/07/touchpad_traces.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/touchpad_traces-resized-thumb.jpg" alt="Touchpad Traces" />
+<a class="image" href="/content/images/posts/2013/07/touchpad_traces.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/touchpad_traces-resized-thumb.jpg" alt="Touchpad Traces" />
 </a>
-<a class="image" href="/images/posts/2013/07/original_touchpad.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/original_touchpad-resized-thumb.jpg" alt="Original Touchpad UI" />
+<a class="image" href="/content/images/posts/2013/07/original_touchpad.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/original_touchpad-resized-thumb.jpg" alt="Original Touchpad UI" />
 </a>
 
 I initially wanted to put everything in a case outside the microwave, but I decided that it would be more challenging and fun to try and fit everything inside. Here's all the PCB revisions, before I settled on a design that would fit neatly on top of the microwave's original PCB.
 
-<a class="image" href="/images/posts/2013/07/pcb_1.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_1-resized-thumb.jpg" alt="PCB revision 1" />
+<a class="image" href="/content/images/posts/2013/07/pcb_1.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/pcb_1-resized-thumb.jpg" alt="PCB revision 1" />
 </a>
-<a class="image" href="/images/posts/2013/07/pcb_2.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_2-resized-thumb.jpg" alt="PCB revision 2" />
+<a class="image" href="/content/images/posts/2013/07/pcb_2.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/pcb_2-resized-thumb.jpg" alt="PCB revision 2" />
 </a>
-<a class="image" href="/images/posts/2013/07/pcb_3.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_3-resized-thumb.jpg" alt="PCB revision 3" />
+<a class="image" href="/content/images/posts/2013/07/pcb_3.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/pcb_3-resized-thumb.jpg" alt="PCB revision 3" />
 </a>
 
 I used shift registers and optocouplers to control the touchpad pins. To listen for touchpad presses, an output shift register scans one line at a time on the first touchpad layer, and an input shift register listens for connections to the second layer.
@@ -94,29 +94,29 @@ I unsoldered the touchpad connector from the original circuit board, and replace
 
 Here's the final product after transferring toner, etching, drilling, and soldering. (I had to use the ribbon cables to save space.)
 
-<a class="image" href="/images/posts/2013/07/ready_to_etch.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/ready_to_etch-resized-thumb.jpg" alt="Ready to Etch" />
+<a class="image" href="/content/images/posts/2013/07/ready_to_etch.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/ready_to_etch-resized-thumb.jpg" alt="Ready to Etch" />
 </a>
-<a class="image" href="/images/posts/2013/07/soldered.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/soldered-resized-thumb.jpg" alt="Everything Soldered" />
+<a class="image" href="/content/images/posts/2013/07/soldered.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/soldered-resized-thumb.jpg" alt="Everything Soldered" />
 </a>
-<a class="image" href="/images/posts/2013/07/pcb_bottom.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/pcb_bottom-resized-thumb.jpg" alt="PCB Bottom" />
+<a class="image" href="/content/images/posts/2013/07/pcb_bottom.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/pcb_bottom-resized-thumb.jpg" alt="PCB Bottom" />
 </a>
 
 And here's how it fits on top of the microwave controller:
 
-<a class="image" href="/images/posts/2013/07/plugged_in1.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/plugged_in1-resized-thumb.jpg" alt="Plugged In" />
+<a class="image" href="/content/images/posts/2013/07/plugged_in1.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/plugged_in1-resized-thumb.jpg" alt="Plugged In" />
 </a>
-<a class="image" href="/images/posts/2013/07/plugged_in2.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/plugged_in2-resized-thumb.jpg" alt="Plugged In" />
+<a class="image" href="/content/images/posts/2013/07/plugged_in2.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/plugged_in2-resized-thumb.jpg" alt="Plugged In" />
 </a>
 
 When I peeled off the old touchpad overlay, it became wrinkled and ugly, so I thought I may as well have a go at redesigning the interface. My goal was to get rid of the features I don't really use, and make the basic functions more convenient. The top two rows of buttons are now dedicated to "one touch" cooking times, for either "high" or "medium" power. You can also set the time and power manually.
 
-<a class="image" href="/images/posts/2013/07/touchpad.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox" width="145" src="/images/posts/2013/07/touchpad-resized-thumb.jpg" alt="Touchpad" />
+<a class="image" href="/content/images/posts/2013/07/touchpad.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox" width="145" src="/content/images/posts/2013/07/touchpad-resized-thumb.jpg" alt="Touchpad" />
 </a>
 
 You might have noticed that I started the project with the intention of using an [Arduino Nano](https://arduino.cc/en/Main/ArduinoBoardNano) plugged into a Raspberry Pi USB port. This was because I was a) familiar with the Arduino, b) not familiar with the Raspberry Pi GPIO, and c) thought it would make testing and debugging a bit easier, since I could just plug the Arduino into my laptop.
@@ -125,29 +125,29 @@ However, it turns out that my Raspberry Pi had some issues with the arduino's FT
 
 So I decided to make an Arduino Nano =&gt; Raspberry Pi GPIO adapter, and port my Arduino code to the Raspberry Pi GPIO using the [WiringPi](https://wiringpi.com/) library.
 
-<a class="image" href="/images/posts/2013/07/arduino_raspberry_adapter.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/arduino_raspberry_adapter-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+<a class="image" href="/content/images/posts/2013/07/arduino_raspberry_adapter.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/arduino_raspberry_adapter-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
 </a>
-<a class="image" href="/images/posts/2013/07/raspberry_adapter_top.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_adapter_top-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+<a class="image" href="/content/images/posts/2013/07/raspberry_adapter_top.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/raspberry_adapter_top-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
 </a>
-<a class="image" href="/images/posts/2013/07/raspberry_adapter_bottom.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_adapter_bottom-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+<a class="image" href="/content/images/posts/2013/07/raspberry_adapter_bottom.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/raspberry_adapter_bottom-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
 </a>
-<a class="image" href="/images/posts/2013/07/raspberry_adapter_connected.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/raspberry_adapter_connected-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
+<a class="image" href="/content/images/posts/2013/07/raspberry_adapter_connected.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/raspberry_adapter_connected-resized-thumb.jpg" alt="Arduino to Raspberry Pi adapter" />
 </a>
 
 The Raspberry Pi is powered by a USB hub, which is also plugged into the Raspberry Pi's USB port. To power the hub, I wired up a power adapter to the microwave's power source. There's also a USB powered speaker, USB microphone, wifi adapter, and barcode scanner.
 
-<a class="image" href="/images/posts/2013/07/power_adapter.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/power_adapter-resized-thumb.jpg" alt="Power adapter" />
+<a class="image" href="/content/images/posts/2013/07/power_adapter.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/power_adapter-resized-thumb.jpg" alt="Power adapter" />
 </a>
-<a class="image" href="/images/posts/2013/07/usb_hub.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/usb_hub-resized-thumb.jpg" alt="USB Hub" />
+<a class="image" href="/content/images/posts/2013/07/usb_hub.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/usb_hub-resized-thumb.jpg" alt="USB Hub" />
 </a>
-<a class="image" href="/images/posts/2013/07/microphone_wifi.jpg" target="_blank" rel="noopener noreferrer">
-  <img class="lightbox thumb" src="/images/posts/2013/07/microphone_wifi-resized-thumb.jpg" alt="Microphone + Wifi" />
+<a class="image" href="/content/images/posts/2013/07/microphone_wifi.jpg" target="_blank" rel="noopener noreferrer">
+  <img class="lightbox thumb" src="/content/images/posts/2013/07/microphone_wifi-resized-thumb.jpg" alt="Microphone + Wifi" />
 </a>
 
 # Microwave Software
@@ -178,8 +178,8 @@ If any barcodes are scanned that can't be found on the Microwave Cooking Databas
 
 I couldn't find any existing websites with a database of microwave cooking instructions, so I made one.
 
-<a class="image" href="/images/posts/2013/07/mwcdb.png" target="_blank" rel="noopener noreferrer">
-  <img src="/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database" />
+<a class="image" href="/content/images/posts/2013/07/mwcdb.png" target="_blank" rel="noopener noreferrer">
+  <img src="/content/images/posts/2013/07/mwcdb-resized-post.png" alt="Microwave Cooking Database" />
 </a>
 
 > UPDATE: It used to be live at https://www.microwavecookingdb.com/, but the domain has now expired. Sorry!

@@ -8,7 +8,7 @@ toc: true
 
 I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/10k-to-51k.jpg" alt="Resistors from 10K to 51K ohms" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/10k-to-51k.jpg" alt="Resistors from 10K to 51K ohms" />
 
 You can use this PDF to make your own ring binder:
 
@@ -27,12 +27,12 @@ You can use this PDF to make your own ring binder:
 
 [Resistors](https://en.wikipedia.org/wiki/Resistor) are a fundamental component in electronics. They are used to limit the current flowing through a circuit. Resistors have colored bands that represent their value. The first two bands represent the first two digits of the resistance, and the third band represents the "multiplier" value, or power of 10. For example, a 10KΩ resistor has a brown band, a black band, and an orange band. The first two bands are brown (1) and black (0), which is 10. The third band is orange (1,000Ω), so the resistance is 10 x 1,000 = 10,000Ω.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/10k-resistor.jpg" alt="10,000 ohm resistor" style="max-width: 500px;" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/10k-resistor.jpg" alt="10,000 ohm resistor" style="max-width: 500px;" />
 
 The "tolerance" value is the fourth band. This is the maximum deviation from the nominal resistance. For example, a 10KΩ resistor with a 5% tolerance can have a resistance between 9,500Ω and 10,500Ω.
 
 <br/>
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/resistor-color-chart.jpg" alt="Resistor color chart" style="max-width: 500px;" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/resistor-color-chart.jpg" alt="Resistor color chart" style="max-width: 500px;" />
 
 ## The E24 Series
 
@@ -46,13 +46,13 @@ You can multiply each value in the series by the multiplier (power of 10) to get
 
 I bought a resistor pack that included 1,700 resistors in the E24 series, in sets of 10 (170 different values.) I bought 1/4 W carbon film resistors with a 5% tolerance.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/resistor-kit.jpg" alt="Pack of carbon film resistors" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/resistor-kit.jpg" alt="Pack of carbon film resistors" />
 
 It's very useful to have a wide range of resistors for breadboard circuits and prototype PCBs. It's not so useful when they're all mixed together in a single bag. The resistors I bought didn't have any labels or markings on the paper strips, so I had to read the colored bands or use a multimeter to find the resistance.
 
 For my first attempt at organizing them, I sorted them by the multiplier band (0.1Ω, 1Ω, 10Ω, etc.), and put them in labeled drawers:
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/original-labeled-drawers.jpg" alt="The original drawers I used to organize the resistors" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/original-labeled-drawers.jpg" alt="The original drawers I used to organize the resistors" />
 
 This didn't really help at all. I still needed to sort through 24 different values to find the one I was looking for. It got even worse once I started pulling out individual resistors to use in breadboard circuits. Instead of 24 sets of 10, I could have up to 240 individual resistors to sort through.
 
@@ -64,20 +64,20 @@ I used [DocSpring](https://docspring.com) to create the layout for all the pages
 
 > (Disclaimer: I'm the founder of DocSpring.)
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/docspring-template-html-screenshot.jpg" alt="Screenshot of the DocSpring template editor showing Liquid / HTML" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/docspring-template-html-screenshot.jpg" alt="Screenshot of the DocSpring template editor showing Liquid / HTML" />
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/docspring-template-scss-screenshot.jpg" alt="Screenshot of the DocSpring template editor showing SCSS" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/docspring-template-scss-screenshot.jpg" alt="Screenshot of the DocSpring template editor showing SCSS" />
 
 > This template didn't need any fields, so I didn't need to use the DocSpring API. I just downloaded the generated PDF from the Preview tab.
 
 I included a resistor graphic that shows the colored bands for each value. This was invaluable when I was sorting resistors into sleeves.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/pdf-template-example.jpg" alt="Screenshot of the DocSpring template editor showing SCSS" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/pdf-template-example.jpg" alt="Screenshot of the DocSpring template editor showing SCSS" />
 
 I used [Sleeve Kings 63.5mm X 88mm Card Sleeves](https://www.amazon.com/Sleeve-Kings-Card-Sleeves-63-5x88mm/dp/B07RD9QZD2?&linkCode=ll1&tag=ndbroadbent-20&linkId=b7ec66667342d933da70a72b98482f5f&language=en_US&ref_=as_li_ss_tl) for the 3x3 grid of pockets.
 
 <a href="https://www.amazon.com/Sleeve-Kings-Card-Sleeves-63-5x88mm/dp/B07RD9QZD2?&linkCode=ll1&tag=ndbroadbent-20&linkId=b7ec66667342d933da70a72b98482f5f&language=en_US&ref_=as_li_ss_tl">
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/sleeve-kings-card-sleeves.jpg" alt="Sleeve Kings 63.5mm X 88mm Card Sleeves" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/sleeve-kings-card-sleeves.jpg" alt="Sleeve Kings 63.5mm X 88mm Card Sleeves" />
 </a>
 
 I cut them to make them a little shorter, and stuck them onto ring binder sheets using a glue stick. Then I sorted all the resistors into sleeves, which felt like doing a jigsaw puzzle. It was a fun activity for a rainy Sunday afternoon.
@@ -94,43 +94,43 @@ I'm pretty happy with how this turned out, and I think my version is even better
 
 <div class="ring-binder-gallery">
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page00.jpg" alt="Finished ring binder with sorted resistors - Closed Folder" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page00.jpg" alt="Finished ring binder with sorted resistors - Closed Folder" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page01.jpg" alt="Finished ring binder with sorted resistors - Page 1" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page01.jpg" alt="Finished ring binder with sorted resistors - Page 1" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page02.jpg" alt="Finished ring binder with sorted resistors - Page 2" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page02.jpg" alt="Finished ring binder with sorted resistors - Page 2" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page03.jpg" alt="Finished ring binder with sorted resistors - Page 3" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page03.jpg" alt="Finished ring binder with sorted resistors - Page 3" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page04.jpg" alt="Finished ring binder with sorted resistors - Page 4" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page04.jpg" alt="Finished ring binder with sorted resistors - Page 4" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page05.jpg" alt="Finished ring binder with sorted resistors - Page 5" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page05.jpg" alt="Finished ring binder with sorted resistors - Page 5" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page06.jpg" alt="Finished ring binder with sorted resistors - Page 6" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page06.jpg" alt="Finished ring binder with sorted resistors - Page 6" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page07.jpg" alt="Finished ring binder with sorted resistors - Page 7" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page07.jpg" alt="Finished ring binder with sorted resistors - Page 7" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page08.jpg" alt="Finished ring binder with sorted resistors - Page 8" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page08.jpg" alt="Finished ring binder with sorted resistors - Page 8" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page09.jpg" alt="Finished ring binder with sorted resistors - Page 9" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page09.jpg" alt="Finished ring binder with sorted resistors - Page 9" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page10.jpg" alt="Finished ring binder with sorted resistors - Page 10" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page10.jpg" alt="Finished ring binder with sorted resistors - Page 10" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page11.jpg" alt="Finished ring binder with sorted resistors - Page 11" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page11.jpg" alt="Finished ring binder with sorted resistors - Page 11" />
   </div>
   <div>
-    <img style="max-width: 100%" class="lightbox" src="/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page12.jpg" alt="Finished ring binder with sorted resistors - Page 12" />
+    <img style="max-width: 100%" class="lightbox" src="/content/images/posts/2022/10/e24-resistors-ring-binder/ring-binder-photos/page12.jpg" alt="Finished ring binder with sorted resistors - Page 12" />
   </div>
 </div>
 
@@ -154,14 +154,14 @@ I'm pretty happy with how this turned out, and I think my version is even better
 After publishing this blog post, I found out that you can buy card binder sheets that already come with 9 pockets.
 [You can purchase these on Amazon.](https://www.amazon.com/AmazonBasics-Sleeve-Protectors-Binder-Sheet/dp/B07PD7KBN5?&linkCode=ll1&tag=ndbroadbent-20&linkId=1e81f428ee077d3eaf75a8f274d88aa5&language=en_US&ref_=as_li_ss_tl)
 
-<a href="https://www.amazon.com/AmazonBasics-Sleeve-Protectors-Binder-Sheet/dp/B07PD7KBN5?&linkCode=ll1&tag=ndbroadbent-20&linkId=1e81f428ee077d3eaf75a8f274d88aa5&language=en_US&ref_=as_li_ss_tl"><img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/amazon-9-sleeve-card-binder-sheets.jpg" alt="3x3 card binder sheets" style="max-width: 500px;" /></a>
+<a href="https://www.amazon.com/AmazonBasics-Sleeve-Protectors-Binder-Sheet/dp/B07PD7KBN5?&linkCode=ll1&tag=ndbroadbent-20&linkId=1e81f428ee077d3eaf75a8f274d88aa5&language=en_US&ref_=as_li_ss_tl"><img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/amazon-9-sleeve-card-binder-sheets.jpg" alt="3x3 card binder sheets" style="max-width: 500px;" /></a>
 
 <br/>
 
 I found [another option that has some flaps at the top of each pocket](https://www.amazon.com/StoreSMART-Plastic-Binders-10-Pack-RMSTWPF-MEMRY-10/dp/B00JAIIMEY?th=1&psc=1&linkCode=ll1&tag=ndbroadbent-20&linkId=545fa3f02aa979f1e78f4b86105ac6a0&language=en_US&ref_=as_li_ss_tl).
 This would prevent the resistors from falling out if you drop the binder or tip it upside down. I'll probably use this option next time I need to organize electronic components. It would also be very handy for SD cards and USB sticks.
 
-<a href="https://www.amazon.com/StoreSMART-Plastic-Binders-10-Pack-RMSTWPF-MEMRY-10/dp/B00JAIIMEY?th=1&psc=1&linkCode=ll1&tag=ndbroadbent-20&linkId=545fa3f02aa979f1e78f4b86105ac6a0&language=en_US&ref_=as_li_ss_tl"><img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/3x3-binder-pockets-with-flaps.jpg" alt="3x3 card binder sheets with flaps for each pocket" style="max-width: 500px;" /></a>
+<a href="https://www.amazon.com/StoreSMART-Plastic-Binders-10-Pack-RMSTWPF-MEMRY-10/dp/B00JAIIMEY?th=1&psc=1&linkCode=ll1&tag=ndbroadbent-20&linkId=545fa3f02aa979f1e78f4b86105ac6a0&language=en_US&ref_=as_li_ss_tl"><img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/3x3-binder-pockets-with-flaps.jpg" alt="3x3 card binder sheets with flaps for each pocket" style="max-width: 500px;" /></a>
 
 ### Supplies
 
@@ -202,7 +202,7 @@ This would prevent the resistors from falling out if you drop the binder or tip 
 
 [@impulse7 posted a comment on Hacker News](https://news.ycombinator.com/item?id=33393853) where they shared their own solution to this problem. They created PDF labels to organize resistors in [Raaco storage drawers](https://www.amazon.com/Storage-Home-Organization-Raaco-Tools-Improvement/s?rh=n%3A13400631%2Cp_89%3ARaaco&linkCode=ll2&tag=ndbroadbent-20&linkId=8c3a44131d986bdc83efb320e3a486a9&language=en_US&ref_=as_li_ss_tl). They have shared their [PDF generation code on GitHub](https://github.com/tonybjorkman/raaco-organizer). This is a great option if you have plenty of space in your workshop.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/raaco-storage-labels.jpg" alt="Labels for Raaco storage organizer, from https://github.com/tonybjorkman/raaco-organizer" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/raaco-storage-labels.jpg" alt="Labels for Raaco storage organizer, from https://github.com/tonybjorkman/raaco-organizer" />
 
 ---
 
@@ -211,7 +211,7 @@ This would prevent the resistors from falling out if you drop the binder or tip 
 If you want to skip all the work and just buy a pre-made ring binder, you can [buy one from an electronics supplier such as RS Components](https://nz.rs-online.com/web/p/resistor-kits/2476718). This will save a lot of time, but they can be quite expensive.
 
 <a href="https://nz.rs-online.com/web/p/resistor-kits/2476718">
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/through-hole-resistor-kit-504.jpg" alt="$504 NZD for a ring binder of sorted resistors" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/through-hole-resistor-kit-504.jpg" alt="$504 NZD for a ring binder of sorted resistors" />
 </a>
 
 > $504.52 New Zealand dollars = $323.72 USD
@@ -224,7 +224,7 @@ I found a few cheaper options but they were still hundreds of dollars. So I thou
 
 P.S. Digi-Key's [Resistor Color Code Calculator](https://www.digikey.co.nz/en/resources/conversion-calculators/conversion-calculator-resistor-color-code) was very useful. It's a great tool for quickly looking up resistor values.
 
-<img class="lightbox thumb" src="/images/posts/2022/10/e24-resistors-ring-binder/digikey-calculator.jpg" alt="DigiKey's 4 Band Resistor Color Code Calculator" />
+<img class="lightbox thumb" src="/content/images/posts/2022/10/e24-resistors-ring-binder/digikey-calculator.jpg" alt="DigiKey's 4 Band Resistor Color Code Calculator" />
 
 # MIT License
 

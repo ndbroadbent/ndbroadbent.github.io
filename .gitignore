@@ -2,3 +2,6 @@ public/
 .DS_Store
 hugo-alpine-amd64.tar.gz
 .cloudflare
+export/
+export.zip
+node_modules

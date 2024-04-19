@@ -22,7 +22,7 @@ Wouldn't it be cool if you could see that build status in your shell prompt when
 
 Here's what my shell prompt looks like now:
 
-<img src="/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt" />
+<img src="/content/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt" />
 
 This shows the build status for the current branch.
 
@@ -34,14 +34,14 @@ You should use my fork of [mislav's](https://github.com/mislav) `travis-ci` scri
 
 Run the following to install it:
 
-{{< highlight bash >}}
+```bash
 mkdir -p ~/bin/
 curl -sL https://raw.github.com/gist/1708408/travis.rb > ~/bin/travis-ci \
  && chmod +x ~/bin/travis-ci
 
 gem install hub | tail -2
 ruby -e 'require "json"' 2>/dev/null || gem install json
-{{< / highlight >}}
+```
 
 Next, we need to update the cached status.
 The following code is included as part of my [SCM Breeze project](/2011/10/19/git-shortcuts-like-youve-never-seen-before/), but feel free to save the `update_travis_ci_status` script <a href="#update_travis_ci_status">at the bottom of this post [1]</a> to `/usr/bin/update_travis_ci_status`.
@@ -52,14 +52,14 @@ We only want to frequently update the status for the currently checked out branc
 The [SCM Breeze project](/2011/10/19/git-shortcuts-like-youve-never-seen-before/) also maintains an index of your git repositories, which gives you the ability to run batch commands via the `git_index` function.
 So the build status update can be easily set up as a cron task:
 
-{{< highlight text >}}
+```text
 _/5 _ \* \* _ /bin/bash -c '. $HOME/.bashrc && git_index --rebuild && git_index --batch-cmd update_travis_ci_status'
 _/45 \* \* \* \* /bin/bash -c '. $HOME/.bashrc && git_index --rebuild && export UPDATE_ALL_BRANCHES=true && git_index --batch-cmd update_travis_ci_status'
-{{< / highlight >}}
+```
 
 Alternatively, you could save the following script to `/usr/bin/update_all_travis_ci_statuses`.
 
-{{< highlight bash >}}
+```bash
 #!/bin/bash
 
 # (Replace `$HOME/code` with the location of your projects)
@@ -67,14 +67,14 @@ Alternatively, you could save the following script to `/usr/bin/update_all_travi
 for f in find "$HOME/code" -maxdepth 4 -name .travis.yml; do
   (builtin cd "$(dirname $f)" && update_travis_ci_status)
 done
-{{< / highlight >}}
+```
 
 ... and use the following cron task:
 
-{{< highlight text >}}
+```text
 _/5 _ \* \* _ /bin/bash -c '. $HOME/.bashrc && /usr/bin/update_all_travis_ci_statuses'
 _/45 \* \* \* \* /bin/bash -c '. $HOME/.bashrc && export UPDATE_ALL_BRANCHES=true && /usr/bin/update_all_travis_ci_statuses'
-{{< / highlight >}}
+```
 
 (you need to source your `.bashrc` if your default ruby comes from RVM)
 
@@ -82,7 +82,7 @@ Finally, you need a way to display the cached status in your prompt.
 
 Here are the functions I use to return a colored pass / fail / running symbol:
 
-{{< highlight bash >}}
+```bash
 
 # Returns the Travis CI status for a github project
 
@@ -110,7 +110,7 @@ for (( n=${#slashes}; n>0; --n )); do
 done
 return 1
 }
-{{< / highlight >}}
+```
 
 (it also works if you are in a project's sub-directory.)
 
@@ -124,7 +124,7 @@ Enjoy! Please let me know if you have any questions, or need some help.
 
 <a name="update_travis_ci_status">[1]</a> `update_travis_ci_status` script:
 
-{{< highlight bash >}}
+```bash
 #!/bin/bash
 if [ -e ".travis.yml" ]; then
 if type ruby > /dev/null 2>&1 && type travis-ci > /dev/null 2>&1; then
@@ -179,4 +179,8 @@ local tmp_stat_file="$stat_file"".tmp"
 
 fi
 fi
-{{< / highlight >}}
+```
+
+```
+
+```

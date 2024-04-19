@@ -16,8 +16,12 @@ but this makes it tricky to find the gem you need to look at.
 Enter RVM hooks! If you want a symlink to the current gem directory to be updated each time you switch ruby versions,
 save something like the following code to <code>~/.rvm/hooks/after_use</code>
 
-{{< highlight bash >}}
+```bash
 ln -nfs $rvm_ruby_gem_home/gems ~/src/gems/current_bundle
-{{< / highlight >}}
+```
 
 Now you have access to the source code of gems from the file browser in your editor.
+
+```
+
+```

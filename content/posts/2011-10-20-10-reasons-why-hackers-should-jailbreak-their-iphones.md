@@ -13,7 +13,7 @@ It also seems strange that 'Hacker News' readers don't appear to be very excited
 
 We don't need to ask developers to support Chrome when we can just change the default browser ourselves:
 
-<img src="/images/posts/2012/07/browser_changer.png" alt="Changing Default Browser" />
+<img src="/content/images/posts/2012/07/browser_changer.png" alt="Changing Default Browser" />
 
 You can find the "[Browser Changer](https://cydia.saurik.com/package/jp.tom-go.openopera)" package on [Cydia](https://cydia.saurik.com/).
 
@@ -25,7 +25,7 @@ You can find the "[Browser Changer](https://cydia.saurik.com/package/jp.tom-go.o
 
 The Grooveshark iPhone app was removed from the App Store, so you can only install it on a jailbroken iPhone through Cydia.
 
-<img src="/images/posts/2012/07/grooveshark.png" alt="Grooveshark" />
+<img src="/content/images/posts/2012/07/grooveshark.png" alt="Grooveshark" />
 
 The 'Grooveshark Anywhere' plan is required if you want to download unlimited albums and songs to play offline, but it's well worth the $9 per month.
 It's definitely a replacement for iTunes, so it's no wonder that Apple feels threatened.
@@ -52,7 +52,7 @@ Plays anything you can transfer to your iPhone. Another great app rejected from 
 It's pretty neat to have a terminal on your phone, even if I don't use it very often.
 You never know when you might need to restart or rollback a remote server:
 
-<img src="/images/posts/2012/07/terminal.png" alt="Terminal" />
+<img src="/content/images/posts/2012/07/terminal.png" alt="Terminal" />
 
 <hr/>
 
@@ -60,7 +60,7 @@ You never know when you might need to restart or rollback a remote server:
 
 This is an incredibly useful shortcuts menu, displayed by swiping the status bar:
 
-<img src="/images/posts/2012/07/sbsettings.png" alt="SBSettings" />
+<img src="/content/images/posts/2012/07/sbsettings.png" alt="SBSettings" />
 
 The AutoLock control is really handy when using the Maps application. I use Maps as the GPS for my car, and I don't want the screen to turn off while I'm driving.
 
@@ -79,7 +79,7 @@ MyWi is rock-solid, and can display a small icon instead of taking over the enti
 
 This is just my personal preference, but I like having 5 icons in my dock and home screen.
 
-<img src="/images/posts/2012/07/five-icons.png" alt="Five Icons" />
+<img src="/content/images/posts/2012/07/five-icons.png" alt="Five Icons" />
 
 <hr/>
 

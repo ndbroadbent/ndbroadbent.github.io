@@ -32,11 +32,11 @@ I still use Raspberry Pis, but now I prefer using ESP32 and ESP8266 chips. ESPHo
 
 Here's a photo of the rangehood, with some of my tools. You can see the main controller board and the button board hanging out.
 
-<img class="lightbox thumb" src="/images/posts/2022/09/rangehood.jpg" alt="Picture of my kitchen rangehood" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/rangehood.jpg" alt="Picture of my kitchen rangehood" />
 
 This is the button board, which has 4 buttons, and an LED for each button:
 
-<img class="lightbox thumb" src="/images/posts/2022/09/button_led_board.jpg" alt="Button and LED board to control the rangehood" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/button_led_board.jpg" alt="Button and LED board to control the rangehood" />
 
 ## How to read 4 buttons and light 4 LEDs with only 5 wires
 
@@ -44,7 +44,7 @@ I wanted to preserve the original functionality of the rangehood buttons, so tha
 
 I took a photo of the PCB and traced it using different colors, so I could where each of the wires was going:
 
-<img class="lightbox thumb" src="/images/posts/2022/09/pcb_traces.jpg" alt="I traced the PCB on my phone" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/pcb_traces.jpg" alt="I traced the PCB on my phone" />
 
 I found that button has a 1K ohm resistor, and each LED has a 148 ohm resistor.
 
@@ -54,11 +54,11 @@ I'm a software developer, so I really like having fast feedback loops and the ab
 
 I found [TinkerCad](https://www.tinkercad.com/), and my mind was blown! Now I had a virtual Arduino wired up to a virtual breadboard. I recreated this button/LED board inside TinkerCad. I could set up virtual multi-meters to see how much current was flowing through LEDs, and easily figure out values for resistors.
 
-<img class="lightbox thumb" src="/images/posts/2022/09/tinkercad_simulation.png" alt="Screenshot of TinkerCad simulation" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/tinkercad_simulation.png" alt="Screenshot of TinkerCad simulation" />
 
 This is so awesome! It even tells you when too much current is going through an LED:
 
-<img class="lightbox thumb" src="/images/posts/2022/09/tinkercad_led_warning.png" alt="It tells you when you have too much current going through an LED" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/tinkercad_led_warning.png" alt="It tells you when you have too much current going through an LED" />
 
 Here's [a link to my TinkerCad project where you can run the circuit simulation](https://www.tinkercad.com/things/1bAouc9AybL-rangehood-esp32-buttonled-proxy/editel?sharecode=78vrKEWsZrrcoPSy2SCQuQP9ZW9wdGJ0-cJg6wy4u84).
 
@@ -72,13 +72,13 @@ I got something working in my virtual Arduino. The other side of the circuit was
 
 I tried it out with a real Arduino, and it worked!
 
-<img class="lightbox thumb" src="/images/posts/2022/09/arduino_screenshot.jpg" alt="Screenshot of Arduino logs in real life" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/arduino_screenshot.jpg" alt="Screenshot of Arduino logs in real life" />
 
 It was a pretty cool experience to simulate a whole Arduino circuit inside my browser, and then see it work in real life.
 
 https://everycircuit.com is also a really cool option for circuit simulation:
 
-<img class="lightbox thumb" src="/images/posts/2022/09/everycircuit.jpg" alt="EveryCircuit.com simulation" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/everycircuit.jpg" alt="EveryCircuit.com simulation" />
 
 It can handle some things that TinkerCad can't do, such as astable multivibrator circuits where you need to inject a little noise to get it started. (TinkerCad just crashes with an "infinite loop" error.)
 
@@ -98,7 +98,7 @@ I should have made sure that everything worked on a breadboard. Instead, I start
 
 Then I checked the [ESP8266 pinout](https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/) and realized that I had run out of GPIO pins.
 
-<img class="lightbox thumb" src="/images/posts/2022/09/esp8266_pinout.png" alt="ESP8266 pin out" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/esp8266_pinout.png" alt="ESP8266 pin out" />
 
 I tried to get away with using some of the yellow "OK" ones, but the boot started failing (I guess I was pulling some of the pins high or low.) I needed 4 pins to control the optocoupler outputs, and 5 for the button/LED board. That's 9 GPIO pins, and the ESP8266 only had 7. I thought it had more!
 
@@ -118,9 +118,9 @@ After doing a bunch of unsoldering and resoldering, putting random hookup wires 
 
 I realized that a oscilloscope would be really useful, and I should have bought one a long time ago. I bought a [USB BitScope 10](http://my.bitscope.com/store/?p=view&i=item+3). It's pretty cool!
 
-<img class="lightbox thumb" src="/images/posts/2022/09/bitscope_screenshot.jpg" alt="Screenshot of the Bitscope software on Mac" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/bitscope_screenshot.jpg" alt="Screenshot of the Bitscope software on Mac" />
 
-<img class="lightbox thumb" src="/images/posts/2022/09/components_on_desk.jpg" alt="Photo of breadboard and Bitscope on my desk" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/components_on_desk.jpg" alt="Photo of breadboard and Bitscope on my desk" />
 
 This helped me figure out where some things needed to be resoldered. One of the optocouplers was only working when I pushed on it with my finger. I originally thought it might have been a broken chip or something to do with capacitance, but it was just a broken PCB trace and some dodgy soldering.
 
@@ -162,7 +162,7 @@ I put everything into a little black box. Connected all the wires up and stuck i
 
 So now I've got the fan and light in Home Assistant. (And the physical buttons still work as well.)
 
-<img class="lightbox thumb" src="/images/posts/2022/09/homeassistant_rangehood_screenshot.png" alt="Screenshot of the rangehood entities in Home Assistant" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/homeassistant_rangehood_screenshot.png" alt="Screenshot of the rangehood entities in Home Assistant" />
 
 I've set up an [entity controller](https://danobot.github.io/ec-docs/) to turn on the light.
 
@@ -174,11 +174,11 @@ I want to put an air quality sensor in the kitchen and automatically turn on the
 
 > Update from Sep 30, 2022: I've put the air quality sensor in the kitchen, and have set it up to turn on the rangehood fan when the PM 2.5 level is above 12 µg/m³. (It usually hovers around 6 µg/m³.) It's been working really well!
 
-<img class="lightbox thumb" src="/images/posts/2022/09/kitchen_aqi_chart.jpg" alt="Chart of PM 2.5 levels in our kitchen. I use a filter to remove outliers and smooth out the data." />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/kitchen_aqi_chart.jpg" alt="Chart of PM 2.5 levels in our kitchen. I use a filter to remove outliers and smooth out the data." />
 
 I also bought a current clamp sensor that can measure AC current. I want to set this up for the stovetop so I can detect when it's on and automatically turn on the fan (in advance, instead of waiting for the AQI to get bad.) It would be easier if I could use an energy monitoring wall plug, but it looks like the stovetop is wired directly into the circuit breaker, and it uses a lot of power so I don't want to mess around with those wires. I'll just separate them and put a clamp around one of them. I'll follow [this guide to set it all up](https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true) and get it working on an ESP32.
 
-<img class="lightbox thumb" src="/images/posts/2022/09/ac_current_clamp_circuit.jpg" alt="Circuit diagram for measuring AC current with a clamp sensor" />
+<img class="lightbox thumb" src="/content/images/posts/2022/09/ac_current_clamp_circuit.jpg" alt="Circuit diagram for measuring AC current with a clamp sensor" />
 
 I have [this power meter](https://www.aliexpress.com/item/32695813719.html?spm=a2g0s.12269583.0.0.197e6455U2UxlV) that I'll use to calibrate it.
 

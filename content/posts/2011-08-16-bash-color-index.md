@@ -12,7 +12,7 @@ Sometimes it's nice to add color output to your bash scripts. Here's a small 'co
 
 Save the following script somewhere in your PATH (e.g. `/bin/color_index`), <br/>and make it executable. (`chmod +x /bin/color_index`)
 
-{{< highlight bash >}}
+```bash
 #!/bin/bash
 
 # Bash Colors Index
@@ -49,8 +49,9 @@ echo -en "${ctrl}"
 echo -en "*;${background}\e[0;30;40m "
 done
 echo -e "$blank_line" "\n" # Bottom border
-{{< / highlight >}}
+```
 
 Running 'color_index' will display something like this:
 
-<img src="/images/posts/2011/08/color_index-resized-post.png" alt="color_index()" />
+<img src="/content/images/posts/2011/08/color_index-resized-post.png" alt="color_index()" />
+```

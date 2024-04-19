@@ -13,13 +13,14 @@ But I wanted more, so I thought it would be nice if I could somehow create 'shor
 I created a function to export the paths of each modified file into numbered environment variables, and it has really sped up my workflow.
 
 You will need to configure git if you want to have colorized output:
-{{< highlight bash >}}
+
+```bash
 git config --global color.status always
-{{< / highlight >}}
+```
 
 Paste the following script at the bottom of your ~/.bashrc file, and use it by typing 'gs'. (Change the shortcut to whatever you like.)
 
-{{< highlight bash >}}
+```bash
 
 # Processes your git status output, exporting bash variables
 
@@ -73,13 +74,13 @@ fi
 
 unset IFS
 }
-{{< / highlight >}}
+```
 
 Now you can just type 'gs', and use the exported variables for commands. You can also customise the shortcut letter by changing the 'pfix' variable in the function. I chose 'e' because it's easy to slide your finger to it from the '$' key.
 
 Example:
 
-{{< highlight bash >}}
+```bash
 $ gs
 
 # On branch master
@@ -112,8 +113,12 @@ $ cd $e2
 or
 $ git rm -r $e3
 
-{{< / highlight >}}
+```
 
 &nbsp;
 
 I use git version 1.7.1.1, GNU bash version 4.1.5(1), and Ubuntu 10.04.
+
+```
+
+```

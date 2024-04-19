@@ -18,8 +18,8 @@ You can find SudoBlock on the [web](https://sudoblock.com/),
 [Google Play](https://play.google.com/store/apps/details?id=com.ndbroadbent.sudoblock),
 and the [Microsoft Store](https://www.microsoft.com/store/apps/9np72dfcvkbw).
 
-<a href="/images/posts/2018/02/sudoblock.jpg" target="_blank">
-<img src="/images/posts/2018/02/sudoblock.jpg" style="max-width: 200px; margin: 30px 0;" />
+<a href="/content/images/posts/2018/02/sudoblock.jpg" target="_blank">
+<img src="/content/images/posts/2018/02/sudoblock.jpg" style="max-width: 200px; margin: 30px 0;" />
 </a>
 
 React Native only supports iOS and Android, but I used [react-native-web](https://github.com/necolas/react-native-web) for the browser,

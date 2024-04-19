@@ -11,11 +11,15 @@ If you want to configure Skype to use `libnotify` instead, run the following scr
 
 (NOTE: You must have installed Skype, and logged in at least once.)
 
-{{< highlight bash >}}
+```bash
 bash < <(curl -s https://raw.github.com/gist/2181122/skype-libnotify.sh)
-{{< / highlight >}}
+```
 
 This downloads and executes the script from this gist: [https://gist.github.com/2181122](https://gist.github.com/2181122)
 
 It fetches the skype configuration from [here](https://github.com/ndbroadbent/dotfiles/blob/master/skype/skype-UI.xml),
 which is part of my [dotfiles](https://github.com/ndbroadbent/dotfiles) repo.
+
+```
+
+```

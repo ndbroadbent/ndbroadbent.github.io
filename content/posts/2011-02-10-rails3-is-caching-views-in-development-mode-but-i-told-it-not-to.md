@@ -13,12 +13,14 @@ But all our view templates seemed to stay cached as well, and I had to restart t
 
 We just needed to add this to the end of our <em>environments/development.rb</em> file to clear the view template cache after every request:
 
-{{< highlight ruby >}}
+```ruby
 ActiveSupport.on_load(:after_initialize) do
 ActionController::Base.before_filter do
 ActionController::Base.view_paths.each(&:clear_cache)
 end
 end
-{{< / highlight >}}
+```
+
 <br/>
 Thanks to <a href="https://rails.lighthouseapp.com/users/52307">Eric</a> for this.
+```

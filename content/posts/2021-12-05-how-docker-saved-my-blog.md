@@ -16,7 +16,7 @@ So I gave up for a while. Instead of generating my blog from the source, I switc
 
 Time passed. One day, I started to notice some activity on [a blog post that I had written 11 years ago](/2010/05/13/scanning-lots-of-photos-at-once/). This post is about a GIMP plugin called `deskew` that makes it easy to scan old photos in batches on a scanner and automatically rotate them. I had dropped this plugin file in my Google Drive and had pasted a link to the file. The link worked great for 10 years, and people were able to download the file without any issues. But eventually Google changed something and the link was no longer working. I started to receive emails from people who were requesting access to this file.
 
-<img class="lightbox thumb" src="/images/posts/2021/12/request-to-access-deskew.jpeg" alt="Request to access the deskew file" />
+<img class="lightbox thumb" src="/content/images/posts/2021/12/request-to-access-deskew.jpeg" alt="Request to access the deskew file" />
 
 I manually shared the file a few times. Then I decided to download the file and check it in to the blog repo. I started going into the `./public` directly to update the HTML, but I decided it was time to have another crack at this Hugo problem and fix my blog.
 

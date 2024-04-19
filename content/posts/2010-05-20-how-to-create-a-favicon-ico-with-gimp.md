@@ -25,8 +25,12 @@ You need an image file that GIMP can open (PNG, GIF, etc.). And you need the com
 <li>Convert <code>favicon.ppm</code> using the command line utility <code>ppmtowinicon</code>:
 </ul>
 
-{{< highlight bash >}}
+```bash
 ppmtowinicon -output favicon.ico favicon.ppm
-{{< / highlight >}}
+```
 
 That's all. Now copy your <code>favicon.ico</code> to the document root of Apache, for example to <code>/srv/www/htdocs/favicon.ico</code>, if you are using SuSE Linux &gt;= 8.1.
+
+```
+
+```

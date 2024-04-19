@@ -22,13 +22,13 @@ with some help from the [Travis docs](https://about.travis-ci.org/docs/user/data
 
 We add the databases to our build matrix by setting ENV variables. Add the following lines to your `.travis.yml`:
 
-{{< highlight ruby >}}
+````ruby
 env:
 
 - DB=mysql
 - DB=postgres
 - DB=sqlite
-  {{< / highlight >}}
+  ```
 
 ### Database configuration
 
@@ -42,9 +42,9 @@ We also have a rake task that is a prequisite for the `spec` task, and this sets
 
 It copies the `database.yml` template specified by our `DB` variable, using postgres as the default.
 
-{{< highlight ruby >}}
+```ruby
 FileUtils.cp "config/database.#{ENV['DB'] || 'postgres'}.yml", 'config/database.yml'
-{{< / highlight >}}
+```
 
 ### Gemfile.ci
 
@@ -53,7 +53,7 @@ prevents any other database gems from being loaded, and then loads the 'real' Ge
 
 Here's the contents of `Gemfile.ci`:
 
-{{< highlight ruby >}}
+```ruby
 case ENV['DB']
 when "mysql"; gem "mysql2", "0.3.10"
 when "sqlite"; gem "sqlite3"
@@ -70,7 +70,7 @@ end
 # Eval Gemfile
 
 eval(IO.read(File.join(File.dirname(**FILE**), 'Gemfile')), binding)
-{{< / highlight >}}
+```
 
 That's all there is to it.
 
@@ -81,18 +81,19 @@ After a serious headache, I figured out that we hadn't updated `config/boot.rb`
 to the latest version after our upgrade.
 This new `boot.rb` had a very subtle difference, and contained the following line:
 
-{{< highlight ruby >}}
+```ruby
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', **FILE**)
-{{< / highlight >}}
+```
 
 instead of:
 
-{{< highlight ruby >}}
+```ruby
 ENV['BUNDLE_GEMFILE'] = gemfile
-{{< / highlight >}}
+```
 
 Notice the `||=`, which meant that the `BUNDLE_GEMFILE` variable could actually have an effect when it was set by Travis.
 
 You might have found this post if you are googling for `Could not find multi_json-1.0.3 in any of the sources`, which is
 the symptom that I was experiencing (due to an updated gem and an outdated `Gemfile.lock`).
 In that case, you may need to update your `config/boot.rb` to [the latest version from Rails](https://github.com/rails/rails/blob/master/railties/lib/rails/generators/rails/app/templates/config/boot.rb).
+````

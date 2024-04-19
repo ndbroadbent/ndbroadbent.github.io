@@ -17,12 +17,16 @@ To do this:
 	<li>Add the following line to "/etc/profile":</li>
 </ol>
 
-{{< highlight bash >}}
+```bash
 source /var/root/.bashrc
-{{< / highlight >}}
+```
 
 An example alias would be: alias respring="killall SpringBoard"
 
 Colored prompts look great in MobileTerminal too.
 
 <a href="https://github.com/ndbroadbent/ubuntu_config/blob/master/assets/iphone_bashrc.sh">This is the bashrc that I use on my iPhone.</a>
+
+```
+
+```

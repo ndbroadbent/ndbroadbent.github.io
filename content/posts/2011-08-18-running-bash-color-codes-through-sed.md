@@ -14,7 +14,7 @@ wordpress_url: https://madebynathan.com/?p=569
 
 <p>Here is an example of how to use sed when your string contains color codes:</p>
 
-{{< highlight bash >}}
+```bash
 
 # Need to strip the color character from the end of the line, otherwise
 
@@ -25,6 +25,7 @@ wordpress_url: https://madebynathan.com/?p=569
 if [[$line == *$search*]]; then
 line=$(echo $line | sed -r "s:$search(\x1B\[m)?$:$replace:g")
 fi
-{{< / highlight >}}
+```
 
 <p>You might also find this page useful: <a href="https://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed">https://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed</a></p>
+```

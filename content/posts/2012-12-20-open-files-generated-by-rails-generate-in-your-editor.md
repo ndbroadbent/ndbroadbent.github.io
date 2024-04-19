@@ -24,9 +24,9 @@ Rails 3 isn't accepting any new features, so here's how you can use the `--edito
 
 To install the `--editor` option in a single Rails 3 app, run the following command from your app directory:
 
-{{< highlight bash >}}
+```bash
 curl https://gist.github.com/raw/4342095/rails -o script/rails
-{{< / highlight >}}
+```
 
 This will update `script/rails`, and you can commit the change.
 
@@ -36,18 +36,22 @@ If you are developing a lot of different apps, it might be too much hassle to up
 
 ### Download script:
 
-{{< highlight bash >}}
+```bash
 sudo curl https://gist.github.com/raw/4342095/rails3_with_editor -o /bin/rails3_with_editor
 sudo chmod +x /bin/rails3_with_editor
-{{< / highlight >}}
+```
 
 ### Add shortcut functions:
 
 Add the following to your `~/.bashrc`:
 
-{{< highlight bash >}}
+```bash
 rge() { rails3_with_editor generate "$@" --editor; }
 rgm() { rails3_with_editor generate migration "$@" --editor; }
-{{< / highlight >}}
+```
 
 Now you can run `rgm` to generate a migration from any Rails 3 app.
+
+```
+
+```

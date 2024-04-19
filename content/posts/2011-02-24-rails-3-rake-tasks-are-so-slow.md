@@ -14,7 +14,7 @@ If you have a very simple rake task that is called very often, you might want to
 
 Here is an example for way faster hoptoad notifications (this cut our deploy time in half):
 
-{{< highlight ruby >}}
+```ruby
 
 # Speed up hoptoad:deploy by not loading rails environment
 
@@ -30,8 +30,12 @@ HoptoadTasks.deploy(:rails_env => ENV['TO'],
 :api_key => ENV['API_KEY'])
 exit
 end
-{{< / highlight >}}
+```
 
 There are other ways to speed up rake, such as <a href="https://github.com/outoftime/rake_server">Rake Server</a> (which forks a Rails server process each time you invoke a rake task).
 
 But sometimes quick hacks just work best.
+
+```
+
+```
