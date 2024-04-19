@@ -1,0 +1,15 @@
+routes:
+
+collections:
+  /posts/:
+    filter: "tag:hash-new-routing"
+    permalink: /posts/{year}-{month}-{day}-{slug}/
+    template: index
+
+  /:
+    permalink: /{year}/{month}/{day}/{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/
