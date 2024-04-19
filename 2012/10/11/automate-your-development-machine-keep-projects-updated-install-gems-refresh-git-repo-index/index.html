@@ -210,7 +210,7 @@
 <li>Fetch Travis CI build statuses to show in my terminal</li>
 <li>Maintain an index of my git repos so I can quickly switch between projects, while keeping them organized</li>
 </ul>
-<p>For all of these tasks, I'm using the <code>git_index</code> function provided by my <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">SCM Breeze</a> project. It creates an index of all your git projects by recursively scanning your code directory, and then lets you quickly jump to projects, or run batch commands for each of your repos. See my <a href="https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/#repository-index">SCM Breeze blog post for more info about the repository index</a>.</p>
+<p>For all of these tasks, I'm using the <code>git_index</code> function provided by my <a href="https://github.com/ndbroadbent/scm_breeze">SCM Breeze</a> project. It creates an index of all your git projects by recursively scanning your code directory, and then lets you quickly jump to projects, or run batch commands for each of your repos. See my <a href="https://madebynathan.com/2011/10/19/git-shortcuts-like-youve-never-seen-before/#repository-index">SCM Breeze blog post for more info about the repository index</a>.</p>
 <h3 id="updating-git-repos">Updating Git Repos</h3>
 <p>Every 30 minutes I run a task that updates all of the local branches on all of my git repos. It does this as safely as possible:</p>
 <ul>
@@ -223,10 +223,10 @@
 <img src="https://madebynathan.com/content/images/posts/2012/10/git_update_notify.jpg" alt="Git update notification">
 <h3 id="installing-gem-dependencies">Installing Gem dependencies</h3>
 <p>I have a task that runs every hour to ensure that all of my gem dependencies are installed. If someone adds a new gem dependency to your project, it's great to have that automatically installed when the repo is automatically updated.</p>
-<p>I'm using the <code>git_index</code> function to run a script called <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/bundle_check_or_install?ref=ghost.ndbroadbent.com">bundle_check_or_install</a> for each of my git repos. It also sends desktop notifications on update or failure, and doesn't do anything if the gems are already up-to-date.</p>
+<p>I'm using the <code>git_index</code> function to run a script called <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/bundle_check_or_install">bundle_check_or_install</a> for each of my git repos. It also sends desktop notifications on update or failure, and doesn't do anything if the gems are already up-to-date.</p>
 <p>If <code>bundle install</code> fails for any reason, it will touch a file at <code>'.skip_bundle_auto_install~</code> (and exclude that file from git by adding it to <code>.git/info/exclude</code>). Any future attempts to auto-update your gems will abort with the notification that "Previous bundle install failed". This notification can be disabled if <code>.skip_bundle_auto_install~</code> contains the string "SILENT". I do this when I stop caring about old projects, but don't want to delete or archive them.</p>
 <h3 id="caching-rake-and-capistrano-commands-for-tab-completion">Caching Rake and Capistrano commands for tab completion</h3>
-<p><code>rake -T</code> and <code>cap -T</code> can take a long time to run, so I run a task every hour to cache the available tasks for all of my projects, and I use these cached tasks to provide tab completion. The tasks in saved to files like <code>.cached_rake_tasks~</code> and <code>.cached_cap_tasks~</code>. <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh?ref=ghost.ndbroadbent.com#L99">Here's how I set up the Bash tab completion</a>.</p>
+<p><code>rake -T</code> and <code>cap -T</code> can take a long time to run, so I run a task every hour to cache the available tasks for all of my projects, and I use these cached tasks to provide tab completion. The tasks in saved to files like <code>.cached_rake_tasks~</code> and <code>.cached_cap_tasks~</code>. <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh#L99">Here's how I set up the Bash tab completion</a>.</p>
 <h3 id="fetching-travis-ci-build-status">Fetching Travis CI Build Status</h3>
 <p>I've written about this before in my <a href="https://madebynathan.com/2012/01/14/travis-ci-status-in-shell-prompt/">Travis CI Status in Shell Prompt</a> post. Every 30 minutes I run a task to fetch build statuses for all the repos that contain a <code>.travis.yml</code> file. The status is saved in a hidden file called <code>.travis_status~</code>, and displayed in my prompt like this:</p>
 <img src="https://madebynathan.com/content/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt">
@@ -235,7 +235,7 @@
 <p>This index lets me keep my code organized in different folders, while also letting me jump to different projects by name:</p>
 <img src="https://madebynathan.com/content/images/posts/2011/10/source_list-resized-post.png" alt="Git Status With Shortcuts">
 <hr>
-<p>If you want to set this up for yourself, you'll need to check out my <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">SCM Breeze</a> project. The <code>schedule.rb</code> that defines these tasks <a href="https://github.com/ndbroadbent/dotfiles/blob/master/schedule.rb?ref=ghost.ndbroadbent.com">lives in my dotfiles repo</a>, and you can find the scripts I use in the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/?ref=ghost.ndbroadbent.com">/bin</a> directory.</p>
+<p>If you want to set this up for yourself, you'll need to check out my <a href="https://github.com/ndbroadbent/scm_breeze">SCM Breeze</a> project. The <code>schedule.rb</code> that defines these tasks <a href="https://github.com/ndbroadbent/dotfiles/blob/master/schedule.rb">lives in my dotfiles repo</a>, and you can find the scripts I use in the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bin/">/bin</a> directory.</p>
 <p>Post a comment if you have any automation ideas to share!</p>
 
         </section>

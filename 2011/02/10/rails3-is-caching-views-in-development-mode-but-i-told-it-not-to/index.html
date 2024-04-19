@@ -203,7 +203,7 @@ But all our view templates seemed to stay cached as well, and I had to restart t
 
         <section class="gh-content gh-canvas is-body">
             <p>We are working with a Rails 3 port of Fat Free CRM. We have so many plugins modifying classes that we have to set <code>config.cache_classes</code> to <code>true</code>.<br>
-But all our view templates seemed to stay cached as well, and I had to restart the server each time I made a change to a template. I couldn't really explain why this was happening, and after a lot of searching I came across <a href="https://rails.lighthouseapp.com/projects/8994/tickets/5847-rails-301-configaction_viewcache_template_loading-is-missing?ref=ghost.ndbroadbent.com">this Rails LightHouse ticket</a>.</p>
+But all our view templates seemed to stay cached as well, and I had to restart the server each time I made a change to a template. I couldn't really explain why this was happening, and after a lot of searching I came across <a href="https://rails.lighthouseapp.com/projects/8994/tickets/5847-rails-301-configaction_viewcache_template_loading-is-missing">this Rails LightHouse ticket</a>.</p>
 <p>We just needed to add this to the end of our <code>environments/development.rb</code> file to clear the view template cache after every request:</p>
 <pre><code class="language-ruby">ActiveSupport.on_load(:after_initialize) do
   ActionController::Base.before_filter do
@@ -211,7 +211,7 @@ But all our view templates seemed to stay cached as well, and I had to restart t
   end
 end
 </code></pre>
-<p>Thanks to <a href="https://rails.lighthouseapp.com/users/52307?ref=ghost.ndbroadbent.com">Eric</a> for this.</p>
+<p>Thanks to <a href="https://rails.lighthouseapp.com/users/52307">Eric</a> for this.</p>
 
         </section>
 

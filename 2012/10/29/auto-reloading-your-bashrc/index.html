@@ -211,7 +211,7 @@ While I was">
         <section class="gh-content gh-canvas is-body">
             <p>If you often make changes to your <code>~/.bashrc</code>, you might be sick of typing <code>source ~/.bashrc</code> after every change.<br>
 It can also be annoying when you switch to a different tab in your terminal, but your new aliases or functions aren't available until you type <code>source ~/.bashrc</code>.</p>
-<p>While I was working on <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">scm_breeze</a> and my <a href="https://github.com/ndbroadbent/dotfiles?ref=ghost.ndbroadbent.com">dotfiles</a> repo, I grew tired of having to type this command, so I aliased it to <code>sbrc</code>. But I knew I could do better, so I created an auto-reload script that reloads my <code>~/.bashrc</code> if there are any changes to itself, or any of the files that it loads.</p>
+<p>While I was working on <a href="https://github.com/ndbroadbent/scm_breeze">scm_breeze</a> and my <a href="https://github.com/ndbroadbent/dotfiles">dotfiles</a> repo, I grew tired of having to type this command, so I aliased it to <code>sbrc</code>. But I knew I could do better, so I created an auto-reload script that reloads my <code>~/.bashrc</code> if there are any changes to itself, or any of the files that it loads.</p>
 <p>When you run it at the beginning of your <code>.bashrc</code>, it wraps the <code>source</code> and <code>.</code> commands with a function that builds an index of all the sourced files. At the end of your <code>.bashrc</code>, you need to call the <code>finalize_auto_reload</code> function, which:</p>
 <ul>
 <li>Removes the <code>source</code> and <code>.</code> overrides</li>
@@ -220,9 +220,9 @@ It can also be annoying when you switch to a different tab in your terminal, but
 <li>Adds the <code>auto_reload_bashrc</code> function to your <code>PROMPT_COMMAND</code>.</li>
 </ul>
 <p>Whenever you start a new line in your terminal, the <code>auto_reload_bashrc</code> function reloads your <code>.bashrc</code> if any of the sourced files have changed. Changes are detected by looking up the most recent modification time from all of the sourced files, and comparing that time with the previous value.</p>
-<p>My <code>.bashrc</code> sources 28 files from my <a href="https://github.com/ndbroadbent/dotfiles?ref=ghost.ndbroadbent.com">dotfiles</a>, <a href="https://github.com/ndbroadbent/scm_breeze?ref=ghost.ndbroadbent.com">scm_breeze</a>, and <a href="https://rvm.io/?ref=ghost.ndbroadbent.com">RVM</a>. Running the <code>auto_reload_bashrc</code> function to check for changes only takes 11 ms.</p>
+<p>My <code>.bashrc</code> sources 28 files from my <a href="https://github.com/ndbroadbent/dotfiles">dotfiles</a>, <a href="https://github.com/ndbroadbent/scm_breeze">scm_breeze</a>, and <a href="https://rvm.io/">RVM</a>. Running the <code>auto_reload_bashrc</code> function to check for changes only takes 11 ms.</p>
 <p>If you make a lot of changes to your <code>.bashrc</code> or <code>.zsh</code>, you can check out my auto-reloading script here:<br>
-<a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/auto_reload.sh?ref=ghost.ndbroadbent.com" target="_blank">https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/auto_reload.sh</a></p>
+<a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/auto_reload.sh" target="_blank">https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/auto_reload.sh</a></p>
 
         </section>
 

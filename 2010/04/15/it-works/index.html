@@ -230,7 +230,7 @@
 </ul>
 <p>I have actually implemented the last idea. It took a lot of help from other people before I solved all of the problems I was having. A few hints would be:</p>
 <ul>
-<li>Never use ndiswrapper with rt73 wireless devices. It made my T20s freeze randomly. Get <code>rt73.bin</code> from the driver packages on <a href="http://www.ralinktech.com/support.php?s=2&ref=ghost.ndbroadbent.com">the manufactures website</a>. Copy it to <code>/usr/lib/firmware</code>, and start wpa_supplicant with the wext driver option.</li>
+<li>Never use ndiswrapper with rt73 wireless devices. It made my T20s freeze randomly. Get <code>rt73.bin</code> from the driver packages on <a href="http://www.ralinktech.com/support.php?s=2">the manufactures website</a>. Copy it to <code>/usr/lib/firmware</code>, and start wpa_supplicant with the wext driver option.</li>
 <li>To get sound working on a Compaq Evo T20 running tinycore linux, all you have to do is place the following lines in <code>/opt/bootlocal.sh</code>:</li>
 </ul>
 <pre><code class="language-bash">echo "# KMW: hacked sound setup - BEGIN" &gt;&gt; /etc/modprobe.conf

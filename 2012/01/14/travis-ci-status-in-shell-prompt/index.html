@@ -206,14 +206,14 @@
 <p>I've updated the build status checking script, because updating all branches was taking too long (over 20 minutes.)<br>
 Now it performs frequent updates for the current branch, and only periodic updates for all branches.</p>
 <hr>
-<p><a href="https://travis-ci.org/?ref=ghost.ndbroadbent.com">Travis CI</a> is a distributed <a href="https://en.wikipedia.org/wiki/Continuous_integration?ref=ghost.ndbroadbent.com">continuous integration</a> service for the open source community, and it can be used with any of your public projects on <a href="https://github.com/?ref=ghost.ndbroadbent.com">GitHub</a>. You've probably seen some 'build status' badges on GitHub repos.</p>
+<p><a href="https://travis-ci.org/">Travis CI</a> is a distributed <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> service for the open source community, and it can be used with any of your public projects on <a href="https://github.com/">GitHub</a>. You've probably seen some 'build status' badges on GitHub repos.</p>
 <p>Wouldn't it be cool if you could see that build status in your shell prompt whenever you are working on a project?</p>
 <p>Here's what my shell prompt looks like now:</p>
 <img src="https://madebynathan.com/content/images/posts/2012/01/travis_ci_prompt.png" alt="Travis CI status in prompt">
 <p>This shows the build status for the current branch.</p>
 <hr>
 <p>You will need to cache the build status, since looking it up takes a few seconds.</p>
-<p>You should use my fork of <a href="https://github.com/mislav?ref=ghost.ndbroadbent.com">mislav's</a> <code>travis-ci</code> script, which can check the build status of a project. Make sure <code>~/bin</code> is in your <code>PATH</code>, and if you are using RVM, make sure you are using your default ruby.</p>
+<p>You should use my fork of <a href="https://github.com/mislav">mislav's</a> <code>travis-ci</code> script, which can check the build status of a project. Make sure <code>~/bin</code> is in your <code>PATH</code>, and if you are using RVM, make sure you are using your default ruby.</p>
 <p>Run the following to install it:</p>
 <pre><code class="language-bash">mkdir -p ~/bin/
 curl -sL https://raw.github.com/gist/1708408/travis.rb &gt; ~/bin/travis-ci \
@@ -277,7 +277,7 @@ return 1
 </code></pre>
 <p>(it also works if you are in a project's sub-directory.)</p>
 <p>Finally, add <code>$(parse_travis_status "$current_branch")</code> somewhere in your <code>$PS1</code>. You should set the <code>$current_branch</code> variable to the current git branch, but it defaults to the <code>master</code> branch if you leave it blank.</p>
-<p>You may like to have a look at the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/prompt.sh?ref=ghost.ndbroadbent.com">prompt section of my dotfiles</a>, to see how I do it.</p>
+<p>You may like to have a look at the <a href="https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/prompt.sh">prompt section of my dotfiles</a>, to see how I do it.</p>
 <p>Enjoy! Please let me know if you have any questions, or need some help.</p>
 <hr>
 <p><a name="update_travis_ci_status">[1]</a> <code>update_travis_ci_status</code> script:</p>

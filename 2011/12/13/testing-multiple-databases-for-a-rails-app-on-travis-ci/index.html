@@ -199,14 +199,14 @@
         </header>
 
         <section class="gh-content gh-canvas is-body">
-            <p>I'm currently doing a lot of work on an open source Ruby on Rails project called <a href="https://fatfreecrm.com/?ref=ghost.ndbroadbent.com">Fat Free CRM</a>.<br>
-The code is hosted on <a href="https://github.com/fatfreecrm/fat_free_crm?ref=ghost.ndbroadbent.com">github</a>, and we are using the amazing continuous integration<br>
-service provided by <a href="https://travis-ci.org/?ref=ghost.ndbroadbent.com#!/fatfreecrm/fat_free_crm">Travis CI</a>.</p>
-<p><a href="https://about.travis-ci.org/?ref=ghost.ndbroadbent.com">Find out more about Travis CI here.</a></p>
+            <p>I'm currently doing a lot of work on an open source Ruby on Rails project called <a href="https://fatfreecrm.com/">Fat Free CRM</a>.<br>
+The code is hosted on <a href="https://github.com/fatfreecrm/fat_free_crm">github</a>, and we are using the amazing continuous integration<br>
+service provided by <a href="https://travis-ci.org/#!/fatfreecrm/fat_free_crm">Travis CI</a>.</p>
+<p><a href="https://about.travis-ci.org/">Find out more about Travis CI here.</a></p>
 <p>We've been working on some powerful features for Fat Free CRM, such as dynamic custom fields,<br>
 and we wanted to make sure that they work across all of our supported databases.<br>
 So here's how I set up our Travis CI build matrix to test multiple databases,<br>
-with some help from the <a href="https://about.travis-ci.org/docs/user/database-setup/?ref=ghost.ndbroadbent.com">Travis docs</a>:</p>
+with some help from the <a href="https://about.travis-ci.org/docs/user/database-setup/">Travis docs</a>:</p>
 <h3 id="travisyml">.travis.yml</h3>
 <p>We add the databases to our build matrix by setting ENV variables. Add the following lines to your <code>.travis.yml</code>:</p>
 <pre><code class="language-ruby">env:
@@ -261,7 +261,7 @@ This new <code>boot.rb</code> had a very subtle difference, and contained the fo
 <p>Notice the <code>||=</code>, which meant that the <code>BUNDLE_GEMFILE</code> variable could actually have an effect when it was set by Travis.</p>
 <p>You might have found this post if you are googling for <code>Could not find multi_json-1.0.3 in any of the sources</code>, which is<br>
 the symptom that I was experiencing (due to an updated gem and an outdated <code>Gemfile.lock</code>).<br>
-In that case, you may need to update your <code>config/boot.rb</code> to <a href="https://github.com/rails/rails/blob/master/railties/lib/rails/generators/rails/app/templates/config/boot.rb?ref=ghost.ndbroadbent.com">the latest version from Rails</a>.</p>
+In that case, you may need to update your <code>config/boot.rb</code> to <a href="https://github.com/rails/rails/blob/master/railties/lib/rails/generators/rails/app/templates/config/boot.rb">the latest version from Rails</a>.</p>
 
         </section>
 

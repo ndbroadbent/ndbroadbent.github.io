@@ -198,7 +198,7 @@
         </header>
 
         <section class="gh-content gh-canvas is-body">
-            <p><a href="https://github.com/ndbroadbent/Plex-Cleaner?ref=ghost.ndbroadbent.com"><code>Plex-Cleaner</code></a> is a Python script that can clean up your Plex directory by deleting movies and TV shows after you've watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry Pi, or wherever you run Plex Media Server.)</p>
+            <p><a href="https://github.com/ndbroadbent/Plex-Cleaner"><code>Plex-Cleaner</code></a> is a Python script that can clean up your Plex directory by deleting movies and TV shows after you've watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry Pi, or wherever you run Plex Media Server.)</p>
 <p>I like to put things in the <code>/opt</code> directory on my servers.</p>
 <ul>
 <li>
@@ -210,7 +210,7 @@
 <li>
 <p>Configure an authentication token in <code>Cleaner.conf</code>, under the <code>"Token"</code> key.</p>
 <ul>
-<li><a href="https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/?ref=ghost.ndbroadbent.com">Here's how to get an authentication token.</a></li>
+<li><a href="https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/">Here's how to get an authentication token.</a></li>
 </ul>
 </li>
 <li>
@@ -226,10 +226,10 @@
 </code></pre>
 <br>
 <hr>
-<p>I always like to set up monitoring for any scheduled scripts so that I get a notification <s>if</s>&nbsp;when they stop working. <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> is my favorite monitoring tool and they have a generous free tier. <em>(No affiliation, they're just an awesome service.)</em></p>
-<p>To set up monitoring with healthchecks.io, you can call the <code>run_plex_cleaner.sh</code> script from <a href="https://github.com/ndbroadbent/Plex-Cleaner?ref=ghost.ndbroadbent.com">my fork</a>. This script will ping <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> on success or failure. <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> will also send you a notification if it doesn't receive any ping at the expected time (e.g. if your server has been turned off.)</p>
+<p>I always like to set up monitoring for any scheduled scripts so that I get a notification <s>if</s>&nbsp;when they stop working. <a href="https://healthchecks.io/">healthchecks.io</a> is my favorite monitoring tool and they have a generous free tier. <em>(No affiliation, they're just an awesome service.)</em></p>
+<p>To set up monitoring with healthchecks.io, you can call the <code>run_plex_cleaner.sh</code> script from <a href="https://github.com/ndbroadbent/Plex-Cleaner">my fork</a>. This script will ping <a href="https://healthchecks.io/">healthchecks.io</a> on success or failure. <a href="https://healthchecks.io/">healthchecks.io</a> will also send you a notification if it doesn't receive any ping at the expected time (e.g. if your server has been turned off.)</p>
 <ul>
-<li>Sign up for a free <a href="https://healthchecks.io/?ref=ghost.ndbroadbent.com">healthchecks.io</a> account.</li>
+<li>Sign up for a free <a href="https://healthchecks.io/">healthchecks.io</a> account.</li>
 <li>Create a new check. Choose the "Cron" schedule and enter your cron expression, e.g. <code>0 4 * * *</code>.</li>
 <li>Make sure you also set the correct Time Zone in the options.</li>
 <li>Save the healthchecks.io check ID to a <code>healthchecksio_id</code> file in the <code>Plex-Cleaner</code> directory</li>

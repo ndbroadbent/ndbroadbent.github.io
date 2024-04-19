@@ -207,7 +207,7 @@ One of my first projects after moving back to Hong Kong was installing an electr
         </header>
 
         <section class="gh-content gh-canvas is-body">
-            <p><a href="http://en.wikipedia.org/wiki/Octopus_card?ref=ghost.ndbroadbent.com">Octopus cards</a> in Hong Kong can be used to purchase almost anything, such as groceries, McDonalds, and public transport. Since everyone has one, a lot of apartments are using them for access control.</p>
+            <p><a href="http://en.wikipedia.org/wiki/Octopus_card">Octopus cards</a> in Hong Kong can be used to purchase almost anything, such as groceries, McDonalds, and public transport. Since everyone has one, a lot of apartments are using them for access control.</p>
 <p>One of my first projects after moving back to Hong Kong was installing an electronic lock on my apartment door. My door can be now be unlocked with an Octopus RFID card, iPhone app, or over the web.</p>
 <br>
 <h3>Parts List</h3>
@@ -217,16 +217,16 @@ One of my first projects after moving back to Hong Kong was installing an electr
 <ul>
 	<li>USB Octopus Card Reader (Sony FeliCa ISO14443C)
 <ul>
-	<li>a <strong>14443C-R-USB-D2</strong> from <a href="http://www.rfidshop.com.hk/?ref=ghost.ndbroadbent.com">http://www.rfidshop.com.hk/</a> under <strong>Passive RFID Reader</strong> → <strong>13.56Mhz</strong> → <strong>ISO14443C – Sony Felica</strong></li>
+	<li>a <strong>14443C-R-USB-D2</strong> from <a href="http://www.rfidshop.com.hk/">http://www.rfidshop.com.hk/</a> under <strong>Passive RFID Reader</strong> → <strong>13.56Mhz</strong> → <strong>ISO14443C – Sony Felica</strong></li>
 </ul>
 </li>
 	<li>Door with a lock that can be unlocked by turning the handle from the inside.</li>
 	<li>12V central locking actuator from a car door.</li>
 	<li>Vellman K8055 USB interface board</li>
-	<li>Ruby octopus reader library, etc (<a href="http://github.com/ndbroadbent/octopus?ref=ghost.ndbroadbent.com">http://github.com/ndbroadbent/octopus</a>)</li>
+	<li>Ruby octopus reader library, etc (<a href="http://github.com/ndbroadbent/octopus">http://github.com/ndbroadbent/octopus</a>)</li>
 </ul>
 <br>
-<p>I wrote a small ruby library to read an octopus card ID (<a href="http://github.com/ndbroadbent/octopus?ref=ghost.ndbroadbent.com">http://github.com/ndbroadbent/octopus</a>), using a USB RFID reader for the 13.56 MHz Sony FeliCa chip. I used a K8055 USB interface board to switch on a relay every time an authorized octopus card was recognized.</p>
+<p>I wrote a small ruby library to read an octopus card ID (<a href="http://github.com/ndbroadbent/octopus">http://github.com/ndbroadbent/octopus</a>), using a USB RFID reader for the 13.56 MHz Sony FeliCa chip. I used a K8055 USB interface board to switch on a relay every time an authorized octopus card was recognized.</p>
 <p>My apartment door lock is the "button" kind, with a button in the middle of the handle that pops out when the knob is turned from the inside. So I put a screw into the base of the handle, and mounted the actuator on the apartment door, so the actuator turns the handle and unlocks the door. Of course its not the most elegant solution, but the actuator was only about $7 USD...<br>
 It can only unlock the door, but I don't need it to lock automatically.</p>
 <p>I added a web server, and wrote an iPhone app so that I can unlock the door via our wifi connection.<br>
