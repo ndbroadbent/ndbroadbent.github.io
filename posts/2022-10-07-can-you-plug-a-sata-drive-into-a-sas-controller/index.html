@@ -208,10 +208,10 @@ SATA and SAS use very similar connectors, but a SATA connector has a gap in the 
             <h2 id="yes">Yes.</h2>
 <p>SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can't plug a SAS drive into a SATA controller (because it won't fit.) SAS controller software can support SATA drives, but SATA controllers don't support SAS drives (even if you have an adapter.)</p>
 <h2 id="why-do-i-have-a-sas-controller">Why do I have a SAS controller?</h2>
-<p>I was running <a href="https://www.home-assistant.io/?ref=ghost.ndbroadbent.com">Home Assistant</a> and <a href="https://www.plex.tv/?ref=ghost.ndbroadbent.com">Plex Media Server</a> on a <a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/?ref=ghost.ndbroadbent.com">Raspberry Pi 4 Model B</a>. I kept adding more and more Home Assistant add-ons (which run in Docker containers), so it started to get a bit slow. It took a long time to restart Home Assistant, and we started to notice some speed and reliability issues.</p>
+<p>I was running <a href="https://www.home-assistant.io/">Home Assistant</a> and <a href="https://www.plex.tv/">Plex Media Server</a> on a <a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Model B</a>. I kept adding more and more Home Assistant add-ons (which run in Docker containers), so it started to get a bit slow. It took a long time to restart Home Assistant, and we started to notice some speed and reliability issues.</p>
 <p>I already had a server rack in my closet, so I wanted to get a proper server to put in it. I didn't need anything too fancy. It just needed to be a little bit faster than a Raspberry Pi, so I found a 10 year old IBM server for $249 NZD ($160 USD.) I found it on TradeMe, which is similar to eBay in New Zealand.</p>
 <ul>
-<li>Model: <a href="https://www.ibm.com/support/pages/overview-ibm-system-x3250-m4-windows-server-2012-type-2583?ref=ghost.ndbroadbent.com">IBM System X3250 M4 E3-1270v2</a></li>
+<li>Model: <a href="https://www.ibm.com/support/pages/overview-ibm-system-x3250-m4-windows-server-2012-type-2583">IBM System X3250 M4 E3-1270v2</a></li>
 <li>CPU: Intel Xeon E3-1270v2 4-core, 8-thread Processor</li>
 <li>Memory: 8GB DDR3 Ram</li>
 <li>Storage: 4x 2.5" SAS / SATA drive bays, 1x 240GB SAS hard drive</li>
@@ -221,7 +221,7 @@ SATA and SAS use very similar connectors, but a SATA connector has a gap in the 
 <p>The new server has been working great, and Home Assistant is noticeably faster. The 10-year-old Intel Xeon E3-1270v2 CPU has a CPU Mark benchmark score of 6429, which is 8x better than the Broadcom BCM2711 processor in a Raspberry Pi 4B (834.)</p>
 <img class="lightbox thumb" src="https://madebynathan.com/content/images/posts/2022/10/sata-sas/bcm2711-vs-intel-xeon.jpg" alt="BCM2711 vs Intel Xeon E3-1270 V2">
 <ul>
-<li><a href="https://www.cpubenchmark.net/compare/BCM2711-vs-Intel-Xeon-E3-1270-V2/4297vs1192?ref=ghost.ndbroadbent.com">BCM2711 vs Intel Xeon E3-1270 V2 @ 3.50GHz on cpubenchmark.net</a></li>
+<li><a href="https://www.cpubenchmark.net/compare/BCM2711-vs-Intel-Xeon-E3-1270-V2/4297vs1192">BCM2711 vs Intel Xeon E3-1270 V2 @ 3.50GHz on cpubenchmark.net</a></li>
 </ul>
 <hr>
 <p>The only problem is that the server came with a 320GB SAS hard-drive. It was a bit too small, and it made a lot of clicking noises. I wanted to replace it with a 1TB SATA SSD, which would be faster and silent. I just wasn't sure if my old server would be compatible with a modern SATA SSD.</p>
@@ -270,9 +270,9 @@ SATA and SAS use very similar connectors, but a SATA connector has a gap in the 
             </figure>
         <div class="gh-card-wrapper">
             <h3 class="gh-card-title is-title">3D Printing Log</h3>
-                    <p class="gh-card-excerpt is-body">I bought my first 3D printer in March 2023: Bambu Lab X1-Carbon
+                    <p class="gh-card-excerpt is-body">I bought a Bambu Lab X1-Carbon 3D printer in March 2023.
 
-I&#39;m extremely happy with this 3D printer and highly recommend it! It&#39;s more expensive than entry-level printers, but it&#39;s a very high quality machine and is very reliable. I can focus on</p>
+I&#39;m extremely happy with this 3D printer and highly recommend it! It&#39;s more expensive than entry-level printers, but it&#39;s a very high quality machine and is very reliable. I can focus on designing</p>
             <footer class="gh-card-meta">
 <!--
              -->
