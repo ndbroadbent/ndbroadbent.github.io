@@ -54,7 +54,7 @@ Here's some photos of the lock and the iPhone app (sorry for the quality):
     <img class="lightbox thumb" src="/content/images/posts/2010/11/outside_door.jpg" alt="Outside Door - LCD Screen &amp; Octopus RFID Reader" />
     <img class="lightbox thumb" src="/content/images/posts/2010/11/compaq_evo_t20.jpg" alt="Compaq Evo T20 - TinyCore Linux" />
     <img class="lightbox thumb" src="/content/images/posts/2010/11/inside_door.jpg" alt="Lock - Inside Door" />
-    <img class="lightbox thumb" src="/content/images/posts/2010/11/falt10C-screen.jpg" alt="Default LCD message" />
+    <img class="lightbox thumb" src="/content/images/posts/2010/11/flat10C-screen.jpg" alt="Default LCD message" />
     <img class="lightbox thumb" src="/content/images/posts/2010/11/welcome_nathan.jpg" alt="RFID card scanned" />
 
     <img class="lightbox thumb" src="/content/images/posts/2010/06/IMG_0173.png" alt="Unlock Apartment 10C" />

@@ -12,11 +12,11 @@ I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
 
 You can use this PDF to make your own ring binder:
 
-<iframe style="width: 100%; height: 500px;" src="/post-assets/2022/10/E24_Resistor_Kit_Folder.pdf"></iframe>
+<iframe style="width: 100%; height: 500px;" src="/content/files/2022/10/E24_Resistor_Kit_Folder.pdf"></iframe>
 
 <br/>
 
-- [Download E24_Resistor_Kit_Folder.pdf](/post-assets/2022/10/E24_Resistor_Kit_Folder.pdf)
+- [Download E24_Resistor_Kit_Folder.pdf](/content/files/2022/10/E24_Resistor_Kit_Folder.pdf)
 - [Liquid and SCSS that was used to generate the PDF](https://gist.github.com/ndbroadbent/b33a2d72a13549d01c39d10a96b97880)
 
 > The template code and generated PDF document are released under the MIT license. You can find a copy of the MIT license at the bottom of this page.

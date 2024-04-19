@@ -12,13 +12,22 @@ Building a ruby gem these days is really, really easy. Bundler provides a great 
 
 <ol>
 	<li><a href="https://rubygems.org/users/new">Sign up for a rubygems.org account</a></li>
-	<li>$ bundle gem <em>shiny_new_gem</em>
+	<li>`bundle gem shiny_new_gem`
 (This creates the framework for your gem)</li>
-	<li>Edit '<em>shiny_new_gem</em>.gemspec', and add your code in your gem's lib folder.
-(When the gem is required, whatever is in 'lib/<em>shiny_new_gem</em>.rb' will be executed.)</li>
-	<li>$ rake build               # Build the gem
-$ gem push pkg/<em>shiny_new_gem</em>-0.0.1.gem        # Push the gem up to rubygems.org  (you will be asked for your email and password)</li>
+	<li>Edit `shiny_new_gem.gemspec`, and add your code in your gem's lib folder.
+(When the gem is required, whatever is in `lib/shiny_new_gem.rb` will be executed.)</li>
+	<li>
+```
+# Build the gem
+rake build
+# Push the gem up to rubygems.org
+# (you will be asked for your email and password)
+gem push pkg/shiny_new_gem-0.0.1.gem
+```
+
+</li>
 </ol>
-Done! Now any rails developer can add <strong>gem "shiny_new_gem"</strong> to their Gemfile, and use your creation. Pretty soon you'll be famous! You'll be hired by important people! You'll buy a boat!
+
+Done! Now any rails developer can add `gem "shiny_new_gem"` to their Gemfile, and use your creation. Pretty soon you'll be famous! You'll be hired by important people! You'll buy a boat!
 
 Go build your gems!

@@ -16,8 +16,6 @@ I wrote a <a href="http://github.com/ndbroadbent/rubyk8055">K8055 USB Ruby C wra
 
 I'm trying to set up another T20 as an internet radio/mp3 server, but this is harder than I thought it would be. Compiling <a href="http://nex.scrapping.cc/shell-fm/" target="_blank">shell.fm</a> and <a href="http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki">MPD (music player daemon)</a> on DSL is turning out to be nearly impossible. I've been wading through rpm and deb packages, trying to get the right versions of libao2, libao-dev, libmad0, libmad0-dev ... nothing seems to work. Would love to know if anyone has successfully compiled shell.fm and/or mpd recently on DSL. Advice would be hugely appreciated.
 
-Anyway, <a href="http://docs.google.com/View?id=dcfcvm9s_23gs32zshc">you can have a look at my T20 notes here,</a>
-
-<a href="http://github.com/ndbroadbent/linux_on_t20">and download my tweaked T20 build scripts from here</a>.
+Anyway, <a href="http://docs.google.com/View?id=dcfcvm9s_23gs32zshc">you can have a look at my T20 notes here,</a> <a href="http://github.com/ndbroadbent/linux_on_t20">and download my tweaked T20 build scripts from here</a>.
 
 The notes are pretty scrambled and random, but I guess its better that they're in one document instead of 50 blog posts..

@@ -81,8 +81,6 @@ function createGhostPost(index, matter, filename) {
     mobiledoc:
       '{"version":"0.3.1","atoms":[],"cards":[["markdown",{"markdown":"' +
       matter.content
-        .replaceAll("/content/images/", "/content/images/")
-        .replaceAll("/post-assets/", "/content/files/")
         .replaceAll('"', '\\"')
         .replaceAll("\n", "\\n")
         .replaceAll("\\---", "---") +

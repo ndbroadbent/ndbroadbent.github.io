@@ -29,7 +29,7 @@ function new_post() {
   local year="${date:0:4}"
   local month="${date:5:2}"
   local images_path="static/content/images/$year/$month"
-  local assets_path="static/post-assets/$year/$month"
+  local assets_path="static/content/files/$year/$month"
   echo "Creating post asset directories: $images_path, $assets_path"
   mkdir -p "$images_path"
   mkdir -p "$assets_path"

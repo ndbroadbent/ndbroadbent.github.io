@@ -54,4 +54,3 @@ echo -e "$blank_line" "\n" # Bottom border
 Running 'color_index' will display something like this:
 
 <img src="/content/images/posts/2011/08/color_index-resized-post.png" alt="color_index()" />
-```

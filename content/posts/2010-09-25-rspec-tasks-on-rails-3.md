@@ -8,12 +8,15 @@ wordpress_id: 125
 wordpress_url: http://nathanf77.wordpress.com/?p=125
 ---
 
-Problem:
+## Problem:
+
+```
 uninitialized constant RSpec::Rake
+```
 
-Solution:
+## Solution:
 
-You are using rails 3 (and rspec 2), and trying to define a custom rake task with <code>Spec::Rake::SpecTask.new</code>
+You are using Rails 3 (and RSpec 2), and trying to define a custom rake task with `Spec::Rake::SpecTask.new`
 
 Instead, do:
 

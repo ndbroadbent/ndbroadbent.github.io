@@ -8,8 +8,8 @@ wordpress_id: 192
 wordpress_url: http://nathanf77.wordpress.com/?p=192
 ---
 
-I like my shortcuts for git (ie. 'gst' for 'git status', 'gca' for 'git commit -a -m', etc.)
-But I wanted more, so I thought it would be nice if I could somehow create 'shortcuts' to the filepaths of modified files whenever I run 'git status'.
+I like my shortcuts for `git` (ie. `gst` for `git status`, `gca` for `git commit -a -m`, etc.)
+But I wanted more, so I thought it would be nice if I could somehow create 'shortcuts' to the filepaths of modified files whenever I run `git status`.
 I created a function to export the paths of each modified file into numbered environment variables, and it has really sped up my workflow.
 
 You will need to configure git if you want to have colorized output:
@@ -18,18 +18,13 @@ You will need to configure git if you want to have colorized output:
 git config --global color.status always
 ```
 
-Paste the following script at the bottom of your ~/.bashrc file, and use it by typing 'gs'. (Change the shortcut to whatever you like.)
+Paste the following script at the bottom of your `~/.bashrc file`, and use it by typing `gs`. (Change the shortcut to whatever you like.)
 
 ```bash
-
 # Processes your git status output, exporting bash variables
-
 # for the filepaths of each modified file.
-
 # To ensure colored output, please run: $ git config --global color.status always
-
 # Written by Nathan D. Broadbent (www.madebynathan.com)
-
 # -----------------------------------------------------------
 
 gs() {
@@ -76,7 +71,7 @@ unset IFS
 }
 ```
 
-Now you can just type 'gs', and use the exported variables for commands. You can also customise the shortcut letter by changing the 'pfix' variable in the function. I chose 'e' because it's easy to slide your finger to it from the '$' key.
+Now you can just type `gs`, and use the exported variables for commands. You can also customise the shortcut letter by changing the `pfix` variable in the function. I chose `e` because it's easy to slide your finger to it from the `$` key.
 
 Example:
 
@@ -84,27 +79,16 @@ Example:
 $ gs
 
 # On branch master
-
 # Your branch is ahead of 'origin/master' by 4 commits.
-
 #
-
 # Changed but not updated:
-
 # (use "git add <file>..."; to update what will be committed)
-
 # (use "git checkout -- <file>..."; to discard changes in working directory)
-
 # (commit or discard the untracked or modified content in submodules)
-
 #
-
 # modified: [$e1] vendor/plugins/crm_merge (modified content)
-
 # modified: [$e2] vendor/plugins/crm_search (new commits, modified content)
-
 # modified: [$e3] vendor/plugins/crm_super_tags (modified content)
-
 #
 
 no changes added to commit (use "git add"; and/or "git commit -a")
@@ -112,7 +96,6 @@ no changes added to commit (use "git add"; and/or "git commit -a")
 $ cd $e2
 or
 $ git rm -r $e3
-
 ```
 
 &nbsp;
