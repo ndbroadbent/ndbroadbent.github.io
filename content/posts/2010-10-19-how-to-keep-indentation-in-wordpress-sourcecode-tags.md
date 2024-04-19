@@ -14,7 +14,7 @@ Examples:
 
 <strong>Code pasted in 'Visual' View</strong>
 
-````html
+```html
 <indent>
   <indent>
     <indent> </indent>
@@ -30,5 +30,6 @@ Examples:
     <indent> </indent>
   </indent>
 </indent>
-``` YMMV, I guess, but this is what works for me.
-````
+```
+
+YMMV, but this is what works for me.

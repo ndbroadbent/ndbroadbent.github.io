@@ -180,7 +180,3 @@ local tmp_stat_file="$stat_file"".tmp"
 fi
 fi
 ```
-
-```
-
-```

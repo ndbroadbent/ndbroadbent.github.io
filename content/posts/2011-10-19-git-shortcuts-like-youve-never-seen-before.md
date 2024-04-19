@@ -221,7 +221,3 @@ Please feel free to fork and send pull requests, especially if you would like to
 for Mercurial, SVN, etc.
 
 ## Enjoy!
-
-```
-
-```

@@ -39,7 +39,3 @@ And if Ive made lots of changes to various files, but only want to commit change
 $ git add foo.bar
 $ gc "I made a change to foo.bar"
 ```
-
-```
-
-```

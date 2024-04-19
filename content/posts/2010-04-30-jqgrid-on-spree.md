@@ -25,7 +25,7 @@ because jqgrid only has the one 'en' locale file in its 'i18n' directory.
 
 The simple fix is to change the file '2dc_jqgrid.rb' (starting from line 11), from this:
 
-````ruby
+```ruby
 def jqgrid_javascripts
 locale = I18n.locale rescue :en
 js = ''
@@ -41,4 +41,3 @@ locale = :en if locale.to_s.start_with?("en")
 js = ''
 ...
 ```
-````

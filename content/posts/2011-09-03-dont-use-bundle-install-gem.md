@@ -33,7 +33,3 @@ Then, to update your gem, you should run:
 ```bash
 bundle update {gem}
 ```
-
-```
-
-```

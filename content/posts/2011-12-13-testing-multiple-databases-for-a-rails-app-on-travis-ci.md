@@ -22,13 +22,13 @@ with some help from the [Travis docs](https://about.travis-ci.org/docs/user/data
 
 We add the databases to our build matrix by setting ENV variables. Add the following lines to your `.travis.yml`:
 
-````ruby
+```ruby
 env:
 
 - DB=mysql
 - DB=postgres
 - DB=sqlite
-  ```
+```
 
 ### Database configuration
 
@@ -96,4 +96,3 @@ Notice the `||=`, which meant that the `BUNDLE_GEMFILE` variable could actually 
 You might have found this post if you are googling for `Could not find multi_json-1.0.3 in any of the sources`, which is
 the symptom that I was experiencing (due to an updated gem and an outdated `Gemfile.lock`).
 In that case, you may need to update your `config/boot.rb` to [the latest version from Rails](https://github.com/rails/rails/blob/master/railties/lib/rails/generators/rails/app/templates/config/boot.rb).
-````

@@ -18,8 +18,8 @@ Just get rid of any "jqGrid(' **\*\*** ')" function wrappers, and everything sho
 
 For example:
 
-````js
-var ids = jQuery("#rowed2").jqGrid('getDataIDs');
+```js
+var ids = jQuery("#rowed2").jqGrid("getDataIDs");
 ```
 
 becomes:
@@ -27,4 +27,3 @@ becomes:
 ```js
 var ids = jQuery("#rowed2").getDataIDs();
 ```
-````

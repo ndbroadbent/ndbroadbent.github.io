@@ -30,7 +30,3 @@ ppmtowinicon -output favicon.ico favicon.ppm
 ```
 
 That's all. Now copy your <code>favicon.ico</code> to the document root of Apache, for example to <code>/srv/www/htdocs/favicon.ico</code>, if you are using SuSE Linux &gt;= 8.1.
-
-```
-
-```

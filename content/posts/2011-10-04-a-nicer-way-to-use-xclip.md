@@ -119,7 +119,3 @@ alias cbwd="pwd | cb"
 
 alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 ```
-
-```
-
-```

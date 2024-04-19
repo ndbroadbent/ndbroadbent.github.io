@@ -12,7 +12,7 @@ I wanted the LCD screen on my apartment door to display a message on certain day
 such as birthdays, Christmas, and Easter.
 I didn't realize how hard it was to calculate which day Easter Sunday is...
 
-````ruby
+```ruby
 def easter(year)
 c=year/100
 n=year-19*(year/19)
@@ -38,4 +38,3 @@ def christmas(year)
 [25, 12]
 end
 ```
-````

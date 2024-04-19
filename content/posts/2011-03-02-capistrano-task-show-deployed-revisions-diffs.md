@@ -50,7 +50,3 @@ after "deploy", "revisions"
 I spent a while getting the output nicely colorized and indented. Everything is tested with ruby 1.9.2, but let me know if you have problems with 1.8.7.
 
 Also, be careful <strong>not</strong> to chain this task <strong>before</strong> 'deploy', because the 'current_revision' method caches the path and messes up bundler. (lesson learnt the hard way..)
-
-```
-
-```

@@ -19,7 +19,3 @@ This downloads and executes the script from this gist: [https://gist.github.com/
 
 It fetches the skype configuration from [here](https://github.com/ndbroadbent/dotfiles/blob/master/skype/skype-UI.xml),
 which is part of my [dotfiles](https://github.com/ndbroadbent/dotfiles) repo.
-
-```
-
-```

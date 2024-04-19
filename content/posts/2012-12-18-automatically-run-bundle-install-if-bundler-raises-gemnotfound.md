@@ -19,7 +19,7 @@ and you forget to run `bundle install` before running a Rails command.
 Here's a simple function that handles this automatically, called `bundle_install_wrapper()`. It first tries to execute the command you pass to it.
 However, if Bundler exits with status code `7` (`GemNotFound`), then it will run `bundle install`. Finally, it retries the original command.
 
-````ruby
+```ruby
 bundle_install_wrapper() {
 
 # Run command
@@ -81,4 +81,3 @@ alias rg="rails_cmd generate"
 
 See the [Ruby on Rails section in my .bashrc](https://github.com/ndbroadbent/dotfiles/blob/master/bashrc/ruby_on_rails.sh) if you're interested in more aliases,
 and please leave a comment if you have any tips to share.
-````

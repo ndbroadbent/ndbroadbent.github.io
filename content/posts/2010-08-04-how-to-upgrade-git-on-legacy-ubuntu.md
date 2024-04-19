@@ -21,7 +21,3 @@ make
 sudo make install
 ln -nfs /usr/bin/git /usr/local/bin/git
 ```
-
-```
-
-```

@@ -116,7 +116,3 @@ If you find a bug, or it doesn't work quite right on your operating system,
 
 If you don't already use Dropbox, [click here to sign up!](https://db.tt/hN3mN1W) It's an awesome service!
 And if you sign up via that referral link, you'll be giving me a little extra free space :)
-
-```
-
-```

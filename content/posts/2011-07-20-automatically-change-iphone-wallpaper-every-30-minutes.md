@@ -76,7 +76,3 @@ launchctl load /Library/LaunchDaemons/com.ndb.changewallpaper.plist
 ```
 
 Enjoy!
-
-```
-
-```

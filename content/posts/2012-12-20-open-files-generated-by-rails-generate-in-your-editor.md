@@ -51,7 +51,3 @@ rgm() { rails3_with_editor generate migration "$@" --editor; }
 ```
 
 Now you can run `rgm` to generate a migration from any Rails 3 app.
-
-```
-
-```

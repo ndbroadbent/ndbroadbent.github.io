@@ -21,7 +21,3 @@ ln -nfs $rvm_ruby_gem_home/gems ~/src/gems/current_bundle
 ```
 
 Now you have access to the source code of gems from the file browser in your editor.
-
-```
-
-```

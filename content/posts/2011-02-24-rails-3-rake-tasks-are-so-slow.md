@@ -35,7 +35,3 @@ end
 There are other ways to speed up rake, such as <a href="https://github.com/outoftime/rake_server">Rake Server</a> (which forks a Rails server process each time you invoke a rake task).
 
 But sometimes quick hacks just work best.
-
-```
-
-```

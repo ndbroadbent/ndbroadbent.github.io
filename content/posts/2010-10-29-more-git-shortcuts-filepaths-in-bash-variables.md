@@ -118,7 +118,3 @@ $ git rm -r $e3
 &nbsp;
 
 I use git version 1.7.1.1, GNU bash version 4.1.5(1), and Ubuntu 10.04.
-
-```
-
-```

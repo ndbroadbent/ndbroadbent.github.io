@@ -29,8 +29,4 @@ So you might want to replace all occurences of 'badly_named_method' with 'awesom
 gsed "badly_named_ruby_method" "awesome_method_name" .
 ```
 
-Note: quotes are optional for single words.
-
-```
-
-```
+> Note: quotes are optional for single words.

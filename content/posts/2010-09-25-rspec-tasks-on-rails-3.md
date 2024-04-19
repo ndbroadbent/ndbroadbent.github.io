@@ -17,7 +17,7 @@ You are using rails 3 (and rspec 2), and trying to define a custom rake task wit
 
 Instead, do:
 
-````ruby
+```ruby
 RSpec::Core::RakeTask.new(:spec) do |t|
 ...
 ```
@@ -33,4 +33,3 @@ to
 ```ruby
 t.pattern = 'spec/\*_/_\_spec.rb'
 ```
-````

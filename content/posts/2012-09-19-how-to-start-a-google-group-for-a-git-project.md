@@ -51,7 +51,3 @@ write it on the page you won't be able to get it back after sending the first ba
 
 It will still be quite a tedious process since you'll need to enter a captcha for each batch,
 but hopefully this script will save you some time.
-
-```
-
-```
