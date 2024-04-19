@@ -40,9 +40,9 @@
     <meta property="og:title" content="Delete Plex TV Shows and Movies After Watching">
     <meta property="og:description" content="Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#x27;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry Pi, or">
     <meta property="og:url" content="https://madebynathan.com/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
     <meta property="article:published_time" content="2022-10-10T00:36:15.000Z">
-    <meta property="article:modified_time" content="2024-04-19T06:01:53.000Z">
+    <meta property="article:modified_time" content="2024-04-19T13:14:39.000Z">
     <meta property="article:tag" content="plex">
     <meta property="article:tag" content="debian">
     
@@ -50,14 +50,14 @@
     <meta name="twitter:title" content="Delete Plex TV Shows and Movies After Watching">
     <meta name="twitter:description" content="Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#x27;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry Pi, or">
     <meta name="twitter:url" content="https://madebynathan.com/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="Nathan Broadbent">
     <meta name="twitter:label2" content="Filed under">
     <meta name="twitter:data2" content="plex, debian">
     <meta name="twitter:site" content="@ndbroadbent">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="811">
+    <meta property="og:image:height" content="900">
     
     <script type="application/ld+json">
 {
@@ -89,12 +89,12 @@
     "headline": "Delete Plex TV Shows and Movies After Watching",
     "url": "https://madebynathan.com/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/",
     "datePublished": "2022-10-10T00:36:15.000Z",
-    "dateModified": "2024-04-19T06:01:53.000Z",
+    "dateModified": "2024-04-19T13:14:39.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&ixlib=rb-4.0.3&q=80&w=2000",
+        "url": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&ixlib=rb-4.0.3&q=80&w=2000",
         "width": 1200,
-        "height": 811
+        "height": 900
     },
     "keywords": "plex, debian",
     "description": "Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#x27;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry Pi, or wherever you run Plex Media Server.)\n\n\nI like to put things in the /opt directory on my servers.\n\n\n * \n   \n   \n   Run git clone https://github.com/ndbroadbent/Plex-Cleaner.git /opt\n   \n\n * \n   \n   \n   Run python3 PlexCleaner.py --",
@@ -184,15 +184,15 @@
 
                 <figure class="gh-article-image">
         <img
-            srcset="https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                    https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                    https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                    https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                    https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG1vdmllJTIwdHJhc2h8ZW58MHx8fHwxNzEzNTA2NDk4fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
+            srcset="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                    https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                    https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                    https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                    https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+            src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
             alt="Delete Plex TV Shows and Movies After Watching"
         >
-            <figcaption><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@jakobowens1?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Jakob Owens</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></figcaption>
+            <figcaption><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@norevisions?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">No Revisions</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></figcaption>
     </figure>
 
         </header>
