@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Color Matching Paint In GIMP: Don&#x27;t Make These Mistakes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=500e4eef8e">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=500e4eef8e">
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=500e4eef8e">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Color Matching Paint In GIMP: Don&#x27;t Make These Mistakes">
+    <meta property="og:description" content="Please note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert.
+
+We&#x27;re renting an old house that needs a lot of maintenance. The landlords are very easy-going so we&#x27;re">
+    <meta property="og:url" content="https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/2024/04/IMG_9116.jpeg">
+    <meta property="article:published_time" content="2024-04-25T06:26:42.000Z">
+    <meta property="article:modified_time" content="2024-04-25T06:26:42.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Color Matching Paint In GIMP: Don&#x27;t Make These Mistakes">
+    <meta name="twitter:description" content="Please note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert.
+
+We&#x27;re renting an old house that needs a lot of maintenance. The landlords are very easy-going so we&#x27;re">
+    <meta name="twitter:url" content="https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/2024/04/IMG_9116.jpeg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="934">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Color Matching Paint In GIMP: Don&#x27;t Make These Mistakes",
+    "url": "https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/",
+    "datePublished": "2024-04-25T06:26:42.000Z",
+    "dateModified": "2024-04-25T06:26:42.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/2024/04/IMG_9116.jpeg",
+        "width": 1200,
+        "height": 934
+    },
+    "description": "Please note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert.\n\nWe&#x27;re renting an old house that needs a lot of maintenance. The landlords are very easy-going so we&#x27;re allowed to have a dog and two cats. They also said we can pretty much do whatever we want to the house, so we&#x27;ve installed lots of home automation stuff, put up a garden shed, and hammered nails into the walls t",
+    "mainEntityOfPage": "https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.82">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://madebynathan.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=500e4eef8e"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=500e4eef8e">
+    <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+<style>:root {--ghost-accent-color: #5619ff;}</style>
+
+</head>
+<body class="post-template has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-personal-site"><a href="https://ndbroadbent.com">Personal Site</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post">
+
+        <header class="gh-article-header gh-canvas">
+
+            <h1 class="gh-article-title is-title">Color Matching Paint In GIMP: Don&#x27;t Make These Mistakes</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent" />
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2024-04-25">Apr 25, 2024</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="/content/images/size/w320/2024/04/IMG_9116.jpeg 320w,
+                    /content/images/size/w600/2024/04/IMG_9116.jpeg 600w,
+                    /content/images/size/w960/2024/04/IMG_9116.jpeg 960w,
+                    /content/images/size/w1200/2024/04/IMG_9116.jpeg 1200w,
+                    /content/images/size/w2000/2024/04/IMG_9116.jpeg 2000w"
+            src="/content/images/size/w1200/2024/04/IMG_9116.jpeg"
+            alt="Color Matching Paint In GIMP: Don&#x27;t Make These Mistakes"
+        >
+            <figcaption><span style="white-space: pre-wrap;">Spoiler: Don't do this. Use the Resene website.</span></figcaption>
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <blockquote>Please note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert.</blockquote><p>We're renting an old house that needs a lot of maintenance. The landlords are very easy-going so we're allowed to have a dog and two cats. They also said we can pretty much do whatever we want to the house, so we've installed lots of home automation stuff, put up a garden shed, and hammered nails into the walls to put up pictures. We also take of the lawns and the garden and help to keep the place tidy.</p><p>"Tidy up the fence" had been on my todo list for a long time. There's a few marks and rusty nails, and it looks like someone had tried to paint a... smiley face?</p><figure class="kg-card kg-gallery-card kg-width-wide kg-card-hascaption"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/IMG_9143-1.jpeg" width="2000" height="2667" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/IMG_9143-1.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2024/04/IMG_9143-1.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/IMG_9143-1.jpeg 1600w, https://madebynathan.com/content/images/size/w2400/2024/04/IMG_9143-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/IMG_9141.jpeg" width="2000" height="2667" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/IMG_9141.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2024/04/IMG_9141.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/IMG_9141.jpeg 1600w, https://madebynathan.com/content/images/size/w2400/2024/04/IMG_9141.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/IMG_9144-2.jpeg" width="2000" height="2667" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/IMG_9144-2.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2024/04/IMG_9144-2.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/IMG_9144-2.jpeg 1600w, https://madebynathan.com/content/images/size/w2400/2024/04/IMG_9144-2.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div></div><figcaption><p><span style="white-space: pre-wrap;">I think they forgot the mouth on the smiley face.</span></p></figcaption></figure><p>I thought it would be nice to touch up the fence with a bit of paint. I guess the proper way to do it is to pressure wash the fence, sand it down, apply a coat of primer, then a coat of paint. I didn't want to do all of that since the fence is old and probably due to be replaced. I just wanted to paint over a few spots, so I needed to find a matching paint color.</p><p>I tried taking a small bit of painted wood to the hardware store. They have a computerized paint machine that can scan a color and mix some paint to match the color. Unfortunately this didn't work too well and the resulting paint was too dark. They said that my painted wood chip had a bit too much dirt and grime and it wasn't easy to clean it, so they couldn't get an accurate color.</p><p>I went over to the Resene color swatches and held up my paint flake. "Double Thorndon Cream" seemed like it was a good match, so I bought a small test pot. I also brought home a collection of 28 Resene color cards for white and neutral colors, just in case I needed a different color. (They were free!)</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/IMG_9081.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="1500" srcset="https://madebynathan.com/content/images/size/w600/2024/04/IMG_9081.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2024/04/IMG_9081.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/IMG_9081.jpeg 1600w, https://madebynathan.com/content/images/2024/04/IMG_9081.jpeg 2000w" sizes="(min-width: 720px) 720px"></figure><p>I held up the color swatches and double-checked that "Double Thorndon Cream" matched the fence. It seemed pretty close, so I tried it out.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/IMG_9092.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="2667" srcset="https://madebynathan.com/content/images/size/w600/2024/04/IMG_9092.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2024/04/IMG_9092.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/IMG_9092.jpeg 1600w, https://madebynathan.com/content/images/2024/04/IMG_9092.jpeg 2000w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Not close</span></figcaption></figure><p>Wait, what? Why is it so light? Maybe there's something wrong with the paint in the test pot. Even if it's a bit brighter when it's wet, I can't see how it will be the right color when it dries.</p><p>I took a picture and used the color picker tool in GIMP. I wasn't able to choose a single pixel since the wood has a lot of texture, so I checked the "Sample average" option and took the average color from a 50x50 square.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/image-4.png" class="kg-image" alt="" loading="lazy" width="2000" height="752" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-4.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-4.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/image-4.png 1600w, https://madebynathan.com/content/images/2024/04/image-4.png 2100w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Test Pot Color = RGB(197, 203, 200)</span></figcaption></figure><p>I also checked the color of the original paint:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/image-5.png" class="kg-image" alt="" loading="lazy" width="2000" height="745" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-5.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-5.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/image-5.png 1600w, https://madebynathan.com/content/images/2024/04/image-5.png 2110w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Fence Color = RGB(180, 180, 171)</span></figcaption></figure><p>I did some Googling and found an online "Delta-E calculator":</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://colormine.org/delta-e-calculator"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Delta-E Calculator - ColorMine.org</div><div class="kg-bookmark-description">Accurate and easy color comparisons with our online delta-e calculator. Compare colors in Rgb, Cmy, Cmyk, Hsl, Xyz, CIE-L*ab, CIE-Lch, and Yxy spaces.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://colormine.org/favicon.ico" alt=""><span class="kg-bookmark-author">ColorMine.org</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://www.nixsensor.com/wp-content/uploads/2018/06/Nix-Colormine-Square1.jpg" alt=""></div></a></figure><p>This tool can calculate the "perceptual distance" between two colors by using the Cie76 algorithm.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-4.40.54-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="1015" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-22-at-4.40.54-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-22-at-4.40.54-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-22-at-4.40.54-PM.png 1600w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-4.40.54-PM.png 2000w" sizes="(min-width: 720px) 720px"></figure><p>The difference between the original paint and the paint from my test pot is: <strong>8.9811. </strong>Apparently<strong> </strong>that's quite a big difference. Humans can't tell the difference between colors if the difference is less than 1. That might be too hard to find, so I decided to aim for a difference of less than 2.</p><p>But how did I get it so wrong? Maybe I didn't mix the paint in the test pot well enough, or maybe it was a lot lighter than the swatch. So I checked the colors in GIMP.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/image-8.png" width="2000" height="1188" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-8.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-8.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/image-8.png 1600w, https://madebynathan.com/content/images/2024/04/image-8.png 2098w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/image-9.png" width="1268" height="880" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-9.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-9.png 1000w, https://madebynathan.com/content/images/2024/04/image-9.png 1268w" sizes="(min-width: 720px) 720px"></div></div></div></figure><ul><li>Swatch = <code>rgb(201, 203, 199)</code></li><li>Paint = <code>rgb(198, 203, 201)</code></li></ul><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-4.47.49-PM.png" class="kg-image" alt="" loading="lazy" width="1288" height="862" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-22-at-4.47.49-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-22-at-4.47.49-PM.png 1000w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-4.47.49-PM.png 1288w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">They're basically the same color.</span></figcaption></figure><p>The Delta-E difference between these two colors is only <strong>1.5174.</strong> They're actually very similar colors.</p><p>So the paint does match the swatch. Maybe I shouldn't be relying on my eyes so much.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://en.wikipedia.org/wiki/Checker_shadow_illusion"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Checker shadow illusion - Wikipedia</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://en.wikipedia.org/static/apple-touch/wikipedia.png" alt=""><span class="kg-bookmark-author">Wikimedia Foundation, Inc.</span><span class="kg-bookmark-publisher">Contributors to Wikimedia projects</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Checker_shadow_illusion.svg/1200px-Checker_shadow_illusion.svg.png" alt=""></div></a></figure><p>Anyway, now I know that the color swatch cards can be trusted. If the test paint matches it's corresponding swatch, then maybe I just need to find a swatch that matches the original paint. But I'm not going to rely on my eyes this time. I'm going to use the color picker and look at the Delta-E differences.</p><p>I took photos of all 28 swatches against the fence and went through all the colors one-by-one.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-3.50.28-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="878" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-22-at-3.50.28-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-22-at-3.50.28-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-22-at-3.50.28-PM.png 1600w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-3.50.28-PM.png 2000w" sizes="(min-width: 720px) 720px"></figure><p></p><h2 id="resene-double-parchment%E2%84%A2%EF%B8%8Fccy80-025-083">Resene Double Parchment™️cc - Y80-025-083</h2><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/image-14.png" width="1840" height="1200" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-14.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-14.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/image-14.png 1600w, https://madebynathan.com/content/images/2024/04/image-14.png 1840w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-9.59.43-PM.png" width="1386" height="986" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-22-at-9.59.43-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-22-at-9.59.43-PM.png 1000w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-9.59.43-PM.png 1386w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/image-16.png" width="2000" height="1281" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-16.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-16.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/image-16.png 1600w, https://madebynathan.com/content/images/2024/04/image-16.png 2082w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p>I found a color called "Double Parchment" that perfectly matched the paint. It was even the exact RGB value I was looking for: <code>rgb(185, 186, 179)</code>. There was something very satisfying about finding a perfect match. (Although the color of the fence varies slightly, depending on where I measured it.)</p><p>I went back to the store to buy another test pot. Unfortunately they didn't have any small pots available, so I had to buy a slightly bigger one. No problem, I was pretty sure that I got it right this time.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/3463F49E-C642-46C1-8B0F-0D11A9DFB992_1_105_c-1.jpeg" class="kg-image" alt="" loading="lazy" width="1024" height="768" srcset="https://madebynathan.com/content/images/size/w600/2024/04/3463F49E-C642-46C1-8B0F-0D11A9DFB992_1_105_c-1.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2024/04/3463F49E-C642-46C1-8B0F-0D11A9DFB992_1_105_c-1.jpeg 1000w, https://madebynathan.com/content/images/2024/04/3463F49E-C642-46C1-8B0F-0D11A9DFB992_1_105_c-1.jpeg 1024w" sizes="(min-width: 720px) 720px"></figure><p>Well that doesn't seem quite right.</p><p>You can see that I was getting a bit frustrated so I just went ahead and painted over all the graffiti anyway. But still want to figure this out, because I want to touch up some other parts of the fence and the house. If I manage to figure out the right color then maybe I'll paint over this section again.</p><h2 id="new-strategy">New strategy:</h2><p>I'll compare the new paint with the old paint and calculate percentage difference for each color channel. Then I'll apply that same percentage difference to the color swatch and look for a swatch that matches the darker color.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/image-17.png" class="kg-image" alt="" loading="lazy" width="1760" height="1316" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-17.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-17.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/image-17.png 1600w, https://madebynathan.com/content/images/2024/04/image-17.png 1760w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Original Paint = RGB(202.6, 195.7, 186.2)</span></figcaption></figure><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/image-19.png" class="kg-image" alt="" loading="lazy" width="2000" height="1166" srcset="https://madebynathan.com/content/images/size/w600/2024/04/image-19.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/image-19.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/image-19.png 1600w, https://madebynathan.com/content/images/2024/04/image-19.png 2052w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">New Paint = RGB(221.6, 215.4, 204.0)</span></figcaption></figure><h2 id="color-difference">Color difference:</h2><ul><li>Red: 202.6 / 221.6 = 0.9142599278</li><li>Green: 195.7 / 215.4 = 0.908542247</li><li>Blue: 186.2 / 204.0 = 0.912745098</li></ul><p>So I need to find a paint color that's about 91% as bright as Double Parchment.</p><p>I finally stumbled onto the Resene website, and realized that I had been doing everything wrong up until this point. Using the GIMP color picker for my swatch photos wasn't a very reliable process.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-10.40.30-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="1188" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-23-at-10.40.30-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-23-at-10.40.30-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-23-at-10.40.30-PM.png 1600w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-10.40.30-PM.png 2000w" sizes="(min-width: 720px) 720px"></figure><p>This looks a lot more promising! Now I can rely on some official RGB values for Resene Double Parchment. I just need to multiply them by around 91%, and hopefully this next color will be the right one.</p><ul><li>Red: 199 * 0.9142599278 = <strong>182</strong></li><li>Green: 187 * 0.908542247 = <strong>170</strong></li><li>Blue: 163 * 0.912745098 = <strong>149</strong></li></ul><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-11.23.44-PM.png" class="kg-image" alt="" loading="lazy" width="1822" height="1002" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-23-at-11.23.44-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-23-at-11.23.44-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-23-at-11.23.44-PM.png 1600w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-11.23.44-PM.png 1822w" sizes="(min-width: 720px) 720px"></figure><p>They even have a search feature, so you can look for paint colors matching some specific RGB values:</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-10.56.39-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="1255" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-23-at-10.56.39-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-23-at-10.56.39-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-23-at-10.56.39-PM.png 1600w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-10.56.39-PM.png 2000w" sizes="(min-width: 720px) 720px"></figure><p>I calculated the Delta-E differences for each color to see which one was the closest. Here are the results:</p><ul><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20The%20Range%20whites%20%26%20neutrals%20%28pre%202005%29&amp;brand=Resene&amp;name=Bison%20Hide">Bison Hide</a>: <strong>2.0151</strong>&nbsp;= R:182,G:170,B:149 -&gt; R:181,G:172,B:148<a href="https://www.nixsensor.com/?utm_source=colormine"><br></a></li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20The%20Range%20whites%20%26%20neutrals%20%28pre%202005%29&amp;brand=Resene&amp;name=Half%20Malta">Half Malta</a>: <strong>2.6672</strong>&nbsp;= R:182,G:170,B:149 -&gt; R:181,G:166,B:149</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20The%20Range%20whites%20%26%20neutrals%20%282014%29&amp;brand=Resene&amp;name=Half%20Grey%20Olive">Half Grey Olive</a>: <strong>2.4561</strong>&nbsp;= R:182,G:170,B:149 -&gt; R:177,G:171,B:149</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20The%20Range%20whites%20%26%20neutrals%20%282012%29&amp;brand=Resene&amp;name=Joss">Joss</a>: <strong>2.5412</strong>&nbsp;= R:182,G:170,B:149 -&gt; R:185,G:168,B:150</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20Whites%20%26%20neutrals%20range%20%282014%29&amp;brand=Resene&amp;name=Double%20Tea">Double Tea</a>: <strong>1.312</strong>&nbsp;= R:182,G:170,B:149 -&gt; R:178,G:168,B:148</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20Crown%20whites%20range&amp;brand=Resene&amp;name=Mandrake">Mandrake</a>: <strong>2.1529</strong> = R:182,G:170,B:149 -&gt; R:176,G:169,B:148</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20Multi-finish%20range%20%28pre%202006%29&amp;brand=Resene&amp;name=Eagle">Eagle</a>: <strong>3.5444</strong>&nbsp;= R:182,G:170,B:149 -&gt; R:176,G:172,B:148<a href="https://www.nixsensor.com/?utm_source=colormine"><br></a></li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20Whites%20%26%20neutrals%20range%20%28pre%202006%29&amp;brand=Resene&amp;name=Drought">Drought</a>: <strong>2.843</strong>&nbsp;= R:182,G:170,B:149 -&gt; R:184,G:168,B:143</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20The%20Range%20whites%20%26%20neutrals%20%282014%29&amp;brand=Resene&amp;name=Quarter%20Gargoyle">Quarter Gargoyle</a>: <strong>3.795</strong> = R:182,G:170,B:149 -&gt; R:178,G:164,B:149</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20The%20Range%20whites%20%26%20neutrals%20%282009%29&amp;brand=Resene&amp;name=Half%20Rickshaw">Half Rickshaw</a>: <strong>4.1016</strong> = R:182,G:170,B:149 -&gt; R:189,G:167,B:147</li><li><a href="https://www.resene.co.nz/swatches/search.php?type=result&amp;split=&amp;close=10&amp;chart=*&amp;r=182&amp;g=170&amp;b=149">Quarter Pravda</a>: <strong>4.5576</strong> = R:182,G:170,B:149 -&gt; R:180,G:171,B:158</li><li><a href="https://www.resene.co.nz/swatches/preview.php?chart=Resene%20The%20Range%20whites%20%26%20neutrals%20%282010%29&amp;brand=Resene&amp;name=Quarter%20Stonewashed">Quarter Stonewashed</a>: <strong>5.0726</strong> = R:182,G:170,B:149 -&gt; R:178,G:169,B:157</li></ul><p>"Double Tea" was the closest match with a difference of only <strong>1.312</strong>.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-11.10.04-PM.png" class="kg-image" alt="" loading="lazy" width="1848" height="1156" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-23-at-11.10.04-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-23-at-11.10.04-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-23-at-11.10.04-PM.png 1600w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-23-at-11.10.04-PM.png 1848w" sizes="(min-width: 720px) 720px"></figure><p>So maybe I'll go back to the hardware store tomorrow and buy another test pot.</p><hr><h2 id="the-next-day">The Next Day:</h2><p>I went outside to look at the fence again. The paint had dried. Turns out that "Double Parchment" was pretty close after all.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2024/04/570418FF-4B91-4F09-B389-85DABD572493_1_105_c.jpeg" width="1024" height="768" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2024/04/570418FF-4B91-4F09-B389-85DABD572493_1_105_c.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2024/04/570418FF-4B91-4F09-B389-85DABD572493_1_105_c.jpeg 1000w, https://madebynathan.com/content/images/2024/04/570418FF-4B91-4F09-B389-85DABD572493_1_105_c.jpeg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://www.cnet.com/a/img/resize/f5d3150ec428ca1f3534a85f7ee4b35e789f3862/hub/2019/05/22/1b710a6b-5f4d-4987-a046-c23674b221a3/picard-meme-facepalm.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200" width="1200" height="675" loading="lazy" alt="Picard memes: Patrick Stewart's best viral Star Trek moments ..."></div></div></div></figure><p>There's still some room for improvement, but I don't think it will be noticeable after I paint the rest of the boards in this section. The posts spaced every ~2 metres will help to hide the color difference, especially when the sun is hitting them and casting shadows.</p><h2 id="lessons-learned">Lessons Learned</h2><ul><li><strong>Don't trust your eyes.</strong><ul><li>It's very easy to get fooled by optical illusions. Your eyes can be tricked by all sorts of things, including shadows, patterns, textures, perspective, background color, color temperature, etc. Don't use your eyes to compare two colors. Use a color picker tool and check the Delta-E difference.</li></ul></li><li><strong>Be patient.</strong><ul><li>Wait for paint to dry before you make any decisions. Sometimes paint gets lighter after it dries. Sometimes it gets darker. Maybe some paint even stays the same color.</li></ul></li><li><strong>Don't be lazy.</strong><ul><li>I should have washed the fence first. The color of the old paint will probably change if I ever clean it. (Maybe I'll get lucky and it will match the new paint.)</li></ul></li></ul><h2 id="things-i-might-try-next-time">Things I might try next time</h2><p>If I ever need to color match some paint in the future, I might try using one of these ColorChecker charts:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://en.wikipedia.org/wiki/ColorChecker"><div class="kg-bookmark-content"><div class="kg-bookmark-title">ColorChecker - Wikipedia</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://en.wikipedia.org/static/apple-touch/wikipedia.png" alt=""><span class="kg-bookmark-author">Wikimedia Foundation, Inc.</span><span class="kg-bookmark-publisher">Contributors to Wikimedia projects</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Gretag-Macbeth_ColorChecker.jpg" alt=""></div></a></figure><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Gretag-Macbeth_ColorChecker.jpg/300px-Gretag-Macbeth_ColorChecker.jpg" width="300" height="245" loading="lazy" alt=""></div><div class="kg-gallery-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/CIE1931xy_ColorChecker_SMIL.svg/300px-CIE1931xy_ColorChecker_SMIL.svg.png" width="300" height="319" loading="lazy" alt=""></div></div></div></figure><p>Maybe I can hold this card against the wall and take a photo. Then I can use the chart to calibrate the photo and get a reliable RGB color for the wall. I could also hold up a ColorChecker chart against some Resene color swatch cards, and then calibrate them against the official RGB values from the Resene website.</p><hr><h1 id="bonus-topic">Bonus Topic</h1><h2 id="how-different-are-html-colors">How different are HTML colors?</h2><p>After I learned about Delta-E differences, I started to wonder about the difference between HTML colors. There are 16,777,216 possible colors (256 x 256 x 256), since there are only 256 possible values for red, green, and blue.  So what's the perceptual difference between two adjacent HTML colors?</p><p><code>#aabbcc</code> (<code>rgb(170, 187, 204)</code>) and <code>#aabbcd</code> (<code>rgb(170, 187, 205)</code>)</p><p>I chose a random green/blue color (<code>rgb(50,200,180</code>)&nbsp;and calculated a few differences by adding/subtracting one from each color value. Results:</p><ul><li><strong>0.1192</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:51,G:200,B:180</li><li><strong>0.1168</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:49,G:200,B:180</li><li><strong>0.6929</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:201,B:180</li><li><strong>0.6943</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:199,B:180</li><li><strong>0.5714</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:200,B:181</li><li><strong>0.5711</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:200,B:179</li></ul><p>Subtracting one from the green channel provides the biggest perceptual difference. Now we can see how the formula works. Darker colors are more similar than brighter colors. In other words, if a number is low, then it's hard to see the difference when we change that number.</p><p>Here's the difference when you subtract one from each color for pure white (<code>rgb(255, 255, 255</code>):</p><ul><li><strong>0.3561</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:254,G:255,B:255</li><li><strong>0.667</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:255,G:254,B:255</li><li><strong>0.5079</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:255,G:255,B:254</li></ul><p>Here's the progression from <code>rgb(255, 255, 255)</code> down to <code>rgb(255, 232, 255</code></p>
+<!--kg-card-begin: html-->
+<div>
+    <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,255,255); border: 5px solid #555"></div>
+    <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,254,255); border: 5px solid #555"></div>
+      <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,253,255); border: 5px solid #555"></div>
+      <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,252,255); border: 5px solid #555"></div>
+      <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,251,255); border: 5px solid #555"></div>
+        <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,250,255); border: 5px solid #555"></div>
+          <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,249,255); border: 5px solid #555"></div>
+            <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,248,255); border: 5px solid #555"></div>
+            <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,247,255); border: 5px solid #555"></div>  
+              <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,246,255); border: 5px solid #555"></div>  
+                <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,245,255); border: 5px solid #555"></div>  
+                  <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,244,255); border: 5px solid #555"></div>  
+
+          <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,243,255); border: 5px solid #555"></div>
+            <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,242,255); border: 5px solid #555"></div>
+            <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,241,255); border: 5px solid #555"></div>  
+              <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,240,255); border: 5px solid #555"></div>  
+                <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,239,255); border: 5px solid #555"></div>  
+                  <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,238,255); border: 5px solid #555"></div>   
+
+            <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,237,255); border: 5px solid #555"></div>
+            <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,236,255); border: 5px solid #555"></div>
+            <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,235,255); border: 5px solid #555"></div>  
+              <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,234,255); border: 5px solid #555"></div>  
+                <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,233,255); border: 5px solid #555"></div>  
+                  <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,232,255); border: 5px solid #555"></div>   
+</div>
+
+<!--kg-card-end: html-->
+<p>It's easy to see that the top left is white and the bottom right is pink. But it's very hard to see the difference between any two colors that are right next to each other.</p><p>I thought of another question: What's the biggest and smallest perceptual difference between two adjacent HTML color codes?</p><p>I decided to write a Ruby script to figure this out. I found this <code>color_difference</code> Ruby gem that uses the CIEDE2000 Color-Difference formula.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/mmozuras/color_difference"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - mmozuras/color_difference: Implementation of CIEDE2000 color-difference formula</div><div class="kg-bookmark-description">Implementation of CIEDE2000 color-difference formula - mmozuras/color_difference</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">mmozuras</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/7d9da6189de1e38a230f274e23459ccd4f068773cdcb1e689b13dc477537f180/mmozuras/color_difference" alt=""></div></a></figure><p>Paper: <a href="https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf">https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf</a></p><pre><code class="language-ruby">require 'color_difference'
+
+max_difference = nil
+min_difference = nil
+max_difference_colors = []
+min_difference_colors = []
+
+0.step(255, 1) do |r|
+  0.step(255, 1) do |g|
+    0.step(255, 1) do |b|
+      color = { r: r, g: g, b: b }
+      puts "Color: #{color.inspect}"
+
+      [1, -1].each do |diff|
+        %i(r g b).each do |channel|
+          new_color = color.dup
+          new_color[channel] += diff
+          new_color[channel] = [0, new_color[channel]].max
+          new_color[channel] = [255, new_color[channel]].min
+
+          next if new_color == color
+
+          difference = ColorDifference.cie2000(color, new_color)
+          if max_difference.nil? || difference &gt; max_difference
+            max_difference = difference
+            max_difference_colors = [color, new_color]
+          end
+
+          if min_difference.nil? || difference &lt; min_difference
+            min_difference = difference
+            min_difference_colors = [color, new_color]
+          end
+        end
+      end
+    end
+  end
+end
+
+def format_float(number)
+  sprintf('%.15f', number).sub(/0+$/, '').sub(/\.$/, '.0')
+end
+
+puts "Max difference: #{format_float max_difference}" 
+puts "Colors: #{max_difference_colors.inspect}"
+puts "------------------------------------"
+puts "Min difference: #{format_float min_difference}"
+puts "Colors: #{min_difference_colors.inspect}"</code></pre><h2 id="results">Results:</h2><pre><code>Max difference: 0.012461248722627
+Colors: [{:r=&gt;24, :g=&gt;23, :b=&gt;23}, {:r=&gt;24, :g=&gt;24, :b=&gt;23}]
+------------------------------------
+Min difference: 0.000064328231603
+Colors: [{:r=&gt;0, :g=&gt;255, :b=&gt;255}, {:r=&gt;1, :g=&gt;255, :b=&gt;255}]</code></pre><p>I've included the colors below. The large blocks are the two adjacent colors with the biggest/smallest differences. The smaller blocks are what it looks like if I continue adding one to their respective color channels (green for the largest difference, and red for the smallest difference.)</p><blockquote>Note: It's easier to see the largest difference against a black background.</blockquote><p><strong>Largest perceptual difference:</strong></p>
+<!--kg-card-begin: html-->
+<div style="padding: 28px; background: #000">
+<div style="margin: 4px; display: inline-block; width: 300px; height: 100px; background-color: rgb(24,23,23); border: 5px solid #555"></div>
+<div style="margin: 4px; display: inline-block; width: 300px; height: 100px; background-color: rgb(24,24,23); border: 5px solid #555"></div>
+</div>
+<!--kg-card-end: html-->
+
+<!--kg-card-begin: html-->
+<div style="padding: 28px; background: #000">
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,23,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,24,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,25,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,26,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,27,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,28,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,29,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,30,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,31,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,32,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,33,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,34,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,35,23); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(24,36,23); border: 3px solid #555"></div>
+</div>
+<!--kg-card-end: html-->
+<p><strong>Smallest perceptual difference:</strong></p>
+<!--kg-card-begin: html-->
+<div style="padding: 28px; background: #fff">
+<div style="margin: 4px; display: inline-block; width: 300px; height: 100px; background-color: rgb(0,255,255); border: 5px solid #555"></div>
+<div style="margin: 4px; display: inline-block; width: 300px; height: 100px; background-color: rgb(1,255,255); border: 5px solid #555"></div>
+</div>
+<!--kg-card-end: html-->
+
+<!--kg-card-begin: html-->
+<div style="padding: 28px; background: #fff">
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(0,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(1,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(2,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(3,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(4,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(5,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(6,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(7,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(8,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(9,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(10,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(11,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(12,255,255); border: 3px solid #555"></div>
+<div style="margin: 2px; display: inline-block; width: 35px; height: 100px; background-color: rgb(13,255,255); border: 3px solid #555"></div>
+</div>
+<!--kg-card-end: html-->
+<p></p><p>This was a really interesting diversion. You can clearly see the top blocks becoming more green, while the bottom blocks all look like the same color. I had to triple-check my HTML code to be sure I hadn't made any mistakes.</p><hr><p>If you made it this far, thanks for reading! I won't blame you if you skimmed some sections. It's a long post, but I hope it wasn't too boring. I started to get a bit bored while writing it. See you next time!</p>
+        </section>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/";
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://madebynathan.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2024/04/20/fried-rice-sandbox-toys/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2024/04/IMG_9162.jpeg 160w,
+                            /content/images/size/w320/format/webp/2024/04/IMG_9162.jpeg 320w,
+                            /content/images/size/w600/format/webp/2024/04/IMG_9162.jpeg 600w,
+                            /content/images/size/w960/format/webp/2024/04/IMG_9162.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2024/04/IMG_9162.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2024/04/IMG_9162.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2024/04/IMG_9162.jpeg"
+                    alt="Fried Rice Sandbox Toy"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Fried Rice Sandbox Toy</h3>
+                    <p class="gh-card-excerpt is-body">My wife is a counselor who does &quot;play therapy&quot; at a primary school. She has a sand tray and some toys that kids can play with during their sessions. Sometimes she asks me to 3D print things for the kids to play with. For example, I printed this</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2024-04-21">Apr 21, 2024</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2024/04/20/lora-mailbox-notifications/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2024/04/mailbox_guard.jpg 160w,
+                            /content/images/size/w320/format/webp/2024/04/mailbox_guard.jpg 320w,
+                            /content/images/size/w600/format/webp/2024/04/mailbox_guard.jpg 600w,
+                            /content/images/size/w960/format/webp/2024/04/mailbox_guard.jpg 960w,
+                            /content/images/size/w1200/format/webp/2024/04/mailbox_guard.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2024/04/mailbox_guard.jpg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2024/04/mailbox_guard.jpg"
+                    alt="LoRa Mailbox Notifications"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">LoRa Mailbox Notifications</h3>
+                    <p class="gh-card-excerpt is-body">I bought this awesome device that sends me notifications whenever we get a new letter or package in our mailbox.
+
+I bought it from the creator&#39;s online store:
+
+MailBox Guard Wireless IR SensorPricelessToolkitPricelessToolkit
+
+The design is also open source and available on GitHub:
+
+GitHub - PricelessToolkit/MailBoxGuard: Lora</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2024-04-20">Apr 20, 2024</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/logs/3d-printing/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2024/04/IMG_3783.jpeg 160w,
+                            /content/images/size/w320/format/webp/2024/04/IMG_3783.jpeg 320w,
+                            /content/images/size/w600/format/webp/2024/04/IMG_3783.jpeg 600w,
+                            /content/images/size/w960/format/webp/2024/04/IMG_3783.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2024/04/IMG_3783.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2024/04/IMG_3783.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2024/04/IMG_3783.jpeg"
+                    alt="3D Printing Log"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">3D Printing Log</h3>
+                    <p class="gh-card-excerpt is-body">I bought a Bambu Lab X1-Carbon 3D printer in March 2023.
+
+I&#39;m extremely happy with this 3D printer and highly recommend it! It&#39;s more expensive than entry-level printers, but it&#39;s a very high quality machine and is very reliable. I can focus on designing</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2024-04-19">Apr 19, 2024</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2024/04/19/new-blog-who-dis/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 160w,
+                            /content/images/size/w320/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 320w,
+                            /content/images/size/w600/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 600w,
+                            /content/images/size/w960/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 960w,
+                            /content/images/size/w1200/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 1200w,
+                            /content/images/size/w2000/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png"
+                    alt="Migrating from Hugo to Ghost"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Migrating from Hugo to Ghost</h3>
+                    <p class="gh-card-excerpt is-body">I haven&#39;t been able to write any blog posts since I got an M2 MacBook. I was using an old version of Hugo and got it running in a Docker container, but the Docker container only ran on my old Intel Mac. It was too painful to update</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2024-04-19">Apr 19, 2024</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/source.js?v=500e4eef8e"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
