@@ -6,6 +6,11 @@ collections:
     permalink: /posts/{year}-{month}-{day}-{slug}/
     template: index
 
+  /logs/:
+    filter: "tag:logs"
+    permalink: /logs/{slug}/
+    template: index
+
   /:
     permalink: /{year}/{month}/{day}/{slug}/
     template: index
