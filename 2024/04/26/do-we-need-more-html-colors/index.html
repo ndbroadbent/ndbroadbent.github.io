@@ -6,10 +6,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="preload" as="style" href="/assets/built/screen.css?v=a06ba65168">
-    <link rel="preload" as="script" href="/assets/built/source.js?v=a06ba65168">
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=68c61360ab">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=68c61360ab">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2?v=68c61360ab" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=68c61360ab) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a06ba65168">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=68c61360ab">
 
     <style>
         :root {
@@ -22,6 +34,11 @@
         https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
         var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
         accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
         var r = parseInt(accentColor.substr(0, 2), 16);
         var g = parseInt(accentColor.substr(2, 2), 16);
         var b = parseInt(accentColor.substr(4, 2), 16);
@@ -31,7 +48,7 @@
         document.documentElement.className = `has-${textColor}-text`;
     </script>
 
-    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
     <link rel="canonical" href="https://madebynathan.com/2024/04/26/do-we-need-more-html-colors/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
@@ -40,18 +57,18 @@
     <meta property="og:title" content="Do we need more HTML colors?">
     <meta property="og:description" content="I wrote a blog post about painting my fence. This got me thinking a lot about colors and how I use them as a web developer.
 
-Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes">
+Color Matching Paint With GIMPPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to">
     <meta property="og:url" content="https://madebynathan.com/2024/04/26/do-we-need-more-html-colors/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
     <meta property="article:published_time" content="2024-04-26T23:58:11.000Z">
-    <meta property="article:modified_time" content="2024-04-26T23:58:26.000Z">
+    <meta property="article:modified_time" content="2025-03-22T07:19:36.000Z">
     <meta property="article:tag" content="web-design">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Do we need more HTML colors?">
     <meta name="twitter:description" content="I wrote a blog post about painting my fence. This got me thinking a lot about colors and how I use them as a web developer.
 
-Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes">
+Color Matching Paint With GIMPPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to">
     <meta name="twitter:url" content="https://madebynathan.com/2024/04/26/do-we-need-more-html-colors/">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
     <meta name="twitter:label1" content="Written by">
@@ -72,9 +89,7 @@ Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post 
         "url": "https://madebynathan.com/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png",
-            "width": 60,
-            "height": 60
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png"
         }
     },
     "author": {
@@ -92,7 +107,7 @@ Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post 
     "headline": "Do we need more HTML colors?",
     "url": "https://madebynathan.com/2024/04/26/do-we-need-more-html-colors/",
     "datePublished": "2024-04-26T23:58:11.000Z",
-    "dateModified": "2024-04-26T23:58:26.000Z",
+    "dateModified": "2025-03-22T07:19:36.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&ixlib=rb-4.0.3&q=80&w=2000",
@@ -100,19 +115,19 @@ Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post 
         "height": 803
     },
     "keywords": "web-design",
-    "description": "I wrote a blog post about painting my fence. This got me thinking a lot about colors and how I use them as a web developer.\n\nColor Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert. We’re renting an old house that needs a lot of maintenance. The landlords are very easy-going so we’reMade By NathanNathan Broadbent\n\nS",
+    "description": "I wrote a blog post about painting my fence. This got me thinking a lot about colors and how I use them as a web developer.\n\nColor Matching Paint With GIMPPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert. We’re renting an old house that needs a lot of maintenance. The landlords are very easy-going so we’reMade By NathanNathan Broadbent\n\nSo I asked myself a questi",
     "mainEntityOfPage": "https://madebynathan.com/2024/04/26/do-we-need-more-html-colors/"
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.82">
+    <meta name="generator" content="Ghost 5.114">
     <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
     
-    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://madebynathan.com/" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
     
     <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
-    <script defer src="/public/cards.min.js?v=a06ba65168"></script>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=a06ba65168">
+    <script defer src="/public/cards.min.js?v=68c61360ab"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=68c61360ab">
     <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -131,7 +146,6 @@ Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post 
     margin-top: 20px;
   }
 </style>
-<style>:root {--ghost-accent-color: #5619ff;}</style>
 
 </head>
 <body class="post-template tag-web-design has-sans-title has-sans-body">
@@ -179,37 +193,25 @@ Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post 
             <h1 class="gh-article-title is-title">Do we need more HTML colors?</h1>
 
             <div class="gh-article-meta">
-                <div class="gh-article-author-image">
+                <div class="gh-article-author-image instapaper_ignore">
                             <a href="/author/nathan/">
-                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent" />
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
                             </a>
                 </div>
                 <div class="gh-article-meta-wrapper">
                     <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
                     <div class="gh-article-meta-content">
-                        <time class="gh-article-meta-date" datetime="2024-04-27">Apr 27, 2024</time>
+                        <time class="gh-article-meta-date" datetime="2024-04-27">27 Apr 2024</time>
                             <span class="gh-article-meta-length"><span class="bull">—</span> 5 min read</span>
                     </div>
                 </div>
             </div>
 
-                <figure class="gh-article-image">
-        <img
-            srcset="https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                    https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                    https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                    https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                    https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-            src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNvbG9yJTIwY29kZXxlbnwwfHx8fDE3MTQxNzUzNzJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
-            alt="Do we need more HTML colors?"
-        >
-            <figcaption><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@joshua_j_woroniecki?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Joshua Woroniecki</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></figcaption>
-    </figure>
-
+            
         </header>
 
         <section class="gh-content gh-canvas is-body">
-            <p>I wrote a blog post about painting my fence. This got me thinking a lot about colors and how I use them as a web developer.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Color Matching Paint In GIMP: Don’t Make These Mistakes</div><div class="kg-bookmark-description">Please note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert. We’re renting an old house that needs a lot of maintenance. The landlords are very easy-going so we’re</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" alt=""><span class="kg-bookmark-author">Made By Nathan</span><span class="kg-bookmark-publisher">Nathan Broadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/2024/04/IMG_9116.jpeg" alt=""></div></a></figure><p>So I asked myself a question: <em>What's the perceptual difference between two adjacent HTML colors?</em></p><p>There are 16,777,216 possible colors (256 x 256 x 256), since there are only 256 possible values for red, green, and blue. I've been using this Delta-E calculator to calculate the perceptual difference between colors:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://colormine.org/delta-e-calculator"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Delta-E Calculator - ColorMine.org</div><div class="kg-bookmark-description">Accurate and easy color comparisons with our online delta-e calculator. Compare colors in Rgb, Cmy, Cmyk, Hsl, Xyz, CIE-L*ab, CIE-Lch, and Yxy spaces.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://colormine.org/favicon.ico" alt=""><span class="kg-bookmark-author">ColorMine.org</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://www.nixsensor.com/wp-content/uploads/2018/06/Nix-Colormine-Square1.jpg" alt=""></div></a></figure><p>I chose a random green/blue color (<code>rgb(50,200,180</code>)&nbsp;and calculated some differences after adding/subtracting one from each color channel. Here are the results:</p><ul><li><strong>0.1192</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:51,G:200,B:180</li><li><strong>0.1168</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:49,G:200,B:180</li><li><strong>0.6929</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:201,B:180</li><li><strong>0.6943</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:199,B:180</li><li><strong>0.5714</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:200,B:181</li><li><strong>0.5711</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:200,B:179</li></ul><p>Subtracting one from the green channel seems to show the biggest perceptual difference.</p><p>Here's the difference when you subtract one from each color for pure white (<code>rgb(255, 255, 255</code>):</p><ul><li><strong>0.3561</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:254,G:255,B:255</li><li><strong>0.667</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:255,G:254,B:255</li><li><strong>0.5079</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:255,G:255,B:254</li></ul><p>So the green channel shows the biggest difference for both addition and subtraction. The next largest difference is in the blue channel, and red makes a relatively small difference.</p><p> Here's the progression from <code>rgb(255, 255, 255)</code> down to <code>rgb(255, 232, 255)</code></p>
+            <p>I wrote a blog post about painting my fence. This got me thinking a lot about colors and how I use them as a web developer.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://madebynathan.com/2024/04/25/color-matching-paint-is-harder-than-it-looks/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Color Matching Paint With GIMP</div><div class="kg-bookmark-description">Please note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to color match paint. This is not a how-to guide from an expert. We’re renting an old house that needs a lot of maintenance. The landlords are very easy-going so we’re</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/android-chrome-256x256-1.png" alt=""><span class="kg-bookmark-author">Made By Nathan</span><span class="kg-bookmark-publisher">Nathan Broadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/2024/04/IMG_9116.jpeg" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>So I asked myself a question: <em>What's the perceptual difference between two adjacent HTML colors?</em></p><p>There are 16,777,216 possible colors (256 x 256 x 256), since there are only 256 possible values for red, green, and blue. I've been using this Delta-E calculator to calculate the perceptual difference between colors:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://colormine.org/delta-e-calculator"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Delta-E Calculator - ColorMine.org</div><div class="kg-bookmark-description">Accurate and easy color comparisons with our online delta-e calculator. Compare colors in Rgb, Cmy, Cmyk, Hsl, Xyz, CIE-L*ab, CIE-Lch, and Yxy spaces.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://colormine.org/favicon.ico" alt=""><span class="kg-bookmark-author">ColorMine.org</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://www.nixsensor.com/wp-content/uploads/2018/06/Nix-Colormine-Square1.jpg" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>I chose a random green/blue color (<code>rgb(50,200,180</code>)&nbsp;and calculated some differences after adding/subtracting one from each color channel. Here are the results:</p><ul><li><strong>0.1192</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:51,G:200,B:180</li><li><strong>0.1168</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:49,G:200,B:180</li><li><strong>0.6929</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:201,B:180</li><li><strong>0.6943</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:199,B:180</li><li><strong>0.5714</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:200,B:181</li><li><strong>0.5711</strong>&nbsp;= R:50,G:200,B:180 -&gt; R:50,G:200,B:179</li></ul><p>Subtracting one from the green channel seems to show the biggest perceptual difference.</p><p>Here's the difference when you subtract one from each color for pure white (<code>rgb(255, 255, 255</code>):</p><ul><li><strong>0.3561</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:254,G:255,B:255</li><li><strong>0.667</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:255,G:254,B:255</li><li><strong>0.5079</strong>&nbsp;= R:255,G:255,B:255 -&gt; R:255,G:255,B:254</li></ul><p>So the green channel shows the biggest difference for both addition and subtraction. The next largest difference is in the blue channel, and red makes a relatively small difference.</p><p> Here's the progression from <code>rgb(255, 255, 255)</code> down to <code>rgb(255, 232, 255)</code></p>
 <!--kg-card-begin: html-->
 <div>
     <div style="margin: 4px; display: inline-block; width: 100px; height: 100px; background-color: rgb(255,255,255); border: 5px solid #555"></div>
@@ -241,7 +243,7 @@ Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post 
 </div>
 
 <!--kg-card-end: html-->
-<p>You can see that it's very hard to tell the difference between any two colors that are right next to each other.</p><p>I thought of another question: <em>What are the biggest and smallest perceptual differences between two adjacent HTML colors?</em></p><p>I decided to write a Ruby script to figure this out. I found this <code>color_difference</code> Ruby gem that uses the CIEDE2000 Color-Difference formula.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/mmozuras/color_difference"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - mmozuras/color_difference: Implementation of CIEDE2000 color-difference formula</div><div class="kg-bookmark-description">Implementation of CIEDE2000 color-difference formula - mmozuras/color_difference</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">mmozuras</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/7d9da6189de1e38a230f274e23459ccd4f068773cdcb1e689b13dc477537f180/mmozuras/color_difference" alt=""></div></a></figure><p>Paper: <a href="https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf">https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf</a></p><pre><code class="language-ruby">require 'color_difference'
+<p>You can see that it's very hard to tell the difference between any two colors that are right next to each other.</p><p>I thought of another question: <em>What are the biggest and smallest perceptual differences between two adjacent HTML colors?</em></p><p>I decided to write a Ruby script to figure this out. I found this <code>color_difference</code> Ruby gem that uses the CIEDE2000 Color-Difference formula.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/mmozuras/color_difference"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - mmozuras/color_difference: Implementation of CIEDE2000 color-difference formula</div><div class="kg-bookmark-description">Implementation of CIEDE2000 color-difference formula - mmozuras/color_difference</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">mmozuras</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/7d9da6189de1e38a230f274e23459ccd4f068773cdcb1e689b13dc477537f180/mmozuras/color_difference" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>Paper: <a href="https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf">https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf</a></p><pre><code class="language-ruby">require 'color_difference'
 
 max_difference = nil
 min_difference = nil
@@ -357,23 +359,11 @@ Colors: [{:r=&gt;0, :g=&gt;255, :b=&gt;255}, {:r=&gt;1, :g=&gt;255, :b=&gt;255}]
 <div style="margin: 4px; display: inline-block; width: 300px; height: 100px; background-color: rgb(120,255,255); border: 5px solid #555"></div>
 </div>
 <!--kg-card-end: html-->
-<p>I have to go all the way up to <code>rgb(120,255,255)</code> before I can really notice the difference.</p><blockquote>(I'm not color blind! I did a test!)</blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://enchroma.com/pages/color-blindness-test"><div class="kg-bookmark-content"><div class="kg-bookmark-title">EnChroma® Free Color Blind Test | Test Your Color Vision</div><div class="kg-bookmark-description">Take the free Enchroma color blind test to accurately assess your color perception. The results provide a recommendation for EnChroma color blind glasses.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://enchroma.com/cdn/shop/files/favicon_updated_final.png?v=1683100385&amp;width=96" alt=""><span class="kg-bookmark-author">Test Your Color Vision</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://cdn.shopify.com/s/files/1/0010/9215/7503/files/enchroma_og_image_small_71230167-925c-48b3-ba4d-f6227163eea8.jpg?v=1695073488" alt=""></div></a></figure><hr><p>So I think we now have enough information to answer the question: <em>Do we need more HTML colors?</em></p><p>No, 256 possible values for each color channel is plenty. It's virtually impossible for a human to tell the difference between any two adjacent color codes.</p>
+<p>I have to go all the way up to <code>rgb(120,255,255)</code> before I can really notice the difference.</p><blockquote>(I'm not color blind! I did a test!)</blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://enchroma.com/pages/color-blindness-test"><div class="kg-bookmark-content"><div class="kg-bookmark-title">EnChroma® Free Color Blind Test | Test Your Color Vision</div><div class="kg-bookmark-description">Take the free Enchroma color blind test to accurately assess your color perception. The results provide a recommendation for EnChroma color blind glasses.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://enchroma.com/cdn/shop/files/favicon_updated_final.png?v=1683100385&amp;width=96" alt=""><span class="kg-bookmark-author">Test Your Color Vision</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://cdn.shopify.com/s/files/1/0010/9215/7503/files/enchroma_og_image_small_71230167-925c-48b3-ba4d-f6227163eea8.jpg?v=1695073488" alt="" onerror="this.style.display = 'none'"></div></a></figure><hr><p>So I think we now have enough information to answer the question: <em>Do we need more HTML colors?</em></p><p>No, 256 possible values for each color channel is plenty. It's virtually impossible for a human to tell the difference between any two adjacent color codes.</p>
         </section>
 
     </article>
 
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = "https://madebynathan.com/2024/04/26/do-we-need-more-html-colors/";
-        };
-        (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://madebynathan.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-    </script>
 
 </main>
 
@@ -382,25 +372,38 @@ Colors: [{:r=&gt;0, :g=&gt;255, :b=&gt;255}, {:r=&gt;1, :g=&gt;255, :b=&gt;255}]
                 <div class="gh-container-inner gh-inner">
                     <h2 class="gh-container-title">Read more</h2>
                     <div class="gh-feed">
-                            <article class="gh-card post no-image">
+                            <article class="gh-card post featured">
     <a class="gh-card-link" href="/2025/03/22/home-automation-highlights/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 160w,
+                            /content/images/size/w320/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 320w,
+                            /content/images/size/w600/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 600w,
+                            /content/images/size/w960/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 960w,
+                            /content/images/size/w1200/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png"
+                    alt="Home Automation Highlights"
+                    loading="lazy"
+                >
+            </figure>
         <div class="gh-card-wrapper">
             <h3 class="gh-card-title is-title">Home Automation Highlights</h3>
-                    <p class="gh-card-excerpt is-body">I have some exciting news: My wife got a new job in the Bay of Islands!
+                    <p class="gh-card-excerpt is-body">Exciting news: We&#39;re moving to the Bay of Islands! My wife got a job up here, and I&#39;ll keep working on DocSpring from my home office.
 
-We&#39;re looking forward to moving up here and exploring this beautiful part of New Zealand. But first, I&#39;m going to have to take down all my home automation stuff.
-
-We&</p>
+We&#39;ve been renting a house in Auckland. It&#39;s an old house that needs a lot of</p>
             <footer class="gh-card-meta">
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2025-03-22">Mar 22, 2025</time>
+                    <time class="gh-card-date" datetime="2025-03-22">22 Mar 2025</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                            <article class="gh-card post">
+</article>
+                            <article class="gh-card post">
     <a class="gh-card-link" href="/logs/background-extra-work/">
             <figure class="gh-card-image">
                 <img
@@ -418,32 +421,23 @@ We&</p>
             </figure>
         <div class="gh-card-wrapper">
             <h3 class="gh-card-title is-title">Background Extra Work</h3>
-                    <p class="gh-card-excerpt is-body">I signed up with an agency (BGT) and have been doing some extra work for fun.
+                    <p class="gh-card-excerpt is-body">I signed up with an agency (BGT) and started doing some extra work in 2024. It&#39;s a lot of fun to be on movie and TV sets. (It can also pay quite well if you book a commercial!)
 
 
-Shortland Street
+Spartacus: House of Ashur
 
-(New Zealand soap opera)
-
-
-Episode 117 (18 July, 2024)
-
-https://www.tvnz.co.nz/shows/shortland-street/episodes/s2024-e117
-
-
-Episode 96 (18 June, 2024)
-
-https://www.tvnz.co.nz/shows/shortland-street/episodes/s2024-e96</p>
+I&#39;m a &quot;Roman</p>
             <footer class="gh-card-meta">
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-07-19">Jul 19, 2024</time>
+                    <time class="gh-card-date" datetime="2024-07-19">19 Jul 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                            <article class="gh-card post">
+</article>
+                            <article class="gh-card post">
     <a class="gh-card-link" href="/2024/05/06/day-of-week/">
             <figure class="gh-card-image">
                 <img
@@ -468,12 +462,13 @@ I&#39;ve had it stuck on a fixed color preset for around a year. (See above.) I 
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-05-06">May 6, 2024</time>
+                    <time class="gh-card-date" datetime="2024-05-06">06 May 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                            <article class="gh-card post">
+</article>
+                            <article class="gh-card post">
     <a class="gh-card-link" href="/2024/05/05/pegboard-mounts-for-stanley-fatmax-v20-tools/">
             <figure class="gh-card-image">
                 <img
@@ -506,12 +501,13 @@ I decided to mount the hand-held power tools on a pegboard in my</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-05-05">May 5, 2024</time>
+                    <time class="gh-card-date" datetime="2024-05-05">05 May 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                    </div>
+</article>
+                    </div>
                 </div>
             </section>
 
@@ -524,11 +520,9 @@ I decided to mount the hand-held power tools on a pegboard in my</p>
                     Made By Nathan
             </span>
             <nav class="gh-footer-menu">
-                <ul class="nav">
-    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
-</ul>
-
+                
             </nav>
+
             <div class="gh-footer-copyright">
                 Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
             </div>
@@ -536,7 +530,8 @@ I decided to mount the hand-held power tools on a pegboard in my</p>
 
 
     </div>
-</footer>    
+</footer>
+    
 </div>
 
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -580,7 +575,7 @@ I decided to mount the hand-held power tools on a pegboard in my</p>
         </div>
     </div>
 </div>
-<script src="/assets/built/source.js?v=a06ba65168"></script>
+<script src="/assets/built/source.js?v=68c61360ab"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

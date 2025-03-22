@@ -6,10 +6,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="preload" as="style" href="/assets/built/screen.css?v=a06ba65168">
-    <link rel="preload" as="script" href="/assets/built/source.js?v=a06ba65168">
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=68c61360ab">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=68c61360ab">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2?v=68c61360ab" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=68c61360ab) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a06ba65168">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=68c61360ab">
 
     <style>
         :root {
@@ -22,6 +34,11 @@
         https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
         var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
         accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
         var r = parseInt(accentColor.substr(0, 2), 16);
         var g = parseInt(accentColor.substr(2, 2), 16);
         var b = parseInt(accentColor.substr(4, 2), 16);
@@ -31,18 +48,19 @@
         document.documentElement.className = `has-${textColor}-text`;
     </script>
 
-    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
     <link rel="canonical" href="https://madebynathan.com/author/nathan/page/6/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="prev" href="https://madebynathan.com/author/nathan/page/5/">
-    <meta name="generator" content="Ghost 5.82">
+    <link rel="next" href="https://madebynathan.com/author/nathan/page/7/">
+    <meta name="generator" content="Ghost 5.114">
     <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
     
-    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://madebynathan.com/" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
     
     <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
-    <script defer src="/public/cards.min.js?v=a06ba65168"></script>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=a06ba65168">
+    <script defer src="/public/cards.min.js?v=68c61360ab"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=68c61360ab">
     <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -61,7 +79,6 @@
     margin-top: 20px;
   }
 </style>
-<style>:root {--ghost-accent-color: #5619ff;}</style>
 
 </head>
 <body class="author-template author-nathan paged has-sans-title has-sans-body">
@@ -125,280 +142,453 @@
 
 
 
-                        <article class="gh-card post tag-linux tag-music tag-projects tag-reaper tag-ruby tag-ubuntu-9-10 tag-videos tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/29/project-videos/">
+                        <article class="gh-card post tag-art tag-metal tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/11/05/my-attempt-at-an-embossed-metal-box-from-beverage-can/">
             <figure class="gh-card-image">
                 <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/Screenshot-2024-04-20-at-1.08.02-AM.png 160w,
-                            /content/images/size/w320/format/webp/2024/04/Screenshot-2024-04-20-at-1.08.02-AM.png 320w,
-                            /content/images/size/w600/format/webp/2024/04/Screenshot-2024-04-20-at-1.08.02-AM.png 600w,
-                            /content/images/size/w960/format/webp/2024/04/Screenshot-2024-04-20-at-1.08.02-AM.png 960w,
-                            /content/images/size/w1200/format/webp/2024/04/Screenshot-2024-04-20-at-1.08.02-AM.png 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/Screenshot-2024-04-20-at-1.08.02-AM.png 2000w"
+                    srcset="/content/images/size/w160/format/webp/2024/04/box-small.jpg 160w,
+                            /content/images/size/w320/format/webp/2024/04/box-small.jpg 320w,
+                            /content/images/size/w600/format/webp/2024/04/box-small.jpg 600w,
+                            /content/images/size/w960/format/webp/2024/04/box-small.jpg 960w,
+                            /content/images/size/w1200/format/webp/2024/04/box-small.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2024/04/box-small.jpg 2000w"
                     sizes="320px"
-                    src="/content/images/size/w600/2024/04/Screenshot-2024-04-20-at-1.08.02-AM.png"
-                    alt="Last.fm Player - Project Videos"
+                    src="/content/images/size/w600/2024/04/box-small.jpg"
+                    alt="My attempt at an embossed metal box from beverage can"
                     loading="lazy"
                 >
             </figure>
         <div class="gh-card-wrapper">
-                <p class="gh-card-tag">linux</p>
-            <h3 class="gh-card-title is-title">Last.fm Player - Project Videos</h3>
-                    <p class="gh-card-excerpt is-body">My Compaq Evo T20 running tinycore linux, playing shell.fm,
-displaying track info via lcd4linux on a Pertelian X2o40 USB LCD display.
+                <p class="gh-card-tag">art</p>
+            <h3 class="gh-card-title is-title">My attempt at an embossed metal box from beverage can</h3>
+                    <p class="gh-card-excerpt is-body">I was inspired by a makezine.com article I was reading this evening, and decided to follow a tutorial to make an embossed box out of an aluminium can. I haven&#39;t done anything creative for a long time, and I really enjoyed it.
 
 
-
-
-
-
-
-
-
-
-Uses music software Reaper
-to play audio and generate MIDI events. Midi events are sent to the &#39;output&#39; of
-MIDI Yoke, which patches them to a</p>
+I&#39;m not sure</p>
             <footer class="gh-card-meta">
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-29">Apr 29, 2010</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-bluetooth tag-linux tag-ubuntu-9-10 tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/29/how-to-use-a-bluetooth-headset-on-ubuntu-9-10/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1599669454699-248893623440?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxoZWFkc2V0fGVufDB8fHx8MTcxMzUwNzMwM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1599669454699-248893623440?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxoZWFkc2V0fGVufDB8fHx8MTcxMzUwNzMwM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1599669454699-248893623440?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxoZWFkc2V0fGVufDB8fHx8MTcxMzUwNzMwM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1599669454699-248893623440?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxoZWFkc2V0fGVufDB8fHx8MTcxMzUwNzMwM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1599669454699-248893623440?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxoZWFkc2V0fGVufDB8fHx8MTcxMzUwNzMwM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1599669454699-248893623440?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxoZWFkc2V0fGVufDB8fHx8MTcxMzUwNzMwM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1599669454699-248893623440?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxoZWFkc2V0fGVufDB8fHx8MTcxMzUwNzMwM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="How to use a bluetooth headset on Ubuntu 9.10 +"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">bluetooth</p>
-            <h3 class="gh-card-title is-title">How to use a bluetooth headset on Ubuntu 9.10 +</h3>
-                    <p class="gh-card-excerpt is-body">I found a little bluetooth headset at work, and wanted to play audio through it from my laptop. It turns out that nowadays, Ubuntu actually makes this really easy.
-
-
-I found a guide written for Ubuntu 9.04 on this forum post, but Ubuntu 9.10 now does most of</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-29">Apr 29, 2010</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-reaper tag-music tag-fireworks tag-pyro tag-show tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/25/fireworks-display-in-time-to-music/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZpcmV3b3Jrc3xlbnwwfHx8fDE3MTM1MDcyOTJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZpcmV3b3Jrc3xlbnwwfHx8fDE3MTM1MDcyOTJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZpcmV3b3Jrc3xlbnwwfHx8fDE3MTM1MDcyOTJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZpcmV3b3Jrc3xlbnwwfHx8fDE3MTM1MDcyOTJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZpcmV3b3Jrc3xlbnwwfHx8fDE3MTM1MDcyOTJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZpcmV3b3Jrc3xlbnwwfHx8fDE3MTM1MDcyOTJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZpcmV3b3Jrc3xlbnwwfHx8fDE3MTM1MDcyOTJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="Fireworks display in time to music"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">reaper</p>
-            <h3 class="gh-card-title is-title">Fireworks display in time to music</h3>
-                    <p class="gh-card-excerpt is-body">I&#39;ve had a REAPER license for a year or 2 now. Get rid of Logic Pro and Protools, REAPER is the most awesome music creation software I have ever used. I love the unparalleled flexibility to make it do whatever you can imagine.
-
-
-I just followed this extremely</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-26">Apr 26, 2010</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-lcd4linux tag-ruby tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/25/my-job-is-sweet/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/Screenshot-2024-04-20-at-1.09.06-AM.png 160w,
-                            /content/images/size/w320/format/webp/2024/04/Screenshot-2024-04-20-at-1.09.06-AM.png 320w,
-                            /content/images/size/w600/format/webp/2024/04/Screenshot-2024-04-20-at-1.09.06-AM.png 600w,
-                            /content/images/size/w960/format/webp/2024/04/Screenshot-2024-04-20-at-1.09.06-AM.png 960w,
-                            /content/images/size/w1200/format/webp/2024/04/Screenshot-2024-04-20-at-1.09.06-AM.png 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/Screenshot-2024-04-20-at-1.09.06-AM.png 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/Screenshot-2024-04-20-at-1.09.06-AM.png"
-                    alt="Hacking DSP-420 LCD displays"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">lcd4linux</p>
-            <h3 class="gh-card-title is-title">Hacking DSP-420 LCD displays</h3>
-                    <p class="gh-card-excerpt is-body">I recently found a bunch of DSP-420 LCD displays, like the ones that you see on POS terminals in grocery stores. After a fruitless battle with the proprietary protocol of an LED wallboard (that I also found at work :) ), it was good to find so much protocol documentation on these</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-26">Apr 26, 2010</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-compaq-evo-t20 tag-lcd4linux tag-linux tag-shell-fm tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/20/pertelian-x2040-lcd4linux-shell-fm/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/pertelian@2x.jpg 160w,
-                            /content/images/size/w320/format/webp/2024/04/pertelian@2x.jpg 320w,
-                            /content/images/size/w600/format/webp/2024/04/pertelian@2x.jpg 600w,
-                            /content/images/size/w960/format/webp/2024/04/pertelian@2x.jpg 960w,
-                            /content/images/size/w1200/format/webp/2024/04/pertelian@2x.jpg 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/pertelian@2x.jpg 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/pertelian@2x.jpg"
-                    alt="Pertelian X2040, lcd4linux, shell-fm"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">compaq-evo-t20</p>
-            <h3 class="gh-card-title is-title">Pertelian X2040, lcd4linux, shell-fm</h3>
-                    <p class="gh-card-excerpt is-body">I received my Pertelian X2040, and had a bit of trouble getting it work on my 64bit Ubuntu machine. The characters were getting all mixed up. I gave up on my 64bit machine and decided to focus my efforts on the T20 running tinycore.
-
-
-To get lcd4linux running on tinycore</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-21">Apr 21, 2010</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-shell-fm tag-ruby tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/15/next-project/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/LED-isplay.png 160w,
-                            /content/images/size/w320/format/webp/2024/04/LED-isplay.png 320w,
-                            /content/images/size/w600/format/webp/2024/04/LED-isplay.png 600w,
-                            /content/images/size/w960/format/webp/2024/04/LED-isplay.png 960w,
-                            /content/images/size/w1200/format/webp/2024/04/LED-isplay.png 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/LED-isplay.png 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/LED-isplay.png"
-                    alt="Next project: LED Wallboard"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">shell-fm</p>
-            <h3 class="gh-card-title is-title">Next project: LED Wallboard</h3>
-                    <p class="gh-card-excerpt is-body">So I have practically finished the last.fm player. Its running as I type this, and the sinatra server running on the machine is keeping me up to date with the tracks that are playing. But I&#39;m not quite finished with this little project yet.
-
-
-At work, I</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-16">Apr 16, 2010</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-compaq-evo-t20 tag-linux tag-ruby tag-shell-fm tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/15/it-works/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/FLFQS3CFX8OUZ7W.webp 160w,
-                            /content/images/size/w320/format/webp/2024/04/FLFQS3CFX8OUZ7W.webp 320w,
-                            /content/images/size/w600/format/webp/2024/04/FLFQS3CFX8OUZ7W.webp 600w,
-                            /content/images/size/w960/format/webp/2024/04/FLFQS3CFX8OUZ7W.webp 960w,
-                            /content/images/size/w1200/format/webp/2024/04/FLFQS3CFX8OUZ7W.webp 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/FLFQS3CFX8OUZ7W.webp 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/FLFQS3CFX8OUZ7W.webp"
-                    alt="The Compaq Evo T20 works"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">compaq-evo-t20</p>
-            <h3 class="gh-card-title is-title">The Compaq Evo T20 works</h3>
-                    <p class="gh-card-excerpt is-body">I&#39;ve finished the software research stage of my Compaq Evo T20 experiments. I have settled on the Tinycore 2.7 distribution. So I now have a 300MHz thin client that:
-
-
- * can connect to a wired or wireless network.
- * can play audio through its onboard sound device.
- * has the</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-16">Apr 16, 2010</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-compaq-evo-t20 tag-damn-small-linux tag-linux tag-c tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2010/04/08/compaq-evo-t20-projects/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/388051_qzhXocTVL_g9wxtXttw2kSyz4.jpg 160w,
-                            /content/images/size/w320/format/webp/2024/04/388051_qzhXocTVL_g9wxtXttw2kSyz4.jpg 320w,
-                            /content/images/size/w600/format/webp/2024/04/388051_qzhXocTVL_g9wxtXttw2kSyz4.jpg 600w,
-                            /content/images/size/w960/format/webp/2024/04/388051_qzhXocTVL_g9wxtXttw2kSyz4.jpg 960w,
-                            /content/images/size/w1200/format/webp/2024/04/388051_qzhXocTVL_g9wxtXttw2kSyz4.jpg 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/388051_qzhXocTVL_g9wxtXttw2kSyz4.jpg 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/388051_qzhXocTVL_g9wxtXttw2kSyz4.jpg"
-                    alt="Compaq Evo T20 projects"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">compaq-evo-t20</p>
-            <h3 class="gh-card-title is-title">Compaq Evo T20 projects</h3>
-                    <p class="gh-card-excerpt is-body">Compaq Evo T20s are fun. I have a few that I&#39;m using for various projects. I plan to set one up as a RFID controlled alarm/door lock system. Its running Damn Small Linux using ruby, rubygems and sinatra packages that I compiled myself.
-
-
-Karl Mowatt-Wilson&#39;s</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2010-04-09">Apr 9, 2010</time>
+                    <time class="gh-card-date" datetime="2010-11-06">06 Nov 2010</time>
                 <!--
          --></footer>
         </div>
     </a>
 </article>
+                        <article class="gh-card post tag-greasemonkey tag-javascript tag-music tag-grooveshark tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/11/04/grooveshark-set-current-song-as-browser-title/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fG11c2ljfGVufDB8fHx8MTcxMzUzMTc0NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fG11c2ljfGVufDB8fHx8MTcxMzUzMTc0NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fG11c2ljfGVufDB8fHx8MTcxMzUzMTc0NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fG11c2ljfGVufDB8fHx8MTcxMzUzMTc0NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fG11c2ljfGVufDB8fHx8MTcxMzUzMTc0NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fG11c2ljfGVufDB8fHx8MTcxMzUzMTc0NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDF8fG11c2ljfGVufDB8fHx8MTcxMzUzMTc0NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Grooveshark - Set Current Song as Browser Title"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">greasemonkey</p>
+            <h3 class="gh-card-title is-title">Grooveshark - Set Current Song as Browser Title</h3>
+                    <p class="gh-card-excerpt is-body">I like Grooveshark. Its like last.fm, but you can choose the songs &amp; albums you want to play. I would like to get a subscription one day, but I&#39;m not sure when the RIAA is planning their attack, so maybe I&#39;ll hold off for now</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-11-05">05 Nov 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-iphone tag-jailbreak tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/11/01/trying-to-use-l1merain-but-it-doesnt-work/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1488509082528-cefbba5ad692?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHBob25lfGVufDB8fHx8MTcxMzUzMTc2NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1488509082528-cefbba5ad692?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHBob25lfGVufDB8fHx8MTcxMzUzMTc2NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1488509082528-cefbba5ad692?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHBob25lfGVufDB8fHx8MTcxMzUzMTc2NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1488509082528-cefbba5ad692?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHBob25lfGVufDB8fHx8MTcxMzUzMTc2NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1488509082528-cefbba5ad692?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHBob25lfGVufDB8fHx8MTcxMzUzMTc2NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1488509082528-cefbba5ad692?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHBob25lfGVufDB8fHx8MTcxMzUzMTc2NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1488509082528-cefbba5ad692?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHBob25lfGVufDB8fHx8MTcxMzUzMTc2NHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Trying to use l1merain but it doesn&#x27;t work?"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">iphone</p>
+            <h3 class="gh-card-title is-title">Trying to use l1merain but it doesn&#x27;t work?</h3>
+                    <p class="gh-card-excerpt is-body">You are trying to use l1merain to jailbreak on windows xp, but your iPhone doesn&#39;t take it.. You should see a green rain drop if the jailbreaking process is successful, but you just see the apple icon.
+
+
+What you need to do is press CTRL+SHIFT+ESC. Sort</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-11-02">02 Nov 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-git tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/10/29/more-git-shortcuts-filepaths-in-bash-variables/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGdpdHxlbnwwfHx8fDE3MTM1MDY5ODl8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGdpdHxlbnwwfHx8fDE3MTM1MDY5ODl8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGdpdHxlbnwwfHx8fDE3MTM1MDY5ODl8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGdpdHxlbnwwfHx8fDE3MTM1MDY5ODl8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGdpdHxlbnwwfHx8fDE3MTM1MDY5ODl8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGdpdHxlbnwwfHx8fDE3MTM1MDY5ODl8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGdpdHxlbnwwfHx8fDE3MTM1MDY5ODl8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Make &#x27;git status&#x27; put filepaths into numbered variables"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">git</p>
+            <h3 class="gh-card-title is-title">Make &#x27;git status&#x27; put filepaths into numbered variables</h3>
+                    <p class="gh-card-excerpt is-body">I like my shortcuts for git (ie. gst for git status, gca for git commit -a -m, etc.)
+
+But I wanted more, so I thought it would be nice if I could somehow create &#39;shortcuts&#39; to the filepaths of modified files whenever I run git status.
+
+I created</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-10-30">30 Oct 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-bash tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/10/26/search-and-replace-in-multiple-files-on-linux-with-bash-egrep-sed-function/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Search and replace in multiple files on linux with bash, egrep, sed function"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">bash</p>
+            <h3 class="gh-card-title is-title">Search and replace in multiple files on linux with bash, egrep, sed function</h3>
+                    <p class="gh-card-excerpt is-body">Here&#39;s a simple function to add to your shell if you ever want to replace a string in multiple files at once. It ignores everything in .git, otherwise you get &#39;bad index file sha1 signature&#39; errors.
+
+
+function gsed () {
+if [ -z &quot;$3&quot; ]
+then
+echo &quot;</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-10-27">27 Oct 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-wordpress tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/10/19/how-to-keep-indentation-in-wordpress-sourcecode-tags/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="How to preserve indentation in wordpress [sourcecode] tags"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">wordpress</p>
+            <h3 class="gh-card-title is-title">How to preserve indentation in wordpress [sourcecode] tags</h3>
+                    <p class="gh-card-excerpt is-body">Dont use the visual editor. Copy the code into your &#39;HTML&#39; view and it will preserve indentation. Copy it into &#39;Visual&#39; view and your code will be all left-aligned...
+
+
+Examples:
+
+
+Code pasted in &#39;Visual&#39; View
+
+
+&lt;indent&gt;
+  &lt;indent&gt;
+    &lt;indent&gt;</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-10-20">20 Oct 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-rails tag-bundler tag-plugins tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/10/19/how-to-use-bundler-with-plugins-extensions/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="How to use bundler with multiple Gemfiles in plugins / extensions"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">rails</p>
+            <h3 class="gh-card-title is-title">How to use bundler with multiple Gemfiles in plugins / extensions</h3>
+                    <p class="gh-card-excerpt is-body">Bundler makes it very easy to point to a gem folder on your system, and I definitely recommend this approach a lot more. The plugin can be a gem that we can just require, and it can specify its own dependencies in its .gemspec file.
+
+
+But if you really don&</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-10-20">20 Oct 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-bugfixes tag-wordpress tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/10/07/configure-wordpress-smtp-error-could-not-connect-to-smtp-host/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="Configure SMTP - SMTP Error: Could not connect to SMTP host."
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">bugfixes</p>
+            <h3 class="gh-card-title is-title">Configure SMTP - SMTP Error: Could not connect to SMTP host.</h3>
+                    <p class="gh-card-excerpt is-body">If you are trying to configure your wordpress installation to
+
+send email from your gmail account:
+
+ 1. Install
+    
+    the &#39;Configure SMTP&#39; plugin, and check the &#39;Send e-mail via
+    
+    GMail?&#39; box.
+ 2. Send a test email to make sure
+    
+    everything is working.
+
+You might get the
+
+error</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-10-08">08 Oct 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-rspec tag-rails-3 tag-bugfixes tag-rails tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/09/25/rspec-tasks-on-rails-3/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="RSpec tasks on Rails 3"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">rspec</p>
+            <h3 class="gh-card-title is-title">RSpec tasks on Rails 3</h3>
+                    <p class="gh-card-excerpt is-body">Problem:
+
+
+uninitialized constant RSpec::Rake
+
+
+
+
+Solution:
+
+
+You are using Rails 3 (and RSpec 2), and trying to define a custom rake task with Spec::Rake::SpecTask.new
+
+
+Instead, do:
+
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+...
+
+
+
+and make sure to change:
+
+
+t.spec_files = FileList[&#39;spec/**/*_spec.rb&#39;</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-09-26">26 Sep 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-rss-tag tag-feed tag-projects tag-videos tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/08/05/wimp-com-rss-feed/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1592609931095-54a2168ae893?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTcxMzUwNjkzNHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="wimp.com rss feed"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">rss</p>
+            <h3 class="gh-card-title is-title">wimp.com rss feed</h3>
+                    <p class="gh-card-excerpt is-body">I found out about http://www.wimp.com last year, and have been watching their daily videos ever since. Its a simple website that offers 5 or 6 daily videos on a range of topics, such as science, comedy and innovation. And thats all there is. No bells and whistles,</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-08-06">06 Aug 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-git tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/08/04/how-to-upgrade-git-on-legacy-ubuntu/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1627398242454-45a1465c2479?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb2RlfGVufDB8fHx8MTcxMzUzMTgxM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
+                            https://images.unsplash.com/photo-1627398242454-45a1465c2479?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb2RlfGVufDB8fHx8MTcxMzUzMTgxM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+                            https://images.unsplash.com/photo-1627398242454-45a1465c2479?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb2RlfGVufDB8fHx8MTcxMzUzMTgxM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
+                            https://images.unsplash.com/photo-1627398242454-45a1465c2479?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb2RlfGVufDB8fHx8MTcxMzUzMTgxM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1627398242454-45a1465c2479?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb2RlfGVufDB8fHx8MTcxMzUzMTgxM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1627398242454-45a1465c2479?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb2RlfGVufDB8fHx8MTcxMzUzMTgxM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="320px"
+                    src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb2RlfGVufDB8fHx8MTcxMzUzMTgxM3ww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+                    alt="How to upgrade git on legacy Ubuntu"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">git</p>
+            <h3 class="gh-card-title is-title">How to upgrade git on legacy Ubuntu</h3>
+                    <p class="gh-card-excerpt is-body">Follow these steps to get git 1.7 + on ubuntu 9.10 or less. (10.04 comes with the latest version)
+
+
+sudo apt-get install libcurl4-dev  # (for new http[s] support)
+cd /tmp
+wget http://kernel.org/pub/software/scm/git/git-1.7.2.1.tar.gz
+tar -xf git-1.7.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-08-05">05 Aug 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                        <article class="gh-card post tag-compaq-evo-t20 tag-lcd4linux tag-linux tag-music tag-ruby tag-shell-fm tag-web-design tag-projects tag-hash-import-2024-04-19-15-41">
+    <a class="gh-card-link" href="/2010/06/26/last-fm-on-embedded-systems/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2024/04/changing-station.png 160w,
+                            /content/images/size/w320/format/webp/2024/04/changing-station.png 320w,
+                            /content/images/size/w600/format/webp/2024/04/changing-station.png 600w,
+                            /content/images/size/w960/format/webp/2024/04/changing-station.png 960w,
+                            /content/images/size/w1200/format/webp/2024/04/changing-station.png 1200w,
+                            /content/images/size/w2000/format/webp/2024/04/changing-station.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2024/04/changing-station.png"
+                    alt="Last.fm on embedded systems"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+                <p class="gh-card-tag">compaq-evo-t20</p>
+            <h3 class="gh-card-title is-title">Last.fm on embedded systems</h3>
+                    <p class="gh-card-excerpt is-body">I&#39;ve finished most of the work I&#39;m going to do on my shell.fm ruby server. Its written on sinatra + jquery + jquery-ui (so, a lot of ajax calls). It also requires my custom shell.fm fork if you want the volume control to work.
+
+
+You can</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2010-06-26">26 Jun 2010</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+
             </div>
+
+                <div class="gh-more is-title">
+                    <a href="https://madebynathan.com/page/2">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></a>
+                </div>
         </main>
 
-
-            <div class="gh-more is-title">
-                <a href="https://madebynathan.com/page/2">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></a>
-            </div>
 
     </div>
 </section>
@@ -412,11 +602,9 @@ Karl Mowatt-Wilson&#39;s</p>
                     Made By Nathan
             </span>
             <nav class="gh-footer-menu">
-                <ul class="nav">
-    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
-</ul>
-
+                
             </nav>
+
             <div class="gh-footer-copyright">
                 Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
             </div>
@@ -424,11 +612,12 @@ Karl Mowatt-Wilson&#39;s</p>
 
 
     </div>
-</footer>    
+</footer>
+    
 </div>
 
 
-<script src="/assets/built/source.js?v=a06ba65168"></script>
+<script src="/assets/built/source.js?v=68c61360ab"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

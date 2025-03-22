@@ -6,10 +6,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="preload" as="style" href="/assets/built/screen.css?v=a06ba65168">
-    <link rel="preload" as="script" href="/assets/built/source.js?v=a06ba65168">
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=68c61360ab">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=68c61360ab">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2?v=68c61360ab" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=68c61360ab) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a06ba65168">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=68c61360ab">
 
     <style>
         :root {
@@ -22,6 +34,11 @@
         https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
         var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
         accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
         var r = parseInt(accentColor.substr(0, 2), 16);
         var g = parseInt(accentColor.substr(2, 2), 16);
         var b = parseInt(accentColor.substr(4, 2), 16);
@@ -31,19 +48,19 @@
         document.documentElement.className = `has-${textColor}-text`;
     </script>
 
-    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2024/04/android-chrome-256x256.png" type="image/png">
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
     <link rel="canonical" href="https://madebynathan.com/page/2/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="prev" href="https://madebynathan.com/">
     <link rel="next" href="https://madebynathan.com/page/3/">
-    <meta name="generator" content="Ghost 5.82">
+    <meta name="generator" content="Ghost 5.114">
     <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
     
-    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://madebynathan.com/" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
     
     <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
-    <script defer src="/public/cards.min.js?v=a06ba65168"></script>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=a06ba65168">
+    <script defer src="/public/cards.min.js?v=68c61360ab"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=68c61360ab">
     <script defer data-domain="madebynathan.com" data-api="https://pa.ndbr.workers.dev/api" src="https://pa.ndbr.workers.dev/main.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -62,7 +79,6 @@
     margin-top: 20px;
   }
 </style>
-<style>:root {--ghost-accent-color: #5619ff;}</style>
 
 </head>
 <body class="paged has-sans-title has-sans-body">
@@ -112,25 +128,38 @@
             <div class="gh-feed">
 
 
-                                <article class="gh-card post no-image">
+                                <article class="gh-card post featured">
     <a class="gh-card-link" href="/2025/03/22/home-automation-highlights/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 160w,
+                            /content/images/size/w320/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 320w,
+                            /content/images/size/w600/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 600w,
+                            /content/images/size/w960/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 960w,
+                            /content/images/size/w1200/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png"
+                    alt="Home Automation Highlights"
+                    
+                >
+            </figure>
         <div class="gh-card-wrapper">
             <h3 class="gh-card-title is-title">Home Automation Highlights</h3>
-                    <p class="gh-card-excerpt is-body">I have some exciting news: My wife got a new job in the Bay of Islands!
+                    <p class="gh-card-excerpt is-body">Exciting news: We&#39;re moving to the Bay of Islands! My wife got a job up here, and I&#39;ll keep working on DocSpring from my home office.
 
-We&#39;re looking forward to moving up here and exploring this beautiful part of New Zealand. But first, I&#39;m going to have to take down all my home automation stuff.
-
-We&</p>
+We&#39;ve been renting a house in Auckland. It&#39;s an old house that needs a lot of</p>
             <footer class="gh-card-meta">
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2025-03-22">Mar 22, 2025</time>
+                    <time class="gh-card-date" datetime="2025-03-22">22 Mar 2025</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/logs/background-extra-work/">
             <figure class="gh-card-image">
                 <img
@@ -148,32 +177,23 @@ We&</p>
             </figure>
         <div class="gh-card-wrapper">
             <h3 class="gh-card-title is-title">Background Extra Work</h3>
-                    <p class="gh-card-excerpt is-body">I signed up with an agency (BGT) and have been doing some extra work for fun.
+                    <p class="gh-card-excerpt is-body">I signed up with an agency (BGT) and started doing some extra work in 2024. It&#39;s a lot of fun to be on movie and TV sets. (It can also pay quite well if you book a commercial!)
 
 
-Shortland Street
+Spartacus: House of Ashur
 
-(New Zealand soap opera)
-
-
-Episode 117 (18 July, 2024)
-
-https://www.tvnz.co.nz/shows/shortland-street/episodes/s2024-e117
-
-
-Episode 96 (18 June, 2024)
-
-https://www.tvnz.co.nz/shows/shortland-street/episodes/s2024-e96</p>
+I&#39;m a &quot;Roman</p>
             <footer class="gh-card-meta">
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-07-19">Jul 19, 2024</time>
+                    <time class="gh-card-date" datetime="2024-07-19">19 Jul 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/05/06/day-of-week/">
             <figure class="gh-card-image">
                 <img
@@ -198,12 +218,13 @@ I&#39;ve had it stuck on a fixed color preset for around a year. (See above.) I 
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-05-06">May 6, 2024</time>
+                    <time class="gh-card-date" datetime="2024-05-06">06 May 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/05/05/pegboard-mounts-for-stanley-fatmax-v20-tools/">
             <figure class="gh-card-image">
                 <img
@@ -236,12 +257,13 @@ I decided to mount the hand-held power tools on a pegboard in my</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-05-05">May 5, 2024</time>
+                    <time class="gh-card-date" datetime="2024-05-05">05 May 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/05/03/configuring-the-start-and-stop-positions-for-a-zigbee-blinds-motor-without-a-remote/">
             <figure class="gh-card-image">
                 <img
@@ -275,12 +297,13 @@ fields:
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-05-03">May 3, 2024</time>
+                    <time class="gh-card-date" datetime="2024-05-03">03 May 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/05/03/3d-printed-blinds-motor-adapter/">
             <figure class="gh-card-image">
                 <img
@@ -303,12 +326,13 @@ fields:
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-05-03">May 3, 2024</time>
+                    <time class="gh-card-date" datetime="2024-05-03">03 May 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/04/26/do-we-need-more-html-colors/">
             <figure class="gh-card-image">
                 <img
@@ -328,17 +352,18 @@ fields:
             <h3 class="gh-card-title is-title">Do we need more HTML colors?</h3>
                     <p class="gh-card-excerpt is-body">I wrote a blog post about painting my fence. This got me thinking a lot about colors and how I use them as a web developer.
 
-Color Matching Paint In GIMP: Don’t Make These MistakesPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes</p>
+Color Matching Paint With GIMPPlease note: This post is a stream-of-conciousness journal entry that describes all of the mistakes I made while trying to</p>
             <footer class="gh-card-meta">
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-04-27">Apr 27, 2024</time>
+                    <time class="gh-card-date" datetime="2024-04-27">27 Apr 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/04/25/color-matching-paint-is-harder-than-it-looks/">
             <figure class="gh-card-image">
                 <img
@@ -363,12 +388,13 @@ We&#39;re renting an old house that needs a lot of maintenance. The landlords ar
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-04-25">Apr 25, 2024</time>
+                    <time class="gh-card-date" datetime="2024-04-25">25 Apr 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/04/20/fried-rice-sandbox-toys/">
             <figure class="gh-card-image">
                 <img
@@ -391,12 +417,13 @@ We&#39;re renting an old house that needs a lot of maintenance. The landlords ar
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-04-21">Apr 21, 2024</time>
+                    <time class="gh-card-date" datetime="2024-04-21">21 Apr 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/04/20/lora-mailbox-notifications/">
             <figure class="gh-card-image">
                 <img
@@ -427,12 +454,13 @@ GitHub - PricelessToolkit/MailBoxGuard: Lora</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-04-20">Apr 20, 2024</time>
+                    <time class="gh-card-date" datetime="2024-04-20">20 Apr 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post featured">
+</article>
+                                <article class="gh-card post featured">
     <a class="gh-card-link" href="/logs/3d-printing/">
             <figure class="gh-card-image">
                 <img
@@ -461,23 +489,24 @@ You</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-04-19">Apr 19, 2024</time>
+                    <time class="gh-card-date" datetime="2024-04-19">19 Apr 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
+</article>
+                                <article class="gh-card post">
     <a class="gh-card-link" href="/2024/04/19/new-blog-who-dis/">
             <figure class="gh-card-image">
                 <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 160w,
-                            /content/images/size/w320/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 320w,
-                            /content/images/size/w600/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 600w,
-                            /content/images/size/w960/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 960w,
-                            /content/images/size/w1200/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png 2000w"
+                    srcset="/content/images/size/w160/format/webp/2025/03/images.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/03/images.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/03/images.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/03/images.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/03/images.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/03/images.jpeg 2000w"
                     sizes="320px"
-                    src="/content/images/size/w600/2024/04/Screenshot-2024-04-19-at-5.05.24-PM-1.png"
+                    src="/content/images/size/w600/2025/03/images.jpeg"
                     alt="Migrating from Hugo to Ghost"
                     
                 >
@@ -489,115 +518,13 @@ You</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2024-04-19">Apr 19, 2024</time>
+                    <time class="gh-card-date" datetime="2024-04-19">19 Apr 2024</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                                <article class="gh-card post">
-    <a class="gh-card-link" href="/posts/2022-10-30-e24-resistor-pack-ring-binder/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/10k-to-51k.jpg 160w,
-                            /content/images/size/w320/format/webp/2024/04/10k-to-51k.jpg 320w,
-                            /content/images/size/w600/format/webp/2024/04/10k-to-51k.jpg 600w,
-                            /content/images/size/w960/format/webp/2024/04/10k-to-51k.jpg 960w,
-                            /content/images/size/w1200/format/webp/2024/04/10k-to-51k.jpg 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/10k-to-51k.jpg 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/10k-to-51k.jpg"
-                    alt="Organizing 1,700 Resistors in a Ring Binder"
-                    
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-            <h3 class="gh-card-title is-title">Organizing 1,700 Resistors in a Ring Binder</h3>
-                    <p class="gh-card-excerpt is-body">I used a ring binder and card sleeves to organize 1,700 through-hole resistors.
-
-
-You can use this PDF to make your own ring binder:
-
-
-
-
-
- * Download E24_Resistor_Kit_Folder.pdf
- * Liquid and SCSS that was used to generate the PDF
-
-
-
-
-
-The template code and generated PDF document are released</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2022-10-30">Oct 30, 2022</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                                <article class="gh-card post">
-    <a class="gh-card-link" href="/posts/2022-10-10-delete-plex-tv-shows-and-movies-after-watching/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxjbGVhbmluZ3xlbnwwfHx8fDE3MTM1MzI0Njd8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="Delete Plex TV Shows and Movies After Watching"
-                    
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-            <h3 class="gh-card-title is-title">Delete Plex TV Shows and Movies After Watching</h3>
-                    <p class="gh-card-excerpt is-body">Plex-Cleaner is a Python script that can clean up your Plex directory by deleting movies and TV shows after you&#39;ve watched them. This will stop your disk from filling up with lots of old media files over time. You can run this script on your server (or Raspberry</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2022-10-10">Oct 10, 2022</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                                <article class="gh-card post">
-    <a class="gh-card-link" href="/posts/2022-10-07-can-you-plug-a-sata-drive-into-a-sas-controller/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/sata-sas.jpg 160w,
-                            /content/images/size/w320/format/webp/2024/04/sata-sas.jpg 320w,
-                            /content/images/size/w600/format/webp/2024/04/sata-sas.jpg 600w,
-                            /content/images/size/w960/format/webp/2024/04/sata-sas.jpg 960w,
-                            /content/images/size/w1200/format/webp/2024/04/sata-sas.jpg 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/sata-sas.jpg 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/sata-sas.jpg"
-                    alt="Can you plug a SATA drive into a SAS controller?"
-                    
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-            <h3 class="gh-card-title is-title">Can you plug a SATA drive into a SAS controller?</h3>
-                    <p class="gh-card-excerpt is-body">Yes.
-
-
-SATA and SAS use very similar connectors, but a SATA connector has a gap in the middle. This means that you can physically plug a SATA drive into a SAS connector, but you can&#39;t plug a SAS drive into a SATA controller (because it won&#39;t</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2022-10-07">Oct 7, 2022</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                                <article class="gh-card post">
+</article>
+                        <article class="gh-card post tag-web-design tag-favicon tag-art tag-logo tag-ai tag-midjourney tag-stable-diffusion tag-dalle-2 tag-hash-import-2024-04-19-15-41">
     <a class="gh-card-link" href="/2022/10/01/how-to-create-a-favicon-with-stable-diffusion-and-dalle-2/">
             <figure class="gh-card-image">
                 <img
@@ -610,10 +537,11 @@ SATA and SAS use very similar connectors, but a SATA connector has a gap in the 
                     sizes="320px"
                     src="/content/images/size/w600/2024/04/midjourney_discord-2.jpg"
                     alt="Creating a new favicon with text-to-image AI"
-                    
+                    loading="lazy"
                 >
             </figure>
         <div class="gh-card-wrapper">
+                <p class="gh-card-tag">web-design</p>
             <h3 class="gh-card-title is-title">Creating a new favicon with text-to-image AI</h3>
                     <p class="gh-card-excerpt is-body">It&#39;s been a while since I wrote a blog post about creating a favicon.ico file for your website or blog. Things have changed a bit since I wrote that blog post in May 2010.
 
@@ -623,12 +551,13 @@ I&#39;ve been updating the CSS for my blog recently, and I</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2022-10-02">Oct 2, 2022</time>
+                    <time class="gh-card-date" datetime="2022-10-02">02 Oct 2022</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                        <article class="gh-card post tag-home-automation tag-esp32 tag-tasmota tag-kitchen-automation">
+</article>
+                        <article class="gh-card post tag-home-automation tag-esp32 tag-tasmota tag-kitchen-automation">
     <a class="gh-card-link" href="/2021/08/19/kogan-smart-kettle/">
             <figure class="gh-card-image">
                 <img
@@ -654,12 +583,13 @@ Kogan Smart KettleJust Tasmota it with AND it works - platform: mqtt name: “Ke
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2021-08-20">Aug 20, 2021</time>
+                    <time class="gh-card-date" datetime="2021-08-20">20 Aug 2021</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                        <article class="gh-card post tag-raspberry-pi tag-microwave tag-kitchen tag-appliances tag-ruby tag-rails tag-sinatra tag-linux-videos tag-electronics tag-home-automation tag-projects tag-c tag-hash-import-2024-04-19-15-41 tag-kitchen-automation featured">
+</article>
+                        <article class="gh-card post tag-raspberry-pi tag-microwave tag-kitchen tag-appliances tag-ruby tag-rails tag-sinatra tag-linux-videos tag-electronics tag-home-automation tag-projects tag-c tag-hash-import-2024-04-19-15-41 tag-kitchen-automation featured">
     <a class="gh-card-link" href="/2013/07/10/raspberry-pi-powered-microwave/">
             <figure class="gh-card-image">
                 <img
@@ -686,12 +616,13 @@ I thought this was a pretty cool idea, and that it</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2013-07-11">Jul 11, 2013</time>
+                    <time class="gh-card-date" datetime="2013-07-11">11 Jul 2013</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                        <article class="gh-card post tag-ruby tag-rails tag-bash tag-linux tag-ubuntu tag-hash-import-2024-04-19-15-41">
+</article>
+                        <article class="gh-card post tag-ruby tag-rails tag-bash tag-linux tag-ubuntu tag-hash-import-2024-04-19-15-41">
     <a class="gh-card-link" href="/2013/03/29/keyboard-shortcut-to-open-selected-file-in-sublime-text-2/">
             <figure class="gh-card-image">
                 <img
@@ -715,12 +646,13 @@ I thought this was a pretty cool idea, and that it</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2013-03-30">Mar 30, 2013</time>
+                    <time class="gh-card-date" datetime="2013-03-30">30 Mar 2013</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                        <article class="gh-card post tag-ruby tag-rails tag-scripts tag-rails-3 tag-hash-import-2024-04-19-15-41">
+</article>
+                        <article class="gh-card post tag-ruby tag-rails tag-scripts tag-rails-3 tag-hash-import-2024-04-19-15-41">
     <a class="gh-card-link" href="/2012/12/20/open-files-generated-by-rails-generate-in-your-editor/">
             <figure class="gh-card-image">
                 <img
@@ -751,12 +683,13 @@ Rails</p>
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-12-21">Dec 21, 2012</time>
+                    <time class="gh-card-date" datetime="2012-12-21">21 Dec 2012</time>
                 <!--
          --></footer>
         </div>
     </a>
-</article>                        <article class="gh-card post tag-ruby tag-rails tag-bash tag-bundler tag-rubygems tag-hash-import-2024-04-19-15-41">
+</article>
+                        <article class="gh-card post tag-ruby tag-rails tag-bash tag-bundler tag-rubygems tag-hash-import-2024-04-19-15-41">
     <a class="gh-card-link" href="/2012/12/18/automatically-run-bundle-install-if-bundler-raises-gemnotfound/">
             <figure class="gh-card-image">
                 <img
@@ -791,299 +724,21 @@ This happens if you or someone else adds a gem to your Gemfile, or if a gem vers
 <!--
              -->
                     <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-12-19">Dec 19, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-rails tag-ruby tag-linux tag-capistrano tag-server tag-administration tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/11/08/capistrano_colors-has-been-merged-into-capistrano/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1545231097-cbd796f1d95f?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhaW5ib3d8ZW58MHx8fHwxNzEzNTA2Nzg5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1545231097-cbd796f1d95f?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhaW5ib3d8ZW58MHx8fHwxNzEzNTA2Nzg5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1545231097-cbd796f1d95f?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhaW5ib3d8ZW58MHx8fHwxNzEzNTA2Nzg5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1545231097-cbd796f1d95f?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhaW5ib3d8ZW58MHx8fHwxNzEzNTA2Nzg5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1545231097-cbd796f1d95f?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhaW5ib3d8ZW58MHx8fHwxNzEzNTA2Nzg5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1545231097-cbd796f1d95f?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhaW5ib3d8ZW58MHx8fHwxNzEzNTA2Nzg5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1545231097-cbd796f1d95f?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhaW5ib3d8ZW58MHx8fHwxNzEzNTA2Nzg5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="capistrano_colors has been merged into capistrano"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">rails</p>
-            <h3 class="gh-card-title is-title">capistrano_colors has been merged into capistrano</h3>
-                    <p class="gh-card-excerpt is-body">capistrano_colors has been merged into capistrano. If you update capistrano to version 2.13.5, you will no longer need to include capistrano_colors in your Gemfile.
-Don&#39;t forget to also remove require &#39;capistrano_colors&#39; from config/deploy.rb.
-
-
-If you&#39;ve been using</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-11-09">Nov 9, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-bash tag-linux tag-scripts tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/10/29/auto-reloading-your-bashrc/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGluZ3xlbnwwfHx8fDE3MTM1MDY4MjR8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGluZ3xlbnwwfHx8fDE3MTM1MDY4MjR8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGluZ3xlbnwwfHx8fDE3MTM1MDY4MjR8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGluZ3xlbnwwfHx8fDE3MTM1MDY4MjR8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGluZ3xlbnwwfHx8fDE3MTM1MDY4MjR8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGluZ3xlbnwwfHx8fDE3MTM1MDY4MjR8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGluZ3xlbnwwfHx8fDE3MTM1MDY4MjR8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="Auto-reloading your .bashrc (or .zshrc)"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">bash</p>
-            <h3 class="gh-card-title is-title">Auto-reloading your .bashrc (or .zshrc)</h3>
-                    <p class="gh-card-excerpt is-body">If you often make changes to your ~/.bashrc, you might be sick of typing source ~/.bashrc after every change.
-
-It can also be annoying when you switch to a different tab in your terminal, but your new aliases or functions aren&#39;t available until you type source ~/.bashrc.
-
-
-While</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-10-30">Oct 30, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-linux tag-bash tag-ruby tag-scripts tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/10/14/saving-space-in-the-terminal-with-symbols/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/ls_with_symbols-resized-post.png 160w,
-                            /content/images/size/w320/format/webp/2024/04/ls_with_symbols-resized-post.png 320w,
-                            /content/images/size/w600/format/webp/2024/04/ls_with_symbols-resized-post.png 600w,
-                            /content/images/size/w960/format/webp/2024/04/ls_with_symbols-resized-post.png 960w,
-                            /content/images/size/w1200/format/webp/2024/04/ls_with_symbols-resized-post.png 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/ls_with_symbols-resized-post.png 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/ls_with_symbols-resized-post.png"
-                    alt="Saving space in the terminal with symbols"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">linux</p>
-            <h3 class="gh-card-title is-title">Saving space in the terminal with symbols</h3>
-                    <p class="gh-card-excerpt is-body">I&#39;m saving a little space in my terminal by replacing my username and group (ndbroadbent) with a single symbol. I&#39;m doing this in my prompt, as well as in the output of ls commands:
-
-
-
-(My laptop&#39;s hostname is also represented by a symbol.)
-
-
-For</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-10-15">Oct 15, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-ruby tag-rails tag-bash tag-rubygems tag-scripts tag-git tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/10/11/automate-your-development-machine-keep-projects-updated-install-gems-refresh-git-repo-index/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2024/04/source_list-resized-post.png 160w,
-                            /content/images/size/w320/format/webp/2024/04/source_list-resized-post.png 320w,
-                            /content/images/size/w600/format/webp/2024/04/source_list-resized-post.png 600w,
-                            /content/images/size/w960/format/webp/2024/04/source_list-resized-post.png 960w,
-                            /content/images/size/w1200/format/webp/2024/04/source_list-resized-post.png 1200w,
-                            /content/images/size/w2000/format/webp/2024/04/source_list-resized-post.png 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2024/04/source_list-resized-post.png"
-                    alt="Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">ruby</p>
-            <h3 class="gh-card-title is-title">Automate your Rails development with cron: Keep projects updated, install gems, and maintain a repo index</h3>
-                    <p class="gh-card-excerpt is-body">A day in the life of a Rails developer will usually involve a few git pulls, bundle installs, and switching between different projects. I thought it would be great if my projects could be automatically kept up-to-date, so that I don&#39;t have to spend too much time updating</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-10-12">Oct 12, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-administration tag-git tag-google-groups tag-mailing-list tag-bash tag-zsh tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/09/19/how-to-start-a-google-group-for-a-git-project/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fGdvb2dsZXxlbnwwfHx8fDE3MTM0NzAxNTV8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fGdvb2dsZXxlbnwwfHx8fDE3MTM0NzAxNTV8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fGdvb2dsZXxlbnwwfHx8fDE3MTM0NzAxNTV8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fGdvb2dsZXxlbnwwfHx8fDE3MTM0NzAxNTV8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fGdvb2dsZXxlbnwwfHx8fDE3MTM0NzAxNTV8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fGdvb2dsZXxlbnwwfHx8fDE3MTM0NzAxNTV8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fGdvb2dsZXxlbnwwfHx8fDE3MTM0NzAxNTV8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="How to start a Google Group for a git project"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">administration</p>
-            <h3 class="gh-card-title is-title">How to start a Google Group for a git project</h3>
-                    <p class="gh-card-excerpt is-body">GitHub is a great way to manage code for an open source project, but it doesn&#39;t
-
-provide any way to send a message to all of
-
-your watchers. This can be necessary whenever you make certain changes to your application.
-
-For example, I recently merged a pull request</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-09-20">Sep 20, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-scripts tag-skype tag-linux tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/03/24/skype-notifications-using-libnotify-on-linux/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3MTM1MDY5MDJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3MTM1MDY5MDJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3MTM1MDY5MDJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3MTM1MDY5MDJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3MTM1MDY5MDJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3MTM1MDY5MDJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fG5vdGlmaWNhdGlvbnxlbnwwfHx8fDE3MTM1MDY5MDJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="Skype notifications using libnotify on Linux"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">scripts</p>
-            <h3 class="gh-card-title is-title">Skype notifications using libnotify on Linux</h3>
-                    <p class="gh-card-excerpt is-body">Skype on Linux comes with it&#39;s own notification system. It&#39;s not that bad, but it&#39;s not consistent, either.
-
-If you want to configure Skype to use libnotify instead, run the following script in your terminal:
-
-
-(NOTE: You must have installed Skype, and logged in</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-03-25">Mar 25, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-linux tag-bash tag-administration tag-server tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/02/25/scheduling-one-off-tasks-with-at-/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1621677218308-e26f44480c61?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fHdoZWVsYmFycm93fGVufDB8fHx8MTcxMzUwNjkxOHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1621677218308-e26f44480c61?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fHdoZWVsYmFycm93fGVufDB8fHx8MTcxMzUwNjkxOHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1621677218308-e26f44480c61?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fHdoZWVsYmFycm93fGVufDB8fHx8MTcxMzUwNjkxOHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1621677218308-e26f44480c61?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fHdoZWVsYmFycm93fGVufDB8fHx8MTcxMzUwNjkxOHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1621677218308-e26f44480c61?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fHdoZWVsYmFycm93fGVufDB8fHx8MTcxMzUwNjkxOHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1621677218308-e26f44480c61?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fHdoZWVsYmFycm93fGVufDB8fHx8MTcxMzUwNjkxOHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1621677218308-e26f44480c61?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDN8fHdoZWVsYmFycm93fGVufDB8fHx8MTcxMzUwNjkxOHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="Scheduling one-off tasks with &#x27;at&#x27;"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">linux</p>
-            <h3 class="gh-card-title is-title">Scheduling one-off tasks with &#x27;at&#x27;</h3>
-                    <p class="gh-card-excerpt is-body">You might be familiar with the cron job scheduler,
-
-which is great for repeating tasks.
-
-But when you want to schedule a command to only run once in the future,
-
-the at command is what you are looking for.
-
-
-In my case, I was updating a plugin for our
-
-Thoughtworks</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-02-26">Feb 26, 2012</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>                        <article class="gh-card post tag-ruby tag-github tag-travis-ci tag-bash tag-prompt tag-hash-import-2024-04-19-15-41">
-    <a class="gh-card-link" href="/2012/01/14/travis-ci-status-in-shell-prompt/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;160 160w,
-                            https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
-                            https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600 600w,
-                            https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
-                            https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
-                            https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
-                    sizes="320px"
-                    src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fHwxNzEzNTA2OTM0fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
-                    alt="Travis CI Status in Shell Prompt"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-                <p class="gh-card-tag">ruby</p>
-            <h3 class="gh-card-title is-title">Travis CI Status in Shell Prompt</h3>
-                    <p class="gh-card-excerpt is-body">Update:
-
-
-I&#39;ve updated the build status checking script, because updating all branches was taking too long (over 20 minutes.)
-
-Now it performs frequent updates for the current branch, and only periodic updates for all branches.
-
-
-
-Travis CI is a distributed continuous integration service for the open source community,</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2012-01-14">Jan 14, 2012</time>
+                    <time class="gh-card-date" datetime="2012-12-19">19 Dec 2012</time>
                 <!--
          --></footer>
         </div>
     </a>
 </article>
 
+
             </div>
+
+                <div class="gh-more is-title">
+                    <a href="https://madebynathan.com/page/2">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></a>
+                </div>
         </main>
 
-
-            <div class="gh-more is-title">
-                <a href="https://madebynathan.com/page/2">See all <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></a>
-            </div>
 
     </div>
 </section></main>
@@ -1096,11 +751,9 @@ Travis CI is a distributed continuous integration service for the open source co
                     Made By Nathan
             </span>
             <nav class="gh-footer-menu">
-                <ul class="nav">
-    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
-</ul>
-
+                
             </nav>
+
             <div class="gh-footer-copyright">
                 Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
             </div>
@@ -1108,11 +761,12 @@ Travis CI is a distributed continuous integration service for the open source co
 
 
     </div>
-</footer>    
+</footer>
+    
 </div>
 
 
-<script src="/assets/built/source.js?v=a06ba65168"></script>
+<script src="/assets/built/source.js?v=68c61360ab"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
