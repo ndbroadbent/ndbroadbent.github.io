@@ -1,5 +1,5 @@
 User-agent: *
-Sitemap: https://blog.ndbroadbent.com/sitemap.xml
+Sitemap: https://blog.home.ndbroadbent.com/sitemap.xml
 Disallow: /ghost/
 Disallow: /email/
 Disallow: /members/api/comments/counts/
