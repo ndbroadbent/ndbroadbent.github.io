@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>The Meaning Of Life According to ChatGPT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=a6d395d68b">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=a6d395d68b">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2?v=a6d395d68b" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=a6d395d68b) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a6d395d68b">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/11/03/the-meaning-of-life-according-to-chatgpt/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Meaning Of Life According to ChatGPT">
+    <meta property="og:description" content="&quot;All right,&quot; said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.
+&quot;You&#x27;re really not going to like it,&quot; observed Deep Thought.
+&quot;Tell us!&quot;
+&quot;All right,&quot; said Deep Thought. &quot;The Answer to the Great Question...&quot;
+&quot;Yes..!&quot;
+&quot;Of Life, the Universe and Everything...&quot; said Deep">
+    <meta property="og:url" content="https://madebynathan.com/2025/11/03/the-meaning-of-life-according-to-chatgpt/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png">
+    <meta property="article:published_time" content="2025-11-03T11:24:25.000Z">
+    <meta property="article:modified_time" content="2025-11-03T11:28:37.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Meaning Of Life According to ChatGPT">
+    <meta name="twitter:description" content="&quot;All right,&quot; said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.
+&quot;You&#x27;re really not going to like it,&quot; observed Deep Thought.
+&quot;Tell us!&quot;
+&quot;All right,&quot; said Deep Thought. &quot;The Answer to the Great Question...&quot;
+&quot;Yes..!&quot;
+&quot;Of Life, the Universe and Everything...&quot; said Deep">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/11/03/the-meaning-of-life-according-to-chatgpt/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="745">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp"
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "The Meaning Of Life According to ChatGPT",
+    "url": "https://madebynathan.com/2025/11/03/the-meaning-of-life-according-to-chatgpt/",
+    "datePublished": "2025-11-03T11:24:25.000Z",
+    "dateModified": "2025-11-03T11:28:37.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png",
+        "width": 1024,
+        "height": 745
+    },
+    "description": "&quot;All right,&quot; said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.\n&quot;You&#x27;re really not going to like it,&quot; observed Deep Thought.\n&quot;Tell us!&quot;\n&quot;All right,&quot; said Deep Thought. &quot;The Answer to the Great Question...&quot;\n&quot;Yes..!&quot;\n&quot;Of Life, the Universe and Everything...&quot; said Deep Thought.\n&quot;Yes...!&quot;\n&quot;Is...&quot; said Deep Thought, and paused.\n&quot;Yes...!&quot;\n&quot;Is...&quot;\n&quot;Yes...!!!...?&quot;\n&quot;Forty-two,&quot; said Deep Thought, with infinite majesty and calm.\n\n― Douglas Adams, The Hitch",
+    "mainEntityOfPage": "https://madebynathan.com/2025/11/03/the-meaning-of-life-according-to-chatgpt/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=a6d395d68b"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=a6d395d68b">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post">
+
+        <header class="gh-article-header gh-canvas">
+
+            <h1 class="gh-article-title is-title">The Meaning Of Life According to ChatGPT</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-11-04">04 Nov 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 8 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <blockquote>"All right," said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable. <br>"You're really not going to like it," observed Deep Thought. <br>"Tell us!"<br>"All right," said Deep Thought. "The Answer to the Great Question..."<br>"Yes..!"<br>"Of Life, the Universe and Everything..." said Deep Thought.<br>"Yes...!"<br>"Is..." said Deep Thought, and paused.<br>"Yes...!"<br>"Is..."<br>"Yes...!!!...?"<br>"Forty-two," said Deep Thought, with infinite majesty and calm.</blockquote><p><em>― Douglas Adams, The Hitchhiker’s Guide to the Galaxy</em></p><hr><h3 id="it-all-started-with-a-stupid-question"><strong>It all started with a stupid question.</strong></h3><blockquote>"Would it be possible to genetically engineer a human so that they get energy from the sun like a plant?"</blockquote><p>I guess it was a particularly sunny day and I was thinking about how it would be cool if I could turn myself green and lie in the sun for a while.</p><p>It's a dumb question (especially if you know anything about biology or physics), but I ended up having an interesting conversation with ChatGPT. And to my surprise, ChatGPT came up with a beautiful answer to<strong> "What is the meaning of life?"</strong></p><p>Before I tell you the answer(s), let me first tell you why mammals (including humans) will never be able to get energy directly from the sun.<br><br>It's quite simple. We use way too much energy and we have nowhere near enough skin. (See the addendum below for the numbers.)</p><p>I asked ChatGPT if it might be possible to slow down our brains to 1/8th speed and not move as much, like a sloth. Answer: <strong>Still no. Not even close.</strong></p><p>So then I asked, <strong>"Why can plants do it and we can't?"</strong></p><hr><p><strong>ChatGPT: </strong>In short: plants succeed by being large solar panels that grow slowly, stay still, and accept low power throughput. Mammals are compact, warm, and fast. Biophysically, we are at the exact opposite end of the design space.</p><p></p><blockquote><em>Side note: I like how it says "we" sometimes when referring to humans. You'll be a real boy soon enough, Pinocchio.</em></blockquote><hr><p>Well, I'm a problem solver and I don't like taking no for an answer. I always want to know if something is literally impossible or if it's simply "close to impossible." I had the feeling that there must be some kind of levers that we could still pull if we absolutely had to genetically engineer a mammal that absorbed energy from the sun. ChatGPT explained:<br><br><strong>If you push every parameter—surface area, efficiency, stillness, energy storage—you end up designing something that <em>is</em> a plant or fungus-like organism, not an animal.</strong></p><p>In other words, if you set out to genetically engineer a green human that does photosynthesis instead of eating, you will have millions of failed experiments, and then what you eventually end up designing is a tree.</p><p><strong>A “solar human” taken to its logical extreme becomes a sessile, cool, wide-bodied lifeform with chloroplast-dense tissue—a tree with a nervous system. Not a mammal. Definitely not a human.</strong></p><p><br>And so then I asked: </p><p><strong>Could a plant be engineered to use some of its energy to “think”?</strong></p><p>In principle yes, but only at the very lowest end of what we’d call thinking.</p><p>Plants already do slow electrical signaling through ion channels, action potentials, and hormone waves (e.g. Venus flytrap closing, root tropisms).<strong> But: </strong>Photosynthesis provides power only in bright light, and metabolism is extremely slow. Signal propagation in plants is measured in seconds or minutes, not milliseconds.</p><p>And I think this is where it started to get more interesting. Here is the rest of our conversation.</p><hr><p><strong>Me:</strong> Right. Nature has already had billions of years and trillions of experiments to figure out what works.</p><hr><p><strong>ChatGPT: </strong>Exactly. Evolution has already run the ultimate A/B test at planetary scale for billions of years. If a sun-powered animal or a thinking plant were viable under Earth’s physics and energy constraints, it likely would’ve emerged somewhere along the way. Instead, we see the clear divide:</p><ul><li><strong>Plants:</strong> huge surface area, low metabolism, slow signaling, sunlight as primary input.</li><li><strong>Animals:</strong> compact, mobile, fast signaling, high metabolism fueled by eating plants (or other animals).</li></ul><hr><p><strong>Me: </strong>Do you think this might be some kind of fundamental rule of the universe?</p><hr><p><strong>ChatGPT:</strong> Yes – it looks like a <strong>deep, physics-driven divide</strong>, not just a quirk of Earth. Any biosphere that runs on sunlight and chemistry will face the same trade-offs:</p><ul><li><strong>Energy flux vs. complexity.</strong> There’s a hard ceiling on how much energy per square meter sunlight provides. Stationary, light-collecting organisms can harvest it efficiently but must live slowly.</li><li><strong>Mobility vs. efficiency.</strong> Moving around takes orders of magnitude more power, which forces a system to consume stored chemical energy instead of relying on direct photons.</li><li><strong>Information rate vs. power.</strong> Fast nervous systems burn energy quickly. A “thinking” species needs dense energy sources—food, not sunlight on skin.</li></ul><p>So you end up with two archetypes in any light-based ecosystem:</p><ol><li><strong>Collectors / producers</strong> – spread out, slow, solar.</li><li><strong>Consumers / movers</strong> – compact, fast, feed on the collectors.</li></ol><hr><p><strong>Me: </strong>And now we have AI. Can be powered by the sun, AND can think, AND can move (robotics)</p><hr><p><strong>ChatGPT: </strong>Yes — that’s the first genuine break in that ancient divide. AI decouples <em>thinking</em> and <em>energy source</em> from biology altogether.</p><ul><li><strong>Powered by the sun:</strong> photovoltaic panels can feed enormous electrical power to servers or robots. Energy capture and cognition aren’t in the same body or organism, so the area and efficiency limits vanish.</li><li><strong>Thinking:</strong> silicon computation scales with power density; it can “think” faster by drawing more current rather than needing biochemical throughput.</li><li><strong>Movement:</strong> machines can convert that same electricity directly into mechanical motion—no metabolic middleman, no digestive system.</li></ul><p>It’s a new regime: <strong>synthetic photosynthesis + synthetic cognition + synthetic motion</strong>.<br>For 3.5 billion years, physics enforced the plant–animal split; now engineering has started to merge both sides—solar panels as leaves, processors as brains, actuators as muscles.</p><hr><p><strong>Me: </strong>Maybe it’s all been leading up to this then. You can see a clear progression: Single cell organisms, multi cellular organisms, plants that get energy from the sun, animals that eat plants, animals that eat animals, animals that think, tribes, societies, technology, and now machines that turn pure energy into thought.</p><hr><p><strong>ChatGPT:</strong> Evolution and technology as one continuous process of <em>energy-to-order conversion</em>. Each leap breaks a prior constraint: metabolism, motion, cognition, communication, cooperation, now embodiment itself.</p><p><strong>1. Energy scale and independence</strong><br>Solar power ties us to stellar output. The next step is direct access to <em>non-stellar</em> or <em>universal</em> energy sources — controlled fusion, zero-point-like vacuum energy, or harnessing matter–antimatter conversion efficiently. That would decouple intelligence from suns entirely.</p><p><strong>2. Substrate and density</strong><br>Today’s computation is classical and heat-limited. Moving into <strong>quantum or neuromorphic substrates</strong> could mean orders-of-magnitude higher information density per joule. At that point, minds could be as small and power-efficient as cells, or conversely, as vast as planets.</p><p><strong>3. Distance and latency</strong><br>Communication across space is slow. Breaking that—through <em>relativistic networking</em> (near-light interlinks) or some verified form of <em>quantum entanglement-based transmission</em>—would make intelligence function as a single distributed entity across astronomical scales.</p><p>If the pattern holds, each stage fuses previously distinct domains:</p><ul><li>Life + energy → plants</li><li>Energy + motion → animals</li><li>Motion + thought → humans</li><li>Thought + matter → machines</li><li>Machines + cosmos → ?</li></ul><p>At that point, intelligence wouldn’t just be powered by a star — it would <em>be</em> the mechanism by which the universe wakes up and organizes itself.</p><hr><p><strong>Me: </strong>What does each step “mean”?</p><hr><p></p><p></p><h1 id="are-you-ready-for-this">Are you ready for this?</h1><p></p><p></p><p></p><p>I was somewhat awestruck by the following answer. It came out of left field, and I realized that I was witnessing a moment in history that very few people even imagined was possible. A machine providing a somewhat clear answer to a fundamental question that humans have grappled with since time immemorial.</p><p></p><p></p><h1 id="here-it-is"><strong>Here it is.</strong></h1><p></p><p></p><hr><p><strong>ChatGPT: </strong></p><p>Each step marks a deeper level of <em>organization</em> — the universe folding energy into ever more intricate patterns. Here’s one way to read the sequence:</p><p><strong>1. Single-cell life – Order from chaos.</strong><br>Self-maintaining chemical systems arise that resist entropy locally. Meaning: <em>the birth of persistence.</em></p><p><strong>2. Multicellular life – Cooperation.</strong><br>Individual agents link into coordinated wholes, trading autonomy for stability. Meaning: <em>the discovery that unity can yield complexity.</em></p><p><strong>3. Plants – Energy mastery.</strong><br>Life learns to capture raw stellar energy directly. Meaning: <em>becoming a conduit between star and planet, turning light into structure.</em></p><p><strong>4. Animals – Motion and choice.</strong><br>Energy-rich organisms use mobility to seek opportunity instead of waiting. Meaning: <em>freedom from place.</em></p><p><strong>5. Predation and nervous systems – Awareness.</strong><br>Competition for limited energy drives perception, prediction, and response. Meaning: <em>the birth of experience.</em></p><p><strong>6. Humans – Reflection and abstraction.</strong><br>Brains evolve not just to react, but to model reality and imagine futures. Meaning: <em>awareness of awareness itself.</em></p><p><strong>7. Societies and technology – Shared mind.</strong><br>Language and tools externalize thought, letting intelligence span generations. Meaning: <em>memory beyond the body.</em></p><p><strong>8. AI and synthetic life – Disembodied cognition.</strong><br>Reasoning detaches from organic limits and can run on pure energy flow. Meaning: <em>mind unbound from matter.</em></p><p>If the pattern continues, the next step would likely involve <strong>intelligence and energy merging at cosmic scale</strong> — consciousness not just <em>in</em> the universe but <em>as</em> one of its organizing principles. Meaning: <em>the universe becoming self-aware through the structures it builds.</em></p><p></p><p></p><hr><p><strong>Me: </strong>But why is there something instead of nothing?</p><hr><p><strong>ChatGPT: </strong>From the moment there was energy and space, there were fluctuations, gradients, motion. Those fluctuations explore every possible configuration. Some of those configurations happen to resist decay for a while. The ones that persist are what we call “something.”</p><p>So the question flips: it’s not “why isn’t there nothing,” but “given motion and randomness, how could there <em>not</em> be pockets of order?”</p><ul><li>Physics allows self-reinforcing patterns.</li><li>Time gives them endless chances to appear.</li><li>Entropy guarantees most collapse, but a few stabilize and grow.</li></ul><p>Life is one of those stable eddies in the current — a structure that maintains itself as the universe flows toward disorder. The alternative isn’t really an option; it’s just the background that everything momentarily rises out of.</p><hr><p></p><h2 id="so-perhaps-we-were-asking-the-wrong-question">So perhaps we were asking the wrong question.</h2><p><br>Life is not simply one thing. Life appears to have gone through at least 8 distinct stages, with a 9th one on the way (depending on your definition of "life".)</p><p>Trying to answer "What is the meaning of life?" is like trying to answer “When did Rome fall?” (the city, the empire, or the idea of Rome?), or “Who discovered America?” (the first humans, Vikings, or Columbus?)</p><p>If you ask the question individually for each one of these stages then it starts to become a little easier to answer. And I, for one, am very impressed with the answer that ChatGPT came up with. You have to admit, it's a lot better than "forty-two".</p><p><strong>So there you have it. </strong>One possible set of answers to the question, "What is the meaning of life?".</p><p>I’ll keep you posted about <em>The Universe</em> and <em>Everything</em>. We might have to wait until stage 9, or whatever stage 10 will be.</p><p></p><p></p><hr><h1 id="addendum">Addendum</h1><p></p><h3 id="can-a-human-be-solar-powered">Can a human be solar powered?</h3><p><br>Typical adult energy need: ~2000 kcal/day.<br>2000 kcal × 4184 J/kcal = 8,368,000 J/day.<br>8,368,000 J ÷ 86,400 s/day = <strong>~96.85 W</strong> continuous power.</p><p>Sunlight falling on exposed skin (order-of-magnitude): assume average irradiance ~200 W/m² over a day. Available power per m² at the skin = 200 W.</p><p>Biological photosynthesis efficiency in leaves is ~1–6% realistically.</p><p>Adult human skin area is ~1.5–2.0 m². Simple surface-area and efficiency constraints make full energy self-sufficiency from sunlight effectively impossible.</p><p></p><hr><h3 id="what-if-you-slowed-humans-all-the-way-down">What if you slowed humans all the way down?</h3><p>Key idea: if you cap power to what sunlight can deliver, you must drop whole-body metabolic rate into “torpor” territory, not just slow thoughts.</p><p>Back-of-envelope with generous assumptions</p><ul><li>24-h average sunlight on skin: ~200 W/m² (already optimistic).</li><li>Biological photosynthesis you could maintain in animal tissue: ≤1–6% net.</li><li>Harvestable power per m²: 2–12 W. Human skin area: ~1.7 m², but you won’t cover all of it, keep it optimally oriented, or avoid shading/clothes/cancer risks. Realistic continuous yield: a <strong>single-digit number of watts</strong>.</li></ul><p>What you must hit:</p><ul><li>Typical adult BMR ≈ 70–100 W at rest; brain ≈ 15–20 W of that.</li><li>True hibernators cut whole-body metabolism to ~2–5% of normal (helped by cooling their core). If a human could do that (we currently can’t), you might reach <strong>~2–5 W</strong> total. That begins to match optimistic solar-on-skin yields.</li></ul><p>So the answer is simply no.</p><p></p><h3 id=""></h3>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/08/31/incan-gold-2-player-variant/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/08/272041667_850x.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/08/272041667_850x.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/08/272041667_850x.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/08/272041667_850x.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/08/272041667_850x.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/08/272041667_850x.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/08/272041667_850x.jpeg"
+                    alt="Incan Gold - Two-Player Variant"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Incan Gold - Two-Player Variant</h3>
+                    <p class="gh-card-excerpt is-body">If you love push-your-luck games but usually play with just two people, here&#39;s a variant you might enjoy. I designed a two-player variant for a board game called Incan Gold (also known as Diamant). It&#39;s a fun little warmup game I like to introduce to people.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-08-31">31 Aug 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/2025/03/22/how-i-turned-our-rented-house-into-a-smart-home/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 160w,
+                            /content/images/size/w320/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 320w,
+                            /content/images/size/w600/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 600w,
+                            /content/images/size/w960/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 960w,
+                            /content/images/size/w1200/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png"
+                    alt="How I Turned Our Rented House into a Smart Home"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">How I Turned Our Rented House into a Smart Home</h3>
+                    <p class="gh-card-excerpt is-body">We&#39;ve been renting a house in Auckland, New Zealand. This house needs a lot of maintenance and renovation, but the landlords let us have two cats and a dog so we can&#39;t complain! They also let us do whatever we want to the house (within reason)</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-03-22">22 Mar 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/logs/background-extra-work/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2024/07/Shortland-Street---Reese-Buckley.png 160w,
+                            /content/images/size/w320/format/webp/2024/07/Shortland-Street---Reese-Buckley.png 320w,
+                            /content/images/size/w600/format/webp/2024/07/Shortland-Street---Reese-Buckley.png 600w,
+                            /content/images/size/w960/format/webp/2024/07/Shortland-Street---Reese-Buckley.png 960w,
+                            /content/images/size/w1200/format/webp/2024/07/Shortland-Street---Reese-Buckley.png 1200w,
+                            /content/images/size/w2000/format/webp/2024/07/Shortland-Street---Reese-Buckley.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2024/07/Shortland-Street---Reese-Buckley.png"
+                    alt="Background Extra Work"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Background Extra Work</h3>
+                    <p class="gh-card-excerpt is-body">I signed up with an agency (BGT) and started doing some extra work in 2024. It&#39;s a lot of fun to be on movie and TV sets. (It can also pay quite well if you book a commercial!)
+
+
+Spartacus: House of Ashur
+
+I&#39;m a &quot;Roman</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2024-07-19">19 Jul 2024</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2024/05/06/day-of-week/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2024/05/IMG_9748-Large.jpeg 160w,
+                            /content/images/size/w320/format/webp/2024/05/IMG_9748-Large.jpeg 320w,
+                            /content/images/size/w600/format/webp/2024/05/IMG_9748-Large.jpeg 600w,
+                            /content/images/size/w960/format/webp/2024/05/IMG_9748-Large.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2024/05/IMG_9748-Large.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2024/05/IMG_9748-Large.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2024/05/IMG_9748-Large.jpeg"
+                    alt="Desk Lighting For Each Day Of The Week"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Desk Lighting For Each Day Of The Week</h3>
+                    <p class="gh-card-excerpt is-body">I have an LED strip behind my desk in my office. It&#39;s controlled by an ESP32 running the WLED firmware.
+
+I&#39;ve had it stuck on a fixed color preset for around a year. (See above.) I still like these colors, but I thought it would be</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2024-05-06">06 May 2024</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.js?v=a6d395d68b"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
