@@ -70,7 +70,7 @@
     <meta property="og:url" content="https://madebynathan.com/2025/11/04/universal-causal-language/">
     <meta property="og:image" content="https://madebynathan.com/content/images/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg">
     <meta property="article:published_time" content="2025-11-04T12:38:23.000Z">
-    <meta property="article:modified_time" content="2025-11-04T12:43:01.000Z">
+    <meta property="article:modified_time" content="2025-11-04T12:54:53.000Z">
     <meta property="article:tag" content="philosophy">
     <meta property="article:tag" content="ruby">
     <meta property="article:tag" content="programming">
@@ -118,7 +118,7 @@
     "headline": "Universal Causal Language",
     "url": "https://madebynathan.com/2025/11/04/universal-causal-language/",
     "datePublished": "2025-11-04T12:38:23.000Z",
-    "dateModified": "2025-11-04T12:43:01.000Z",
+    "dateModified": "2025-11-04T12:54:53.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://madebynathan.com/content/images/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg",
@@ -244,7 +244,7 @@
         </header>
 
         <section class="gh-content gh-canvas is-body">
-            <p><strong>TL;DR<br>Universal Causal Language (UCL)</strong> is an experimental intermediate representation that treats every meaningful statement as a causal operation. The same JSON schema can encode a Ruby function call, an English sentence, a contract clause, a piano note, or a DNA transcription event. </p><p>UCL currently runs on three “substrates”: compiled to Ruby, simulated on a Brain VM, and interactively “executed” on your actual brain in Production mode.</p><p>GitHub Repo: <a href="https://github.com/ndbroadbent/universal_causal_language">https://github.com/ndbroadbent/universal_causal_language</a></p><hr><h2 id="the-core-idea">The core idea</h2><p>Language is code. Meaning is a state change. Any sentence, instruction, clause, or behavior can be represented as a structured causal operation that maps one world state to another. If that is true, we should be able to:</p><ul><li>Represent diverse domains with one minimal schema</li><li>Preserve semantics during translation and compilation</li><li>Execute the same causal program on different substrates</li></ul><p>UCL is a proof of concept for that claim.</p><hr><h2 id="the-action-schema">The Action schema</h2><p>Each instruction is an <strong>Action</strong>:</p><pre><code class="language-json">{
+            <p><strong>TL;DR<br>Universal Causal Language (UCL)</strong> is an experimental intermediate representation that treats every meaningful statement as a causal operation. The same JSON schema can encode a Ruby function call, an English sentence, a contract clause, a piano note, or a DNA transcription event. </p><p>UCL currently runs on three “substrates”: compiled to Ruby, simulated on a Brain VM, and interactively “executed” on your actual brain in Production mode. <strong>Some UCL programs can even run on all three.</strong></p><p>GitHub Repo: <a href="https://github.com/ndbroadbent/universal_causal_language">https://github.com/ndbroadbent/universal_causal_language</a></p><hr><h2 id="the-core-idea">The core idea</h2><p>Language is code. Meaning is a state change. Any sentence, instruction, clause, or behavior can be represented as a structured causal operation that maps one world state to another. If that is true, we should be able to:</p><ul><li>Represent diverse domains with one minimal schema</li><li>Preserve semantics during translation and compilation</li><li>Execute the same causal program on different substrates</li></ul><p>UCL is a proof of concept for that claim.</p><hr><h2 id="the-action-schema">The Action schema</h2><p>Each instruction is an <strong>Action</strong>:</p><pre><code class="language-json">{
   "actor": "String",
   "op": "Operation",
   "target": "String",
