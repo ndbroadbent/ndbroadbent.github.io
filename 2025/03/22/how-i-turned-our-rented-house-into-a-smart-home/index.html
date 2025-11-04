@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>How I Turned Our Rented House into a Smart Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=a6d395d68b">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=a6d395d68b">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2?v=a6d395d68b" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=a6d395d68b) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a6d395d68b">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/03/22/how-i-turned-our-rented-house-into-a-smart-home/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How I Turned Our Rented House into a Smart Home">
+    <meta property="og:description" content="We&#x27;ve been renting a house in Auckland, New Zealand. This house needs a lot of maintenance and renovation, but the landlords let us have two cats and a dog so we can&#x27;t complain! They also let us do whatever we want to the house (within reason), so I had a">
+    <meta property="og:url" content="https://madebynathan.com/2025/03/22/how-i-turned-our-rented-house-into-a-smart-home/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-3.png">
+    <meta property="article:published_time" content="2025-03-22T06:13:50.000Z">
+    <meta property="article:modified_time" content="2025-03-22T09:50:12.000Z">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How I Turned Our Rented House into a Smart Home">
+    <meta name="twitter:description" content="We&#x27;ve been renting a house in Auckland, New Zealand. This house needs a lot of maintenance and renovation, but the landlords let us have two cats and a dog so we can&#x27;t complain! They also let us do whatever we want to the house (within reason), so I had a">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/03/22/how-i-turned-our-rented-house-into-a-smart-home/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/2025/03/colored-house-lights.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="649">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp"
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "How I Turned Our Rented House into a Smart Home",
+    "url": "https://madebynathan.com/2025/03/22/how-i-turned-our-rented-house-into-a-smart-home/",
+    "datePublished": "2025-03-22T06:13:50.000Z",
+    "dateModified": "2025-03-22T09:50:12.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-4.png",
+        "width": 1200,
+        "height": 649
+    },
+    "description": "We&#x27;ve been renting a house in Auckland, New Zealand. This house needs a lot of maintenance and renovation, but the landlords let us have two cats and a dog so we can&#x27;t complain! They also let us do whatever we want to the house (within reason), so I had a lot of fun doing some DIY projects and setting up home automation stuff.\n\nHowever... We&#x27;re moving to the Bay of Islands! My wife got a job up there, and I&#x27;ll keep working on DocSpring from home. We&#x27;re looking forward to exploring this part of N",
+    "mainEntityOfPage": "https://madebynathan.com/2025/03/22/how-i-turned-our-rented-house-into-a-smart-home/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=a6d395d68b"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=a6d395d68b">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template tag-hash-nofeature has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-hash-nofeature featured">
+
+        <header class="gh-article-header gh-canvas">
+
+            <h1 class="gh-article-title is-title">How I Turned Our Rented House into a Smart Home</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-03-22">22 Mar 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 7 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>We've been renting a house in Auckland, New Zealand. This house needs a lot of maintenance and renovation, but the landlords let us have two cats and a dog so we can't complain! They also let us do whatever we want to the house (within reason), so I had a lot of fun doing some DIY projects and setting up home automation stuff.</p><p>However... We're moving to the Bay of Islands! My wife got a job up there, and I'll keep working on <a href="https://docspring.com/">DocSpring</a> from home. We're looking forward to exploring this part of New Zealand.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/03/image-9.png" class="kg-image" alt="" loading="lazy" width="1800" height="800" srcset="https://madebynathan.com/content/images/size/w600/2025/03/image-9.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/image-9.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/image-9.png 1600w, https://madebynathan.com/content/images/2025/03/image-9.png 1800w" sizes="(min-width: 720px) 720px"></figure><p>So before I take all my home automation stuff down and pack everything up, I wanted to take some photos and share some of the projects I worked on over the last few years.</p><h1 id="lighting">Lighting</h1><p>All the lights in our house are Zigbee RGB bulbs that are controlled via motion sensors and timers. The most useful thing is that we don't need to use light switches, and we can turn all the lights off at the same time. A slightly less useful thing is that we can set them to crazy colors.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-5.png" class="kg-image" alt="" loading="lazy" width="1600" height="865" srcset="https://madebynathan.com/content/images/size/w600/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-5.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-5.png 1000w, https://madebynathan.com/content/images/2025/03/Screenshot-2025-03-22-at-5.51.13-PM-5.png 1600w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Fun during Christmas and Halloween though</span></figcaption></figure><p>We don't use the colors very often, but I got these bulbs because I wanted to use <a href="https://github.com/basnijholt/adaptive-lighting" rel="noreferrer">Adaptive Lighting</a>. This Home Assistant plugin adjusts the brightness and color of the lights based on the position of sun. They're cool and bright during the day, and warm and dim at night. (You might have something similiar on your phone or laptop.) Apparently it's good for your circadian rhythms.</p><p>I also set up lots of LED strips around the house and in my workshop:</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/D29204C1-BF8E-46DD-B052-B9526FBD4CF7_1_102.jpeg" width="2000" height="1500" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/D29204C1-BF8E-46DD-B052-B9526FBD4CF7_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/D29204C1-BF8E-46DD-B052-B9526FBD4CF7_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/D29204C1-BF8E-46DD-B052-B9526FBD4CF7_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/D29204C1-BF8E-46DD-B052-B9526FBD4CF7_1_102.jpeg 2048w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/6D3006B9-2A1E-4020-9B40-A342F9DAFDCB_1_102.jpeg" width="2000" height="1500" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/6D3006B9-2A1E-4020-9B40-A342F9DAFDCB_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/6D3006B9-2A1E-4020-9B40-A342F9DAFDCB_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/6D3006B9-2A1E-4020-9B40-A342F9DAFDCB_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/6D3006B9-2A1E-4020-9B40-A342F9DAFDCB_1_102.jpeg 2048w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/A8F66153-739C-4901-B160-1DB46B3C9682_1_102.jpeg" width="2000" height="1500" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/A8F66153-739C-4901-B160-1DB46B3C9682_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/A8F66153-739C-4901-B160-1DB46B3C9682_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/A8F66153-739C-4901-B160-1DB46B3C9682_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/A8F66153-739C-4901-B160-1DB46B3C9682_1_102.jpeg 2048w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/259DA791-19F1-4573-BBBB-392F878B281E_1_105_c.jpeg" width="1024" height="768" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/259DA791-19F1-4573-BBBB-392F878B281E_1_105_c.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/259DA791-19F1-4573-BBBB-392F878B281E_1_105_c.jpeg 1000w, https://madebynathan.com/content/images/2025/03/259DA791-19F1-4573-BBBB-392F878B281E_1_105_c.jpeg 1024w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/BC0F7213-1745-4AFF-B69B-2CC8A082A559_1_105_c.jpeg" width="1024" height="768" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/BC0F7213-1745-4AFF-B69B-2CC8A082A559_1_105_c.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/BC0F7213-1745-4AFF-B69B-2CC8A082A559_1_105_c.jpeg 1000w, https://madebynathan.com/content/images/2025/03/BC0F7213-1745-4AFF-B69B-2CC8A082A559_1_105_c.jpeg 1024w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><h2 id="bedroom-tv-dashboard">Bedroom TV Dashboard</h2><p>We have a TV in our bedroom. It wasn't doing much during the day so I thought it would be fun to show a dashboard.</p><p>I plugged in a Raspberry Pi running <a href="https://github.com/guysoft/FullPageOS">FullPageOS</a> and set up the dashboard in Home Assistant. It turns on and off based on motion sensors and bed presence sensors (<a href="https://www.withings.com/eu/en/sleep-analyzer">Withings Sleep Analyzers</a>.) So it's on when we get up in the morning and whenever we walk into the room. It doesn't turn on if we're in bed or if we're watching something on the TV.</p><p>It's handy to see our calendar, news headlines, weather, and some of our cameras.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/03/image-2.png" class="kg-image" alt="" loading="lazy" width="2000" height="1331" srcset="https://madebynathan.com/content/images/size/w600/2025/03/image-2.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/image-2.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/image-2.png 1600w, https://madebynathan.com/content/images/2025/03/image-2.png 2000w" sizes="(min-width: 720px) 720px"></figure><h2 id="bathroom-dashboard">Bathroom Dashboard</h2><p>I put a similar dashboard next to our bathroom mirror. This is a Lenovo M10 HD 2nd Gen 10.1" Tablet.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/03/image-3.png" class="kg-image" alt="" loading="lazy" width="2000" height="1299" srcset="https://madebynathan.com/content/images/size/w600/2025/03/image-3.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/image-3.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/image-3.png 1600w, https://madebynathan.com/content/images/2025/03/image-3.png 2000w" sizes="(min-width: 720px) 720px"></figure><p>This dashboard also shows our calendar and cameras, and it tells us how much LPG gas we have left in the tank. An alert on my phone reminds me to order a new tank before we start having cold showers. (I put a <a href="https://www.rvsupercentre.co.nz/lippert-bottlecheck-bluetooth-gas-gauge-single">Lippert Bottlecheck Bluetooth sensor</a> on the bottom of the active tank.)</p><p>I also bought some electric bluetooth toothbrushes because I thought it would be funny. So now our dashboard has a "toothbrush mode" whenever we brush our teeth. It's pointless but it's also kind of fun.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/image-4.png" width="2000" height="1266" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/image-4.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/image-4.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/image-4.png 1600w, https://madebynathan.com/content/images/size/w2400/2025/03/image-4.png 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/image.png" width="1864" height="1640" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/image.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/image.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/image.png 1600w, https://madebynathan.com/content/images/2025/03/image.png 1864w" sizes="(min-width: 720px) 720px"></div></div></div></figure><h2 id="air-quality-automation">Air Quality Automation</h2><p>I have these Zigbee air quality sensors in almost every room:</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/03/Screenshot-2025-03-22-at-5.35.31-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="1389" srcset="https://madebynathan.com/content/images/size/w600/2025/03/Screenshot-2025-03-22-at-5.35.31-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/Screenshot-2025-03-22-at-5.35.31-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/Screenshot-2025-03-22-at-5.35.31-PM.png 1600w, https://madebynathan.com/content/images/2025/03/Screenshot-2025-03-22-at-5.35.31-PM.png 2142w" sizes="(min-width: 720px) 720px"></figure><p>They report:</p><ul><li>CO2 levels</li><li>PM2.5 (e.g. smoke, pollution)</li><li>Humidity</li><li>VOCs</li></ul><p>I also put some bluetooth temp/humidity sensors in the bathrooms.</p><p>Home Assistant automatically turns on the kitchen extractor fan and the bathroom fans whenever the PM2.5, CO2, or humidity gets too high. I also get an alert if the CO2 gets too high in my office so I can open a door or window.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/IMG_4525.jpeg" width="2000" height="1500" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/IMG_4525.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/IMG_4525.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/IMG_4525.jpeg 1600w, https://madebynathan.com/content/images/size/w2400/2025/03/IMG_4525.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/AB86DB14-BDAE-4612-B491-08E6F3159EF7_1_102.jpeg" width="2000" height="1500" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/AB86DB14-BDAE-4612-B491-08E6F3159EF7_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/AB86DB14-BDAE-4612-B491-08E6F3159EF7_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/AB86DB14-BDAE-4612-B491-08E6F3159EF7_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/AB86DB14-BDAE-4612-B491-08E6F3159EF7_1_102.jpeg 2048w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p>I use ESP32-based IR blasters to automate our heat pumps. I was going to make something myself but I already had too many projects on my todo list, so I just bought <a href="https://www.aliexpress.com/i/1005003833775634.html" rel="noreferrer">some of these on AliExpress</a>.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2025/03/F46E602D-8E81-4A4B-8472-3A77D858F77A_1_102.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="1500" srcset="https://madebynathan.com/content/images/size/w600/2025/03/F46E602D-8E81-4A4B-8472-3A77D858F77A_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/F46E602D-8E81-4A4B-8472-3A77D858F77A_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/F46E602D-8E81-4A4B-8472-3A77D858F77A_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/F46E602D-8E81-4A4B-8472-3A77D858F77A_1_102.jpeg 2000w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">This black device is an ESP32-based IR blaster running ESPHome</span></figcaption></figure><blockquote>Side note: It was really nice to find a professionally designed product that was specifically designed to run your own custom firmware. Most big smarthome manufacturers force you to use their cloud services, but I mainly buy Zigbee devices or products that can be hacked to run custom firmware.</blockquote><p>I also use one of these IR blasters to control a CRT TV in my workshop. The TV runs <a href="https://retropie.org.uk/">RetroPie</a> and has lots of old games, but most of the time it shows a screensaver with some interesting animations that I find on X (formerly Twitter).</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/03/930A6EA7-A998-4FFF-8CA1-54DEB2B9FC1E_1_102.jpeg" class="kg-image" alt="" loading="lazy" width="1920" height="1440" srcset="https://madebynathan.com/content/images/size/w600/2025/03/930A6EA7-A998-4FFF-8CA1-54DEB2B9FC1E_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/930A6EA7-A998-4FFF-8CA1-54DEB2B9FC1E_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/930A6EA7-A998-4FFF-8CA1-54DEB2B9FC1E_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/930A6EA7-A998-4FFF-8CA1-54DEB2B9FC1E_1_102.jpeg 1920w" sizes="(min-width: 720px) 720px"></figure><p></p><h2 id="record-player">Record Player</h2><p>My record player connects to the stereo via bluetooth. I put a Zigbee door sensor on it so the stereo switches to the right input source whenever I open the lid. There's also a Zigbee knob on the side that controls the stereo volume, and you can click the button to cycle between input sources.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/79B181E0-6E2F-4D01-AA13-3634633416FE_1_102-1.jpeg" width="2000" height="1500" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/79B181E0-6E2F-4D01-AA13-3634633416FE_1_102-1.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/79B181E0-6E2F-4D01-AA13-3634633416FE_1_102-1.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/79B181E0-6E2F-4D01-AA13-3634633416FE_1_102-1.jpeg 1600w, https://madebynathan.com/content/images/2025/03/79B181E0-6E2F-4D01-AA13-3634633416FE_1_102-1.jpeg 2048w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://madebynathan.com/content/images/2025/03/78C9E60F-76C7-4737-B183-52D039AD8D5A_1_102.jpeg" width="2000" height="1500" loading="lazy" alt="" srcset="https://madebynathan.com/content/images/size/w600/2025/03/78C9E60F-76C7-4737-B183-52D039AD8D5A_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/78C9E60F-76C7-4737-B183-52D039AD8D5A_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/78C9E60F-76C7-4737-B183-52D039AD8D5A_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/78C9E60F-76C7-4737-B183-52D039AD8D5A_1_102.jpeg 2048w" sizes="(min-width: 720px) 720px"></div></div></div></figure><h2 id="coffee-machine">Coffee Machine</h2><p>I put a <a href="https://www.switch-bot.com/">SwitchBot</a> on our coffee machine so that it turns on when my wife gets up in the morning. I'm still tempted to take the coffee machine apart and do this properly, but the SwitchBot works great and it was very easy to attach.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/03/838DCF56-6838-4151-98E2-9534E652B166_1_102.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="1500" srcset="https://madebynathan.com/content/images/size/w600/2025/03/838DCF56-6838-4151-98E2-9534E652B166_1_102.jpeg 600w, https://madebynathan.com/content/images/size/w1000/2025/03/838DCF56-6838-4151-98E2-9534E652B166_1_102.jpeg 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/838DCF56-6838-4151-98E2-9534E652B166_1_102.jpeg 1600w, https://madebynathan.com/content/images/2025/03/838DCF56-6838-4151-98E2-9534E652B166_1_102.jpeg 2000w" sizes="(min-width: 720px) 720px"></figure><h2 id="418-im-a-teapot">418 I'm a teapot</h2><p>I bought a WiFi Kettle and modified the firmware so that it responds with the <code>418 I'm a teapot</code> HTTP status code.</p><pre><code class="language-log">~/code/Tasmota $ curl -v 192.168.1.113/bc
+*   Trying 192.168.1.113...
+* TCP_NODELAY set
+* Connected to 192.168.1.113 (192.168.1.113) port 80 (#0)
+&gt; GET /bc HTTP/1.1
+&gt; Host: 192.168.1.113
+&gt; User-Agent: curl/7.64.1
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 418
+&lt; Content-Type: text/plain
+&lt; Content-Length: 12
+&lt; Connection: close
+&lt;
+* Closing connection 0
+I'm a teapot</code></pre><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://madebynathan.com/2021/08/19/kogan-smart-kettle/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Flashing a Kogan Smart Kettle with Tasmota</div><div class="kg-bookmark-description">I bought a wifi-connected kettle and flashed it with a custom firmware. I had to open it up, connect some wires, and flash it via serial.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/android-chrome-256x256-2.png" alt=""><span class="kg-bookmark-author">Made By Nathan</span><span class="kg-bookmark-publisher">Nathan Broadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/Screenshot-2024-04-20-at-4.37.40-PM.png" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>Sadly this kettle died a few months ago. RIP.</p><h1 id="home-security">Home Security</h1><h2 id="front-door">Front Door</h2><p>We have a "Nest X Yale" lock on the front door:</p><figure class="kg-card kg-image-card"><img src="https://m.media-amazon.com/images/I/61fA6NbE6XL.jpg" class="kg-image" alt="Google Nest x Yale Lock - Tamper-Proof Smart Lock for Keyless Entry -  Keypad Deadbolt Lock for Front Door - Works with Nest Secure Alarm System -  Satin Nickel : Amazon.ca" loading="lazy" width="2500" height="2500"></figure><p>It automatically locks at night or when we go out, and automatically unlocks when we come home. (Mostly based on the location of our phones.)</p><h2 id="garage-doors">Garage Doors</h2><p>Our garage doors automatically open if we're driving home and the Home Assistant app detects that we're within a certain radius of our house. They also close automatically when we leave, or after 10 minutes of no activity in the garage.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2025/03/Screenshot-2025-03-22-at-9.36.55-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="1094" srcset="https://madebynathan.com/content/images/size/w600/2025/03/Screenshot-2025-03-22-at-9.36.55-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/Screenshot-2025-03-22-at-9.36.55-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/Screenshot-2025-03-22-at-9.36.55-PM.png 1600w, https://madebynathan.com/content/images/size/w2400/2025/03/Screenshot-2025-03-22-at-9.36.55-PM.png 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Here is one of our garage door openers. It's got a Zigbee switch module attached to it somewhere.</span></figcaption></figure><h2 id="cameras">Cameras</h2><p>I set up 10 cameras around the house (7 outside, and 3 inside.) I use <a href="https://frigate.video/">Frigate NVR</a> and have a <a href="https://coral.ai/products/">Google Coral TPU</a> for AI object detection (cats, cars, people, etc.)</p><p>It's not a particularly dangerous area. I just thought it would be interesting to experiment with AI for face and object detection, and the cameras also double as motion sensors.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/03/image-5.png" class="kg-image" alt="" loading="lazy" width="1666" height="1070" srcset="https://madebynathan.com/content/images/size/w600/2025/03/image-5.png 600w, https://madebynathan.com/content/images/size/w1000/2025/03/image-5.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/03/image-5.png 1600w, https://madebynathan.com/content/images/2025/03/image-5.png 1666w" sizes="(min-width: 720px) 720px"></figure><p>The indoor security cameras turn around to face the wall and stop recording when we're home, but the cameras in the living room and kitchen are active during the night if we're in bed.</p><h1 id="conclusion">Conclusion</h1><p>Home automation is fun! Sometimes it can even be useful. </p><p>We're probably going to design and build our own house at some point, so I'm going to have a lot of fun with that project.<br><br>Thanks for reading!</p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/04/universal-causal-language/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg"
+                    alt="Universal Causal Language"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Universal Causal Language</h3>
+                <p class="gh-card-excerpt is-body">One IR to Express Causality Across Code, Language, Law, Music, and Biology</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-05">05 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/04/the-reflective-universe-hypothesis/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/reflective-universe-hypothesis.jpg 160w,
+                            /content/images/size/w320/format/webp/2025/11/reflective-universe-hypothesis.jpg 320w,
+                            /content/images/size/w600/format/webp/2025/11/reflective-universe-hypothesis.jpg 600w,
+                            /content/images/size/w960/format/webp/2025/11/reflective-universe-hypothesis.jpg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/reflective-universe-hypothesis.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/reflective-universe-hypothesis.jpg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/reflective-universe-hypothesis.jpg"
+                    alt="The Reflective Universe Hypothesis"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Reflective Universe Hypothesis</h3>
+                    <p class="gh-card-excerpt is-body">The Reflective Universe Hypothesis proposes that if the universe is computational, its very computation entails a higher-order causal manifold whose projection constitutes the universe’s observable output. Discovering or disproving that domain defines the ultimate boundary between science and metaphysics.
+
+
+Toward a Test of Causal Closure
+
+
+1. Premise: The Universe</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-04">04 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/03/the-meaning-of-life-according-to-chatgpt/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png"
+                    alt="The Meaning Of Life According to ChatGPT"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Meaning Of Life According to ChatGPT</h3>
+                    <p class="gh-card-excerpt is-body">&quot;All right,&quot; said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.
+&quot;You&#39;re really not going to like it,&quot; observed Deep Thought.
+&quot;Tell us!&quot;
+&quot;All right,&quot; said Deep Thought. &quot;The Answer to the</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-04">04 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/08/31/incan-gold-2-player-variant/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/08/272041667_850x.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/08/272041667_850x.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/08/272041667_850x.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/08/272041667_850x.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/08/272041667_850x.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/08/272041667_850x.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/08/272041667_850x.jpeg"
+                    alt="Incan Gold - Two-Player Variant"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Incan Gold - Two-Player Variant</h3>
+                    <p class="gh-card-excerpt is-body">If you love push-your-luck games but usually play with just two people, here&#39;s a variant you might enjoy. I designed a two-player variant for a board game called Incan Gold (also known as Diamant). It&#39;s a fun little warmup game I like to introduce to people.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-08-31">31 Aug 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.js?v=a6d395d68b"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
