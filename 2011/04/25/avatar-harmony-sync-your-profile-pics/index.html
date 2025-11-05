@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Avatar Harmony - Sync your profile pics</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=a6d395d68b">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=a6d395d68b">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2?v=a6d395d68b" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=a6d395d68b) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=a6d395d68b">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2011/04/25/avatar-harmony-sync-your-profile-pics/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Avatar Harmony - Sync your profile pics">
+    <meta property="og:description" content="I&#x27;ve written a tiny web application called &#x27;Avatar Harmony&#x27;.
+
+
+You can sign in with twitter or facebook, add your Gravatar login details, and the app will automatically sync your profile pics across each of your accounts.
+
+
+It can sync avatars in the following directions:
+
+
+ * Facebook &#x3D;&gt; Twitter
+ * Facebook &#x3D;&gt; Gravatar
+ * Twitter &#x3D;&gt; Gravatar">
+    <meta property="og:url" content="https://madebynathan.com/2011/04/25/avatar-harmony-sync-your-profile-pics/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1640952131659-49a06dd90ad2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxhdmF0YXJ8ZW58MHx8fHwxNzEzNTMyODA5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="article:published_time" content="2011-04-25T17:32:50.000Z">
+    <meta property="article:modified_time" content="2024-04-19T13:20:19.000Z">
+    <meta property="article:tag" content="rails">
+    <meta property="article:tag" content="projects">
+    <meta property="article:tag" content="web-design">
+    <meta property="article:tag" content="rails-3">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Avatar Harmony - Sync your profile pics">
+    <meta name="twitter:description" content="I&#x27;ve written a tiny web application called &#x27;Avatar Harmony&#x27;.
+
+
+You can sign in with twitter or facebook, add your Gravatar login details, and the app will automatically sync your profile pics across each of your accounts.
+
+
+It can sync avatars in the following directions:
+
+
+ * Facebook &#x3D;&gt; Twitter
+ * Facebook &#x3D;&gt; Gravatar
+ * Twitter &#x3D;&gt; Gravatar">
+    <meta name="twitter:url" content="https://madebynathan.com/2011/04/25/avatar-harmony-sync-your-profile-pics/">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1640952131659-49a06dd90ad2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxhdmF0YXJ8ZW58MHx8fHwxNzEzNTMyODA5fDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="rails, projects, web-design, rails-3">
+    <meta name="twitter:site" content="@ndbroadbent">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp"
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Avatar Harmony - Sync your profile pics",
+    "url": "https://madebynathan.com/2011/04/25/avatar-harmony-sync-your-profile-pics/",
+    "datePublished": "2011-04-25T17:32:50.000Z",
+    "dateModified": "2024-04-19T13:20:19.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1640952131659-49a06dd90ad2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxhdmF0YXJ8ZW58MHx8fHwxNzEzNTMyODA5fDA&ixlib=rb-4.0.3&q=80&w=2000"
+    },
+    "keywords": "rails, projects, web-design, rails-3",
+    "description": "I&#x27;ve written a tiny web application called &#x27;Avatar Harmony&#x27;.\n\n\nYou can sign in with twitter or facebook, add your Gravatar login details, and the app will automatically sync your profile pics across each of your accounts.\n\n\nIt can sync avatars in the following directions:\n\n\n * Facebook &#x3D;&gt; Twitter\n * Facebook &#x3D;&gt; Gravatar\n * Twitter &#x3D;&gt; Gravatar\n * Gravatar &#x3D;&gt; Twitter\n\n\nUnfortunately, the Facebook Graph API doesn&#x27;t let us update profile pics at the moment, but I&#x27;ll keep looking around for a solutio",
+    "mainEntityOfPage": "https://madebynathan.com/2011/04/25/avatar-harmony-sync-your-profile-pics/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=a6d395d68b"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=a6d395d68b">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template tag-rails tag-projects tag-web-design tag-rails-3 tag-hash-import-2024-04-19-15-41 has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-rails tag-projects tag-web-design tag-rails-3 tag-hash-import-2024-04-19-15-41">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/rails/">rails</a>
+            <h1 class="gh-article-title is-title">Avatar Harmony - Sync your profile pics</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2011-04-26">26 Apr 2011</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 1 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>I've written a tiny web application called '<a href="https://avatarharmony.com">Avatar Harmony</a>'.</p>
+<p>You can sign in with twitter or facebook, add your Gravatar login details, and the app will automatically sync your profile pics across each of your accounts.</p>
+<p>It can sync avatars in the following directions:</p>
+<ul>
+	<li>Facebook =&gt; Twitter</li>
+	<li>Facebook =&gt; Gravatar</li>
+	<li>Twitter =&gt; Gravatar</li>
+	<li>Gravatar =&gt; Twitter</li>
+</ul>
+<p>Unfortunately, the Facebook Graph API doesn't let us update profile pics at the moment, but I'll keep looking around for a solution.</p>
+<p>Try it out at <a href="https://avatarharmony.com">https://avatarharmony.com</a>!</p>
+
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/05/user-experience-is-computation/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 160w,
+                            /content/images/size/w320/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 320w,
+                            /content/images/size/w600/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 600w,
+                            /content/images/size/w960/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg"
+                    alt="User Experience is Computation"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">User Experience is Computation</h3>
+                <p class="gh-card-excerpt is-body">All computer programs with a user interface (UI) are parallel computation across multiple substrates: CPU and Brain</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-05">05 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/04/universal-causal-language/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg"
+                    alt="Universal Causal Language"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Universal Causal Language</h3>
+                <p class="gh-card-excerpt is-body">One IR to Express Causality Across Code, Language, Law, Music, and Biology</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-05">05 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/04/the-reflective-universe-hypothesis/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/reflective-universe-hypothesis.jpg 160w,
+                            /content/images/size/w320/format/webp/2025/11/reflective-universe-hypothesis.jpg 320w,
+                            /content/images/size/w600/format/webp/2025/11/reflective-universe-hypothesis.jpg 600w,
+                            /content/images/size/w960/format/webp/2025/11/reflective-universe-hypothesis.jpg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/reflective-universe-hypothesis.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/reflective-universe-hypothesis.jpg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/reflective-universe-hypothesis.jpg"
+                    alt="The Reflective Universe Hypothesis"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Reflective Universe Hypothesis</h3>
+                    <p class="gh-card-excerpt is-body">The Reflective Universe Hypothesis proposes that if the universe is computational, its very computation entails a higher-order causal manifold whose projection constitutes the universe’s observable output. Discovering or disproving that domain defines the ultimate boundary between science and metaphysics.
+
+
+Toward a Test of Causal Closure
+
+
+1. Premise: The Universe</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-04">04 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/03/the-meaning-of-life-according-to-chatgpt/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png"
+                    alt="The Meaning Of Life According to ChatGPT"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Meaning Of Life According to ChatGPT</h3>
+                    <p class="gh-card-excerpt is-body">&quot;All right,&quot; said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.
+&quot;You&#39;re really not going to like it,&quot; observed Deep Thought.
+&quot;Tell us!&quot;
+&quot;All right,&quot; said Deep Thought. &quot;The Answer to the</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-04">04 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.js?v=a6d395d68b"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
