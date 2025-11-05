@@ -70,7 +70,7 @@
     <meta property="og:url" content="https://madebynathan.com/2025/11/04/universal-causal-language/">
     <meta property="og:image" content="https://madebynathan.com/content/images/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg">
     <meta property="article:published_time" content="2025-11-04T12:38:23.000Z">
-    <meta property="article:modified_time" content="2025-11-05T02:22:24.000Z">
+    <meta property="article:modified_time" content="2025-11-05T13:11:52.000Z">
     <meta property="article:tag" content="philosophy">
     <meta property="article:tag" content="ruby">
     <meta property="article:tag" content="programming">
@@ -117,7 +117,7 @@
     "headline": "Universal Causal Language",
     "url": "https://madebynathan.com/2025/11/04/universal-causal-language/",
     "datePublished": "2025-11-04T12:38:23.000Z",
-    "dateModified": "2025-11-05T02:22:24.000Z",
+    "dateModified": "2025-11-05T13:11:52.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://madebynathan.com/content/images/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg",
@@ -222,7 +222,7 @@
                     <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
                     <div class="gh-article-meta-content">
                         <time class="gh-article-meta-date" datetime="2025-11-05">05 Nov 2025</time>
-                            <span class="gh-article-meta-length"><span class="bull">—</span> 4 min read</span>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 5 min read</span>
                     </div>
                 </div>
             </div>
@@ -242,32 +242,65 @@
   "post": "predicate",
   "effects": ["tags"]
 }
-</code></pre><p>Primitive ops cover CRUD, communication, logic, temporal, legal, biological, and programming operations. There is also <code>Custom(String)</code> for domain-specific behaviors.</p><hr><h2 id="same-schema-different-domains">Same schema, different domains</h2><p><strong>Natural language</strong></p><blockquote>“The cat is black.”</blockquote><pre><code class="language-json">{ "actor":"listener_brain","op":"StoreFact","target":"cat","params":{"color":"black"} }
-</code></pre><p><strong>Programming</strong></p><blockquote><code>result = 2 + 3</code></blockquote><pre><code class="language-json">{
-  "actor":"VM","op":"Call","target":"+",
-  "params":{"lhs":2,"rhs":3,"receiver":"a"},
-  "effects":["CPU"]
+</code></pre><p>Primitive ops cover CRUD, communication, logic, temporal, legal, biological, and programming operations. There is also <code>Custom(String)</code> for domain-specific behaviors.</p><hr><h2 id="same-schema-different-domains">Same schema, different domains</h2><p><strong>Natural language</strong></p><blockquote>“The cat is black.”</blockquote><pre><code class="language-json">{ 
+  "actor": "listener",
+  "op": "StoreFact",
+  "target": "memory",
+  "params": {
+    "entity": "the cat", 
+    "color": "black"
+  } 
+}</code></pre><p><strong>Programming</strong></p><blockquote><code>result = 2 + 3</code></blockquote><pre><code class="language-json">{
+  "actor": "VM",
+  "op": "Call",
+  "target": "+",
+  "params": { 
+    "lhs": 2, 
+    "rhs": 3, 
+    "receiver": "a" 
+  },
+  "effects": ["CPU"]
 }
 </code></pre><p><strong>Music</strong></p><pre><code class="language-json">{
-  "actor":"Piano1","op":"Emit","target":"Note",
-  "t":0.0,"dur":0.5,"params":{"pitch":"C4","velocity":80},
-  "effects":["Audio"]
+  "actor": "Piano1",
+  "op": "Emit",
+  "target": "Note",
+  "t": 0.0,
+  "dur": 0.5,
+  "params": {
+    "pitch": "C4",
+    "velocity": 80
+  },
+  "effects": ["Audio"]
 }
 </code></pre><p><strong>Legal</strong></p><pre><code class="language-json">{
-  "actor":"Buyer","op":"Oblige","target":"Buyer",
-  "params":{"duty":"Pay","amount":"1000 USD","by":"Delivery+5d"},
-  "pre":"Goods delivered and inspected","effects":["Legal"]
+  "actor": "Buyer",
+  "op": "Oblige",
+  "target": "Buyer",
+  "params": {
+    "duty": "Pay",
+    "amount": "1000 USD",
+    "by": "Delivery+5d"
+  },
+  "pre": "Goods delivered and inspected",
+  "effects": ["Legal"]
 }
 </code></pre><p><strong>Biology</strong></p><pre><code class="language-json">{
-  "actor":"RNA_Polymerase_II","op":"Transcribe","target":"DNA:MYC",
-  "params":{"product":"pre-mRNA:MYC","location":"nucleus"},
-  "pre":"Promoter accessible","post":"Pre-mRNA synthesized",
-  "effects":["Bio","Nucleus"]
+  "actor": "RNA_Polymerase_II",
+  "op": "Transcribe",
+  "target": "DNA:MYC",
+  "params": {
+    "product": "pre-mRNA:MYC",
+    "location": "nucleus"
+  },
+  "pre": "Promoter accessible",
+  "post": "Pre-mRNA synthesized",
+  "effects": ["Bio", "Nucleus"]
 }
-</code></pre><hr><h2 id="three-execution-environments">Three Execution Environments</h2><ol><li><strong>Compile to Ruby</strong><br>Same causal logic, silicon runtime.</li></ol><pre><code class="language-bash">ucl run examples/hello_world.json --target ruby
+</code></pre><hr><h2 id="prototype-execution-environments">Prototype Execution Environments</h2><ol><li><strong>Compile to Ruby</strong><br>Same causal logic, silicon runtime.</li></ol><pre><code class="language-bash">ucl run examples/hello_world.json --target ruby
 </code></pre><ol start="2"><li><strong>Brain VM (simulation)</strong><br>Executes UCL as cognitive operations. Tracks beliefs, working memory, emotions, thoughts, goals, and output. Unknown ops trigger a natural confusion response.</li></ol><pre><code class="language-bash">ucl brain examples/natural_language.json --verbose
 </code></pre><ol start="3"><li><strong>Production Brain (you)</strong><br>Interactive session where you execute each operation mentally, then report thoughts and emotions. It is a literal “human-as-runtime” mode.</li></ol><pre><code class="language-bash">ucl brain examples/brain_test.json --production
-</code></pre><hr><h2 id="universal-execution">Universal Execution</h2><p><a href="https://github.com/ndbroadbent/universal_causal_language#universal-program-example"></a></p><p><a href="https://github.com/ndbroadbent/universal_causal_language/blob/main/examples/multiply_universal.json" rel="noreferrer"><strong>multiply_universal.json</strong></a>&nbsp;- A single program that runs on ALL THREE execution environments.</p><p>The program:</p><ol><li>Generates a random number (A)</li><li>Generates another random number (B)</li><li>Multiplies them</li><li>Outputs the result</li></ol><h3 id="on-ruby-vm"><strong>On Ruby VM:</strong></h3><pre><code class="language-ruby">A = rand(0..9)
+</code></pre><hr><h2 id="universal-execution">Universal Execution</h2><p><a href="https://github.com/ndbroadbent/universal_causal_language#universal-program-example"></a></p><p><a href="https://github.com/ndbroadbent/universal_causal_language/blob/main/examples/multiply_universal.json" rel="noreferrer"><strong>multiply_universal.json</strong></a>&nbsp;- A single program that can run on all three execution environments.</p><p>The program:</p><ol><li>Generates a random number (A)</li><li>Generates another random number (B)</li><li>Multiplies them</li><li>Outputs the result</li></ol><h3 id="on-ruby-vm"><strong>On Ruby VM:</strong></h3><pre><code class="language-ruby">A = rand(0..9)
 B = rand(0..9)
 result = A * B
 puts result  # Output: 35 (varies each run)</code></pre><h3 id="on-brain-vm"><strong>On Brain VM:</strong></h3><pre><code>🧠 Starting brain simulation...
@@ -282,7 +315,7 @@ Step 3: Write - executor → result
   🧮 Calculated: result = 56
 
 Step 4: Emit - executor → result
-  🗣️  Output: "56.0"</code></pre><h3 id="on-production-brain-you"><strong>On Production Brain (YOU):</strong></h3><pre><code>→ Think of a random number between 0 and 9
+  🗣️  Output: "56.0"</code></pre><h3 id="on-production-brain-a-real-human"><strong>On Production Brain (a real human):</strong></h3><pre><code>→ Think of a random number between 0 and 9
 → Remember it as 'A'
 [You think: 7]
 
@@ -290,7 +323,7 @@ Step 4: Emit - executor → result
 → Store the answer in: result
 [You calculate: 7 × 4 = 28]
 
-Output: "28"</code></pre><hr><h2 id="parallels-with-cucumber">Parallels with Cucumber</h2><p><a href="https://cucumber.io/" rel="noreferrer">Cucumber</a> is a tool that bridges human language and executable code by turning plain text scenarios into tests that software can run. Each step ("Given," "When," and "Then") maps human intent to machine actions. </p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/image-17.png" class="kg-image" alt="" loading="lazy" width="1622" height="832" srcset="https://madebynathan.com/content/images/size/w600/2025/11/image-17.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/image-17.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/11/image-17.png 1600w, https://madebynathan.com/content/images/2025/11/image-17.png 1622w" sizes="(min-width: 720px) 720px"></figure><p>UCL extends this idea beyond testing: it’s a universal intermediate representation that can encode any causal process in any domain.</p><p>UCL could even interoperate with Cucumber, or serve as the foundation for a next-generation acceptance testing framework.</p><hr><h2 id="what-is-included-today">What is included today</h2><ul><li>JSON data structures with 20+ primitive ops</li><li>Serializer and parser</li><li>CLI: <code>validate</code>, <code>display</code>, <code>analyze</code>, <code>convert</code>, <code>compile</code>, <code>run</code>, <code>brain</code></li><li>Compilation target: Ruby</li><li>Brain VM with cognitive state and confusion handling</li><li>Examples across language, Ruby, Rust, music, legal, biology</li><li>Tests and docs</li></ul><hr><h2 id="quick-start">Quick start</h2><pre><code class="language-bash"># Build
+Output: "28"</code></pre><hr><h2 id="robotics-and-ai">Robotics and AI</h2><p>UCL provides a single causal schema that can describe any process, from making a cup of tea to running a distributed system. This universality makes it especially powerful for robotics and AI.</p><h3 id="example-making-a-cup-of-tea">Example: Making a Cup of Tea</h3><p>A UCL program can be written that describes the causal sequence for preparing a cup of tea. (<a href="https://github.com/ndbroadbent/universal_causal_language/blob/main/examples/recipe_tea.json" rel="noreferrer">View the example program on GitHub.</a>)</p><p>This same causal sequence could be executed across multiple substrates:</p><h3 id="1-human-execution">1. <strong>Human Execution</strong></h3><p>A human executes each step physically while a system records timing and accuracy. This becomes <strong>training data</strong> for modeling human cognition and behavior.</p><h3 id="2-simulated-ai-brain-virtual-robot-vm">2. <strong>Simulated AI Brain (Virtual Robot VM)</strong></h3><p>The same UCL program can run on a <strong>Virtual Robot VM</strong>, a simulation that maps actions like <code>Gather</code>, <code>Heat</code>, and <code>Pour</code> to robotic operations within a mock environment. One could write <strong>unit tests</strong> <strong>for any high-level causal logic</strong>, verifying timing, dependencies, and effects without needing physical hardware or even a virtual 3D environment.</p><h3 id="3-real-ai-brain-virtual-arms">3. <strong>Real AI Brain, Virtual Arms</strong></h3><p>Replace the simulated brain with <strong>two collaborating models</strong>:<br>a <strong>cognitive LLM</strong> that handles reasoning, sequencing, and causal interpretation, and a <strong>physically trained model</strong> (e.g., RL or motion-policy network) that performs low-level control. The LLM interprets each UCL action, decides on tool use and task structure, and sends structured commands to the control model, which handles movement and spatial execution inside a simulated environment such as Unity, MuJoCo, or Webots. This division allows the cognitive model to plan abstractly while the embodied model learns fine motor skill; ideal for <strong>reinforcement learning</strong> or <strong>imitation learning</strong> pipelines.</p><h3 id="4-real-ai-real-robotics">4. <strong>Real AI, Real Robotics</strong></h3><p>Finally, swap both components for reality: the same UCL recipe can run on a <strong>real AI model controlling real robotic arms</strong>. Each action corresponds to a trained behavior such as grasping, heating, and pouring. The causal structure remains identical; only the substrate changes.</p><h3 id="substrate-independent-robotics">Substrate-Independent Robotics</h3><p>Whether it’s a human, a simulated agent, or a robotic arm, each executes the same causal plan, step by step. This allows:</p><ul><li><strong>Unified training data</strong> from human and AI runs following identical instructions</li><li><strong>Cross-validation</strong> between simulation and reality</li><li><strong>E2E integration testing</strong> for robotic behaviors</li><li><strong>Transparent causal reasoning</strong> for explainable AI</li></ul><hr><h2 id="parallels-with-cucumber">Parallels with Cucumber</h2><p><a href="https://cucumber.io/" rel="noreferrer">Cucumber</a> is a tool that bridges human language and executable code by turning plain text scenarios into tests that software can run. Each step ("Given," "When," and "Then") maps human intent to machine actions. </p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/image-17.png" class="kg-image" alt="" loading="lazy" width="1622" height="832" srcset="https://madebynathan.com/content/images/size/w600/2025/11/image-17.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/image-17.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/11/image-17.png 1600w, https://madebynathan.com/content/images/2025/11/image-17.png 1622w" sizes="(min-width: 720px) 720px"></figure><p>UCL extends this idea beyond testing: it’s a universal intermediate representation that can encode any causal process in any domain.</p><p>UCL could even interoperate with Cucumber, or serve as the foundation for a next-generation acceptance testing framework.</p><hr><h2 id="what-is-included-today">What is included today</h2><ul><li>JSON data structures with 20+ primitive ops</li><li>Serializer and parser</li><li>CLI: <code>validate</code>, <code>display</code>, <code>analyze</code>, <code>convert</code>, <code>compile</code>, <code>run</code>, <code>brain</code></li><li>Compilation target: Ruby</li><li>Brain VM with cognitive state and confusion handling</li><li>Examples across language, Ruby, Rust, music, legal, biology</li><li>Tests and docs</li></ul><hr><h2 id="quick-start">Quick start</h2><pre><code class="language-bash"># Build
 cargo build --release
 
 # Validate and inspect
