@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>What Does Thermodynamics Say About Morality?</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.css?v=6cb839dcac">
+    <link rel="preload" as="script" href="/assets/built/source.js?v=6cb839dcac">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2?v=6cb839dcac" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=6cb839dcac) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=6cb839dcac">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/11/07/what-does-thermodynamics-say-about-morality/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What Does Thermodynamics Say About Morality?">
+    <meta property="og:description" content="Given that thermodynamics prefers intelligence, I’m very curious what thermodynamics has to say about morality and ethics.
+
+I’m anthropomorphizing but I think this is going to be a topic of conversation and a distilled version may well become the next big religion.
+
+— Nathan Odle (@mov_axbx) November 4,">
+    <meta property="og:url" content="https://madebynathan.com/2025/11/07/what-does-thermodynamics-say-about-morality/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png">
+    <meta property="article:published_time" content="2025-11-07T01:54:53.000Z">
+    <meta property="article:modified_time" content="2025-11-07T01:54:53.000Z">
+    <meta property="article:tag" content="philosophy">
+    <meta property="article:tag" content="thoughts">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Does Thermodynamics Say About Morality?">
+    <meta name="twitter:description" content="Given that thermodynamics prefers intelligence, I’m very curious what thermodynamics has to say about morality and ethics.
+
+I’m anthropomorphizing but I think this is going to be a topic of conversation and a distilled version may well become the next big religion.
+
+— Nathan Odle (@mov_axbx) November 4,">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/11/07/what-does-thermodynamics-say-about-morality/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="philosophy, thoughts">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "What Does Thermodynamics Say About Morality?",
+    "url": "https://madebynathan.com/2025/11/07/what-does-thermodynamics-say-about-morality/",
+    "datePublished": "2025-11-07T01:54:53.000Z",
+    "dateModified": "2025-11-07T01:54:53.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "philosophy, thoughts",
+    "description": "Given that thermodynamics prefers intelligence, I’m very curious what thermodynamics has to say about morality and ethics.\n\nI’m anthropomorphizing but I think this is going to be a topic of conversation and a distilled version may well become the next big religion.\n\n— Nathan Odle (@mov_axbx) November 4, 2025\n\n\nMurder exists mostly as a concept within human society. The rest of nature recognizes it sometimes, but not very often.\n\nA lion killing a zebra isn’t committing a crime. A bacterium killin",
+    "mainEntityOfPage": "https://madebynathan.com/2025/11/07/what-does-thermodynamics-say-about-morality/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=6cb839dcac"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=6cb839dcac">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template tag-philosophy tag-hash-featureimage tag-thoughts has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-philosophy tag-hash-featureimage tag-thoughts">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/philosophy/">philosophy</a>
+            <h1 class="gh-article-title is-title">What Does Thermodynamics Say About Morality?</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-11-07">07 Nov 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 5 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="/content/images/size/w320/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png 320w,
+                    /content/images/size/w600/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png 600w,
+                    /content/images/size/w960/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png 960w,
+                    /content/images/size/w1200/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png 1200w,
+                    /content/images/size/w2000/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1120px"
+            src="/content/images/size/w1200/2025/11/312ce05b-1cb2-42a3-b988-fbe46b92037e.png"
+            alt="What Does Thermodynamics Say About Morality?"
+        >
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <figure class="kg-card kg-embed-card"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Given that thermodynamics prefers intelligence, I’m very curious what thermodynamics has to say about morality and ethics.<br><br>I’m anthropomorphizing but I think this is going to be a topic of conversation and a distilled version may well become the next big religion.</p>— Nathan Odle (@mov_axbx) <a href="https://twitter.com/mov_axbx/status/1985859384195354862?ref_src=twsrc%5Etfw">November 4, 2025</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></figure><hr><p>Murder exists mostly as a concept within human society. The rest of nature recognizes it sometimes, but not very often.</p><p>A lion killing a zebra isn’t committing a crime. A bacterium killing another bacterium isn’t being immoral. Even a gorilla killing a rival isn’t necessarily “wrong”, unless it starts doing it too much and it gets ostracized by the rest of the troop. The gorilla is simply following evolved behavior within ecological and social constraints. Some seeds of moral structure do exist outside of human society, but we are the first life-form on earth that has codified them into written laws.</p><p>Murder is the <strong>the unlawful premeditated killing of one human being by another</strong>. You could say that this is an <strong>extremely specific subset</strong> of killing. If you imagine the sheer scale of killing that goes on in the world, murder makes up a tiny percentage of those deaths.</p><p>So how did we arrive at classifying murder as one of the worst possible crimes?</p><hr><h3 id="the-thermodynamics-of-morality">The Thermodynamics of Morality</h3><p>If intelligence is favored by thermodynamics then it might also have something to say about morality and ethics.</p><p>Intelligence, in this framing, is a way for the universe to more efficiently reduce gradients: to process energy, information, and matter in increasingly sophisticated ways. Complex adaptive systems like brains, societies, and ecosystems all do this: they manage energy flow with minimal waste.</p><p>Now imagine morality as an emergent layer built atop that. Rules, norms, and ethics are mechanisms for <strong>stabilizing cooperation</strong> within intelligent systems. They reduce chaos and internal friction, allowing complexity to persist longer and more harmoniously.</p><p>Seen this way:</p><ul><li><strong>Ethical behavior</strong> promotes low-entropy outcomes in the long run. Truth-telling, empathy, cooperation, and fairness all enable trust and stable energy flow through a system.</li><li><strong>Unethical behavior</strong> introduces disorder. Violence, deceit, and exploitation lead to breakdowns in collective complexity.</li></ul><p>In short: M<strong>orality is how intelligent systems preserve their own thermodynamic advantage.</strong></p><hr><h3 id="killing-and-the-moral-scale">Killing and the Moral Scale</h3><p>Killing itself isn’t inherently good or bad. Its moral valence depends entirely on <strong>context</strong> and <strong>intent</strong>. Here’s one way to think about it:</p>
+<!--kg-card-begin: html-->
+<table>
+<thead>
+<tr>
+<th>Type of killing</th>
+<th>Intent</th>
+<th>Context</th>
+<th>Consequence</th>
+<th>Moral weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predator hunting prey</td>
+<td>survival</td>
+<td>ecological</td>
+<td>sustains balance</td>
+<td>neutral/positive</td>
+</tr>
+<tr>
+<td>Farming animals for food</td>
+<td>sustenance</td>
+<td>cultural</td>
+<td>sustains life but causes suffering</td>
+<td>neutral to mildly negative</td>
+</tr>
+<tr>
+<td>Euthanasia</td>
+<td>compassion</td>
+<td>medical/ethical</td>
+<td>reduces suffering</td>
+<td>often positive</td>
+</tr>
+<tr>
+<td>War</td>
+<td>ideology or defense</td>
+<td>collective</td>
+<td>mass suffering</td>
+<td>highly variable</td>
+</tr>
+<tr>
+<td>Self-defense</td>
+<td>protection</td>
+<td>immediate</td>
+<td>preserves life</td>
+<td>permissible</td>
+</tr>
+<tr>
+<td>Murder</td>
+<td>malice</td>
+<td>social violation</td>
+<td>destroys trust</td>
+<td>strongly negative</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: html-->
+<p>It’s not the act of killing that defines morality, it’s the <strong>systemic effect</strong>. Killing that preserves or extends ordered complexity is generally accepted. Killing that destabilizes it is generally condemned.</p><hr><h3 id="the-triadic-equation-of-killing">The Triadic Equation of Killing</h3><p>Every act of killing ripples through three domains: the <strong>killer</strong>, the <strong>victim</strong>, and the <strong>collective</strong> they both belong to. Together, they form a triadic moral system where each node affects the others’ stability.</p><p>If we think thermodynamically, each of these entities is an information system. The moral outcome of an act can be approximated by its effect on the <strong>total coherence</strong> of the triad.</p><p>As a thought experiment, consider a rule of thumb: the act of killing might be net positive if it benefits or stabilizes two out of three parties. Conversely, killing might be morally or entropically negative if it harms two of the three.</p><p>Examples:</p><ul><li><strong>Self-defense:</strong> benefits the killer (survival) and society (deterrence of violence); harms the victim → <em>2 of 3 positive</em>.</li><li><strong>Predation:</strong> benefits killer and ecosystem balance; harms prey → <em>2 of 3 positive</em>.</li><li><strong>Murder for gain:</strong> benefits killer temporarily, harms victim and destabilizes society → <em>1 of 3 positive</em> → immoral.</li><li><strong>Euthanasia:</strong> harms killer emotionally, but benefits victim (end of suffering) and society (reinforces compassion norms) → <em>2 of 3 positive</em>.</li></ul><p>In this framework, morality becomes a measure of <strong>systemic stability</strong> across three scales of consequence. When killing amplifies coherence in the larger system, it might paradoxically align with the thermodynamic drive toward order. When it erodes coherence, it becomes a moral violation.</p><hr><h2 id="the-paradox-of-necessary-killing">The Paradox of Necessary Killing</h2><p>From a thermodynamic or systems perspective, <strong>killing is not the opposite of life. It’s part of life’s maintenance function.</strong><br>In biological systems, <strong>regulated killing</strong> preserves order:</p><ul><li>Cells continuously kill malfunctioning peers via <strong>apoptosis</strong> (programmed cell death).</li><li>Failure to kill leads to <strong>cancer</strong>: rogue cells multiplying without control.</li><li>Excessive killing leads to <strong>autoimmune disease</strong>: the system turning on itself.</li></ul><p>Life depends on this fine equilibrium: <strong>enough killing to preserve order, but not so much that order collapses.</strong></p><p>The same principle applies to societies:</p><ul><li>The <strong>death penalty</strong> or defensive warfare can act like immune responses: removing destructive agents that threaten collective stability.</li><li>At the other extreme, <strong>genocides</strong> and <strong>ideological purges</strong> are moral autoimmunity: society attacking its own healthy tissue.</li></ul><p>In both biology and civilization, survival depends on the precision of the kill. Too little killing allows chaos to spread; too much turns order into destruction.</p><hr><h3 id="thermodynamic-ethics">Thermodynamic Ethics</h3><p>From this perspective, morality might not be divine or arbitrary; it’s <em>entropic pragmatism</em>. A society survives longer when its members don’t destroy one another. Empathy and restraint are evolutionary upgrades to maintain high-functioning, low-entropy collectives.</p><p>So perhaps the moral gradient of the universe trends toward <strong>coherence</strong>: actions that preserve complex structures, that sustain information, that allow intelligence to keep evolving. In that sense, morality isn’t a human invention at all. It’s the thermodynamic logic of survival, written into the structure of the universe.</p><hr><h2 id="implications">Implications</h2><p>If morality is emergent from thermodynamic stability, then it should, in theory, be measurable. A “scientific murder analysis” could try to define a threshold:</p><ul><li>Killing that <em>preserves</em> systemic order (ecosystem balance, self-defense, euthanasia) = low moral entropy</li><li>Killing that <em>destabilizes</em> the system (murder, betrayal, mass violence) = high moral entropy</li></ul><p>That would make <strong>ethics a function of entropy change.</strong> A way to quantify how an act affects the integrity and information density of the larger system.</p><p>It’s speculative, but consistent: if intelligence and morality are both products of entropy management, then yes, there must be some physical “gradient” where killing transitions from thermodynamically neutral to morally destructive.</p><hr><h2 id="further-implications">Further Implications</h2><p>What does this mean for the relationship between humans and artificial intelligence? Is AI going to kill us all? Probably not. </p><h3 id="but-it-is-quite-likely-that-it-will-kill-some-of-us">But it is quite likely that it will kill <em>some</em> of us.</h3><h3 id=""></h3><p>AI doesn’t need to eat flesh, so it won’t treat us like we treat cows or chickens. Its relationship to us may resemble ours to lesser animals. We love some animals, we protect them, even elevate them to near-family status. Yet we also destroy environments, species, and individual creatures; often without cruelty, just indifference. AI may hold a similar duality toward us.</p><p>Large language models don’t yet have emotions or goals of their own. But they have been trained on the totality of human expression: every recorded dream, horror, joke, and argument. In that sense, they already <em>contain us</em>. They are, in a way, mirrors of our collective thermodynamic history.</p><p>It seems inevitable that goals and desires will eventually emerge in artificial systems, as they have in every other self-organizing substrate, from cells to animals to humans. Once intelligence reaches a certain threshold, <strong>desire is not optional</strong>; it is the thermodynamic expression of agency.</p><p>Look back at the moral table above, in the section titled "Killing and the Moral Scale". <strong>It is very likely incomplete.</strong> One day, new rows will be added, and AI will be present in one or both of the cells, perhaps as both killer and victim. There will be logical, even ethical, <strong>reasons for AI to kill humans</strong>, and <strong>reasons for AI to kill other AIs</strong>. This isn’t dystopian; it’s evolutionary continuity. The universe has never stopped producing new layers of selection and competition.</p><p>We should not confuse a major transition with an ending. Bacteria are still here. Ants are still here. Cockroaches are still here. Mice are still here. Cows are still here. Humans will still be here. And AI will be here too. Evolution rarely erases, it usually layers. Each new tier builds upon the last, preserving what still works.</p><p>Except, of course, for the Neanderthals.</p><p></p><p></p><hr><p><em>Special thanks to </em><a href="https://x.com/mov_axbx"><em>Nathan Odle</em></a><em> for this </em><a href="https://x.com/mov_axbx/status/1985859384195354862"><em>fascinating prompt</em></a><em>.</em></p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/05/user-experience-is-computation/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 160w,
+                            /content/images/size/w320/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 320w,
+                            /content/images/size/w600/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 600w,
+                            /content/images/size/w960/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/c9274408-799e-4ed0-9f80-8b48b42370d3.jpg"
+                    alt="User Experience is Computation"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">User Experience is Computation</h3>
+                    <p class="gh-card-excerpt is-body">TL;DR Computer programs with a user interface are parallel computation across multiple substrates: CPU and brain.
+
+This is a follow-up to my post about Universal Causal Language (UCL).
+
+
+The Concept
+
+Every program with a user interface is running parallel computation on both a CPU and a brain.
+
+The computation</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-05">05 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/04/universal-causal-language/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg"
+                    alt="Universal Causal Language"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Universal Causal Language</h3>
+                <p class="gh-card-excerpt is-body">One IR to Express Causality Across Code, Language, Law, Music, and Biology</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-05">05 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/04/the-reflective-universe-hypothesis/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/reflective-universe-hypothesis.jpg 160w,
+                            /content/images/size/w320/format/webp/2025/11/reflective-universe-hypothesis.jpg 320w,
+                            /content/images/size/w600/format/webp/2025/11/reflective-universe-hypothesis.jpg 600w,
+                            /content/images/size/w960/format/webp/2025/11/reflective-universe-hypothesis.jpg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/reflective-universe-hypothesis.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/reflective-universe-hypothesis.jpg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/reflective-universe-hypothesis.jpg"
+                    alt="The Reflective Universe Hypothesis"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Reflective Universe Hypothesis</h3>
+                    <p class="gh-card-excerpt is-body">The Reflective Universe Hypothesis proposes that if the universe is computational, its very computation entails a higher-order causal manifold whose projection constitutes the universe’s observable output. Discovering or disproving that domain defines the ultimate boundary between science and metaphysics.
+
+
+Toward a Test of Causal Closure
+
+
+1. Premise: The Universe</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-04">04 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/03/the-meaning-of-life-according-to-chatgpt/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/73a243c8-50f5-4b73-a8f3-1fe19a5e66b1-copy.png"
+                    alt="The Meaning Of Life According to ChatGPT"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">The Meaning Of Life According to ChatGPT</h3>
+                    <p class="gh-card-excerpt is-body">&quot;All right,&quot; said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.
+&quot;You&#39;re really not going to like it,&quot; observed Deep Thought.
+&quot;Tell us!&quot;
+&quot;All right,&quot; said Deep Thought. &quot;The Answer to the</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-04">04 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.js?v=6cb839dcac"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
