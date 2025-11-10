@@ -70,7 +70,7 @@
     <meta property="og:url" content="https://madebynathan.com/2025/11/04/universal-causal-language/">
     <meta property="og:image" content="https://madebynathan.com/content/images/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg">
     <meta property="article:published_time" content="2025-11-04T12:38:23.000Z">
-    <meta property="article:modified_time" content="2025-11-10T01:53:24.000Z">
+    <meta property="article:modified_time" content="2025-11-10T01:54:56.000Z">
     <meta property="article:tag" content="philosophy">
     <meta property="article:tag" content="ruby">
     <meta property="article:tag" content="programming">
@@ -119,7 +119,7 @@
     "headline": "Universal Causal Language",
     "url": "https://madebynathan.com/2025/11/04/universal-causal-language/",
     "datePublished": "2025-11-04T12:38:23.000Z",
-    "dateModified": "2025-11-10T01:53:24.000Z",
+    "dateModified": "2025-11-10T01:54:56.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://madebynathan.com/content/images/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg",
@@ -311,10 +311,10 @@
 </code></pre><hr><h2 id="prototype-execution-environments">Prototype Execution Environments</h2><ol><li><strong>Compile to Ruby</strong><br>Same causal logic, silicon runtime.</li></ol><pre><code class="language-bash">ucl run examples/hello_world.json --target ruby
 </code></pre><ol start="2"><li><strong>Brain VM (simulation)</strong><br>Executes UCL as cognitive operations. Tracks beliefs, working memory, emotions, thoughts, goals, and output. Unknown ops trigger a natural confusion response.</li></ol><pre><code class="language-bash">ucl brain examples/natural_language.json --verbose
 </code></pre><ol start="3"><li><strong>Production Brain (you)</strong><br>Interactive session where you execute each operation mentally, then report thoughts and emotions. It is a literal “human-as-runtime” mode.</li></ol><pre><code class="language-bash">ucl brain examples/brain_test.json --production
-</code></pre><hr><h2 id="universal-execution">Universal Execution</h2><p><a href="https://github.com/ndbroadbent/universal_causal_language#universal-program-example"></a></p><p><a href="https://github.com/ndbroadbent/universal_causal_language/blob/main/examples/multiply_universal.json" rel="noreferrer"><strong>multiply_universal.json</strong></a>&nbsp;- A single program that can run on all three execution environments.</p><p>The program:</p><ol><li>Generates a random number (A)</li><li>Generates another random number (B)</li><li>Multiplies them</li><li>Outputs the result</li></ol><h3 id="on-ruby-vm"><strong>On Ruby VM:</strong></h3><pre><code class="language-ruby">A = rand(0..9)
+</code></pre><hr><h2 id="universal-execution">Universal Execution</h2><p><a href="https://github.com/ndbroadbent/universal_causal_language#universal-program-example"></a></p><p><a href="https://github.com/ndbroadbent/universal_causal_language/blob/main/examples/multiply_universal.json" rel="noreferrer"><strong>multiply_universal.json</strong></a>&nbsp;- A single program that can run on all three execution environments.</p><p>The program:</p><ol><li>Generates a random number (A)</li><li>Generates another random number (B)</li><li>Multiplies them</li><li>Outputs the result</li></ol><p>This same "program" can run on multiple environments:</p><h3 id="running-on-ruby-vm"><strong>Running on Ruby VM:</strong></h3><pre><code class="language-ruby">A = rand(0..9)
 B = rand(0..9)
 result = A * B
-puts result  # Output: 35 (varies each run)</code></pre><h3 id="on-brain-vm"><strong>On Brain VM:</strong></h3><pre><code>🧠 Starting brain simulation...
+puts result  # Output: 35 (varies each run)</code></pre><h3 id="running-on-brain-vm"><strong>Running on Brain VM:</strong></h3><pre><code>🧠 Starting brain simulation...
 
 Step 1: GenRandomInt - executor → A
   🎲 Generated: A = 7
@@ -326,7 +326,7 @@ Step 3: Write - executor → result
   🧮 Calculated: result = 56
 
 Step 4: Emit - executor → result
-  🗣️  Output: "56.0"</code></pre><h3 id="on-production-brain-a-real-human"><strong>On Production Brain (a real human):</strong></h3><pre><code>→ Think of a random number between 0 and 9
+  🗣️  Output: "56.0"</code></pre><h3 id="running-on-production-brain-aka-a-real-human"><strong>Running on "Production" Brain (aka a real human):</strong></h3><pre><code>→ Think of a random number between 0 and 9
 → Remember it as 'A'
 [You think: 7]
 
