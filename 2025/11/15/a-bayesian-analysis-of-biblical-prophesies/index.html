@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>A Bayesian Analysis of Biblical Prophesies</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.a5c500c92f.css">
+    <link rel="preload" as="script" href="/assets/built/source.a5c500c92f.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.a5c500c92f.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=a5c500c92f) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.a5c500c92f.css">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/11/15/a-bayesian-analysis-of-biblical-prophesies/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A Bayesian Analysis of Biblical Prophesies">
+    <meta property="og:description" content="I grew up in a Christian family, so I would often think about the end times and prophesies in Revelation while I was trying to fall asleep (it didn&#x27;t help.)
+
+Every generation seems to find a way to predict that the end of the world is near. From Hitler to">
+    <meta property="og:url" content="https://madebynathan.com/2025/11/15/a-bayesian-analysis-of-biblical-prophesies/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png">
+    <meta property="article:published_time" content="2025-11-15T12:25:31.000Z">
+    <meta property="article:modified_time" content="2025-11-15T12:32:28.000Z">
+    <meta property="article:tag" content="religion">
+    <meta property="article:tag" content="philosophy">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Bayesian Analysis of Biblical Prophesies">
+    <meta name="twitter:description" content="I grew up in a Christian family, so I would often think about the end times and prophesies in Revelation while I was trying to fall asleep (it didn&#x27;t help.)
+
+Every generation seems to find a way to predict that the end of the world is near. From Hitler to">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/11/15/a-bayesian-analysis-of-biblical-prophesies/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="religion, philosophy">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "A Bayesian Analysis of Biblical Prophesies",
+    "url": "https://madebynathan.com/2025/11/15/a-bayesian-analysis-of-biblical-prophesies/",
+    "datePublished": "2025-11-15T12:25:31.000Z",
+    "dateModified": "2025-11-15T12:32:28.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "religion, philosophy",
+    "description": "I grew up in a Christian family, so I would often think about the end times and prophesies in Revelation while I was trying to fall asleep (it didn&#x27;t help.)\n\nEvery generation seems to find a way to predict that the end of the world is near. From Hitler to the Cold War, and barcodes to the internet, there&#x27;s always something that lines up with prophesies in the book of Revelation.\n\nHowever, some of these prophesies do seem to line up particularly well with current events:\n\nCould American Evangelic",
+    "mainEntityOfPage": "https://madebynathan.com/2025/11/15/a-bayesian-analysis-of-biblical-prophesies/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.a5c500c92f.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.a5c500c92f.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template tag-religion tag-philosophy tag-hash-featureimage has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-religion tag-philosophy tag-hash-featureimage">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/religion/">religion</a>
+            <h1 class="gh-article-title is-title">A Bayesian Analysis of Biblical Prophesies</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-11-16">16 Nov 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 10 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="/content/images/size/w320/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png 320w,
+                    /content/images/size/w600/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png 600w,
+                    /content/images/size/w960/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png 960w,
+                    /content/images/size/w1200/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png 1200w,
+                    /content/images/size/w2000/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1120px"
+            src="/content/images/size/w1200/2025/11/ChatGPT-Image-Nov-16--2025--01_28_35-AM.png"
+            alt="A Bayesian Analysis of Biblical Prophesies"
+        >
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>I grew up in a Christian family, so I would often think about the end times and prophesies in Revelation while I was trying to fall asleep (it didn't help.)</p><p>Every generation seems to find a way to predict that the end of the world is near. From Hitler to the Cold War, and barcodes to the internet, there's always something that lines up with prophesies in the book of Revelation. </p><p>However, some of these prophesies do seem to line up particularly well with current events:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.benjaminlcorey.com/could-american-evangelicals-spot-the-antichrist-heres-the-biblical-predictions/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Could American Evangelicals Spot the Antichrist? Here Are the Biblical Predictions:</div><div class="kg-bookmark-description">I’ve reviewed every prophecy on the Antichrist, and what I read blew my mind. (Updated with new signs, 6/10/2020)</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/cropped-logo-grey-100.png" alt=""><span class="kg-bookmark-author">Benjamin L. Corey</span><span class="kg-bookmark-publisher">Benjamin L. Corey</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/antichrist-main.jpg" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>I was curious to see how well Donald Trump actually matched these prophesies compared to other public figures, so I did what any normal person would do: I built a Bayesian reasoning framework and I calculated the answer.</p><p><strong>The answer:</strong> Slightly more than Nero himself.</p><pre><code class="language-text">Subject                   | Posterior Probability  | Log Likelihood Ratio
+------------------------------------------------------------------------------------------
+Donald Trump              | 100%                   | 12.5
+Nero                      | 100%                   | 12.4
+Mao Zedong                | 0.29%                  | 6.5
+Adolf Hitler              | 0.01%                  | 4.7
+Xi Jinping                | 0.00%                  | 3.8
+Pol Pot                   | 0.00%                  | 0.9
+Joseph Stalin             | 0.00%                  | 0.2
+George W. Bush            | 0.00%                  | -0.2
+Napoleon Bonaparte        | 0.00%                  | -0.4
+Emmanuel Macron           | 0.00%                  | -1.5
+Vladimir Putin            | 0.00%                  | -2.8
+Bill Clinton              | 0.00%                  | -5.1
+Barack Obama              | 0.00%                  | -5.3
+Che Guevara               | 0.00%                  | -7.3
+Winston Churchill         | 0.00%                  | -36.7
+Abraham Lincoln           | 0.00%                  | -52.7
+Mahatma Gandhi            | 0.00%                  | -58.4
+Mother Teresa             | 0.00%                  | -61.3</code></pre><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/antichrist_probability-1.png" class="kg-image" alt="" loading="lazy" width="1200" height="800" srcset="https://madebynathan.com/content/images/size/w600/2025/11/antichrist_probability-1.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/antichrist_probability-1.png 1000w, https://madebynathan.com/content/images/2025/11/antichrist_probability-1.png 1200w" sizes="(min-width: 720px) 720px"></figure><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/antichrist_likelihood-2.png" class="kg-image" alt="" loading="lazy" width="1200" height="800" srcset="https://madebynathan.com/content/images/size/w600/2025/11/antichrist_likelihood-2.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/antichrist_likelihood-2.png 1000w, https://madebynathan.com/content/images/2025/11/antichrist_likelihood-2.png 1200w" sizes="(min-width: 720px) 720px"></figure><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/prophecy_heatmap-1.png" class="kg-image" alt="" loading="lazy" width="2000" height="1200" srcset="https://madebynathan.com/content/images/size/w600/2025/11/prophecy_heatmap-1.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/prophecy_heatmap-1.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/11/prophecy_heatmap-1.png 1600w, https://madebynathan.com/content/images/2025/11/prophecy_heatmap-1.png 2000w" sizes="(min-width: 720px) 720px"></figure><p></p><p>Here's the code if you want to take a look at the data and script:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ndbroadbent/bayesian_inference/tree/main"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ndbroadbent/bayesian_inference: experiments and weird hypotheses</div><div class="kg-bookmark-description">experiments and weird hypotheses. Contribute to ndbroadbent/bayesian_inference development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/pinned-octocat-093da3e6fa40-2.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ndbroadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/7924111f6a6c7645eccffc7e088280d72fc4618a16335451be97c368fa6d3456/ndbroadbent/bayesian_inference" alt="" onerror="this.style.display = 'none'"></div></a></figure><pre><code class="language-bash">git clone https://github.com/ndbroadbent/bayesian_inference.git
+cd bayesian_inference
+python antichrist_analysis.py
+</code></pre><p>To add your own subjects, drop a YAML file into <code>data/subjects/</code> following the existing examples. Then run the script again and see where your candidate lands on the Great Antichrist Leaderboard.</p><hr><h1 id="how-antichristanalysispy-works">How antichrist_analysis.py works</h1><ol><li><strong>Loads all the prophecies</strong><br>From Daniel, Revelation, Thessalonians, the Johannine letters and a couple of OT bonus passages. In my current setup that’s <strong>54 distinct prophecies</strong>.</li><li><strong>Loads all the subjects</strong><br>YAML files in <code>data/subjects/</code> describe each candidate:<ul><li>Basic bio (name, era, role)</li><li>A 0.0-1.0 rating for how well they match each prophecy</li><li>Short evidence notes explaining the rating</li></ul></li><li><strong>Assigns a very skeptical prior</strong><br>By default, the prior is one in a billion that any given person is <em>the</em> Antichrist.</li><li><strong>Apply Bayes' theorem</strong><br>For each prophecy, we define:<ul><li>How likely it would be if someone <em>was</em> the Antichrist</li><li>How likely it would be if they <em>weren’t</em></li></ul></li></ol><p>Then we scale that by the subject’s rating for that prophecy and get a likelihood ratio:</p><blockquote><strong>LR = P(evidence | Antichrist) / P(evidence | Not Antichrist)</strong></blockquote><p>Multiply all those LRs together (in log space), apply Bayes’ theorem, and you get a <strong>posterior probability</strong> and a <strong>log likelihood ratio</strong> for each subject.</p><ol start="5"><li><strong>Generates tables, summaries, and plots</strong><br>The script prints a ranking table and, if you pass <code>--plot</code>, generates bar charts and a prophecy heatmap.</li></ol><p></p><hr><h1 id="nero">Nero</h1><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/image-31.png" class="kg-image" alt="" loading="lazy" width="2000" height="1772" srcset="https://madebynathan.com/content/images/size/w600/2025/11/image-31.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/image-31.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/11/image-31.png 1600w, https://madebynathan.com/content/images/2025/11/image-31.png 2158w" sizes="(min-width: 720px) 720px"></figure><p>The single strongest prophecy match in the entire dataset is this one:</p><blockquote><strong>Revelation 13:18</strong> – The Antichrist’s number will be 666, which requires wisdom to interpret.</blockquote><p>In the model, that prophecy has a <strong>log10 likelihood ratio of 156.88</strong> for Nero, because:</p><ul><li>Hebrew gematria for “Nero Caesar” famously adds up to 666.</li><li>This is not a conspiracy theory; it’s been the default reading for a long time by Biblical scholars.</li></ul><p>On top of that, Nero:</p><ul><li>Ruled Rome, the city on seven hills, right in the period Revelation is usually dated.</li><li>Demanded worship, built colossal statues, and loved blasphemous titles.</li><li>Killed Christians in extremely creative and horrifying ways (human torches, arena games).</li><li>Oversaw the Jewish War that ended with the destruction of the Temple.</li></ul><p>So when you feed all the prophecies through Bayes, Nero comes out with:</p><ul><li><strong>Prophecy coverage:</strong> 100%</li><li><strong>Log10 likelihood ratio:</strong> 12.4</li><li><strong>Posterior probability:</strong> effectively 100%</li></ul><hr><h1 id="donald-trump">Donald Trump</h1><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/image-32.png" class="kg-image" alt="" loading="lazy" width="1200" height="675" srcset="https://madebynathan.com/content/images/size/w600/2025/11/image-32.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/image-32.png 1000w, https://madebynathan.com/content/images/2025/11/image-32.png 1200w" sizes="(min-width: 720px) 720px"></figure><p>The biggest LR boost for Trump was <strong>Revelation 13:3-5 </strong>(LR: 94.29)</p><blockquote><sup>3&nbsp;</sup>And I saw one of his heads as it were wounded to death; and his deadly wound was healed: and all the world wondered after the beast.<br><sup>4&nbsp;</sup>And they worshipped the dragon which gave power unto the beast: and they worshipped the beast, saying, Who is like unto the beast? who is able to make war with him?<br><sup>5&nbsp;</sup>And there was given unto him a mouth speaking great things and blasphemies; and power was given unto him to continue forty and two months.</blockquote><ul><li><strong>"And I saw one of his heads as it were wounded to death"</strong><ul><li>A bullet literally <strong>tore through Trump’s ear</strong>, but the intended wound <em>was</em> fatal in the ordinary meaning. It simply missed by centimeters.</li></ul></li><li><strong>“The whole world was amazed”</strong><ul><li>The clip went instantly global and dominated social media worldwide.</li></ul></li><li><strong>“And they followed the Beast”</strong><ul><li>His approval shot up afterward and fundraising spiked.</li></ul></li><li><strong>"And power was given unto him to continue forty and two months"</strong><ul><li>42 months is 3.5 years. Eerily close to a 4 year presidential term.</li><li>Trump was sworn in again on January 20, 2025.</li><li>42 months after that is Thursday, July 20, 2028.</li><li>If something happens to Trump around July 2028 then I might have to start going to church again.</li></ul></li></ul><p></p><h3 id="here-are-the-full-results-of-the-analysis-for-donald-trump"><strong>Here are the full results of the analysis for Donald Trump:</strong></h3><ul><li>Prior Probability: 0.0000001% (1 in a billion)</li><li>Log10 Likelihood Ratio: <strong>12.5 </strong>(0.1 higher than Nero)<ul><li>An LR of <strong>12.5</strong> means the evidence is <strong>3 trillion</strong> times more likely if Donald Trump matches the prophetic-hypothesis profile than if it does not</li></ul></li><li>Posterior Probability: effectively 100%</li></ul><h3 id="prophesies-sorted-by-likelihood-ratio">Prophesies Sorted by Likelihood Ratio</h3><ul><li>Revelation 13:3 (LR: 94.29): The Antichrist will appear to receive a fatal wound to the head but will survive, amazing the world<br>Evidence: July 2024 assassination attempt where a bullet ripped through Trump’s ear became an instant 'fatal wound healed' meme.</li><li>Daniel 7:20 (LR: 5.90): The Antichrist will speak of 'great things' and things that seem 'greater'</li><li>Daniel 11:14 (LR: 5.59): Supporters of the Antichrist will become violent and stage a rebellion, but will fail<br>Evidence: Fallout from the 6 January 2021 attack plus state-level plots shows violent factions trying to secure rule through intrigue.</li><li>Revelation 17:3 (LR: 4.97): The Antichrist will be full of blasphemous names with seven heads (possibly locations) and ten horns (possibly allies)<br>Evidence: Trump-branded towers plus Saudi’s Beast Land, NEOM’s Line/Oxagon/Trojena mega-zones, and LIV-backed skyline statues extend the 'beast' name across seven desert heads.</li><li>Daniel 11:29-33 (LR: 4.41): The Antichrist will use armed forces to clear an area near a holy place and set up something detestable</li><li>Revelation 17:9-11 (LR: 2.91): The Antichrist will be associated with seven mountains or hills and will be the eighth in a succession of rulers<br>Evidence: Allied capitals (Rome, DC, Jerusalem) and Saudi’s seven-zone NEOM/Diriyah giga-projects give literal seven-hill/zone imagery to the movement’s headquarters.</li><li>2 Thessalonians 2:9-10 (LR: 2.78): The Antichrist will use counterfeit miracles, signs, and wonders to deceive people who reject truth<br>Evidence: AI-generated pastors, deepfake Biden robocalls, synthetic healing videos, and bot-driven prophecy accounts pump lying wonders to audiences that rejected mainstream truth.</li><li>Daniel 11:36 (LR: 2.68): The Antichrist will exalt himself above every god and say outlandish things</li><li>Revelation 13:5-6 (LR: 2.57): The Antichrist will speak arrogantly and blaspheme against God</li><li>Daniel 11:44 (LR: 2.43): The Antichrist will rage at troubling reports from the east and north</li><li>Daniel 11:40 (LR: 2.42): The Antichrist will have a feud with leaders from the south<br>Evidence: Simultaneous pushes for Mexico mass deportations, Red Sea naval strikes, Taiwan Strait brinkmanship, and Persian Gulf escort missions show north/south clashes driven by the same leader.</li><li>Revelation 17:8 (LR: 2.28): The Antichrist will fascinate the world with his appearance<br>Evidence: Campaigning on 'they tried to stop me but I returned' and 'you can’t kill him' memes after impeachment, 91 indictments, and an assassination attempt mirrors the beast who 'was, is not, yet is.'</li><li>Revelation 17:12-13 (LR: 2.12): Ten powerful figures will support the Antichrist and give him their authority<br>Evidence: Trump, Musk, Modi, Netanyahu, Milei, Orbán, Meloni, Erdoğan, Putin proxies, and MBS publicly coordinate policy, media, and finance, effectively handing authority to the same agenda.</li><li>Revelation 13:4 (LR: 1.97): People will worship the Antichrist, asking 'Who is like the beast?'</li><li>Revelation 13:16-17 (LR: 1.97): The Antichrist's followers will wear a mark on their foreheads or hands required for commerce<br>Evidence: MAGA hats/flags act as voluntary marks while X payments, CBID, Worldcoin orb enrollments, FedNow/CBDC pilots, and Gulf biometric payment programs test commerce control layers.</li><li>Revelation 13:1-2 (LR: 1.95): The Antichrist will be a political leader who receives power from Satan; will have a lion-like mouth making threats</li><li>Revelation 13:11-12 (LR: 1.95): A religious leader will support the Antichrist and cause people to worship him</li><li>Daniel 11:21 (LR: 1.95): The Antichrist will be a political outsider with contemptible character who wins unexpectedly</li><li>Daniel 9:26-27 (LR: 1.93): The Antichrist will make and break a covenant with many; a ruler in Israel will cause desolation<br>Evidence: Brokered multiple Abraham Accord and Gaza ceasefire arrangements, threatened tariffs/sanctions to force compliance, then reversed or let them collapse, mirroring a ruler who makes and breaks covenants in Israel while courting Third Temple activists.</li><li>2 Thessalonians 2:3-4 (LR: 1.93): The Antichrist will exalt himself above all gods and religious worship, proclaiming himself to be God</li><li>Daniel 11:28 (LR: 1.86): The Antichrist will intentionally inflict harm on certain groups before returning to his land<br>Evidence: Hardline immigration raids and Gaza depopulation plans mirror the shepherd who devours the flock.</li><li>Daniel 12:7 (LR: 1.86): Christians will hold power during the Antichrist's reign but God will break their power</li><li>Daniel 11:33 (LR: 1.84): During the Antichrist's reign, those who resist will face violence but will instruct many</li><li>Revelation 13:13-15 (LR: 1.71): The Antichrist will use counterfeit miracles, signs and wonders to deceive people<br>Evidence: Elon Musk’s Falcon boosters, viral AI 'Jesus/angel' livestreams, deepfake prophecies, and Optimus demos give the image breath and call 'fire' from heaven for millions online.</li><li>Acts 2:17 (LR: 1.69): During the rule of the Antichrist, people will begin having strange and vivid dreams<br>Evidence: TikTok/YouTube overflow with rapture dreams, Trump-destiny visions, AI angel warnings, and revival prophecies algorithmically shared by millions every week.</li><li>Daniel 8:25 (LR: 1.65): The Antichrist will cause deceit to prosper and consider himself superior</li><li>Revelation 6:2 (LR: 1.57): The Antichrist will be obsessed with conquering and winning</li><li>Daniel 7:8 (LR: 1.57): The Antichrist will speak boastfully</li><li>Daniel 11:24 (LR: 1.56): The Antichrist will distribute plunder and wealth to his followers in unprecedented ways</li><li>Matthew 24:24 (LR: 1.56): The Antichrist will perform signs and wonders that could deceive even Christians<br>Evidence: Influencers mixing prophecy, AI doom, and political endorsements sell themselves as truth tellers while gaming engagement algorithms.</li><li>Matthew 24:40-41 (LR: 1.51): During the Antichrist's rule, there will be a mass disappearance of workers<br>Evidence: 2025 deportation orders, giant detention camp planning, and AI-driven workplace E-Verify sweeps literally separate families so one is taken and the other left.</li><li>Revelation 17:15 (LR: 1.47): The Antichrist comes from a place with many peoples, nations, and languages</li><li>Daniel 11:39 (LR: 1.47): The Antichrist will reward loyalists with powerful positions and lucrative land deals</li><li>Zechariah 11:16-17 (LR: 1.47): The Antichrist will not help the vulnerable or care for those in need</li><li>Daniel 11:23 (LR: 1.42): The Antichrist will come to power through collusion with a secret alliance despite having few supporters</li><li>Daniel 7:25 (LR: 1.39): The Antichrist will try to change times and laws</li><li>Daniel 11:32 (LR: 1.39): True believers will resist the Antichrist</li><li>Revelation 6:6 (LR: 1.38): During the Antichrist's rule, there will be food shortages and price increases while some commodities remain unaffected</li><li>Daniel 7:23 (LR: 1.31): The Antichrist will come from a nation that is a military superpower able to crush the earth</li><li>Revelation 13:8 (LR: 1.27): The Antichrist will be worshipped by many people around the world</li><li>Revelation 13:18 (LR: 1.26): The Antichrist's number will be 666, which requires wisdom to interpret</li><li>Daniel 11:16-18 (LR: 1.25): The Antichrist will form an alliance with Israel and will focus on coastal areas</li><li>Revelation 13:7 (LR: 1.23): The Antichrist will have authority over every tribe, people, language and nation</li><li>Revelation 8:10 (LR: 1.21): A global pandemic will occur during the Antichrist's rule, killing many people</li><li>Daniel 8:23 (LR: 1.16): The Antichrist will be a master of intrigue</li><li>2 John 1:7 (LR: 1.12): The Antichrist will be a deceiver who denies Jesus came in the flesh</li><li>Revelation 17:16-17 (LR: 1.06): The Antichrist will eventually turn against religious institutions</li><li>Revelation 16:13-14 (LR: 0.84): The Antichrist will use demonic powers to influence world leaders</li><li>1 John 2:22 (LR: 0.82): The Antichrist will deny the Father and the Son</li><li>1 John 4:3 (LR: 0.82): The Antichrist will not acknowledge Jesus as coming in the flesh</li><li>Daniel 7:24 (LR: 0.73): The Antichrist will rise to power from among ten kings</li><li>Daniel 11:37 (LR: 0.73): The Antichrist will show no regard for the god of his fathers or desire of women</li><li>1 John 2:18 (LR: 0.73): There will be many antichrists, with one final Antichrist coming at the end</li><li>Revelation 19:19-20 (LR: 0.07): The Antichrist will eventually be defeated and thrown into the lake of fire</li></ul>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/15/a-series-of-coincidences/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/DSC_5294-Medium.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/11/DSC_5294-Medium.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/11/DSC_5294-Medium.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/11/DSC_5294-Medium.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/DSC_5294-Medium.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/DSC_5294-Medium.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/DSC_5294-Medium.jpeg"
+                    alt="A Series of Coincidences"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">A Series of Coincidences</h3>
+                    <p class="gh-card-excerpt is-body">Something quite strange happened to me while I was in India.
+
+Coincidence clusters happen all the time. If something has a one-in-a-billion chance of happening to a person in any given year, then it probably happens around 8 times per year. So what happened to me isn&#39;t even</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-15">15 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/10/new-zealands-massive-unsolvable-talent-crisis/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/photo-1580635034163-2303fd0b1210.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/11/photo-1580635034163-2303fd0b1210.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/11/photo-1580635034163-2303fd0b1210.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/11/photo-1580635034163-2303fd0b1210.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/photo-1580635034163-2303fd0b1210.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/photo-1580635034163-2303fd0b1210.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/photo-1580635034163-2303fd0b1210.jpeg"
+                    alt="New Zealand’s Massive, Unsolvable Talent Crisis"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">New Zealand’s Massive, Unsolvable Talent Crisis</h3>
+                <p class="gh-card-excerpt is-body">New Zealand needs more doctors, nurses, teachers, and midwives.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-10">10 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/09/higher-orders-of-possibility/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/Higher-Orders-of-Possibility.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/Higher-Orders-of-Possibility.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/Higher-Orders-of-Possibility.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/Higher-Orders-of-Possibility.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/Higher-Orders-of-Possibility.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/Higher-Orders-of-Possibility.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/Higher-Orders-of-Possibility.png"
+                    alt="Higher Orders of Possibility"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Higher Orders of Possibility</h3>
+                <p class="gh-card-excerpt is-body">What new forms of thought, feeling, or morality might emerge in a higher order of intelligence beyond our own?</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-09">09 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/09/what-could-it-mean-if-our-universe-is-a-simulation/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/ChatGPT-Image-Nov-9--2025--03_48_32-PM.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/ChatGPT-Image-Nov-9--2025--03_48_32-PM.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/ChatGPT-Image-Nov-9--2025--03_48_32-PM.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/ChatGPT-Image-Nov-9--2025--03_48_32-PM.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/ChatGPT-Image-Nov-9--2025--03_48_32-PM.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/ChatGPT-Image-Nov-9--2025--03_48_32-PM.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/ChatGPT-Image-Nov-9--2025--03_48_32-PM.png"
+                    alt="What Could It Mean If Our Universe Is A Simulation?"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">What Could It Mean If Our Universe Is A Simulation?</h3>
+                <p class="gh-card-excerpt is-body">A metaphysical thought experiment about consciousness, simulation, and the layers of reality.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-09">09 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.a5c500c92f.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
