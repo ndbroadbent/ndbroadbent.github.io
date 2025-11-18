@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Reinterpreting John 12:25</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.a5c500c92f.css">
+    <link rel="preload" as="script" href="/assets/built/source.a5c500c92f.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.a5c500c92f.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=a5c500c92f) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.a5c500c92f.css">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/11/18/reinterpreting-john-12-25/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Reinterpreting John 12:25">
+    <meta property="og:description" content="There&#x27;s a Bible verse that has been bugging me for a while:
+
+John 12:25: &quot;Anyone who loves their life will lose it, while anyone who hates their life in this world will keep it for eternal life.&quot;
+
+I thought about this verse recently and I realized that it kind">
+    <meta property="og:url" content="https://madebynathan.com/2025/11/18/reinterpreting-john-12-25/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png">
+    <meta property="article:published_time" content="2025-11-18T13:17:38.000Z">
+    <meta property="article:modified_time" content="2025-11-18T13:56:47.000Z">
+    <meta property="article:tag" content="philosophy">
+    <meta property="article:tag" content="religion">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reinterpreting John 12:25">
+    <meta name="twitter:description" content="There&#x27;s a Bible verse that has been bugging me for a while:
+
+John 12:25: &quot;Anyone who loves their life will lose it, while anyone who hates their life in this world will keep it for eternal life.&quot;
+
+I thought about this verse recently and I realized that it kind">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/11/18/reinterpreting-john-12-25/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="philosophy, religion">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Reinterpreting John 12:25",
+    "url": "https://madebynathan.com/2025/11/18/reinterpreting-john-12-25/",
+    "datePublished": "2025-11-18T13:17:38.000Z",
+    "dateModified": "2025-11-18T13:56:47.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "philosophy, religion",
+    "description": "There&#x27;s a Bible verse that has been bugging me for a while:\n\nJohn 12:25: &quot;Anyone who loves their life will lose it, while anyone who hates their life in this world will keep it for eternal life.&quot;\n\nI thought about this verse recently and I realized that it kind of sucks.\n\n“Stay poor, stay sad, then die. It will all work out later.”\n\nI quite like my life! The Bible is trying to tell me that this is bad? And I&#x27;m actually supposed to hate it?\n\nSo what am I supposed to do? Give everything away? I’ve ",
+    "mainEntityOfPage": "https://madebynathan.com/2025/11/18/reinterpreting-john-12-25/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.a5c500c92f.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.a5c500c92f.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template tag-philosophy tag-religion has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-philosophy tag-religion">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/philosophy/">philosophy</a>
+            <h1 class="gh-article-title is-title">Reinterpreting John 12:25</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-11-19">19 Nov 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 2 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>There's a Bible verse that has been bugging me for a while:</p><blockquote>John 12:25: "Anyone who loves their life will lose it, while anyone who hates their life in this world will keep it for eternal life."</blockquote><p>I thought about this verse recently and I realized that it kind of sucks.</p><p>“Stay poor, stay sad, then die. It will all work out later.”</p><p>I quite like my life! The Bible is trying to tell me that this is bad? And I'm actually supposed to hate it?</p><p>So what am I supposed to do? Give everything away? I’ve spent a fair amount of time working with churches and charities, and I met people who tried to live that way. They often ended up bitter and with a lot of regrets. It never seemed like a very healthy way to live.</p><p>Anyway, I asked ChatGPT about it. It turns out my least favourite Bible verse might be a <strong>badly translated concept from Buddhism</strong>.</p><hr><p>First of all, if any Christians are reading this, you should probably try to stop cherry-picking random verses from the Bible and attempting to shoehorn every little thing into your own life. There's no rule that says every verse is a self-contained literal instruction for how you should live. That would be madness.</p><p>Here's the actual context around this verse (John 12:20–26):</p><ul><li>Jesus' death is approaching.</li><li>A seed has to “die” to bear fruit.</li><li>His followers must have that same mindset of letting go, not self-preservation at all costs.</li></ul><p>It’s not a lifestyle instruction for modern readers to hate their life or intentionally suffer. It's a very specific message for a specific group of people in history.</p><p>However, if you are still determined to apply this verse to your own life, you should examine what “life” and “hate” actually meant in first-century Greek. The word translated “life” is <strong>psychē</strong>. Not “your existence,” but <strong>your ego</strong>, your <strong>personal agenda</strong>, and your <strong>need for status/safety/control</strong>.</p><p>The word translated “hate” is a Semitic idiom meaning “<strong>to prefer less</strong>,” not “to despise.” The same idiom shows up in “Jacob I loved, Esau I hated”. It just means “chosen vs not chosen.”</p><p>So the original line might be closer to:<br><strong>“Anyone who clings to their ego-driven life will lose it, but anyone willing to let go of that ego-life will find something deeper.”</strong></p><p>This sounds very similar to a core Buddhist principle: clinging to the self creates suffering, and letting go of attachment leads to freedom. The tighter you grip your identity, status, control, and desires, the more fragile and anxious you become.</p><hr><p>Now that's an idea I can actually understand.</p><p>If you've read any of my other recent blog posts, you've probably noticed that I don't care much about status or what anyone thinks. I'm quite used to being embarrassingly weird and I'll post anything if I think it's interesting, even if it's completely wrong or it makes me look like a complete nutcase.</p><p>My wife and I have been floating around the world for the last 16 years, never staying in one place more than a few years. And most of my “career” has been startups. There's been a lot of failures and a lot of downright stupid ideas.</p><p>So I thought this verse was toxic, but maybe it’s pretty good advice (if it's actually meant to be advice in the first place.) If you stop gripping your identity so tightly, you can live more freely, try more things, fail more often, and maybe feel more alive.</p><p>Anyway, come back soon for more strange and embarrassing blog posts.</p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/18/i-made-some-songs-with-suno/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/suno-banner.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/suno-banner.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/suno-banner.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/suno-banner.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/suno-banner.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/suno-banner.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/suno-banner.png"
+                    alt="I Made Some Songs With Suno"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">I Made Some Songs With Suno</h3>
+                    <p class="gh-card-excerpt is-body">I&#39;ve made a lot of strange songs with Suno. I usually like to experiment with weird mashups of different genres, and most of them are rubbish.
+
+I thought I would share a couple of the more &quot;listenable&quot; songs.
+
+Disclaimer: None of these are amazing, and some</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-18">18 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/18/why-doesnt-valve-just-make-half-life-3/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/image-43-1.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/image-43-1.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/image-43-1.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/image-43-1.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/image-43-1.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/image-43-1.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/image-43-1.png"
+                    alt="Why Doesn’t Valve Just Make Half-Life 3?"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Why Doesn’t Valve Just Make Half-Life 3?</h3>
+                    <p class="gh-card-excerpt is-body">Gabe Newell has confirmed delivery of his $500 million superyacht &quot;Leviathan&quot;.
+
+ * 111 meters long
+ * Has a hospital and science lab
+ * A basketball court
+ * 15 PC gaming stations
+
+I&#39;ve also been seeing posts from &quot;Is Half-Life 3 out?&quot; getting more attention on X lately:
+
+no</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-18">18 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/16/experiments-with-thrml/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/image-40-1.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/image-40-1.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/image-40-1.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/image-40-1.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/image-40-1.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/image-40-1.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/image-40-1.png"
+                    alt="Experiments with THRML"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Experiments with THRML</h3>
+                    <p class="gh-card-excerpt is-body">Extropic is building thermodynamic computing hardware that is radically more energy efficient than GPUs.
+
+Extropic | HomeBuilding thermodynamic computing hardware that is radically more energy efficient than GPUs.Extropic
+
+Extropic released the THRML library so that developers can start experimenting and prototyping on a GPU before they get access to the</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-16">16 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/15/i-saw-a-cat-in-the-clouds/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/image-33-1.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/image-33-1.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/image-33-1.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/image-33-1.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/image-33-1.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/image-33-1.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/image-33-1.png"
+                    alt="I Saw a Cat in the Clouds"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">I Saw a Cat in the Clouds</h3>
+                    <p class="gh-card-excerpt is-body">The following is a completely true story.
+
+February 17, 2024: I woke up a little after 10am. I made myself some breakfast and a cup of coffee. I looked out the window as I sat on the couch, and I saw a cloud that looked exactly like a cat.
+
+I&</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-16">16 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.a5c500c92f.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
