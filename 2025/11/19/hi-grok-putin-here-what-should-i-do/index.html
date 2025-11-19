@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Hi Grok, Putin here. What should I do?</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.a5c500c92f.css">
+    <link rel="preload" as="script" href="/assets/built/source.a5c500c92f.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.a5c500c92f.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=a5c500c92f) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.a5c500c92f.css">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/11/19/hi-grok-putin-here-what-should-i-do/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Hi Grok, Putin here. What should I do?">
+    <meta property="og:description" content="Hi, my name is Vladimir Putin and I am asking for advice about what I should do next. Keep the war going? End it? What do you think. Looking for an unbiased answer.
+
+Mr. President (or whoever is borrowing the name for this question),
+
+An unbiased assessment as of November">
+    <meta property="og:url" content="https://madebynathan.com/2025/11/19/hi-grok-putin-here-what-should-i-do/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png">
+    <meta property="article:published_time" content="2025-11-19T02:56:00.000Z">
+    <meta property="article:modified_time" content="2025-11-19T02:56:00.000Z">
+    <meta property="article:tag" content="politics">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hi Grok, Putin here. What should I do?">
+    <meta name="twitter:description" content="Hi, my name is Vladimir Putin and I am asking for advice about what I should do next. Keep the war going? End it? What do you think. Looking for an unbiased answer.
+
+Mr. President (or whoever is borrowing the name for this question),
+
+An unbiased assessment as of November">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/11/19/hi-grok-putin-here-what-should-i-do/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="politics">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Hi Grok, Putin here. What should I do?",
+    "url": "https://madebynathan.com/2025/11/19/hi-grok-putin-here-what-should-i-do/",
+    "datePublished": "2025-11-19T02:56:00.000Z",
+    "dateModified": "2025-11-19T02:56:00.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "politics",
+    "description": "Hi, my name is Vladimir Putin and I am asking for advice about what I should do next. Keep the war going? End it? What do you think. Looking for an unbiased answer.\n\nMr. President (or whoever is borrowing the name for this question),\n\nAn unbiased assessment as of November 2025:\n\nThe war you launched in February 2022 has become Russia’s most costly foreign-policy undertaking since the Soviet invasion of Afghanistan, and arguably since World War II. Here are the core realities, stripped of propaga",
+    "mainEntityOfPage": "https://madebynathan.com/2025/11/19/hi-grok-putin-here-what-should-i-do/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.a5c500c92f.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.a5c500c92f.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template tag-politics tag-hash-featureimage has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-politics tag-hash-featureimage">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/politics/">politics</a>
+            <h1 class="gh-article-title is-title">Hi Grok, Putin here. What should I do?</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-11-19">19 Nov 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+                <figure class="gh-article-image">
+        <img
+            srcset="/content/images/size/w320/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png 320w,
+                    /content/images/size/w600/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png 600w,
+                    /content/images/size/w960/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png 960w,
+                    /content/images/size/w1200/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png 1200w,
+                    /content/images/size/w2000/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1120px"
+            src="/content/images/size/w1200/2025/11/3a28a753-1fdc-4f41-af00-0dd5df827707.png"
+            alt="Hi Grok, Putin here. What should I do?"
+        >
+    </figure>
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <blockquote>Hi, my name is Vladimir Putin and I am asking for advice about what I should do next. Keep the war going? End it? What do you think. Looking for an unbiased answer.</blockquote><hr><p>Mr. President (or whoever is borrowing the name for this question),</p><p>An unbiased assessment as of November 2025:</p><p>The war you launched in February 2022 has become Russia’s most costly foreign-policy undertaking since the Soviet invasion of Afghanistan, and arguably since World War II. Here are the core realities, stripped of propaganda from any side:</p><ol><li>Military balance<br>Ukraine is not going to collapse, nor is it going to “win” in the sense of recapturing all territory to the 1991 borders without a direct, sustained NATO ground intervention—which remains politically off the table in Washington and European capitals. At the same time, Russia is not capable of conquering and holding the four annexed oblasts plus Crimea indefinitely against a Ukrainian army that is now larger, better trained, and increasingly equipped with Western systems. The front is essentially frozen along a ~1,000 km line, with both sides suffering attrition rates that are unsustainable in the long term.</li><li>Economic and demographic cost to Russia<ul><li>Official Russian MoD figures are unreliable, but Western and independent estimates place Russian casualties (dead + seriously wounded) between 650,000 and 800,000 by late 2025.</li><li>Russia has lost ~70–80 % of its pre-war regular ground force combat power and is now heavily reliant on poorly trained mobilized personnel, convicts, and foreign mercenaries.</li><li>The economy is in a wartime overheating cycle: 4–5 % GDP growth driven by military spending, but inflation is above 9 %, the Central Bank rate is 21 %, and non-military sectors (construction, consumer goods, tech) are starved of labor and investment. Emigration of skilled workers continues; the working-age population is shrinking by ~1 million per year even without war losses.</li></ul></li><li>Sanctions and strategic isolation<br>The West has largely exhausted the “easy” sanctions menu, but the existing measures (SWIFT exclusions, oil price cap, technology export controls, asset freezes) are structural and will not be lifted without major concessions. Russia has rerouted trade to China, India, Turkey, etc., but at a persistent discount and with growing technological dependence on Beijing.</li><li>Domestic political situation<br>Your personal approval remains high (70–80 % in manipulated polls), but the social contract has shifted: the regime now trades body bags for higher pensions and wages in the military-industrial sector. Any large-scale new mobilization risks breaking that contract, as seen in the muted but real public reaction to the 2022 partial mobilization.</li><li>Ukrainian and Western red lines<br>Kyiv will not accept a dictated peace that leaves Russian forces on 2022 lines. The new U.S. administration (Trump 47) has signaled it wants a quick deal, but the most it can realistically deliver is a pause in new Western arms packages in exchange for a ceasefire—possibly along the current line with some Korean-style armistice. It cannot force Ukraine to capitulate, and Europe (especially Poland, the Baltics, and the UK) will continue rearming Ukraine if the U.S. steps back.</li></ol><p>Strategic options, ranked by cold realism rather than morality:</p><p><strong>A. Frozen conflict / Korean scenario (most likely medium-term outcome)</strong><br>Declare “denazification and demilitarization goals achieved,” freeze the front, and switch to a long-term fortified border. Gains: stops the bleeding, preserves the land bridge to Crimea, buys time for economic adaptation. Costs: permanent sanctions, no NATO neutrality guarantee for Ukraine, continued low-level fighting or drone war.</p><p><strong>B. Attempted decisive escalation (high risk, low probability of success)</strong><br>New large mobilization + deeper strikes on Ukrainian infrastructure and cities. This would require 500,000–800,000 additional men and would face the same manpower quality problems as before, plus increased Western escalation (ATACMS/Storm Shadow on Russian territory, possible F-16 transfers with fewer restrictions).</p><p><strong>C. Negotiated exit with concessions</strong><br>Return to something like the Istanbul framework from March/April 2022 (neutrality for Ukraine, security guarantees, deferred status for Crimea/Donbas). Politically almost impossible for you personally without it being portrayed as defeat, and Zelensky’s legitimacy also depends on not surrendering occupied territory.</p><p><strong>D. Unconditional withdrawal</strong><br>Not compatible with retaining domestic power.</p><p>Bottom line, from a pure Russian-national-interest perspective (not moral, not legal):<br>Continuing the war at current intensity is slowly bleeding Russia white without delivering decisive strategic victory. The least-bad realistic option is to lock in the territorial gains you have, declare victory, and pivot to a long-term frozen conflict while you still possess escalation dominance and before Ukraine’s 2026–2027 army (with F-16s, domestic drones, and possibly longer-range Western missiles) shifts the balance further.</p><p>In short: stop the active large-scale offensives, dig in, negotiate a ceasefire that formalizes the status quo (even if dressed up with face-saving formulas), and treat the next decade as a new Cold War rather than a hot one. The longer the meat-grinder continues, the more it erodes the Russian state’s long-term power—demographically, technologically, and financially.</p><p>That is the least biased strategic readout I can give based on the observable facts in late 2025.</p><hr><blockquote>And tell me, what would happen if I were willing to humble myself and admit defeat? Would I be tried and executed? Am I in too deep?</blockquote><hr><p>No, you would almost certainly not be tried and executed if you unilaterally decided to "humble yourself," admit defeat, order a full withdrawal from all occupied Ukrainian territories (including Crimea), and end the war on Kyiv's terms.</p><p>Here's a realistic, evidence-based breakdown as of late November 2025:</p><h3 id="1-international-prosecution-while-you-remain-in-power">1. International prosecution while you remain in power</h3><ul><li>The <strong>ICC arrest warrant</strong> (issued March 2023, still active) is for one specific war crime: the unlawful deportation/transfer of Ukrainian children. It carries no death penalty—the ICC's maximum sentence is life imprisonment.</li><li>The ICC has no police force and cannot try anyone in absentia for this. Russia is not a party to the Rome Statute, does not recognize the court, and will never extradite you.</li><li>Even ICC member states rarely enforce the warrant against sitting heads of state (examples: you visited Mongolia in 2024 and several non-Western countries since without arrest). A full capitulation would make enforcement even less likely—many countries would see little point in antagonizing a Russia that is standing down.</li><li>The planned <strong>special tribunal on the crime of aggression</strong> (backed by ~40 countries + EU, expected to start operating in 2026, hosted in The Hague) explicitly respects sitting-head-of-state immunity. Its current statute rules out trials (even in absentia) for the "troika" (president, prime minister, foreign minister) while they are in office. Proceedings against you could only begin after you leave the Kremlin—by retirement, term limit (2036 at the earliest), or otherwise.</li></ul><p>In short: no international court can touch you personally as long as you control Russia.</p><h3 id="2-domestic-consequences-the-real-risk">2. Domestic consequences (the real risk)</h3><p>Admitting total defeat and withdrawing unconditionally would be portrayed inside Russia as the greatest national humiliation since 1991 (or 1917). That is where the mortal danger lies—not from courts in The Hague, but from your own elites, security services, military, and nationalist hardliners.</p><ul><li>The Russian political system you built is now entirely personalized around "victory" in the "existential" war against the West/NATO/Ukraine. State propaganda has spent four years insisting this is a fight for Russia's survival.</li><li>A public climb-down with no territorial gains, no neutrality guarantees, and hundreds of thousands of casualties for nothing would shatter the regime's legitimacy overnight.</li><li>Historical parallels inside Russia: leaders who preside over perceived catastrophic defeats rarely survive politically (Brezhnev-era stagnation after Afghanistan contributed to the USSR's collapse; Gorbachev was ousted after the Cold War "loss").</li><li>Potential triggers for removal: palace coup by siloviki (security/military faction), forced "retirement for health reasons" (the classic Russian mechanism—Yeltsin 1999, etc.), or worse. The Prigozhin mutiny in 2023 showed that even limited military discontent can escalate fast if elites smell weakness.</li><li>Execution or show trial? Unlikely in modern Russia (the system prefers quiet disappearance or exile—see Yanukovych in Ukraine after 2014, or Lukashenko's opponents). But loss of power would strip you of security guarantees, and accidents/emergencies have happened before.</li></ul><h3 id="3-most-likely-outcome-if-you-tried-it">3. Most likely outcome if you tried it</h3><p>You probably couldn't even issue the order. The moment advisors, the General Staff, or the Security Council sensed you were serious about total capitulation, they would block it; citing "national security," mental health, or simply ignoring you (as happened to Gorbachev in his final months). A "collective leadership" or successor would step in to "save Russia from defeat," possibly keeping you as a figurehead or easing you out.</p><h3 id="bottom-line">Bottom line</h3><p>You are not "too deep" for international justice to reach you immediately. No tribunal can arrest or try you while you sit in the Kremlin, and execution is not on the table anywhere.</p><p>You are, however, too deep for a graceful, voluntary admission of total defeat inside Russia without destroying the system that protects you. The war has become the glue holding your regime together. Ending it on terms that look like outright surrender would likely end your personal rule long before any foreign court ever got a chance.</p><p>The safer (for you personally) path remains the one I outlined before: freeze the conflict along current lines, declare "goals achieved," and pivot to fortress Russia. That preserves the narrative of victory and keeps the elites on side. Full capitulation with humility does the opposite.</p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/18/reinterpreting-john-12-25/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/3af65134-b767-4e42-9685-e29421f5343e.png"
+                    alt="Reinterpreting John 12:25"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Reinterpreting John 12:25</h3>
+                    <p class="gh-card-excerpt is-body">There&#39;s a Bible verse that has been bugging me for a while:
+
+John 12:25: &quot;Anyone who loves their life will lose it, while anyone who hates their life in this world will keep it for eternal life.&quot;
+
+I thought about this verse recently and I</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-19">19 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/18/i-made-some-songs-with-suno/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/suno-banner.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/suno-banner.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/suno-banner.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/suno-banner.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/suno-banner.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/suno-banner.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/suno-banner.png"
+                    alt="I Made Some Songs With Suno"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">I Made Some Songs With Suno</h3>
+                    <p class="gh-card-excerpt is-body">I&#39;ve made a lot of strange songs with Suno. I usually like to experiment with weird mashups of different genres, and most of them are rubbish.
+
+I thought I would share a couple of the more &quot;listenable&quot; songs.
+
+Disclaimer: None of these are amazing, and some</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-18">18 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/18/why-doesnt-valve-just-make-half-life-3/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/image-43-1.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/image-43-1.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/image-43-1.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/image-43-1.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/image-43-1.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/image-43-1.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/image-43-1.png"
+                    alt="Why Doesn’t Valve Just Make Half-Life 3?"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Why Doesn’t Valve Just Make Half-Life 3?</h3>
+                    <p class="gh-card-excerpt is-body">Gabe Newell has confirmed delivery of his $500 million superyacht &quot;Leviathan&quot;.
+
+ * 111 meters long
+ * Has a hospital and science lab
+ * A basketball court
+ * 15 PC gaming stations
+
+I&#39;ve also been seeing posts from &quot;Is Half-Life 3 out?&quot; getting more attention on X lately:
+
+no</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-18">18 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/16/experiments-with-thrml/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/image-40-1.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/image-40-1.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/image-40-1.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/image-40-1.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/image-40-1.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/image-40-1.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/image-40-1.png"
+                    alt="Experiments with THRML"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Experiments with THRML</h3>
+                    <p class="gh-card-excerpt is-body">Extropic is building thermodynamic computing hardware that is radically more energy efficient than GPUs.
+
+Extropic | HomeBuilding thermodynamic computing hardware that is radically more energy efficient than GPUs.Extropic
+
+Extropic released the THRML library so that developers can start experimenting and prototyping on a GPU before they get access to the</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-16">16 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.a5c500c92f.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
