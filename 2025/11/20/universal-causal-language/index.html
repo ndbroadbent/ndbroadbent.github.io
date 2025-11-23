@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Universal Causal Language</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.4d3d656346.css">
+    <link rel="preload" as="script" href="/assets/built/source.4d3d656346.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.4d3d656346.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2?v=4d3d656346) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.4d3d656346.css">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <meta name="description" content="An experimental language that attempts to express causality across code, language, law, music, and biology">
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/11/20/universal-causal-language/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Universal Causal Language">
+    <meta property="og:description" content="An experimental language that attempts to express causality across code, language, law, music, and biology">
+    <meta property="og:url" content="https://madebynathan.com/2025/11/20/universal-causal-language/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg">
+    <meta property="article:published_time" content="2025-11-20T12:38:00.000Z">
+    <meta property="article:modified_time" content="2025-11-23T05:17:31.000Z">
+    <meta property="article:tag" content="philosophy">
+    <meta property="article:tag" content="ruby">
+    <meta property="article:tag" content="programming">
+    <meta property="article:tag" content="ai">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Universal Causal Language">
+    <meta name="twitter:description" content="An experimental language that attempts to express causality across code, language, law, music, and biology">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/11/20/universal-causal-language/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="philosophy, ruby, programming, ai">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Universal Causal Language",
+    "url": "https://madebynathan.com/2025/11/20/universal-causal-language/",
+    "datePublished": "2025-11-20T12:38:00.000Z",
+    "dateModified": "2025-11-23T05:17:31.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2025/11/28a08d29-a788-4d0e-8dba-1ad798d3f905.jpeg",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "philosophy, ruby, programming, ai",
+    "description": "An experimental language that attempts to express causality across code, language, law, music, and biology",
+    "mainEntityOfPage": "https://madebynathan.com/2025/11/20/universal-causal-language/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.4d3d656346.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.4d3d656346.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<style>
+  .gh-navigation-actions button.gh-search {
+    display: none;
+  }
+  
+  .nav-sign-up { 
+    display: none; 
+  }
+  
+  #disqus_thread {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+  }
+</style>
+
+</head>
+<body class="post-template tag-philosophy tag-ruby tag-programming tag-ai has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-3d-printing"><a href="https://madebynathan.com/logs/3d-printing/">3D Printing</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-philosophy tag-ruby tag-programming tag-ai">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/philosophy/">philosophy</a>
+            <h1 class="gh-article-title is-title">Universal Causal Language</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-11-21">21 Nov 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p><strong>TL;DR<br>Universal Causal Language (UCL)</strong> is an experimental intermediate representation that treats every meaningful statement as a causal operation. The same JSON schema can encode a Ruby function call, an English sentence, a contract clause, a piano note, or a DNA transcription event.</p><p>UCL currently runs on three “substrates”: compiled to Ruby, simulated on a Brain VM, and interactively “executed” on your actual brain in Production mode. <strong>Some UCL programs are universal and can run on all three.</strong></p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ndbroadbent/universal_causal_language"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ndbroadbent/universal_causal_language: Universal Causal IR (UCI)</div><div class="kg-bookmark-description">Universal Causal IR (UCI). Contribute to ndbroadbent/universal_causal_language development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ndbroadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/universal_causal_language" alt="" onerror="this.style.display = 'none'"></div></a></figure><hr><p><em>I'm not an expert in any of these fields and this blog post might be completely wrong, or at least misguided. Please&nbsp;</em><a href="https://x.com/ndbroadbent"><em>send me a DM or tag me on X</em></a><em>&nbsp;with any improvements or corrections and I'll update it. And feel free to send a PR on GitHub.</em></p><hr><h2 id="introduction">Introduction</h2><p>Cursor CEO Michael Truell <a href="https://www.youtube.com/watch?v=En5cSXgGvZM">recently said</a>: “Our goal with Cursor is to invent a new type of programming. It looks like a world where you have a representation of the logic of your software that does look more like English.”</p><p>That vision echoes the motivation behind <strong>Universal Causal Language (UCL)</strong>,<strong> </strong>an experimental intermediate representation that treats every meaningful statement as a causal operation. But not just the idea that you can write a program using English. The idea that English <strong>itself </strong>is a programming language.</p><p>UCL explores what might come <em>after</em> natural language programming: how we might encode <strong>intent</strong> and <strong>causality</strong> directly.</p><p>Language is code. Meaning is a state change. Any sentence, instruction, clause, or behavior can be represented as a structured causal operation that maps one world state to another. If that is true, we should be able to:</p><ul><li>Represent diverse domains with one minimal schema</li><li>Preserve semantics during translation and compilation</li><li>Execute the same causal program on many different computational substrates</li><li>Write a causal program that executes in parallel across multiple substrates</li></ul><hr><h2 id="from-electrons-to-intent">From Electrons to Intent</h2><p>If you trace the history of programming, it’s a chain of abstraction:</p><pre><code>transistors  
+→ logic gates (AND/OR/NOT/XOR)  
+→ machine code  
+→ assembly  
+→ interpreter / JIT / compiler
+→ programmin language  
+→ AI coding agent  
+→ natural language instructions  
+→ ???</code></pre><p>Each layer pushes human intent further from the physical substrate while increasing expressiveness. What comes next might be a system that models or captures your intent directly.</p><ul><li><strong>Thought-to-code</strong>:&nbsp;decoding brain activity or latent intent into structured logic.</li><li><strong>Goal specification</strong>: defining outcomes (“build a tool that detects fraud and improves over time”) and letting the system infer the steps.</li><li><strong>Context fusion</strong>:&nbsp;merging your domain, style, and constraints into a shared workspace of understanding.</li><li><strong>Self-assembling systems</strong>:&nbsp;agents that not only code from goals but evolve their own architectures.</li></ul><hr><h1 id="prior-art">Prior Art</h1><h2 id="cucumber">Cucumber</h2><p>People have been writing code in "natural language" well before we started prompting AI coding agents with instructions. <a href="https://cucumber.io/" rel="noreferrer">Cucumber</a> can turn natural language text scenarios into tests that software can run.</p><p>Each step ("Given," "When," and "Then") maps human intent to machine actions. </p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/11/image-17.png" class="kg-image" alt="" loading="lazy" width="1622" height="832" srcset="https://madebynathan.com/content/images/size/w600/2025/11/image-17.png 600w, https://madebynathan.com/content/images/size/w1000/2025/11/image-17.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/11/image-17.png 1600w, https://madebynathan.com/content/images/2025/11/image-17.png 1622w" sizes="(min-width: 720px) 720px"></figure><p>UCL extends this idea beyond testing: it could be a universal intermediate representation that can encode any causal process in any domain.</p><p>UCL could even interoperate with Cucumber, or serve as the foundation (or intermediate representation) for a next-generation acceptance testing framework.</p><h2 id="hypertalk">HyperTalk</h2><p><a href="https://en.wikipedia.org/wiki/HyperTalk" rel="noreferrer"><strong>HyperTalk</strong></a> was created for Apple in 1987 by Dan Winkler, and was used in conjunction with the HyperCard hypermedia program (now discontinued). It's another very early example of programs that resemble English sentences:</p><pre><code>  put the value of card field "typehere" into theValue</code></pre><pre><code>  repeat with i = 1 to the number of card fields
+    hide field i
+  end repeat</code></pre><hr><h1 id="introduction-to-ucl">Introduction to UCL</h1><h2 id="the-action-schema">The Action schema</h2><p>Each instruction is an <strong>Action</strong>:</p><pre><code class="language-json">{
+  "actor": "String",
+  "op": "Operation",
+  "target": "String",
+  "t": 0.0,
+  "dur": 0.5,
+  "params": { "k": "v" },
+  "pre": "predicate",
+  "post": "predicate",
+  "effects": ["tags"]
+}
+</code></pre><p>Primitive ops cover CRUD, communication, logic, temporal, legal, biological, and programming operations.</p><hr><h2 id="same-schema-different-domains">Same schema, different domains</h2><p><strong>Natural language</strong></p><blockquote>“The cat is black.”</blockquote><p>Can be translated to:</p><pre><code class="language-json">{ 
+  "actor": "listener",
+  "op": "StoreFact",
+  "target": "memory",
+  "params": {
+    "entity": "the cat", 
+    "color": "black"
+  } 
+}</code></pre><p><strong>Programming</strong></p><blockquote><code>result = 2 + 3</code></blockquote><pre><code class="language-json">{
+  "actor": "VM",
+  "op": "Call",
+  "target": "+",
+  "params": { 
+    "lhs": 2, 
+    "rhs": 3, 
+    "receiver": "a" 
+  },
+  "effects": ["CPU"]
+}
+</code></pre><p><strong>Music</strong></p><pre><code class="language-json">{
+  "actor": "Piano1",
+  "op": "Emit",
+  "target": "Note",
+  "t": 0.0,
+  "dur": 0.5,
+  "params": {
+    "pitch": "C4",
+    "velocity": 80
+  },
+  "effects": ["Audio"]
+}
+</code></pre><p><strong>Legal</strong></p><pre><code class="language-json">{
+  "actor": "Buyer",
+  "op": "Oblige",
+  "target": "Buyer",
+  "params": {
+    "duty": "Pay",
+    "amount": "1000 USD",
+    "by": "Delivery+5d"
+  },
+  "pre": "Goods delivered and inspected",
+  "effects": ["Legal"]
+}
+</code></pre><p><strong>Biology</strong></p><pre><code class="language-json">{
+  "actor": "RNA_Polymerase_II",
+  "op": "Transcribe",
+  "target": "DNA:MYC",
+  "params": {
+    "product": "pre-mRNA:MYC",
+    "location": "nucleus"
+  },
+  "pre": "Promoter accessible",
+  "post": "Pre-mRNA synthesized",
+  "effects": ["Bio", "Nucleus"]
+}
+</code></pre><hr><h2 id="prototype-execution-environments">Prototype Execution Environments</h2><ol><li><strong>Compile to Ruby</strong><br>Same causal logic, silicon runtime.</li></ol><pre><code class="language-bash">ucl run examples/hello_world.json --target ruby
+</code></pre><ol start="2"><li><strong>Brain VM (simulation)</strong><br>Executes UCL as cognitive operations. Tracks beliefs, working memory, emotions, thoughts, goals, and output. Unknown ops trigger a natural confusion response.</li></ol><pre><code class="language-bash">ucl brain examples/natural_language.json --verbose
+</code></pre><ol start="3"><li><strong>Production Brain (you)</strong><br>Interactive session where you execute each operation mentally, then report thoughts and emotions. It is a literal “human-as-runtime” mode.</li></ol><pre><code class="language-bash">ucl brain examples/brain_test.json --production
+</code></pre><hr><h2 id="universal-execution">Universal Execution</h2><p><a href="https://github.com/ndbroadbent/universal_causal_language#universal-program-example"></a></p><p><a href="https://github.com/ndbroadbent/universal_causal_language/blob/main/examples/multiply_universal.json" rel="noreferrer"><strong>multiply_universal.json</strong></a>&nbsp;- A single UCL program that can run on three execution environments.</p><p>The program:</p><ol><li>Generates a random number (A)</li><li>Generates another random number (B)</li><li>Multiplies them</li><li>Outputs the result</li></ol><p>This same "program" can run on multiple environments:</p><h3 id="running-on-ruby-vm"><strong>Running on Ruby VM:</strong></h3><pre><code class="language-ruby">A = rand(0..9)
+B = rand(0..9)
+result = A * B
+puts result  # Output: 35 (varies each run)</code></pre><h3 id="running-on-brain-simulator"><strong>Running on Brain Simulator:</strong></h3><pre><code>🧠 Starting brain simulation...
+
+Step 1: GenRandomInt - executor → A
+  🎲 Generated: A = 7
+
+Step 2: GenRandomInt - executor → B
+  🎲 Generated: B = 8
+
+Step 3: Write - executor → result
+  🧮 Calculated: result = 56
+
+Step 4: Emit - executor → result
+  🗣️  Output: "56.0"</code></pre><h3 id="running-on-production-brain-aka-a-real-human"><strong>Running on "Production" Brain (aka a real human):</strong></h3><pre><code>→ Think of a random number between 0 and 9
+→ Remember it as 'A'
+[You think: 7]
+
+→ Calculate: A × B
+→ Store the answer in: result
+[You calculate: 7 × 4 = 28]
+
+Output: "28"</code></pre><hr><h2 id="robotics-and-ai">Robotics and AI</h2><p>UCL provides a single causal schema that can describe any process, from making a cup of tea to running a distributed system. This universality might make it especially powerful for robotics and AI.</p><h3 id="example-making-a-cup-of-tea">Example: Making a Cup of Tea</h3><p>A UCL program could be written that describes the causal sequence for preparing a cup of tea. (<a href="https://github.com/ndbroadbent/universal_causal_language/blob/main/examples/recipe_tea.json" rel="noreferrer">View the example program on GitHub.</a>)</p><p>This same causal sequence could be executed across multiple substrates:</p><ul><li>A human executing each step physically to record training data for an AI.</li><li>A mocked LLM (a simple interpreter with hard-coded rules) and a mocked robotic arm (a simple state machine), providing a foundation for <strong>causal unit tests</strong>.</li><li>A mocked LLM interacting with a virtual robotic arm in a 3D simulation.</li><li>A real LLM interacting with a virtual robotic arm in a 3D simulation.</li><li>Finally, a real LLM interacting with a robotic arm in the real world.</li></ul><p>One UCL program running across many possible layers of abstraction, but each with their own purpose: transfer of knowledge (training data), fast feedback loops, or making an actual cup tea.</p><p>The causal structure remains identical; only the computational substrate changes, where various components are either mocked or simulated.</p><hr><h2 id="ucl-quick-start">UCL Quick Start</h2><pre><code class="language-bash"># Build
+cargo build --release
+
+# Validate and inspect
+ucl validate examples/natural_language.json
+ucl display examples/music.json
+ucl analyze examples/biology.json
+
+# Compile and run on Ruby
+ucl run examples/hello_world.json --target ruby
+
+# Run on the Brain VM
+ucl brain examples/natural_language.json --verbose
+
+# Run on your actual brain
+ucl brain examples/brain_test.json --production
+
+# Demos
+./demo.sh
+./demo_advanced.sh
+</code></pre><p>Use it as a library:</p><pre><code class="language-rust">use ucl::{Action, Operation, Program};
+
+let action = Action::new("VM", Operation::Call, "add")
+    .with_time(0.0)
+    .with_effects(vec!["CPU".to_string()]);
+
+let mut program = Program::new();
+program.add_action(action);
+
+let json = program.to_json()?;
+let parsed = Program::from_json(&amp;json)?;
+</code></pre><hr><h2 id="possible-use-cases-to-explore">Possible use cases to explore</h2><ul><li>Train LLMs on UCL graphs to learn explicit cause-effect</li><li>Translate across domains: English → UCL → legal logic → smart contracts</li><li>Explainable AI via executable traces instead of opaque tokens</li><li>Cognitive research on working memory limits and execution time</li><li>Cross-substrate compilation: code, law, music, and biology</li></ul><hr><h2 id="possible-roadmap">Possible Roadmap</h2><ul><li>Domain adapters for Python, JavaScript, MIDI, and contract templates</li><li>More targets: Python, JS, maybe a neural interpreter</li><li>Richer Brain VM: episodic memory, dreaming, planning</li><li>Visual editor and REPL</li><li>UCL datasets for model training</li><li>Tooling for visual editors, REPLs, and UCL-to-UCL translators</li></ul><hr><h2 id="try-the-elephant-test">Try the elephant test</h2><p>Run this example in <code>--production</code> mode and notice what happens to your actual thoughts and emotions as you <code>StoreFact(elephant, {color: gray, size: large})</code></p><pre><code class="language-bash">ucl brain examples/brain_test.json --production
+</code></pre><hr><h2 id="check-out-the-code-on-github">Check out the code on GitHub</h2><p>Repo: <a href="https://github.com/ndbroadbent/universal_causal_language">https://github.com/ndbroadbent/universal_causal_language</a><br>License: MIT</p><p>Issues, ideas, and PRs welcome.</p>
+        </section>
+
+    </article>
+
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/23/u-is-not-is-not/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/u-is-not.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/u-is-not.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/u-is-not.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/u-is-not.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/u-is-not.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/u-is-not.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/u-is-not.png"
+                    alt="U(IS NOT, IS NOT)"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">U(IS NOT, IS NOT)</h3>
+                    <p class="gh-card-excerpt is-body">You can compute anything at all using the negation of an AND gate (NAND) or an OR gate (NOR). I find that very interesting.
+
+You can apply either of these simple rules recursively to compute anything:
+
+ * NAND: the result is 0 if both inputs are 1, otherwise it&#39;s</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-23">23 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/23/adding-two-numbers-using-only-nand-gates/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/SCR-20251123-pvwb.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/SCR-20251123-pvwb.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/SCR-20251123-pvwb.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/SCR-20251123-pvwb.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/SCR-20251123-pvwb.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/SCR-20251123-pvwb.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/SCR-20251123-pvwb.png"
+                    alt="Adding Two Numbers Using Only NAND Gates"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Adding Two Numbers Using Only NAND Gates</h3>
+                    <p class="gh-card-excerpt is-body">It&#39;s possible to build any kind of digital logic using a single type of logic gate: either NAND gates, or NOR gates. A NAND gate takes two input bits (A and B) and produces one output bit according to this simple rule:
+
+0 if both inputs are 1,</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-23">23 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/20/higher-orders-of-possibility/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/Higher-Orders-of-Possibility.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/Higher-Orders-of-Possibility.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/Higher-Orders-of-Possibility.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/Higher-Orders-of-Possibility.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/Higher-Orders-of-Possibility.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/Higher-Orders-of-Possibility.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/Higher-Orders-of-Possibility.png"
+                    alt="Higher Orders of Possibility"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Higher Orders of Possibility</h3>
+                <p class="gh-card-excerpt is-body">What new forms of thought, feeling, or morality might emerge in a higher order of intelligence beyond our own?</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-20">20 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/19/kazakh-vs-cossack/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/SCR-20251119-qpdb.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/11/SCR-20251119-qpdb.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/11/SCR-20251119-qpdb.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/11/SCR-20251119-qpdb.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/SCR-20251119-qpdb.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/SCR-20251119-qpdb.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/SCR-20251119-qpdb.jpeg"
+                    alt="Free Men of the Steppe: Kazakhs and Cossacks"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Free Men of the Steppe: Kazakhs and Cossacks</h3>
+                    <p class="gh-card-excerpt is-body">This blog post is about how the words Kazakh and Cossack are related.
+
+
+Background
+
+My wife Masha is from Kazakhstan, although she is not ethnically Kazakh. (Her ancestors are from Ukraine and Moldova.)
+
+I have been to visit Kazakhstan a few times and it&#39;s a very beautiful country!</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-19">19 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.4d3d656346.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
