@@ -6,22 +6,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="preload" as="style" href="/assets/built/screen.ba4506f7af.css">
-    <link rel="preload" as="script" href="/assets/built/source.ba4506f7af.js">
+    <link rel="preload" as="style" href="/assets/built/screen.14c6b9089b.css">
+    <link rel="preload" as="script" href="/assets/built/source.14c6b9089b.js">
     
-    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.ba4506f7af.woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
 <style>
     @font-face {
         font-family: "Inter";
         font-style: normal;
         font-weight: 100 900;
         font-display: optional;
-        src: url(/assets/fonts/inter-roman.woff2?v=ba4506f7af) format("woff2");
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 </style>
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.ba4506f7af.css">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.14c6b9089b.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
@@ -176,8 +176,8 @@ React Native only supports iOS and Android, but I">
     <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
     
     <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
-    <script defer src="/public/cards.min.ba4506f7af.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.ba4506f7af.css">
+    <script defer src="/public/cards.min.14c6b9089b.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.14c6b9089b.css">
     <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
 <script>
@@ -436,10 +436,17 @@ I can reuse a lot of the SudoBlock code. I'm also a freelancer, so this is the o
                 this.page.identifier = "ghost-69"
             };
             (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://madebynathan.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
+                try {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://madebynathan.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    s.onerror = function() {
+                        console.warn('Disqus failed to load (likely due to adblocker).');
+                    };
+                    (d.head || d.body).appendChild(s);
+                } catch (e) {
+                    console.warn('Disqus initialization failed:', e);
+                }
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -664,7 +671,7 @@ You can apply either of these simple rules recursively to compute anything:
     </svg>
 </button>
 
-<script src="/assets/built/source.ba4506f7af.js"></script>
+<script src="/assets/built/source.14c6b9089b.js"></script>
 
 <script>
     (function() {
