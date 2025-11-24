@@ -6,26 +6,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="preload" as="style" href="/assets/built/screen.4d3d656346.css">
-    <link rel="preload" as="script" href="/assets/built/source.4d3d656346.js">
+    <link rel="preload" as="style" href="/assets/built/screen.ba4506f7af.css">
+    <link rel="preload" as="script" href="/assets/built/source.ba4506f7af.js">
     
-    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.4d3d656346.woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.ba4506f7af.woff2" crossorigin="anonymous">
 <style>
     @font-face {
         font-family: "Inter";
         font-style: normal;
         font-weight: 100 900;
         font-display: optional;
-        src: url(/assets/fonts/inter-roman.woff2?v=4d3d656346) format("woff2");
+        src: url(/assets/fonts/inter-roman.woff2?v=ba4506f7af) format("woff2");
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 </style>
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.4d3d656346.css">
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.ba4506f7af.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 
     <style>
         :root {
             --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        #disqus_thread {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
         }
     </style>
 
@@ -151,35 +171,14 @@ https://github.com/ndbroadbent/gedit_i18n_helper">
     <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
     
     <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
-    <script defer src="/public/cards.min.4d3d656346.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.4d3d656346.css">
+    <script defer src="/public/cards.min.ba4506f7af.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.ba4506f7af.css">
     <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-
-<style>
-  .gh-navigation-actions button.gh-search {
-    display: none;
-  }
-  
-  .nav-sign-up { 
-    display: none; 
-  }
-  
-  #disqus_thread {
-    max-width: 700px;
-    margin: auto;
-    margin-top: 20px;
-  }
-</style>
 
 </head>
 <body class="post-template tag-plugins tag-gedit tag-hash-import-2024-04-19-15-41 has-sans-title has-sans-body">
@@ -253,6 +252,22 @@ Menu and keyboard shortcut for internationalizing strings in Rails templates.</p
 
     </article>
 
+    <div class="gh-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "https://madebynathan.com/2010/12/03/gedit-plugin-i18n-helper-for-rails/";
+                this.page.identifier = "ghost-31"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://madebynathan.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 </main>
 
@@ -261,6 +276,42 @@ Menu and keyboard shortcut for internationalizing strings in Rails templates.</p
                 <div class="gh-container-inner gh-inner">
                     <h2 class="gh-container-title">Read more</h2>
                     <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/24/amazing-low-budget-films/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/low-budget-films.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/low-budget-films.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/low-budget-films.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/low-budget-films.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/low-budget-films.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/low-budget-films.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/low-budget-films.png"
+                    alt="Amazing Low Budget Films"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Amazing Low Budget Films</h3>
+                    <p class="gh-card-excerpt is-body">People have made some incredible movies on a shoestring budget. All it takes is a camera, a great story, a vision, a lot of dedication, and a talented team of mostly unpaid volunteers.
+
+Here are some of the most inspiring low-budget films you can watch today.
+
+
+
+
+The Hunt For Gollum</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-25">25 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
                             <article class="gh-card post">
     <a class="gh-card-link" href="/2025/11/23/u-is-not-is-not/">
             <figure class="gh-card-image">
@@ -352,35 +403,6 @@ You can apply either of these simple rules recursively to compute anything:
         </div>
     </a>
 </article>
-                            <article class="gh-card post">
-    <a class="gh-card-link" href="/2025/11/20/higher-orders-of-possibility/">
-            <figure class="gh-card-image">
-                <img
-                    srcset="/content/images/size/w160/format/webp/2025/11/Higher-Orders-of-Possibility.png 160w,
-                            /content/images/size/w320/format/webp/2025/11/Higher-Orders-of-Possibility.png 320w,
-                            /content/images/size/w600/format/webp/2025/11/Higher-Orders-of-Possibility.png 600w,
-                            /content/images/size/w960/format/webp/2025/11/Higher-Orders-of-Possibility.png 960w,
-                            /content/images/size/w1200/format/webp/2025/11/Higher-Orders-of-Possibility.png 1200w,
-                            /content/images/size/w2000/format/webp/2025/11/Higher-Orders-of-Possibility.png 2000w"
-                    sizes="320px"
-                    src="/content/images/size/w600/2025/11/Higher-Orders-of-Possibility.png"
-                    alt="Higher Orders of Possibility"
-                    loading="lazy"
-                >
-            </figure>
-        <div class="gh-card-wrapper">
-            <h3 class="gh-card-title is-title">Higher Orders of Possibility</h3>
-                <p class="gh-card-excerpt is-body">What new forms of thought, feeling, or morality might emerge in a higher order of intelligence beyond our own?</p>
-            <footer class="gh-card-meta">
-<!--
-             -->
-                    <span class="gh-card-author">By Nathan Broadbent</span>
-                    <time class="gh-card-date" datetime="2025-11-20">20 Nov 2025</time>
-                <!--
-         --></footer>
-        </div>
-    </a>
-</article>
                     </div>
                 </div>
             </section>
@@ -466,7 +488,7 @@ You can apply either of these simple rules recursively to compute anything:
     </svg>
 </button>
 
-<script src="/assets/built/source.4d3d656346.js"></script>
+<script src="/assets/built/source.ba4506f7af.js"></script>
 
 <script>
     (function() {
