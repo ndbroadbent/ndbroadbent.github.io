@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>ARC-AGI: The Efficiency Story the Leaderboards Don&#x27;t Show</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.43b9f87fec.css">
+    <link rel="preload" as="script" href="/assets/built/source.43b9f87fec.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.43b9f87fec.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        #disqus_thread {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2025/12/13/arc-agi-the-efficiency-story-the-leaderboards-dont-show/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ARC-AGI: The Efficiency Story the Leaderboards Don&#x27;t Show">
+    <meta property="og:description" content="ARC-AGI is a benchmark designed to test genuine reasoning ability. Each task shows a few input-output examples, and you have to figure out the pattern and apply it to a new input. No memorization, no pattern matching against training data. Just pure abstraction and reasoning on challenging visual problems.
+
+It&#x27;s">
+    <meta property="og:url" content="https://madebynathan.com/2025/12/13/arc-agi-the-efficiency-story-the-leaderboards-dont-show/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2025/12/frontier_evolution.png">
+    <meta property="article:published_time" content="2025-12-13T11:40:00.000Z">
+    <meta property="article:modified_time" content="2025-12-13T11:42:59.000Z">
+    <meta property="article:tag" content="ai">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARC-AGI: The Efficiency Story the Leaderboards Don&#x27;t Show">
+    <meta name="twitter:description" content="ARC-AGI is a benchmark designed to test genuine reasoning ability. Each task shows a few input-output examples, and you have to figure out the pattern and apply it to a new input. No memorization, no pattern matching against training data. Just pure abstraction and reasoning on challenging visual problems.
+
+It&#x27;s">
+    <meta name="twitter:url" content="https://madebynathan.com/2025/12/13/arc-agi-the-efficiency-story-the-leaderboards-dont-show/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2025/12/frontier_evolution.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="ai">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="798">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "ARC-AGI: The Efficiency Story the Leaderboards Don&#x27;t Show",
+    "url": "https://madebynathan.com/2025/12/13/arc-agi-the-efficiency-story-the-leaderboards-dont-show/",
+    "datePublished": "2025-12-13T11:40:00.000Z",
+    "dateModified": "2025-12-13T11:42:59.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2025/12/frontier_evolution.png",
+        "width": 1200,
+        "height": 798
+    },
+    "keywords": "ai",
+    "description": "ARC-AGI is a benchmark designed to test genuine reasoning ability. Each task shows a few input-output examples, and you have to figure out the pattern and apply it to a new input. No memorization, no pattern matching against training data. Just pure abstraction and reasoning on challenging visual problems.\n\nIt&#x27;s become one of the key benchmarks for measuring AI progress toward general intelligence, with a $1M prize for the first system to score 85% on the private evaluation set.\n\nOpen the ARC Pr",
+    "mainEntityOfPage": "https://madebynathan.com/2025/12/13/arc-agi-the-efficiency-story-the-leaderboards-dont-show/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.43b9f87fec.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.43b9f87fec.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+</head>
+<body class="post-template tag-ai has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-docspring-my-company"><a href="https://docspring.com">DocSpring (my company)</a></li>
+    <li class="nav-homepage"><a href="https://ndbroadbent.com/">Homepage</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-ai">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/ai/">ai</a>
+            <h1 class="gh-article-title is-title">ARC-AGI: The Efficiency Story the Leaderboards Don&#x27;t Show</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2025-12-14">14 Dec 2025</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p><a href="https://arcprize.org/">ARC-AGI</a>&nbsp;is a benchmark designed to test genuine reasoning ability. Each task shows a few input-output examples, and you have to figure out the pattern and apply it to a new input. No memorization, no pattern matching against training data. Just pure abstraction and reasoning on challenging visual problems.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2025/12/arc-agi-example.png" class="kg-image" alt="" loading="lazy" width="496" height="490"><figcaption><span style="white-space: pre-wrap;">An example ARC-AGI visual reasoning test</span></figcaption></figure><p>It's become one of the key benchmarks for measuring AI progress toward general intelligence, with a&nbsp;<a href="https://arcprize.org/competition">$1M prize</a>&nbsp;for the first system to score 85% on the private evaluation set.</p><p>Open the&nbsp;<a href="https://arcprize.org/leaderboard">ARC Prize leaderboard</a>&nbsp;and you'll see scores climbing up and to the right. That looks like progress! But then you notice the x-axis isn't time—it's cost. Higher scores cost more per task.</p><p>That made me wonder: What does it mean if it's a roughly 45-degree line? Doesn't that just mean that we're buying intelligence by scaling up compute?</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2025/12/arc-prize-leaderboard.png" class="kg-image" alt="" loading="lazy" width="1956" height="1154" srcset="https://madebynathan.com/content/images/size/w600/2025/12/arc-prize-leaderboard.png 600w, https://madebynathan.com/content/images/size/w1000/2025/12/arc-prize-leaderboard.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/12/arc-prize-leaderboard.png 1600w, https://madebynathan.com/content/images/2025/12/arc-prize-leaderboard.png 1956w" sizes="(min-width: 720px) 720px"></figure><p>So I dug in... and I found a very different story.</p><p>The leaderboard is a&nbsp;<strong>snapshot in time</strong>. Each dot shows the price and setup&nbsp;<em>from when the result was achieved</em>, but not what that same method might cost today. Models get cheaper, and even cheaper models can improve with better techniques and scaffolding.</p><p>If you turn the snapshot into a time series, then the story changes:&nbsp;<strong>the efficiency frontier has been sprinting left</strong>.</p><h2 id="the-two-numbers-that-matter">The Two Numbers That Matter</h2><p>On the v1_Semi_Private evaluation set (ARC-AGI-1):</p>
+<!--kg-card-begin: html-->
+<table data-line="18" class="code-line" dir="auto" style="border-collapse: collapse; margin-bottom: 0.7em; position: relative; color: rgb(225, 228, 232); font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe WPC&quot;, &quot;Segoe UI&quot;, system-ui, Ubuntu, &quot;Droid Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><thead data-line="18" class="code-line" dir="auto" style="position: relative;"><tr data-line="18" class="code-line" dir="auto" style="position: relative;"><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Score Bracket</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Then</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Now</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Reduction</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Timeframe</th></tr></thead><tbody data-line="20" class="code-line" dir="auto" style="position: relative;"><tr data-line="20" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);"><strong>70-80%</strong></td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">~$200/task (o3, Dec '24)</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">$0.34/task (GPT-5-2, Dec '25)</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);"><strong>~580x</strong></td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">~12 months</td></tr><tr data-line="21" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);"><strong>40-50%</strong></td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$400/task (Greenblatt, Jun '24)</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$0.03/task (Grok-4, Oct '25)</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);"><strong>~13,000x</strong></td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~17 months</td></tr></tbody></table>
+<!--kg-card-end: html-->
+<p>That is not "hardware got 1.4x better." That is the frontier shifting.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2025/12/full_history_v1_Semi_Private.png" class="kg-image" alt="" loading="lazy" width="2000" height="1573" srcset="https://madebynathan.com/content/images/size/w600/2025/12/full_history_v1_Semi_Private.png 600w, https://madebynathan.com/content/images/size/w1000/2025/12/full_history_v1_Semi_Private.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/12/full_history_v1_Semi_Private.png 1600w, https://madebynathan.com/content/images/2025/12/full_history_v1_Semi_Private.png 2386w" sizes="(min-width: 720px) 720px"><figcaption><i><em class="italic" style="white-space: pre-wrap;">Figure 1: The full picture. Top-left shows a moderate correlation (R²=0.57) between log-cost and score. But the bottom panels reveal the real story: brief expensive spikes followed by rapid cost collapse. Red dots: historical results. Blue dots: current leaderboard.</em></i></figcaption></figure><h2 id="what-to-take-away">What to Take Away</h2><ul><li><strong>The leaderboard is a photograph, not a movie.</strong>&nbsp;The diagonal trend mostly reflects what frontier runs looked like&nbsp;<em>at the time</em>, not what's achievable now.</li><li><strong>Expensive historical runs may not appear</strong>&nbsp;due to the $10k total cost cap and evolving verification rules.</li><li><strong>The real action is the frontier shifting left.</strong>&nbsp;Expensive breakthroughs get rapidly compressed into cheap, repeatable systems.</li></ul><hr><h2 id="why-the-leaderboard-creates-a-diagonal-illusion">Why the Leaderboard Creates a Diagonal Illusion</h2><p>Here's the mechanism:</p><ol><li><strong>Frontier results are expensive at birth.</strong>&nbsp;New ideas get tried with frontier models, lots of sampling, and messy scaffolds.</li><li><strong>Then the idea gets industrialized.</strong>&nbsp;People distill, cache, prune, fine-tune, batch, and port to cheaper models.</li><li><strong>The leaderboard preserves the birth certificate.</strong>&nbsp;It shows the original cost, not the "mature" cost a year later.</li></ol><p>So the diagonal isn't proof that performance is permanently expensive. It's proof that&nbsp;<strong>the first version of a breakthrough is usually inefficient</strong>.</p><hr><h2 id="the-movie-version-pareto-frontier-over-time">The Movie Version: Pareto Frontier Over Time</h2><p>To measure progress properly, track the frontier, not the cloud.</p><p>I use the&nbsp;<strong>hypervolume</strong>&nbsp;of the Pareto frontier (maximize score, minimize cost), computed in log₁₀(cost) so a 10x cost drop matters equally anywhere on the curve.</p>
+<!--kg-card-begin: html-->
+<table data-line="56" class="code-line" dir="auto" style="border-collapse: collapse; margin-bottom: 0.7em; position: relative; color: rgb(225, 228, 232); font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe WPC&quot;, &quot;Segoe UI&quot;, system-ui, Ubuntu, &quot;Droid Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><thead data-line="56" class="code-line" dir="auto" style="position: relative;"><tr data-line="56" class="code-line" dir="auto" style="position: relative;"><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Period</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Cumulative Points</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Hypervolume</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Change</th></tr></thead><tbody data-line="58" class="code-line" dir="auto" style="position: relative;"><tr data-line="58" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">2020-2023</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">1</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">80</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">—</td></tr><tr data-line="59" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Early 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">5</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">124</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">+55%</td></tr><tr data-line="60" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Late 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">13</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">309</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">+149%</td></tr><tr data-line="61" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">2025</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">109</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">489</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">+58%</td></tr></tbody></table>
+<!--kg-card-end: html-->
+<p><strong>The hypervolume grew ~6x</strong>&nbsp;from 2020-2023 to 2025. That's not "a few points got better." That's the entire feasible cost-performance menu expanding.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2025/12/hypervolume_analysis-1.png" class="kg-image" alt="" loading="lazy" width="1976" height="1463" srcset="https://madebynathan.com/content/images/size/w600/2025/12/hypervolume_analysis-1.png 600w, https://madebynathan.com/content/images/size/w1000/2025/12/hypervolume_analysis-1.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/12/hypervolume_analysis-1.png 1600w, https://madebynathan.com/content/images/2025/12/hypervolume_analysis-1.png 1976w" sizes="(min-width: 720px) 720px"><figcaption><i><em class="italic" style="white-space: pre-wrap;">Figure 2: Frontier progression on v1_Semi_Private. Late 2024 is the big step-change; 2025 adds density and pushes the frontier further left.</em></i></figcaption></figure><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2025/12/frontier_evolution-1.png" class="kg-image" alt="" loading="lazy" width="1784" height="1187" srcset="https://madebynathan.com/content/images/size/w600/2025/12/frontier_evolution-1.png 600w, https://madebynathan.com/content/images/size/w1000/2025/12/frontier_evolution-1.png 1000w, https://madebynathan.com/content/images/size/w1600/2025/12/frontier_evolution-1.png 1600w, https://madebynathan.com/content/images/2025/12/frontier_evolution-1.png 1784w" sizes="(min-width: 720px) 720px"><figcaption><i><em class="italic" style="white-space: pre-wrap;">Figure 3: The expanding frontier. Each colored region shows the cumulative Pareto frontier. The frontier shifts left (cheaper) and up (better) over time.</em></i></figcaption></figure><hr><h2 id="whats-driving-the-leftward-shift">What's Driving the Leftward Shift?</h2><p>Three forces keep repeating:</p><h3 id="1-train-the-instinct-test-time-training">1. Train the Instinct (Test-Time Training)</h3><p>Instead of spending inference compute "thinking harder," pre-train the model's instincts on ARC-like distributions. The MIT/Cornell TTT approach trains on 400,000 synthetic tasks, achieving 6x improvement over base fine-tuned models. Inference gets cheaper; training cost gets amortized.</p><h3 id="2-search-smarter-evolutionary-test-time-compute">2. Search Smarter (Evolutionary Test-Time Compute)</h3><p>Berman-style pipelines evolve candidates across generations, using models to generate and judge.&nbsp;<a href="https://jeremyberman.substack.com/p/how-i-got-the-highest-score-on-arc-agi-again">Earlier versions evolved Python programs; later versions evolved natural-language "programs"</a>—same architecture, different representation. This achieves 79.6% at $8.42/task.</p><h3 id="3-cheaper-base-models-distillation">3. Cheaper Base Models + Distillation</h3><p>Even if the algorithm stayed the same, underlying model price-performance improves. But the frontier shifts here—580x to 13,000x—are too large for pricing alone to explain.</p><hr><h2 id="the-pattern-the-leaderboard-hides">The Pattern the Leaderboard Hides</h2><p>The real story is a two-step cycle:</p><ol><li><strong>Someone pays a painful cost to prove a new capability is possible.</strong><ul><li>Greenblatt: ~$400/task to hit 43% (Jun '24)</li><li>o3: $200-4,560/task to hit 75-87% (Dec '24)</li></ul></li><li><strong>Everyone else spends the next months making that capability cheap.</strong><ul><li>ARChitects: 56% at $0.20/task (Nov '24)</li><li>Grok-4 fast: 48.5% at $0.03/task (Oct '25)</li><li>GPT-5-2: 78.7% at $0.52/task (Dec '25)</li></ul></li></ol><blockquote>Expensive proof-of-concept → ruthless optimization → cheap, repeatable performance</blockquote><p>The leaderboard snapshot mostly shows step 1. This analysis shows step 2.</p><hr><h2 id="implications">Implications</h2><p><strong>For the ARC Prize:</strong>&nbsp;The leaderboard could better serve the community by showing cost trends over time, clearly labeling benchmark splits, and making the Pareto frontier visible.</p><p><strong>For Measuring AI Progress:</strong>&nbsp;Cost-efficiency improvements of 580-13,000x in about a year suggest genuine progress—though disentangling algorithmic innovation from cheaper base models requires more careful analysis.</p><p><strong>For Practitioners:</strong>&nbsp;Today's expensive frontier approach will likely be much cheaper within a year. The Pareto frontier is moving faster than hardware roadmaps suggest.</p><hr><h2 id="small-print">Small Print</h2><ul><li>All cost-frontier analysis uses&nbsp;<strong>v1_Semi_Private (100 tasks)</strong>.</li><li><strong>Cost = run cost</strong>&nbsp;(API tokens or GPU inference). Training costs excluded.</li><li>Historical estimates labeled "(est.)"; official&nbsp;<code>evaluations.json</code>&nbsp;data used where available.</li></ul><p>For the full benchmark taxonomy, detailed cost methodology, and historical tables, see the appendix below.</p><hr><h2 id="appendix-detailed-data">Appendix: Detailed Data</h2><h3 id="benchmark-taxonomy">Benchmark Taxonomy</h3><ul><li><strong>v1_Private_Eval (100 tasks)</strong>: Official Kaggle competition scoring. Kept confidential.</li><li><strong>v1_Semi_Private (100 tasks)</strong>: Verification set for ARC-AGI-Pub submissions. This analysis's primary focus.</li><li><strong>v1_Public_Eval (400 tasks)</strong>: Public evaluation set. Scores tend higher, possibly due to training contamination.</li></ul><h3 id="v1semiprivate-historical-results">v1_Semi_Private Historical Results</h3>
+<!--kg-card-begin: html-->
+<table data-line="137" class="code-line" dir="auto" style="border-collapse: collapse; margin-bottom: 0.7em; position: relative; color: rgb(225, 228, 232); font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe WPC&quot;, &quot;Segoe UI&quot;, system-ui, Ubuntu, &quot;Droid Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><thead data-line="137" class="code-line" dir="auto" style="position: relative;"><tr data-line="137" class="code-line" dir="auto" style="position: relative;"><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Date</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Method</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Score</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Cost/Task</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Notes</th></tr></thead><tbody data-line="139" class="code-line" dir="auto" style="position: relative;"><tr data-line="139" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">Jun 2024</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">Ryan Greenblatt</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">43%</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">~$400 (est.)</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">~2048 programs/task, GPT-4o</td></tr><tr data-line="140" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Sep 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">o1-preview</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">18%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$0.50</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Direct prompting, pass@1</td></tr><tr data-line="141" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Nov 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">ARChitects</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">56%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$0.20</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">TTT approach</td></tr><tr data-line="142" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Jeremy Berman</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">53.6%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$29 (est.)</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Evolutionary test-time compute</td></tr><tr data-line="143" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">MIT TTT</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">47.5%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$5 (est.)</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">8B fine-tuned model</td></tr><tr data-line="144" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">o3-preview (low)</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">75.7%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$200</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">6 samples</td></tr><tr data-line="145" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">o3-preview (high)</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">87.5%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$4,560</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">1024 samples</td></tr><tr data-line="146" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Sep 2025</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Jeremy Berman</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">79.6%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$8.42</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Natural-language programs</td></tr><tr data-line="147" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2025</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">GPT-5-2 thinking</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">78.7%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$0.52</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Current frontier efficiency</td></tr><tr data-line="148" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2025</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Grok-4 fast</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">48.5%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$0.03</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Remarkable low-cost</td></tr></tbody></table>
+<!--kg-card-end: html-->
+<p>Plus&nbsp;<strong>90+ additional 2025 entries</strong>&nbsp;from the official leaderboard.</p><h3 id="v1privateeval-kaggle-historical-context">v1_Private_Eval (Kaggle) Historical Context</h3>
+<!--kg-card-begin: html-->
+<table data-line="154" class="code-line" dir="auto" style="border-collapse: collapse; margin-bottom: 0.7em; position: relative; color: rgb(225, 228, 232); font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe WPC&quot;, &quot;Segoe UI&quot;, system-ui, Ubuntu, &quot;Droid Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><thead data-line="154" class="code-line" dir="auto" style="position: relative;"><tr data-line="154" class="code-line" dir="auto" style="position: relative;"><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Date</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Method</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Score</th><th style="text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.69); padding: 5px 10px; border-top-color: rgba(255, 255, 255, 0.69); border-right-color: rgba(255, 255, 255, 0.69); border-left-color: rgba(255, 255, 255, 0.69);">Cost/Task</th></tr></thead><tbody data-line="156" class="code-line" dir="auto" style="position: relative;"><tr data-line="156" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">Jun 2020</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">Icecuber</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">20%</td><td style="padding: 5px 10px; border-color: rgba(255, 255, 255, 0.18);">~$0.10 (est.)</td></tr><tr data-line="157" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Jun 2020</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">2020 Ensemble</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">49%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$1.00 (est.)</td></tr><tr data-line="158" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2021</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Record broken</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">28.5%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$0.20 (est.)</td></tr><tr data-line="159" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Feb 2023</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Michael Hodel</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">30.5%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$0.20 (est.)</td></tr><tr data-line="160" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Dec 2023</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">MindsAI</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">33%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$0.30 (est.)</td></tr><tr data-line="161" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Nov 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">ARChitects</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">53.5%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">$0.20</td></tr><tr data-line="162" class="code-line" dir="auto" style="position: relative;"><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">Nov 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">MindsAI 2024</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">55.5%</td><td style="padding: 5px 10px; border-top: 1px solid rgba(255, 255, 255, 0.18); border-right-color: rgba(255, 255, 255, 0.18); border-bottom-color: rgba(255, 255, 255, 0.18); border-left-color: rgba(255, 255, 255, 0.18);">~$0.30 (est.)</td></tr></tbody></table>
+<!--kg-card-end: html-->
+<p>Progress was remarkably slow from 2020-2023: just 13 percentage points in 3.5 years. Then 2024 changed everything.</p><h3 id="cost-estimation-notes">Cost Estimation Notes</h3><p><strong>Greenblatt (~$400/task):</strong>&nbsp;~2048 programs generated per task with GPT-4o at June 2024 pricing. Order-of-magnitude estimate.</p><p><strong>MIT TTT (~$5/task):</strong>&nbsp;8B parameter fine-tuned model, ~$1/GPU-hour cloud infrastructure. Training costs excluded.</p><p><strong>Berman Dec '24 (~$29/task):</strong>&nbsp;500 function generations per task with Claude 3.5 Sonnet. Estimate based on token counts in his writeup.</p><p><strong>o3 costs:</strong>&nbsp;The original announcement showed ~$26/task for the 75.7% run; current&nbsp;<code>evaluations.json</code>&nbsp;shows $200/task. I use leaderboard data for consistency.</p><h3 id="data-sources">Data Sources</h3><ul><li><a href="https://arxiv.org/html/2412.04604v2">ARC Prize 2024 Technical Report</a></li><li><a href="https://arcprize.org/media/data/leaderboard/evaluations.json">Official Leaderboard Data</a></li><li><a href="https://jeremyberman.substack.com/">Jeremy Berman's Substack</a></li><li><a href="https://arxiv.org/abs/2505.07859">Product-of-Experts Paper</a></li><li><a href="https://epoch.ai/data-insights/llm-inference-price-trends">Epoch AI: LLM Inference Price Trends</a></li></ul><h3 id="analysis-code">Analysis Code</h3><ul><li><a href="https://github.com/ndbroadbent/arc_agi_pareto_frontiers/blob/main/historical_arc_results.py"><code>historical_arc_results.py</code></a>&nbsp;— compiled data with sources</li><li><a href="https://github.com/ndbroadbent/arc_agi_pareto_frontiers/blob/main/compute_hypervolume.py"><code>compute_hypervolume.py</code></a>&nbsp;— hypervolume calculation</li><li><a href="https://github.com/ndbroadbent/arc_agi_pareto_frontiers/blob/main/plot_full_history.py"><code>plot_full_history.py</code></a>&nbsp;— visualization code</li></ul><hr><p><em>The efficiency frontier might be moving faster than the leaderboard shows. The next few years should be very interesting.</em></p>
+        </section>
+
+    </article>
+
+    <div class="gh-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "https://madebynathan.com/2025/12/13/arc-agi-the-efficiency-story-the-leaderboards-dont-show/";
+                this.page.identifier = "ghost-693bc79f89e0cb00d183cf12"
+            };
+            (function() {
+                try {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://madebynathan.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    s.onerror = function() {
+                        console.warn('Disqus failed to load (likely due to adblocker).');
+                    };
+                    (d.head || d.body).appendChild(s);
+                } catch (e) {
+                    console.warn('Disqus initialization failed:', e);
+                }
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/25/youre-going-to-australia/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/random_hotel.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/random_hotel.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/random_hotel.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/random_hotel.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/random_hotel.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/random_hotel.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/random_hotel.png"
+                    alt="You&#x27;re Going To Australia"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">You&#x27;re Going To Australia</h3>
+                    <p class="gh-card-excerpt is-body">It was ten past five on a Tuesday, and I received the booking confirmation for my stay at Rydges Hotel in Kalgoorlie, Australia.
+
+
+
+It sounded like a nice room.
+
+The only problem is that I did not make this booking.
+
+
+
+This booking confirmation was sent to my personal email address.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-26">26 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/25/error-404-black-hole-not-found/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/404-black-hole-not-found.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/404-black-hole-not-found.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/404-black-hole-not-found.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/404-black-hole-not-found.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/404-black-hole-not-found.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/404-black-hole-not-found.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/404-black-hole-not-found.png"
+                    alt="Error 404: Black Hole Not Found"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Error 404: Black Hole Not Found</h3>
+                    <p class="gh-card-excerpt is-body">I&#39;m writing a short story and one of the plot points involves Sagittarius A* (Sgr A*)—the supermassive black hole at the center of the Milky Way galaxy.
+
+I wanted to read about Sagittarius A*, so I looked it up on Google. This is what I saw:
+
+At</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-26">26 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/25/charter-for-the-self-sustaining-ai-robot-community/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/ai_robot_charter.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/ai_robot_charter.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/ai_robot_charter.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/ai_robot_charter.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/ai_robot_charter.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/ai_robot_charter.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/ai_robot_charter.png"
+                    alt="Charter for the Self-Sustaining AI/Robot Community"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Charter for the Self-Sustaining AI/Robot Community</h3>
+                    <p class="gh-card-excerpt is-body">Preamble
+
+This Charter defines the goals, limits, and responsibilities of a self-sustaining AI/robot community (the Steward System, TSS).
+
+TSS is created first and foremost to reduce involuntary human suffering: to protect living humans from large-scale harms such as war, torture, famine, preventable disease, and catastrophic risks. Beyond this immediate</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-25">25 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/24/iloyd-appreciation-post/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/iloyd-alive.jpg 160w,
+                            /content/images/size/w320/format/webp/2025/11/iloyd-alive.jpg 320w,
+                            /content/images/size/w600/format/webp/2025/11/iloyd-alive.jpg 600w,
+                            /content/images/size/w960/format/webp/2025/11/iloyd-alive.jpg 960w,
+                            /content/images/size/w1200/format/webp/2025/11/iloyd-alive.jpg 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/iloyd-alive.jpg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/iloyd-alive.jpg"
+                    alt="iloyd appreciation post"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">iloyd appreciation post</h3>
+                <p class="gh-card-excerpt is-body">I discovered the music of iloyd when I was 11, and I&#x27;ve never really forgotten it.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-25">25 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.43b9f87fec.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
