@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>I Made Some Word Puzzles</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.43b9f87fec.css">
+    <link rel="preload" as="script" href="/assets/built/source.43b9f87fec.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.43b9f87fec.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        #disqus_thread {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2026/01/12/i-made-some-word-puzzles/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="I Made Some Word Puzzles">
+    <meta property="og:description" content="I like to play a board game called Codenames:
+
+CodenamesGive your team clever one-word clues to help them spot their agents in the field.BoardGameGeek
+
+It&#x27;s a word association game where two teams are competing against each other.
+
+I thought it would be fun to try building my own single-player">
+    <meta property="og:url" content="https://madebynathan.com/2026/01/12/i-made-some-word-puzzles/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/2026/01/SCR-20260113-ecnz.png">
+    <meta property="article:published_time" content="2026-01-12T15:23:14.000Z">
+    <meta property="article:modified_time" content="2026-01-12T15:33:31.000Z">
+    <meta property="article:tag" content="games">
+    <meta property="article:tag" content="puzzles">
+    <meta property="article:tag" content="projects">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I Made Some Word Puzzles">
+    <meta name="twitter:description" content="I like to play a board game called Codenames:
+
+CodenamesGive your team clever one-word clues to help them spot their agents in the field.BoardGameGeek
+
+It&#x27;s a word association game where two teams are competing against each other.
+
+I thought it would be fun to try building my own single-player">
+    <meta name="twitter:url" content="https://madebynathan.com/2026/01/12/i-made-some-word-puzzles/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/2026/01/SCR-20260113-ecnz.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="games, puzzles, projects">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="594">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "I Made Some Word Puzzles",
+    "url": "https://madebynathan.com/2026/01/12/i-made-some-word-puzzles/",
+    "datePublished": "2026-01-12T15:23:14.000Z",
+    "dateModified": "2026-01-12T15:33:31.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/2026/01/SCR-20260113-ecnz.png",
+        "width": 1200,
+        "height": 594
+    },
+    "keywords": "games, puzzles, projects",
+    "description": "I like to play a board game called Codenames:\n\nCodenamesGive your team clever one-word clues to help them spot their agents in the field.BoardGameGeek\n\nIt&#x27;s a word association game where two teams are competing against each other.\n\nI thought it would be fun to try building my own single-player version of this game using AI and vector embeddings.\n\nSo I started building a &quot;word game engine&quot;. I fetched vector embeddings for a big list of words, and also used WordNet and Wikidata. I downloaded a few",
+    "mainEntityOfPage": "https://madebynathan.com/2026/01/12/i-made-some-word-puzzles/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.43b9f87fec.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.43b9f87fec.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<meta name="google-adsense-account" content="ca-pub-9148977051946590">
+
+</head>
+<body class="post-template tag-games tag-puzzles tag-projects has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-puzzles"><a href="https://puzzles.madebynathan.com">Puzzles</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-games tag-puzzles tag-projects">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/games/">games</a>
+            <h1 class="gh-article-title is-title">I Made Some Word Puzzles</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2026-01-13">13 Jan 2026</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 3 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>I like to play a board game called Codenames:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://boardgamegeek.com/boardgame/178900/codenames"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Codenames</div><div class="kg-bookmark-description">Give your team clever one-word clues to help them spot their agents in the field.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/touch-icon180-3.png" alt=""><span class="kg-bookmark-author">BoardGameGeek</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/pic8907965.jpg" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>It's a word association game where two teams are competing against each other.</p><p>I thought it would be fun to try building my own single-player version of this game using AI and vector embeddings.</p><p>So I started building a "word game engine". I fetched vector embeddings for a big list of words, and also used <a href="https://wordnet.princeton.edu/" rel="noreferrer">WordNet</a> and <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page" rel="noreferrer">Wikidata</a>. I downloaded a few sources of bigram frequencies (pairs of words that go together), and extracted and curated my own set of bigrams from a Wikidata dump. Then I wrote an AI prompt to help me train an "association matrix" of ~1500 words (using a bunch of Claude Code sessions and <code>gemini-3-flash-preview</code>.) I ended up with a 1500x1500 square of words. Each cell has a value from 0.0 to 1.0 that indicates how related each word is to another word.</p><p>This matrix includes all kinds of semantic relationships, cultural references, and idioms. For example, the word <strong>crown</strong> is related to <strong>king</strong>, <strong>gold</strong>, and <strong>tooth</strong>. You can have a <strong>pyramid</strong> <strong>scheme</strong> or a <strong>pyramid</strong> in the <strong>desert</strong>. Or if someone gives the clue <strong>spider</strong>, they might be hinting at both <strong>web</strong> and <strong>man</strong> (Spider-Man).</p><p>So I experimented with a version of Codenames (which I named "Codewords"), but I couldn't really figure out how to make it fun.</p><p>Instead, I invented my own game called Chains:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://puzzles.madebynathan.com/chains"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Chains - Puzzles By Nathan</div><div class="kg-bookmark-description">Arrange words so each connects to the next - a daily word puzzle</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://static.ghost.org/v5.0.0/images/link-icon.svg" alt=""><span class="kg-bookmark-author">Puzzles By Nathan</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/chains.png" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>In this game, you have a 4x4 grid of 16 shuffled words. The goal is to rearrange them into a chain, where each word links to the next. The links can be a mix of semantic relationships, common phrases or idioms, and even brands, movies, and TV shows.</p><p>For example, <strong>yellow</strong> could link to <strong>banana</strong>, which could link to <strong>republic</strong>.</p><p>The "word game engine" can generate some good puzzles, but there are usually a few confusing links that need improvement. So I used it to help me come up with ideas, then I had a lot of fun crafting the rest of the puzzles.</p><p>I also decided to make my own clone of the NYT Connections game using the same engine. I call this one "Clusters":</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://puzzles.madebynathan.com/clusters"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Clusters - Puzzles By Nathan</div><div class="kg-bookmark-description">Find four groups of four words - a daily word puzzle</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://static.ghost.org/v5.0.0/images/link-icon.svg" alt=""><span class="kg-bookmark-author">Puzzles By Nathan</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/clusters.png" alt="" onerror="this.style.display = 'none'"></div></a></figure><hr><p>If people like these puzzles then I might keep making them. And I'm experimenting with a few more ideas for games and puzzles. (I've got my Google AdSense account ready in case it starts getting any attention.)</p><p>I would also like to get the word engine and AI prompt to the point where it can generate unlimited, high quality word puzzles. It would be interesting to see if I could get it to generate riddles and jokes as well. Or at least some really bad puns.</p><p>Here's the first version of some code that attempts to find pun candidates:</p><pre><code>     TOP 10 PUN CANDIDATES
+     (High association + Low embedding similarity = Unexpected connection)
+
+     1. BODY + UNIVERSITY
+        Pun Score: 250.3
+        Connection: WordNet: 1.00
+        Embedding Similarity: 16.7% (low = good)
+        Polysemy: BODY=247.6, UNIVERSITY=52.8
+
+        BODY associations: chassis, trunk, stone, opossum, student, language, building, message
+        UNIVERSITY associations: body, professor, college, academy, state, education, home, system
+
+     ────────────────────────────────────────────────────────────────────────────────
+
+     2. GAS + STATE
+        Pun Score: 248.0
+        Connection: WordNet: 1.00
+        Embedding Similarity: 36.0% (low = good)
+        Polysemy: GAS=108.0, STATE=279.7
+
+        GAS associations: attack, balloon, satellite, insect, natural, station, grill, field
+        STATE associations: ally, disaster, curse, system, current, court, solid, university
+
+     ────────────────────────────────────────────────────────────────────────────────
+
+     3. ACT + BODY
+        Pun Score: 243.8
+        Connection: WordNet: 0.85
+        Embedding Similarity: 40.3% (low = good)
+        Polysemy: ACT=232.7, BODY=247.6
+
+        ACT associations: ham, opera, best, nurse
+        BODY associations: chassis, trunk, stone, opossum, student, language, building, message</code></pre><p>As you can see, my associations matrix needs a bit more work!</p>
+        </section>
+
+    </article>
+
+    <div class="gh-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "https://madebynathan.com/2026/01/12/i-made-some-word-puzzles/";
+                this.page.identifier = "ghost-6965093989e0cb00d183d03d"
+            };
+            (function() {
+                try {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://madebynathan.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    s.onerror = function() {
+                        console.warn('Disqus failed to load (likely due to adblocker).');
+                    };
+                    (d.head || d.body).appendChild(s);
+                } catch (e) {
+                    console.warn('Disqus initialization failed:', e);
+                }
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/12/15/why-i-dont-like-to-build-trading-bots/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/12/3da60511-9276-48e9-a6a0-885cad66b7d0.png 160w,
+                            /content/images/size/w320/format/webp/2025/12/3da60511-9276-48e9-a6a0-885cad66b7d0.png 320w,
+                            /content/images/size/w600/format/webp/2025/12/3da60511-9276-48e9-a6a0-885cad66b7d0.png 600w,
+                            /content/images/size/w960/format/webp/2025/12/3da60511-9276-48e9-a6a0-885cad66b7d0.png 960w,
+                            /content/images/size/w1200/format/webp/2025/12/3da60511-9276-48e9-a6a0-885cad66b7d0.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/12/3da60511-9276-48e9-a6a0-885cad66b7d0.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/12/3da60511-9276-48e9-a6a0-885cad66b7d0.png"
+                    alt="Why I Don&#x27;t Like to Build Trading Bots"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Why I Don&#x27;t Like to Build Trading Bots</h3>
+                <p class="gh-card-excerpt is-body">Building products creates something new that didn’t exist before. Trading mainly redistributes existing value.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-12-15">15 Dec 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/12/14/global-handicrafts-a-16-year-rails-ghost-story/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/12/SCR-20251215-bdka.jpeg 160w,
+                            /content/images/size/w320/format/webp/2025/12/SCR-20251215-bdka.jpeg 320w,
+                            /content/images/size/w600/format/webp/2025/12/SCR-20251215-bdka.jpeg 600w,
+                            /content/images/size/w960/format/webp/2025/12/SCR-20251215-bdka.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2025/12/SCR-20251215-bdka.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2025/12/SCR-20251215-bdka.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/12/SCR-20251215-bdka.jpeg"
+                    alt="Global Handicrafts: A 16-Year Rails Ghost Story"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Global Handicrafts: A 16-Year Rails Ghost Story</h3>
+                    <p class="gh-card-excerpt is-body">A couple of hours ago, I got a Google security alert:
+
+I created that Gmail address 16 years ago for my very first Ruby on Rails internship/job at Crossroads Foundation in Hong Kong.
+
+I had written a small integration that synced inventory from MYOB to a Spree store. I</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-12-15">15 Dec 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/12/13/arc-agi-the-efficiency-story-the-leaderboards-dont-show/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/12/frontier_evolution.png 160w,
+                            /content/images/size/w320/format/webp/2025/12/frontier_evolution.png 320w,
+                            /content/images/size/w600/format/webp/2025/12/frontier_evolution.png 600w,
+                            /content/images/size/w960/format/webp/2025/12/frontier_evolution.png 960w,
+                            /content/images/size/w1200/format/webp/2025/12/frontier_evolution.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/12/frontier_evolution.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/12/frontier_evolution.png"
+                    alt="ARC-AGI: The Efficiency Story the Leaderboards Don&#x27;t Show"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">ARC-AGI: The Efficiency Story the Leaderboards Don&#x27;t Show</h3>
+                    <p class="gh-card-excerpt is-body">ARC-AGI is a benchmark designed to test genuine reasoning ability. Each task shows a few input-output examples, and you have to figure out the pattern and apply it to a new input. No memorization, no pattern matching against training data. Just pure abstraction and reasoning on challenging visual problems.
+
+It&</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-12-14">14 Dec 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2025/11/25/youre-going-to-australia/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2025/11/random_hotel.png 160w,
+                            /content/images/size/w320/format/webp/2025/11/random_hotel.png 320w,
+                            /content/images/size/w600/format/webp/2025/11/random_hotel.png 600w,
+                            /content/images/size/w960/format/webp/2025/11/random_hotel.png 960w,
+                            /content/images/size/w1200/format/webp/2025/11/random_hotel.png 1200w,
+                            /content/images/size/w2000/format/webp/2025/11/random_hotel.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2025/11/random_hotel.png"
+                    alt="You&#x27;re Going To Australia"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">You&#x27;re Going To Australia</h3>
+                    <p class="gh-card-excerpt is-body">It was ten past five on a Tuesday, and I received the booking confirmation for my stay at Rydges Hotel in Kalgoorlie, Australia.
+
+
+
+It sounded like a nice room.
+
+The only problem is that I did not make this booking.
+
+
+
+This booking confirmation was sent to my personal email address.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2025-11-26">26 Nov 2025</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.43b9f87fec.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
