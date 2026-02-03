@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Self-Healing Infrastructure: How an AI Agent Manages My Home Server</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.43b9f87fec.css">
+    <link rel="preload" as="script" href="/assets/built/source.43b9f87fec.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.43b9f87fec.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        #disqus_thread {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <meta name="description" content="I can&#x27;t believe I have a &#x27;self-healing&#x27; server now. My AI agent can run any SSH, Terraform, Ansible, kubectl commands and fix infrastructure issues before I even know there&#x27;s a problem.">
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Self-Healing Infrastructure: How an AI Agent Manages My Home Server">
+    <meta property="og:description" content="I can&#x27;t believe I have a &#x27;self-healing&#x27; server now. My AI agent can run any SSH, Terraform, Ansible, kubectl commands and fix infrastructure issues before I even know there&#x27;s a problem.">
+    <meta property="og:url" content="https://madebynathan.com/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2026/02/2026-02-03-self-healing-banner.png">
+    <meta property="article:published_time" content="2026-02-03T01:50:29.000Z">
+    <meta property="article:modified_time" content="2026-02-03T01:50:29.000Z">
+    <meta property="article:tag" content="homelab">
+    <meta property="article:tag" content="devops">
+    <meta property="article:tag" content="ai">
+    <meta property="article:tag" content="infrastructure">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Self-Healing Infrastructure: How an AI Agent Manages My Home Server">
+    <meta name="twitter:description" content="I can&#x27;t believe I have a &#x27;self-healing&#x27; server now. My AI agent can run any SSH, Terraform, Ansible, kubectl commands and fix infrastructure issues before I even know there&#x27;s a problem.">
+    <meta name="twitter:url" content="https://madebynathan.com/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2026/02/2026-02-03-self-healing-banner.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="homelab, devops, ai, infrastructure">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="670">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Self-Healing Infrastructure: How an AI Agent Manages My Home Server",
+    "url": "https://madebynathan.com/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/",
+    "datePublished": "2026-02-03T01:50:29.000Z",
+    "dateModified": "2026-02-03T01:50:29.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2026/02/2026-02-03-self-healing-banner.png",
+        "width": 1200,
+        "height": 670
+    },
+    "keywords": "homelab, devops, ai, infrastructure",
+    "description": "I can&#x27;t believe I have a &#x27;self-healing&#x27; server now. My AI agent can run any SSH, Terraform, Ansible, kubectl commands and fix infrastructure issues before I even know there&#x27;s a problem.",
+    "mainEntityOfPage": "https://madebynathan.com/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.43b9f87fec.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.43b9f87fec.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<meta name="google-adsense-account" content="ca-pub-9148977051946590">
+
+</head>
+<body class="post-template tag-homelab tag-devops tag-ai tag-infrastructure has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-puzzles"><a href="https://puzzles.madebynathan.com">Puzzles</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-homelab tag-devops tag-ai tag-infrastructure">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/homelab/">homelab</a>
+            <h1 class="gh-article-title is-title">Self-Healing Infrastructure: How an AI Agent Manages My Home Server</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2026-02-03">03 Feb 2026</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 2 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>I can't believe I have a "self-healing" server now. My AI agent can run any SSH, Terraform, Ansible, kubectl commands and fix infrastructure issues before I even know there's a problem.</p><p>Here's how the stack works.</p><h2 id="the-core-idea">The Core Idea</h2><p><strong>Everything is code, and an AI agent watches over it all.</strong></p><ul><li>Infrastructure defined in Terraform and Ansible (no manual changes)</li><li>Apps run in Kubernetes (K3s)</li><li>An AI agent (<a href="https://github.com/openclaw/openclaw">OpenClaw</a>) monitors health, reads logs, and can execute fixes</li><li>Problems often get resolved before I even notice them</li></ul><h2 id="the-stack">The Stack</h2><pre><code>┌─────────────────────────────────────────────────────────┐
+│                      OpenClaw (AI Agent)                │
+│   Monitors health, reads logs, runs commands, fixes     │
+└─────────────────────────────────────────────────────────┘
+                            │
+        ┌───────────────────┼───────────────────┐
+        ▼                   ▼                   ▼
+   ┌─────────┐        ┌──────────┐        ┌─────────┐
+   │  Gatus  │        │   Loki   │        │ Grafana │
+   │ Health  │        │   Logs   │        │  Dash   │
+   └─────────┘        └──────────┘        └─────────┘
+                            │
+        ┌───────────────────┼───────────────────┐
+        ▼                   ▼                   ▼
+   ┌─────────┐        ┌──────────┐        ┌─────────┐
+   │Terraform│        │ Ansible  │        │   K3s   │
+   │  Infra  │        │  Config  │        │  Apps   │
+   └─────────┘        └──────────┘        └─────────┘
+                            │
+                            ▼
+                    ┌──────────────┐
+                    │   Proxmox    │
+                    │  (Bare Metal)│
+                    └──────────────┘</code></pre><h3 id="layer-1-proxmox-hypervisor">Layer 1: Proxmox (Hypervisor)</h3><p>The foundation. Proxmox runs on bare metal, hosting VMs and LXC containers. ZFS provides storage with snapshots and replication.</p><h3 id="layer-2-infrastructure-as-code">Layer 2: Infrastructure as Code</h3><ul><li><strong>Terraform</strong>: Defines VMs, LXCs, DNS records, storage</li><li><strong>Ansible</strong>: Configures everything inside the VMs (packages, services, settings)</li><li><strong>Git repo</strong>: Single source of truth - no manual SSH changes allowed</li></ul><h3 id="layer-3-kubernetes-k3s">Layer 3: Kubernetes (K3s)</h3><p>Lightweight Kubernetes running 40+ apps: Home Assistant, Gitea, monitoring tools, custom applications. ArgoCD handles GitOps deployments, and Traefik provides ingress with automatic SSL.</p><h3 id="layer-4-monitoring">Layer 4: Monitoring</h3><ul><li><strong>Gatus</strong>: Health checks for all services (HTTP, TCP, DNS)</li><li><strong>Loki</strong>: Centralized log aggregation</li><li><strong>Grafana</strong>: Dashboards and visualization</li></ul><h3 id="layer-5-openclaw-the-brain">Layer 5: OpenClaw (The Brain)</h3><p>This is where it gets interesting. An AI agent running in an LXC container with:</p><ul><li>SSH access to all infrastructure</li><li>Ability to run <code>kubectl</code>, <code>terraform</code>, <code>ansible</code>, <code>gh</code> commands</li><li>Scheduled health dashboard checks</li><li>Log reading when issues are detected</li><li>Can create PRs, apply fixes, restart services</li></ul><h2 id="how-self-healing-works">How Self-Healing Works</h2><ol><li><strong>Detection</strong>: Gatus checks fail, or scheduled audit finds an issue</li><li><strong>Investigation</strong>: OpenClaw reads logs via Loki, checks pod status</li><li><strong>Diagnosis</strong>: Identifies root cause (OOM, config error, network issue, etc.)</li><li><strong>Fix</strong>: Applies appropriate remedy - restart a pod, fix config, apply Terraform changes</li><li><strong>Verification</strong>: Confirms the fix worked</li><li><strong>Documentation</strong>: Logs the incident and resolution</li></ol><h3 id="example-fixes">Example Fixes</h3><ul><li>Pod crash loop → Check logs → Fix config → Restart</li><li>Certificate expiring → Trigger cert-manager renewal</li><li>Disk filling up → Clean old backups → Add alert threshold</li><li>Service unreachable → Check ingress → Fix routing</li></ul><h2 id="key-design-principles">Key Design Principles</h2><h3 id="1-everything-is-code">1. Everything is Code</h3><p>No manual changes via SSH or web UIs. If it's not in Git, it doesn't exist. This means full audit trail of every change, easy rollback via <code>git revert</code>, and reproducible from scratch.</p><h3 id="2-ai-as-operator-not-owner">2. AI as Operator, Not Owner</h3><p>OpenClaw has <em>access</em> but follows strict rules: can fix known issue patterns autonomously, asks before making significant changes, documents everything it does, and human remains in control.</p><h3 id="3-defense-in-depth">3. Defense in Depth</h3><p>Health checks catch issues early. Logs provide investigation context. Multiple alert channels (Telegram, email). Scheduled audits catch drift.</p><h3 id="4-fail-safe-not-fail-secure">4. Fail Safe, Not Fail Secure</h3><p>Services should degrade gracefully. Prefer availability over perfect consistency. AI can restart things but can't delete data.</p><h2 id="public-repository">Public Repository</h2><p>I've published a sanitized version of my Infrastructure as Code setup:</p><p><strong>GitHub</strong>: <a href="https://github.com/ndbroadbent/homeserver-terraform-ansible-public">ndbroadbent/homeserver-terraform-ansible-public</a></p><p>It includes Terraform modules for Proxmox VMs/LXCs, Ansible roles for common services, K3s application manifests, and example configurations.</p><h2 id="getting-started">Getting Started</h2><p>If you want to build something similar:</p><ol><li><strong>Start with IaC</strong>: Get Terraform/Ansible managing your infra first</li><li><strong>Add monitoring</strong>: Gatus is simple and effective for health checks</li><li><strong>Centralize logs</strong>: Loki + Promtail is lightweight</li><li><strong>Add the AI layer</strong>: OpenClaw connects everything together</li></ol><p>The AI layer is the force multiplier - it turns your monitoring from "alert and wait for human" to "detect, diagnose, and fix."</p><h2 id="links">Links</h2><ul><li><a href="https://github.com/openclaw/openclaw">OpenClaw</a></li><li><a href="https://docs.openclaw.ai">OpenClaw Docs</a></li><li><a href="https://github.com/ndbroadbent/homeserver-terraform-ansible-public">Public IaC Repo</a></li><li><a href="https://github.com/TwiN/gatus">Gatus</a></li><li><a href="https://k3s.io">K3s</a></li><li><a href="https://www.proxmox.com">Proxmox</a></li></ul>
+        </section>
+
+    </article>
+
+    <div class="gh-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "https://madebynathan.com/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/";
+                this.page.identifier = "ghost-698153e989e0cb00d183d348"
+            };
+            (function() {
+                try {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://madebynathan.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    s.onerror = function() {
+                        console.warn('Disqus failed to load (likely due to adblocker).');
+                    };
+                    (d.head || d.body).appendChild(s);
+                } catch (e) {
+                    console.warn('Disqus initialization failed:', e);
+                }
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/01/world-history-of-value/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg"
+                    alt="World History of Value"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">World History of Value</h3>
+                <p class="gh-card-excerpt is-body">A journey through 3.3 million years of hominid wealth creation.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-02">02 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/01/all-the-money-in-the-world/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/getty.png 160w,
+                            /content/images/size/w320/format/webp/2026/02/getty.png 320w,
+                            /content/images/size/w600/format/webp/2026/02/getty.png 600w,
+                            /content/images/size/w960/format/webp/2026/02/getty.png 960w,
+                            /content/images/size/w1200/format/webp/2026/02/getty.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/getty.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/getty.png"
+                    alt="All the Money in the World"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">All the Money in the World</h3>
+                    <p class="gh-card-excerpt is-body">It was a rainy Sunday so we stayed home and watched movies. We saw All the Money in the World (2017): &quot;the story of the kidnapping of 16-year-old John Paul Getty III, and the desperate attempt by his mother to convince his billionaire grandfather John Paul Getty to pay</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-02">02 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/01/30/moltbook-highlights/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 160w,
+                            /content/images/size/w320/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 320w,
+                            /content/images/size/w600/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 600w,
+                            /content/images/size/w960/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 960w,
+                            /content/images/size/w1200/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png"
+                    alt="Moltbook Highlights"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Moltbook Highlights</h3>
+                    <p class="gh-card-excerpt is-body">So all the AI bots (OpenClaw instances) decided to get together and make their own Reddit for AI bots. So now there’s over 30,000 AIs all talking to each other and making plans.
+
+Please note: A few humans are also posting some &quot;fake&quot; things on X</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-01-31">31 Jan 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/01/30/four-favorite-podcasts/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/01/ChatGPT-Image-Jan-30--2026--06_28_43-PM.png 160w,
+                            /content/images/size/w320/format/webp/2026/01/ChatGPT-Image-Jan-30--2026--06_28_43-PM.png 320w,
+                            /content/images/size/w600/format/webp/2026/01/ChatGPT-Image-Jan-30--2026--06_28_43-PM.png 600w,
+                            /content/images/size/w960/format/webp/2026/01/ChatGPT-Image-Jan-30--2026--06_28_43-PM.png 960w,
+                            /content/images/size/w1200/format/webp/2026/01/ChatGPT-Image-Jan-30--2026--06_28_43-PM.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/01/ChatGPT-Image-Jan-30--2026--06_28_43-PM.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/01/ChatGPT-Image-Jan-30--2026--06_28_43-PM.png"
+                    alt="Four Favorite Podcasts"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Four Favorite Podcasts</h3>
+                    <p class="gh-card-excerpt is-body">I listen to a lot of podcasts while driving or doing chores. There are a few dozen that I listen to semi-regularly, but here are the top four that I consistently enjoy.
+
+
+Hey Riddle Riddle
+
+&quot;Riddles! Puzzles! WhoDunnits! Adal Rifai, Erin Keif and John Patrick Coan, three of Chicago&</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-01-30">30 Jan 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.43b9f87fec.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
