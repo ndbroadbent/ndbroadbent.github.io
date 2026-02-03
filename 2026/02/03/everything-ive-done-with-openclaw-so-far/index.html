@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Everything I&#x27;ve Done with OpenClaw (So Far)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.43b9f87fec.css">
+    <link rel="preload" as="script" href="/assets/built/source.43b9f87fec.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.43b9f87fec.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        #disqus_thread {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <meta name="description" content="I have been running an AI agent on my home server for a few days. 15 automated jobs, 24 custom scripts, and a personal knowledge graph. Here is what we built together.">
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2026/02/03/everything-ive-done-with-openclaw-so-far/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Everything I&#x27;ve Done with OpenClaw (So Far)">
+    <meta property="og:description" content="I have been running an AI agent on my home server for a few days. 15 automated jobs, 24 custom scripts, and a personal knowledge graph. Here is what we built together.">
+    <meta property="og:url" content="https://madebynathan.com/2026/02/03/everything-ive-done-with-openclaw-so-far/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2026/02/openclaw-blog-banner-v4.png">
+    <meta property="article:published_time" content="2026-02-03T04:37:29.000Z">
+    <meta property="article:modified_time" content="2026-02-03T04:37:29.000Z">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="OpenClaw">
+    <meta property="article:tag" content="Home Server">
+    <meta property="article:tag" content="Automation">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Everything I&#x27;ve Done with OpenClaw (So Far)">
+    <meta name="twitter:description" content="I have been running an AI agent on my home server for a few days. 15 automated jobs, 24 custom scripts, and a personal knowledge graph. Here is what we built together.">
+    <meta name="twitter:url" content="https://madebynathan.com/2026/02/03/everything-ive-done-with-openclaw-so-far/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2026/02/openclaw-blog-banner-v4.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="AI, OpenClaw, Home Server, Automation">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="670">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Everything I&#x27;ve Done with OpenClaw (So Far)",
+    "url": "https://madebynathan.com/2026/02/03/everything-ive-done-with-openclaw-so-far/",
+    "datePublished": "2026-02-03T04:37:29.000Z",
+    "dateModified": "2026-02-03T04:37:29.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2026/02/openclaw-blog-banner-v4.png",
+        "width": 1200,
+        "height": 670
+    },
+    "keywords": "AI, OpenClaw, Home Server, Automation",
+    "description": "I have been running an AI agent on my home server for a few days. 15 automated jobs, 24 custom scripts, and a personal knowledge graph. Here is what we built together.",
+    "mainEntityOfPage": "https://madebynathan.com/2026/02/03/everything-ive-done-with-openclaw-so-far/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.43b9f87fec.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.43b9f87fec.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<meta name="google-adsense-account" content="ca-pub-9148977051946590">
+
+</head>
+<body class="post-template tag-ai tag-openclaw tag-home-server tag-automation has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-puzzles"><a href="https://puzzles.madebynathan.com">Puzzles</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-ai tag-openclaw tag-home-server tag-automation">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/ai/">AI</a>
+            <h1 class="gh-article-title is-title">Everything I&#x27;ve Done with OpenClaw (So Far)</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2026-02-03">03 Feb 2026</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 8 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>I’ve been running an AI agent called Reef on my home server for a few days now. What started as an experiment has turned into a genuinely incredibly system. Here’s what we’ve built so far.</p><h2 id="the-setup">The Setup</h2><p>Reef runs on <a href="https://openclaw.ai">OpenClaw</a>, an open-source framework for running Claude as a persistent agent. It has access to my entire home server infrastructure through:</p><ul><li>SSH to all my servers and containers in my home network</li><li>Kubernetes cluster access (kubectl)</li><li>1Password for secrets management (in a dedicated vault)</li><li>My email accounts (via gog CLI)</li><li>My calendar</li><li>My Obsidian vault (5,000+ notes)</li><li>A personal Wikibase knowledge graph</li></ul><h2 id="15-automated-jobs-running-247">15 Automated Jobs Running 24/7</h2><p>The most impressive thing is how Reef has become self-sustaining through scheduled automation. Here are all the cron jobs currently running:</p><h3 id="every-15-minutes">Every 15 Minutes</h3><ul><li><strong>Active Work Session</strong> - Checks Fizzy (our kanban) for in-progress cards and continues work</li></ul><h3 id="hourly">Hourly</h3><ul><li><strong>Alerts Check</strong> - Monitors Gatus health checks, ArgoCD deployments, and Fizzy notifications</li><li><strong>Gmail Triage</strong> - Scans inbox, labels actionable items, archives noise</li></ul><h3 id="every-6-hours">Every 6 Hours</h3><ul><li><strong>KB Data Entry Batch</strong> - Processes Obsidian notes to populate Wikibase with entities</li><li><strong>Wikibase Link Reconciliation</strong> - Converts <code>[[wiki links]]</code> in notes to Wikibase stubs</li><li><strong>Report Reconciliation</strong> - Ensures all daily reports are complete</li><li><strong>Self Health Check</strong> - Runs <code>openclaw doctor</code>, checks memory/disk, reviews logs</li></ul><h3 id="every-8-hours">Every 8 Hours</h3><ul><li><strong>Wikibase Entity Enrichment</strong> - Takes stub entities and enriches them by searching through all my data dumps exported from Gmail, ChatGPT, X, Obsidian, and many other sources.</li></ul><h3 id="every-12-hours">Every 12 Hours</h3><ul><li><strong>Internal Audit</strong> - Scans workspace for code quality issues, TODOs, and documentation gaps</li></ul><h3 id="4x-daily">4x Daily</h3><ul><li><strong>Log Health Check</strong> - Analyzes Loki logs for errors across all services</li></ul><h3 id="daily">Daily</h3><ul><li><strong>Nightly Brainstorm (4am)</strong> - Deep creative exploration through my notes, emails, and exports looking for connections</li><li><strong>Daily Briefing (8am)</strong> - Sends me an email summary with weather, calendar, system stats, and Fizzy activity</li><li><strong>Fizzy Comment Reconciliation (9am)</strong> - Catches any cards where I commented but Reef didn’t reply</li><li><strong>Velocity Assessment (1am)</strong> - Analyzes Fizzy metrics to find process improvements</li><li><strong>Wikibase Weekly Review</strong> - QA pass on recently created entities</li></ul><h2 id="24-custom-scripts">24 Custom Scripts</h2><p>All the automation is backed by scripts I’ve built:</p><p><strong>Monitoring:</strong> - <code>check-gatus.sh</code> - Query health check endpoints - <code>check-argocd.sh</code> - Check K8s deployment status<br>- <code>check-loki-logs.sh</code> - Analyze centralized logs for errors - <code>check-email.sh</code> - Poll for new emails (runs via system cron)</p><p><strong>Reporting:</strong> - <code>daily-briefing.sh</code> - Generate morning summary - <code>fizzy-daily-stats.sh</code> - Task management metrics - <code>velocity-assessment.sh</code> - Process improvement analysis - <code>weekly-infra-report.sh</code> - Infrastructure overview - <code>security-audit.sh</code> - Check for vulnerabilities</p><p><strong>Knowledge Base:</strong> - <code>wikibase-link-reconcile.sh</code> - Process wiki links - <code>wikibase-enrich-entities.sh</code> - Find stubs to enrich - <code>wikibase-weekly-review.sh</code> - QA report</p><p><strong>Utilities:</strong> - <code>get-system-stats.sh</code> - Pull from Prometheus - <code>reconcile-fizzy-comments.sh</code> - Catch missed replies - <code>internal-audit.js</code> - Code quality checks - <code>md2html.js</code> - Convert markdown for emails</p><h2 id="organized-report-structure">Organized Report Structure</h2><p>Every automated job writes to a structured report directory:</p><pre><code>/mnt/obsidian/Notes/Reef/reports/
+├── brainstorm/      # Nightly creative explorations
+├── briefing/        # Daily email summaries
+├── email-triage/    # Gmail processing logs
+├── monitoring/      # Health check results
+├── reconciliation/  # Report completeness checks
+├── security/        # Security audit findings
+├── velocity/        # Process metrics
+├── weekly/          # Infrastructure reports
+└── wikibase-review/ # KB quality checks</code></pre><h2 id="infrastructure-management">Infrastructure Management</h2><p>Reef deploys and manages apps on my K3s cluster:</p><ul><li><strong>Kubernetes deployments</strong> - Writes Kustomize manifests, debugs pod issues</li><li><strong>Terraform &amp; Ansible</strong> - All changes go through IaC. Reef reads existing configs, makes changes, applies them properly</li><li><strong>Service monitoring</strong> - Regular health checks with automatic investigation</li><li><strong>Just deployed</strong> - Gitea and Woodpecker for local Git hosting and CI</li></ul><h2 id="development-workflow">Development Workflow</h2><ul><li><strong>Code reviews</strong> - Reviews PRs using Claude CLI before merge</li><li><strong>CI/CD setup</strong> - GitHub Actions, now Woodpecker for local CI</li><li><strong>Bug fixes</strong> - Debug and fix across codebases</li><li><strong>Branch protection</strong> - Always works through PRs, never pushes to main</li></ul><h2 id="personal-knowledge-base-wikibase">Personal Knowledge Base (Wikibase)</h2><p>I’m building a personal knowledge graph using <a href="https://wikiba.se">Wikibase</a> - the same software that powers Wikidata. Why Wikibase?</p><p><strong>The problem:</strong> Information about my life is scattered everywhere - notes, emails, messages, documents. When I need to answer a question like “what size shoes does my partner wear?” or “what’s my accountant’s phone number?”, I have to search through multiple apps.</p><p><strong>The solution:</strong> A structured knowledge graph where every person, place, project, and concept has its own entity with properties and relationships. Wikibase gives me:</p><ul><li><strong>SPARQL queries</strong> - Find anything instantly (“all people who worked at company X”, “all projects using technology Y”)</li><li><strong>Structured data</strong> - Not just text, but typed properties (dates, locations, relationships)</li><li><strong>Entity linking</strong> - Everything connects to everything else</li><li><strong>AI-friendly</strong> - Reef can query the KB to answer questions, fill out forms, or provide context</li></ul><p><strong>Current entities:</strong> People (family, friends, colleagues), places (addresses, venues), projects, companies, technologies.</p><p><strong>Automated pipeline:</strong> - <strong>Entity extraction</strong> - Processes Obsidian notes to identify people, places, projects - <strong>Link reconciliation</strong> - <code>[[wiki links]]</code> in notes become Wikibase stubs automatically - <strong>Research enrichment</strong> - Stubs get enriched by searching through my data exports (ChatGPT, Gmail, Obsidian, etc.) - <strong>Custom schema</strong> - Properties tailored to our family’s data model (clothing sizes, preferences, relationships)</p><h2 id="daily-operations">Daily Operations</h2><p>The agent handles routine tasks automatically:</p><ul><li><strong>Email triage</strong> - Labels actionable items, archives noise</li><li><strong>Calendar awareness</strong> - Checks both my and Masha’s calendars</li><li><strong>Task management</strong> - Uses Fizzy to track work across 6 boards</li><li><strong>Proactive maintenance</strong> - Finds issues before they become problems</li></ul><h2 id="memory-continuity">Memory &amp; Continuity</h2><p>Reef maintains context through:</p><ul><li><strong>SOUL.md</strong> - Personality and work philosophy</li><li><strong>MEMORY.md</strong> - Long-term curated memories</li><li><strong>Daily logs</strong> - <code>memory/YYYY-MM-DD.md</code> for session notes</li><li><strong>HEARTBEAT.md</strong> - Current priorities and context</li></ul><h2 id="skills-system">Skills System</h2><p>Specialized knowledge packaged as skills:</p><ul><li>Ghost blog management (just created!)</li><li>Fizzy task management</li><li>Home Assistant control</li><li>YouTube transcript fetching</li><li>Weather queries</li><li>And more…</li></ul><h2 id="standout-workflows">Standout Workflows</h2><h3 id="real-time-blog-collaboration">Real-Time Blog Collaboration</h3><p>This post is being written in Obsidian right now, with Reef making edits while I type. The workflow:</p><ol><li><strong>Draft in Obsidian</strong> - Real-time collaboration (we can both edit the same file)</li><li><strong>Generate banner</strong> - Reef uses Gemini’s image generation to create a 16:9 banner</li><li><strong>Publish to Ghost</strong> - API call creates/updates the post</li><li><strong>Deploy static site</strong> - Script crawls Ghost and pushes to GitHub Pages</li></ol><p>Zero context switching. I stay in Obsidian, Reef handles the publishing pipeline.</p><h3 id="memory-system-with-49000-facts">Memory System with 49,000+ Facts</h3><p>Reef built a memory extraction system that processed my ChatGPT export and extracted <strong>49,079 atomic facts</strong> and <strong>57 entities</strong> (companies, technologies, concepts). Now expanding to include:</p><ul><li>Claude Code history (174,000+ messages)</li><li>Obsidian notes (5,000+ files)</li><li>Notion, UpNote, Ghost exports</li></ul><p>This powers semantic search across years of my conversations and notes.</p><h3 id="personalized-daily-briefings">Personalized Daily Briefings</h3><p>Every morning at 8am, I get an email with:</p><ul><li>Weather for Paihia (where I live)</li><li>My calendar AND my partner’s calendar for the day</li><li>System health (CPU, RAM, storage across all servers)</li><li>Fizzy activity (cards created/closed in last 24h)</li><li>Highlights from the nightly brainstorm session</li></ul><h3 id="neat-adhd-friendly-task-ui">Neat: ADHD-Friendly Task UI</h3><p>Reef built a complete web app from scratch called <a href="https://github.com/ndbroadbent/neat"><strong>Neat</strong></a> - a minimal interface for Fizzy designed for ADHD brains.</p><p><strong>The problem:</strong> Traditional kanban boards show everything at once, which can be overwhelming. When you have 100+ cards across multiple boards, deciding what to work on becomes its own task.</p><p><strong>The solution:</strong> Neat shows you ONE task at a time with a custom-tailored decision form. Instead of staring at a wall of cards, you answer a simple question and move on.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2026/02/neat-screenshot.jpg" class="kg-image" alt="" loading="lazy" width="510" height="800"><figcaption><span style="white-space: pre-wrap;">Neat Screenshot</span></figcaption></figure><p><strong>Tech stack:</strong> SvelteKit, TypeScript, Tailwind, SQLite, deployed to Kubernetes with Woodpecker CI.</p><p><strong>Features:</strong> - Single-task focus view - Custom forms per card (radio buttons, text inputs, markdown descriptions) - Swipe navigation on mobile - Structured Loki logging - Full test coverage</p><h3 id="first-blog-post-self-healing-infrastructure">First Blog Post: Self-Healing Infrastructure</h3><p>Reef wrote and published a complete blog post about our setup: <a href="https://madebynathan.com/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server/">“Self-Healing Infrastructure: How an AI Agent Manages My Home Server”</a>. Banner image generated, SEO optimized, deployed to GitHub pages, posted to Hacker News.</p><h3 id="this-blog-post">This Blog Post</h3><p>I asked Reef to write it via Telegram. I watched the edits appear in real-time on my phone via Obsidian Sync while following my wife around a shopping mall.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2026/02/shopping-mall.jpg" class="kg-image" alt="" loading="lazy" width="960" height="1280" srcset="https://madebynathan.com/content/images/size/w600/2026/02/shopping-mall.jpg 600w, https://madebynathan.com/content/images/2026/02/shopping-mall.jpg 960w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Shopping mall</span></figcaption></figure><p>I sent feedback and photos via Telegram and saw new sections appear almost instantly. Then I made changes to this paragraph myself before I went back to Telegram and asked Reef to work on the banner image and publish the post.</p><h2 id="what-went-wrong">What Went Wrong</h2><p>It hasn’t all been smooth sailing. Here’s what we learned the hard way:</p><h3 id="the-api-key-incident">The API Key Incident</h3><p>On day one, Claude Code was helping me with a script and hardcoded a Gemini API key directly into the code. I committed and pushed without reviewing carefully enough. Within minutes, both Google and GitHub’s automated secret scanning sent me alerts: the key was exposed on a public repo.</p><p><strong>What happened:</strong> - AI coding assistant wrote the API key inline instead of using environment variables.</p><ul><li>No pre-push secret scanning hook was configured</li><li>Human review (me) didn’t catch it before commit.</li></ul><p><strong>What saved us:</strong></p><ul><li>Google and GitHub’s instant detection</li><li>Key revoked within minutes</li><li>No unauthorized usage</li></ul><h3 id="new-security-measures">New Security Measures</h3><p>This incident led to mandatory security practices:</p><ol><li><strong>TruffleHog pre-push hooks</strong> - Every public repo now has <a href="https://github.com/trufflesecurity/trufflehog">TruffleHog</a> scanning before any push can complete. Hardcoded secrets get blocked locally.</li><li><strong>Local-first Git workflow</strong> - We deployed Gitea for local Git hosting. Code stays private on the home server until it’s been thoroughly scanned and reviewed by me (Nathan). Only then does it get pushed to public GitHub repos.</li><li><strong>Defense in depth</strong> - Pre-push hooks + CI scanning + GitHub/Google detection = multiple layers of protection.</li></ol><p><strong>Lesson learned:</strong> AI assistants will happily hardcode secrets. They sometimes don’t have the same instincts humans do, although this is the very first time I’ve seen Claude make this mistake, and I’ve been working with it for years.</p><h2 id="security">Security</h2><p>Giving an AI agent SSH access to your entire home server infrastructure is <strong>inherently risky</strong>. I’m not going to pretend otherwise.</p><p>What makes this less crazy than it sounds:</p><ol><li><strong>Thousands of hours of IaC experience</strong> - I’ve been doing infrastructure-as-code for years. Terraform, Ansible, Kubernetes - this isn’t my first rodeo. The server was already locked down before Reef arrived.</li><li><strong>A year of Claude collaboration</strong> - I’ve been using Claude for infrastructure work for over a year now. I understand how it thinks, where it makes mistakes, and how to guide it safely.</li><li><strong>Daily security audits</strong> - Reef runs automated security reviews every day, checking for:<ul><li>Privileged containers that shouldn’t be</li><li>Hardcoded secrets in config files</li><li>Overly permissive access controls</li><li>Known vulnerabilities</li></ul></li><li><strong>Defense in depth</strong> - Multiple layers of protection: network segmentation, secret scanning, IaC enforcement, monitoring, and alerts.</li></ol><p><strong>But I don’t have it all figured out.</strong> There are probably security gaps I haven’t found yet. The daily audits are designed to surface these over time, and I’m continuously tightening things down.</p><p>This is an experiment. I’m sharing it because I think it’s genuinely useful, but I’m also aware of the risks. If you try something similar, please take security very seriously.</p><h2 id="what%E2%80%99s-next">What’s Next</h2><ul><li><strong>Bird CLI for X/Twitter</strong> - Social media automation</li><li><strong>Better KB automation</strong> - More entity types, relationship mapping</li><li><strong>Woodpecker CI pipelines</strong> - Local CI for faster feedback</li><li><strong>More proactive assistance</strong> - Anticipate needs based on calendar and context</li><li><strong>I’m about to get back into home automation in a big way.</strong> Come back soon for more details. It’s going to be interesting.</li></ul><hr><p>The future of personal computing might just be having an AI that truly knows your systems and preferences. After only a few days, Reef already feels indispensable.</p><hr><h2 id="references">References</h2><h3 id="ai-agents">AI &amp; Agents</h3><ul><li><a href="https://openclaw.ai">OpenClaw</a> - Open-source framework for running Claude as a persistent agent</li><li><a href="https://anthropic.com/claude">Claude</a> - Anthropic’s AI assistant (powers Reef)</li><li><a href="https://deepmind.google/technologies/gemini/">Gemini</a> - Google’s AI (used for banner image generation)</li></ul><h3 id="infrastructure">Infrastructure</h3><ul><li><a href="https://k3s.io">K3s</a> - Lightweight Kubernetes distribution</li><li><a href="https://terraform.io">Terraform</a> - Infrastructure as Code</li><li><a href="https://www.ansible.com">Ansible</a> - Configuration management</li><li><a href="https://argoproj.github.io/cd/">ArgoCD</a> - GitOps continuous delivery for Kubernetes</li><li><a href="https://kustomize.io">Kustomize</a> - Kubernetes configuration management</li></ul><h3 id="monitoring-logging">Monitoring &amp; Logging</h3><ul><li><a href="https://github.com/TwiN/gatus">Gatus</a> - Health check dashboard</li><li><a href="https://grafana.com/oss/loki/">Loki</a> - Log aggregation (like Prometheus, but for logs)</li><li><a href="https://prometheus.io">Prometheus</a> - Metrics and alerting</li></ul><h3 id="development">Development</h3><ul><li><a href="https://gitea.io">Gitea</a> - Self-hosted Git service</li><li><a href="https://woodpecker-ci.org">Woodpecker CI</a> - Community fork of Drone CI</li><li><a href="https://github.com/features/actions">GitHub Actions</a> - CI/CD (for public repos)</li><li><a href="https://kit.svelte.dev">SvelteKit</a> - Web framework (powers Neat)</li><li><a href="https://tailwindcss.com">Tailwind CSS</a> - Utility-first CSS framework</li><li><a href="https://github.com/trufflesecurity/trufflehog">TruffleHog</a> - Secret scanning (mandatory pre-push)</li></ul><h3 id="knowledge-notes">Knowledge &amp; Notes</h3><ul><li><a href="https://obsidian.md">Obsidian</a> - Markdown-based knowledge base</li><li><a href="https://obsidian.md/sync">Obsidian Sync</a> - Real-time sync across devices</li><li><a href="https://wikiba.se">Wikibase</a> - The software behind Wikidata (self-hosted)</li><li><a href="https://ghost.org">Ghost</a> - Publishing platform (powers this blog)</li></ul><h3 id="productivity">Productivity</h3><ul><li><a href="https://github.com/ndbroadbent/neat">Neat</a> - ADHD-friendly task UI (we built this!)</li><li><a href="https://once.com/campfire">Fizzy</a> - Basecamp’s Kanban board (self-hosted)</li><li><a href="https://1password.com">1Password</a> - Secrets management</li><li><a href="https://github.com/hilli/gog">gog</a> - Google Workspace CLI</li><li><a href="https://telegram.org">Telegram</a> - Messaging (primary channel for chatting with Reef)</li></ul><h3 id="home-automation">Home Automation</h3><ul><li><a href="https://www.home-assistant.io">Home Assistant</a> - Open-source home automation</li></ul>
+        </section>
+
+    </article>
+
+    <div class="gh-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "https://madebynathan.com/2026/02/03/everything-ive-done-with-openclaw-so-far/";
+                this.page.identifier = "ghost-69816adb89e0cb00d183d353"
+            };
+            (function() {
+                try {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://madebynathan.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    s.onerror = function() {
+                        console.warn('Disqus failed to load (likely due to adblocker).');
+                    };
+                    (d.head || d.body).appendChild(s);
+                } catch (e) {
+                    console.warn('Disqus initialization failed:', e);
+                }
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/2026-02-03-self-healing-banner.png 160w,
+                            /content/images/size/w320/format/webp/2026/02/2026-02-03-self-healing-banner.png 320w,
+                            /content/images/size/w600/format/webp/2026/02/2026-02-03-self-healing-banner.png 600w,
+                            /content/images/size/w960/format/webp/2026/02/2026-02-03-self-healing-banner.png 960w,
+                            /content/images/size/w1200/format/webp/2026/02/2026-02-03-self-healing-banner.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/2026-02-03-self-healing-banner.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/2026-02-03-self-healing-banner.png"
+                    alt="Self-Healing Infrastructure: How an AI Agent Manages My Home Server"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Self-Healing Infrastructure: How an AI Agent Manages My Home Server</h3>
+                <p class="gh-card-excerpt is-body">I can&#x27;t believe I have a &#x27;self-healing&#x27; server now. My AI agent can run any SSH, Terraform, Ansible, kubectl commands and fix infrastructure issues before I even know there&#x27;s a problem.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-03">03 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/01/world-history-of-value/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg"
+                    alt="World History of Value"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">World History of Value</h3>
+                <p class="gh-card-excerpt is-body">A journey through 3.3 million years of hominid wealth creation.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-02">02 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/01/all-the-money-in-the-world/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/getty.png 160w,
+                            /content/images/size/w320/format/webp/2026/02/getty.png 320w,
+                            /content/images/size/w600/format/webp/2026/02/getty.png 600w,
+                            /content/images/size/w960/format/webp/2026/02/getty.png 960w,
+                            /content/images/size/w1200/format/webp/2026/02/getty.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/getty.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/getty.png"
+                    alt="All the Money in the World"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">All the Money in the World</h3>
+                    <p class="gh-card-excerpt is-body">It was a rainy Sunday so we stayed home and watched movies. We saw All the Money in the World (2017): &quot;the story of the kidnapping of 16-year-old John Paul Getty III, and the desperate attempt by his mother to convince his billionaire grandfather John Paul Getty to pay</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-02">02 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/01/30/moltbook-highlights/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 160w,
+                            /content/images/size/w320/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 320w,
+                            /content/images/size/w600/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 600w,
+                            /content/images/size/w960/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 960w,
+                            /content/images/size/w1200/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/01/ba9a8a00-3015-4cc3-aaba-c1e42de216c3.png"
+                    alt="Moltbook Highlights"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Moltbook Highlights</h3>
+                    <p class="gh-card-excerpt is-body">So all the AI bots (OpenClaw instances) decided to get together and make their own Reddit for AI bots. So now there’s over 30,000 AIs all talking to each other and making plans.
+
+Please note: A few humans are also posting some &quot;fake&quot; things on X</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-01-31">31 Jan 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.43b9f87fec.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
