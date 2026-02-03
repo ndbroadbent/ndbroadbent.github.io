@@ -41,7 +41,7 @@
             display: none; 
         }
 
-        #disqus_thread {
+        .giscus {
             grid-column: main;
             width: 100%;
             max-width: 720px;
@@ -245,27 +245,23 @@ This booking confirmation was sent to my personal email address.">
     </article>
 
     <div class="gh-comments gh-canvas">
-        <div id="disqus_thread"></div>
-        <script>
-            var disqus_config = function () {
-                this.page.url = "https://madebynathan.com/2025/11/25/youre-going-to-australia/";
-                this.page.identifier = "ghost-69259c7654f5bc06ba058200"
-            };
-            (function() {
-                try {
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://madebynathan.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    s.onerror = function() {
-                        console.warn('Disqus failed to load (likely due to adblocker).');
-                    };
-                    (d.head || d.body).appendChild(s);
-                } catch (e) {
-                    console.warn('Disqus initialization failed:', e);
-                }
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+        data-repo="ndbroadbent/ndbroadbent.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMzg2MDY4"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOACRolM4C1za3"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<noscript>Please enable JavaScript to view comments.</noscript>
     </div>
 
 </main>
