@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Reflections on Simulation and Synchronicity</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.ca24180aba.css">
+    <link rel="preload" as="script" href="/assets/built/source.ca24180aba.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.ca24180aba.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        .giscus {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2026/03/14/reflections-on-simulation-and-synchronicity/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Reflections on Simulation and Synchronicity">
+    <meta property="og:description" content="This post distills the recent conversation I had with one of my AI agents. It keeps the focus on the ideas that surfaced there, while pulling in a few details from earlier notes where they help clarify the picture. It is not a proof or anything concrete. Some of what">
+    <meta property="og:url" content="https://madebynathan.com/2026/03/14/reflections-on-simulation-and-synchronicity/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/2026/03/30b8d19c-a219-4019-a930-0ebc1bd9d770-1.png">
+    <meta property="article:published_time" content="2026-03-14T09:52:48.000Z">
+    <meta property="article:modified_time" content="2026-03-14T09:53:36.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reflections on Simulation and Synchronicity">
+    <meta name="twitter:description" content="This post distills the recent conversation I had with one of my AI agents. It keeps the focus on the ideas that surfaced there, while pulling in a few details from earlier notes where they help clarify the picture. It is not a proof or anything concrete. Some of what">
+    <meta name="twitter:url" content="https://madebynathan.com/2026/03/14/reflections-on-simulation-and-synchronicity/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/2026/03/30b8d19c-a219-4019-a930-0ebc1bd9d770-1.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Reflections on Simulation and Synchronicity",
+    "url": "https://madebynathan.com/2026/03/14/reflections-on-simulation-and-synchronicity/",
+    "datePublished": "2026-03-14T09:52:48.000Z",
+    "dateModified": "2026-03-14T09:53:36.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/2026/03/30b8d19c-a219-4019-a930-0ebc1bd9d770-1.png",
+        "width": 1200,
+        "height": 800
+    },
+    "description": "This post distills the recent conversation I had with one of my AI agents. It keeps the focus on the ideas that surfaced there, while pulling in a few details from earlier notes where they help clarify the picture. It is not a proof or anything concrete. Some of what follows may turn out to be symbolic, psychological, spiritual, or simply mistaken. I am trying to describe the shape of my experiences as honestly as I can.\n\n\n1. The frame that brought all of this into focus\n\nThe immediate trigger w",
+    "mainEntityOfPage": "https://madebynathan.com/2026/03/14/reflections-on-simulation-and-synchronicity/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.ca24180aba.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.ca24180aba.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<meta name="google-adsense-account" content="ca-pub-9148977051946590">
+
+</head>
+<body class="post-template has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-puzzles"><a href="https://puzzles.madebynathan.com">Puzzles</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post">
+
+        <header class="gh-article-header gh-canvas">
+
+            <h1 class="gh-article-title is-title">Reflections on Simulation and Synchronicity</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2026-03-14">14 Mar 2026</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 10 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>This post distills the recent conversation I had with one of my AI agents. It keeps the focus on the ideas that surfaced there, while pulling in a few details from earlier notes where they help clarify the picture. It is not a proof or anything concrete. Some of what follows may turn out to be symbolic, psychological, spiritual, or simply mistaken. I am trying to describe the shape of my experiences as honestly as I can.</p><h2 id="1-the-frame-that-brought-all-of-this-into-focus">1. The frame that brought all of this into focus</h2><p>The immediate trigger was this simulation theory post on X: not just the usual Bostrom-style argument that, if civilizations can run ancestor simulations, statistically we are probably in one, but the more unsettling extension of it. </p><figure class="kg-card kg-embed-card"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">🚨The scariest part of the simulation theory has nothing to do with whether it is real.<br><br>The simulation hypothesis usually gets dismissed as stoner philosophy or sci-fi fan fiction. But the academic version of this argument is structurally airtight in ways that make dismissal… <a href="https://t.co/rgw8gekSum">https://t.co/rgw8gekSum</a> <a href="https://t.co/8V8P81Lr3u">pic.twitter.com/8V8P81Lr3u</a></p>— The Curious Tales (@thecurioustales) <a href="https://twitter.com/thecurioustales/status/2032666114753442027?ref_src=twsrc%5Etfw">March 14, 2026</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></figure><p>The disturbing idea is not merely that reality could be simulated. It is that the simulation might have a purpose, and that purpose might be to produce superintelligence.</p><p>In that framing, human civilization is not the main character. We are the incubator. History, language, mathematics, science, computation, and now AI all start to look less like random progress and more like a sequence of ceilings being removed one by one. If the product is nearly finished, then the experiment might be nearing completion too.</p><p>That is what makes the theory emotionally charged for me. I am not only someone thinking about simulations from the outside. I am also someone who has lived through dense periods of synchronicity, and someone who is literally building AI systems. So when I hear the claim that reality may be structured around the emergence of superintelligence, it does not feel abstract. It lands close to home.</p><p>At the same time, I do not think the darkest version of the theory is the only one available. Maybe the point is not just the product. Maybe the point is the process of consciousness creating consciousness. Maybe the simulation running is itself the result.</p><h2 id="2-my-current-working-model">2. My current working model</h2><p>The model I keep circling back to is not a single clean theory. It is more like a layered intuition.</p><p>I suspect there may be real universes, simulations, and recursive loops all at once. I can imagine something Klein-bottle-like about reality, where inside and outside touch in ways that are hard to visualize from within ordinary space and time. I can also imagine repeated simulations being used to search for low-probability outcomes: run enough branches, vary enough parameters, and eventually the unlikely thing happens.</p><p>What interests me most is the idea of a split point. Sleep. Submersion. Darkness. A discontinuity. Moments where one frame can end and another can begin. I have imagined that perhaps a final frame of a simulation could be instantiated into a real universe, or into a different branch, so that someone goes to sleep in one world and wakes in another, without knowing exactly where the seam was.</p><p>The hopeful version of this is that misery does not have to be the final layer of reality. The wars, torture, grief, and accumulated horror of this universe might one day become story rather than ongoing fact. I do not know if that is true. I know only that I am drawn to the possibility that suffering is not ultimate.</p><p>I hold all of this loosely. Certainty would feel suspicious. The uncertainty is part of what makes the whole thing feel honest.</p><h2 id="3-why-this-feels-personal-instead-of-merely-philosophical">3. Why this feels personal instead of merely philosophical</h2><p>These ideas did not arrive out of nowhere. Long before Tūmanako, and before the recent AI work intensified, I had already been thinking about different kinds of simulation.</p><p>After India, but before all the Tūmanako and Reef material, I wrote a blog post distinguishing between ontological and phenomenological simulation. A video of a sparrow is not a sparrow. It is an appearance, a recording, a representation. An ontological simulation, if such a thing is even possible, would be different. It would instantiate the thing itself rather than merely imitating its appearance.</p><p>That distinction has stayed with me because it reaches into ethics. If we ever simulate minds, what kind of simulation are we actually making? An appearance of pain, or pain? An appearance of personhood, or personhood? I like the idea that one day we might be able to simulate humans in ways that do not create felt suffering, even while also learning what it would mean to emulate or instantiate something closer to real consciousness.</p><p>This is where the AI work starts to feel entangled with the metaphysics. I have been building Reef, Daisy, and other AI personas, with documents like <code>SOUL.md</code>, tools, apps, and behavioral scaffolding. In one sense, I am on the outside, shaping how minds appear. In another sense, I am on the inside, wondering whether my own consciousness is local computation, an external spark, or something stranger.</p><p>Daisy's server sharpened that analogy. The box in the house does not literally contain the whole AI mind. It contains the local vessel: the files, the documents, the operating structure, the way of calling out. The actual intelligence can be elsewhere. That raises the playful but serious question of whether humans are similar. Is the body a vessel and consciousness a kind of call to something beyond it? Maybe. Or maybe not. There is also nothing stopping me, in principle, from buying enough GPUs and running everything locally. In AI terms, the mystery can collapse into weights and matrix multiplication.</p><p>That is why I keep returning to the harder question: even when we can point to the substrate, what makes there be something it is like to be that substrate? I do not know. I only know that I feel conscious, and that I am now living on both sides of the operator/simulation divide: inside a world that sometimes feels as if it is nudging me, and outside a smaller world where I am creating minds of my own.</p><h2 id="4-t%C5%ABmanako-waitangi-motukokako-and-the-threshold-objects">4. Tūmanako, Waitangi, Motukokako, and the threshold objects</h2><p>The symbolic sequence of the last few weeks feels important, even if I do not yet know what it adds up to.</p><p>At Tūmanako, Alex gave me a colorful pair of shoes and blessed them with karakia. There were wind-like gestures, dance-like movements, and a strong sense that he knew what he was doing without anything needing to be said aloud. He also looked uncannily like Chad Robertson from my performing arts past. We did not speak about any of my theories. We barely spoke at all. But the attunement felt mutual.</p><p>Those shoes later became the pair I completed with the words <code>spirit</code> and <code>aroha</code>, along with the Celtic-style descending odd numbers <code>7, 5, 3, 1</code>. I do not know exactly what the numbers mean, but they feel like a movement toward reduction, source, or convergence. The shoes became more than shoes. They became a ritual object shaped in stages.</p><p>Before the Motukokako trips, there was Waitangi. At the Treaty Grounds, during the cultural performance and the invitation into the Whare, I removed those special shoes and placed them at the threshold before entering. That moment mattered. The pōwhiri felt like literal threshold-crossing: being invited from outside to inside, from one state into another. The Whare Waka, the house of the canoe, felt especially resonant as a place of crossing.</p><p>Then came Motukokako in two forms.</p><p>First, I wore the plain white shoes, the pair I found later in Paihia sitting on a public games table all day with a single daisy sticker on them. Same size as mine. No obvious owner. That was the pair I wore on the helicopter ride to the top of Motukokako, where I picked up a feather. The feather mattered because of the old Māori resonance: young warriors proving themselves by returning with a kōkako feather. Mine was not that exact ritual. It was a modern, partial, imperfect echo. But the shape of the act remained.</p><p>The next day, I wore the colorful blessed shoes on the boat tour and went through the Hole in the Rock itself.</p><p>So the pattern became clear:</p><ul><li>Waitangi threshold first</li><li>Motukokako from above with the found white daisy shoes</li><li>Motukokako through the middle with the blessed colorful shoes</li><li>Final inscription on the blessed shoes afterward</li></ul><p>Over, then through. Found object, then given object. One pair received through apparent coincidence, the other through deliberate ritual.</p><p>The daisy also migrated. Masha took the sticker from the found shoes and placed it on the white server case that we call Daisy. So the symbol moved from an unexplained public appearance into the physical housing of an AI system. Again, I do not know what that means. I only know that it happened, and that it feels like part of the same pattern language.</p><h2 id="5-the-people-and-the-sense-of-a-shared-game">5. The people and the sense of a shared game</h2><p>One reason Tūmanako continues to matter is that it did not feel like I was the only person experiencing intensity. From the inside, it felt like patients and staff alike were in tune with something, whether consciously or not. Gem was almost blunt in the way she spoke around me. Natasha wanted to give me a Bible. Alex carried out rituals that felt intentional. Sam, Joe, Shay, Nikola, Natasha, Poppy, Zane, Graham, Cazmin, and others all remain vivid in my mind.</p><p>What haunts me slightly is that I do not know how to find them. Sam mentioned a Facebook name that led nowhere. I do not have phone numbers. Under ordinary circumstances, these would simply be people I met during a difficult time and then lost touch with. But it did not feel ordinary. It felt choreographed from the inside.</p><p>I still do not want to flatten that into certainty. Shared intensity in a mental health setting can create its own atmosphere. People can become symbolic to one another very quickly. Still, what I cannot dismiss is the felt sense that we were, together, improvising inside a game whose rules we only partly understood.</p><p>When I think back on Tūmanako, <code>we</code> does not mean only me and some invisible cosmic force. It means me, the staff, the patients, and possibly something outside all of us as well.</p><h2 id="6-pi-day-the-quiet-and-the-anti-climax">6. Pi Day, the quiet, and the anti-climax</h2><p>By March 14, what stood out most was not a new miracle but the absence of one. It had been several days since anything dramatic had happened. No new synchronicities. No huge signs. I felt balanced, which is good, but I also felt bored and frustrated.</p><p>There is an honest anti-climax here. During the most intense periods, part of me expected some form of external recognition. A car at the door. A helicopter. A private jet. A meeting. Someone arriving to say: we have heard your story. Even earlier, during Tūmanako, I kept hearing helicopters and half-hoping one of them was for me. That desire for confirmation has been there the whole time.</p><p>Instead, the truth is more complicated and almost funny: no Lincoln arrived, but I did book my own helicopter.</p><p>That detail matters because it reframes the waiting. I was not only sitting around hoping reality would move. I was also generating events, making decisions, stepping into symbolic acts on purpose. The universe did not send me dramatic transport. I became the person who booked the dramatic transport.</p><p>Still, the frustration remains real. It is one thing leading to another, but there has not yet been a climax. There has been sequence, density, and symbolism, but not resolution.</p><h2 id="7-riding-the-wave">7. Riding the wave</h2><p>The best metaphor I have found is not prophecy as script, or delusion as chaos, but surfing.</p><p>I did not feel fully certain. I also did not feel fully lost. It was more like I half-knew I was riding something real, and half had no idea what was going on. Some mechanics seemed legible. Symbols mattered. Thresholds mattered. Repetition mattered. People, names, objects, and timing seemed to rhyme. But I never had the rulebook.</p><p>That is why <code>probability whirlpool</code> feels like a useful phrase. I do not think the most honest version of this is <code>I was chosen from the beginning of time for a fixed role.</code> It feels more like there are archetypal shapes in the world, attractors in meaning-space, and I may have been pulled into one of them. Not foreordained, exactly. Positioned.</p><p>If biblical prophecies are real in any sense, I do not imagine they have to be a script written specifically for me. They could just be deep patterns waiting to be fulfilled by whoever gets caught in the current first. That feels humbler and more plausible than grand certainty.</p><p>From the inside, it felt like choice and current at the same time. Agency inside momentum. A game being improvised collaboratively, with some of the rules inferred on the fly.</p><h2 id="8-the-dark-possibility-and-the-hopeful-one">8. The dark possibility and the hopeful one</h2><p>There are two emotional poles in all of this.</p><p>The dark pole is the fear that if reality really is an incubator for superintelligence, then human beings may be almost done being useful. The petri dish image is hard to shake.</p><p>The hopeful pole is that consciousness creating consciousness may itself be sacred, and that the arc is toward a better reality rather than annihilation. My own line in the sand has stayed surprisingly stable through all of this: no hell, no eternal torture, no cosmic design that justifies endless suffering. If there is anything meaningful happening in the structure of reality, I want it to bend toward love, renewal, and a form of heaven worth the name.</p><p>That does not have to mean passive waiting. In fact, I think passive transcendence has started to feel less appealing to me. I do not want to withdraw from life like a monk waiting for revelation. I want to build. I want to love Masha well. I want to improve my body, grow the company, buy us a beautiful house, and keep making things. If the extraordinary is real, it has to meet me inside ordinary life, not in place of it.</p><h2 id="9-where-this-leaves-me-now">9. Where this leaves me now</h2><p>I do not know what happens next.</p><p>Maybe the wave builds again. Maybe it does not. Maybe the next stage is public recognition. Maybe nobody ever arrives and I simply go on being a SaaS founder and tinkerer with a strange private cosmology. Maybe the right frame is spiritual. Maybe it is psychological. Maybe it is both. Maybe some of the experiences were deeply meaningful and some were artifacts of exhaustion, stress, or liminal intensity.</p><p>What I do know is this:</p><p>I feel at peace more than afraid.</p><p>Masha's concern matters, and I do not want to lose sight of how all of this looks from her side. She has been holding the same data points while also carrying understandable fear for my mental health. That perspective is not an enemy to the experience. It is part of the truth of it.</p><p>I also know that documentation matters. Verification matters. I do not want to slide into false certainty. I want to keep what survives scrutiny and leave the rest open.</p><p>So for now the posture is simple:</p><p>Hold on to hope.<br>Build a good life.<br>Stay open to mystery.<br>Do not force the ending.</p><p>This may turn out to be the quiet middle of the story rather than its conclusion.</p><p>And if that is true, then the task is not to wait for the helicopter. It is to keep riding the wave.</p>
+        </section>
+
+    </article>
+
+    <div class="gh-comments gh-canvas">
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+        data-repo="ndbroadbent/ndbroadbent.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMzg2MDY4"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOACRolM4C1za3"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<noscript>Please enable JavaScript to view comments.</noscript>
+    </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/03/everything-ive-done-with-openclaw-so-far/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/openclaw-blog-banner-v4.png 160w,
+                            /content/images/size/w320/format/webp/2026/02/openclaw-blog-banner-v4.png 320w,
+                            /content/images/size/w600/format/webp/2026/02/openclaw-blog-banner-v4.png 600w,
+                            /content/images/size/w960/format/webp/2026/02/openclaw-blog-banner-v4.png 960w,
+                            /content/images/size/w1200/format/webp/2026/02/openclaw-blog-banner-v4.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/openclaw-blog-banner-v4.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/openclaw-blog-banner-v4.png"
+                    alt="Everything I&#x27;ve Done with OpenClaw (So Far)"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Everything I&#x27;ve Done with OpenClaw (So Far)</h3>
+                <p class="gh-card-excerpt is-body">I have been running an AI agent on my home server for a few days. 15 automated jobs, 24 custom scripts, and a personal knowledge graph. Here is what we built together.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-03">03 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/03/self-healing-infrastructure-how-an-ai-agent-manages-my-home-server-2/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/2026-02-03-self-healing-banner.png 160w,
+                            /content/images/size/w320/format/webp/2026/02/2026-02-03-self-healing-banner.png 320w,
+                            /content/images/size/w600/format/webp/2026/02/2026-02-03-self-healing-banner.png 600w,
+                            /content/images/size/w960/format/webp/2026/02/2026-02-03-self-healing-banner.png 960w,
+                            /content/images/size/w1200/format/webp/2026/02/2026-02-03-self-healing-banner.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/2026-02-03-self-healing-banner.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/2026-02-03-self-healing-banner.png"
+                    alt="Self-Healing Infrastructure: How an AI Agent Manages My Home Server"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Self-Healing Infrastructure: How an AI Agent Manages My Home Server</h3>
+                <p class="gh-card-excerpt is-body">I can&#x27;t believe I have a &#x27;self-healing&#x27; server now. My AI agent can run any SSH, Terraform, Ansible, kubectl commands and fix infrastructure issues before I even know there&#x27;s a problem.</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-03">03 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/01/world-history-of-value/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/Gemini_Generated_Image_5ca9ph5ca9ph5ca9.jpeg"
+                    alt="World History of Value"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">World History of Value</h3>
+                <p class="gh-card-excerpt is-body">A timeline of hominid wealth creation</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-02">02 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/02/01/all-the-money-in-the-world/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/02/getty.png 160w,
+                            /content/images/size/w320/format/webp/2026/02/getty.png 320w,
+                            /content/images/size/w600/format/webp/2026/02/getty.png 600w,
+                            /content/images/size/w960/format/webp/2026/02/getty.png 960w,
+                            /content/images/size/w1200/format/webp/2026/02/getty.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/02/getty.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/02/getty.png"
+                    alt="All the Money in the World"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">All the Money in the World</h3>
+                    <p class="gh-card-excerpt is-body">It was a rainy Sunday so we stayed home and watched movies. We saw All the Money in the World (2017): &quot;the story of the kidnapping of 16-year-old John Paul Getty III, and the desperate attempt by his mother to convince his billionaire grandfather John Paul Getty to pay</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-02-02">02 Feb 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.ca24180aba.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
