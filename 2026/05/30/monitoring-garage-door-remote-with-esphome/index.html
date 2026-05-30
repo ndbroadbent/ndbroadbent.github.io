@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Listening for Garage Door Remotes with ESPHome</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.ffc2188107.css">
+    <link rel="preload" as="script" href="/assets/built/source.ffc2188107.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.ffc2188107.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        .giscus {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2026/05/30/monitoring-garage-door-remote-with-esphome/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Listening for Garage Door Remotes with ESPHome">
+    <meta property="og:description" content="We are renting a house that has two old garage door openers. We have a switch by our front door that controls the garage doors. I think the landlords or the previous tenants lost the garage door remotes. We received two remotes when we moved in, but I couldn&#x27;t get">
+    <meta property="og:url" content="https://madebynathan.com/2026/05/30/monitoring-garage-door-remote-with-esphome/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/2026/05/SCR-20260530-kwrv.png">
+    <meta property="article:published_time" content="2026-05-30T00:01:00.000Z">
+    <meta property="article:modified_time" content="2026-05-30T00:11:17.000Z">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="electronics">
+    <meta property="article:tag" content="home-automation">
+    <meta property="article:tag" content="reverse-engineering">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Listening for Garage Door Remotes with ESPHome">
+    <meta name="twitter:description" content="We are renting a house that has two old garage door openers. We have a switch by our front door that controls the garage doors. I think the landlords or the previous tenants lost the garage door remotes. We received two remotes when we moved in, but I couldn&#x27;t get">
+    <meta name="twitter:url" content="https://madebynathan.com/2026/05/30/monitoring-garage-door-remote-with-esphome/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/2026/05/SCR-20260530-kwrv.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Automation, electronics, home-automation, reverse-engineering">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="621">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Listening for Garage Door Remotes with ESPHome",
+    "url": "https://madebynathan.com/2026/05/30/monitoring-garage-door-remote-with-esphome/",
+    "datePublished": "2026-05-30T00:01:00.000Z",
+    "dateModified": "2026-05-30T00:11:17.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/2026/05/SCR-20260530-kwrv.png",
+        "width": 1200,
+        "height": 621
+    },
+    "keywords": "Automation, electronics, home-automation, reverse-engineering",
+    "description": "We are renting a house that has two old garage door openers. We have a switch by our front door that controls the garage doors. I think the landlords or the previous tenants lost the garage door remotes. We received two remotes when we moved in, but I couldn&#x27;t get them to work, so I think they bought the wrong replacement remote for one of our doors.\n\nWe have a Merlin M230T garage door opener, which is an older model sold between 1996 and 2001. This one uses DIN switches to configure the securit",
+    "mainEntityOfPage": "https://madebynathan.com/2026/05/30/monitoring-garage-door-remote-with-esphome/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.ffc2188107.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.ffc2188107.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<meta name="google-adsense-account" content="ca-pub-9148977051946590">
+
+</head>
+<body class="post-template tag-automation tag-electronics tag-home-automation tag-reverse-engineering has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-puzzles"><a href="https://puzzles.madebynathan.com">Puzzles</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post tag-automation tag-electronics tag-home-automation tag-reverse-engineering">
+
+        <header class="gh-article-header gh-canvas">
+
+                <a class="gh-article-tag" href="https://madebynathan.com/tag/automation/">Automation</a>
+            <h1 class="gh-article-title is-title">Listening for Garage Door Remotes with ESPHome</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2026-05-30">30 May 2026</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>We are renting a house that has two old garage door openers. We have a switch by our front door that controls the garage doors. I think the landlords or the previous tenants lost the garage door remotes. We received two remotes when we moved in, but I couldn't get them to work, so I think they bought the wrong replacement remote for one of our doors.</p><p>We have a Merlin M230T garage door opener, which is an older model sold between 1996 and 2001. This one uses DIN switches to configure the security code:</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://www.garagedoorremotes.co.nz/images/529997/1331.jpg" width="448" height="252" loading="lazy" alt="Merlin 230t Garage Door Opener NZ"></div><div class="kg-gallery-image"><img src="https://images.younghouselove.com/2013/07/Garage-7-Screwdriver.jpg" width="500" height="333" loading="lazy" alt="How To Program Your Garage Doors | Young House Love"></div></div></div></figure><p>It looks like the landlord or a previous tenant bought a newer M842R remote that uses "rolling codes" for security. This remote is for garage door openers made between 2001-2007.</p><p>We needed an M802 remote for our old garage door, but a replacement remote costs $100.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.gomerlin.co.nz/product/two-button-remote-control/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Two-Button Remote Control M802R (Blue Button) | Merlin AU</div><div class="kg-bookmark-description">Enhance your garage experience with the Merlin M802R Remote Control to conveniently support multiple legacy opener systems. Shop today for smoother access.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/favicon-11.ico" alt=""><span class="kg-bookmark-author">Merlin AU</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/person.svg" alt="" onerror="this.style.display = 'none'"></div></a></figure><p></p><p>We moved into this house over a year ago, and the missing garage door remotes haven't been too much of a problem. That's because I set up some Zigbee garage door opener modules:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.aliexpress.com/item/1005006468898589.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">30.49NZ$ 57% OFF|ZigBee Garage Door Opener Dry Contact Tuya Smart Life App Remote Control Supports Alexa Google Home Zigbee2MQTT Gateway Needed| | - AliExpress</div><div class="kg-bookmark-description">Smarter Shopping, Better Living! Aliexpress.com</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://ae01.alicdn.com/images/eng/wholesale/icon/aliexpress.ico" alt=""><span class="kg-bookmark-author">aliexpress.com</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://ae01.alicdn.com/kf/H98559a899ee64d6b855c704b71742964Q/ZigBee-Garage-Door-Opener-Dry-Contact-Tuya-Smart-Life-App-Remote-Control-Supports-Alexa-Google-Home.jpg" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>So we can control the garage doors using Alexa, Siri, and the Home Assistant app on our phones. I've even set up Home Assistant to open and close the garage doors automatically based on our phones' locations.</p><p>But I'd still like to have a remote in our cars as a backup option.</p><p>I have these IR/RF transmitter/receiver boxes in most of the rooms of our house:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.aliexpress.com/item/1005003833775634.html?spm=a2g0o.order_list.order_list_main.10.480b1802tbT8Vr"><div class="kg-bookmark-content"><div class="kg-bookmark-title">60.81NZ$ |KC868-AG ESP32 IR RF Gateway Made For ESPHome Home Assistant Automation DIY</div><div class="kg-bookmark-description">Smarter Shopping, Better Living! Aliexpress.com</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://ae01.alicdn.com/images/eng/wholesale/icon/aliexpress.ico" alt=""><span class="kg-bookmark-author">aliexpress.com</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://ae01.alicdn.com/kf/S678ab17d45ff4d828c4f4f9cdde4ca7bL/KC868-AG-ESP32-IR-RF-Gateway-Made-For-ESPHome-Home-Assistant-Automation-DIY.jpg" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>They run ESPHome so I can configure the firmware and program them to do whatever I like. I mostly use them to control our air conditioners, and I have one in my workshop that controls an old CRT TV using TV remote codes. I also use them as a <a href="https://esphome.io/components/bluetooth_proxy.html" rel="noreferrer">Bluetooth Proxy</a> for Home Assistant, which means that I can send and receive bluetooth signals across my entire house without worrying about range. I use bluetooth temperature and humidity sensors, a <a href="https://www.switch-bot.com/products/switchbot-bot" rel="noreferrer">Switchbot</a> to turn on our coffee machine in the morning, and a bluetooth LPG gas sensor on our gas tank.</p><p>They're quite expensive devices, but I'm very happy with them. They work flawlessly and I can run my own custom ESPHome firmware without calling out to any cloud services. I was thinking about designing my own PCBs and 3D printing cases, but my electrical engineering skills aren't quite there yet.</p><hr><p>These little boxes can also send and receive radio signals on the 433 MHz band. Fortunately, that's the same radio band that this garage door opener uses.</p><p>So I was wondering if there's a way I could use these IR/RF boxes as a bridge for the newer incompatible garage door remotes. I could listen for the button presses and then relay that signal to the Zigbee garage door module.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2026/05/image-10.png" class="kg-image" alt="" loading="lazy" width="900" height="633" srcset="https://madebynathan.com/content/images/size/w600/2026/05/image-10.png 600w, https://madebynathan.com/content/images/2026/05/image-10.png 900w" sizes="(min-width: 720px) 720px"></figure><p>I pulled up the ESPHome logs and started looking for "RCSwitch Raw" codes:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-2.38.09-PM.png" class="kg-image" alt="" loading="lazy" width="2000" height="1414" srcset="https://madebynathan.com/content/images/size/w600/2024/04/Screenshot-2024-04-22-at-2.38.09-PM.png 600w, https://madebynathan.com/content/images/size/w1000/2024/04/Screenshot-2024-04-22-at-2.38.09-PM.png 1000w, https://madebynathan.com/content/images/size/w1600/2024/04/Screenshot-2024-04-22-at-2.38.09-PM.png 1600w, https://madebynathan.com/content/images/2024/04/Screenshot-2024-04-22-at-2.38.09-PM.png 2278w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Ignore the "remote.pronto" lines. I have quite a few devices in my house, so the RF logs can be quite noisy sometimes.</span></figcaption></figure><p>This is when I pressed the main button:</p><pre><code class="language-log">[14:32:06][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='1001001010'
+[14:37:36][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='001011010'
+[14:37:36][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='10001111111'
+[14:37:38][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='10100001'
+[14:37:42][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='010010001'
+[14:37:43][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='11100011011'</code></pre><p>This is when I pressed the smaller button:</p><pre><code>[14:40:32][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='101101000'
+[14:40:33][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='010010001'
+[14:40:34][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='01001000111'
+[14:40:34][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='100001110'
+[14:40:35][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='00001100111'
+[14:40:36][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='1111100000'
+[14:40:37][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='11100001'
+[14:40:39][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='10111000100001'
+[14:40:42][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='11101001101'
+[14:40:42][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='110111101'
+[14:40:43][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='1011000000001'
+[14:40:43][I][remote.rc_switch:261]: Received RCSwitch Raw: protocol=6 data='1100100110'</code></pre><hr><p>I gave up at this point since I couldn't figure out the protocol or how to keep it secure. Unfortunately, I'm not good enough at reverse engineering or electronics to figure out how to pair a garage door remote and verify the radio signal.</p><p>I don't live in that house anymore, but I thought I would publish this blog post anyway since it had been sitting in my drafts for a few years. But it's 2026 now, and AI is getting very smart, so here are a few paragraphs about how ChatGPT would have approached this problem.</p><h2 id="what-chatgpt-would-try-next">What ChatGPT Would Try Next</h2><blockquote>The key thing to understand is that pairing a rolling-code garage remote is not the same as recording and replaying a fixed 433 MHz signal. When a compatible opener is put into learn mode, it does not simply save the exact RF packet that was transmitted. Instead, it learns the remote’s identity and current synchronization state. Future button presses produce different codes, usually based on a counter and a cryptographic algorithm. The opener can accept the next valid codes because it already understands the manufacturer’s rolling-code scheme and has the secret material needed to verify them.</blockquote><blockquote>That means a custom ESPHome or Home Assistant receiver could not reliably “pair” with the newer Merlin remote just by seeing one button press. It would need to decode the remote’s actual protocol, identify which parts of the packet are stable, track the rolling counter, and validate the changing encrypted portion. If the remote used something KeeLoq-like, then reimplementing the receiver would also require the relevant manufacturer key or key-derivation scheme. Without that, the software could perhaps recognize superficial patterns from the remote, but it could not authenticate future button presses in the same way a real Merlin opener would.</blockquote><blockquote>A practical next experiment would have been to capture several raw transmissions from the same button using an RTL-SDR, Flipper Zero, Yard Stick One, or similar RF tool, then compare them bit by bit. If part of the packet stayed constant while another part changed on every press, that would strongly suggest a remote identifier plus rolling-code payload. The project would then become less about “replaying” a garage remote and more about writing a custom rolling-code receiver. That may be possible if the protocol is known or reverse-engineered, but it is not something ESPHome’s generic rc-switch decoder can infer from noisy short <code>RCSwitch Raw</code> logs.</blockquote>
+        </section>
+
+    </article>
+
+    <div class="gh-comments gh-canvas">
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+        data-repo="ndbroadbent/ndbroadbent.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMzg2MDY4"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOACRolM4C1za3"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<noscript>Please enable JavaScript to view comments.</noscript>
+    </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/05/29/sliding-benchtop-organizers/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/05/IMG_5100.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/05/IMG_5100.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/05/IMG_5100.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/05/IMG_5100.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/05/IMG_5100.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/05/IMG_5100.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/05/IMG_5100.jpeg"
+                    alt="Sliding Benchtop Organizers"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Sliding Benchtop Organizers</h3>
+                    <p class="gh-card-excerpt is-body">I don&#39;t have a lot of room in my workshop, so I need to make the most of the space. I have six of these Pinnacle Benchtop Organizers:
+
+It would be convenient to have them all facing the right way on my shelves, but I decided to turn</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-05-30">30 May 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/05/25/i-had-a-psychotic-episode/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/05/B147FBD0-64F0-49D2-9839-145006040E25.png 160w,
+                            /content/images/size/w320/format/webp/2026/05/B147FBD0-64F0-49D2-9839-145006040E25.png 320w,
+                            /content/images/size/w600/format/webp/2026/05/B147FBD0-64F0-49D2-9839-145006040E25.png 600w,
+                            /content/images/size/w960/format/webp/2026/05/B147FBD0-64F0-49D2-9839-145006040E25.png 960w,
+                            /content/images/size/w1200/format/webp/2026/05/B147FBD0-64F0-49D2-9839-145006040E25.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/05/B147FBD0-64F0-49D2-9839-145006040E25.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/05/B147FBD0-64F0-49D2-9839-145006040E25.png"
+                    alt="I Had a Psychotic Episode"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">I Had a Psychotic Episode</h3>
+                    <p class="gh-card-excerpt is-body">I was lying under a bridge by Whangārei Hospital in Northland, nestled among ferns and weeds. My arms were covered in dirt. I had just eaten a daisy and swallowed a tiny sip of stagnant water from a puddle. I was tearing leaves off the ferns to disperse entropy and</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-05-25">25 May 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/05/01/chattomap/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/05/hero-results.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/05/hero-results.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/05/hero-results.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/05/hero-results.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/05/hero-results.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/05/hero-results.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/05/hero-results.jpeg"
+                    alt="ChatToMap"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">ChatToMap</h3>
+                    <p class="gh-card-excerpt is-body">I built an AI app that scans your chats to find all the restaurants, trips, and activities you talked about. It works with chat exports from WhatsApp, iMessage, Facebook Messenger, Telegram, and LINE.
+
+You can try it out at: https://chattomap.com
+
+Here are some screenshots:</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-05-01">01 May 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/04/20/sandtray-box-for-sandplay-therapy/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/04/WhatsApp-Image-2026-04-20-at-10.41.23--1--1.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/04/WhatsApp-Image-2026-04-20-at-10.41.23--1--1.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/04/WhatsApp-Image-2026-04-20-at-10.41.23--1--1.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/04/WhatsApp-Image-2026-04-20-at-10.41.23--1--1.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/04/WhatsApp-Image-2026-04-20-at-10.41.23--1--1.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/04/WhatsApp-Image-2026-04-20-at-10.41.23--1--1.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/04/WhatsApp-Image-2026-04-20-at-10.41.23--1--1.jpeg"
+                    alt="Sandtray Box for Sandplay Therapy"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Sandtray Box for Sandplay Therapy</h3>
+                    <p class="gh-card-excerpt is-body">My wife is a counselor. I enjoy making things to help with her work, such as this &quot;fried rice&quot; toy set:
+
+Fried Rice Sandbox ToyMy wife is a counselor who does “play therapy” at a primary school. She has a sand tray and some toys that kids can</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-04-20">20 Apr 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.ffc2188107.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
