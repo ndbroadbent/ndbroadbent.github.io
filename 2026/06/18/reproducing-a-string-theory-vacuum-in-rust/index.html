@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Reproducing a String Theory Vacuum in Rust</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" as="style" href="/assets/built/screen.b1b090de0c.css">
+    <link rel="preload" as="script" href="/assets/built/source.b1b090de0c.js">
+    
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-roman.woff2" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url(/assets/fonts/inter-roman.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.b1b090de0c.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-xonokai.min.css" integrity="sha512-+5xrjo9FRrb9vHw75lHK0yJxZpwpOWLa8WKl8Wzio0ACZTxLZ40L+yR/RWUscIjPzMbITpxOV4YzxAe3rBn/bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+
+        .gh-navigation-actions button.gh-search {
+            display: none;
+        }
+
+        .nav-sign-up { 
+            display: none; 
+        }
+
+        .giscus {
+            grid-column: main;
+            width: 100%;
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+    </style>
+
+    <script>
+        /* Dark mode initialization - runs before page render to prevent flash */
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+                // Check system preference if no saved preference
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+        
+        /* The script for calculating the color contrast has been taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+
+        if (accentColor.length === 3) {
+            accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+        }
+
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png" type="image/png">
+    <link rel="canonical" href="https://madebynathan.com/2026/06/18/reproducing-a-string-theory-vacuum-in-rust/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Made By Nathan">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Reproducing a String Theory Vacuum in Rust">
+    <meta property="og:description" content="Why does this universe exist? Why is there anything at all?
+
+One night, I got tired of wondering about these questions, so I decided to roll up my sleeves and see if I might be able to help to figure out some answers. Because why not? So for the last">
+    <meta property="og:url" content="https://madebynathan.com/2026/06/18/reproducing-a-string-theory-vacuum-in-rust/">
+    <meta property="og:image" content="https://madebynathan.com/content/images/size/w1200/2026/06/Gemini_Generated_Image_rrkggfrrkggfrrkg.png">
+    <meta property="article:published_time" content="2026-06-18T03:23:08.000Z">
+    <meta property="article:modified_time" content="2026-06-18T03:23:08.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reproducing a String Theory Vacuum in Rust">
+    <meta name="twitter:description" content="Why does this universe exist? Why is there anything at all?
+
+One night, I got tired of wondering about these questions, so I decided to roll up my sleeves and see if I might be able to help to figure out some answers. Because why not? So for the last">
+    <meta name="twitter:url" content="https://madebynathan.com/2026/06/18/reproducing-a-string-theory-vacuum-in-rust/">
+    <meta name="twitter:image" content="https://madebynathan.com/content/images/size/w1200/2026/06/Gemini_Generated_Image_rrkggfrrkggfrrkg.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Nathan Broadbent">
+    <meta name="twitter:site" content="@ndbroadbent">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="805">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Made By Nathan",
+        "url": "https://madebynathan.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://madebynathan.com/content/images/size/w256h256/2025/03/final_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nathan Broadbent",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s=250&r=x&d=mp"
+        },
+        "url": "https://madebynathan.com/author/nathan/",
+        "sameAs": []
+    },
+    "headline": "Reproducing a String Theory Vacuum in Rust",
+    "url": "https://madebynathan.com/2026/06/18/reproducing-a-string-theory-vacuum-in-rust/",
+    "datePublished": "2026-06-18T03:23:08.000Z",
+    "dateModified": "2026-06-18T03:23:08.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://madebynathan.com/content/images/size/w1200/2026/06/Gemini_Generated_Image_rrkggfrrkggfrrkg.png",
+        "width": 1200,
+        "height": 805
+    },
+    "description": "Why does this universe exist? Why is there anything at all?\n\nOne night, I got tired of wondering about these questions, so I decided to roll up my sleeves and see if I might be able to help to figure out some answers. Because why not? So for the last six months, one of my new hobbies has been string theory research. I&#x27;ve spent many nights reproducing a frontier result in string theory, porting a Python physics library to Rust, and standing up a genetic algorithm on my home server that searches t",
+    "mainEntityOfPage": "https://madebynathan.com/2026/06/18/reproducing-a-string-theory-vacuum-in-rust/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Made By Nathan" href="https://madebynathan.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2675eb65489ed4381db100a852" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://madebynathan.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://madebynathan.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.b1b090de0c.js"></script><style>:root {--ghost-accent-color: #1588ef;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.b1b090de0c.css">
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-BcRrHMb-WDJL_dgiM5A81.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<meta name="google-adsense-account" content="ca-pub-9148977051946590">
+
+</head>
+<body class="post-template has-sans-title has-sans-body">
+
+<div class="gh-viewport">
+    
+    <header id="gh-navigation" class="gh-navigation is-middle-logo gh-outer">
+    <div class="gh-navigation-inner gh-inner">
+
+        <div class="gh-navigation-brand">
+            <a class="gh-navigation-logo is-title" href="https://madebynathan.com">
+                    Made By Nathan
+            </a>
+            <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>            <button class="gh-burger gh-icon-button" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>            </button>
+        </div>
+
+        <nav class="gh-navigation-menu">
+            <ul class="nav">
+    <li class="nav-blog"><a href="https://madebynathan.com/">Blog</a></li>
+    <li class="nav-puzzles"><a href="https://puzzles.madebynathan.com">Puzzles</a></li>
+    <li class="nav-docspring"><a href="https://docspring.com">DocSpring</a></li>
+</ul>
+
+        </nav>
+
+        <div class="gh-navigation-actions">
+                    <button class="gh-search gh-icon-button" aria-label="Search this site" data-ghost-search>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>        </div>
+
+    </div>
+</header>
+
+    
+
+<main class="gh-main">
+
+    <article class="gh-article post">
+
+        <header class="gh-article-header gh-canvas">
+
+            <h1 class="gh-article-title is-title">Reproducing a String Theory Vacuum in Rust</h1>
+
+            <div class="gh-article-meta">
+                <div class="gh-article-author-image instapaper_ignore">
+                            <a href="/author/nathan/">
+                                <img class="author-profile-image" src="https://www.gravatar.com/avatar/dfba62f695988e9b7cb5153966ae0ac5?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp" alt="Nathan Broadbent">
+                            </a>
+                </div>
+                <div class="gh-article-meta-wrapper">
+                    <h4 class="gh-article-author-name"><a href="/author/nathan/">Nathan Broadbent</a></h4>
+                    <div class="gh-article-meta-content">
+                        <time class="gh-article-meta-date" datetime="2026-06-18">18 Jun 2026</time>
+                            <span class="gh-article-meta-length"><span class="bull">—</span> 16 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </header>
+
+        <section class="gh-content gh-canvas is-body">
+            <p>Why does this universe exist? Why is there anything at all?</p><p>One night, I got tired of wondering about these questions, so I decided to roll up my sleeves and see if I might be able to help to figure out some answers. Because why not? So for the last six months, one of my new hobbies has been string theory research. I've spent many nights reproducing a frontier result in string theory, porting a Python physics library to Rust, and standing up a genetic algorithm on my home server that searches the "landscape" of string vacua for one that might explain dark energy.</p><p>First: I am not a physicist, and I still don't really understand anything about string theory. I've had to learn everything from scratch, and almost all of the heavy lifting was done by AI coding agents. (AI is very, very good at physics and mathematics now.) Second: this work has&nbsp;<strong>not</strong>&nbsp;found a theory of everything, and it has not yet found a single verified dark-energy vacuum. What it&nbsp;<em>has</em>&nbsp;done is reproduce a published string-theory calculation exactly, from first principles, and turn that into a fast, type-safe engine that now runs a real search 24/7.</p><h2 id="the-physics-in-five-minutes">The physics, in five minutes</h2><p>String theory only makes sense in ten dimensions. To connect it to our four-dimensional world, you roll up the extra six dimensions into a tiny, intricate shape called a&nbsp;<strong>Calabi-Yau manifold</strong>. There are enormous numbers of these shapes, and on each one you can thread different amounts of "flux" (think of it as generalized magnetic field lines) through the manifold's holes. Each choice of shape + flux gives a different effective four-dimensional universe, with different physics. The set of all of them is the&nbsp;<strong>string landscape</strong>, and it is famously, absurdly large — the figure that gets thrown around is something like 10^272,000 distinct flux vacua.</p><p>Two numbers about&nbsp;<em>our</em>&nbsp;universe are spectacularly hard to explain:</p><ul><li><strong>The cosmological constant.</strong>&nbsp;Empty space has an energy density, and ours is tiny and positive — about 10^-122 in natural (Planck) units. Naive estimates from quantum field theory are off by ~120 orders of magnitude. This is widely considered the worst prediction in physics.</li><li><strong>Dark energy's behavior.</strong>&nbsp;Until recently, we assumed that vacuum energy was a true&nbsp;<em>constant</em>&nbsp;(Λ). But the&nbsp;<a href="https://www.desi.lbl.gov/">DESI survey</a>&nbsp;has been publishing data hinting that dark energy might be slowly&nbsp;<strong>weakening over time</strong>&nbsp;— that it's not a constant at all, but a scalar field still gently rolling downhill. In string theory that rolling field is the most natural thing in the world: it's a&nbsp;<em>modulus</em>, one of the geometric parameters of the Calabi-Yau. A rolling-scalar dark energy is called&nbsp;<strong>quintessence</strong>.</li></ul><p>Here's the punchline that makes this exciting rather than embarrassing for string theory: building a stable, eternal, positive cosmological constant in string theory has been notoriously, painfully difficult for two decades (the "de Sitter problem"). But a&nbsp;<em>slowly decaying</em>&nbsp;dark energy — quintessence — is exactly what a lot of string theorists have been predicting since 2018, on "swampland" grounds. If DESI's trend holds, it's arguably the first observational hint&nbsp;<em>in favor</em>&nbsp;of the string-theoretic expectation.</p><p>So the dream is: find a specific Calabi-Yau + flux that produces a vacuum energy of the right tiny size&nbsp;<em>and</em>&nbsp;whose rolling-modulus dark energy matches the equation of state DESI measures. That would be a concrete, UV-complete, falsifiable string-theory model of the dark energy we actually observe.</p><p>To even attempt that search, you need to be able to compute the vacuum energy of a candidate exactly. Which brings us to McAllister.</p><h2 id="the-calibration-target-an-explicit-vacuum-with-a-tiny-cosmological-constant">The calibration target: an explicit vacuum with a tiny cosmological constant</h2><p>In 2021,&nbsp;<a href="https://arxiv.org/abs/2107.09064">McAllister, Demirtas, Kim and collaborators</a>&nbsp;published one of the only fully explicit, end-to-end constructions of a string vacuum with an exponentially small,&nbsp;<em>controlled</em>&nbsp;cosmological constant. They did it on one specific Calabi-Yau — a reflexive polytope from the Kreuzer-Skarke database with Hodge numbers (h¹¹, h²¹) = (214, 4), which everyone in this corner of the field just calls&nbsp;<strong>"4-214-647."</strong></p><p>The numbers they get are wild:</p>
+<!--kg-card-begin: html-->
+<table style="font-family: Times; letter-spacing: normal; orphans: 2; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><thead><tr><th>Quantity</th><th>Value</th></tr></thead><tbody><tr><td>string coupling g_s</td><td>≈ 0.00911</td></tr><tr><td>flux superpotential \</td><td>W₀\</td><td></td><td>≈ 2.3 × 10⁻⁹⁰</td></tr><tr><td>Calabi-Yau volume</td><td>≈ 4711.83</td></tr><tr><td><strong>vacuum energy V₀</strong></td><td>≈<span>&nbsp;</span><strong>−5.5 × 10⁻²⁰³</strong></td></tr></tbody></table>
+<!--kg-card-end: html-->
+<p>That last number — a cosmological constant 203 orders of magnitude below the natural scale — is the headline. It comes from a delicate cancellation: the flux superpotential W₀ is already tiny (~10⁻⁹⁰), and then non-perturbative effects nearly cancel it, leaving |W| even smaller. Square that and you're at 10⁻²⁰³.</p><p>Reproducing this is the obvious first move. If I can't reproduce a&nbsp;<em>published</em>&nbsp;number exactly, I have no business searching for new ones — I'd never know whether a "hit" was real physics or a bug.</p><p>I figured it would take a couple of weeks. It took many months.</p><h2 id="the-long-struggle-discrepancies-are-gold">The long struggle: "discrepancies are gold"</h2><p>The thing about a number like 10⁻²⁰³ is that you cannot eyeball whether it's right. The whole pipeline — polytope → triangulation → intersection numbers → flat direction → racetrack → superpotential → volume → vacuum energy — is a long chain where each stage feeds the next, and a single wrong sign or off-by-one index&nbsp;<em>anywhere</em>&nbsp;produces a different, equally plausible-looking, completely wrong answer. You only find out you're wrong by failing to match the paper, and even then you have no idea&nbsp;<em>which</em>&nbsp;of a dozen stages is lying to you.</p><p>So I adopted a rule, which became the emotional core of the whole project:&nbsp;<strong>a discrepancy is not a problem, it's the entire point.</strong>&nbsp;Every time our number disagreed with McAllister's, that disagreement was a bug with a specific physical cause, and the job was to understand it&nbsp;<em>completely</em>&nbsp;— no shortcuts, no "close enough," no silently substituting the paper's value to make a test pass. Here's one of the guardrails I wrote for the project:</p><blockquote><em>"This is not building a SaaS. This is high energy theory physics. This is formal verification. This is launching rockets. A single sign error, a single wrong index, a single misunderstood coordinate system will produce garbage that looks plausible. Either the physics is exactly right or it's meaningless."</em></blockquote><p>Here are a few of the bugs.</p><p><strong>The two different 4×'s.</strong>&nbsp;Early on the volume came out as 17,901 instead of 4,711 — a factor of about 3.8, suspiciously close to 4. The cause was that CYTools (the standard Python toolkit for this) had silently changed its default choice of "divisor basis" between the 2021 version McAllister used and the current one. McAllister's stored flux vectors were written in the old basis; feeding them through the new basis corrupted everything downstream. And there was a subtle sub-bug inside the fix: the two flux vectors K and M transform&nbsp;<em>differently</em>&nbsp;under a basis change (one covariant, one contravariant), and the original code transformed both the same way. To make it worse, there was a&nbsp;<em>second, unrelated</em>&nbsp;~3.8× error lurking — using the uncorrected Kähler moduli instead of the instanton-corrected ones also gives ~3.8× the right volume. Two different near-4× bugs that had to be told apart.</p><p><strong>The 16/9 that was a misplaced parenthesis.</strong>&nbsp;One factor, e^{K₀}, kept coming out 16/9 ≈ 1.78× too large. The cause was reading equation (6.12) wrong: the paper writes&nbsp;<code>e^{K₀} = (4/3 · κ p³)⁻¹</code>, where the inverse applies to the&nbsp;<em>whole</em>&nbsp;product — i.e. (3/4)/(κp³), not (4/3)/(κp³). The ratio between the wrong and right readings is exactly (4/3)/(3/4) = 16/9. A LaTeX parenthesis cost days.</p><p><strong>The hero bug: a B-field on the wrong divisors.</strong>&nbsp;This was the last thing standing between "close" and "exact". After fixing everything else, the volume was&nbsp;<em>still</em>&nbsp;off — by a stubborn, tiny +0.0718 that would not go away. Codex went down a deep rabbit hole convinced the cause was nine "missing" curve invariants that seemed to require some exotic orbifold Gromov-Witten machinery (Chen-Ruan cohomology, twisted I-functions). It was a dead end. The real cause was almost insultingly small: the function building the orientifold's B-field parity vector was constructing it from the wrong set of divisors, giving 49 odd entries when the true answer has&nbsp;<strong>51</strong>. The two missing entries corresponded to two specific lattice points (points 2 and 46) that sit&nbsp;<em>outside</em>&nbsp;the basis I was iterating over. With the wrong parity, two of ten curves got the wrong sign in an analytic continuation, and the vacuum settled into the wrong adjacent geometric "chamber" — off by exactly that 0.0718. Fix the parity vector, and the volume snaps to 4711.4264 and log₁₀|V₀| lands on&nbsp;<strong>−202.2628</strong>.</p><p>A sign error on 2 of 10 curves, from an under-counted parity vector, hiding behind a 200-digit number. This bug was finally cracked by Claude Fable 5. I wouldn't have been able to finish the paper reproduction and move on to the GA without Fable 5.</p><p>There's also a small α′ correction to the volume —&nbsp;<code>−ζ(3)·χ/(4(2π)³) ≈ 0.509</code>&nbsp;— that's tempting to ignore because it's tiny. It is not optional. Leave it out and V is wrong by half, which propagates straight into V₀. (The project notes have this one in all-caps.)</p><p>After all of it: the pipeline now reproduces&nbsp;<strong>log₁₀|V₀| = −202.26 from first principles</strong>&nbsp;— starting from nothing but the polytope's lattice points and the flux integers, computing every intermediate quantity live, never loading a precomputed value. (The test suite is deliberately built so cheating is impossible: what&nbsp;<em>we</em>&nbsp;compute and what&nbsp;<em>McAllister</em>&nbsp;published live in separate directories, and a stage that loaded the answer instead of computing it would just fail.) Not just for 4-214-647, but for&nbsp;<strong>all five</strong>&nbsp;vacua in the paper. And when I later ran a sanity sweep — 94 random Calabi-Yaus, comparing our Rust output against CYTools on identical inputs — it was&nbsp;<strong>94/94 exact matches</strong>, zero divergence.</p><p>That green checkmark was finally the license to do everything that comes after.</p><h2 id="why-rust">Why Rust?</h2><p>The original prototype was Python — a "Frankenstein" of a Rust genetic-algorithm driver calling out through PyO3 to Python, which imported CYTools, JAX, and some C++ tools. It worked. It proved the physics. But it was far too slow to&nbsp;<em>search</em>&nbsp;with, and the dynamically-typed numerics made the sign-and-NaN bugs above easy to write and hard to catch.</p><p>So I decided to reimplement the whole thing in Rust. The library I was porting,&nbsp;<strong>CYTools</strong>, does the core Calabi-Yau computations: lattice polytopes, triangulations, intersection numbers, cone computations, curve-counting invariants. The porting philosophy I adopted (and wrote into the project rules):</p><blockquote><em>"Rust bindings don't matter. You can reimplement entire libraries in minutes. Don't waste time searching for Rust crates with bindings. Find the algorithm in ANY language — C++, Python, Fortran, whatever — understand it, and port it. Don't search for Rust bindings. Just port the algorithm."</em></blockquote><p>So the Double Description Method for dualizing cones came from reading the PPL and cddlib C/C++ source; LLL lattice reduction came from the FLINT-based version CYTools uses; the triangulation circuits came from the CYTools source itself. (I won't pretend it's 100% pure: linear programming uses the&nbsp;<code>good_lp</code>&nbsp;+ HiGHS crate rather than a hand-port, and — honestly — the hardest piece, the Gopakumar-Vafa series inversion, reuses the excellent&nbsp;<code>cygv</code>&nbsp;crate. I port the scaffolding around it, not the HKTY engine itself.)</p><p>The part I'm genuinely proud of is the&nbsp;<strong>type system for the numbers.</strong>&nbsp;Every quantity in the codebase is a phantom-typed wrapper —&nbsp;<code>F64&lt;Pos&gt;</code>,&nbsp;<code>F64&lt;NonNeg&gt;</code>,&nbsp;<code>F64&lt;NonZero&gt;</code>,&nbsp;<code>F64&lt;Finite&gt;</code>&nbsp;— and these tags carry a&nbsp;<em>compile-time algebra</em>:</p><pre><code class="language-rust">let a: F64&lt;Pos&gt; = pos!(3.0);
+let b: F64&lt;Neg&gt; = neg!(-2.0);
+let c: F64&lt;Neg&gt; = a * b;   // Pos * Neg = Neg — the compiler tracks the sign
+let d: F64&lt;Pos&gt; = a * a;   // Pos * Pos = Pos
+</code></pre><p><code>Pos * Neg</code>&nbsp;<em>is</em>&nbsp;<code>Neg</code>,&nbsp;<code>Pos * Pos</code>&nbsp;<em>is</em>&nbsp;<code>Pos</code>,&nbsp;<code>Pos + Neg</code>&nbsp;widens to&nbsp;<code>Finite</code>&nbsp;(sign unknown), all enforced at compile time. The tags are zero-sized and the wrapper is&nbsp;<code>#[repr(transparent)]</code>, so there is no runtime cost whatsoever — an&nbsp;<code>F64&lt;Pos&gt;</code>&nbsp;is laid out identically to a bare&nbsp;<code>f64</code>.</p><p>The single cleanest consequence is a comment in the division module:</p><blockquote><em>"Division by Zero is intentionally not implemented — it won't compile!"</em></blockquote><p>There is simply no&nbsp;<code>Div</code>&nbsp;implementation that accepts a denominator which might be zero. If you have a number that's only known to be&nbsp;<code>Finite</code>, you&nbsp;<em>cannot write&nbsp;<code>a / b</code></em>&nbsp;until you prove the denominator is nonzero by narrowing its type (<code>try_to_non_zero()</code>, which returns an&nbsp;<code>Option</code>). An entire class of&nbsp;<code>1/0 → ∞ → NaN</code>-propagates-through-your-vacuum-energy bugs is removed at the language level rather than guarded at runtime. Given that the whole struggle above was about sign errors and silent garbage, encoding "invalid states are unrepresentable" directly into the types felt very important.</p><p>On top of that sits a&nbsp;<code>≥98%</code>&nbsp;test-coverage gate, which I think about less as a quality metric and more as a&nbsp;<em>reading-discipline</em>&nbsp;mechanism — it guarantees every line has been executed (and therefore read) at least twice — and the dual test suite that runs identical inputs through both CYTools and the Rust port and demands bit-identical results.</p><p>The scale, for the curious: about&nbsp;<strong>80,000 lines of Rust</strong>&nbsp;across two crates (<code>cyrus-core</code>&nbsp;for the math/physics,&nbsp;<code>cyrus-ga</code>&nbsp;for the search). A lot of work —&nbsp;<strong>959 commits across 6 days in early May</strong>&nbsp;— came out of one intense sprint where I left a Codex /goal running for 4 days and accidentally spent thousands of dollars on OpenAI tokens. And I still didn't have much to show for it by the end. But then I had access to Claude Fable 5 for a few days in June, and it was finally able to get the project over the finish line.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ndbroadbent/cyrus"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ndbroadbent/cyrus: Calabi-Yau (CY) tools for Rust</div><div class="kg-bookmark-description">Calabi-Yau (CY) tools for Rust. Contribute to ndbroadbent/cyrus development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/pinned-octocat-093da3e6fa40-7.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ndbroadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/febceec8e5420107cfc43d373f20b9b3940b8a8b65908f855116295f2a4db610/ndbroadbent/cyrus" alt="" onerror="this.style.display = 'none'"></div></a></figure><h2 id="the-search-a-genetic-algorithm-hunting-for-dark-energy">The search: a genetic algorithm hunting for dark energy</h2><p>With a trustworthy engine, the actual goal comes into reach: search the landscape for a vacuum whose dark energy matches DESI.</p><p>The search is a&nbsp;<strong>genetic algorithm</strong>. A "genome" is just a pair of integer flux vectors (K, M). The fitness function runs that flux through moduli stabilization to get g_s, |W₀|, and a vacuum energy V₀, and then scores it on how well it matches the dark energy we observe:</p><ul><li><strong>Height</strong>&nbsp;— how close log₁₀|V₀| is to the observed dark-energy scale (≈ −121.5). This term&nbsp;<em>gates</em>&nbsp;everything else.</li><li><strong>Slope</strong>&nbsp;— the candidate's energy is dressed up as a rolling-axion quintessence field, evolved through the actual Friedmann + Klein-Gordon cosmology equations, fit to an equation of state w(z), and scored against DESI's measurement (w₀ = −0.45 ± 0.21, wₐ = −1.8 ± 0.6).</li><li><strong>Weak coupling</strong>&nbsp;— a small tiebreaker rewarding perturbative control.</li></ul><p>There's a "fitness ladder" with strictly ordered bands — invalid candidates are scored by&nbsp;<em>how far through the physics pipeline they got</em>&nbsp;before failing, so the GA gets a smooth gradient to climb even in the vast regions where nothing is valid.</p><p>It searches a pool of&nbsp;<strong>73,664 Calabi-Yau polytopes</strong>&nbsp;(the full Kreuzer-Skarke set with a small number of complex-structure moduli), with a bandit algorithm deciding how to split effort between exploring fresh geometries and exploiting promising ones.</p><p>The most important thing I learned building it:&nbsp;<strong>blind random search finds absolutely nothing.</strong>&nbsp;Zero valid vacua in 557,000 tries. And that's not bad luck — it's provable. A valid vacuum requires the flux K to be "isotropic" for a certain quadratic form derived from M, which is a measure-zero condition; random integer vectors essentially never satisfy it, and you can't greedily nudge your way onto it. The fix is to&nbsp;<em>constructively</em>&nbsp;solve for isotropic flux seeds, in exact integer arithmetic, at the start of each geometry, and seed the population with those. (Geometries where no seed exists in budget get marked "PFV-barren" and skipped — which means the search is also quietly producing a census of which Calabi-Yaus&nbsp;<em>can't</em>&nbsp;host this kind of vacuum at all.)</p><h3 id="two-tiers-a-cheap-proxy-and-an-expensive-truth">Two tiers: a cheap proxy and an expensive truth</h3><p>Running the&nbsp;<em>full</em>&nbsp;first-principles vacuum-energy computation on every candidate would be hopeless — it takes tens of minutes. So evaluation is two-tiered. A cheap "mirror-side" proxy runs on every genome in microseconds and is good enough for ranking. Only when a candidate looks genuinely promising does the expensive&nbsp;<strong>"deep-verify"</strong>&nbsp;fire: the full McAllister-style stabilization on the real Calabi-Yau, the same pipeline that reproduces −202.26.</p><p>And deep-verify is itself a&nbsp;<em>search</em>, which surprised me. The paper's criterion for choosing the right divisor basis admits&nbsp;<em>thousands</em>&nbsp;of valid options, and they are not interchangeable — most of them land the calculation in a geometric chamber where the curve-counting becomes intractable. Only special chambers stay computable. So deep-verify walks the admissible bases until it finds one whose chamber is fully covered by the cheap curve-counting methods. (As a validation: pointed at McAllister's geometry, this scan independently&nbsp;<em>re-derives his exact basis choice</em>&nbsp;— candidate 437 out of 4,683 — and reproduces −202.26 with no input data file at all.)</p><p>Most of my recent work has been making deep-verify fast and safe enough to run inside a live search:</p><ul><li>A precompute that hoists the geometry-fixed part of the curve-counting out of the per-candidate loop cut the cost about&nbsp;<strong>9×</strong>.</li><li>A key realization: whether a chamber is computable depends only on the&nbsp;<em>geometry</em>, not on the flux. So the expensive scan can be&nbsp;<strong>cached per polytope</strong>&nbsp;— paid once, ever, instead of re-run for every candidate. Without this, enabling deep-verify would have re-scanned thousands of bases on every generation and ground the search to a halt.</li><li>And the trigger is&nbsp;<em>physical</em>: deep-verify only fires on candidates whose proxy dark-energy equation of state already sits within&nbsp;<strong>1σ of DESI</strong>. No point running a tens-of-minutes verification on a vacuum that, even if real, wouldn't look like our universe.</li></ul><h2 id="running-it-on-my-server">Running it on my server</h2><p>All of this runs 24/7 on a server in my house, deployed with Ansible. It's a small fleet of systemd services: the genetic algorithm itself (16 threads, fully checkpointed so it survives restarts and resumes exactly where it left off), a daemon that tails the GA's output into a SQLite database, a web dashboard, and a job that computes ~40 geometric "shape" metrics over all 73,664 polytopes to see if I can find any correlations (just as an experiment).</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2026/06/image-3.png" class="kg-image" alt="" loading="lazy" width="2000" height="1318" srcset="https://madebynathan.com/content/images/size/w600/2026/06/image-3.png 600w, https://madebynathan.com/content/images/size/w1000/2026/06/image-3.png 1000w, https://madebynathan.com/content/images/size/w1600/2026/06/image-3.png 1600w, https://madebynathan.com/content/images/size/w2400/2026/06/image-3.png 2400w" sizes="(min-width: 720px) 720px"></figure><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2026/06/image-4.png" class="kg-image" alt="" loading="lazy" width="2000" height="1165" srcset="https://madebynathan.com/content/images/size/w600/2026/06/image-4.png 600w, https://madebynathan.com/content/images/size/w1000/2026/06/image-4.png 1000w, https://madebynathan.com/content/images/size/w1600/2026/06/image-4.png 1600w, https://madebynathan.com/content/images/2026/06/image-4.png 2380w" sizes="(min-width: 720px) 720px"></figure><p>The dashboard is a live DESI leaderboard, and a scatter plot of every valid candidate's predicted (w₀, wₐ) against the DESI 1σ box, with the cosmological-constant point (−1, 0) marked for reference.</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2026/06/image-1.png" class="kg-image" alt="" loading="lazy" width="2000" height="1224" srcset="https://madebynathan.com/content/images/size/w600/2026/06/image-1.png 600w, https://madebynathan.com/content/images/size/w1000/2026/06/image-1.png 1000w, https://madebynathan.com/content/images/size/w1600/2026/06/image-1.png 1600w, https://madebynathan.com/content/images/size/w2400/2026/06/image-1.png 2400w" sizes="(min-width: 720px) 720px"></figure><p>There is a page to inspect the shape of each polytope:</p><figure class="kg-card kg-image-card"><img src="https://madebynathan.com/content/images/2026/06/image-2.png" class="kg-image" alt="" loading="lazy" width="2000" height="1440" srcset="https://madebynathan.com/content/images/size/w600/2026/06/image-2.png 600w, https://madebynathan.com/content/images/size/w1000/2026/06/image-2.png 1000w, https://madebynathan.com/content/images/size/w1600/2026/06/image-2.png 1600w, https://madebynathan.com/content/images/size/w2400/2026/06/image-2.png 2400w" sizes="(min-width: 720px) 720px"></figure><p></p><h2 id="what-its-actually-found">What it's actually found</h2><p><strong>Nothing yet. </strong>It has not found a verified dark-energy vacuum.&nbsp;The search surfaces near-misses — candidates whose vacuum energy lands within a fraction of a log of the observed dark-energy scale, and whose equation of state comes within ~1–3σ of DESI. But every single leaderboard leader so far has&nbsp;<em>died</em>&nbsp;under the full deep-verify: either no computable chamber exists, or the real solution sits too many "flops" away across geometric walls, or a refinement reveals the promising-looking number was a truncation artifact.</p><p>That's to be expected. The most important property I built into it is that it's&nbsp;<em>honest by construction</em>: a candidate only climbs into the top tier by surviving the same first-principles calculation that reproduces the published McAllister number. Every dead leader added a permanent new gate.</p><p>And even if it&nbsp;<em>does</em>&nbsp;one day find a verified, DESI-matching, fully-controlled vacuum, I want to be clear about what that would and wouldn't mean. It would be a genuine, significant thing: a controlled, UV-complete string-theory realization of the observed dark energy, with the moduli actually stabilized and the approximations under control. It would&nbsp;<strong>not</strong>&nbsp;be a theory of everything. The dark-energy sector and the Standard Model live in different parts of the construction — the bulk geometry versus the branes wrapping it — and matching a handful of cosmological numbers says essentially nothing about whether the same Calabi-Yau also contains three generations of quarks and leptons. That's a separate, even harder search. Matching DESI would be a real result about&nbsp;<em>dark energy</em>, full stop.</p><h2 id="a-note-on-method-directing-ai-agents-to-do-physics">A note on method: directing AI agents to do physics</h2><p>Again, I am not a string theorist. The vast majority of the 80,000 lines of Rust, and a lot of the physics debugging, was done by AI coding agents — Claude, Codex, and others — working under an unusually strict regime that I spent a lot of time designing.</p><p>The interesting finding is that the&nbsp;<em>strictness</em>&nbsp;is what made it work. Frontier physics is the worst possible domain for the way LLMs like to behave: they love to paper over a discrepancy, fall back to a plausible default, or quietly load the expected answer to make a test go green. Every one of those instincts is fatal here, because the failure mode of this domain is&nbsp;<em>plausible garbage</em>. So the project rules are essentially a long list of forbidden shortcuts — "no silent fallbacks," "discrepancies are gold, stop and understand them," "never load a precomputed value where production computes it," "if it isn't implemented, the test should fail, not cheat" — backed by mechanical enforcement: the type system that won't let you divide by zero, the coverage gate that forces every line to be read, the dual test suite that catches any divergence from CYTools. The human job became less "write the code" and more "design the constraints so that the only way to make progress is to get the physics actually right" — and then chase down the discrepancies the constraints surfaced.</p><h2 id="whats-next">What's next</h2><p>The engine is done and trustworthy, and the search is running. The honest status is: a correctly-built machine, reporting honestly that it hasn't found anything yet.</p><p>A verified candidate wouldn't be a philosophical claim — it would predict a specific dark energy equation of state w(z), and DESI's next data releases and the Euclid mission will measure exactly that curve over the next few years. The landscape is unimaginably large, the odds on any given run are long, and I might never find one. But the tooling now exists to look, it's open and reproducible, and every result it reports has survived a calculation that exactly reproduces the published state of the art.</p><p>Here is the source code for Cyrus:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ndbroadbent/cyrus"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ndbroadbent/cyrus: Calabi-Yau (CY) tools for Rust</div><div class="kg-bookmark-description">Calabi-Yau (CY) tools for Rust. Contribute to ndbroadbent/cyrus development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/pinned-octocat-093da3e6fa40-8.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ndbroadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/cyrus" alt="" onerror="this.style.display = 'none'"></div></a></figure><p>And here are the other repos I used to organize my research and to help with project planning:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ndbroadbent/string_theory_search"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ndbroadbent/string_theory_search: Searching for the compaction that defines our universe</div><div class="kg-bookmark-description">Searching for the compaction that defines our universe - ndbroadbent/string_theory_search</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/pinned-octocat-093da3e6fa40-9.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ndbroadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/string_theory_search" alt="" onerror="this.style.display = 'none'"></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/ndbroadbent/string_theory_project"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - ndbroadbent/string_theory_project: An open source, central place to organize project PRDs, todo lists, docs, and ideas for my string theory work</div><div class="kg-bookmark-description">An open source, central place to organize project PRDs, todo lists, docs, and ideas for my string theory work - ndbroadbent/string_theory_project</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://madebynathan.com/content/images/icon/pinned-octocat-093da3e6fa40-10.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">ndbroadbent</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://madebynathan.com/content/images/thumbnail/string_theory_project" alt="" onerror="this.style.display = 'none'"></div></a></figure>
+        </section>
+
+    </article>
+
+    <div class="gh-comments gh-canvas">
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+        data-repo="ndbroadbent/ndbroadbent.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMzg2MDY4"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOACRolM4C1za3"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<noscript>Please enable JavaScript to view comments.</noscript>
+    </div>
+
+</main>
+
+
+            <section class="gh-container is-grid gh-outer">
+                <div class="gh-container-inner gh-inner">
+                    <h2 class="gh-container-title">Read more</h2>
+                    <div class="gh-feed">
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/06/03/spice-labels-and-spice-racks/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/06/IMG_5186-1.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/06/IMG_5186-1.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/06/IMG_5186-1.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/06/IMG_5186-1.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/06/IMG_5186-1.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/06/IMG_5186-1.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/06/IMG_5186-1.jpeg"
+                    alt="Spice Labels and Spice Racks"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Spice Labels and Spice Racks</h3>
+                    <p class="gh-card-excerpt is-body">I bought two boxes of these spice jars: STORFEX 24-Pack 120ml Glass Spice Jars. Then I used my Silhouette CAMEO5α cutting machine to make some vinyl labels. I used the Caveat Brush font from Google Fonts.
+
+It took a little while to figure out how to use the cutting machine,</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-06-04">04 Jun 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/06/03/fixing-a-bambu-lab-x1c-error-extruding-filament-failed-the-extruder-might-be-clogged/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/06/IMG_5181.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/06/IMG_5181.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/06/IMG_5181.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/06/IMG_5181.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/06/IMG_5181.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/06/IMG_5181.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/06/IMG_5181.jpeg"
+                    alt="Fixing a Bambu Lab X1C Error: &quot;Extruding filament failed. The extruder might be clogged.&quot;"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Fixing a Bambu Lab X1C Error: &quot;Extruding filament failed. The extruder might be clogged.&quot;</h3>
+                    <p class="gh-card-excerpt is-body">My 3D printer broke.
+
+No matter what I tried, I couldn&#39;t get past this error: &quot;Extruding filament failed. The extruder might be clogged.&quot;
+
+I took apart the extruder gear assembly to check for clogs:
+
+I inspected the little magnet on the filament sensor and tried flipping</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-06-04">04 Jun 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/06/01/welcome-sign/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/06/IMG_5118-1.jpeg 160w,
+                            /content/images/size/w320/format/webp/2026/06/IMG_5118-1.jpeg 320w,
+                            /content/images/size/w600/format/webp/2026/06/IMG_5118-1.jpeg 600w,
+                            /content/images/size/w960/format/webp/2026/06/IMG_5118-1.jpeg 960w,
+                            /content/images/size/w1200/format/webp/2026/06/IMG_5118-1.jpeg 1200w,
+                            /content/images/size/w2000/format/webp/2026/06/IMG_5118-1.jpeg 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/06/IMG_5118-1.jpeg"
+                    alt="Welcome Sign"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Welcome Sign</h3>
+                    <p class="gh-card-excerpt is-body">I bought a Silhouette CAMEO 5α cutting machine.
+
+Silhouette Cameo 5 Alpha | Professional Cutting MachineSilhouette Cameo 5 Alpha professional cutting machine. Advanced features, precision cutting, and compatibility with all Silhouette materials and tools.silhouette designstore logoSilhouette America
+
+My wife and I designed a welcome sign using white vinyl on a</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-06-01">01 Jun 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                            <article class="gh-card post">
+    <a class="gh-card-link" href="/2026/05/30/monitoring-garage-door-remote-with-esphome/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="/content/images/size/w160/format/webp/2026/05/SCR-20260530-kwrv.png 160w,
+                            /content/images/size/w320/format/webp/2026/05/SCR-20260530-kwrv.png 320w,
+                            /content/images/size/w600/format/webp/2026/05/SCR-20260530-kwrv.png 600w,
+                            /content/images/size/w960/format/webp/2026/05/SCR-20260530-kwrv.png 960w,
+                            /content/images/size/w1200/format/webp/2026/05/SCR-20260530-kwrv.png 1200w,
+                            /content/images/size/w2000/format/webp/2026/05/SCR-20260530-kwrv.png 2000w"
+                    sizes="320px"
+                    src="/content/images/size/w600/2026/05/SCR-20260530-kwrv.png"
+                    alt="Listening for Garage Door Remotes with ESPHome"
+                    loading="lazy"
+                >
+            </figure>
+        <div class="gh-card-wrapper">
+            <h3 class="gh-card-title is-title">Listening for Garage Door Remotes with ESPHome</h3>
+                    <p class="gh-card-excerpt is-body">We are renting a house that has two old garage door openers. We have a switch by our front door that controls the garage doors. I think the landlords or the previous tenants lost the garage door remotes. We received two remotes when we moved in, but I couldn&#39;</p>
+            <footer class="gh-card-meta">
+<!--
+             -->
+                    <span class="gh-card-author">By Nathan Broadbent</span>
+                    <time class="gh-card-date" datetime="2026-05-30">30 May 2026</time>
+                <!--
+         --></footer>
+        </div>
+    </a>
+</article>
+                    </div>
+                </div>
+            </section>
+
+    
+    <footer class="gh-footer gh-outer">
+    <div class="gh-footer-inner gh-inner">
+
+        <div class="gh-footer-bar">
+            <span class="gh-footer-logo is-title">
+                    Made By Nathan
+            </span>
+            <nav class="gh-footer-menu">
+                
+            </nav>
+
+            <div class="gh-footer-copyright">
+                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+    
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </svg>
+</button>
+
+<script src="/assets/built/source.b1b090de0c.js"></script>
+
+<script>
+    (function() {
+        var toggle = document.querySelector('.theme-toggle');
+        var html = document.documentElement;
+        
+        toggle.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
